@@ -2,7 +2,9 @@ body {
 	background-color:#EFEFEF;
 }
 
-/*Top Bar*/
+/*===============+ 
+ |    Top Bar    | 
+ +===============*/
 
 #headerbar {
 	position:relative;
@@ -43,7 +45,18 @@ body {
 	color:#FFFFFF;
 }
 
-/*Toolbar*/
+/* The current site should look different */
+#headerbar li#current_site {
+	background-color:#5a5a5a;
+}
+/* But the same when hovering over */
+#headerbar li#current_site:hover {
+	background-color:#848484;
+}
+
+/*---------------+
+ |    Sub-Bar    |
+ +---------------*/
 
 #toolbar {
 	position:relative;
