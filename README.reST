@@ -3,5 +3,5 @@ Github website repository for HiPhish
 =====================================
 
 This repository is the source of my GitHub Pages website. The written content
-and any other media here belongs to me and/or the respective copyright holders,
+and any other media here belong to me and/or the respective copyright holders,
 but feel free to browse my source code and take inspiration from it.
