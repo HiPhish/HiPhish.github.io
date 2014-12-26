@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<meta name="author" content="Flux User" >
+	<meta name="description" content="Grid Framemwork product website">
+	<meta name="keywords" content="Grid, Framework, Unity, Asset">
+	<title>Grid Framework - Features</title>
+	<link href="../main.css" rel="stylesheet" media="all" type="text/css">
+	<link href="../toolbar.css" rel="stylesheet" media="all" type="text/css">
+</head>
+<body id="grid-fwk">
+	<ul id="headerbar" >
+		<li class="home"    > <a href="http://hiphish.github.io/"               >  Home           </a> </li>
+		<li class="grid-fwk"> <a href="http://hiphish.github.io/grid-framework/">  Grid Framework </a> </li>
+		<li class="blog"    > <a href="http://unitygridframework.blogspot.de"   >  Blog           </a> </li>
+		<li class="about"   > <a href="http://hiphish.github.io/about"          >  About          </a> </li>
+	</ul>
+	
+	<ul id="toolbar">
+		<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004">Buy Now</a></li>
+		<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">Support</a></li>
+		<li><a href="screenshots.html"> screenshots </a></li>
+		<li><a href="examples.html"   > Examples    </a></li>
+		<li id="current_page"><a href="features.html"   > Features    </a></li>
+		<li><a href="index.html"      > Overview    </a></li>
+	</ul>
+<div id="maincontent" >
+	
+	<h1>calculations</h1>
+	
+	<p>
+		Grid Framework can convert from world coordiantes to grid coordinates and vice-
+		versa with just one line of code. You can let it find the nearest vertex, face
+		or box, scale objects or snap them in place without needing to write any formulae,
+		it's all wrapped up for you. This allows you to write your game logic thinking
+		entirely in grid coordinates while the game plays out in world coordinates. Then
+		just let Grid Framework convert the result back into world space and you're ready to go.
+	</p>
+	
+	<h1>infinite size and fully 3D</h1>
+	
+	<p>
+		The size of a grid is irrelevant, what really defines a grid is its origin, its
+		type and a few parameters. Using this information we can perform any calculation
+		at any point, no matter how far from the origin we are. In fact, the distance doesn't
+		even impact our performance, all calculations always run at the same speed. Of course
+		Grid Framework's infinity is limited to what Unity is capable of and there is no true
+		infinity on computers, but Grid Framwork can get as close to it as possible in Unity.
+		Best of all, grids are in 3D and move and rotate with the object they are attached to;
+		if you need a grid's rotation or position just get the information from the Transform
+		component, like any other object in Unity.
+	</p>
+
+	<h1>Extremely lightweight</h1>
+	
+	<p>
+		Grid Framework was designed to keep it simple, to just be there when you need it but
+		never intrude with the workflow. All calculation methods run in constant time and the
+		classes just store a handful of float values, keeping the performance impact to a minimum.
+		No matter whether you are targeting desktop devices or mobile phones and tablets, Grid
+		Framework will work with a minimum of resources.
+	</p>
+
+	<h1>rendering &amp; drawing</h1>
+	
+	<p>
+		You can both draw your grids in the editor using gizmos and render them at runtime. You
+		can turn individual axes on or off, set the colour for each axis individually, change the
+		width of the lines and even use your own shaders if the default shader doesn't suit your
+		needs. Redering is done using Unity's low-level rendering capabilities, so it is blazing
+		fast even on mobile devices. Keep in mind though, that while the rendering is cheap,
+		getting points for large and very dense grids might not be. If your grids are exceptionally
+		large you will be glad to know that Grid Framework fully supports Vectrosity.
+	</p>
+	
+	<h1>Vectrosity support</h1>
+	
+	<p>
+		Vectrosity is a popular 3rd party vector line drawing solution for Unity. Instead of
+		rendering lines point by point, Vectrosity can construct a mesh and then render the mesh
+		in one go, making it an ideal solution for complex figure with many points, such as very
+		dense grids. While using Vectrosity on its own would require you to calculate all end
+		points yourself and then order them in the proper way so they appear in the right order,
+		Grid Framework can do the job for you by just calling the built in method. For more
+		information on Vectrosity please visit <a href="http://starscenesoftware.com/vectrosity.html">
+		Vectrosity's web site</a>. Please note that Vectrosity and Grid Framework are entirely
+		unrelated products and I am in no way affiliated with the author of Vectrosity.
+	</p>
+	
+	<h1>fits seamlessly into Unity</h1>
+	
+	<p>
+		There is no new interface to learn or new editor panel to add to the project (unless you
+		want to use the align panel of course), instead it fits nicely into Unity as if it had always
+		been a part of it. The grid classes have their own custom inspector and you can create grids
+		from scratch, add a grid component to any of your Game Objects or browse the documentation
+		right from you menu bar, just like any other component in Unity.
+	</p>
+	
+	<h1>full documentation</h1>
+	
+	<p>
+		Just like Unity itself, Grid Frameworks comes with a user manual that explains you the ideas
+		and concepts of Grid Framework, the coordinate sytems used and the design principles. The
+		scripting reference has all classes with their member variables and methods covered. Hyperlinks
+		to entries in the documentation as well as links to Unity's own scriptiong reference let you
+		find anything conventiently.
+	</p>
+	
+	<h1>free updates</h1>
+	
+	<p>
+		As Grid Framework improves update will be released adding new features. Once you buy a copy of
+		Grid Framework you will be entitled to all future updates for free, even if the price goes up.
+		This is my way way of thanking everyone who supports me in the early stages :)
+	</p>
+</div>
+</body>
+</html>

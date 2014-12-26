@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="author" content="HiPhish">
+	<meta name="description" content="Grid Framemwork product website">
+	<meta name="keywords" content="Grid, Framework, Unity, Asset">
+	<title>Grid Framework - Examples</title>
+	<link href="../main.css" rel="stylesheet" media="all" type="text/css">
+	<link href="../toolbar.css" rel="stylesheet" media="all" type="text/css">
+</head>
+
+<body id="grid-fwk">
+	<ul id="headerbar" >
+		<li class="home"    > <a href="http://hiphish.github.io/"               >  Home           </a> </li>
+		<li class="grid-fwk"> <a href="http://hiphish.github.io/grid-framework/">  Grid Framework </a> </li>
+		<li class="blog"    > <a href="http://unitygridframework.blogspot.de"   >  Blog           </a> </li>
+		<li class="about"   > <a href="http://hiphish.github.io/about"          >  About          </a> </li>
+	</ul>
+
+	<ul id="toolbar">
+		<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004">Buy Now</a></li>
+		<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">Support</a></li>
+		<li><a href="screenshots.html"> screenshots </a></li>
+		<li id="current_page"><a href="examples.html"   > Examples    </a></li>
+		<li><a href="features.html"   > Features    </a></li>
+		<li><a href="index.html"      > Overview    </a></li>
+	</ul>
+
+<div id="maincontent" >
+	
+	<p>
+		To help you get started Grid Framework comes with several examples showing you
+		how to implement from scratch features commonly found in games, such as moving
+		along a grid, using the grid for game logic like in a puzzle game, assembling
+		a level and even extending Grid Framework with your own methods without
+		touching the source code of Grid Framwork itself.
+	</p>
+	
+	<p>
+		All the examples are written both in C# and Java Script, when technically
+		possible, and the source code has comments explaining the idea behind almost
+		every line of code. I also have tutorial videos where I build those examples
+		from scratch and expain the idea behind the code, for those of you who prefer
+		learning by doing rather than having the source code served to them in one go.
+	</p>
+
+	<p>
+		These videos were recorded at different points in Grid Framworks development and
+		the interface and usability may appear more crude than it currently is.
+	</p>
+	
+	<h1>Moving along a grid</h1>
+	<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" ></iframe>
+	<p>
+		One of the most common uses for grids is movement. Maybe you have a tactical
+		game, or a board game or you just want the old-school feel of tile based games.
+		In this example we convert a sphere's world coordinates to grid coordinates and
+		then move it in grid space before converting the result back to world space. As
+		an extra touch we can limit the sphere to only stay within the bounds of the
+		grid size. We need this because grids are infinitely large, so the sphere could
+		wander off into infinity.
+	</p>
+	
+	<h1>Moving with obstacles</h1>
+	<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" ></iframe>
+	<p>
+		Moving around freely is nice, but let's make it more interesting by introducing
+		obstacles. We could just use Unity's physics along with raycasting to see if our
+		target location is free, but where would be the fun in that? Instead in this
+		example we learn how to build a matrix where each entry corresponds to a tile
+		in the grid. For the sake of simplicity we only store a bolean value, whether
+		the tile is free or occupied, in the matrix, but we could easily extend the
+		format to store more information, such as the terrain, the type of obstacle
+		(wall, enemy, door, item) or even a reference to the object blockign our path.
+	</p>
+	
+	<h1>lights-out puzzle game</h1>
+	<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8" ></iframe>
+	<p>
+		Here we learn how write a simple puzzle game where the goal is to turn all the
+		lights off and every time you click a square that square and the four adjacent
+		ones flip their colour. No tile knows anythign about its surrounding tiles,
+		making this game very flexible, you can have all sorts of crazy shapes and
+		holes in it. This example uses delegates and events and is therefore only
+		available in C#.
+	</p>
+	
+	<h1>extending Grid Framework with your own methods</h1>
+	<iframe title="YouTube" src="http://www.youtube.com/embed/W_QteDtqHK4" ></iframe>
+	<p>
+		This is a continuation of the above example where we extend the game to use a
+		hexagonal grid. Needless to say we don't want to write almost the same script
+		twice, so instead we will learn how to write our own method for the GFGrid
+		class that picks its implementation depending on the specific type of grid we
+		use. Then we can use the same script for both rectangular and hexagonal grids.
+	</p>
+	
+	<h1>assembling a level from text file</h1>
+	<iframe title="YouTube" src="http://www.youtube.com/embed/lvYWbJ8ohkA" ></iframe>
+	<p>
+		In this example we create a breakout field by parsing a plain text file placing
+		objects on the grid accoirding to the position inside the file. This appoach
+		has several advantages; most obviously it is faster and easier to design level
+		in plain text rather than in an editor, you can add new levels very easily or
+		allow players to add their own levels and you can reverse the process to write
+		a text file from an ingame level editor. Instead of having a separate scene for
+		each level we only need one scene, we can build new levels without having to
+		worry about carrying the background or music from scene to scene, allowing for
+		seamless transition.
+	</p>
+
+	<h1>runtime snapping</h1>
+	<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc" ></iframe>
+	<p style="height:209px;">
+		If you want to allow the user to place object only on the grid, then this
+		example is for you. For an extra challenge the grid has been rotated to create
+		an isometric view effect. In reality you should rotat the camera instead.
+	</p>
+</div>
+</body>
+</html>
