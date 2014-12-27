@@ -1,0 +1,51 @@
+/******************************************************************************/
+/*  HEADER BAR                                                                */
+/*  The main navigation bar of the site.                                      */
+/******************************************************************************/
+
+#headerbar ul {
+	position:relative;
+	width: 60em;
+	height: 3em;
+	float:none;
+	color:#FFFFFF;
+	background-color:#4C4C4C;
+	font-family:'Helvetica Neue';
+	font-weight:bold;
+	list-style-type:none;
+	display:block;
+	line-height:3em;
+	padding-left: 0.00em;
+	padding-right:0.00em;
+	margin:0.75em auto 0em auto;
+}
+
+#headerbar ul li {
+	float:left;
+	font-size:1.5em;
+	color:#FFFFFF;
+}
+
+#headerbar li a {
+	text-decoration:inherit;
+	color:inherit;
+	float:inherit;
+	padding-right:0.5em;
+	padding-left: 0.5em;
+	border-left: 1px solid rgba(0,0,0,0);
+	border-right:1px solid rgba(0,0,0,0);
+}
+
+#headerbar ul li a:hover {
+	background-color:#848484;
+	border-right:1px solid #000000;
+	border-left :1px solid #000000;
+}
+
+
+/* The current site should look different */
+#home      .home,
+#about     .about,
+#grid-fwk  .grid-fwk {
+	background-color:#656565;
+}
