@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg">
 
+	<!-- CSS stylings for the rectangle -->
+	<!-- ============================== -->
+	<style type="text/css">
+		rect {
+			stroke:black;
+			stroke-width:1px;
+			fill:url(#rest);
+		}
+		rect:hover {
+			fill:url(#hover);
+		}
+		rect:active {
+			fill:url(#active);
+		}
+	</style>
+
 	<!-- GRADIENTS HERE -->
 	<!-- ============== -->
 	<defs>
@@ -23,8 +39,8 @@
 		</linearGradient>
 	</defs>
 	
-	<!-- BUTTON SHAPES                                                          -->
-	<!-- =============                                                          -->
+	<!-- BUTTON SHAPE                                                           -->
+	<!-- ============                                                           -->
 	<!--   The button has a rounding of 5px and a height of 20px. The width of  -->
 	<!--   the button is 15px, that's 5px on both sides for rounding and  5px   -->
 	<!--   for the buttom body. The body will be repeated by the HTML as often  -->
@@ -32,7 +48,5 @@
 	<!--                                                                        -->
 	<!--   The position of the button is shiftes by 0.5px because the stroke is -->
 	<!--   1px wide and half of it is outside the shape.                        -->
-	<rect x="0.5px" y="00.5px" width="16px" height="20px" rx="5px" ry="5px" stroke="black" stroke-width="1px" fill="url(#rest)"  />
-	<rect x="0.5px" y="21.5px" width="16px" height="20px" rx="5px" ry="5px" stroke="black" stroke-width="1px" fill="url(#hover)" />
-	<rect x="0.5px" y="42.5px" width="16px" height="20px" rx="5px" ry="5px" stroke="black" stroke-width="1px" fill="url(#active)"/>
+	<rect x="0.5px" y="00.5px" width="16px" height="20px" rx="5px" ry="5px" fill="url(#rest)"  />
 </svg>
