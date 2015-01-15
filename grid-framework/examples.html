@@ -1,123 +1,280 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="author"       content="HiPhish"                      >
-	<meta name="description"  content="Website for Grid Framework."  >
-	<meta name="keywords"     content="Grid, Framework, Unity, Asset">
-	<title>Grid Framework - Examples</title>
-	<link href="../main.css"       rel="stylesheet"  media="all"  type="text/css">
-	<link href="../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
-	<link href="../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author"       content="HiPhish"                      >
+		<meta name="description"  content="Website for Grid Framework."  >
+		<meta name="keywords"     content="Grid, Framework, Unity, Asset">
+		<title>Grid Framework - Examples</title>
+		<link href="../main.css"       rel="stylesheet"  media="all"  type="text/css">
+		<link href="../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
+		<link href="../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
 
-<body id="grid-fwk">
-	<nav id="headerbar"><ul>
-		<li class="home"    ><a href="../"                                  > Home           </a> </li>
-		<li class="grid-fwk"><a href="."                                    > Grid Framework </a> </li>
-		<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
-		<li class="about"   ><a href="../about"                             > About          </a> </li>
-	</ul></nav>
+		<!-- SyntaxHighligher -->
+		<script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
+		<script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"></script>
+		<script type="text/javascript">SyntaxHighlighter.all();</script>
+		<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shCoreDefault.css" />
+		<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shThemeDefault.css"/>
+		<!-- SyntaxHighligher -->
+	</head>
 
-	<nav id="toolbar"><ul>
-		<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
-		<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
-		<li><a href="screenshots"                                                                        > screenshots            </a></li>
-		<li><a href="examples"                                                                           > Examples               </a></li>
-		<li><a href="features"                                                                           > Features               </a></li>
-		<li><a href="."                                                                                  > Overview               </a></li>
-	</ul></nav>
+	<body id="grid-fwk">
+		<nav id="headerbar">
+			<ul>
+				<li class="home"    ><a href="../"                                  > Home           </a> </li>
+				<li class="grid-fwk"><a href="."                                    > Grid Framework </a> </li>
+				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
+				<li class="about"   ><a href="../about"                             > About          </a> </li>
+			</ul>
+		</nav>
+	
+		<nav id="toolbar"><ul>
+			<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
+			<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
+			<li><a href="screenshots"                                                                        > screenshots            </a></li>
+			<li><a href="examples"                                                                           > Examples               </a></li>
+			<li><a href="features"                                                                           > Features               </a></li>
+			<li><a href="."                                                                                  > Overview               </a></li>
+		</ul></nav>
+	
+		<div id="maincontent">
+			
+			<p>
+				To help you get started Grid Framework comes with several examples showing you
+				how to implement from scratch features commonly found in games, such as moving
+				along a grid, using the grid for game logic like in a puzzle game, assembling
+				a level and even extending Grid Framework with your own methods without
+				touching the source code of Grid Framework itself.
+			</p>
+			
+			<p>
+				All the examples are written both in C# and Java Script, when technically
+				possible, and the source code has comments explaining the idea behind almost
+				every line of code. I also have tutorial videos where I build those examples
+				from scratch and expain the idea behind the code, for those of you who prefer
+				learning by doing rather than having the source code served to them in one go.
+			</p>
+		
+			<p>
+				These videos were recorded at different points in Grid Framworks development and
+				the interface and usability may appear more crude than it currently is.
+			</p>
+			
+			<h1>Moving along a grid</h1>
+			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" id="movement"></iframe>
+			<p>
+				One of the most common uses for grids is movement. Maybe you have a tactical
+				game, or a board game or you just want the old-school feel of tile based games.
+				In this example we convert a sphere's world coordinates to grid coordinates and
+				then move it in grid space before converting the result back to world space. As
+				an extra touch we can limit the sphere to only stay within the bounds of the
+				grid size. We need this because grids are infinitely large, so the sphere could
+				wander off into infinity.
+			</p>
 
-<div id="maincontent">
-	
-	<p>
-		To help you get started Grid Framework comes with several examples showing you
-		how to implement from scratch features commonly found in games, such as moving
-		along a grid, using the grid for game logic like in a puzzle game, assembling
-		a level and even extending Grid Framework with your own methods without
-		touching the source code of Grid Framwork itself.
-	</p>
-	
-	<p>
-		All the examples are written both in C# and Java Script, when technically
-		possible, and the source code has comments explaining the idea behind almost
-		every line of code. I also have tutorial videos where I build those examples
-		from scratch and expain the idea behind the code, for those of you who prefer
-		learning by doing rather than having the source code served to them in one go.
-	</p>
+			<p>This example demonstrates one of the simplest and most common
+			uses for Grid Framework: converting between coordinate systems. We
+			take the object's current position, convert is to grid space, add a
+			direction to it, convert the result back to world space and use
+			that as the destination of our movement function.</p>
+			
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction));
+			]]></script>
 
-	<p>
-		These videos were recorded at different points in Grid Framworks development and
-		the interface and usability may appear more crude than it currently is.
-	</p>
-	
-	<h1>Moving along a grid</h1>
-	<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
-	<p>
-		One of the most common uses for grids is movement. Maybe you have a tactical
-		game, or a board game or you just want the old-school feel of tile based games.
-		In this example we convert a sphere's world coordinates to grid coordinates and
-		then move it in grid space before converting the result back to world space. As
-		an extra touch we can limit the sphere to only stay within the bounds of the
-		grid size. We need this because grids are infinitely large, so the sphere could
-		wander off into infinity.
-	</p>
-	
-	<h1>Moving with obstacles</h1>
-	<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
-	<p>
-		Moving around freely is nice, but let's make it more interesting by introducing
-		obstacles. We could just use Unity's physics along with raycasting to see if our
-		target location is free, but where would be the fun in that? Instead in this
-		example we learn how to build a matrix where each entry corresponds to a tile
-		in the grid. For the sake of simplicity we only store a bolean value, whether
-		the tile is free or occupied, in the matrix, but we could easily extend the
-		format to store more information, such as the terrain, the type of obstacle
-		(wall, enemy, door, item) or even a reference to the object blockign our path.
-	</p>
-	
-	<h1>lights-out puzzle game</h1>
-	<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8"></iframe>
-	<p>
-		Here we learn how write a simple puzzle game where the goal is to turn all the
-		lights off and every time you click a square that square and the four adjacent
-		ones flip their colour. No tile knows anythign about its surrounding tiles,
-		making this game very flexible, you can have all sorts of crazy shapes and
-		holes in it. This example uses delegates and events and is therefore only
-		available in C#.
-	</p>
-	
-	<h1>extending Grid Framework with your own methods</h1>
-	<iframe title="YouTube" src="http://www.youtube.com/embed/W_QteDtqHK4"></iframe>
-	<p>
-		This is a continuation of the above example where we extend the game to use a
-		hexagonal grid. Needless to say we don't want to write almost the same script
-		twice, so instead we will learn how to write our own method for the GFGrid
-		class that picks its implementation depending on the specific type of grid we
-		use. Then we can use the same script for both rectangular and hexagonal grids.
-	</p>
-	
-	<h1>assembling a level from text file</h1>
-	<iframe title="YouTube" src="http://www.youtube.com/embed/lvYWbJ8ohkA"></iframe>
-	<p>
-		In this example we create a breakout field by parsing a plain text file placing
-		objects on the grid accoirding to the position inside the file. This appoach
-		has several advantages; most obviously it is faster and easier to design level
-		in plain text rather than in an editor, you can add new levels very easily or
-		allow players to add their own levels and you can reverse the process to write
-		a text file from an ingame level editor. Instead of having a separate scene for
-		each level we only need one scene, we can build new levels without having to
-		worry about carrying the background or music from scene to scene, allowing for
-		seamless transition.
-	</p>
+			<p>In such a simple case it would make more sense to convert the
+			possible directions to world space and store the results. Instead
+			of converting back and forth all the time we could then just add
+			the direction in world coordinates, saving a two steps in the
+			process.  But this for demonstation purpose.</p>
 
-	<h1>runtime snapping</h1>
-	<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe>
-	<p style="height:209px;">
-		If you want to allow the user to place object only on the grid, then this
-		example is for you. For an extra challenge the grid has been rotated to create
-		an isometric view effect. In reality you should rotat the camera instead.
-	</p>
-</div>
-</body>
+			<h1>Moving with obstacles</h1>
+			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" id="obstacles"></iframe>
+			<p>
+				Moving around freely is nice, but let's make it more interesting by introducing
+				obstacles. We could just use Unity's physics along with raycasting to see if our
+				target location is free, but where would be the fun in that? Instead in this
+				example we learn how to build a matrix where each entry corresponds to a tile
+				in the grid. For the sake of simplicity we only store a bolean value, whether
+				the tile is free or occupied, in the matrix, but we could easily extend the
+				format to store more information, such as the terrain, the type of obstacle
+				(wall, enemy, door, item) or even a reference to the object blocking our path.
+			</p>
+
+			<p>The core of the example is a matrix of boolean values. We use Grid Framework to determine the size of the matrix.
+			How large does the matrix need to be? A few lines of code get the work done.</p>
+
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				var size = new int[2];
+				for(int i = 0; i < 2; i++){
+					//get the distance between both ends (in world units), divide it by the spacing (to get grid units) and round down to the nearest integer
+					size[i] = Mathf.FloorToInt(Mathf.Abs(movementGrid.renderFrom[i] - movementGrid.renderTo[i]) / movementGrid.spacing[i]);
+				}
+			]]></script>
+
+			<p>And how do we find out the matrix position of a tile? Two lines
+			of code do the job.</p>
+
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				var square = new int[2];
+				for(int i = 0; i < 2; i++){
+					square[i] = Mathf.FloorToInt(movementGrid.NearestBoxG(vec)[i]) - originSquare[i];
+				}
+			]]></script>
+			
+			<h1>lights-out puzzle game</h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8" id="lights"></iframe>
+			<p>
+				Here we learn how write a simple puzzle game where the goal is to turn all the
+				lights off and every time you click a square that square and the four adjacent
+				ones flip their colour. No tile knows anything about its surrounding tiles,
+				making this game very flexible, you can have all sorts of crazy shapes and
+				holes in it. This example uses delegates and events and is therefore only
+				available in C#.
+			</p>
+
+			<p>The core of this example is comparing the grid coordinates of the tiles to the one tile
+			that was clicked to decide whether to switch colour. The logic is nicely encapsulated in a custom
+			extension method and works for any type of grid:</p>
+			
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				if(theGrid.IsAdjacent(transform.position, switchPosition)){
+					//flip the state of this switch
+					isOn = !isOn;
+				}
+			]]></script>
+
+			<p>This extension method is not part of Grid Framework's API, but we can use it as if it were.</p>
+
+			<h1>extending Grid Framework with your own methods</h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/W_QteDtqHK4" id="extending"></iframe>
+			<p>
+				This is a continuation of the above example where we extend the game to use a
+				hexagonal grid. Needless to say we don't want to write almost the same script
+				twice, so instead we will learn how to write our own method for the GFGrid
+				class that picks its implementation depending on the specific type of grid we
+				use. Then we can use the same script for both rectangular, hexagonal and polar grids.
+			</p>
+
+			<p>Here is the example of how it works for rectangular grids:</p>
+			
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				public static bool IsAdjacent(this GFGrid theGrid, Vector3 position, Vector3 reference){
+					//convert to Grid Space first
+					Vector3 gridPosition = theGrid.WorldToGrid(position);//the light we want to test
+					Vector3 gridReference = theGrid.WorldToGrid(reference);//the light that was pressed
+					
+					//pick the implentation based on the type of grid
+					if (theGrid.GetType() == typeof(GFRectGrid)) {
+						return RectIsAdjacent((GFRectGrid)theGrid, gridPosition, gridReference);
+					} else if (...) {
+						// and so on...
+					} else
+						return false;
+					}
+				}
+				
+				private static bool RectIsAdjacent(GFRectGrid theGrid, Vector3 position, Vector3 reference){
+					bool isAdjacent = Mathf.Abs(position.x-reference.x) <= 1.25f && Mathf.Abs(position.y-reference.y) <= 1.25f;
+					bool isDiagonal = 0.25f <= Mathf.Abs(position.x-reference.x) && 0.25f <= Mathf.Abs(position.y-reference.y) && isAdjacent;
+					return isAdjacent && !isDiagonal;
+				}
+			]]></script>
+			
+			<h1>assembling a level from text file</h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/lvYWbJ8ohkA" id="assembling"></iframe>
+			<p>
+				In this example we create a breakout field by parsing a plain text file placing
+				objects on the grid according to the position inside the file. This appoach
+				has several advantages; most obviously it is faster and easier to design level
+				in plain text rather than in an editor, you can add new levels very easily or
+				allow players to add their own levels and you can reverse the process to write
+				a text file from an ingame level editor. Instead of having a separate scene for
+				each level we only need one scene, we can build new levels without having to
+				worry about carrying the background or music from scene to scene, allowing for
+				seamless transition.
+			</p>
+
+			<p>The core of this example is the position of a character in the
+			textfile, i.e. the row and column.  We use these text coordinates
+			as grid coordinates and convert them to world coordinates.</p>
+		
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));
+			]]></script>
+
+			<h1>runtime snapping</h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc" id="snapping"></iframe>
+			<p>
+				If you want to allow the user to place object only on the grid, then this
+				example is for you. For an extra challenge the grid has been rotated to create
+				an isometric view effect. In reality you should rotat the camera instead.
+			</p>
+
+			<p>Snapping is a two-step process: first we move the object to
+			where the cursor is pointing, then we correct the position.</p>
+
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				transform.position = cursorWorldPoint;
+				grid.AlignTransform(transform);
+			]]></script>
+		
+			<h1>Seemingly endless grid</h1>
+			<p>
+				Grids are infinity large when it come to calculations, but rendering an
+				infinite amount of lines is impossible.  We will use a trick instead
+				where we dynamically adjust the rendering range of the grid according
+				to the camera.  The result is a seamless illusion that only renders the
+				bare minimum and only updates when it has to.
+			</p>
+
+			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
+				for (int i = 0; i < 3; i++) {
+					rangeShift[i] += transform.position[i] - lastPosition[i];
+				}
+				
+				myGrid.renderFrom += rangeShift;
+				myGrid.renderTo   += rangeShift;
+			]]></script>
+		
+			<h1>Terrain mesh generation</h1>
+			<p>
+				We generate a mesh as a SimCity-like terrain using a plain text file as
+				our height map. The file contains integer values which are then used to
+				create mesh vertices which match up with grid vertices. Clicking a
+				vertex reaises or lowers it. Everything is accompished be converting from
+				grid coordinates to world coordinates.
+			</p>
+		
+			<h1>Rotary dial</h1>
+			<p> A rotary dial as it could have been found on older phones. When
+			the player clicks a sector of this polar grid the grid coordinates
+			are used to determine which number was selected and use it to
+			control the animation and print that number on the console.  </p>
+		
+			<h1>Sliding puzzle</h1>
+			<p>
+				Sometimes Unit's physics engine is too good for its own good and we need something
+				simpler instead. In a sliding puzzle it is common for blocks to be touching each
+				other with no space between, yet the player will expect there to be no friction.
+				In this example we use Grid Framework to construct a matrix of cells and track for
+				each cell whether it's free or occupied. Then we restrict movement of the blocks
+				based on that information.
+			</p>
+		
+			<h1>Snake game</h1>
+			<p>
+				Another example of tile-base movement. The snake is made of several
+				segments, linked together using a list. Only the head moves, the other
+				segments follow their parent.
+			</p>
+		
+			<h1>Vectrosity support</h1>
+			<p>
+				Having some fun with Vectrosity and laser lines. The grids can move around or
+				even change their properties at runtime.
+			</p>
+		</div>
+	</body>
 </html>

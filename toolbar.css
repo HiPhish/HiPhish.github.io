@@ -1,7 +1,7 @@
-/******************************************************************************/
-/*  TOOLBAR                                                                   */
-/*  The navigation bar on sub-sites. Appears after the header bar.            */
-/******************************************************************************/
+/******************************************************************************
+ *  TOOLBAR                                                                   *
+ *  The navigation bar on sub-sites. Appears after the header bar.            *
+ ******************************************************************************/
 
 #toolbar ul {
 	position:relative;
@@ -59,6 +59,6 @@
 }
 
 #toolbar ul li.button:active {
-	kackground-image:url(images/button/ButtonPressed.svg);
+	background-image:url(images/button/ButtonPressed.svg);
 }
 
