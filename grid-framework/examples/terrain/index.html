@@ -2,14 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Unity Web Player | Grid Framework</title>
+		<title>Grid Framework - Terrain Mesh Generation</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type='text/javascript' src='../web-player-object.js'></script>
 		<script type='text/javascript' src='../web-player.js'></script>
 		<link href="../web-player.css" rel="stylesheet"  media="all"  type="text/css" />
+
+		<link href="../../../main.css"       rel="stylesheet"  media="all"  type="text/css" />
+		<link href="../../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css" />
+		<link href="../../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css" />
 	</head>
-	<body>
-		<p class="header"><span>Unity Web Player | </span>Grid Framework</p>
+	<body id="grid-fwk">
+		<nav id="headerbar">
+			<ul>
+				<li class="home"    ><a href="../../../"                            > Home           </a> </li>
+				<li class="grid-fwk"><a href="../../"                               > Grid Framework </a> </li>
+				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
+				<li class="about"   ><a href="../../../about"                       > About          </a> </li>
+			</ul>
+		</nav>
+	
+		<nav id="toolbar"><ul>
+			<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
+			<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
+			<li><a href="../../screenshots"                                                                  > screenshots            </a></li>
+			<li><a href="../"                                                                                > Examples               </a></li>
+			<li><a href="../../features"                                                                     > Features               </a></li>
+			<li><a href="../../"                                                                             > Overview               </a></li>
+		</ul></nav>
+
+		<p class="header"><span><a href="../#terrain">Grid Framework examples</a> | </span>Terrain Mesh Generation</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
@@ -19,6 +41,5 @@
 				</div>
 			</div>
 		</div>
-		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
 	</body>
 </html>

@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="author"       content="HiPhish"                      >
-		<meta name="description"  content="Website for Grid Framework."  >
-		<meta name="keywords"     content="Grid, Framework, Unity, Asset">
+		<meta name="author"       content="HiPhish"                       />
+		<meta name="description"  content="Website for Grid Framework."   />
+		<meta name="keywords"     content="Grid, Framework, Unity, Asset" />
 		<title>Grid Framework - Examples</title>
-		<link href="../../main.css"       rel="stylesheet"  media="all"  type="text/css">
-		<link href="../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
-		<link href="../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
+		<link href="../../main.css"       rel="stylesheet"  media="all"  type="text/css" />
+		<link href="../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css" />
+		<link href="../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css" />
 
 		<!-- SyntaxHighligher -->
 		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
@@ -17,25 +17,35 @@
 		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shCoreDefault.css" />
 		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shThemeDefault.css"/>
 		<!-- SyntaxHighligher -->
+
+		<style>
+			h1 a{
+				text-decoration:none;
+				color:inherit;
+			}
+			h1 a:hover{
+				text-decoration:underline;
+			}
+		</style>
 	</head>
 
 	<body id="grid-fwk">
 		<nav id="headerbar">
 			<ul>
-				<li class="home"    ><a href="../../"                                  > Home           </a> </li>
-				<li class="grid-fwk"><a href="../"                                    > Grid Framework </a> </li>
+				<li class="home"    ><a href="../../"                               > Home           </a> </li>
+				<li class="grid-fwk"><a href="../"                                  > Grid Framework </a> </li>
 				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
-				<li class="about"   ><a href="../../about"                             > About          </a> </li>
+				<li class="about"   ><a href="../../about"                          > About          </a> </li>
 			</ul>
 		</nav>
 	
 		<nav id="toolbar"><ul>
 			<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
 			<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
-			<li><a href="../screenshots"                                                                        > screenshots            </a></li>
-			<li><a href="."                                                                           > Examples               </a></li>
-			<li><a href="../features"                                                                           > Features               </a></li>
-			<li><a href="../"                                                                                  > Overview               </a></li>
+			<li><a href="../screenshots"                                                                     > screenshots            </a></li>
+			<li><a href="."                                                                                  > Examples               </a></li>
+			<li><a href="../features"                                                                        > Features               </a></li>
+			<li><a href="../"                                                                                > Overview               </a></li>
 		</ul></nav>
 	
 		<div id="maincontent">
@@ -61,8 +71,8 @@
 				the interface and usability may appear more crude than it currently is.
 			</p>
 			
-			<h1>Moving along a grid</h1>
-			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" id="movement"></iframe>
+			<h1 id="movement"><a href="./movement">Moving along a grid</a></h1>
+			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<p>
 				One of the most common uses for grids is movement. Maybe you have a tactical
 				game, or a board game or you just want the old-school feel of tile based games.
@@ -89,8 +99,8 @@
 			the direction in world coordinates, saving a two steps in the
 			process.  But this for demonstation purpose.</p>
 
-			<h1>Moving with obstacles</h1>
-			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" id="obstacles"></iframe>
+			<h1 id="obstacles"><a href="./obstacles">Moving with obstacles</a></h1>
+			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<p>
 				Moving around freely is nice, but let's make it more interesting by introducing
 				obstacles. We could just use Unity's physics along with raycasting to see if our
@@ -123,8 +133,8 @@
 				}
 			]]></script>
 			
-			<h1>lights-out puzzle game</h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8" id="lights"></iframe>
+			<h1 id="lights"><a href="./lights">lights-out puzzle game</a></h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8"></iframe>
 			<p>
 				Here we learn how write a simple puzzle game where the goal is to turn all the
 				lights off and every time you click a square that square and the four adjacent
@@ -182,7 +192,7 @@
 				}
 			]]></script>
 			
-			<h1>assembling a level from text file</h1>
+			<h1 id="level-design"><a href="./level-design">Assembling a level from text file</a></h1>
 			<iframe title="YouTube" src="http://www.youtube.com/embed/lvYWbJ8ohkA" id="assembling"></iframe>
 			<p>
 				In this example we create a breakout field by parsing a plain text file placing
@@ -204,8 +214,8 @@
 				Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));
 			]]></script>
 
-			<h1>runtime snapping</h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc" id="snapping"></iframe>
+			<h1 id="snapping"><a href="./snapping">Runtime snapping</a></h1>
+			<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe>
 			<p>
 				If you want to allow the user to place object only on the grid, then this
 				example is for you. For an extra challenge the grid has been rotated to create
@@ -220,7 +230,7 @@
 				grid.AlignTransform(transform);
 			]]></script>
 		
-			<h1>Seemingly endless grid</h1>
+			<h1 id="endless"><a href="./endless">Seemingly endless grid</a></h1>
 			<p>
 				Grids are infinity large when it come to calculations, but rendering an
 				infinite amount of lines is impossible.  We will use a trick instead
@@ -238,7 +248,7 @@
 				myGrid.renderTo   += rangeShift;
 			]]></script>
 		
-			<h1>Terrain mesh generation</h1>
+			<h1 id="terrain"><a href="./terrain">Terrain mesh generation</a></h1>
 			<p>
 				We generate a mesh as a SimCity-like terrain using a plain text file as
 				our height map. The file contains integer values which are then used to
@@ -247,13 +257,13 @@
 				grid coordinates to world coordinates.
 			</p>
 		
-			<h1>Rotary dial</h1>
+			<h1 id="dial"><a href="./dial">Rotary dial</a></h1>
 			<p> A rotary dial as it could have been found on older phones. When
 			the player clicks a sector of this polar grid the grid coordinates
 			are used to determine which number was selected and use it to
 			control the animation and print that number on the console.  </p>
 		
-			<h1>Sliding puzzle</h1>
+			<h1 id="sliding"><a href="./sliding">Sliding puzzle</a></h1>
 			<p>
 				Sometimes Unit's physics engine is too good for its own good and we need something
 				simpler instead. In a sliding puzzle it is common for blocks to be touching each
@@ -263,14 +273,14 @@
 				based on that information.
 			</p>
 		
-			<h1>Snake game</h1>
+			<h1 id="snake"><a href="./snake">Snake game</a></h1>
 			<p>
 				Another example of tile-base movement. The snake is made of several
 				segments, linked together using a list. Only the head moves, the other
 				segments follow their parent.
 			</p>
 		
-			<h1>Vectrosity support</h1>
+			<h1 id="vectrosity"><a href="./vectrosity">Vectrosity support</a></h1>
 			<p>
 				Having some fun with Vectrosity and laser lines. The grids can move around or
 				even change their properties at runtime.
