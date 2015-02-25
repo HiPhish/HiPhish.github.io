@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="author"       content="HiPhish"                       />
-		<meta name="description"  content="Website for Grid Framework."   />
-		<meta name="keywords"     content="Grid, Framework, Unity, Asset" />
+		<meta charset="UTF-8"                                              />
+		<meta name="author"       content="HiPhish"                        />
+		<meta name="description"  content="Website for HiPhish's projects."/>
+		<meta name="keywords"     content="Grid, Framework, Unity, Asset"  />
+
+		<link href="../../main.css"       rel="stylesheet"  media="all"  type="text/css">
+		<link href="../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
+		<link href="../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
+
 		<title>Grid Framework - Examples</title>
-		<link href="../../main.css"       rel="stylesheet"  media="all"  type="text/css" />
-		<link href="../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css" />
-		<link href="../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css" />
 
 		<!-- SyntaxHighligher -->
-		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
-		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"></script>
-		<script type="text/javascript">SyntaxHighlighter.all();</script>
 		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shCoreDefault.css" />
 		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shThemeDefault.css"/>
+
+		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
+		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"></script>
+
+		<script>SyntaxHighlighter.all();</script>
 		<!-- SyntaxHighligher -->
 
+		<!-- Style of example headings that serve as links -->
 		<style>
 			h1 a{
 				text-decoration:none;
@@ -27,6 +32,7 @@
 				text-decoration:underline;
 			}
 		</style>
+		<!-- Style of example headings that serve as links -->
 	</head>
 
 	<body id="grid-fwk">
@@ -86,21 +92,25 @@
 				wander off into infinity.
 			</p>
 
-			<p>This example demonstrates one of the simplest and most common
-			uses for Grid Framework: converting between coordinate systems. We
-			take the object's current position, convert is to grid space, add a
-			direction to it, convert the result back to world space and use
-			that as the destination of our movement function.</p>
+			<p>
+				This example demonstrates one of the simplest and most common uses
+				for Grid Framework: converting between coordinate systems. We take
+				the object's current position, convert is to grid space, add a
+				direction to it, convert the result back to world space and use
+				that as the destination of our movement function.
+			</p>
 			
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction));
 			]]></script>
 
-			<p>In such a simple case it would make more sense to convert the
-			possible directions to world space and store the results. Instead
-			of converting back and forth all the time we could then just add
-			the direction in world coordinates, saving a two steps in the
-			process.  But this for demonstation purpose.</p>
+			<p>
+				In such a simple case it would make more sense to convert the
+				possible directions to world space and store the results. Instead
+				of converting back and forth all the time we could then just add
+				the direction in world coordinates, saving a two steps in the
+				process.  But this for demonstation purpose.
+			</p>
 
 			<h1 id="obstacles"><a href="./obstacles">Moving with obstacles</a></h1>
 			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
@@ -115,8 +125,11 @@
 				(wall, enemy, door, item) or even a reference to the object blocking our path.
 			</p>
 
-			<p>The core of the example is a matrix of boolean values. We use Grid Framework to determine the size of the matrix.
-			How large does the matrix need to be? A few lines of code get the work done.</p>
+			<p>
+				The core of the example is a matrix of boolean values. We use Grid
+				Framework to determine the size of the matrix.  How large does the
+				matrix need to be? A few lines of code get the work done.
+			</p>
 
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				var size = new int[2];
@@ -126,8 +139,10 @@
 				}
 			]]></script>
 
-			<p>And how do we find out the matrix position of a tile? Two lines
-			of code do the job.</p>
+			<p>
+				And how do we find out the matrix position of a tile? Two lines of
+				code do the job.
+			</p>
 
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				var square = new int[2];
@@ -147,9 +162,12 @@
 				available in C#.
 			</p>
 
-			<p>The core of this example is comparing the grid coordinates of the tiles to the one tile
-			that was clicked to decide whether to switch colour. The logic is nicely encapsulated in a custom
-			extension method and works for any type of grid:</p>
+			<p>
+				The core of this example is comparing the grid coordinates of the
+				tiles to the one tile that was clicked to decide whether to switch
+				colour. The logic is nicely encapsulated in a custom extension
+				method and works for any type of grid:
+			</p>
 			
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				if(theGrid.IsAdjacent(transform.position, switchPosition)){
@@ -209,9 +227,11 @@
 				seamless transition.
 			</p>
 
-			<p>The core of this example is the position of a character in the
-			textfile, i.e. the row and column.  We use these text coordinates
-			as grid coordinates and convert them to world coordinates.</p>
+			<p>
+				The core of this example is the position of a character in the
+				textfile, i.e. the row and column.  We use these text coordinates
+				as grid coordinates and convert them to world coordinates.
+			</p>
 		
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));
@@ -225,8 +245,10 @@
 				an isometric view effect. In reality you should rotat the camera instead.
 			</p>
 
-			<p>Snapping is a two-step process: first we move the object to
-			where the cursor is pointing, then we correct the position.</p>
+			<p>
+				Snapping is a two-step process: first we move the object to where
+				the cursor is pointing, then we correct the position.
+			</p>
 
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				transform.position = cursorWorldPoint;
@@ -261,10 +283,12 @@
 			</p>
 		
 			<h1 id="dial"><a href="./dial">Rotary dial</a></h1>
-			<p> A rotary dial as it could have been found on older phones. When
-			the player clicks a sector of this polar grid the grid coordinates
-			are used to determine which number was selected and use it to
-			control the animation and print that number on the console.  </p>
+			<p>
+				A rotary dial as it could have been found on older phones. When the
+				player clicks a sector of this polar grid the grid coordinates are
+				used to determine which number was selected and use it to control
+				the animation and print that number on the console.
+			</p>
 		
 			<h1 id="sliding"><a href="./sliding">Sliding puzzle</a></h1>
 			<p>

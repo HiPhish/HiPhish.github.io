@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8"/>
-		<meta name="author"       content="HiPhish"                      />
-		<meta name="description"  content="Website for Grid Framework."  />
-		<meta name="keywords"     content="Grid, Framework, Unity, Asset"/>
+		<meta charset="UTF-8"                                              />
+		<meta name="author"       content="HiPhish"                        />
+		<meta name="description"  content="Website for HiPhish's projects."/>
+		<meta name="keywords"     content="Grid, Framework, Unity, Asset"  />
+
+		<link href="../main.css"       rel="stylesheet"  media="all"  type="text/css">
+		<link href="../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
+		<link href="../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
+
 		<title>Grid Framework - Features</title>
-		<link type="text/css" rel="stylesheet" href="../main.css"     />
-		<link type="text/css" rel="stylesheet" href="../headerbar.css"/>
-		<link type="text/css" rel="stylesheet" href="../toolbar.css"  />
 
 		<!-- SyntaxHighligher -->
 		<script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
@@ -41,10 +43,12 @@
 	
 		<div id="maincontent" >
 			<h1>How it works</h1>
-			<p>The heart of Grid Framework are the new grid classes. They are
-			components, so you add them to any of your Game Objects you whish.  You can
-			add grids either using the editor or programatically at runtime and modify
-			its properties:</p>
+			<p>
+				The heart of Grid Framework are the new grid classes. They are
+				components, so you add them to any of your Game Objects you
+				whish.  You can add grids either using the editor or
+				programatically at runtime and modify its properties:
+			</p>
 		
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				GameObject go;
@@ -55,14 +59,19 @@
 				// Vector6 is a custom type, not part of the Unity API
 			]]></script>
 		
-			<p>The grid classes are prefixed with "GF" to prevent name collisions with
-			other types you might have in your own code.  Ideally they would be
-			properly namespaced, but the Unity editor has problems with namespaced
-			components. Other custom types, such as Vector6 on the other hand are
-			namespaced and will not collide with other types.</p>
+			<p>
+				The grid classes are prefixed with "GF" to prevent name
+				collisions with other types you might have in your own code.
+				Ideally they would be properly namespaced, but the Unity editor
+				has problems with namespaced components. Other custom types,
+				such as Vector6 on the other hand are namespaced and will not
+				collide with other types.
+			</p>
 		
-			<p>All grids are in a class hierachy that allows you write common code once
-			and have if work for all kinds of grids:</p>
+			<p>
+				All grids are in a class hierachy that allows you write common
+				code once and have if work for all kinds of grids:
+			</p>
 		
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				// This will work for any grid
@@ -87,9 +96,11 @@
 				ready to go.
 			</p>
 		
-			<p>Let's say we wanted to move a unit from one point in the grid to
-			another. If we know the grid coordinates we can compute the world
-			coordinates and pass them to your movement function:</p>
+			<p>
+				Let's say we wanted to move a unit from one point in the grid
+				to another. If we know the grid coordinates we can compute the
+				world coordinates and pass them to your movement function:
+			</p>
 		
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				Vector3 origin      = grid.gridToWorld(originInGrid   );
@@ -97,9 +108,11 @@
 				MoveUnit(from: origin, to: destination);
 			]]></script>
 		
-			<p>A common task is snapping things to a grid, for example when the player
-			is trying to place building in a strategy game. This is where the
-			SnapToGrid method comes into play:</p>
+			<p>
+				A common task is snapping things to a grid, for example when
+				the player is trying to place building in a strategy game. This
+				is where the SnapToGrid method comes into play:
+			</p>
 		
 			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
 				Transform object;
@@ -108,9 +121,11 @@
 				grid.AlignTransform(object);
 			]]></script>
 		
-			<p>Usually the AlignTransform method is smart enough to do what you want,
-			but if you want more control you can use the lower-level methods to build
-			your own rules.</p>
+			<p>
+				Usually the AlignTransform method is smart enough to do what
+				you want, but if you want more control you can use the
+				lower-level methods to build your own rules.
+			</p>
 			
 			<h1>infinite size and fully 3D</h1>
 			
@@ -188,20 +203,25 @@
 				gridLine = new Vectrosity.VectorLine("My lines", grid.GetVectrosityPoints(), lineColors, lineMaterial, lineWidth);
 			]]></script>
 		
-			<p>Plese keep in mind that Vectrosity and Grid Framework are entirely
-			unrelated products and I am in no way affiliated with the author of
-			Vectrosity.</p>
+			<p>
+				Plese keep in mind that Vectrosity and Grid Framework are
+				entirely unrelated products and I am in no way affiliated with
+				the author of Vectrosity.
+			</p>
 		
 			<h1>Playmaker support</h1>
 			
-			<p> Grid Framwork also supports the popular <a
-				href="http://hutonggames.com">Playmaker</a> add-on for visual
-			scripting. The entire API, except for a few instances, is available as
-			Playmaker actions. You can use these action as building blocks in your
-			state machines to get and set properties and call methods. Due to technical
-			reasons any properties that rely on types not built into Unity cannot be
-			set or gotten; they will be added if Playmaker becomes capable of handling
-			custom types.  </p>
+			<p>
+				Grid Framwork also supports the popular
+				<a href="http://hutonggames.com">Playmaker</a>
+				add-on for visual scripting. The entire API, except for a few
+				instances, is available as Playmaker actions. You can use
+				these action as building blocks in your state machines to
+				get and set properties and call methods.  Due to technical
+				reasons any properties that rely on types not built into
+				Unity cannot be set or gotten; they will be added if
+				Playmaker becomes capable of handling custom types.
+			</p>
 			
 			<h1>fits seamlessly into Unity</h1>
 			
