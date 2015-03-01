@@ -32,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.7.2</span>
+   &#160;<span id="projectnumber">1.7.4</span>
    </div>
-   <div id="projectbrief">Easy grid setup and scripting for Unity</div>
+   <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
  </tr>
  </tbody>
@@ -104,6 +104,20 @@ $(document).ready(function(){initNavTree('changelog.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Version 1.7.x </h2>
+<h3>Version 1.7.4</h3>
+<p>This release brings seamless compatibility with Unity 5. The changes are all under the hood and don't affect anything about Grid Frameworks API or its results.</p>
+<h3>Version 1.7.3</h3>
+<p>The following changes affect the grid inspectors, but <em>not</em> the API.</p><ul>
+<li><code>relativeSize</code> is now <code>true</code> by default now.</li>
+<li><code>useCustomRenderRange</code> is <code>true</code> by default now.</li>
+<li><code>renderFrom</code> is (-5, -5, -5) by default now.</li>
+<li><code>renderFrom</code> is (5, 5, 5) by default now.</li>
+<li>The <em>rendering range</em> now take the place of the <em>size</em> in the inspector. The <em>size</em> only shows up when the <em>Use Custom Render Range</em> flag is unchecked.</li>
+</ul>
+<p>Further changes:</p><ul>
+<li>Fixed missing reference in Snapping Units example</li>
+<li>Fixed too fast camera speen in Endless Grid example</li>
+</ul>
 <h3>Version 1.7.2</h3>
 <ul>
 <li><em>Fixed:</em> Null exception on polar grids when getting Vectrosity points if the grid is not being rendered.</li>
@@ -265,7 +279,7 @@ $(document).ready(function(){initNavTree('changelog.html','');});
 <ul>
 <li>Fixed a typo that could prevent a finished project from building correctly.</li>
 <li><em>New example:</em> a sliding block puzzle working entirely without physics.</li>
-<li>Removed the variables <code>minimumSpacing</code> and <code>minimumRadius</code> from <code><a class="el" href="class_g_f_rect_grid.html" title="A standard three-dimensional rectangular grid.">GFRectGrid</a></code> and <code><a class="el" href="class_g_f_hex_grid.html" title="A grid consting of flat hexagonal grids stacked on top of each other">GFHexGrid</a></code>. Instead they both use accessors that limit spacing and radius to 0.1.</li>
+<li>Removed the variables <code>minimumSpacing</code> and <code>minimumRadius</code> from <code><a class="el" href="class_g_f_rect_grid.html" title="A standard three-dimensional rectangular grid.">GFRectGrid</a></code> and <code><a class="el" href="class_g_f_hex_grid.html" title="A grid consting of flat hexagonal grids stacked on top of each other. ">GFHexGrid</a></code>. Instead they both use accessors that limit spacing and radius to 0.1.</li>
 <li>The members <code>size</code>, <code>renderTo</code> and <code>renderFrom</code> are now using accessors as well, this prevents setting them to nonsensical values.</li>
 <li>Removed the redundant <em>Use Custom Rendering Range</em> flag in the inspector (doesn't change anything in the API though, it's just cosmetic)</li>
 <li>The foldout state for <em>Draw &amp; Render Settings</em> in the inspector should stick now (individual for both grid types).</li>
@@ -355,7 +369,7 @@ $(document).ready(function(){initNavTree('changelog.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 17 2015 00:34:47 for Grid Framework by
+    <li class="footer">Generated on Wed Feb 25 2015 13:38:17 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

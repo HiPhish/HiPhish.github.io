@@ -32,9 +32,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.7.2</span>
+   &#160;<span id="projectnumber">1.7.4</span>
    </div>
-   <div id="projectbrief">Easy grid setup and scripting for Unity</div>
+   <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
  </tr>
  </tbody>
@@ -369,7 +369,7 @@ Additional Inherited Members</h2></td></tr>
 <p>It is important to note that the components of polar and grid coordinates represent the radius, radian angle and height. Which component represents what depends on the gridPlane. The user manual has a handy table for that purpose.</p>
 <p>The members <a class="el" href="class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35.html#a851ff16bfbf1204a1ab0b1b4de3ceb35" title="Overrides the size of GFGrid to make sure the angular coordinate is clamped appropriately between 0 a...">size</a>, <a class="el" href="class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b.html#a9f4b9bcd687f29d56f4aafa74655e27b" title="Overrides the property of GFGrid to make sure that the radial value is positive and the angular value...">renderFrom</a> and <a class="el" href="class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e.html#a81cc21991e689a1e74821d1f2870852e" title="Overrides the property of GFGrid to make sure that the angular value is wrapped around properly...">renderTo</a> are inherited from <a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a>, but slightly different. The first component of all three cannot be lower than 0 and in the case of <a class="el" href="class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b.html#a9f4b9bcd687f29d56f4aafa74655e27b" title="Overrides the property of GFGrid to make sure that the radial value is positive and the angular value...">renderFrom</a> it cannot be larger than the first component of <code><a class="el" href="class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e.html#a81cc21991e689a1e74821d1f2870852e" title="Overrides the property of GFGrid to make sure that the angular value is wrapped around properly...">renderTo</a></code>, and vice-versa. The second component is an angle in radians and wraps around as described in the user manual, no other restrictions. The third component is the height, it’s bounded from below by 0.01 and in the case of <a class="el" href="class_g_f_polar_grid_a9f4b9bcd687f29d56f4aafa74655e27b.html#a9f4b9bcd687f29d56f4aafa74655e27b" title="Overrides the property of GFGrid to make sure that the radial value is positive and the angular value...">renderFrom</a> it cannot be larger than <a class="el" href="class_g_f_polar_grid_a81cc21991e689a1e74821d1f2870852e.html#a81cc21991e689a1e74821d1f2870852e" title="Overrides the property of GFGrid to make sure that the angular value is wrapped around properly...">renderTo</a> and vice-versa. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>Assets/Plugins/Grid Framework/GFPolarGrid.cs</li>
+<li>GFPolarGrid.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -378,7 +378,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_g_f_polar_grid.html">GFPolarGrid</a></li>
-    <li class="footer">Generated on Sat Jan 17 2015 00:34:47 for Grid Framework by
+    <li class="footer">Generated on Wed Feb 25 2015 13:38:17 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
