@@ -17,7 +17,8 @@ var class_g_f_hex_grid =
       [ "Rhombus", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7ad62e74b4f4bdc571fb184229772ea930", null ],
       [ "RhombusDown", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7af2ae57405fde1821d059aaf78fedcb84", null ],
       [ "HerringboneUp", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7a766ba0e1e70b9f2fc1204ef785859e19", null ],
-      [ "HerringboneDown", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7a9a6695df59ef6afb4c18995c44b97875", null ]
+      [ "HerringboneDown", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7a9a6695df59ef6afb4c18995c44b97875", null ],
+      [ "Circle", "class_g_f_hex_grid_a6394c0f75370f3b02e437f28e52127d7.html#a6394c0f75370f3b02e437f28e52127d7a30954d90085f6eaaf5817917fc5fecb3", null ]
     ] ],
     [ "HexOrientation", "class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6.html#af3503ff5abb4dc3569875daa37dfd6e6", [
       [ "PointySides", "class_g_f_hex_grid_af3503ff5abb4dc3569875daa37dfd6e6.html#af3503ff5abb4dc3569875daa37dfd6e6ae072b74647674927337f70f1f6af0666", null ],

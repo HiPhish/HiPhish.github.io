@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.7.4</span>
+   &#160;<span id="projectnumber">1.8.1</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -119,6 +119,19 @@ $(document).ready(function(){initNavTree('hex_grid.html','');});
 <img src="hex_grids.png" alt="hex_grids.png"/>
 </div>
 <p>There are multiple ways of drawing a hex grid as well: currently the supported patterns are rectangle, rhombus and herringbone, all in up-and downwards variants plus a compact one for the rectangle.</p>
+<h3>Circles and triangles</h3>
+<p>One particular drawing shape is the <em>circle</em>, a series of hexagons looping around a central hexagon. This shape is similar to the shape of a polar grid, except for hex grids. The X-coordinate gives us the radius of the circle and the Y-coordinate the angle. The radius and layer distance are either relative or absulute to the radius and depth of the grids, depending on you settings, but the angle is always in hexes. The shape is drawn around a central position which is given in grid coordinates as <code>renderAround</code>. Unlike the <em>origin offset</em> this does not move the coordinate system of the grid, only the visible representation.</p>
+<div class="image">
+<img src="hex_circle.png" alt="hex_circle.png"/>
+</div>
+<p>It is possible to draw only part of the shape, thus creating a sort of cone or triangle. This shape is different from the other ones in that is cannot be boxed into a rectangular shape, so the rendering range has to be interpreted in a different way:</p>
+<ul>
+<li>The radius cannot go below 0, if it does it is automatically treated as 0.</li>
+<li>If the end angle is more than six units larger than the start angle the shape will wrap around.</li>
+<li>A negative start angle can wrap the shape around if it is five or more units less than the end angle.</li>
+<li>Relative and absolute size is ignored for the angle.</li>
+</ul>
+<p>All of these would not make any sense for a circular shape anyway and the polar grids prevents these settings from happening in the first place. However, since they would make sense for the other hex shapes I decided not to hijack the user's settings.</p>
 <h2>Coordinate systems in hex grids </h2>
 <p>In rectangular grids we place the grid along the vertices, but for hex grids it’s more intuitive to use the faces instead with the central face of the central hex as the origin.</p>
 <p>Currently there are four coordinate systems available (plus world coordinates of course): cubic, rhombic, upwards herringbone and downwards herringbone. I will explain the various coordinate systems and their respective advantages and disadvantages in detail below.</p>
@@ -160,7 +173,7 @@ $(document).ready(function(){initNavTree('hex_grid.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 25 2015 13:38:17 for Grid Framework by
+    <li class="footer">Generated on Tue Mar 10 2015 23:33:46 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

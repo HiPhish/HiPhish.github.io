@@ -48,7 +48,6 @@ var class_g_f_grid =
     [ "renderLineWidth", "class_g_f_grid_a6712a2e6fec379ea55a0a53ca5867216.html#a6712a2e6fec379ea55a0a53ca5867216", null ],
     [ "renderTo", "class_g_f_grid_af9ec4b040505718f58a7841087d9b72a.html#af9ec4b040505718f58a7841087d9b72a", null ],
     [ "size", "class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d.html#a336f54e5b5f677871876dc3d90cc611d", null ],
-    [ "units", "class_g_f_grid.html#a5527cb63e31fc432dba22e53d6c45457", null ],
     [ "useCustomRenderRange", "class_g_f_grid_acb950aa31097c85e153cd9a642900a31.html#acb950aa31097c85e153cd9a642900a31", null ],
     [ "GridChangedEvent", "class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8.html#af3bfbed41ba24f963e871921c663f1f8", null ]
 ];
