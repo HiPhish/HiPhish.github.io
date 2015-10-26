@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2015-09-04T00:00:00+02:00</updated><entry><title>My first general post</title><link href="/blog/blog/2015/Sep/04/my-first-general-post/" rel="alternate"></link><updated>2015-09-04T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:,2015-09-04:blog/blog/2015/Sep/04/my-first-general-post/</id><summary type="html">&lt;p&gt;This is an article with no category.&lt;/p&gt;
+</summary><category term="my"></category><category term="first"></category><category term="article"></category></entry></feed>

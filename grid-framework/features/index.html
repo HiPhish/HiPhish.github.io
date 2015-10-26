@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Features - Grid Framework</title>
+
+		<!-- HTML page metadata -->
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HiPhish's Workshop">
+		<meta name="author" content="HiPhish">
+
+		<!-- Favicon if one is set -->
+
+
+		<!-- Style sheets -->
+
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet" href="http://192.168.0.190:8000/css/bootstrap.min.css">
+
+
+
+		<!-- Main theme CSS file taking precedence over Bootstrap -->
+		<link rel="stylesheet" href="/theme/css/main.css">
+
+
+		<!-- Code highlight using CSS classes from Pygments -->
+		<link rel="stylesheet" href="/theme/css/pygment.css" />
+
+		<!-- "Holy Grail" page design -->
+		<link rel="stylesheet" href="/theme/css/grail.css" />
+
+		<script src="http://192.168.0.190:8000/js/jquery-1.11.3.min.js"></script>
+		<script src="/theme/js/navbar.js"></script>
+
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+		crossorigin="anonymous"></script>
+
+	</head>
+
+	<body class="HolyGrail">
+
+		<!-- Top navigation bar -->
+		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">HiPhish's Workshop</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav">
+				<li class="dropdown active">
+					<a href="/grid-framework/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Grid Framework <span></span> <span class="sr-only">(current)</span>					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/grid-framework/">
+								Overview							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li class="active">
+							<a href="/grid-framework/features">
+								Features <span class="sr-only">(current)</span>							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/examples">
+								Examples							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/gallery">
+								Gallery							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/faq">
+								FAQ							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/blog">
+								News							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+								Support							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="https://www.assetstore.unity3d.com/#/content/4004">
+								Buy Now <span class="badge">25$</span>							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="disabled ">
+					<a href="">
+						Open Source
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="disabled ">
+					<a href="">
+						Blog					</a>
+				</li>
+				<li class=" ">
+					<a href="/about">
+						About					</a>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!-- All Bootstrap content must be inside a container div -->
+<main class="flex-body">
+	<!-- Sub-site navigation bar -->
+	<div class="container">
+		<nav id="sub-navbar" class="navbar navbar-default" >
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-subnavbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/grid-framework">Grid Framework</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-subnavbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class=" active">
+					<a href="/grid-framework/features">
+						Features <span class="sr-only">(current)</span>					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/examples">
+						Examples					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/gallery">
+						Gallery					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/faq">
+						FAQ					</a>
+				</li>
+				<li class=" ">
+					<a href="http://unitygridframework.blogspot.de">
+						News					</a>
+				</li>
+				<li class=" ">
+					<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+						Support					</a>
+				</li>
+				<li class=" ">
+					<!-- Wrap link-button in a 'div' to preserve layout -->
+					<div class="navbar-btn">
+						<a class="btn btn-default" href="https://www.assetstore.unity3d.com/#/content/4004">
+							Buy <span class="badge">25$</span>						</a>
+					</div>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+	</div>
+
+	
+		<style scoped>
+			.foldout {
+				cursor: pointer;
+			}
+
+			.foldout:hover {
+				background-color: rgb(240,240,240);
+				border-radius: 5px;
+			}
+
+			/* Hide horizontal seperator line (will be overridden) */
+			.horizontal-sep {
+				display: none;
+			}
+
+			.expand {
+				/* Javascript will override this to make it visible again        */
+				/* If Javascript is disabled there is no reason to display this. */
+				display: none;
+			}
+
+			/* Small devices (tablets, 768px and up) */
+			@media (min-width: 992px) {
+				/* Display horizontal seperator line */
+				.horizontal-sep {
+					display: block;
+				}
+			}
+		</style>
+
+		<!-- This script idea is taken from the Haskell homepage -->
+		<script language="javascript">
+			<!--
+			// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+			$(document).ready( function () {
+				$('.foldout').each(function() {
+					var $this = $(this);
+					$this.find('.expandable').toggle();  // Hide by default
+					$this.find('.expand').css('display', 'inline');
+					$this.click(function() {
+						$this.find('.expandable').slideToggle({start: function() {
+							$this.find('.expand').toggle();
+						}});
+					});
+				});
+			});
+			// @license-end
+			-->
+		</script>
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 foldout">
+					<h2>How It Works</h2>
+
+					<p>
+						The heart of Grid Framework are the new grid classes. They are
+						components, so you add them to any of your Game Objects you whish.
+						You can add grids either using the editor or programatically at
+						runtime and modify its properties.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<div class="pygments">
+							<pre><span class="	n">GameObject</span> <span class="n">go</span><span class="p">;</span>
+<span clas s="n">GFRectGrid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">GFRectGrid</span><span class="p">&gt;();</span>
+<span clas s="c1">// Set up the grid for 2:1 dimetric graphics</span>
+<span clas s="n">grid</span><span class="p">.</span><span class="n">spacing</span>  <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span clas s="n">grid</span><span class="p">.</span><span class="n">shearing</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector6</span><span class="p">(-</span><span class="m">1</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span clas s="c1">// Vector6 is a custom type, not part of the Unity API</span>
+</pre>
+						</div>
+
+						<p>
+							The grid classes are prefixed with <code>GF</code> to prevent name
+							collisions with other types you might have in your own code. Ideally
+							they would be properly namespaced, but the Unity editor has problems
+							with namespaced components. Non-component types, such as
+							<code>Vector6</code> on the other hand are namespaced and will not
+							collide with other types.
+						</p>
+
+						<p>
+							All grids are in a class hierachy that allows you write common code
+							once and have if work for all kinds of grids:
+						</p>
+
+						<div class="pygments">
+							<pre>
+<span clas s="c1">// This will work for any grid</span>
+<span clas s="n">GFGrid</span>  <span class="n">grid</span><span class="p">;</span>
+<span clas s="n">Vector3</span> <span class="n">gridCoordinates</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldCoordinates</span><span class="p">);</span>
+<span clas s="c1">// The exact implementation depends on the type of grid</span>
+</pre>
+						</div>
+
+						<p>
+							With the grid set up in your scene you are ready to go. You now have
+							access to a vast and rich API you can use for your own application.
+						</p>
+					</div> <!-- /.expandable -->
+				</div> <!-- /.col-md-6 foldout -->
+
+				<div class="col-md-6 foldout">
+
+					<h2>Calculations</h2>
+
+					<p>
+						Grid Framework can convert from world coordinates to grid coordinates
+						and vice- versa with just one line of code. You can let it find the
+						nearest vertex, face or box, scale objects or snap them in place without
+						needing to write any formulae, it's all wrapped up for you.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable" id="features-1">
+
+						<p>
+							This allows you to write your game logic thinking entirely in
+							grid coordinates while the game plays out in world coordinates.
+							Then just let Grid Framework convert the result back into world
+							space and you're ready to go.
+						</p>
+
+						<p>
+							Let's say we wanted to move a unit from one point in the grid to
+							another. If we know the grid coordinates we can compute the world
+							coordinates and pass them to your movement function:
+						</p>
+
+						<div class="pygments">
+							<pre><span class="	n">Vector3</span> <span class="n">origin</span>      <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">originInGrid</span>   <span class="p">);</span>
+<span clas s="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">desinatioInGrid</span><span class="p">);</span>
+<span clas s="n">MoveUnit</span><span class="p">(</span><span class="k">from</span><span class="p">:</span> <span class="n">origin</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">destination</span><span class="p">);</span>
+</pre>
+						</div>
+
+						<p>
+							A common task is snapping things to a grid, for example when the
+							player is trying to place building in a strategy game. This is where the
+							SnapToGrid method comes into play:
+						</p>
+
+						<div class="pygments">
+							<pre>
+<span class="n">Transform</span> <span class="n">trnf</span><span class="p">;</span>
+<span class="c1">// Move the object the usual way with no snapping first</span>
+<span class="c1">// And then correct its position by snapping</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">trnf</span><span class="p">);</span>
+</pre>
+						</div>
+
+						<p>
+							Usually the AlignTransform method is smart enough to do what you want,
+							but if you want more control you can use the lower-level methods to
+							build your own rules.
+						</p>
+					</div> <!-- /.expandable -->
+
+				</div> <!-- /.col-md-6 foldout -->
+			</div> <!-- /.row -->
+
+			<hr class="horizontal-sep" />
+
+			<div class="row">
+				<div class="col-md-6 foldout">
+					<h2>Infinite Size And Fully 3D</h2>
+
+					<p>
+						The size of a grid is irrelevant, what really defines a grid is its
+						origin, its type and a few parameters. Using this information we
+						can perform any calculation at any point, without dependance on how
+						far from the origin we are.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							In fact, the distance doesn't even impact our performance, all
+							calculations always run at the same speed. Of course Grid
+							Framework's infinity is limited to what Unity is capable of and
+							there is no true infinity on computers, but Grid Framwork can get
+							as close to it as possible in Unity. Best of all, grids are in 3D
+							and move and, being components, rotate with the object they are
+							attached to; if you need a grid's rotation or position just get
+							the information from the Transform component, like any other
+							object in Unity.
+						</p>
+						<div class="pygments">
+							<pre>
+<span class="c1">// This works as you would expect</span>
+<span class="n">Quaternion</span> <span class="n">gridRotation</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+</pre>
+						</div>
+					</div> <!-- /.expandable -->
+				</div> <!-- /.col-md-6 foldout -->
+
+				<div class="col-md-6 foldout">
+					<h2>Small memory footprint</h2>
+
+					<p>
+						Grid Framework was designed to keep it simple, to just be there
+						when you need it but never intrude with the workflow. All
+						calculation methods run in constant time and the classes just store
+						a handful of float values.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							This keeps the performance impact to a minimum. It makes Grid
+							Framework suitable for desktop devices as well as mobile phones
+							and tablets where memory is more constrained than on desktop
+							computers.
+						</p>
+
+					</div>
+
+
+
+				</div> <!-- /.col-md-6 foldout -->
+			</div> <!-- /.row -->
+
+			<hr class="horizontal-sep" />
+
+			<div class="row">
+				<div class="col-md-6 foldout">
+					<h2>Rendering &amp; Drawing</h2>
+
+					<p>
+						You can both draw your grids in the editor using gizmos and render them
+						at runtime. You can turn individual axes on or off, set the colour for
+						each axis individually, change the width of the lines and even use your
+						own shaders if the default shader doesn't suit your needs.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							Redering is done using Unity's low-level rendering capabilities,
+							so it is blazing fast even on mobile devices. Keep in mind
+							though, that while the rendering is cheap, getting points for
+							large and very dense grids might not be. If your grids are
+							exceptionally large you will be glad to know that Grid Framework
+							can compute points for use with the popular Vectrosity add-on.
+						</p>
+
+						<div class="pygments">
+							<pre>
+<span class="c1">// Set the rendering range and colour, turn off the Z-axis</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">renderFrom</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span> <span class="m">0</span><span class="p">,</span>  <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">renderTo</span>   <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">axisColors</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ColorVector3</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">black</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">hideAxis</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</pre>
+						</div>
+					</div> <!-- /.expandable -->
+				</div> <!-- /.col-md-6 foldout -->
+
+				<div class="col-md-6 foldout">
+					<h2>Vectrosity Support</h2>
+
+					<p>
+						Vectrosity is a popular 3rd party vector line drawing solution for
+						Unity. Instead of rendering lines point by point, Vectrosity can
+						construct a mesh and then render the mesh in one go, making it an ideal
+						solution for complex shapes with many points, such as very dense grids.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							Using Vectrosity on its own would require you to compute all end points
+							yourself and then order them in the proper way so they appear in the
+							right order; Grid Framework can do the job for you by just calling the
+							built in method. For more information on Vectrosity please visit <a href="http://starscenesoftware.com/vectrosity.html">Vectrosity's web
+							site</a>. Vectrosity and Grid Framework are entirely unrelated products
+							and I am in no way affiliated with the author of Vectrosity.
+						</p>
+
+						<div class="pygments">
+							<pre>
+<span class="c1">// Grid Framework gets the points and then Vectrosity takes over</span>
+<span class="n">gridLine</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vectrosity</span><span class="p">.</span><span class="n">VectorLine</span><span class="p">(</span><span class="s">&quot;My lines&quot;</span><span class="p">,</span> <span class="n">grid</span><span class="p">.</span><span class="n">GetVectrosityPoints</span><span class="p">(),</span> <span class="n">lineColors</span><span class="p">,</span> <span class="n">lineMaterial</span><span class="p">,</span> <span class="n">lineWidth</span><span class="p">);</span>
+</pre>
+						</div>
+					</div> <!-- /.expandable -->
+				</div> <!-- /.col-md-6 foldout -->
+			</div> <!-- /.row -->
+
+			<hr class="horizontal-sep" />
+
+
+			<div class="row">
+				<div class="col-md-6 foldout">
+					<h2>Playmaker Support</h2>
+
+					<p>
+						Grid Framwork also supports the popular <a href="http://hutonggames.com/"> Playmaker</a> add-on for visual
+						scripting.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							The entire API, except for a few instances, is available as
+							Playmaker actions. You can use these action as building blocks in
+							your state machines to get and set properties and call methods.
+							Due to technical reasons any properties that rely on types not
+							built into Unity cannot be set or gotten; they will be added if
+							Playmaker becomes capable of handling custom types.
+						</p>
+
+					</div>
+
+				</div> <!-- /.col-md-6 foldout -->
+
+				<div class="col-md-6 foldout">
+					<h2>Fits Seamlessly Into Unity</h2>
+
+					<p>
+						There is no new interface to learn or new editor panel to add to the
+						project (unless you want to use the align panel of course), instead it
+						fits nicely into Unity as if it had always been a part of it.
+					</p>
+
+					<p class="expand"><a>Click to expand</a></p>
+
+					<div class="expandable">
+						<p>
+							The grid classes have their own custom inspector and you can
+							create grids from scratch, add a grid component to any of your
+							Game Objects or browse the documentation right from you menu bar,
+							just like any other component in Unity.
+						</p>
+					</div>
+
+				</div> <!-- /.col-md-6 foldout -->
+			</div> <!-- /.row -->
+
+			<hr class="horizontal-sep" />
+
+
+			<div class="row">
+				<div class="col-md-6 foldout">
+					<h2>Full Documentation</h2>
+
+					<p>
+						Like Unity itself, Grid Frameworks comes with a user manual that
+						explains you the ideas and concepts of Grid Framework, the coordinate
+						sytems used and the design principles. The scripting reference has all
+						classes with their member variables and methods covered. Hyperlinks to
+						entries in the documentation as well as links to Unity's own scriptiong
+						reference let you find anything conventiently.
+					</p>
+				</div> <!-- /.col-md-6 foldout -->
+
+				<div class="col-md-6 foldout">
+					<h2>Free Updates</h2>
+
+					<p>
+						As Grid Framework improves update will be released adding new
+						features.  Once you buy a copy of Grid Framework you will be entitled
+						to all future updates for free, even if the price goes up. This is my
+						way way of thanking everyone who supports me in the early stages :)
+					</p>
+				</div> <!-- /.col-md-6 foldout -->
+			</div> <!-- /.row -->
+
+			<hr class="horizontal-sep" />
+		</div>  <!-- /.container -->
+	
+</main>
+
+
+
+		<footer class="site-footer HolyGrail-footer">
+	<div class="container">
+		<div class="col-md-8 footer-left">
+			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+				<img src="/images/footer/logo.png" alt="HiPhish's Workshop" />
+			</a>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4 footer-right">
+			<span class="pull-right">
+				<a href="https://github.com/HiPhish" title="GitHub">
+					<img  class="img-circle" src="/images/footer/github.png" />
+				</a>
+				<a href="https://gitlab.com/u/HiPhish" title="GitLab">
+					<img  class="img-circle" src="/images/footer/gitlab.png" />
+				</a>
+			</span> <!-- /.pull-right -->
+		</div> <!-- /.col-md-4 -->
+		<p class="text-muted text-right"></p>
+	</div> <!-- /.container -->
+</footer>
+
+<!-- <footer class="footer well HolyGrail-footer"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
+<!-- 	</div> -->
+<!-- </footer> -->
+
+
+	</body>
+</html>

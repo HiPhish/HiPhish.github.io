@@ -1,133 +1,367 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="UTF-8"                                              />
-		<meta name="author"       content="HiPhish"                        />
-		<meta name="description"  content="Website for HiPhish's projects."/>
-		<meta name="keywords"     content="Grid, Framework, Unity, Asset"  />
+		<title>Grid Framework - HiPhish's Workshop</title>
 
-		<link href="../main.css"       rel="stylesheet"  media="all"  type="text/css">
-		<link href="../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
-		<link href="../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
+		<!-- HTML page metadata -->
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HiPhish's Workshop">
+		<meta name="author" content="HiPhish">
 
-		<title>Grid Framework</title>
+		<!-- Favicon if one is set -->
 
-		<!-- Style of the product splash image -->
+
+		<!-- Style sheets -->
+
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet" href="http://192.168.0.190:8000/css/bootstrap.min.css">
+
+
+
+		<!-- Main theme CSS file taking precedence over Bootstrap -->
+		<link rel="stylesheet" href="/theme/css/main.css">
+
+
+		<!-- Code highlight using CSS classes from Pygments -->
+		<link rel="stylesheet" href="/theme/css/pygment.css" />
+
+		<!-- "Holy Grail" page design -->
+		<link rel="stylesheet" href="/theme/css/grail.css" />
+
+		<script src="http://192.168.0.190:8000/js/jquery-1.11.3.min.js"></script>
+		<script src="/theme/js/navbar.js"></script>
+
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+		crossorigin="anonymous"></script>
+
+	</head>
+
+	<body class="HolyGrail">
+
+		<!-- Top navigation bar -->
+		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">HiPhish's Workshop</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav">
+				<li class="dropdown active">
+					<a href="/grid-framework/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Grid Framework <span></span> <span class="sr-only">(current)</span>					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/grid-framework/">
+								Overview							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="/grid-framework/features">
+								Features							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/examples">
+								Examples							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/gallery">
+								Gallery							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/faq">
+								FAQ							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/blog">
+								News							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+								Support							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="https://www.assetstore.unity3d.com/#/content/4004">
+								Buy Now <span class="badge">25$</span>							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="disabled ">
+					<a href="">
+						Open Source
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="disabled ">
+					<a href="">
+						Blog					</a>
+				</li>
+				<li class=" ">
+					<a href="/about">
+						About					</a>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!-- All Bootstrap content must be inside a container div -->
+<main class="flex-body">
+	<!-- Sub-site navigation bar -->
+	<div class="container">
+		<nav id="sub-navbar" class="navbar navbar-default" >
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-subnavbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/grid-framework">Grid Framework</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-subnavbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class=" ">
+					<a href="/grid-framework/features">
+						Features					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/examples">
+						Examples					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/gallery">
+						Gallery					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/faq">
+						FAQ					</a>
+				</li>
+				<li class=" ">
+					<a href="http://unitygridframework.blogspot.de">
+						News					</a>
+				</li>
+				<li class=" ">
+					<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+						Support					</a>
+				</li>
+				<li class=" ">
+					<!-- Wrap link-button in a 'div' to preserve layout -->
+					<div class="navbar-btn">
+						<a class="btn btn-default" href="https://www.assetstore.unity3d.com/#/content/4004">
+							Buy <span class="badge">25$</span>						</a>
+					</div>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+	</div>
+
+	
 		<style>
-			img {
-				position     : relative;
-				float        : none;
-				margin-left  : auto;
-				margin-right : auto;
-				display      : block;
-			}
-			#blackboard {
-				width            : 100%;
-				height           : auto;
-				background-image : url(images/greenboard.jpg);
-				display          : block;
-				position         : relative;
-				margin           : 0px auto 1em auto;
+			.jumbotron {
+				padding-top: 1.5em;
+    		background-image: url("../pages/grid-framework/assets/greenboard.jpg");
+    		background-size: cover;
+    		color: white;
+    		text-shadow: black 0.3em 0.3em 0.3em;
 			}
 		</style>
-		<!-- Style of the product splash image -->
-	</head>
-	
-	<body id="grid-fwk">
-		<nav id="headerbar">
-			<ul>
-				<li class="home"    ><a href="../"                                  > Home           </a> </li>
-				<li class="grid-fwk"><a href="."                                    > Grid Framework </a> </li>
-				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
-				<li class="about"   ><a href="../about"                             > About          </a> </li>
-			</ul>
-		</nav>
-	
-		<nav id="toolbar">
-			<ul>
-				<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
-				<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
-				<li><a href="screenshots"                                                                        > screenshots            </a></li>
-				<li><a href="examples"                                                                           > Examples               </a></li>
-				<li><a href="features"                                                                           > Features               </a></li>
-				<li><a href="."                                                                                  > Overview               </a></li>
-			</ul>
-		</nav>
-		
-		<div id="maincontent" >
-			<div id="blackboard">
-				<img alt="Grid Framework logo" src="images/Logo.png" />
+
+		<div class="container">
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-8">
+						<h1>Grid Framework</h1>
+						<p>
+							Code grid-based game logic in no time with Grid Framework, a
+							simple and versatile scripting add-on for the Unity3D game
+							engine.
+						</p>
+					</div>
+					<div class="col-md-4">
+						<img class="img-responsive" src="../pages/grid-framework/assets/logo.png" alt="Grid Framework logo">
+					</div>
+				</div>
 			</div>
-		
+		</div>
+
+		<div class="container well">
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Flexible <span class="pull-right glyphicon glyphicon-wrench" /></h3>
+					<p>
+						You don't write your project to fit Grid Framework, Grid
+						Framework fits your project. Use the scripting API in any way you
+						want, for any purpose you want. See the examples to get some ideas.
+					</p>
+				</div> <!-- /.col-md-4 -->
+
+				<div class="col-md-4">
+					<h3>Ready to go <span class="pull-right glyphicon glyphicon-book" /></h3>
+					<p>
+						All you have to do is add a grid component to one of your objects
+						and you can start scripting. The included user manual, API
+						reference and included examples allow you to be productive in no
+						time.
+					</p>
+				</div> <!-- /.col-md-4 -->
+
+				<div class="col-md-4">
+					<h3>Lightweight <span class="pull-right glyphicon glyphicon-leaf" /></h3>
+					<p>
+						Grids store only the absoulute minium of information necessary:
+						their spacing, their range and information on how to display.
+						This allows you to have infinitely large grids with minimal
+						memory footprint.
+					</p>
+				</div> <!-- /.col-md-4 -->
+
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+
+		<div class="container">
+			<h2>What is Grid Framework?</h2>
+
 			<p>
-				Grid Framework is a powerful, yet easy to use solution for all your
-				grid based needs. By providing you with new classes all you need to do
-				is apply the grid component of your choice onto a Game Object, set the
-				values to your liking and start writing your game logic without
+				Grid Framework is a powerful and easy to use solution for all your grid
+				based needs. By providing you with new classes all you need to do is
+				apply the grid component of your choice onto a <code>GameObject</code>,
+				set the values to your liking and start writing your game logic without
 				worrying about the underlying math. No matter whether you are making a
 				board game, a strategy game, a puzzle game, an arcade-style game or
 				just any other type of game that needs clockwork-like precision, Grid
 				Framework will help you in setting up your game and writing your game
 				logic in an intuitive way.
 			</p>
-		
-			<h1>What exactly is Grid Framework?</h1>
-		
+
 			<p>
-				The simplest way to describe Grid Framework would be to call it
-				a <em>library</em>.  It provides you with new classes and new
-				components complete with custom inspectors, ready to use. It
-				also serves as an editor extension by providing you with an
-				align panel, allowing you to auto-snap objects right in the
-				editor.  You can set the properties of the new grid components
-				in the editor and use them in scripting, just like any other
+				The simplest way to describe Grid Framework would be to call it a
+				library. It provides you with new classes and new components complete
+				with custom inspectors, ready to use. It also serves as an editor
+				extension by providing you with an align panel that lets you auto-snap
+				objects right in the editor. You can set the properties of the new grid
+				components in the editor and use them in scripting, same as any other
 				component of Unity.
 			</p>
-		
-			<h1>Why Grid Framework?</h1>
-		
+
+			<hr />
+
+			<h2>Why Grid Framework?</h2>
+
 			<p>
-				Grid Framework was carefully designed with flexibility in mind.
-				No two games are the same, and even if they might appear
-				similar on the outside, their inner workings could be very
-				different. I wanted to write a solutions that doesn't lock you
-				into a specific workflow, instead it gives you the parts needed
-				and you put them in place the way that suits your game best.
-				All Grid Framework does is wrap up the mathematical formulae
-				into simple methods to call, allowing you to focus on the
-				actual game instead.
+				Grid Framework was carefully designed with flexibility in mind. No two
+				games are the same, and even if they might appear similar on the outside,
+				their inner workings could be very different. I wanted to write a
+				solutions that doesn't lock you into a specific workflow, instead it
+				gives you the parts needed and you put them in place the way that suits
+				your game best. All Grid Framework does is wrap up the mathematical
+				formulae into simple methods to call, allowing you to focus on the actual
+				game instead.
 			</p>
+
+			<hr />
+			<h2>What Grid Framework is not</h2>
+
 			<p>
-				It is important to understand that Grid Framework is not a kit
-				that takes away all the coding, you still need to code your
-				game logic. However, unlike a kit that locks you into a
-				specific workflow and only allows you to do what its developer
-				intended, Grid Framework has no limited use and seamlessly fits
-				into your own workflow.  No matter if you want to rewrite your
-				existing logic or start from scratch, you are ready to go.
+				It is important to understand that Grid Framework is not a kit that
+				takes away all the coding, you still need to code your game logic.
+				However, unlike a kit that locks you into a specific workflow and only
+				allows you to do what its developer intended, Grid Framework has no
+				limited use and seamlessly fits into your own workflow. Whether you
+				want to rewrite your existing logic or start from scratch does not
+				matter, it fits around <em>your</em> project.
 			</p>
+
+			<hr />
+			<h2>What Is Included?</h2>
+
 			<p>
-				To help you out there are several <a href="examples">examples</a>
-				included to demonstrate how to perform common tasks, such as moving
-				the player on a grid, snapping objects during runtime or assembling
-				levels from plain text files. All examples are written in C# and
-				JavaScript, when possible, and the code is commented thoroughly.
+				To help you out there are several examples included to demonstrate how
+				to perform common tasks, such as moving the player on a grid, snapping
+				objects during runtime or assembling levels from plain text files. All
+				examples are written in C# and UnityScript, when possible, and the code
+				is commented thoroughly. You can even try out the <a href="examples">
+				examples</a> right here in your browser.
 			</p>
-		
-			<h1>What is included?</h1>
-		
+
 			<p>
-				This is a quick overview of the features of Grid Framework, for more details please
-				visit the <a href="features.html">features page</a>.
+				This is a quick overview of the features of Grid Framework, for more
+				details please visit the features page.
 			</p>
 			<ul>
-				<li> components for rectangular, hexagonal and polar grids </li>
-				<li> editor panel for aligning and scaling objects         </li>
-				<li> renderings grids at runtime                           </li>
-				<li> user manual and scripting reference                   </li>
-				<li> many examples with fully commented source code        </li>
-				<li> the full source code of Grid Framework, written in C# </li>
+				<li>components for rectangular, hexagonal and polar grids</li>
+				<li>editor panel for aligning and scaling objects</li>
+				<li>rendering grids at runtime</li>
+				<li>user manual and scripting reference</li>
+				<li>many examples with fully commented source code</li>
+				<li>the full source code of Grid Framework, written in C#</li>
+				<li>support for Vectrocity and PlayMaker Unity addons</li>
 			</ul>
 		</div>
+
+	
+</main>
+
+
+
+		<footer class="site-footer HolyGrail-footer">
+	<div class="container">
+		<div class="col-md-8 footer-left">
+			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+				<img src="/images/footer/logo.png" alt="HiPhish's Workshop" />
+			</a>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4 footer-right">
+			<span class="pull-right">
+				<a href="https://github.com/HiPhish" title="GitHub">
+					<img  class="img-circle" src="/images/footer/github.png" />
+				</a>
+				<a href="https://gitlab.com/u/HiPhish" title="GitLab">
+					<img  class="img-circle" src="/images/footer/gitlab.png" />
+				</a>
+			</span> <!-- /.pull-right -->
+		</div> <!-- /.col-md-4 -->
+		<p class="text-muted text-right"></p>
+	</div> <!-- /.container -->
+</footer>
+
+<!-- <footer class="footer well HolyGrail-footer"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
+<!-- 	</div> -->
+<!-- </footer> -->
+
+
 	</body>
 </html>

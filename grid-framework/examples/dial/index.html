@@ -1,37 +1,199 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Grid Framework - Rotary Dial</title>
-		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
-		<script type='text/javascript' src='../web-player-object.js'></script>
-		<script type='text/javascript' src='../web-player.js'></script>
-		<link href="../web-player.css" rel="stylesheet"  media="all"  type="text/css" />
+		<title>Rotary Dial - Grid Framework</title>
 
-		<link href="../../../main.css"       rel="stylesheet"  media="all"  type="text/css" />
-		<link href="../../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css" />
-		<link href="../../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css" />
+		<!-- HTML page metadata -->
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HiPhish's Workshop">
+		<meta name="author" content="HiPhish">
+
+		<!-- Favicon if one is set -->
+
+
+		<!-- Style sheets -->
+
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet" href="http://192.168.0.190:8000/css/bootstrap.min.css">
+
+
+
+		<!-- Main theme CSS file taking precedence over Bootstrap -->
+		<link rel="stylesheet" href="/theme/css/main.css">
+
+
+		<!-- Code highlight using CSS classes from Pygments -->
+		<link rel="stylesheet" href="/theme/css/pygment.css" />
+
+		<!-- "Holy Grail" page design -->
+		<link rel="stylesheet" href="/theme/css/grail.css" />
+
+		<script src="http://192.168.0.190:8000/js/jquery-1.11.3.min.js"></script>
+		<script src="/theme/js/navbar.js"></script>
+
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+		crossorigin="anonymous"></script>
+
 	</head>
-	<body id="grid-fwk">
-		<nav id="headerbar">
-			<ul>
-				<li class="home"    ><a href="../../../"                            > Home           </a> </li>
-				<li class="grid-fwk"><a href="../../"                               > Grid Framework </a> </li>
-				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
-				<li class="about"   ><a href="../../../about"                       > About          </a> </li>
-			</ul>
-		</nav>
-	
-		<nav id="toolbar"><ul>
-			<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
-			<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
-			<li><a href="../../screenshots"                                                                  > screenshots            </a></li>
-			<li><a href="../"                                                                                > Examples               </a></li>
-			<li><a href="../../features"                                                                     > Features               </a></li>
-			<li><a href="../../"                                                                             > Overview               </a></li>
-		</ul></nav>
 
-		<p class="header"><span><a href="../#dial">Grid Framework examples</a> | </span>Rotary Dial</p>
+	<body class="HolyGrail">
+
+		<!-- Top navigation bar -->
+		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">HiPhish's Workshop</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav">
+				<li class="dropdown active">
+					<a href="/grid-framework/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Grid Framework <span></span> <span class="sr-only">(current)</span>					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/grid-framework/">
+								Overview							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="/grid-framework/features">
+								Features							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/examples">
+								Examples							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/gallery">
+								Gallery							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/faq">
+								FAQ							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/blog">
+								News							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+								Support							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="https://www.assetstore.unity3d.com/#/content/4004">
+								Buy Now <span class="badge">25$</span>							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="disabled ">
+					<a href="">
+						Open Source
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="disabled ">
+					<a href="">
+						Blog					</a>
+				</li>
+				<li class=" ">
+					<a href="/about">
+						About					</a>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!-- All Bootstrap content must be inside a container div -->
+<main class="flex-body">
+	<!-- Sub-site navigation bar -->
+	<div class="container">
+		<nav id="sub-navbar" class="navbar navbar-default" >
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-subnavbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/grid-framework">Grid Framework</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-subnavbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class=" ">
+					<a href="/grid-framework/features">
+						Features					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/examples">
+						Examples					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/gallery">
+						Gallery					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/faq">
+						FAQ					</a>
+				</li>
+				<li class=" ">
+					<a href="http://unitygridframework.blogspot.de">
+						News					</a>
+				</li>
+				<li class=" ">
+					<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+						Support					</a>
+				</li>
+				<li class=" ">
+					<!-- Wrap link-button in a 'div' to preserve layout -->
+					<div class="navbar-btn">
+						<a class="btn btn-default" href="https://www.assetstore.unity3d.com/#/content/4004">
+							Buy <span class="badge">25$</span>						</a>
+					</div>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+	</div>
+
+	
+		<!-- Mandatory Unity web player scripts and stylesheet -->
+		<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/web-player-object.js"></script>
+		<script type="text/javascript" src="../../../js/web-player.js"></script>
+		<style type="text/css"> @import url("../../../css/web-player.css"); </style>
+		<link href="/grid-framework/examples/dial/example.unity3d" />
+
+		<p class="backlink"><a href="../#dial">Grid Framework examples</a> | <strong>Rotary Dial</strong></p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
@@ -41,5 +203,41 @@
 				</div>
 			</div>
 		</div>
+
+	
+</main>
+
+
+
+		<footer class="site-footer HolyGrail-footer">
+	<div class="container">
+		<div class="col-md-8 footer-left">
+			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+				<img src="/images/footer/logo.png" alt="HiPhish's Workshop" />
+			</a>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4 footer-right">
+			<span class="pull-right">
+				<a href="https://github.com/HiPhish" title="GitHub">
+					<img  class="img-circle" src="/images/footer/github.png" />
+				</a>
+				<a href="https://gitlab.com/u/HiPhish" title="GitLab">
+					<img  class="img-circle" src="/images/footer/gitlab.png" />
+				</a>
+			</span> <!-- /.pull-right -->
+		</div> <!-- /.col-md-4 -->
+		<p class="text-muted text-right"></p>
+	</div> <!-- /.container -->
+</footer>
+
+<!-- <footer class="footer well HolyGrail-footer"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
+<!-- 	</div> -->
+<!-- </footer> -->
+
+
 	</body>
 </html>

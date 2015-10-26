@@ -1,67 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="UTF-8"                                              />
-		<meta name="author"       content="HiPhish"                        />
-		<meta name="description"  content="Website for HiPhish's projects."/>
-		<meta name="keywords"     content="Grid, Framework, Unity, Asset"  />
+		<title>Examples - Grid Framework</title>
 
-		<link href="../../main.css"       rel="stylesheet"  media="all"  type="text/css">
-		<link href="../../headerbar.css"  rel="stylesheet"  media="all"  type="text/css">
-		<link href="../../toolbar.css"    rel="stylesheet"  media="all"  type="text/css">
+		<!-- HTML page metadata -->
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HiPhish's Workshop">
+		<meta name="author" content="HiPhish">
 
-		<title>Grid Framework - Examples</title>
+		<!-- Favicon if one is set -->
 
-		<!-- SyntaxHighligher -->
-		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shCoreDefault.css" />
-		<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter_3.0.83/styles/shThemeDefault.css"/>
 
-		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"       ></script>
-		<script type="text/javascript" src="../../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"></script>
+		<!-- Style sheets -->
 
-		<script>SyntaxHighlighter.all();</script>
-		<!-- SyntaxHighligher -->
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet" href="http://192.168.0.190:8000/css/bootstrap.min.css">
 
-		<!-- Style of example headings that serve as links -->
-		<style>
-			h1 a{
-				text-decoration:none;
-				color:inherit;
-			}
-			h1 a:hover{
-				text-decoration:underline;
-			}
-		</style>
-		<!-- Style of example headings that serve as links -->
+
+
+		<!-- Main theme CSS file taking precedence over Bootstrap -->
+		<link rel="stylesheet" href="/theme/css/main.css">
+
+
+		<!-- Code highlight using CSS classes from Pygments -->
+		<link rel="stylesheet" href="/theme/css/pygment.css" />
+
+		<!-- "Holy Grail" page design -->
+		<link rel="stylesheet" href="/theme/css/grail.css" />
+
+		<script src="http://192.168.0.190:8000/js/jquery-1.11.3.min.js"></script>
+		<script src="/theme/js/navbar.js"></script>
+
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+		crossorigin="anonymous"></script>
+
 	</head>
 
-	<body id="grid-fwk">
-		<nav id="headerbar">
-			<ul>
-				<li class="home"    ><a href="../../"                               > Home           </a> </li>
-				<li class="grid-fwk"><a href="../"                                  > Grid Framework </a> </li>
-				<li class="blog"    ><a href="http://unitygridframework.blogspot.de"> Blog           </a> </li>
-				<li class="about"   ><a href="../../about"                          > About          </a> </li>
+	<body class="HolyGrail">
+
+		<!-- Top navigation bar -->
+		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">HiPhish's Workshop</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav">
+				<li class="dropdown active">
+					<a href="/grid-framework/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Grid Framework <span></span> <span class="sr-only">(current)</span>					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/grid-framework/">
+								Overview							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="/grid-framework/features">
+								Features							</a>
+						</li>
+						<li class="active">
+							<a href="/grid-framework/examples">
+								Examples <span class="sr-only">(current)</span>							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/gallery">
+								Gallery							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/faq">
+								FAQ							</a>
+						</li>
+						<li>
+							<a href="/grid-framework/blog">
+								News							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+								Support							</a>
+						</li>
+						<li class="divider" role="seperator"></li>
+						<li>
+							<a href="https://www.assetstore.unity3d.com/#/content/4004">
+								Buy Now <span class="badge">25$</span>							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="disabled ">
+					<a href="">
+						Open Source
+					</a>
+				</li>
 			</ul>
-		</nav>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="disabled ">
+					<a href="">
+						Blog					</a>
+				</li>
+				<li class=" ">
+					<a href="/about">
+						About					</a>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+
+<!-- All Bootstrap content must be inside a container div -->
+<main class="flex-body">
+	<!-- Sub-site navigation bar -->
+	<div class="container">
+		<nav id="sub-navbar" class="navbar navbar-default" >
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-subnavbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/grid-framework">Grid Framework</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-subnavbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class=" ">
+					<a href="/grid-framework/features">
+						Features					</a>
+				</li>
+				<li class=" active">
+					<a href="/grid-framework/examples">
+						Examples <span class="sr-only">(current)</span>					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/gallery">
+						Gallery					</a>
+				</li>
+				<li class=" ">
+					<a href="/grid-framework/faq">
+						FAQ					</a>
+				</li>
+				<li class=" ">
+					<a href="http://unitygridframework.blogspot.de">
+						News					</a>
+				</li>
+				<li class=" ">
+					<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins">
+						Support					</a>
+				</li>
+				<li class=" ">
+					<!-- Wrap link-button in a 'div' to preserve layout -->
+					<div class="navbar-btn">
+						<a class="btn btn-default" href="https://www.assetstore.unity3d.com/#/content/4004">
+							Buy <span class="badge">25$</span>						</a>
+					</div>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+	</div>
+
 	
-		<nav id="toolbar"><ul>
-			<li class="button"><a href="https://www.assetstore.unity3d.com/#/content/4004"                   > Buy Now                </a></li>
-			<li><a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"> Support (Unity forums) </a></li>
-			<li><a href="../screenshots"                                                                     > screenshots            </a></li>
-			<li><a href="."                                                                                  > Examples               </a></li>
-			<li><a href="../features"                                                                        > Features               </a></li>
-			<li><a href="../"                                                                                > Overview               </a></li>
-		</ul></nav>
-	
-		<div id="maincontent">
-			
+		<style>
+			iframe {
+				float:left;
+				margin-right:1em;
+				margin-bottom:2em;
+				margin-left:1em;
+				border-image-source:initial;
+				border-image-slice:initial;
+				border-image-width:initial;
+				border-image-outset:initial;
+				border-image-repeat:initial;
+				border:1px solid #000000;
+			}
+		</style>
+
+		<div class="container">
 			<p>
-				To help you get started Grid Framework comes with several examples showing you
-				how to implement from scratch features commonly found in games, such as moving
-				along a grid, using the grid for game logic like in a puzzle game, assembling
-				a level and even extending Grid Framework with your own methods without
-				touching the source code of Grid Framework itself.
+				To help you get started Grid Framework comes with several examples
+				showing you how to implement from scratch features commonly found in
+				games, such as moving along a grid, using the grid for game logic like
+				in a puzzle game, assembling a level or even extending Grid Framework
+				with your own methods without touching the source code of Grid
+				Framework itself.
 			</p>
 			
 			<p>
@@ -71,7 +218,7 @@
 				from scratch and expain the idea behind the code, for those of you who prefer
 				learning by doing rather than having the source code served to them in one go.
 			</p>
-		
+			
 			<p>
 				Click a title to get to a playable build, or watch a video of
 				me coding the example live. These videos were recorded at
@@ -79,9 +226,11 @@
 				interface and usability may appear more crude than it currently
 				is.
 			</p>
+
+			<hr />
 			
+			<iframe title="YouTube video player" class="pull-right" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<h1 id="movement"><a href="./movement">Moving along a grid</a></h1>
-			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<p>
 				One of the most common uses for grids is movement. Maybe you have a tactical
 				game, or a board game or you just want the old-school feel of tile based games.
@@ -91,7 +240,7 @@
 				grid size. We need this because grids are infinitely large, so the sphere could
 				wander off into infinity.
 			</p>
-
+	
 			<p>
 				This example demonstrates one of the simplest and most common uses
 				for Grid Framework: converting between coordinate systems. We take
@@ -100,10 +249,13 @@
 				that as the destination of our movement function.
 			</p>
 			
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction));
-			]]></script>
-
+			<!-- worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction)); -->
+			<div class="pygments">
+				<pre>
+<span class="n">worldPosition</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldPosition</span><span class="p">)</span> <span class="p">+</span> <span class="n">direction</span><span class="p">));
+</span></pre>
+			</div>
+	
 			<p>
 				In such a simple case it would make more sense to convert the
 				possible directions to world space and store the results. Instead
@@ -111,9 +263,11 @@
 				the direction in world coordinates, saving a two steps in the
 				process.  But this for demonstation purpose.
 			</p>
-
+	
+			<hr />
+			
+			<iframe title="YouTube video player" class="pull-right" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<h1 id="obstacles"><a href="./obstacles">Moving with obstacles</a></h1>
-			<iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe>
 			<p>
 				Moving around freely is nice, but let's make it more interesting by introducing
 				obstacles. We could just use Unity's physics along with raycasting to see if our
@@ -124,35 +278,52 @@
 				format to store more information, such as the terrain, the type of obstacle
 				(wall, enemy, door, item) or even a reference to the object blocking our path.
 			</p>
-
+	
 			<p>
 				The core of the example is a matrix of boolean values. We use Grid
 				Framework to determine the size of the matrix.  How large does the
 				matrix need to be? A few lines of code get the work done.
 			</p>
-
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				var size = new int[2];
-				for(int i = 0; i < 2; i++){
-					//get the distance between both ends (in world units), divide it by the spacing (to get grid units) and round down to the nearest integer
-					size[i] = Mathf.FloorToInt(Mathf.Abs(movementGrid.renderFrom[i] - movementGrid.renderTo[i]) / movementGrid.spacing[i]);
-				}
-			]]></script>
-
+	
+			<!-- var size = new int[2];                                                          -->
+			<!-- for(int i = 0; i < 2; i++){                                                     -->
+    	<!--     // get the distance between both ends (in world units), divide it           -->
+    	<!--     // by the spacing (to get grid units) and round down to the nearest integer -->
+    	<!--     size[i] = Mathf.FloorToInt(Mathf.Abs(movementGrid.renderFrom[i] - movementGrid.renderTo[i]) / movementGrid.spacing[i]); -->
+			<!-- }                                                                               -->
+			<div class="pygments">
+				<pre>
+<span class="kt">var</span> <span class="n">size</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+    <span class="c1">// get the distance between both ends (in world units), divide it</span>
+    <span class="c1">// by the spacing (to get grid units) and round down to the nearest integer</span>
+    <span class="n">size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">renderFrom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">movementGrid</span><span class="p">.</span><span class="n">renderTo</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">/</span> <span class="n">movementGrid</span><span class="p">.</span><span class="n">spacing</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre>
+			</div>
+	
 			<p>
 				And how do we find out the matrix position of a tile? Two lines of
 				code do the job.
 			</p>
-
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				var square = new int[2];
-				for(int i = 0; i < 2; i++){
-					square[i] = Mathf.FloorToInt(movementGrid.NearestBoxG(vec)[i]) - originSquare[i];
-				}
-			]]></script>
+	
+			<!-- var square = new int[2];                                                              -->
+			<!--     for(int i = 0; i < 2; i++){                                                       -->
+    	<!--     square[i] = Mathf.FloorToInt(movementGrid.NearestBoxG(vec)[i]) - originSquare[i]; -->
+			<!-- }                                                                                     -->
+			<div class="pygments">
+				<pre>
+<span class="kt">var</span> <span class="n">square</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+    <span class="n">square</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">NearestBoxG</span><span class="p">(</span><span class="n">vec</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="p">-</span> <span class="n">originSquare</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</pre>
+			</div>
 			
+			<hr />
+			
+			<iframe title="YouTube" class="pull-right" src="http://www.youtube.com/embed/sXlagrglfQ8"></iframe>
 			<h1 id="lights"><a href="./lights">lights-out puzzle game</a></h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/sXlagrglfQ8"></iframe>
 			<p>
 				Here we learn how write a simple puzzle game where the goal is to turn all the
 				lights off and every time you click a square that square and the four adjacent
@@ -161,25 +332,33 @@
 				holes in it. This example uses delegates and events and is therefore only
 				available in C#.
 			</p>
-
+	
 			<p>
 				The core of this example is comparing the grid coordinates of the
 				tiles to the one tile that was clicked to decide whether to switch
 				colour. The logic is nicely encapsulated in a custom extension
 				method and works for any type of grid:
 			</p>
-			
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				if(theGrid.IsAdjacent(transform.position, switchPosition)){
-					//flip the state of this switch
-					isOn = !isOn;
-				}
-			]]></script>
 
+			<!-- if(theGrid.IsAdjacent(transform.position, switchPosition)){ -->
+    	<!--     //flip the state of this switch                         -->
+    	<!--     isOn = !isOn;                                           -->
+			<!-- }                                                           -->
+			<div class="pygments">
+				<pre>
+<span class="k">if</span><span class="p">(</span><span class="n">theGrid</span><span class="p">.</span><span class="n">IsAdjacent</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">switchPosition</span><span class="p">)){</span>
+    <span class="c1">//flip the state of this switch</span>
+    <span class="n">isOn</span> <span class="p">=</span> <span class="p">!</span><span class="n">isOn</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+			</div>
+	
 			<p>This extension method is not part of Grid Framework's API, but we can use it as if it were.</p>
-
+	
+			<hr />
+			
+			<iframe title="YouTube" class="pull-right" src="http://www.youtube.com/embed/W_QteDtqHK4" id="extending"></iframe>
 			<h1>extending Grid Framework with your own methods</h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/W_QteDtqHK4" id="extending"></iframe>
 			<p>
 				This is a continuation of the above example where we extend the game to use a
 				hexagonal grid. Needless to say we don't want to write almost the same script
@@ -187,34 +366,58 @@
 				class that picks its implementation depending on the specific type of grid we
 				use. Then we can use the same script for both rectangular, hexagonal and polar grids.
 			</p>
-
+	
 			<p>Here is the example of how it works for rectangular grids:</p>
 			
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				public static bool IsAdjacent(this GFGrid theGrid, Vector3 position, Vector3 reference){
-					//convert to Grid Space first
-					Vector3 gridPosition = theGrid.WorldToGrid(position);//the light we want to test
-					Vector3 gridReference = theGrid.WorldToGrid(reference);//the light that was pressed
-					
-					//pick the implentation based on the type of grid
-					if (theGrid.GetType() == typeof(GFRectGrid)) {
-						return RectIsAdjacent((GFRectGrid)theGrid, gridPosition, gridReference);
-					} else if (...) {
-						// and so on...
-					} else
-						return false;
-					}
-				}
-				
-				private static bool RectIsAdjacent(GFRectGrid theGrid, Vector3 position, Vector3 reference){
-					bool isAdjacent = Mathf.Abs(position.x-reference.x) <= 1.25f && Mathf.Abs(position.y-reference.y) <= 1.25f;
-					bool isDiagonal = 0.25f <= Mathf.Abs(position.x-reference.x) && 0.25f <= Mathf.Abs(position.y-reference.y) && isAdjacent;
-					return isAdjacent && !isDiagonal;
-				}
-			]]></script>
+			<!-- public static bool IsAdjacent(this GFGrid theGrid, Vector3 position, Vector3 reference){   -->
+      <!--     //convert to Grid Space first                                                          -->
+      <!--     Vector3 gridPosition = the Grid.WorldToGrid(position);//the light we want to test      -->
+      <!--     Vector3 gridReference = theGrid.WorldToGrid(reference);//the light that was pressed    -->
+
+      <!--     //pick the implentation based on the type of grid                                      -->
+      <!--     if (theGrid.GetType() == typeof(GFRectGrid)) {                                         -->
+      <!--         return RectIsAdjacent((GFRectGrid)theGrid, gridPosition, gridReference);           -->
+      <!--     } else if (...) {                                                                      -->
+      <!--         // and so on...                                                                    -->
+      <!--     } else                                                                                 -->
+      <!--         return false;                                                                      -->
+      <!--     }                                                                                      -->
+			<!-- }                                                                                          -->
+
+			<!-- 	private static bool RectIsAdjacent(GFRectGrid theGrid, Vector3 position, Vector3 reference){                                  -->
+      <!--      bool isAdjacent = Mathf.Abs(position.x-reference.x) <= 1.25f && Mathf.Abs(position.y-reference.y) <= 1.25f;               -->
+     	<!--      bool isDiagonal = 0.25f <= Mathf.Abs(position.x-reference.x) && 0.25f <= Mathf.Abs(position.y-reference.y) && isAdjacent; -->
+     	<!--      return isAdjacent && !isDiagonal;                                                                                         -->
+			<!-- 	}                                                                                                                             -->
+			<div class="pygments">
+				<pre>
+<span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsAdjacent</span><span class="p">(</span><span class="k">this</span> <span class="n">GFGrid</span> <span class="n">theGrid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">){</span>
+    <span class="c1">//convert to Grid Space first</span>
+    <span class="n">Vector3</span> <span class="n">gridPosition</span> <span class="p">=</span> <span class="n">the Grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">position</span><span class="p">);</span><span class="c1">//the light we want to test</span>
+        <span class="n">Vector3</span> <span class="n">gridReference</span> <span class="p">=</span> <span class="n">theGrid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">reference</span><span class="p">);</span><span class="c1">//the light that was pressed</span>
+
+    <span class="c1">//pick the implentation based on the type of grid</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">theGrid</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">==</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GFRectGrid</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">RectIsAdjacent</span><span class="p">((</span><span class="n">GFRectGrid</span><span class="p">)</span><span class="n">theGrid</span><span class="p">,</span> <span class="n">gridPosition</span><span class="p">,</span> <span class="n">gridReference</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(...)</span> <span class="p">{</span>
+        <span class="c1">// and so on...</span>
+    <span class="p">}</span> <span class="k">else</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">RectIsAdjacent</span><span class="p">(</span><span class="n">GFRectGrid</span> <span class="n">theGrid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">){</span>
+    <span class="kt">bool</span> <span class="n">isAdjacent</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">1.25f</span> <span class="p">&amp;&amp;</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">1.25f</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">isDiagonal</span> <span class="p">=</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">isAdjacent</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">isAdjacent</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">isDiagonal</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+			</div>
 			
+			<hr />
+			
+			<iframe title="YouTube" class="pull-right" src="http://www.youtube.com/embed/lvYWbJ8ohkA" id="assembling"></iframe>
 			<h1 id="level-design"><a href="./level-design">Assembling a level from text file</a></h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/lvYWbJ8ohkA" id="assembling"></iframe>
 			<p>
 				In this example we create a breakout field by parsing a plain text file placing
 				objects on the grid according to the position inside the file. This appoach
@@ -226,35 +429,47 @@
 				worry about carrying the background or music from scene to scene, allowing for
 				seamless transition.
 			</p>
-
+	
 			<p>
 				The core of this example is the position of a character in the
 				textfile, i.e. the row and column.  We use these text coordinates
 				as grid coordinates and convert them to world coordinates.
 			</p>
-		
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));
-			]]></script>
-
+			
+			<!-- Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0)); -->
+			<div class="pygments">
+				<pre>
+<span class="n">Vector3</span> <span class="n">targetPosition</span> <span class="p">=</span> <span class="n">levelGrid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="m">0</span><span class="p">));</span>
+</pre>
+			</div>
+	
+			<hr />
+			
+			<iframe title="YouTube" class="pull-right" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe>
 			<h1 id="snapping"><a href="./snapping">Runtime snapping</a></h1>
-			<iframe title="YouTube" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe>
 			<p>
 				If you want to allow the user to place object only on the grid, then this
 				example is for you. For an extra challenge the grid has been rotated to create
 				an isometric view effect. In reality you should rotat the camera instead.
 			</p>
-
+	
 			<p>
 				Snapping is a two-step process: first we move the object to where
 				the cursor is pointing, then we correct the position.
 			</p>
+			
+			<!-- transform.position = cursorWorldPoint; -->
+			<!-- grid.AlignTransform(transform);        -->
+			<div class="pygments">
+				<pre>
+<span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">cursorWorldPoint</span><span class="p">;</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">);</span>
+</pre>
+			</div>
 
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				transform.position = cursorWorldPoint;
-				grid.AlignTransform(transform);
-			]]></script>
-		
+
+			<hr />
+			
 			<h1 id="endless"><a href="./endless">Seemingly endless grid</a></h1>
 			<p>
 				Grids are infinity large when it come to calculations, but rendering an
@@ -263,16 +478,26 @@
 				to the camera.  The result is a seamless illusion that only renders the
 				bare minimum and only updates when it has to.
 			</p>
+	
+			<!-- for (int i = 0; i < 3; i++) {                              -->
+			<!-- 	rangeShift[i] += transform.position[i] - lastPosition[i]; -->
+			<!-- }                                                          -->
+			<!--                                                            -->
+			<!-- myGrid.renderFrom += rangeShift;                           -->
+			<!-- myGrid.renderTo   += rangeShift;                           -->
+			<div class="pygments">
+				<pre>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="n">rangeShift</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">lastPosition</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
 
-			<script type="syntaxhighlighter" class="brush:csharp"><![CDATA[
-				for (int i = 0; i < 3; i++) {
-					rangeShift[i] += transform.position[i] - lastPosition[i];
-				}
-				
-				myGrid.renderFrom += rangeShift;
-				myGrid.renderTo   += rangeShift;
-			]]></script>
-		
+<span class="n">myGrid</span><span class="p">.</span><span class="n">renderFrom</span> <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
+<span class="n">myGrid</span><span class="p">.</span><span class="n">renderTo</span>   <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
+</pre>
+			</div>
+			
+			<hr />
+			
 			<h1 id="terrain"><a href="./terrain">Terrain mesh generation</a></h1>
 			<p>
 				We generate a mesh as a SimCity-like terrain using a plain text file as
@@ -281,7 +506,9 @@
 				vertex reaises or lowers it. Everything is accompished be converting from
 				grid coordinates to world coordinates.
 			</p>
-		
+			
+			<hr />
+			
 			<h1 id="dial"><a href="./dial">Rotary dial</a></h1>
 			<p>
 				A rotary dial as it could have been found on older phones. When the
@@ -289,7 +516,9 @@
 				used to determine which number was selected and use it to control
 				the animation and print that number on the console.
 			</p>
-		
+			
+			<hr />
+			
 			<h1 id="sliding"><a href="./sliding">Sliding puzzle</a></h1>
 			<p>
 				Sometimes Unit's physics engine is too good for its own good and we need something
@@ -299,19 +528,56 @@
 				each cell whether it's free or occupied. Then we restrict movement of the blocks
 				based on that information.
 			</p>
-		
+			
+			<hr />
+			
 			<h1 id="snake"><a href="./snake">Snake game</a></h1>
 			<p>
 				Another example of tile-base movement. The snake is made of several
 				segments, linked together using a list. Only the head moves, the other
 				segments follow their parent.
 			</p>
-		
+			
 			<h1 id="vectrosity"><a href="./vectrosity">Vectrosity support</a></h1>
 			<p>
 				Having some fun with Vectrosity and laser lines. The grids can move around or
 				even change their properties at runtime.
 			</p>
 		</div>
+	
+</main>
+
+
+
+		<footer class="site-footer HolyGrail-footer">
+	<div class="container">
+		<div class="col-md-8 footer-left">
+			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+				<img src="/images/footer/logo.png" alt="HiPhish's Workshop" />
+			</a>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4 footer-right">
+			<span class="pull-right">
+				<a href="https://github.com/HiPhish" title="GitHub">
+					<img  class="img-circle" src="/images/footer/github.png" />
+				</a>
+				<a href="https://gitlab.com/u/HiPhish" title="GitLab">
+					<img  class="img-circle" src="/images/footer/gitlab.png" />
+				</a>
+			</span> <!-- /.pull-right -->
+		</div> <!-- /.col-md-4 -->
+		<p class="text-muted text-right"></p>
+	</div> <!-- /.container -->
+</footer>
+
+<!-- <footer class="footer well HolyGrail-footer"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
+<!-- 	</div> -->
+<!-- </footer> -->
+
+
 	</body>
 </html>
