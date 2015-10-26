@@ -1,0 +1,22 @@
+/* general text */
+
+body {
+	fontsize=100%;
+	text-align:justify;
+	background-color:white;
+}
+
+img {
+	max-height:20em;
+	max-width:50em;
+}
+table.doxtable {
+	border-collapse:collapse;
+}
+
+table.doxtable th {
+	background-color:#4C4C4C;
+}
+table.doxtable td, table.doxtable th th, td {
+	border 1px solid black;
+}
