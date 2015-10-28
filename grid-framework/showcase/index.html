@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Rotary Dial - Grid Framework</title>
+		<title>Showcase - Grid Framework</title>
 
 		<!-- HTML page metadata -->
 		<meta charset = "utf-8">
@@ -89,9 +89,9 @@
 								Gallery							</a>
 						</li>
 
-						<li>
+						<li class="active">
 							<a href="http://hiphish.github.io/grid-framework/showcase">
-								Showcase							</a>
+								Showcase <span class="sr-only">(current)</span>							</a>
 						</li>
 
 						<li>
@@ -175,9 +175,9 @@
 					<a href="/grid-framework/gallery">
 						Gallery					</a>
 				</li>
-				<li class=" ">
+				<li class=" active">
 					<a href="/grid-framework/showcase">
-						Showcase					</a>
+						Showcase <span class="sr-only">(current)</span>					</a>
 				</li>
 				<li class=" ">
 					<a href="/grid-framework/faq">
@@ -206,24 +206,117 @@
 	</div>
 
 	
-		<!-- Mandatory Unity web player scripts and stylesheet -->
-		<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
-		<script type="text/javascript" src="../../../js/web-player-object.js"></script>
-		<script type="text/javascript" src="../../../js/web-player.js"></script>
-		<style type="text/css"> @import url("../../../css/web-player.css"); </style>
-		<link href="http://hiphish.github.io/grid-framework/examples/dial/example.unity3d" />
+		<style scoped>
+			/* Style sheet for PrettyPhoto framework */
+			@import url("../../css/prettyPhoto.css");
 
-		<p class="backlink"><a href="../#dial">Grid Framework examples</a> | <strong>Rotary Dial</strong></p>
-		<div class="content">
-			<div id="unityPlayer">
-				<div class="missing">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-					</a>
-				</div>
-			</div>
+			.showcase {
+				margin-bottom: 30px;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+			.showcase:hover {
+				border-radius: 5px;
+			}
+
+			.showcase img {
+			}
+			.showcase p {
+			}
+			.showcase h2 {
+			}
+			.showcase a {
+			}
+		</style>
+
+		<div class="container">
+			<h1>Made using Grid Framework</h1>
+			<p>
+				Take a look at what existing customers think of Grid Framework and what
+				they used it for to give you an idea of the different ways to employ
+				Grid Framework.
+			</p>
+			<hr />
+	
+			<div class="container">
+
+				<div class="row showcase">
+					<div class="col-md-4">
+						<a rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png">
+						  <img class="group1" src="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png" alt="MYMMO" />
+						</a>
+					</div> <!-- /.col-md-4 -->
+					<div class="col-md-8">
+						<h2>MYMMO</h2>
+						<blockquote>
+							<p>
+							MYMMO is a Sim City inspired city builder with a twist: you are
+							the designer of an MMO RPG. Grid Framework is an instrumental
+							part of the world building toolset, I was able to get grid
+							snapping and zoning tools working with minimal hassle, love it.
+							</p>
+							<footer>
+								Aaron John-Baptiste, Gravity Apple
+							</footer>
+						</blockquote>
+						<a href="http://forums.tigsource.com/index.php?topic=50706.msg1185371" class="btn btn-default" role="button" target="_blank">
+							Homepage
+						</a>
+					</div> <!-- /.col-md-8 -->
+				</div> <!-- /.row /.showcase -->
+
+				<div class="row showcase">
+					<div class="col-md-4">
+						<a rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg">
+						  <img class="group1" src="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg" alt="Shallow Space" />
+						</a>
+					</div> <!-- /.col-md-4 -->
+					<div class="col-md-8">
+						<h2>Shallow Space</h2>
+						<blockquote>
+							<p>
+								Shallow Space is an 3D RTS, we use the grid framework to add
+								perspective to the scene and it works great!
+							</p>
+							<footer>
+								James Martin, Special Circumstances
+							</footer>
+						</blockquote>
+						<a href="http://shallow.space" class="btn btn-default" role="button" target="_blank">Homepage</a>
+					</div> <!-- /.col-md-8 -->
+				</div> <!-- /.row /.showcase -->
+
+			</div> <!-- /.container -->
+
+			<hr />
+	
+			<p>
+				If you want your own game featured on this page drop me a line with a few
+				sentences describing your game and how Grid Framework helped you during
+				development.
+			</p>
+	
+			<p id="disclaimer-general" class="text-muted">
+				<em>General disclaimer:</em> The author of Grid Framework is only
+				associated with the authors of the games displayed on this page through
+				Grid Framework.  Games are chosen arbitrarily based on their
+				suitability to demonstrate the diverse applications of use; neither is
+				the inclusion of a game is an endorsement, nor is the exclusion of a
+				game is a condemnation.
+			</p>
 		</div>
 
+		<!-- Script required for PrettyPhoto -->
+		<script src="../../js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			<!--
+			$(document).ready(function(){
+				$("a[rel^='prettyPhoto']").prettyPhoto( {
+					social_tools:'', /* No Facebook buttons */
+				});
+			});
+			-->
+		</script>
 	
 </main>
 
