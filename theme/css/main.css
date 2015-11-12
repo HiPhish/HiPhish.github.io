@@ -62,6 +62,10 @@ html, body {
 	margin-left: 15px;
 }
 
+.site-footer img.copyright-image {
+	height: 1em;
+}
+
 /*---[ Articles ]--------------------------------------------------------------*/
 
 ul#articles-list {

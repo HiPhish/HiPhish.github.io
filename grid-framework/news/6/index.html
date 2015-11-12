@@ -36,11 +36,7 @@
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
 
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
-		<!-- Make the navbar look as expected when JavaScript is available -->
-		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
-
-		<!-- Toggle the chevron of tree-list items -->
-		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
+		<script src="http://hiphish.github.io/theme/js/main.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -218,6 +214,30 @@
 		<section id="content" class="HolyGrail-content">
 			<main class="article-main">
 				<ul id="articles-list">
+					<li class="article-summary">
+						<article class="hentry">
+							<header>
+								<h2 class="entry-title">
+									<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/" rel="bookmark" title="Permalink to Version 1.1.6 submitted">
+										Version 1.1.6 submitted
+									</a>
+								</h2>
+							</header>
+							<footer class="article-info">
+								<abbr class="article-published" title="2012-09-22T00:00:00+02:00"> 2012-09-22 </abbr>
+								<address class="vcard author">
+									By
+									<a class="url fn" href="http://hiphish.github.io/grid-framework/news/authors/hiphish/">HiPhish</a>
+								</address>
+							</footer><!-- /.article-info -->
+							<div class="entry-content">
+								<p><strong>Important Note:</strong> The classes Grid and RectGrid have been renamed to GFGrid
+and GFRectGrid, you will need to change your source code accordingly.</p>
+<p>You might be wondering why I would do such a thing more than one month after
+releasing the package. Using regular English words is simple and intuitive ...</p>
+							</div><!-- /.entry-content -->
+						</article>
+				  </li>
 					<li class="article-summary">
 						<article class="hentry">
 							<header>
@@ -440,33 +460,6 @@ make an example scene and this is what it looks like:</p>
 							</div><!-- /.entry-content -->
 						</article>
 				  </li>
-					<li class="article-summary">
-						<article class="hentry">
-							<header>
-								<h2 class="entry-title">
-									<a href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" rel="bookmark" title="Permalink to Line width for rendering">
-										Line width for rendering
-									</a>
-								</h2>
-							</header>
-							<footer class="article-info">
-								<abbr class="article-published" title="2012-08-09T00:00:00+02:00"> 2012-08-09 </abbr>
-								<address class="vcard author">
-									By
-									<a class="url fn" href="http://hiphish.github.io/grid-framework/news/authors/hiphish/">HiPhish</a>
-								</address>
-							</footer><!-- /.article-info -->
-							<div class="entry-content">
-								<p>I just submitted version 1.1.1 (<em>update: has been approved</em>) which lets you set
-the width of the rendered line in the inspector. Here is an example, obviously
-it's over the top, but you can set the width to anything you like.</p>
-<div class="figure">
-<img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/images/line-width.png"/>
-</div>
-<p>Now I just need to provide ...</p>
-							</div><!-- /.entry-content -->
-						</article>
-				  </li>
 				</ul><!-- /#posts-list -->
 			</main> <!-- / .article-main -->
 			
@@ -533,11 +526,21 @@ it's over the top, but you can set the width to anything you like.</p>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">7</span>
+						<span class="badge">8</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>2015
 					</a>
 					<!-- Months in 2015 -->
 					<div class="list-group collapse" id="y-2015-item">
+						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>November
+						</a>
+						<!-- Articles in 11 -->
+						<div class="list-group collapse" id="y-2015-m-11-item">
+							<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+								A new blog for Grid Framework
+							</a>
+						</div>
 						<a href="#y-2015-m-10-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>October
@@ -1103,10 +1106,13 @@ it's over the top, but you can set the width to anything you like.</p>
 						</a>
 					</div>
 					<a href="#organisation-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">3</span>
+						<span class="badge">4</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>organisation
 					</a>
 					<div class="list-group collapse" id="organisation-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+							A new blog for Grid Framework
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
 							New website
 						</a>
@@ -1613,10 +1619,13 @@ it's over the top, but you can set the width to anything you like.</p>
 				<strong style="display:block;"><a href="http://hiphish.github.io/grid-framework/news/authors/">Authors</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#HiPhish-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">74</span>
+						<span class="badge">75</span>
 						<span class="glyphicon glyphicon-chevron-right" />HiPhish
 					</a>
 					<div class="list-group collapse" id="HiPhish-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+							A new blog for Grid Framework
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
 							New website
 						</a>
@@ -1858,7 +1867,9 @@ it's over the top, but you can set the width to anything you like.</p>
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
+			<p class="text-muted">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
+			</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">

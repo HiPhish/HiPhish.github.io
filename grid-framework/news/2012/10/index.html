@@ -39,11 +39,7 @@
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
 
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
-		<!-- Make the navbar look as expected when JavaScript is available -->
-		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
-
-		<!-- Toggle the chevron of tree-list items -->
-		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
+		<script src="http://hiphish.github.io/theme/js/main.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -342,11 +338,21 @@ obstacles on the grid and the sphere ...</p>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">7</span>
+						<span class="badge">8</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>2015
 					</a>
 					<!-- Months in 2015 -->
 					<div class="list-group collapse" id="y-2015-item">
+						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>November
+						</a>
+						<!-- Articles in 11 -->
+						<div class="list-group collapse" id="y-2015-m-11-item">
+							<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+								A new blog for Grid Framework
+							</a>
+						</div>
 						<a href="#y-2015-m-10-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>October
@@ -912,10 +918,13 @@ obstacles on the grid and the sphere ...</p>
 						</a>
 					</div>
 					<a href="#organisation-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">3</span>
+						<span class="badge">4</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>organisation
 					</a>
 					<div class="list-group collapse" id="organisation-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+							A new blog for Grid Framework
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
 							New website
 						</a>
@@ -1422,10 +1431,13 @@ obstacles on the grid and the sphere ...</p>
 				<strong style="display:block;"><a href="http://hiphish.github.io/grid-framework/news/authors/">Authors</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#HiPhish-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">74</span>
+						<span class="badge">75</span>
 						<span class="glyphicon glyphicon-chevron-right" />HiPhish
 					</a>
 					<div class="list-group collapse" id="HiPhish-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
+							A new blog for Grid Framework
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
 							New website
 						</a>
@@ -1667,7 +1679,9 @@ obstacles on the grid and the sphere ...</p>
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
+			<p class="text-muted">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
+			</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
