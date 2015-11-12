@@ -62,6 +62,22 @@ html, body {
 	margin-left: 15px;
 }
 
+/*---[ Articles ]--------------------------------------------------------------*/
+
+ul#articles-list {
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul.article-tree {
+   list-style: none;
+	padding-left: 1em;
+}
+
+li.article-node:before {
+   content: "►";
+}
+
 /*----------------------------------------------------------------------------*/
 
 h1 {font-size: 1.8em;}

@@ -31,8 +31,15 @@
 		<!-- "Holy Grail" page design -->
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
 
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<!-- Make the navbar look as expected when JavaScript is available -->
 		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
+
+		<!-- Toggle the chevron of tree-list items -->
+		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -100,7 +107,7 @@
 						</li>
 
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/blog" target="_blank">
+							<a href="http://hiphish.github.io/grid-framework/news">
 								News							</a>
 						</li>
 
@@ -126,8 +133,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="disabled ">
-					<a href="">
+				<li class=" ">
+					<a href="/blog">
 						Blog					</a>
 				</li>
 				<li class=" active">
@@ -144,91 +151,113 @@
 <!-- All Bootstrap content must be inside a container div -->
 <main class="flex-body">
 	
-		<div class="container">
-
-			<h3>About the author</h3>
-			<p>
+<div class="container">
+<h3>About the author</h3>
+<p>
 				Hi, I'm HiPhish and this is my website. I'm a mathematician and a
 				programmer and my motto is <em>I want to to exist, so I'll make
-				it</em>. My goal is rock-solid software that is reliable and fit for
+				it</em>. The goal is rock-solid software that is reliable and fit for
 				productive use, because I wouldn't want to use anything else myself.
 			</p>
-
-			<p>
-				I chose the <em>Workshop</em> motto because I approach programming as a
-				craft. This site is where I exhibit my work, present my services, and
-				if you follow the links to my repositories you can see the details or
-				how it is made. Programmimg is a new form of craftmanship and the
+<p>
+				I chose the <em>Workshop</em> motto because I consider programming to
+				be a craft. This site is where I exhibit my work, present my services,
+				and if you follow the links to my repositories you can see the details
+				or how it is made. Programming is a new form of craftsmanship and the
 				computer is our workbench.
 			</p>
-
-			<h4>Tools of the trade</h4>
-			<p>
-				My code editor of choice is Neovim, which I use for most text editing
-				as well. For version control I use Git and my package manager is
-				Homebrew.  This site was generate using the Pelican static site
-				generator. My terminal is xterm running in iTerm 2. Other than these
-				general tools I use what is appropriate for the given task.
+<hr/>
+<h3>About this website</h3>
+<p>
+				The Workshop would not be in its current form if it were not for these
+				great tools written by other people.
 			</p>
-
-	
-			<hr />
-	
-			<h3>About this website</h3>
-			<p>
-				The Workshop has been generated using the Pelican static site generator
-				with a custom theme. The theme is still work in progress and I cannot
-				complete it before I don't write a plugin for Pelican. Once the theme has
-				all the templates needed to be complete I will release it to the public.
+<dl>
+<dt>
+<a href="http://getpelican.com/">Pelican</a>
+</dt>
+<dd>
+<p>
+						A static site generator powered by Python. Content is written in
+						HTML, reStructuredText or Markdown and Pelican generates a complete
+						static website from it. Static content has a number of benefits: it
+						loads faster, has no security problems and runs anywhere.
+					</p>
+</dd>
+<dt>
+<a href="https://gitlab.com/HiPhish/Multiblog-Pelican">Multiblog</a>
+</dt>
+<dd>
+<p>
+						My own plugin for Pelican allows multiple blogs on the same
+						website.  I use it to maintain separation between news for
+						different projects.
+					</p>
+</dd>
+<dt>
+<a href="http://getbootstrap.com">
+						Bootstrap
+					</a>
+					and
+					<a href="http://bootswatch.com">
+						Bootswatch
+					</a>
+</dt>
+<dd>
+<p>
+						Bootstrap is a CSS framework that provides a collection of useful
+						classes for responsive and accessible web design. It provides a
+						grid system for layout that allows one to easily create layout that
+						looks good on any screen size.
+					</p>
+<p>
+						Bootswatch is a collection of customized Bootstrap style sheets
+						intended as complete drop-in themes.
+					</p>
+</dd>
+<dt>
+<a href="http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/">
+						prettyPhoto
+					</a>
+</dt>
+<dd>
+<p>
+						A JavaScript gallery plugin that provides nice looking overlays for
+						images. You can also navigate between images without leaving the
+						gallery.
+					</p>
+</dd>
+<dt>
+<a href="http://philipwalton.github.io/solved-by-flexbox/">
+						Solved by Flexbox
+					</a>
+</dt>
+<dd>
+<p>
+						Flexbox is a new CSS feature that allows you to lay out content in
+						a flexible way. Instead of hardcoding values position, size or
+						order of elements can be given relative to each over other or the
+						enclosing container. Flexbox makes many previously hard and hacky
+						problems trivial to solve.  <i>Solved by Flexbox</i> features a
+						collection of solutions to common problems. In my case I used it
+						for the sticky footer and the blog layout.
+					</p>
+</dd>
+</dl>
+<p>
+				All content is written in Neovim, packages are managed in Node.js and
+				Bower. The website content is version-controlled using Git.
 			</p>
-			<p>
-				A big help during development was Twitter Bootstrap, a CSS framework for
-				creating responsive web pages. This site uses the modified style sheet <a href="http://bootswatch.com/flatly/">flatly</a> by <a href="http://bootswatch.com">Bootswatch</a>.
-			</p>
-			<p>
-				The "holy grail" blog layout and the sticky footer were achieved using
-				code examples from <a href="https://github.com/philipwalton">Philip
-				Walton</a>'s <a href="http://philipwalton.github.io/solved-by-flexbox/">Solved by
-				Flexbox</a>.
-			</p>
-			<p>
-				The gallery uses <a href="http://www.no-margin-for-errors.com">Stephane
-				Caron</a>'s <a href="http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/">
-				PrettyPhoto</a> Javascript library.
-			</p>
-	
-			<hr />
-	
-			<h3>What is missing</h3>
-			<p>
-				I want the Workshop to be a central home for all my projects, commercial
-				and free. This would also require maintaining blogs for news and updates,
-				these blogs can then generate RSS feeds for people to subscribe to.
-			</p>
-			<p>
-				The problem is that Pelican only allows the creation of one blog. People
-				would constantly get spammed by updates about products they don't care
-				about and that would be simply unacceptable. To achieve multiple blogs I
-				will have to write a Pelican plugin.
-			</p>
-			<p>
-				This will take a while though, I have to learn enough Python and
-				familiarise myself with the Pelican ecosystem. There is no point in
-				holding back the site just because of that, so I'm releasing it for now
-				the way it is.
-			</p>
-
-			<hr />
-
-			<h3>LibreJS - Free JavaScript</h3>
-			<p>
+<hr/>
+<h3>LibreJS - Free JavaScript</h3>
+<p>
 				The Workshop is build from free (libre) software that respects the
 				user's freedom. The same also applies to the JavaScript employed on
 				this site. I have made sure that the site complies with the LibreJS
 				specifications. You can find a list of scripts employed under <a href="javascript">about/javascript</a>.
 			</p>
-		</div>
-	
+</div>
+
 </main>
 
 
@@ -239,28 +268,22 @@
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
 			<span class="pull-right">
 				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 				</a>
 				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
 				</a>
 			</span> <!-- /.pull-right -->
 		</div> <!-- /.col-md-4 -->
 		<p class="text-muted text-right"></p>
 	</div> <!-- /.container -->
 </footer>
-
-<!-- <footer class="footer well HolyGrail-footer"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
-<!-- 	</div> -->
-<!-- </footer> -->
 
 
 	</body>

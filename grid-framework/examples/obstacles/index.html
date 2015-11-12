@@ -31,8 +31,15 @@
 		<!-- "Holy Grail" page design -->
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
 
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<!-- Make the navbar look as expected when JavaScript is available -->
 		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
+
+		<!-- Toggle the chevron of tree-list items -->
+		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -100,7 +107,7 @@
 						</li>
 
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/blog" target="_blank">
+							<a href="http://hiphish.github.io/grid-framework/news">
 								News							</a>
 						</li>
 
@@ -126,8 +133,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="disabled ">
-					<a href="">
+				<li class=" ">
+					<a href="/blog">
 						Blog					</a>
 				</li>
 				<li class=" ">
@@ -184,7 +191,7 @@
 						FAQ					</a>
 				</li>
 				<li class=" ">
-					<a href="http://unitygridframework.blogspot.de" target="_blank">
+					<a href="/grid-framework/news">
 						News					</a>
 				</li>
 				<li class=" ">
@@ -206,24 +213,23 @@
 	</div>
 
 	
-		<!-- Mandatory Unity web player scripts and stylesheet -->
-		<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
-		<script type="text/javascript" src="../../../js/web-player-object.js"></script>
-		<script type="text/javascript" src="../../../js/web-player.js"></script>
-		<style type="text/css"> @import url("../../../css/web-player.css"); </style>
-		<link href="http://hiphish.github.io/grid-framework/examples/obstacles/example.unity3d" />
+<!-- Mandatory Unity web player scripts and stylesheet -->
+<script src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js" type="text/javascript"></script>
+<script src="../../../js/web-player-object.js" type="text/javascript"></script>
+<script src="../../../js/web-player.js" type="text/javascript"></script>
+<style type="text/css"> @import url("../../../css/web-player.css"); </style>
+<link href="http://hiphish.github.io/grid-framework/examples/obstacles/example.unity3d"/>
+<p class="backlink"><a href="../#obstacles">Grid Framework examples</a> | <strong>Moving With Obstacles</strong></p>
+<div class="content">
+<div id="unityPlayer">
+<div class="missing">
+<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+<img alt="Unity Web Player. Install now!" class="img-responsive" height="63" src="http://webplayer.unity3d.com/installation/getunity.png" width="193"/>
+</a>
+</div>
+</div>
+</div>
 
-		<p class="backlink"><a href="../#obstacles">Grid Framework examples</a> | <strong>Moving With Obstacles</strong></p>
-		<div class="content">
-			<div id="unityPlayer">
-				<div class="missing">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-					</a>
-				</div>
-			</div>
-		</div>
-	
 </main>
 
 
@@ -234,28 +240,22 @@
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
 			<span class="pull-right">
 				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 				</a>
 				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
 				</a>
 			</span> <!-- /.pull-right -->
 		</div> <!-- /.col-md-4 -->
 		<p class="text-muted text-right"></p>
 	</div> <!-- /.container -->
 </footer>
-
-<!-- <footer class="footer well HolyGrail-footer"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
-<!-- 	</div> -->
-<!-- </footer> -->
 
 
 	</body>

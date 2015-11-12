@@ -31,8 +31,15 @@
 		<!-- "Holy Grail" page design -->
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
 
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<!-- Make the navbar look as expected when JavaScript is available -->
 		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
+
+		<!-- Toggle the chevron of tree-list items -->
+		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -100,7 +107,7 @@
 						</li>
 
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/blog" target="_blank">
+							<a href="http://hiphish.github.io/grid-framework/news">
 								News							</a>
 						</li>
 
@@ -126,8 +133,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="disabled ">
-					<a href="">
+				<li class=" ">
+					<a href="/blog">
 						Blog					</a>
 				</li>
 				<li class=" ">
@@ -184,7 +191,7 @@
 						FAQ <span class="sr-only">(current)</span>					</a>
 				</li>
 				<li class=" ">
-					<a href="http://unitygridframework.blogspot.de" target="_blank">
+					<a href="/grid-framework/news">
 						News					</a>
 				</li>
 				<li class=" ">
@@ -206,7 +213,7 @@
 	</div>
 
 	
-		<style>
+<style>
 			h1 {
 				text-transform: capitalize;
 			}
@@ -220,8 +227,7 @@
 			.faq-a {
 			}
 		</style>
-
-		<script language="javascript">
+<script language="javascript">
 			<!--
 			// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 			$(document).ready( function () {
@@ -254,52 +260,47 @@
 			// @license-end
 			-->
 		</script>
-
-		<div class="container">
-
-			<p>
+<div class="container">
+<p>
 				Do you have a question before buying? Check here to see if someone had
 				the same question before you. If you don't find what you were looking
 				for just ask, the more people ask the same thing, the more likely I am
 				to add your question to the list as well.
 			</p>
-
-			<hr />
-
-			<div class="faq-toc">
-				<ul>
-					<li>
-						<a href="#q-can-i">Can I do...</a>
-					</li>
-					<li>
-						<a href="#q-js">Does Grid Framework work with UnityScript?</a>
-					</li>
-					<li>
-						<a href="#q-data">Can I store data in the grid?</a>
-					</li>
-					<li>
-						<a href="q-patterns">What grids are supported?</a>
-					</li>
-					<li>
-						<a href="#q-shape">Can I make irregular grid shapes?</a>
-					</li>
-					<li>
-						<a href="#q-irregular">What about irregurar grids like Voronoi grids?</a>
-					</li>
-					<li>
-						<a href="#q-path">Is pathfinding included, or can I use a pathfinding plugin?</a>
-					</li>
-					<li>
-						<a href="#q-restrict">Can I restrict movement or position to the grid?</a>
-					</li>
-				</ul>
-				<hr />
-			</div>
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-1">Can I do...</h2>
-				<div class="faq-a well well-sm">
-					<p>
+<hr/>
+<div class="faq-toc">
+<ul>
+<li>
+<a href="#q-can-i">Can I do...</a>
+</li>
+<li>
+<a href="#q-js">Does Grid Framework work with UnityScript?</a>
+</li>
+<li>
+<a href="#q-data">Can I store data in the grid?</a>
+</li>
+<li>
+<a href="q-patterns">What grids are supported?</a>
+</li>
+<li>
+<a href="#q-shape">Can I make irregular grid shapes?</a>
+</li>
+<li>
+<a href="#q-irregular">What about irregurar grids like Voronoi grids?</a>
+</li>
+<li>
+<a href="#q-path">Is pathfinding included, or can I use a pathfinding plugin?</a>
+</li>
+<li>
+<a href="#q-restrict">Can I restrict movement or position to the grid?</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="faq-item">
+<h2 class="faq-q" id="q-1">Can I do...</h2>
+<div class="faq-a well well-sm">
+<p>
 						Most questions asked can be answered by understanding what a
 						<em>grid</em> in Grid Framework is: it is a grid in a mathematical
 						sense, which means it is defined by an origin and some basic
@@ -310,65 +311,58 @@
 						of courese there is more to it in practice, but this gives you a
 						good idea.
 					</p>
-
-					<div class="pygments">
-						<pre>
+<div class="pygments">
+<pre>
 <span class="c1">// Origin and rotation are inherited from the GameObject</span>
 <span class="k">class</span> <span class="nc">GFRectGrid</span> <span class="p">:</span> <span class="n">GFGrid</span> <span class="p">{</span>
     <span class="k">public</span> <span class="n">Vector3</span> <span class="n">spacing</span><span class="p">;</span>
     <span class="k">public</span> <span class="n">Vector6</span> <span class="n">shearing</span><span class="p">;</span>
 <span class="p">};</span>
 </pre>
-					</div>
-
-					<p>
+</div>
+<p>
 						This is what allows grids to be infinitely large in the game and
 						very small in memory at the same time. All calculations are
 						performed in constant time and cost the same regardless of where in
 						the grid you are. The portion of the grid you see is just a
 						finite-sized slice of what is infinitely large.
 					</p>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-js">Does Grid Framework work with UnityScript?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+<div class="faq-item">
+<h2 class="faq-q" id="q-js">Does Grid Framework work with UnityScript?</h2>
+<div class="faq-a well well-sm">
+<p>
 						Yes, UnityScript and C# get compiled to the same bytecode anyway.
 						Grids are subclasses of Unity's <code>Component</code> class and
 						can be manipulated like any other component.
 					</p>
-
-					<div class="pygments">
-						<pre>
+<div class="pygments">
+<pre>
 <span class="kd">var</span> <span class="nx">grid</span> <span class="o">:</span> <span class="nx">GFRectGrid</span> <span class="o">=</span> <span class="nx">gameObject</span><span class="p">.</span><span class="nx">GetComponent</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">GFRectGrid</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="nx">grid</span><span class="p">.</span><span class="nx">spacing</span> <span class="o">=</span> <span class="nx">Vector3</span><span class="p">.</span><span class="nx">one</span><span class="p">;</span>
 </pre>
-					</div>
-
-					<p>
+</div>
+<p>
 						The included examples are written in both C# as well as UnitScript
 						where possible.  Some examples however use language features not
 						present in UnityScript and could only be written in C#. These
 						features are not related to Grid Framework itself, they are general
 						limitations of UnityScript.
 					</p>
-				</div>
-			</div>
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-data">Can I store data in the grid?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div>
+</div>
+<div class="faq-item">
+<h2 class="faq-q" id="q-data">Can I store data in the grid?</h2>
+<div class="faq-a well well-sm">
+<p>
 						A grid does not store any data in its vertices, cells or anywhere
 						because it does not store any vertices to begin with.  That said,
 						we can replicate this very easily. This code example creates a
 						three-dimenstional array of world-positions of grid vertices:
 					</p>
-
-					<div class="pygments">
-						<pre>
+<div class="pygments">
+<pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
 
@@ -384,82 +378,74 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></pre>
-					</div>
-
-					<p>
+</div>
+<p>
 						You can then index the array using the grid coordinates of the vertex
 						you want.
 					</p>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-patterns">What grids are supported?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+<div class="faq-item">
+<h2 class="faq-q" id="q-patterns">What grids are supported?</h2>
+<div class="faq-a well well-sm">
+<p>
 						At the moment rectangular, hexagonal and polar (cylindric) grids
 						are supported. Rectangular grids can also have a shearig to slant
 						them for an isometric look. Hexagonal and polar grids are
 						two-dimensional and can be stacked on top of each other for the
 						third dimenstion.
 					</p>
-					<p>
+<p>
 						Spheric grids are planned for the future.
 					</p>
-				</div>
-			</div>
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-shape">Can I make irregular grid shapes?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div>
+</div>
+<div class="faq-item">
+<h2 class="faq-q" id="q-shape">Can I make irregular grid shapes?</h2>
+<div class="faq-a well well-sm">
+<p>
 						Not out of the box. One way to fake it is by having multiple grids,
 						one for all the calculations and the other for displaying the parts
 						that make up the irregular shape. Grids that are not rendered do not
 						take up rendering resources.
 					</p>
-
-					<p>
+<p>
 						Another solution would be to do the rendering yourself or using a rendering
 						plugin. That way you have full control over the shape. The get the points of the lines
 						to render use the grid's <code>GridToWorld</code> method:
 					</p>
-
-					<div class="pygments">
-						<pre>
+<div class="pygments">
+<pre>
 <span class="n">Vector3</span> from<span class="p">,</span> <span class="n">to</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
 
 <span class="n">Vector3</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="n">line</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[]</span> <span class="p">{</span><span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span>from<span class="p">),</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">to</span><span class="p">)</span><span class="p">};</span>
 </pre>
-					</div>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-irregular">What about irregurar grids like Voronoi grids?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div>
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+<div class="faq-item">
+<h2 class="faq-q" id="q-irregular">What about irregurar grids like Voronoi grids?</h2>
+<div class="faq-a well well-sm">
+<p>
 						No, a grid (also called a lattice) has to be regular by definition.
-						Voronoi &quot;grids&quot; are not actually grids, they are graphs and finited in
+						Voronoi "grids" are not actually grids, they are graphs and finited in
 						size and therefore not suitable for Grid Framework.
 					</p>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-path">Is pathfinding included, or can I use a pathfinding plugin?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+<div class="faq-item">
+<h2 class="faq-q" id="q-path">Is pathfinding included, or can I use a pathfinding plugin?</h2>
+<div class="faq-a well well-sm">
+<p>
 						At the moment of this writing there is no built-in pathfinding, but
 						using Grid Framework with a pathfinding plugin is easy. The plugin
 						will need a list of vertices to contrustruct the nav-mesh from, and
 						we can get these vertices from the grid by looping over the range we
 						want to use:
 					</p>
-
-					<div class="pygments">
-						<pre>
+<div class="pygments">
+<pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
 
@@ -474,26 +460,23 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></pre>
-					</div>
-
-				<p>
+</div>
+<p>
 					These vertices are in world coordinates and can be then passed on to
 					your pathfinding code.
 				</p>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
-
-			<div class="faq-item">
-				<h2 class="faq-q" id="q-restrict">Can I restrict movement or position to the grid?</h2>
-				<div class="faq-a well well-sm">
-					<p>
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+<div class="faq-item">
+<h2 class="faq-q" id="q-restrict">Can I restrict movement or position to the grid?</h2>
+<div class="faq-a well well-sm">
+<p>
 						Yes, the easiest way is to align the position to grid coordinates.
 						Let's assume your object should fit into the centre of the nearest
 						face. Here is the code:
 					</p>
-
-					<div class="pygments">
-						<pre><span class="	n">Transform</span> <span class="n">myObject</span><span class="p">;</span> <span class="c1">// Object to align</span>
+<div class="pygments">
+<pre><span class=" n">Transform</span> <span class="n">myObject</span><span class="p">;</span> <span class="c1">// Object to align</span>
 <span class="n">GFGrid</span>    <span class="n">myGrid</span><span class="p">;</span>   <span class="c1">// Grid to align to</span>
 
 <span class="c1">// Use common defaults</span>
@@ -504,18 +487,16 @@
 <span class="n">Vector3</span> <span class="n">gridPosition</span><span class="p">;</span>
 <span class="n">myObject</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">myGrid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">gridPosition</span><span class="p">);</span>
 </pre>
-					</div>
-
-					<p>
+</div>
+<p>
 						As you can see there are multiple possibilities, depending on what
 						suits you best. To restrict continuous movement apply the snapping
 						of your choice on every frame in you <code>Update()</code> method.
 					</p>
-				</div> <!-- /.faq-a well well-sm -->
-			</div> <!-- /.faq-item -->
+</div> <!-- /.faq-a well well-sm -->
+</div> <!-- /.faq-item -->
+</div> <!-- /.container -->
 
-		</div> <!-- /.container -->
-	
 </main>
 
 
@@ -526,28 +507,22 @@
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
 			<span class="pull-right">
 				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 				</a>
 				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
 				</a>
 			</span> <!-- /.pull-right -->
 		</div> <!-- /.col-md-4 -->
 		<p class="text-muted text-right"></p>
 	</div> <!-- /.container -->
 </footer>
-
-<!-- <footer class="footer well HolyGrail-footer"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
-<!-- 	</div> -->
-<!-- </footer> -->
 
 
 	</body>

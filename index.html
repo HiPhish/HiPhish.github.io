@@ -31,8 +31,15 @@
 		<!-- "Holy Grail" page design -->
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
 
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<!-- Make the navbar look as expected when JavaScript is available -->
 		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
+
+		<!-- Toggle the chevron of tree-list items -->
+		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -100,7 +107,7 @@
 						</li>
 
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/blog" target="_blank">
+							<a href="http://hiphish.github.io/grid-framework/news">
 								News							</a>
 						</li>
 
@@ -126,8 +133,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="disabled ">
-					<a href="">
+				<li class=" ">
+					<a href="/blog">
 						Blog					</a>
 				</li>
 				<li class=" ">
@@ -144,145 +151,124 @@
 <!-- All Bootstrap content must be inside a container div -->
 <main class="flex-body">
 	
-		<style>
-			.marketing {
-				text-align: center;
-			}
-			.marketing p, .marketing h2{
-				text-align: center;
-			}
+<style>
 			img.card {
 				width: 330px;
 				border: solid 1px;
 			}
 		</style>
-
-		<div class="container">
-
-			<div class="alert alert-info alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				Note: the workshop is still unfinished, see the <a href="about/">About</a>
-				page for details.
-			</div> <!-- /.alert -->
-
-			<div class="jumbotron">
-				<h1>Welcome to the workshop</h1>
-				<p>
+<div class="container">
+<div class="jumbotron">
+<h1>Welcome to the workshop</h1>
+<p>
 					I make things, usually with software, and occasionally I write, usually
 					about software as well. The workshop is home to my projects, both
 					commercial and free, and I invite you to browse my projects and my
 					open source codes.
 				</p>
-				<p>
+<p>
 					I also contribute to free libre open source projects when there is an
 					opportunity, so check out those projects as well.
 				</p>
-			</div> <!-- /.jumbotron -->
-
-		</div> <!-- /.container -->
-
-		<div class="container ">
-			<div class="row">
-				<div class="col-md-4 ">
-					<div class="thumbnail">
-						<img class="img-rounded card" src="http://hiphish.github.io/assets/grid-framework.png" alt="test image" />
-						<div class="caption">
-							<h3>Grid Framework</h3>
-							<p>
+</div> <!-- /.jumbotron -->
+</div> <!-- /.container -->
+<div class="container ">
+<div class="row">
+<div class="col-md-4 ">
+<div class="thumbnail">
+<img alt="test image" class="img-responsive card img-rounded" src="http://hiphish.github.io/assets/grid-framework.png"/>
+<div class="caption">
+<h3>Grid Framework</h3>
+<p>
 								Grid-based game logic for Unity3D that is both simple and powerful.
 								Custom classes wrap up all the math in a simple, flexible and
 								powerful API for use as it fits your project. Includes also editor
 								extensions and examples.
 							</p>
-							<p><a class="btn btn-default" href="grid-framework" role="button">Learn more»</a></p>
-						</div>
-					</div> <!-- /.thumbnail -->
-				</div> <!-- /.col-md-4 -->
-
-				<div class="col-md-4 ">
-					<div class="thumbnail">
-						<img class="img-rounded card" src="http://hiphish.github.io/assets/newton.png" alt="test image" />
-						<div class="caption">
-							<h3>Newton's method in C</h3>
-							<p>
+<p><a class="btn btn-default" href="grid-framework" role="button">Learn more»</a></p>
+</div>
+</div> <!-- /.thumbnail -->
+</div> <!-- /.col-md-4 -->
+<div class="col-md-4 ">
+<div class="thumbnail">
+<img alt="test image" class="img-responsive card img-rounded" src="http://hiphish.github.io/assets/newton.png"/>
+<div class="caption">
+<h3>Newton's method in C</h3>
+<p>
 								One of my earlier projects written as an exercise for myself.
 								It implemnts Newton's method of fincing the root of a function
 								in C using only the standard library. The program acts as a
 								compiler and virtual machine for the function string entered
 								and can interpret any legal function syntax.
 							</p>
-							<p>
-								<a class="btn btn-default" href="https://github.com/HiPhish/Newton-method" role="button">
+<p>
+<a class="btn btn-default" href="https://github.com/HiPhish/Newton-method" role="button">
 									Learn more»
 								</a></p>
-						</div>
-					</div> <!-- /.thumbnail -->
-				</div> <!-- /.col-md-4 -->
-
-				<div class="col-md-4 ">
-					<div class="thumbnail">
-						<img class="img-rounded card" src="http://hiphish.github.io/assets/roll.jpg" alt="test image" />
-						<div class="caption">
-							<h3><code>roll</code> - Roll dice on the command line</h3>
-							<p>
+</div>
+</div> <!-- /.thumbnail -->
+</div> <!-- /.col-md-4 -->
+<div class="col-md-4 ">
+<div class="thumbnail">
+<img alt="test image" class="img-responsive card img-rounded" src="http://hiphish.github.io/assets/roll.jpg"/>
+<div class="caption">
+<h3><code>roll</code> - Roll dice on the command line</h3>
+<p>
 								Generate random numbers from virtual dice. Useful for
 								generating diceware passphrases and whatever else you might
 								need random integer numbers for.
 							</p>
-							<p>
-								<a class="btn btn-default" href="https://gitlab.com/HiPhish/roll" role="button">
+<p>
+<a class="btn btn-default" href="https://gitlab.com/HiPhish/roll" role="button">
 									Learn more»
 								</a>
-							</p>
-						</div>
-					</div> <!-- /.thumbnail -->
-				</div> <!-- /.col-md-4 -->
-			</div> <!-- /.row -->
-
-			<div class="row">
-				<div class="col-md-4 ">
-					<div class="thumbnail">
-						<img class="img-rounded card" src="http://hiphish.github.io/assets/game-docs.png" alt="test image" />
-						<div class="caption">
-							<h3>Game source documenation</h3>
-							<p>
+</p>
+</div>
+</div> <!-- /.thumbnail -->
+</div> <!-- /.col-md-4 -->
+</div> <!-- /.row -->
+<div class="row">
+<div class="col-md-4 ">
+<div class="thumbnail">
+<img alt="test image" class="img-responsive card img-rounded" src="http://hiphish.github.io/assets/game-docs.png"/>
+<div class="caption">
+<h3>Game source documenation</h3>
+<p>
 								We all love classic video games, and we also love when they get
 								some modern polish. If it just wasn't for all the encrusted ancient
 								code. This ongoing project aims to document the source codes of old
 								games well enough that a port could be built from the
 								specifications alone.
 							</p>
-							<p>
-								<a class="btn btn-default" href="https://github.com/HiPhish/Game-Source-Documentation" role="button">
+<p>
+<a class="btn btn-default" href="https://github.com/HiPhish/Game-Source-Documentation" role="button">
 									Learn more»
 								</a>
-							</p>
-						</div>
-					</div> <!-- /.thumbnail -->
-				</div> <!-- /.col-md-4 -->
-
-				<div class="col-md-4 ">
-					<div class="thumbnail">
-						<img class="img-rounded card" src="http://hiphish.github.io/assets/xeen.png" alt="test image" />
-						<div class="caption">
-							<h3>XeenTools</h3>
-							<p>
+</p>
+</div>
+</div> <!-- /.thumbnail -->
+</div> <!-- /.col-md-4 -->
+<div class="col-md-4 ">
+<div class="thumbnail">
+<img alt="test image" class="img-responsive card img-rounded" src="http://hiphish.github.io/assets/xeen.png"/>
+<div class="caption">
+<h3>XeenTools</h3>
+<p>
 								An ongoing effort to write a library that can read assets from
 								the <em>Might &amp; Magic IV &amp; V</em> games. The idea is to write a
 								library that can be used as a basis for a modern source port.
 							</p>
-							<p>
-								<a class="btn btn-default" href="https://github.com/HiPhish/XeenTools" role="button">
+<p>
+<a class="btn btn-default" href="https://github.com/HiPhish/XeenTools" role="button">
 									Learn more»
 								</a>
-							</p>
-						</div>
-					</div> <!-- /.thumbnail -->
-				</div> <!-- /.col-md-4 -->
+</p>
+</div>
+</div> <!-- /.thumbnail -->
+</div> <!-- /.col-md-4 -->
+</div> <!-- /.row -->
+</div> <!-- /.container -->
 
-			</div> <!-- /.row -->
-		</div> <!-- /.container -->
-	
 </main>
 
 
@@ -293,28 +279,22 @@
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
 			<span class="pull-right">
 				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 				</a>
 				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
 				</a>
 			</span> <!-- /.pull-right -->
 		</div> <!-- /.col-md-4 -->
 		<p class="text-muted text-right"></p>
 	</div> <!-- /.container -->
 </footer>
-
-<!-- <footer class="footer well HolyGrail-footer"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
-<!-- 	</div> -->
-<!-- </footer> -->
 
 
 	</body>

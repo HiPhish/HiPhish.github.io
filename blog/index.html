@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -31,8 +32,15 @@
 		<!-- "Holy Grail" page design -->
 		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
 
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<!-- Make the navbar look as expected when JavaScript is available -->
 		<script src="http://hiphish.github.io/theme/js/navbar.js"></script>
+
+		<!-- Toggle the chevron of tree-list items -->
+		<script src="http://hiphish.github.io/theme/js/list-tree.js"></script>
 
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
@@ -100,7 +108,7 @@
 						</li>
 
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/blog" target="_blank">
+							<a href="http://hiphish.github.io/grid-framework/news">
 								News							</a>
 						</li>
 
@@ -126,8 +134,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="disabled ">
-					<a href="">
+				<li class=" ">
+					<a href="/blog">
 						Blog					</a>
 				</li>
 				<li class=" ">
@@ -140,67 +148,125 @@
 </nav>
 
 
-<section id="content">
-	<h2>All articles</h2>
+<main class="flex-body">
+
+
+	<!-- Main content and two pillars -->
+	<div class="container flex-block">
+
+		<section id="content" class="HolyGrail-content">
+			<main class="article-main">
+				<ul id="articles-list">
+					<li class="article-summary">
+						<article class="hentry">
+							<header>
+								<h2 class="entry-title">
+									<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="bookmark" title="Permalink to We are live!">
+										We are live!
+									</a>
+								</h2>
+							</header>
+							<footer class="article-info">
+								<abbr class="article-published" title="2015-11-11T00:00:00+01:00"> 2015-11-11 </abbr>
+								<address class="vcard author">
+									By
+									<a class="url fn" href="http://hiphish.github.io/blog/authors/hiphish/">HiPhish</a>
+								</address>
+							</footer><!-- /.article-info -->
+							<div class="entry-content">
+								<p>The Workshop blog is finally up and running, in all its static glory. This
+makes the site practically complete, at least as complete as a website can ever
+be anyway. It also works great with my <a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican">Multiblog</a> plugin.</p>
+<p>I wanted to be able to have more than one blog on ...</p>
+							</div><!-- /.entry-content -->
+						</article>
+				  </li>
+				</ul><!-- /#posts-list -->
+			</main> <!-- / .article-main -->
+			
+		</section> <!-- / #content .HolyGrail-content -->
+
+
+		<!-- Left pillar - article navigator -->
+		<nav class="HolyGrail-nav well">
+		
+			<div>
+				<strong><a href="http://hiphish.github.io/">Archives</a></strong>
+				<!-- Period navigation -->
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>2015
+					</a>
+					<!-- Months in 2015 -->
+					<div class="list-group collapse" id="y-2015-item">
+						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>November
+						</a>
+						<!-- Articles in 11 -->
+						<div class="list-group collapse" id="y-2015-m-11-item">
+							<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+								We are live!
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/">Categories</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#organisation-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>organisation
+					</a>
+					<div class="list-group collapse" id="organisation-item">
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+		
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/">Tags</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#website-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<span class="glyphicon glyphicon-chevron-right" />website
+					</a>
+					<div class="list-group collapse" id="website-item">
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/">Authors</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#HiPhish-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<span class="glyphicon glyphicon-chevron-right" />HiPhish
+					</a>
+					<div class="list-group collapse" id="HiPhish-item">
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
 	
-	<ol id="post-list">
-		<li>
-			<article class="hentry">
-				<header>
-					<h2 class="entry-title"><a href="http://hiphish.github.io/grid-framework/blog/2015/Sep/05/my-second-post/" rel="bookmark" title="Permalink to My second post">My second post</a></h2>
-				</header>
-				<footer class="post-info">
-					<abbr class="published" title="2015-09-05T00:00:00+02:00"> Sat 05 September 2015 </abbr>
-					<address class="vcard author">
-						By
-						<a class="url fn" href="http://hiphish.github.io/author/hiphish.html">HiPhish</a>
-					</address>
-				</footer><!-- /.post-info -->
-				<div class="entry-content">
-					<p>Hello world again.</p>
+		<!-- Right pillar -->
+		<!--<aside class="HolyGrail-ads well"><strong>Advertisements</strong></aside>-->
 
-				</div><!-- /.entry-content -->
-			</article>
-	  </li>
-		<li>
-			<article class="hentry">
-				<header>
-					<h2 class="entry-title"><a href="http://hiphish.github.io/blog/blog/2015/Sep/04/my-first-general-post/" rel="bookmark" title="Permalink to My first general post">My first general post</a></h2>
-				</header>
-				<footer class="post-info">
-					<abbr class="published" title="2015-09-04T00:00:00+02:00"> Fri 04 September 2015 </abbr>
-					<address class="vcard author">
-						By
-						<a class="url fn" href="http://hiphish.github.io/author/hiphish.html">HiPhish</a>
-					</address>
-				</footer><!-- /.post-info -->
-				<div class="entry-content">
-					<p>This is an article with no category.</p>
+	</div> <!-- / .container .flex-block -->
 
-				</div><!-- /.entry-content -->
-			</article>
-	  </li>
-		<li>
-			<article class="hentry">
-				<header>
-					<h2 class="entry-title"><a href="http://hiphish.github.io/grid-framework/blog/2015/Sep/04/my-first-post/" rel="bookmark" title="Permalink to My first post">My first post</a></h2>
-				</header>
-				<footer class="post-info">
-					<abbr class="published" title="2015-09-04T00:00:00+02:00"> Fri 04 September 2015 </abbr>
-					<address class="vcard author">
-						By
-						<a class="url fn" href="http://hiphish.github.io/author/hiphish.html">HiPhish</a>
-					</address>
-				</footer><!-- /.post-info -->
-				<div class="entry-content">
-					<p>Hello world.</p>
-
-				</div><!-- /.entry-content -->
-			</article>
-	  </li>
-	</ol><!-- /#posts-list -->
-	
-	</section><!-- /#content -->
+</main><!-- /.flex-body -->
 
 
 		<footer class="site-footer HolyGrail-footer">
@@ -209,28 +275,22 @@
 			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
-			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</a></p>
+			<p class="text-muted">© 2015 by HiPhish | Created with Pelican using the Workshop theme</p>
 		</div> <!-- /.col-md-8 -->
 
 		<div class="col-md-4 footer-right">
 			<span class="pull-right">
 				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 				</a>
 				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" />
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
 				</a>
 			</span> <!-- /.pull-right -->
 		</div> <!-- /.col-md-4 -->
 		<p class="text-muted text-right"></p>
 	</div> <!-- /.container -->
 </footer>
-
-<!-- <footer class="footer well HolyGrail-footer"> -->
-<!-- 	<div class="container"> -->
-<!-- 		<p class="text-muted">Place sticky footer content here.</p> -->
-<!-- 	</div> -->
-<!-- </footer> -->
 
 
 	</body>
