@@ -1,16 +1,16 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>HiPhish's Workshop</title>
 
 		<!-- HTML page metadata -->
-		<meta charset = "utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="HiPhish's Workshop">
-		<meta name="author" content="HiPhish">
+		<meta name="description" content="HiPhish's Workshop" />
+		<meta name="author" content="HiPhish" />
 
 		<!-- Favicon if one is set -->
 
@@ -18,12 +18,12 @@
 		<!-- Style sheets -->
 
 		<!-- Bootstrap integration -->
-		<link rel="stylesheet" href="http://hiphish.github.io/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://192.168.0.190:8000/css/bootstrap.min.css" />
 
 
 
 		<!-- Main theme CSS file taking precedence over Bootstrap -->
-		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/main.css">
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/main.css" />
 
 
 		<!-- Code highlight using CSS classes from Pygments -->
@@ -38,10 +38,7 @@
 		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
 		<script src="http://hiphish.github.io/theme/js/main.js"></script>
 
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
-			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
-		crossorigin="anonymous"></script>
+		<script src="http://192.168.0.190:8000/js/bootstrap.min.js"></script>
 
 	</head>
 
@@ -76,7 +73,7 @@
 								Overview							</a>
 						</li>
 
-						<li class="divider" role="seperator"></li>
+						<li class="divider" role="separator"></li>
 
 						<li>
 							<a href="http://hiphish.github.io/grid-framework/features">
@@ -108,14 +105,14 @@
 								News							</a>
 						</li>
 
-						<li class="divider" role="seperator"></li>
+						<li class="divider" role="separator"></li>
 
 						<li>
 							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins" target="_blank">
 								Support							</a>
 						</li>
 
-						<li class="divider" role="seperator"></li>
+						<li class="divider" role="separator"></li>
 
 						<li>
 							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
@@ -150,7 +147,7 @@
 	<!-- Main content and two pillars -->
 	<div class="container flex-block">
 
-		<section id="content" class="HolyGrail-content">
+		<div id="content" class="HolyGrail-content">
 <!-- Breadcrumbs on top of categories list -->
 <ol class="breadcrumb">
 	<li class="active">
@@ -163,32 +160,35 @@
 		<a href="http://hiphish.github.io/blog/categories/organisation/">
 			organisation
 		</a>
-		(1)
+		(2)
 	</li>
 </ul>
 
-		</section> <!-- / #content .HolyGrail-content -->
+		</div> <!-- / #content .HolyGrail-content -->
 
 
 		<!-- Left pillar - article navigator -->
-		<nav class="HolyGrail-nav well">
+		<nav id="article-navigator" class="HolyGrail-nav well">
 		
 			<div>
-				<strong><a href="http://hiphish.github.io/">Archives</a></strong>
+				<strong><a href="http://hiphish.github.io/blog/archives/">Archives</a></strong>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
+						<span class="badge">2</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>2015
 					</a>
 					<!-- Months in 2015 -->
 					<div class="list-group collapse" id="y-2015-item">
 						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
+							<span class="badge">2</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>November
 						</a>
 						<!-- Articles in 11 -->
 						<div class="list-group collapse" id="y-2015-m-11-item">
+							<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+								Feeds are live now
+							</a>
 							<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
 								We are live!
 							</a>
@@ -199,13 +199,16 @@
 		
 		
 			<div>
-				<strong style="display:block;"><a href="http://hiphish.github.io/">Categories</a></strong>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/categories/">Categories</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#organisation-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
+						<span class="badge">2</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>organisation
 					</a>
 					<div class="list-group collapse" id="organisation-item">
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
 						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
 							We are live!
 						</a>
@@ -214,13 +217,16 @@
 			</div>
 		
 			<div>
-				<strong style="display:block;"><a href="http://hiphish.github.io/">Tags</a></strong>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/tags/">Tags</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#website-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
-						<span class="glyphicon glyphicon-chevron-right" />website
+						<span class="badge">2</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>website
 					</a>
 					<div class="list-group collapse" id="website-item">
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
 						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
 							We are live!
 						</a>
@@ -229,26 +235,33 @@
 			</div>
 
 			<div>
-				<strong style="display:block;"><a href="http://hiphish.github.io/">Authors</a></strong>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/authors/">Authors</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#HiPhish-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
-						<span class="glyphicon glyphicon-chevron-right" />HiPhish
+						<span class="badge">2</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>HiPhish
 					</a>
 					<div class="list-group collapse" id="HiPhish-item">
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
 						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
 							We are live!
 						</a>
 					</div>
 				</div>
 			</div>
+
+			<strong>Subscribe:
+				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a> </strong>
+
 		</nav>
 	
 		<!-- Right pillar -->
 		<!--<aside class="HolyGrail-ads well"><strong>Advertisements</strong></aside>-->
 
 	</div> <!-- / .container .flex-block -->
-
 </main><!-- /.flex-body -->
 
 
@@ -259,7 +272,7 @@
 				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 			</a>
 			<p class="text-muted">
-<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under Creative Commons <a href="http://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
+<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 			</p>
 		</div> <!-- /.col-md-8 -->
 

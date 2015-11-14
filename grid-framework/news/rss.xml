@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>A new blog for Grid Framework</title><link>http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/</link><description>&lt;p&gt;Welcome to the new blog for Grid Framework on the new website. I have migrated
+all the old blog posts here as well (with all typos and everything). The old
+blog is still available for the time being, but I won't post anything there
+anymore.&lt;/p&gt;
+&lt;p&gt;This website has support for multiple blogs, so this blog will from now on be
+used for news only. Once I have feeds working you will also be able to
+subscribe to get the latests news delivered right to you.&lt;/p&gt;
+&lt;p&gt;That's if for now, this was the last step needed in the migration to the new
+website.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
+just a category such as &lt;em&gt;release&lt;/em&gt; for instance by navigating to that category
+and using the links in the top right-hand corner.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</guid></item><item><title>New website</title><link>http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/</link><description>&lt;p&gt;Over the last few months I have been busy redesigning the website and we are
+finally live now. Check it out:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;http://hiphish.github.io/grid-framework/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The new website has been rewritten from scratch, but all the old links are
+still valid. It is now a modern site that looks good on desktops, on tablets,
+on phones and even in text mode. All content is static and the site works fine
+with and without JavaScript enabled in your browser.&lt;/p&gt;
+&lt;div class="section" id="showcase-your-work"&gt;
+&lt;h2&gt;Showcase your work&lt;/h2&gt;
+&lt;p&gt;Judging by the five-star reviews you all seem to like Grid Framework, but what
+are you using it for? I want to have a showcase page on the website where I can
+show off some of the games made using Grid Framework. If you want your game
+featured drop me a line, include a screenshot (or give me permission to pick
+one myself) and a few sentences about your game and what you used Grid
+Framework for. I'm looking forward to seeing all the cool uses you came up
+with.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="about-the-new-website"&gt;
+&lt;h2&gt;About the new website&lt;/h2&gt;
+&lt;p&gt;The original website was made from hand-written HTML and CSS. While I like the
+pure hands-on approach it became quickly apparent that that wouldn't cut it in
+the long run. Take for example the navigation bar: It has to appear on every
+page, it has to be the same everywhere and the currently active item has to be
+highlighted. HTML has no interactive elements and no way to include snippets. I
+could have used JavaScript, but then the site would break down it people don't
+have JavaScript enabled.&lt;/p&gt;
+&lt;p&gt;I was looking into different solutions and settled for Pelican. Pelican is a
+static site generator, meaning you write template HTML pages with placeholders
+and you write your content separately. Pelican then generates the finished
+website from your template, content and a number of settings. This has all the
+benefits of being static while being easy to maintain.&lt;/p&gt;
+&lt;p&gt;For the actual website I decided instead of reinventing the wheel I would just
+leverage the work of people who know more about web development than me. I use
+Bootstrap as my CSS framework and jQuery for light JavaScript decoration. I
+also now have a proper gallery using Pretty Photo library. You can find a list
+of all components on the &lt;a class="reference external" href="http://hiphish.github.io/about"&gt;about&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;One final note about JavaScript if you are concerned about proprietary code:
+all the foreign code is free software and the code I have written is free as
+well (MIT licensed), no need to worry.&lt;/p&gt;
+&lt;p&gt;What is still missing is the blog. Because I intend the Workshop to be home to
+all my projects it would be a bad idea to lump all news into the same blog.
+Pelican has no capability of producing multiple blogs, I will have to write a
+multiblog plugin instead. Until then this blog stays the news site.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 26 Oct 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-10-26:grid-framework/news/2015/10/26/new-website/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.8.0 released</title><link>http://hiphish.github.io/grid-framework/news/2015/03/11/version-180/</link><description>&lt;p&gt;Version 1.8.0 of Grid Framework has been approved by the Asset Store team. This
+release introduces a new rendering shape for hex grid: the circle. Of course,
+like with polar grids, just because it's called a circle that does not mean you
+are limited to just circles, you can decide on the start and end "angle" or
+have a hole in the centre to create a ring.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of circular hex arrangement" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/03/11/version-180/images/hex_circle.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The shape can be drawn around any hex, not just the origin. Here is the full
+changelog:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Introducing a new rendering shape for hex grids.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Hex grids can render in a circular shape.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; &lt;tt class="docutils literal"&gt;renderAround&lt;/tt&gt; property on hex grids for the new shape.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Fixed:&lt;/em&gt; Size and rendering range not showing up properly in the inspector.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Mar 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-03-11:grid-framework/news/2015/03/11/version-180/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.7.4 released</title><link>http://hiphish.github.io/grid-framework/news/2015/03/01/version-174/</link><description>&lt;p&gt;Grid Framework version 1.7.4 has been approved by the Asset Store team. This
+release brings official support for Unity 5, so feel free to upgrade. Unity 4
+is still supported, thanks to the changes to the Asset Store I can now upload
+separate packages for different versions of Unity.&lt;/p&gt;
+&lt;p&gt;There are no API changes, so it doesn't matter whether you want to use Unity 4
+or 5. The only real difference between packages are the example scenes. The
+formats Unity 5 uses are different from 4, so a package created in Unity 5
+would appear broken in 4.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 01 Mar 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-03-01:grid-framework/news/2015/03/01/version-174/</guid><category>old-blog</category></item><item><title>Playable examples</title><link>http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/</link><description>&lt;p&gt;I have added playable builds of the examples to the website, now you can click
+the title of an example and try the result out in the Web Player. To get back
+click on the &lt;em&gt;Grid Framework examples&lt;/em&gt; label above the player. Just remember
+that you have to click into the player to get it to accept input.&lt;/p&gt;
+&lt;p&gt;Check out the web pages:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/examples/"&gt;http://hiphish.github.io/grid-framework/examples/&lt;/a&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 27 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-27:grid-framework/news/2015/01/27/playable-examples/</guid><category>old-blog</category><category>example</category></item><item><title>Grid Framework version 1.7.2 released</title><link>http://hiphish.github.io/grid-framework/news/2015/01/21/version-172/</link><description>&lt;p&gt;Version 1.7.2 of Grid Framework has been approved by the Asset Store team. This release and the previous one provide bugfixes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Fixed:&lt;/strong&gt; Null exception on polar grids when getting Vectrosity points if the grid is not being rendered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For version 1.7.1:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Fixed:&lt;/strong&gt; The grid align panel now correctly respect or ignores rotation when auto-snapping.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 21 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-21:grid-framework/news/2015/01/21/version-172/</guid><category>old-blog</category></item><item><title>A homepage for Grid Framework</title><link>http://hiphish.github.io/grid-framework/news/2015/01/16/homepage/</link><description>&lt;p&gt;Grid Framework now has its own homepage:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;http://hiphish.github.io/grid-framework/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have been running this blog now for almost three years, which is way too long
+to go without a proper website. Back when I had just started out I didn't know
+if Grid Framework would ever take off, so I organised everything in a quick &amp;amp;
+simple manner, but I think it's finally time to step up my presentation.&lt;/p&gt;
+&lt;p&gt;The site is hosted on GitHub, so you can browse the source code if you wish,
+it's all handwritten in HTML and CSS, nothing fancy. There are still a few
+things I would like to overhaul, like a proper screenshot gallery, playable
+examples and redo the videos. But for now the site is at least presentable.&lt;/p&gt;
+&lt;p&gt;If you have any suggestions or find display errors on some devices please let
+me know.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 16 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-16:grid-framework/news/2015/01/16/homepage/</guid><category>old-blog</category></item><item><title>Goodbye MonoDevelop, hello Vim</title><link>http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/</link><description>&lt;p&gt;One thing that has been getting on my nerves ever since I started working with
+Unity has been MonoDevelop. While it is a good IDE for the most part it
+suffered from a number of annoying issues, such as folds randomly opening, poor
+performance, and auto completion randomly not working. Your mileage may vary,
+and for the most parts it was doing its job, but the annoying hiccups kept
+happening all the time.&lt;/p&gt;
+&lt;p&gt;I tried out the official Xamarin Studio, but that one didn't fare better and on
+top of that always threw up error messages when opening a file. I was looking
+into alternate editors, but they didn't offer the rich C#-focused feature set
+of MonoDevelop, so I was stuck with it.&lt;/p&gt;
+&lt;p&gt;Eventually I was so fed up, I decided to go all the way back: no fancy IDEs, no
+GUIs, back to to bare basics: Vim. The cool thing about Vim is that's it's a
+very simple barebones editor that can be extended and customised to your
+liking. Vanilla Vim is nice, but you have not really used Vim until you have
+tailored every aspect to your personal liking. That's a gradual process that
+will take years of experience, but I do already feel very comfortable outside
+of the hand-holding restrictions of the IDE.&lt;/p&gt;
+&lt;p&gt;For an ideal Unity setup you will want a GUI client of Vim, such as MacVim.
+That doesn't mean that Vim will get all those fancy buttons and menus, although
+you can enable those if you want to, but the main advantage is that it can be
+launched like any other application instead of through the terminal. MacVim has
+also better mouse support (it's faster to resize windows with the mouse) and
+the character cursor looks different in insert mode.&lt;/p&gt;
+&lt;p&gt;The next thing you want is support for .Net and C# features. The plugin for
+that is Omnisharp:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/OmniSharp/omnisharp-vim"&gt;https://github.com/OmniSharp/omnisharp-vim&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Omnisharp will add pretty much all features that you have come to love from
+MonoDevelop, without the headache. Omnisharp also provides an interface for
+other plugins, for example you can use it with YouCompleteMe to get automatic
+code-completion:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/Valloric/YouCompleteMe"&gt;https://github.com/Valloric/YouCompleteMe&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There is a ton of other useful plugins out there as well and some are listed on
+Omnisharp's page. Another advantage of Vim is that it's not restricted to one
+particular language or framework. You can easily write your essay or design
+your HTML web page in it. Customisations can be set for each file type
+differently or you can use them over multiple types. Since it's all one editor
+you don't have to learn a new IDE for every project.&lt;/p&gt;
+&lt;p&gt;In fact, I have been designing my new upcoming website in Vim as well, the same
+editor I use for writing Grid Framework. How cool is that? Here is a video I
+found on YouTube of someone using Vim to edit text with the speed of though:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/lQNFfhC4QI8" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 09 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-09:grid-framework/news/2015/01/09/hello-vim/</guid><category>old-blog</category><category>rant</category></item><item><title>Grid Framework version 1.7.0 released</title><link>http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/</link><description>&lt;p&gt;Version 1.7.0 of Grid Framework has just been approved by the Asset Store team.
+This release brings some more love for hexagonal grids in the form of two new
+coordinate systems and four new rendering shapes.&lt;/p&gt;
+&lt;p&gt;The new coordinate systems are the downwards herringbone coordinate system
+where every second column is shifted down- instead of upwards and the downwards
+rhombic coordinate system where each successive column is shifted one hex down-
+instead of upwards.&lt;/p&gt;
+&lt;p&gt;Two of the new rendering shapes are downwards rectangle and downwards rhombus
+to go with the new coordinate systems. The two completely new rendering shapes
+are the up- and downwards herringbone grids. Unlike the other shapes these ones
+are continuous and expand smoothly.&lt;/p&gt;
+&lt;p&gt;Notice how the grid on the left-had side shifts ever odd column upwards and the
+grid on the right-had side shifts ever odd column downwards.&lt;/p&gt;
+&lt;p&gt;Here is the full change log:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Downwards herringbone coordinate system for hex grids&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Downwards rectangle rendering shape to accompany the new coordinate system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Downwards rhombic coordinate system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Downwards rhombic rendering shape to accompany the new coordinate system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; Up- and downwards herringbone rendering shape.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Fixed:&lt;/em&gt; The grid align panel now correctly respect or ignores rotation when aligning.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 11 Dec 2014 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2014-12-11:grid-framework/news/2014/12/11/version-170/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.5.3 released</title><link>http://hiphish.github.io/grid-framework/news/2014/11/07/version-153/</link><description>&lt;p&gt;Grid Framework version 1.5.3 has been approved by the Asset Store team. This
+release brings compatibility with the upcoming Unity 5.&lt;/p&gt;
+&lt;p&gt;Grid Framework itself was compatible, but a number of examples used properties
+that have been removed in Unity 5. Those are properties that secretly called
+GetComponent, but looked like regular variables.&lt;/p&gt;
+&lt;p&gt;And while I'm at it, here is a little teaser for the next feature update:
+rhombic hex grid rendering&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of rhombic hex arrangement" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2014/11/07/version-153/images/rhombic.png"/&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 07 Nov 2014 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2014-11-07:grid-framework/news/2014/11/07/version-153/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.5.2 released</title><link>http://hiphish.github.io/grid-framework/news/2014/11/06/version-152/</link><description>&lt;p&gt;Grid Framework version 1.5.2 has just been approved of by the Asset Store team.
+This release is a bugfix for polar grids where the cylindric lines have not
+been calculated properly if the depth of the grid was not 1.&lt;/p&gt;
+&lt;p&gt;Another thing you might notice is that the engine requirements have been
+knocked down to Unity version 3.5.7, the latest release of Unity 3. While Grid
+Framework has always been compatible with Unity 3, I have been using Unity 4
+for deployment so far. Now the compatibility with Unity 3 is official.&lt;/p&gt;
+&lt;p&gt;Compatibility with Unity 5 is coming with the next update; it's nothing major,
+but some of the examples did not compile due to deprecated properties.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 06 Nov 2014 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2014-11-06:grid-framework/news/2014/11/06/version-152/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.5.1 released</title><link>http://hiphish.github.io/grid-framework/news/2014/10/01/version-151/</link><description>&lt;p&gt;This release is a hotfix for everyone who was using Playmaker&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fixed: Compilation errors when toggling on Playmaker actions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Playmaker actions wil compile correctly now, anyone else was unaffected. So
+what happened? One of the problems when developing an extension that relies on
+another extension is that it will not compile if the dependency is not present.
+For Vectrosity is was easy, I just needed to assemble and array and the user
+would then send it over to Vectrosity. Or not, you could do something entirely
+different with it as well if you wanted, it's just an array of Vector3.&lt;/p&gt;
+&lt;p&gt;Playmaker is different though, the actions are classes derived from Playmaker
+classes, so if you don't own Playmaker the code will not compile. My solution
+was to do the following:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+//#define PLAYMAKER_PRESENT
+#ifdef PLAYMAKER_PRESENT
+// code goes here
+#endif //PLAYMAKER_PRESENT
+&lt;/pre&gt;
+&lt;p&gt;This means the code will only compile if the keyword PLAYMAKER_PRESENT is
+defined, which it isn't since the first line is commented. To make the scripts
+compile you have to toggle them on through a menu item which then edits the
+scripts to un-comment or comment that line. Before I submit a new release I
+have to toggle the actions off and so I missed the compilation errors.&lt;/p&gt;
+&lt;p&gt;It's still a bad oversight on my side and I'm not trying to excuse my failure,
+but I wanted to share how this can happen. A better solution would be if
+plugins could define keywords globally, then Playmaker could announce its
+existence on its own instead of having to toggle things manually.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 01 Oct 2014 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2014-10-01:grid-framework/news/2014/10/01/version-151/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.5.0 released</title><link>http://hiphish.github.io/grid-framework/news/2014/09/16/version-150/</link><description>&lt;p&gt;Grid Framework version 1.5.0 has been approved by the Asset Store team. This
+version brings a great new feature for anyone interested in making isometric 2D
+games: shearing. Shearing allows you to slant a rectangular grid's axes without
+having to rotate the grid. Up until now the only way to achieve the isometric
+look was to rotate the grid or the camera in 3D space, but in 2D games the
+camera has to be perpendicular to the image plane and thus the grid as well.
+Now all you need to do is just set the shearing of the axes and you're good to
+go, everything else stays the way it was.&lt;/p&gt;
+&lt;p&gt;The shearing is stored in a new type called &lt;em&gt;Vector6&lt;/em&gt; that works very much like
+Unity's own &lt;em&gt;Vector3&lt;/em&gt;. The &lt;em&gt;Vector6&lt;/em&gt; class resides in the new GridFramework.
+Vectors name space to prevent name collision with other custom types or a
+possible future official &lt;em&gt;Vector6&lt;/em&gt; type from Unity.&lt;/p&gt;
+&lt;p&gt;the &lt;em&gt;GFBoolVector3&lt;/em&gt; and &lt;em&gt;GFColorVector3&lt;/em&gt; classes have also been moved to that
+namespace and had their "GF" prefix stripped away. If you used them in your own
+scripts strip away the prefix and place a using directive at the start of your
+script, otherwise you have to do nothing.&lt;/p&gt;
+&lt;p&gt;Here is the full change log:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Introducing shearing for rectangular grids.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;New: Rectangular grids can now store a &lt;code&gt;shearing&lt;/code&gt; field to distort them.&lt;/li&gt;
+&lt;li&gt;New: Custom &lt;code&gt;Vector6&lt;/code&gt; class for storing the shearing.&lt;/li&gt;
+&lt;li&gt;API change: The odd herringbone coordinate system has been renamed to
+upwards herringbone. The corresponding methods use the &lt;code&gt;HerringU&lt;/code&gt; pre- or
+suffix instead of &lt;code&gt;HerringOdd&lt;/code&gt;; the old methods still work but are marked
+as depracated.&lt;/li&gt;
+&lt;li&gt;API change: The enumeration &lt;code&gt;GFAngleMode&lt;/code&gt; has been renamed &lt;code&gt;AngleMode&lt;/code&gt; and
+moved into the &lt;code&gt;GridFramework&lt;/code&gt; namespace.&lt;/li&gt;
+&lt;li&gt;API change: The enumeration &lt;code&gt;GridPlane&lt;/code&gt; has been moved into the
+&lt;code&gt;GridFramework&lt;/code&gt; namespace. It is no longer part of the &lt;code&gt;GFGrid&lt;/code&gt; class.&lt;/li&gt;
+&lt;li&gt;API change: The class &lt;code&gt;GFColorVector3&lt;/code&gt; has been renamed &lt;code&gt;ColorVector3&lt;/code&gt; and
+moved into the &lt;code&gt;GridFramework.Vectors&lt;/code&gt; namespace.&lt;/li&gt;
+&lt;li&gt;API change: The class &lt;code&gt;GFBoolVector3&lt;/code&gt; has been renamed &lt;code&gt;BoolVector3&lt;/code&gt; and
+moved into the &lt;code&gt;GridFramework.Vectors&lt;/code&gt; namespace.&lt;/li&gt;
+&lt;li&gt;Enhanced: Vectrosity methods without parameters can now pick betweem size
+and custom range automatically.&lt;/li&gt;
+&lt;li&gt;Fixed: Vectrosity methods were broken in previous version.&lt;/li&gt;
+&lt;li&gt;Updated the documentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 16 Sep 2014 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2014-09-16:grid-framework/news/2014/09/16/version-150/</guid><category>old-blog</category></item><item><title>Whitelisting subdirectories in Git</title><link>http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/</link><description>&lt;p&gt;After having migrated the development of Grid Framework to Git I wanted to set
+it up to track only certain sub-directories. I turned out that whitelisting is
+quite tricky, so here is how I did it for people who might run into the same
+problem.&lt;/p&gt;
+&lt;p&gt;We'll use only one .gitignore file and it will be placed in the root of our
+repository, which is also the root of our project. We can do the usual
+blacklisting stuff like blacklisting ceretain file types and directories, but
+the Assets directory is where it gets tricky. Since the directory contains all
+sorts of other plugins used during development but not worth tracking, we can
+neither black- nor whitelist the entire directory.&lt;/p&gt;
+&lt;p&gt;First we'll blacklist all the contents of the Assets directory. Note that this
+does not blacklist the directory itself, just its contents, but since Git
+operates on files the effect is the same. The difference is that blacklisting
+an entire directory prevents us from ever whitelisting any of its contents.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Assets/*
+&lt;/pre&gt;
+&lt;p&gt;Now we can whitelist a subdirectory and its meta file:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+!Assets/Grid\ Framework/
+!Assets/Grid\ Framework.meta
+&lt;/pre&gt;
+&lt;p&gt;Simple enough, but what if we want to whitelist only a specific subdirectory of
+a subdirectory? The Editor directory contains code from other plugins as well,
+so we don't want to track the entire thing. In this case we need to repeat the
+same process as above but one level deeper.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+!Assets/Editor/
+!Assets/Editor.meta
+Assets/Editor/*
+!Assets/Editor/Grid\ Framework/
+!Assets/Editor/Grid\ Framework.meta
+&lt;/pre&gt;
+&lt;p&gt;First we whitelist the Editor directory, then we immediately blacklist its
+contents and whitelist a specific subdirectory. This way none of the other
+editor extensions will be tracked. We can repeat the same process for the
+Plugins directory.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+!Assets/Plugins/
+!Assets/Plugins.meta
+Assets/Plugins/*
+!Assets/Plugins/Grid\ Framework/
+!Assets/Plugins/Grid\ Framework.meta
+&lt;/pre&gt;
+&lt;p&gt;And yes, you do have to repeat all these steps for every level of
+subdirectories. You don't have to whitelist subdirectories of already
+whitelisted directories, so any subdirectory in &lt;tt class="docutils literal"&gt;Assets/Editor/Grid\
+Framework/&lt;/tt&gt; is already tracked. Also note the backslash in the path, it is
+necessay to escape the space character.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Whitelisted the Unity meta files of whitelisted folders as well,
+just in case. Of course if you are not using Unity you need to figure out if
+and what meta files you have instead and if they need to be tracked as well.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 09 Sep 2014 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2014-09-09:grid-framework/news/2014/09/09/whitelisting-in-git/</guid><category>old-blog</category><category>how-to</category></item><item><title>Shearing</title><link>http://hiphish.github.io/grid-framework/news/2014/08/24/shearing/</link><description>&lt;p&gt;As I mentioned last time the upcoming release will be a maintenance release
+with some much-needed cleanup. While I'm still waiting for approval I have been
+working on a new feature for rectangular grids that I had wanted to do for
+quite a while now, but couldn't until the cleanup: I'm talking about shearing.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of sheared grid" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2014/08/24/shearing/images/shearing.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;This is an un-rotated rectangular grid with skewed axes to create the popular
+2:1 isometric look. This is quite powerful, because it allows for isometric 2D
+graphics to be used with Grid Framework. Getting an isometric look in a 3D game
+is very simple, you just rotate the camera until it looks right. However, in a
+2D game the camera has to be perpendicular to the image plane and objects are
+just drawn as if they were at an angle, so rotation is out of question.&lt;/p&gt;
+&lt;p&gt;Shearing is fully implemented, I just need to write the documentation for it.
+It works with arbitrary numbers and for all axes along any other axis, so you
+can shear your grids any way you want. It will be a feature for the 1.5 update
+once the upcoming 1.4.2 release gets approved.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 24 Aug 2014 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2014-08-24:grid-framework/news/2014/08/24/shearing/</guid><category>old-blog</category><category>progress</category></item><item><title>Grid Framework version 1.4.1 released</title><link>http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/</link><description>&lt;p&gt;Actually it has been up for almost a month already, but I have been busy.
+Anyway, this is the long-awaited release that brings PlayMaker support to Grid
+Framework, so here is the change log:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Introducing Playmaker support: Almost the entire Grid Framework API can no be
+used as Playmaker actions (some parts of the API are ouside the capabilies of
+Playmaker for now)&lt;/li&gt;
+&lt;li&gt;Updated the documentation to include a chapter about Playmaker and how to
+write your own Grid Framework actions.&lt;/li&gt;
+&lt;li&gt;Fixed: the origin offset resetting every time after exiting play mode.&lt;/li&gt;
+&lt;li&gt;Fixed compilation error in one of the Playmaker actions (setter and getter
+for depth of layered grids)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you're wondering why I skipped 1.4.0, it's because I discovered a bug right
+after submission, so I submitted 1.4.1 right afterwards, thus skipping over the
+release of 1.4.0. As always you can read about how to use the new PlayMaker
+actions or write your own ones  in the documentation.&lt;/p&gt;
+&lt;p&gt;As for future plans for Grid Framework, I still have a place that I want to
+optimise before considering new features, and it will require a good amount of
+digging, but the result will be cleaner and easier to maintain code.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 09 May 2014 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2014-05-09:grid-framework/news/2014/05/09/version-141/</guid><category>old-blog</category><category>extension</category></item><item><title>Grid Framework version 1.3.5 released</title><link>http://hiphish.github.io/grid-framework/news/2013/12/10/version-135/</link><description>&lt;p&gt;Grid Framework version 1.3.5 has been approved last week, here is the
+changelog:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Added a new event for when the grid changes in such a way that if would need
+to be redrawn.&lt;/li&gt;
+&lt;li&gt;Some of the exmples were broken when Unity updated to version 4.3, now they
+should be working again.&lt;/li&gt;
+&lt;li&gt;Overhauled the undo system for the grid align panel to remove the now
+obsolete Unity undo methods.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I promised I would be working on Playmaker support, so what's going on here? I
+have been bogged down a lot with studies and real life stuff oder the last
+months (nothing bad though, don't worry), so things were going slowly, but they
+were moving. The current problem is Playmaker itself; from what I have used it
+is a fantastic system to crate game logic and totally worth it, however, when
+it comes to extending it things aren't that nice anymore.&lt;/p&gt;
+&lt;p&gt;I am in contact with a staff member who is helping me out, so I'm not entirely
+reliant on the lackluster documentation, but there is a lot of ugly code
+redundancy that cannot be avoided. I'm still working on it and it will come out
+eventually, but it will take more time. How much? I don't really know, it
+depends on how rigid or flexible Playmaker turns out to be.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 10 Dec 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-12-10:grid-framework/news/2013/12/10/version-135/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.3.4 released</title><link>http://hiphish.github.io/grid-framework/news/2013/09/20/version-134/</link><description>&lt;p&gt;This is a small update, it adds the ability to offset the origin of the grid.
+It also adds a chapter to the manual about extending Grid Framework with your
+own code. There is nothing in there experienced .NET user wouldn't know, but I
+figure some user might not know about extension methods and might do things in
+a hacky way, so I added the chapter to it, along with example code.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 20 Sep 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-09-20:grid-framework/news/2013/09/20/version-134/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.3.3 released</title><link>http://hiphish.github.io/grid-framework/news/2013/08/28/version-133/</link><description>&lt;p&gt;Grid Framework version 1.3.3 has been approved by the Asset Store team. This
+update adresses a bug introduced in version 1.3.2 where values of colour
+vectors (such as axisColor) and bool vectors were not persistent. Now they will
+stick again. I also broke the examples for the sliding puzzle and movement with
+obstacles, which are now fixed. Based upon a customer's question I also built a
+snake game example; it's mostly an extension of the grid-based movement but
+with several snake segments following each other.&lt;/p&gt;
+&lt;p&gt;And last, but for some people certainly not least, if you delete the local
+documentation (found in the WebPlayerTemplates folder) the help menu entry will
+forward you to an online documentation instead. Some customers complained about
+me cluttering their project with that folders, and they are right, but
+unfortunately that's the only place where I can place the files, or else Unity
+will try to compile the JavaScript files and throw a ton of errors.&lt;/p&gt;
+&lt;p&gt;The documentation files are all contained in that one folder, so you can either
+uncheck it when importing, delete the folder after import or move it somewhere
+else. I know this is inconvenient, but unless Unity provides me with a proper
+way to bundle offline documentation this is the best I can do.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 28 Aug 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-08-28:grid-framework/news/2013/08/28/version-133/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.3.2 released</title><link>http://hiphish.github.io/grid-framework/news/2013/08/09/version-132/</link><description>&lt;p&gt;Version 1.3.2 of Grid Framework has been approved by the Asset Store Team. The
+biggest news is the  addition of new coordinate systems for hexagonal grids.
+You have cubic coordinates, rhombic coordinates and the old odd herringbone
+coordinates now. Even herringbone and barycentric coordinates will be added at
+some point in the future for the sake of completion, but they are no priority.&lt;/p&gt;
+&lt;p&gt;The documentation received a complete overhaul. Rather than two manually typed
+PDFs you now have one automatically generated Doxygen documentation in HTML
+format. Previously you accessed it by double-clicking the PDF in your project
+view, not you can just go to Unity's help menu and the documentation will open
+up in your browser.&lt;/p&gt;
+&lt;p&gt;The user manual and scripting API are now together again. The top- and sidebar
+of the HTML can be used to quickly find what you want. There is also a new
+section called Legacy Support that contains information on changed or dropped
+features and how to restore them or upgrade your code. The changelog has also
+been added to the manual, thanks to Markdown you now have both a nicely
+formatted HTMl and a well readable plain text file.&lt;/p&gt;
+&lt;p&gt;There are also two new examles. The first example constructs a SimCity-like
+terrain mesh from a plain text file containing the heights as integers and
+allows you raise and lower vertices by clicking them. Just set up your grid,
+insert your height file and click play.&lt;/p&gt;
+&lt;p&gt;The other example uses polar grids to simulate a rotary dial, as found on old
+telephones. Click a number and the dial will rotate that much, print a message
+and then rotate back. This example can be used for circular GUIs, menus, clocks
+or anything else that needs to rotate around angles.&lt;/p&gt;
+&lt;p&gt;There is also the usual bug-fixing, vertex matrix methods got cut and the
+NearestFace/BoxG methods of rectangular grids have changed somewhat. You can
+find the exact details in the Legacy Support section of the documentation. Here
+is the full changelog:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Hex Grids: new coordinate systems, see the manual page about @ref hex_grid
+for more information.&lt;/li&gt;
+&lt;li&gt;New HTML documentation generated with Doxygen replaces the old one.&lt;/li&gt;
+&lt;li&gt;Fixed a bug in &lt;tt class="docutils literal"&gt;Angle2Rotation&lt;/tt&gt; when the grid's rotation was not a multiple
+of 90°.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New example:&lt;/em&gt; generate a terrain mesh similar to old games like SimCity from
+a plain text file and have it align to a grid.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New example:&lt;/em&gt; a rotary phone dial that rotates depending on which number was
+clicked and reports that number back. A great template for disc-shaped GUIs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some existing methods have changed in this release, please consult the @ref
+legacy_support page of the user manual.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Rect Grids: changed the way &lt;tt class="docutils literal"&gt;NearestBoxG&lt;/tt&gt; works, now there is no offset
+anymore, it returns the actual grid coordinates of the box. Just add &lt;tt class="docutils literal"&gt;0.5 *
+Vector.one&lt;/tt&gt; to the result in your old methods.&lt;/li&gt;
+&lt;li&gt;Rect Grids: changed the way &lt;tt class="docutils literal"&gt;NearestFaceG&lt;/tt&gt; works, just like above. Add
+&lt;tt class="docutils literal"&gt;0.5 * Vector3.one - 0.5 * i&lt;/tt&gt; to the result in your old methods (where
+&lt;tt class="docutils literal"&gt;i&lt;/tt&gt; is the index of the plane you used).&lt;/li&gt;
+&lt;li&gt;Hex grids: Just like above, nearest vertices of hex grids return their true
+coordinates for whatever coordinate system you choose.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am sorry for these changes so late , but I realize this differentiation made
+things more complicated in the end than they should have been. It's better to
+have one unified coordinate system instead. Read the @ref legacy_support to
+learn how to get the old behaviour back.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 09 Aug 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-08-09:grid-framework/news/2013/08/09/version-132/</guid><category>old-blog</category></item><item><title>Status update and Doxygen rant</title><link>http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/</link><description>&lt;p&gt;It has been two weeks snce my last update, so I wanted to let you guys know
+what I am currently at. The good news is that the new coordinate systems have
+been implemented and are ready to use. Of course there is still the obligatory
+last check to do, but i expect everything to be fine. All methods that got the
+axe are now gone as well and have been put into extension methods and ZIPped
+into archives; that way no one will accidently use the deprecated API. I also
+added a section called Legacy Support to the manual with instructions.&lt;/p&gt;
+&lt;p&gt;Now for the promised rant. I have transitioned all the documentation to
+Doxygen, both scripting reference and user manual. Now all that would be left
+would be to sprinkle some CSS fairy dust on top of it so it looks nice and I'm
+done. Except editing the CSS is an exercise in pure trial &amp;amp; error frustration,
+there is no documentation for it and the code is barely commented. The manual
+is a pain in the butt as well, it's like it was written for people who already
+know how to use Doxygen. It will go into detail about all the possible ways of
+formating my text, but it doesn't explain how to get the text into the manual
+in a specific order. Don't worry, I got it all covered now, but it was not a
+fun journey.&lt;/p&gt;
+&lt;p&gt;I wanted to slim down the default HTML design, because I think the large header
+buttons at the top are too large and vibrant, but I've had it with Doxygen.
+Don't get me wrong, it's a great system and I'm sure everything made perfect
+sense when wrting it, but it is obscure from the outside. Anyway, I'm going to
+stick with the default design for now, but at least I limited the size of
+images so they don't disrupt the flow of the text. There probably won't be any
+PDF documentation anymore though, the HTML is more flexible to read and
+navigate, plus the PDF generated by Doxygen looks rather... ugly.&lt;/p&gt;
+&lt;p&gt;Now that I've got everything out of the way it's time to wrap it up and
+hopefully get it released next week.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 02 Aug 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-08-02:grid-framework/news/2013/08/02/status-update/</guid><category>old-blog</category><category>rant</category></item><item><title>What's up next?</title><link>http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/</link><description>&lt;p&gt;Hello everyone, I decided to do a status update so you know what's going on and
+coming next.&lt;/p&gt;
+&lt;div class="section" id="two-new-examples"&gt;
+&lt;h2&gt;Two new examples&lt;/h2&gt;
+&lt;p&gt;The first example is something I wanted to do for quite a while, it generates a
+terrain mesh like the terrain in games like SimCity from a plain text file. You
+provide the numbers for the height of vertices and the mesh gets created. On
+top of that you can click a vertex to raise it and right-click to lower. All
+the vertices will be placed along the vertices of the grid, so the level
+designer doesn't have to wory about the layout of the scene.&lt;/p&gt;
+&lt;p&gt;The other example is a rotary phone dial using polar grids, it's based on a
+suggestion by a customer (I always appreciate input, don't be shy ^^). You have
+a rotary dial, you click it and then it rotates like a real dial, depending on
+which number you clicked. It may no look very impressive on its own, but the
+template could be used for all kinds of cool UI displays and menus. It works by
+checking which sector of the grid was clicked and then multiplying that with
+the angle of the grid and then applying the rotation over time.
+Both examples are already done and will definitely be part of the next update.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="new-hexagonal-coordinate-systems"&gt;
+&lt;h2&gt;New hexagonal coordinate systems&lt;/h2&gt;
+&lt;p&gt;This is the main feature of the upcoming update. Up until now the only
+coordinate system hex grids had was the herringbone pattern. It's easy to
+understand, but when writing for it you often have to differentiate between odd
+and even X-coordinate, which is... stupid. The new coordinate systems don't
+have that problem, but they are harder to understand, so pick your poison ;)&lt;/p&gt;
+&lt;p&gt;The first coordinate system is "rhombic", meaning the X-axis is rotated 30°
+upwards. This removes the need for the even/odd cases, but now moving
+south-west is actually moving west. The second coordinate system is "cubic", it
+uses three axes in two dimensions. To understand it remember the game Qbert,
+the game world is in 3D with cubes, but the actual graphics are in 2D and the
+cubes are actually hexagons. Finally, we have barycentric coordinates for the
+more mathematically inclined.&lt;/p&gt;
+&lt;p&gt;I really want this feature to be done before going after playmaker support. I
+know you guys want Playmaker and I keep telling you "later", but this is more
+urgent. The good news is that these coordiante systems turned out to be much
+less painful to implement than I originally expected. I still need to give
+everything the final polish and make sure the systems are not only
+mathematically correct, but also make sense to a human being, so I'm about 90%
+done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="new-documentation-with-doxygen"&gt;
+&lt;h2&gt;New documentation with doxygen&lt;/h2&gt;
+&lt;p&gt;Up until now I have been writing the documentation in Pages and exporting it as
+PDF. It was an OK workflow and the results looked reasonably well, but as Grid
+Framework's API grew it became more and more of a pain to write the actual
+documentation with all the cross-references and unified layout and styles. I
+have now reached the point where it would be just madness to continue, so I
+decided to switch to Doxygen. When you use Doxygen you comment your source code
+in a specific manner, then Doxygen parses it and uses your comments to document
+all the methods for a human to read.&lt;/p&gt;
+&lt;p&gt;The transition phase is ugly, I need to copy-paste or rewrite all my
+documentation, but once it's done any future updates will be much easier. This
+also means you will get documentation in both HTML and PDF format from now on.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="vertex-matrix-gets-the-axe"&gt;
+&lt;h2&gt;Vertex matrix gets the axe&lt;/h2&gt;
+&lt;p&gt;Finally, some not-so-good news. I have been thinking about this for a while,
+and the vertex matrix methods were never really good. The idea was to give you
+a quick and simple way to store some vertices of a grid in an array and be able
+to read them, but the way I did it is way too specific. It will only be useful
+in a handful of cases. This leaves me with two options: either expand on it,
+writing many variants of the method and on top of that doing the same thing for
+faces, boxes and edges, or just cut it out.&lt;/p&gt;
+&lt;p&gt;I decided to cut it out, because there is no point in dragging all that code
+along, when most people will never use it and some will only use a fraction of
+it. It would be much easier and better if the users themselves wrote their own
+methods, it's less than ten lines of code anyway and you get full control over
+what you want. You don't have to drag along an array that's four times larger
+than you need. When looking at the examples I wrote, not even I used the vertex
+matrix methods once, because it was easier and cleaner just to roll it from
+scratch.&lt;/p&gt;
+&lt;p&gt;Naturally this raises another concern, what about the people who were using
+this method? I can't just rip it out and tell them to write it themselves. This
+is where extension methods come into play: After I removed the methods I put
+them back into and extension method in a separate file, which I ZIPed. If you
+need the vertex matrix methods back just unzip it and you won't notice any
+difference. Of course if enough people actually want the vertex matrix to stay
+in place I'll put it back, but if no one objects this will be the way to go.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 19 Jul 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-07-19:grid-framework/news/2013/07/19/whats-up-next/</guid><category>old-blog</category><category>progress</category><category>API-change</category></item><item><title>CheckComponent()</title><link>http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/</link><description>&lt;p&gt;Here is a quick but handy tip. Recently I found myself needing to reference
+various components in my script without knowing if they exist. I have to get
+the component and then check if it exists, and if not add it to prevent null
+exceptions. Here is what you would write in such a case:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+MeshCollider mc = GetComponent&amp;lt;MeshCollider&amp;gt;();
+if (!mc)
+    mc = gameObject.AddComponent&amp;lt;MeshCollider&amp;gt;();
+}
+&lt;/pre&gt;
+&lt;p&gt;First we get the component and store it in a variable, then if it is null we
+add the component to the object. Simple, right? True, but if you need to do
+this several times it can get messy. You can copy-paste it once with a
+different type, but it gets tedious.&lt;/p&gt;
+&lt;p&gt;Fortunately we can call generics to the rescue! Let's wrap it all up into one
+generic function that works on any component:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+private T CheckComponent&amp;lt;T&amp;gt;() where T: Component {
+    T component = GetComponent&amp;lt;T&amp;gt;();
+    if (!component)
+        component = gameObject.AddComponent&amp;lt;T&amp;gt;();
+    return component;
+}
+
+MeshCollider mc = CheckComponent&amp;lt;MeshCollider&amp;gt;();
+&lt;/pre&gt;
+&lt;p&gt;Note that it is important for the type T to inherit from Component or else the
+methods GetComponent and AddComponent don't make any sense and will throw
+errors. We can take this even one step further by making CheckCompnent an
+extension method:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+using UnityEngine;
+using System.Collections;
+
+public static class ComponentExtensions {
+    public static T CheckComponent&amp;lt;T&amp;gt;(this Component theComponent) where T: Component {
+        T component = theComponent.GetComponent&amp;lt;T&amp;gt;();
+        if (!component)
+            component = theComponent.gameObject.AddComponent&amp;lt;T&amp;gt;();
+        return component;
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;Now you can call CheckComponent as if it were a part of Unity's standard API,
+just like GetComponent.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+// use this in any of your scripts:
+MeshCollider mc = CheckComponent&amp;lt;MeshCollider&amp;gt;();
+&lt;/pre&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 03 Jul 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-07-03:grid-framework/news/2013/07/03/check-component/</guid><category>old-blog</category><category>how-to</category></item><item><title>Grid Framework version 1.3.0 released</title><link>http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/</link><description>&lt;p&gt;Grid Framework version 1.3.0 has been approved by the Asset Store team. The
+biggest features of this release is the addition of polar grids. Check out the
+updated included examples to see them right in action. Notice how in the
+lights-out example the coordinates wrap around, maning that once you've
+exceeded the maximum angle it start from the beginning again without you having
+to worry about anything.&lt;/p&gt;
+&lt;p&gt;Even if you prefer the good old rectangular- and hex grids you'll want to take
+a look at the updated API: You can now get the direction vectors for up,
+forwarad and right or north, north-east, east, south-east and so on just by
+calling one command. This will make grid-based movement much easier, since you
+don't have to convert back and forth between grid- and world space anymore.&lt;/p&gt;
+&lt;p&gt;On top of that the lights-out and the runtime snapping example showcase how to
+dynamially generate meshes from grids. The tiles of the polar lights game are
+all individual meshes that fit exactly inside the idividual faces. When the
+game starts the attached script runs a loop that runs through the grid and
+creates the needed vertices and triangles and then assigns the proper
+materials.&lt;/p&gt;
+&lt;p&gt;Here is the full changelog:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;added up, right and forward members to rectangular grids&lt;/li&gt;
+&lt;li&gt;added sides, width and height members to hex grids&lt;/li&gt;
+&lt;li&gt;added the enum GFAngleMode {radians, degree} to specify an angle type;
+currently only used in methods of polar grids&lt;/li&gt;
+&lt;li&gt;added the enum HexDirection for cardinal directions (north, north-east, east,
+...) in hex grids&lt;/li&gt;
+&lt;li&gt;added the GetDirection method to hex grids to convert a cardinal direction to
+a world space direction vector&lt;/li&gt;
+&lt;li&gt;hex grids and polar grids now both inherit from GFLayeredGrid, which in
+return inherits from GFGrid&lt;/li&gt;
+&lt;li&gt;the Lights Off example now features a polar grid as well&lt;/li&gt;
+&lt;li&gt;procedural mesh generation for grid faces in the Lights Off example&lt;/li&gt;
+&lt;li&gt;mouse handling in runtime snapping example changed because it was confusing a
+lot of users who just copy-pasted the code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please note that this version officially requires Unity 4, since that is what I
+was building with, but there is no new API used and the scripts will run just
+fine in Unity 3.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 17 Jun 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-06-17:grid-framework/news/2013/06/17/version-130/</guid><category>old-blog</category></item><item><title>Version 1.3.0 submitted</title><link>http://hiphish.github.io/grid-framework/news/2013/06/12/version-130-submit/</link><description>&lt;p&gt;A quick heads-up, version 1.3.0 has finally been submitted to the Asset Store.
+Remember, the price will go up to 25$, so if you still want it for 20$ now is
+the time to buy.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 12 Jun 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-06-12:grid-framework/news/2013/06/12/version-130-submit/</guid><category>old-blog</category></item><item><title>Feature freeze for polar grids</title><link>http://hiphish.github.io/grid-framework/news/2013/06/09/feature-freeze-polar/</link><description>&lt;p&gt;Here is a quick update: I have reached feature freeze for polar grids, meaning
+I'm done with all the features. Now I need some last polish and I must prepare
+new images for the Asset Store, then it's all good to go. So, what took me so
+long? Well, designing and writing code is one thing, then you have to put it to
+use This often reveals weak points, some things might seems counter-intuitive,
+or some things are more complicated to use than others.&lt;/p&gt;
+&lt;p&gt;One example would be making an object rotate as it moves through the grid so
+it's always facing outwards. Sure, you can do it using the existing API to
+convert through coordiante systems, extract the angle of the object relative to
+the grid's Z-axis and then use Unity's built in math functions to create the
+quaternion by rotating x degrees around the grid's Z-axis. That doesn't sound
+pleasant at all. That's why now you can just call the World2Rotation method to
+get the quaternion directly, then you can do whatever you want with it.&lt;/p&gt;
+&lt;p&gt;This delayed the release a bit but such small additions can make a big
+difference in the end. Another thing worth noting is that this release has been
+written in Unity 4 and as such it will list Unity 4 as the required version in
+the Asset Store. Unity 4 has been out for half a year now, but even if you
+still want to stick with Unity 3 you shouldn't have any problems as I didn't
+use any Unity 4 exclusive API.&lt;/p&gt;
+&lt;p&gt;Well, that's it for now, thanks for reading.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 09 Jun 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-06-09:grid-framework/news/2013/06/09/feature-freeze-polar/</guid><category>old-blog</category><category>progress</category></item><item><title>Polar grid drawing refined</title><link>http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/</link><description>&lt;p&gt;Hello again&lt;/p&gt;
+&lt;p&gt;Last time I showed a preview of polar grids it was a full cycle starting from
+the origin containing all layers up to the edge. During runtime if only part of
+the grid is visible to the player rendering the whole thing can be a waste of
+resources, that's why you have the option of specifying a specific rendering
+range.&lt;/p&gt;
+&lt;p&gt;I was trying out several approaches of interpreting the rectangular range, but
+in the end I went for a polar approach. What does this mean? You have two
+Vector3 values, one called renderFrom, the other called renderTo. The
+x-coordinate tells what radius to start and end at, the y-coordinate gives us
+the starting and ending angle and the z-coordinate gives us the starting and
+ending layer. Here is an example of what if can look like:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/images/polar-refined.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The only limitations are that the starting radius cannot be less than 0 and
+starting values cannot be larger than ending values (and vice-versa). The only
+exception is the angle, this is is necessary in order to  be able to draw a
+sector from, let's say 300° to 15° (which can be seen as from 300° to 375°).&lt;/p&gt;
+&lt;p&gt;This has been the biggest roadblock so far, now I need to do some proper
+testing and final polish, write the new documentation and I can submit the
+update to Unity. Supporting a new type of grid is a substantial effort and,
+since everything is interconnected, it usually requires going through the code
+for the other grids as well. Sometimes parts that seemed general enough might
+need to be overridden and other parts that seemed very specific become more
+general and need to be moved up the hierarchy. Considering this and the updates
+since the release of version 12.0 I believe raising the price to from 20$ to
+25$ is appropriate.&lt;/p&gt;
+&lt;p&gt;Of course, as usual, if you already bought Grid Framework all updates are free
+for you. If you intend to buy Grid Framework, now is the chance to still get it
+for the lower price. You don't need to rush and get it immediately though, I'll
+post an at least one more update before I submit version 1.3.0.&lt;/p&gt;
+&lt;p&gt;As always, thank you for your support&lt;/p&gt;
+&lt;p&gt;HiPhish&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 26 May 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-05-26:grid-framework/news/2013/05/26/polar-drawing/</guid><category>old-blog</category><category>progress</category></item><item><title>Grid Framework version 1.2.5 released</title><link>http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/</link><description>&lt;p&gt;This release serves as a preparation for Version 1.3.0, which will add polar
+grids&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;The methods NearestVertex/Face/BoxW and NearestVertex/Face/BoxG replace
+FindNearestVertex/Face/Box and GetVertex/Face/BoxCoordinates respectively.
+This is just a change in name, as the old nomencalture was confusing and
+makes no sense for grids with multiple coordinate systems, but the syntax
+stays the same. The old methods will throw compiler warnings but will still
+work fine. You can run a Search&amp;amp;Replace through your scripts to get rid of
+them.&lt;/li&gt;
+&lt;li&gt;The GFBoolVector3 class can now be instantiated via GFBoolVector3.True and
+GFBoolVector3.False to create an all-true or all-false vector&lt;/li&gt;
+&lt;li&gt;Similarly you use GFColorVector3.RGB, GFColorVector3.CMY and
+GFColorVector3.BGW for half-transparent standard colour vectors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I apologize for the inconvenience of having to rename the methods, but I'll try
+to explain my reasoning. When Grid Framework was originally conceived only
+rectangular grids were in place. For rectangular grids only one coordinate
+system really makes sense, so there were two spaces: world space and grid
+space. Consequently, every point could only exist in either of those two.&lt;/p&gt;
+&lt;p&gt;One of the most basic needs I implemented back then was to find the nearest
+vertex of a point, hence the name FindNearestVertex, and later the same for
+faces and boxes. I also needed a similar method for grid space, I wanted to get
+the point's grid coordinates.&lt;/p&gt;
+&lt;p&gt;The problem arises when you start having more than just one grid space. When I
+wrote hex grids I always considered the possibility of having a second
+coordinate system aside from the herringbone pattern, and that's when I should
+have realized that my naming convention was... well, stupid. Polar grids will
+have two coordinate systems from the start, so I had the choice to either use
+some band-aid solution and have a naming convention that makes even less sense,
+or I could make a clean cut here and now.&lt;/p&gt;
+&lt;p&gt;So, what does this mean for you? At the moment nothing aside from a bunch of
+compiler warnings. You can just ignore them if you want, the old methods are
+still in place, they just call the new ones instead. I don't have any intention
+of removing them anytime soon, so you don't need to rush ahead and replace your
+old calls. The syntax has stayed the same, so running a quick Search&amp;amp;Replace
+will fix things for good.&lt;/p&gt;
+&lt;p&gt;The new naming convention goes as follows (without the brackets):
+Nearest[Vertex/Face/Box][X], where X stands for the coordinate system in
+question. For world it's W, for grid it's G and for the upcoming polar
+coordinates it will be P. Obviously only W and G make sense for all grids, the
+rest depends on the specific type of grid. You will be able to convert a point
+from any system into another (like PolarToWord).&lt;/p&gt;
+&lt;p&gt;I am sincerely sorry for this, but please understand that this was a necessary
+step in order for Grid Framework to remain clean. I always find things to
+improve and tweak, but most of them are under the hood and go by unmentioned,
+it just happened that this one was on the surface.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 17 May 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-05-17:grid-framework/news/2013/05/17/version-125/</guid><category>old-blog</category></item><item><title>A first look at polar grids</title><link>http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/</link><description>&lt;p&gt;I've been working on the next type of grid: polar grids. The &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Polar_coordinates"&gt;polar
+grid&lt;/a&gt; is based on polar
+coordinates, meaning instead of identifying a point's position using X and Y
+coordinates we use a radius and an angle. The radius tells us how far from the
+origin the point is and the angle tells us the direction. This screenshot shows
+the new polar grid in Unity&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/images/polar.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;A polar grid is defined by three values: radius, sectors and depth. Radius
+refers to how far apart the red circles in the picture are, sectors is how many
+sectors you have and depth is how far apart each two layers of a polar grid
+are. Since we have a third dimension the mathematically correct term would be a
+"&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Cylindrical_coordinate_system"&gt;cylindrical
+grid&lt;/a&gt;", but I'll
+call it polar just for the sake of simplicity. If you have cylindrical
+coordinates just ignore the third component and you get polar coordinates.
+You'll notice that the angle between sectors does not define the grid, because
+the sectors have to cover the grid completely; you can't have the last sector
+be only a third of the other sectors. I'll see if I can still make the angle
+adjustable via an accessor.&lt;/p&gt;
+&lt;p&gt;Polar grids have a few unique quirks that differentiate them from rectangular
+and hex grids. First of all we now have circles instead of straight lines, but
+we can't draw actual circles. My solution is to add a "smoothing" option;
+without smoothing the red lines inside the sectors will be all straight and the
+grid will look like a spider's web, but each increase in smoothing breaks up
+the line into more segments, coming closer to a round shape. Of course
+increasing the smoothing means that there will be more points to calculate, but
+fortunately a single-digit number is already enough to get a smooth look. Also,
+the more sectors you have, the less smoothing you need.&lt;/p&gt;
+&lt;p&gt;A more fundamental issue rather than just a cosmetic concern is the coordinate
+systems. Yes, plural. The first one is the regular cylindrical coordinate
+system where radius, angle and height are given as absolute from the origin
+with respect to world dimensions. This means, no matter what you set your
+grid's radius, sectors or depth to, a given point will always have the same
+coordinates. The other one is a grid coordinate system where each component
+represents the relative position inside the grid with respect to radius, angle
+(calculated from sectors) and depth. Changing the grid also changes the
+coordinates of a given point.&lt;/p&gt;
+&lt;p&gt;You can convert between both coordinate systems and world space on the fly and
+neither system is really "better" than the other. It would be just wrong to
+have a polar grid without polar coordinates and it is what you want to use when
+moving objects in the world. On the other hand, it you want to think in "grid
+space", it's easier to think in terms of fields, like a board game, so grid
+coordiantes appear more intuitive.&lt;/p&gt;
+&lt;p&gt;At this point all the math is done and the hardest to implement methods
+(drawing, coordinate transformation and finding nearest vertex/face/box in all
+three coordinate systems) have been written. The next parts should be easier to
+implement, but I'm not exactly sure how to design them (what exactly does
+"aligning" in a polar grid even mean?). I'll keep you updated once I have more
+to show.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 10 May 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-05-10:grid-framework/news/2013/05/10/first-look-polar/</guid><category>old-blog</category><category>progress</category></item><item><title>Grid Framework version 1.2.4 released</title><link>http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/</link><description>&lt;p&gt;Version 1.2.4 has been approved by the Asset Store team. Here are the new
+features:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;a caching feature that keeps the activity of the grabage collector low now,
+instead of re-calculating the end points of lines every frame we can re-use
+them instead as long as the grid hasn't been modified.&lt;/li&gt;
+&lt;li&gt;a new example shows you how to create seemingly endless grids without the
+overhead of actually having a gigantic grid&lt;/li&gt;
+&lt;li&gt;explanations about rendering performance in the user manual&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enjoy the new performance improvement and thank you for your support.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 03 Apr 2013 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2013-04-03:grid-framework/news/2013/04/03/version-124/</guid><category>old-blog</category></item><item><title>Seemingly endless grids and performance</title><link>http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/</link><description>&lt;p&gt;I've been dealing with performance in Grid Framework recently and added a
+feature that will keep the Garbage Collector from going crazy. Until now
+rendering always went like this: Manager requests rendering from grid -&amp;gt; grid
+calculates the end points of each line -&amp;gt; these points get passed to Unity's GL
+class for rendering. Every single frame. I have introduced a caching feature
+that will store all the calculated points and reuse them instad of calculating
+everything all over again as long as the grid has not been modified.&lt;/p&gt;
+&lt;p&gt;This still doesn't solve the second bottleneck: rendering all these lines.
+Unfortunately there just isn't anything I can do about this, the GL class needs
+to have every single point one way or another. So, what if you want a very
+large grid that extends way beyond your camera's view? The answer is to fake
+it!&lt;/p&gt;
+&lt;p&gt;The idea is to only have the grid large enough to go beyond the camera's view
+port. Once the camera tries to go off the grid change the grid's rendering
+range to fit into the view port again. However, every time we change the
+rendering range this causes the caching to recalculate the points (since our
+old points are no longer valid), so caching doesn't do anything. The solution
+here is to add a little buffer, to make the grid larger than the view port, so
+we can move the camera a bit without going off the grid. Here is the video
+showing it step by step:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QVOrLlwZEtU" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;With such a small grid there is no real difference in using caching of not, but
+the concept is there if you need it for larger cases. This example will work in
+the current version of Grid Framework, but caching is a feature of the upcoming
+version 1.2.4, which is still waiting for approval.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 30 Mar 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-03-30:grid-framework/news/2013/03/30/endless-grid/</guid><category>old-blog</category><category>example</category></item><item><title>Grid Framework version 1.2.3 released</title><link>http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/</link><description>&lt;p&gt;This update brings you two new features, both were suggested by customers. The
+first one is the ability to set a separate set of colours for rendering instead
+of using the same colours as for drawing. Let's say you want a barely visible
+grid in the game but a clearly visible grid in the editor. Until now you either
+had had to have two grids or use a script to change the colours once the game
+starts. Both options worked fine but required more work than needed, now you
+can do it out of the box. Of course it is entirely optional, so if you don't
+set anything you will be using the same colours for rendering and drawing.&lt;/p&gt;
+&lt;p&gt;The other new feature is relative size. Usually the size and the
+renderFrom/renderTo vectors were interpreted as absolute world unit lengths. I
+did this intentionally so the grid's size would be independent from its spacing
+(or radius and depth for hex grids). Of course not everyone is concerned about
+that sort of thing, some people would simply like to say "make my grid this
+many blocks tall" instead of having to multiply the desired size with the
+spacing. Turning on relative size now does exactly that for you. Here is a
+visual example where the values are interpreted as absolute (left) and relative
+(right) length:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/images/inspector-relative.png"/&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 28 Feb 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-02-28:grid-framework/news/2013/02/28/version-123/</guid><category>old-blog</category></item><item><title>Unity and properties/accessors</title><link>http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/</link><description>&lt;p&gt;As mentioned in the previous post I'd like to relate my experience with using
+properties in Unity and how to make them work properly. Properties are a C#
+feature and not available in UnityScript (another reason to ditch UnityScript).
+To help demonstrate what I mean I will be using a "circle" class.&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;div class="section" id="what-are-properties"&gt;
+&lt;h2&gt;What are properties?&lt;/h2&gt;
+&lt;p&gt;As we can see radius is public and there is nothing stopping someone from
+putting in nonsensical values like negative numbers. Since we are in Euclidean
+geometry there is no such thing as "anti-length" and we need some way to
+restrict the value of radius to positive numbers. One solution would be to make
+radius a pivate member and use getters and setters:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;SetRadius&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_radius&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="nf"&gt;GetRadius&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;(the underscore in front of radius is there to mark it as a member variable;
+it's just a convention, not mandatory) This gets the job done, but it's ugly
+and bloats the syntax. What we need instead is some sort of variable/function
+hybrid that acts like a messenger. This is where properties come in. Here is
+the same code as above, except using properties:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+        &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;_radius&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The property looks like a function that missing the brackets for parameters and
+it is treated like a variable in coding. Whenever we assign a value to it by
+using the "=" sign we actually call the set and when we use it in computation
+we call the get. value always refers to the value on the right hand side of the
+"=" sign. Here is an example:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="n"&gt;myCircle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//calls set and sets _radius to 0
+&lt;/span&gt;&lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myCircle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//calls get and returns 0&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-should-you-use-properties"&gt;
+&lt;h2&gt;Why should you use properties?&lt;/h2&gt;
+&lt;p&gt;As you can see accessors allow us to expose member variables in a controlled
+fashion. You can put up restrictions on what a certain variable can hold. You
+can also create read-only "variables" by omitting the set part. Let's say your
+circle class has several formulae using the circumference and you don't want to
+type the formula every time. Here is what it would look like using an accessor:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+        &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;_radius&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;circumference&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pi&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;There is no such thing as a "circumference" variable, instead its value is
+computed on the fly, yet you can still use it as if it were an actual variable:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;volume&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;myCircle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;circumference&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Unity handes rotation using quaternions but you can still use Euler angles in
+the editor and in scripting, this is (most likely) the result of using
+properties as well. Properties are also great for exposing member variables in
+custom inspectors, like I did or Grid Framework. Unfortunately there is a
+problem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="member-varibles-and-the-editor"&gt;
+&lt;h2&gt;Member varibles and the editor&lt;/h2&gt;
+&lt;p&gt;You can treat the property just like any other variable when writing a custom
+inspector. However, once you hit play you will notice that your values have
+been reset and once you exit play mode or change the scene or anything else
+your values reset again. This is because the properties cannot actually store
+anything, they just serve to expose private members. The values of private
+members don't stick though, that's why everything gets reset. The solution is
+to use [SerializeField]:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Circle&lt;/span&gt;&lt;span class="p"&gt;{,&lt;/span&gt;
+&lt;span class="na"&gt;    [SerializeField]&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_radius&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+    &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;_radius&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;circumference&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Mathf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Pi&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;radius&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;That's it, now your member variable will get serialized and will be remembered.
+It took me a while to find this, but I was finally able to throw out quite a
+lot of ugly workarounds. And now there is no reason not to use properties
+anymore. Let's end this post by using properties to limit the value of a float
+variable to something appropriate for angles:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;_angle&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;float&lt;/span&gt; &lt;span class="n"&gt;angle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_angle&lt;/span&gt;&lt;span class="p"&gt;;}&lt;/span&gt;
+    &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt; &lt;span class="p"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="p"&gt;?&lt;/span&gt; &lt;span class="k"&gt;value&lt;/span&gt; &lt;span class="p"&gt;%&lt;/span&gt; &lt;span class="m"&gt;360&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;360&lt;/span&gt; &lt;span class="p"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;value&lt;/span&gt; &lt;span class="p"&gt;%&lt;/span&gt; &lt;span class="m"&gt;360&lt;/span&gt;&lt;span class="p"&gt;);}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 14 Feb 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-02-14:grid-framework/news/2013/02/14/properties-accessors/</guid><category>old-blog</category><category>how-to</category></item><item><title>Grid Framework version 1.2.2 released</title><link>http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/</link><description>&lt;p&gt;Update time. Let's go over what's new:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;New example:&lt;/strong&gt; sliding block puzzle&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of sliding puzzle example" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/images/sliding-puzzle.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;It might not look like much, but this is the most advanced example yet; it's
+similar to the movement with obstacles example where we use a matrix to store
+which tiles are allowed and which are forbidden. The tricky part is that now
+objects can span more than one tile and all of them have to be free. The
+solution is to break up the obstacle into one tile large parts, then check them
+all individually and finally assemble the answer from the individual answers.&lt;/p&gt;
+&lt;p&gt;The end result is that it feels like collision without actually using
+collision. Now, you might be wondering why not just use actual collision
+detection? For one, Unity's collision detection requires you to move objects
+through the physics engine instead of directly. This means instead of moving
+the block like you would in real life you need to use force, like dragging the
+block with a rubber band. This feels just wrong, especially on a touch device.
+If you move objects directly (i.e. using their Transform component) the physics
+engine is likely to miss intersections. The other reason is that Unity's
+collision detection just isn't made for packing objects together this tighly,
+sooner or later things will just randomly  fly in all directions like the
+puzzle exploded or something.&lt;/p&gt;
+&lt;p&gt;Don't get me wrong, PhysiX was certainly developed by talented people who know
+more than I do, but it was written with 3D action games in mind and trying to
+get it to work in such a scenrio is like trying to fit a square peg into a
+round hole; you might get it to kind of work well enough eventually, but in the
+time it took you you might as well have written your own solution which you
+have proper control over. Thanks to Grid Framework we can automate all the unit
+conversion between world space and grid coordinates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Changes:&lt;/strong&gt; I removed the minimumSpacing (rectangular grids) and minimumRadius
+(hex grids) variables because they were stupid. The reason why they existed in
+the first place was to prevent the user from setting too low or nonsensical
+values for spacing and radius. The proper way to do this would be to use
+accessors (also called properties), but Unity's editor scripting documentation
+is rather lacking, so I couldn't figure out how to make the values not reset
+all the time.&lt;/p&gt;
+&lt;p&gt;I finally found the solution (that's a topic for another time) and now I
+hardcoded a lower limit of 0.1 for both. I think that's a reasonable value, but
+if you need to go lower please let me know. The way it works now is that if you
+try to set the value to anything lower than 0.1 it will automatically default
+to 0.1. I was also able to get rid of other ugly parts inside the source code
+and clean things up thanks to accessors, but I don't think you will notice any
+difference&lt;/p&gt;
+&lt;p&gt;In terms of scripting this has no real consequences for you, just use spacing
+and radius like you did before.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fixes:&lt;/strong&gt; One major bug was a typo that could prevent the project from
+building. I also removed the redundant "Use Custom Rendering Range" flag from
+the inspector, now opening or closing the "Custom Rendering Range" foldout
+toggles the value (in terms of scripting the varaible still exists, it's just
+the way you set it in the inspector). Speaking of inspector and foldout,
+previously the state of the "Draw &amp;amp; Render Settings" foldout reset each time
+you entered or exited play mode. Now the settings will stick and it will be
+individual for each grid type. There is also the obligatory under-the-hoods
+improvements, but there is nothing particular worth mentioning there.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 12 Feb 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-02-12:grid-framework/news/2013/02/12/version-122/</guid><category>old-blog</category></item><item><title>Happy new year</title><link>http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/</link><description>&lt;p&gt;A happy new year to everyone! This has been quite a year for me, so what better
+opportunity to recap the birth process and evolution of Grid and set the plans
+for this year?&lt;/p&gt;
+&lt;div class="section" id="how-it-all-began"&gt;
+&lt;h2&gt;How it all began&lt;/h2&gt;
+&lt;p&gt;One day I was sitting at my computer, trying to place blocks in Unity, thinking
+how great it would be if there was some sort of extension, a framework if you
+will, that would auto snap objects to a grid of my choice. Unity already has
+some form of grid built in, but it's rather poor to say the least.
+Unfortunately a quick Google search didn't yield anything useful, so was left
+waiting for someone who knew how to program a copmputer to make such an
+extension. Then it struck me: I am someone and I know how to program a
+computer!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-first-draft"&gt;
+&lt;h2&gt;The first draft&lt;/h2&gt;
+&lt;p&gt;So I sat down, took out some pen and paper and started deriving th formulae.
+After a while I had a plan and I wrote a nice simple makeshift solution. It
+worked but in my head all sorts of great ideas popped up. What if the grid was
+in 3D and could be rotated? Would it be possible not to just align objects but
+construct an entire coordinate system out of it? What if the origin of the grid
+was not the origin of the world but any point in space? Would it be possible to
+have more than one grid in the scene? How about entirely different grid shapes
+than just squares? And if all that was possible, wouldn't be possible to use
+the grid for more than just aliging? Could the grid be used for actual
+gameplay?&lt;/p&gt;
+&lt;p&gt;The idea at the time was to get the makeshift solution polished up a bit and
+then give it away for free and ask for a small donation or sell if really
+cheaply. This idea was humble, if you want to be nice, or stupid, if you want
+to be realistic. Essentially, it wouldn't have made any user happy nor would it
+have made me money. No one would win. Fortunately the Asset Store submission
+got lost somehow and remembering the awful drawings I had for the Asset Store
+pictures, it really was for the best.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="this-time-for-real"&gt;
+&lt;h2&gt;This Time For Real&lt;/h2&gt;
+&lt;p&gt;The lesson I leared was that if you want to do something do it either right or
+don't do it at all. People will remember a halfassed effort and you will never
+be able to shake it off. Instead I decided to get serious this time, I switched
+my language from JavaScript to C#, dug into the deepest depths of the Unity
+documentation and learned many new things along the way. At times it was
+infuriating, at times it was fantastic and at times it was plain boring.
+Nonetheless, if I had the chance to travel back in time I wouldn't do anything
+differently (except for some lessons I had to learn the hard way), the
+experience alone of crafting something on your own and working towards a goal
+is very rewarding. I don't think there was anything left from the first draft,
+and even if it was it is all gone by now. Good riddance.&lt;/p&gt;
+&lt;p&gt;If it had been just the coding part it would have been enough already. Being a
+one man team however, I also had to write the documentation, design a logo,
+create the Asset Store promotional material and write descriptions for the
+Store and the forum thread. I never learned anything about marketing, but I did
+work in retail, this is where my exerience came in handy. On the internet I can
+think all day about the description text, but when it comes to talking face to
+face with real people your brain has to act very quickly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-first-release"&gt;
+&lt;h2&gt;The First Release&lt;/h2&gt;
+&lt;p&gt;If you were to ask me what the hardest part was, I would say finishing it.
+There comes a point when you have to draw the line and stop adding new features
+so you can iron out the remaining bugs and wrap up the lose ends. There were
+still some left after the release though, mainly the integration into Unity's
+interface, no cusom inspectors for the grid classes and the complete lack of
+rendering. I decided to tackle those as quickly as possible, for I was running
+out of time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-1-1-x-line"&gt;
+&lt;h2&gt;The 1.1.x Line&lt;/h2&gt;
+&lt;p&gt;I had no idea how to do the rendering and at one point I was considering
+imitating Vectrosity's behaviour (after asking for permission of course).
+Anyone who owns Vectrosity and who has taken a look at the code will be blown
+away by all the work of the author, there was no way I could just rip out some
+parts and call it a day. Instead I decided to write my own rendering solution
+and offer Vectrosity support as an option, since I already had a license and
+the two looked like a perfect fit. Both solutions work in fundamentally
+different ways, so users can choose the one they like best. Yay for choice ^^&lt;/p&gt;
+&lt;p&gt;After getting rendering, the biggest missing feature, and Vectrosity support
+out I had two things to do: many small improvements like a custom rendering
+range or additional functions and of course hex grids. This was during the
+summer when I was busy studying for exams, so my work on Grid Framework slowed
+down to a crawl after the first few 1.1.x releases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="version-1-2-x-and-hex-grids"&gt;
+&lt;h2&gt;Version 1.2.x and hex grids&lt;/h2&gt;
+&lt;p&gt;After the exams I was finally able to devote time to Grid Framework again. The
+hardest part about hex grids was not so much the math, although that wasn't
+easy either, but how many possibilities there are to do hex grids. I already
+discussed this topic a few months ago, but this was a real pain. It was clear I
+wouldn't write several classes, so I had to design my code to accommodate for
+all the cases. In the end the solution was not really hard, it was the journey
+there, I just couldn't find anything on the internet or in any book about how
+to do it. What really matters in the end though, is that I was able to deliver
+one class for all cases, fitting right with my design principles established in
+the first release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-future-of-grid-framework"&gt;
+&lt;h2&gt;The Future of Grid Framework&lt;/h2&gt;
+&lt;p&gt;Well, that's it for last year, but what can you expect for 2013? First of all,
+I'm working on my own website, so far it has only been this blog and the forum
+thread, but I would like to give Grid Framework a proper web presence. I had to
+learn HTML and CSS from scratch, but the site is almost done, just a few
+finishing touches and it should be up soon.&lt;/p&gt;
+&lt;p&gt;Hex grids have the same feature set as rectangular grids, but there is more we
+can do with them, most notably more coordinate systems. Expect more updates for
+hex grids after the site has launched. There are also a few minor features I
+would like to get done all across Grid Framework, so I'll add them inbetween
+the more important releases.&lt;/p&gt;
+&lt;p&gt;Triangular grids and path finding are next on the priority list, I just haven't
+decided which one would be more important. Triangular grids sound easier, but
+path finding seems more useful. I'll have to think this over when the time
+comes.&lt;/p&gt;
+&lt;p&gt;Well, that's it for this time. Have a good year 2013 and thank you all for your
+support :)&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 01 Jan 2013 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2013-01-01:grid-framework/news/2013/01/01/new-year/</guid><category>old-blog</category><category>rant</category></item><item><title>How to extend Grid Framework with your own methods</title><link>http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/</link><description>&lt;p&gt;Let's say you just bought Grid Framework, wrote some game logic and now you
+want to reuse it. Wouldn't it be great if it was a class method in Grid
+Framework so you could simply call it with one line of code? Even better, what
+if you could have one method that has the same syntax for both rectangular and
+hexagonal grids but different implementation based on the type of grid, so you
+would have to write just one script for any type of grid? Luckily this is no
+problem in Unity thanks to extension methods and if you have the code, then
+wrapping it up into an extension method can de done in a few minutes. Take a
+look at my latest video tutorial:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/W_QteDtqHK4" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Extension methods are only available in C#, but once you've written the method
+you can use it in any of Unity's scripting languages. Aside from keeping your
+code cleaner, extension methods have the advantage that if you need to make
+adjustments to your game logic you only need to do it in one place and every
+call of the method benefits from it.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 24 Dec 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-12-24:grid-framework/news/2012/12/24/how-to-extend/</guid><category>extension</category></item><item><title>Hex Grid introduction video</title><link>http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/</link><description>&lt;p&gt;I made a short video giving you an overview of hex grids, so you can see them
+right in action. I'll make a video on how to extend Grid Framework with your
+own methods yourself next,&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/1mb95Nhv8I0" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 17 Dec 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-12-17:grid-framework/news/2012/12/17/hex-intro/</guid><category>old-blog</category><category>how-to</category></item><item><title>Grid Framework version 1.2.0 released</title><link>http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/</link><description>&lt;p&gt;The wait is over, version 1.2.0 is out, bringing you the long promised hex
+grids. I'll soon make a video demonstrating the new grid, in the meantime let
+me explain it in words. My implementation brings you all the features you knew
+from rectangular grids, except on a hex grid, and both grids inherit from the
+same base class. This means the API for both is the same and you can write one
+script for both grids with little to no need to make special adjustments for
+differentgrid classes. Currently there is only one coordinate system and hex
+grids have "only" as much functionality as rectangular grids. I whish to
+improve upon this in the future.&lt;/p&gt;
+&lt;p&gt;Phew, this has really exhaused me. Often times I was wondering what I had
+gotten myself into and it was not uncommon for me to work beyond midnight,
+pondering above pencil-drawings, deriving formulae and thinking how to make
+everything work nice. The last stretch has been especially tiresome, getting
+the computer to do something is one thing, but then you start putting together
+the manual and you notice that the way it &lt;em&gt;how&lt;/em&gt; it works doesn't feel right.
+It's those little thing no one notices when they are done right but everyone
+notices them when they are done wrong. What kept me pushing forward are you
+guys and your support. Many of you are silent, and that's fine, but I know you
+are there. Thank you.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 07 Dec 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-12-07:grid-framework/news/2012/12/07/version-120/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.2.0 submitted</title><link>http://hiphish.github.io/grid-framework/news/2012/12/07/version-120-submitted/</link><description>&lt;p&gt;Just a quick update, version 1.2.0 has been submitted. This is your last chance
+to buy the package for 15$, once it has been approved the price will be raised
+to 20$.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 07 Dec 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-12-07:grid-framework/news/2012/12/07/version-120-submitted/</guid><category>old-blog</category></item><item><title>Grid Framework version 1.1.10 released</title><link>http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/</link><description>&lt;p&gt;The 1.1.10 update brings in a new function, ScaleVector3(Vector scl) : Vector3
+which takes in a vector and then scales it so it fits inside the grid. This is
+similar to AlignVector3, which was introduced in the last update, to allow
+performing the aligning and scaling without having to provide an actual
+Transform.&lt;/p&gt;
+&lt;p&gt;In other news, the hex grids are almost done. All the functionality has been
+written, now I need to clean everything up and write the documentation. Hex
+grids will be officially introduced in the 1.2.0 update, which I expect to
+release within the next week or, if something goes wrong, the week after.
+Unfortunately, due to all the work I have put into Grid Framework since the
+first release I cannot charge 15$ anymore, starting with 1.2.0 the price will
+be raised to 20$, so if you want a copy of Grid Framework, now is the time to
+get it. When I originally released Grid Framework there were still many loose
+ends and it was not integrated well into the workflow. When you downloaded it
+from the Asset Store you had to move files manually in place, there were no
+menu entries, you had to drag a script manually onto objects, there was no
+custom inspector panel, there was no rendering, no Vectrosity support and less
+examples included. Over the time I have been adressing all these shortcomings
+and improving, but none on its own felt like they were justifying a price
+increase. With hex grids I'm bringing in a major functionality update and I
+believe the 20$ price tag is still well justified. Of course anyone who has
+already purchased Grid Framework will get this and all future updates for free,
+that was the deal when I first launched it and nothing is going to change about
+that.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 30 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-30:grid-framework/news/2012/11/30/version-1110/</guid><category>old-blog</category></item><item><title>How about herring for lunch?</title><link>http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/</link><description>&lt;p&gt;Another progress update: WorldToGrid and GridToWorld are now implemented. For
+those who don't know, those two functions convert a point's coordinates from
+world space to grid space, the coordinate system used to locate points relative
+to the grid's properties, and back. For rectangular grids it's a fairly simple
+idea, the grid can be represented as a standard Cartesian coordinate system.
+With hex grids that won't do it, you simply cannot force a hex grid into a
+cartesian coordinate system, you need to find something else. Fortunately there
+are several topologically identical possibilties whith easier, more intuitive
+coordinate systems. For the first release I have decided to use the herringbone
+pattern:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/images/herring.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The vertices of this pattern are the faces of the hex grid. This means the
+central face has coordinates (0, 0, Z) and the face north-east of it has the
+coordinates (1, 0, Z). This way each single point of the hex grid can be
+canonically identified by its coordinates. "Canonically" means that no two
+points have the same coordinates and no two coordinates represent the same
+point. As a side effect this gives me an all new grid to work with, although
+the herringbone grid will have to wait until later before it gets the proper
+treatment.&lt;/p&gt;
+&lt;p&gt;This brings me almost concludes the hex grid development. The only things left
+now are the vertex matrix methods, testing and fixing everything to make sure
+it's reliable and then writing the documentation.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 27 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-27:grid-framework/news/2012/11/27/herring-for-lunch/</guid><category>old-blog</category><category>progress</category></item><item><title>Trying to fit a square peg into a hex hole</title><link>http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/</link><description>&lt;p&gt;The align feature has been giving me quite some headache lately. For small
+objects it's easy, just fit them inside the nearest hex. It gets more
+interesting once your object spans over more than one hex. Here is a screenshot
+from the game "Age of Wonders" for PC (I upscaled the image manually, AoW has a
+very low resolution)&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt='Screenshot from "Age of Wonders"' class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/images/AoW.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see the city goes over two hexes and no matter which of the two I
+click, I always select the city. I tried many ways of calculating a resonable
+way how to fit such an object into a hex grid, but no matter what I tried, it
+was bloated, had many cases and, worst of all, didn't really make any sense.
+The way Unity is designed is to work with rectangular objects which might be
+rotated. In a hex grid system everything is rotated, but only from our point of
+view, in terms of game logic everything is the normal way. This is what is
+causing problems, I'm trying to force one viewpoint into a different context.&lt;/p&gt;
+&lt;p&gt;So, what's the solution? I decided to go for the easiest and most intuitive
+approach: each object will be placed into the centre of its nearest hex. What
+about objects that need to go over two fields? In that case the user would have
+to set the pivot point manually, either in the 3D modelling aplication or in
+Unity by parenting the object to another object and placing them relative to
+each other so the pivot object is where you want the pivot point to be. In
+fact, this is exactly how the Age of Wonders editor is doing it.&lt;/p&gt;
+&lt;p&gt;You'll get a better idea of what I mean when you see it in action. In this
+video I'm assembling the structure directly inside the editor. Note that only
+the parent spheres have Rigidbodies, but all spheres have colliders and the
+script. Unity is designed in such a way that if an object has no rigidbody
+calling "rigidbody" will return the RB of its parent. Thus it's always as if I
+clicked the parent sphere when I click any sphere of a structure.&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/JxnZxlfhu9g" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;I think this is a good solution. Unless I somehow come up with a better way to
+do aligning this is what I'm going to stick with.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 22 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-22:grid-framework/news/2012/11/22/square-peg-in-round-hole/</guid><category>old-blog</category><category>progress</category></item><item><title>Grid Framework version 1.1.9 released</title><link>http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/</link><description>&lt;p&gt;Surprise update! Version 1.1.9 just got approved and it contains quite a few
+changes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;NEW METHOD AlignVector3: lets you align a single point represented as a
+Vector3 instead of a Transform to a grid&lt;/li&gt;
+&lt;li&gt;added the ability to lock a certain axis when calling AlignTransform and
+AlignVector3&lt;/li&gt;
+&lt;li&gt;added a new constructor to both GFBoolVector3 and GFColorVector3 that lets
+you pass one parameter that gets applied to all components&lt;/li&gt;
+&lt;li&gt;you can now lock axes in the Grid Align Panel as well&lt;/li&gt;
+&lt;li&gt;aligning objects via the Grid Align Panel which already are in place won't do
+anything, meaning they won't create redundant Undo entries anymore&lt;/li&gt;
+&lt;li&gt;fixed an issue in GetVectrosityPointsSeperate&lt;/li&gt;
+&lt;li&gt;renamed the classes BoolVector3 and ColorVector3 to GFBoolVector3 and
+GFColorVector3 to avoid name collision&lt;/li&gt;
+&lt;li&gt;size has always been a member of GFGrid, not GFRectGrid, I fixed that mistake
+in the documentation&lt;/li&gt;
+&lt;li&gt;minor clode cleanup and removing redundant code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first two are based on a user's suggestions, thank you for bringing those
+up. Previously when you wanted to align a Transform it would be aligned along
+all the axes, but now you can set certain axes to be left as they are (relative
+to the grid's local space). Also, instead of aligning a Transform you can also
+just align a Vector3 now, this is useful when you only need to calculate a
+position. You need to specify a scale, which was previously taken straight from
+the Transform, but I've set it to default to (1, 1, 1) so in most cases you
+won't have to think about it. Of course the Grid Align Panel lets you lock axes
+as well now. Since the option is passed as a GFBoolVector3 I added a new
+convenient constructor to the class that takes only one parameter and sets all
+entries to that. The same goes for GFColorVector3.&lt;/p&gt;
+&lt;p&gt;Another improvement is that objects which are already in place in the editor
+will be ignored by the Grid Align Panel when you try to align them. The reason
+for this is that before, if you had set the Autosnapping flag and clicked on an
+object that was already in place it would create an Undo entry even though you
+didn't see anything happening. Now there will be an Undo only if something
+happened.&lt;/p&gt;
+&lt;p&gt;The function GetVectorsityPointSeperate had been broken due to a few typos
+since release and I've only noticed it a few days ago. I guess no one was using
+it yet, so it went unnoticed for quite a while. It definitely works now.&lt;/p&gt;
+&lt;p&gt;The rest is just some under the hoods maintenance, moving code around, removing
+redundant parts, updating the documentation, the usual stuff. None of it has
+any impact on stability or performance, but it is important to keep things
+clean when I finally release the Hex Grids.&lt;/p&gt;
+&lt;p&gt;That's it for now, please enjoy the new features.&lt;/p&gt;
+&lt;p&gt;HiPhish&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 19 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-19:grid-framework/news/2012/11/19/version-119/</guid><category>old-blog</category></item><item><title>How to loop through a list and remove items</title><link>http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/</link><description>&lt;p&gt;The other day I had the following problem: I had a list of Transfoms and I
+wanted to remove the entries that met a certain condition. This is what I had
+written:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+foreach(Transform trns in transformList){
+    if(AlreadyAligned(trns))
+        transformList.Remove(trns);
+}
+&lt;/pre&gt;
+&lt;p&gt;This gave me the following error message: InvalidOperationException: Collection
+was modified; enumeration operation may not execute.&lt;/p&gt;
+&lt;p&gt;This makes sense, I'm modifying the list I'm currently reading and there is no
+way I can be sure I'll catch all entries. There are three ways around this
+problem: The first is to use LINQ (C# only), the second is instead of removing
+the entries at once to store them in a separate list and then use that list in
+a second foreach-loop to remove the entries from the first list and the third
+solution is to use a for-loop. After some reseach I reached the conclusion that
+the for-loop is the fasted way to achieve the needed results. Here is the code:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+int counter = transformList.Count;
+for(int i = 0; i &amp;lt;= counter - 1; i++){
+    if(AlreadyAligned(transformList[i])){
+        transformList.RemoveAt(i);
+        i --; //reduce the indexer because we removed an entry from list
+        counter --; //reduce the counter since the list has become smaller
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;First of all we need to know how many entries the list has initially. I could
+have used transformList.Count in the loop directly but this way I don't have to
+call the Count method for each iteration. Then we set up the loop, we start at
+index 0 and go to counter - 1 (because the index starts at 0 instead of 1). We
+perform our check and if it succeeds we remove the entry with index i. Since
+the list has now been shortened we need to reduce i because an item that has
+been at a position of 7 for example is now at position 6 (assuming that i is
+less or equal to 6 in this case). We also need to reduce our counter because
+the length of the list has been shortened as well.&lt;/p&gt;
+&lt;p&gt;As you can see the amount of lines has been doubled, while using LINQ would
+have left the code short. If you know that your list will always be small
+enough I'd go for the slower but shorter approach. In my case though I have no
+idea how large the list will eventually be, so using the for-loop makes perfect
+sense. I hope some of you find this useful in the future.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 16 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-16:grid-framework/news/2012/11/16/how-to-loop/</guid><category>old-blog</category><category>how-to</category></item><item><title>Hex Grids love Vectrosity</title><link>http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/</link><description>&lt;p&gt;Good news at last, I just finished the finding functions for vertices, both in
+grid space and in world space. Here is a screenshot where the yellow gizmo
+indicates the vertex closest to the grey sphere.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/images/hex-lovex-vectrosity.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;This may not seem like much, but being able to find faces, boxes and vertices
+is essential because the other functions rely on them. That's it for now, more
+updates to come soon.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 13 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-13:grid-framework/news/2012/11/13/hex-grids-love-vectrosity/</guid><category>old-blog</category><category>progress</category><category>extension</category></item><item><title>Vertex progress</title><link>http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/</link><description>&lt;p&gt;Good news at last, I just finished the finding functions for vertices, both in
+grid space and in world space. Here is a screenshot where the yellow gizmo
+indicates the vertex closest to the grey sphere.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/images/vertex-progress.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;This may not seem like much, but being able to find faces, boxes and vertices
+is essential because the other functions rely on them. That's it for now, more
+updates to come soon.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 12 Nov 2012 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2012-11-12:grid-framework/news/2012/11/12/vertex-progress/</guid><category>old-blog</category><category>progress</category></item><item><title>Back again</title><link>http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/</link><description>&lt;p&gt;I just wanted to drop a line saying I'm back to work. As I mentioned previously
+I was busy with exams, so development ws slowed down and during the last couple
+of weeks I had to stop completely to concentrate on studies. Now that it's over
+I can get back to working on the hex grid update. Currently I'm about halfway
+done, maybe more. I'll keep you updated :) Finally, I'd like to thank everyone
+who bought Grid Framework so far, you guys have made all this effort worthwhile
+and you are the ones who allow me to go on with it. Thank you.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 28 Oct 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-10-28:grid-framework/news/2012/10/28/back-again/</guid><category>old-blog</category></item><item><title>Example video: Level Design and Text parsing in Unity3D</title><link>http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/</link><description>&lt;p&gt;I made another example video for Grid Framework, this time for the recently
+introduced text parsing example. Now building new levels is as easy as writing
+a few lines of plain text and you get perfect clockwork-like precision. This
+opens up new possibilities for faster development, easier maintenance, easier
+level editors and support for user-made content. Just take a look at how simle,
+yet effective it is:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/lvYWbJ8ohkA" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 06 Oct 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-10-06:grid-framework/news/2012/10/06/example-parsing/</guid><category>old-blog</category><category>example</category></item><item><title>Version 1.1.7 released</title><link>http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/</link><description>&lt;p&gt;Version 1.1.7 has been approved by the Asset Store team. I fixed a small typo
+that prevented the menu item for adding the GFGridRenderCamera component from
+working and I added two more examples,  video tutorials will follow soon. I
+also redid the screenshots because the Asset Store ate my old ones somehow.&lt;/p&gt;
+&lt;p&gt;The first example shows you how you can use a plain text file and Grid
+Framework to build levels outside the editor. If you have a game like breakout
+that's heavily based around grid-based design it would be tedious to design
+each level via Drag&amp;amp;Drop in the editor. Another disadvantage is that changing
+the level would mean switching the scene and it would be harder for players to
+create their own levels as mods. In my example we design the level as a plain
+text file where each character corresponds to one predefined prefab. Then we
+need to set up only one scene and the text parser script will, along with the
+grid, take the text file, read it and then place blocks accordingly. You can
+even switch levels on the fly without changing the scene.&lt;/p&gt;
+&lt;p&gt;The second example continues the grid-based movement example by placing
+obstacles on the grid. One way to avoid them would be to attach colliders to
+the obstacles and then have the walker perform a line cast in the direction of
+its movement and see if the line cast hits anything. However, since this is
+Grid Framework we can do better than that. In this example I create a matrix
+that stores whether a tile is forbidden or not and then the walker checks if
+its next target square is alowed or not. There are no colliders or physics
+used.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 05 Oct 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-10-05:grid-framework/news/2012/10/05/version-117/</guid><category>old-blog</category></item><item><title>Cannot log into my account</title><link>http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/</link><description>&lt;p&gt;I've written two new examples, one that takes a plain text file and parses it
+to create a breakout-style level based on a grid without changing the scene,
+the other is a continuation of my grid-based movement exmple where I can place
+obstacles on the grid and the sphere will not step on those squares (without
+using any physics like collision and raycasts). Sadly I can't update Grid
+Framework because I can't log into my account via Package Manager. My account
+still works, I can log into the forums and my Publisher Administration, so the
+problem must lie within the editor. I've submitted a bug report, but until then
+I cannot publish updates. If you are interested in one of those two examples
+please contact me over the Unity forums and I'll send you the examples,
+provided that you already own Grid Framework. On a related note, it appears
+that Grid Framework's product page in the Asset Store doesn't have any
+screenshots. I did submit screenshots, but they don't appear for me, I don't
+know if other people can't see them either.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 02 Oct 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-10-02:grid-framework/news/2012/10/02/cannot-log-in/</guid><category>old-blog</category></item><item><title>Version 1.1.6 submitted</title><link>http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/</link><description>&lt;p&gt;&lt;strong&gt;Important Note:&lt;/strong&gt; The classes Grid and RectGrid have been renamed to GFGrid
+and GFRectGrid, you will need to change your source code accordingly.&lt;/p&gt;
+&lt;p&gt;You might be wondering why I would do such a thing more than one month after
+releasing the package. Using regular English words is simple and intuitive;
+however, the danger of name collision with another class called the same is
+quite large. Let's say a user has already a class called Grid for something in
+his or her project. When they buy Grid Frmework all of the sudden they will get
+compilation errors because now there are two classes called Grid. It would be
+unreasonable to expect users to change their class, especially if that class is
+already part of a more complex chain of dependencies or inheritance. They could
+change my code, but then they would have to change it after each single update
+of Grid Framework. If the class Grid is already defined in some other third
+party extension it gets even worse.&lt;/p&gt;
+&lt;p&gt;Adding the GF in front of both classes reduces the chance of name collision. I
+apologize to all my existing customers for having to change their source code
+because I didn't think about this in time, but I had to resolve this before it
+becomes an issue and the sooner I get it sorted out the less customers will
+have to change their source code. I am very sorry, but this should fix the
+problem once and for all.&lt;/p&gt;
+&lt;p&gt;Aside from that the GFRectGrid class contains some minor code cleanup and
+performance boosts, so it's not all bad news.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 22 Sep 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-09-22:grid-framework/news/2012/09/22/version-116/</guid><category>old-blog</category></item><item><title>Version 1.1.5 released</title><link>http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/</link><description>&lt;p&gt;As per request the custom rendering range now affects drawing as well, not just
+rendering. If you are wondering why this wasn't the case before, it was a
+leftover from before the custom rendering range got implemented. Originally the
+custom range was only meant for rendering because that would be what the layer
+sees in the final game, not the drawing, whether they are the same or not.
+Also, the drawing is only a drawing, the grid keeps working beyond what's
+visible, being infinite. That's why the drawing had low priority and I worked
+on other parts instead.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 06 Sep 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-09-06:grid-framework/news/2012/09/06/version-115/</guid><category>old-blog</category></item><item><title>Version 1.1.4 released</title><link>http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/</link><description>&lt;p&gt;Version 1.1.4 has been approved. It doesn't add anything new for a change,
+instead it fixes a bug where lines with a width larger than 1 were drawn on top
+of things they were supposed to be under.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 05 Sep 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-09-05:grid-framework/news/2012/09/05/version-114/</guid><category>old-blog</category></item><item><title>Hex grid progress so far</title><link>http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/</link><description>&lt;p&gt;Here's a quick status update:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;Drawing:&lt;/em&gt; This works perfectly now, the hexes are drawn properly as
+described in the post before, and now i have added lines that connect the
+different layers of the grid.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Rendering:&lt;/em&gt; Like drawing alsmost finished, except one minor issue. In the
+rectangular grids you can specify a width for the rendered line and, since
+the line is drawn in 2D, I had to calculate the directions in which to expand
+the lines. There were only three possible directions and the lines were
+sorted by X, Y and Z, so it was enough to calculate each of the three
+directions only once. With hex grids one set of lines is zig-zagged, so I
+need to calculate four directions total. I need to find a nice way to
+separate the the two differently slanted lines. I don't want to calculate the
+direction for every line as that would be a waste of ressources.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Find nearest face &amp;amp; Get face coordinates:&lt;/em&gt; done, although only for the
+default coordinate system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Find nearest box &amp;amp; Get box coordinates:&lt;/em&gt; done, just like above&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This leaves the following functions:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;Find nearest vertex &amp;amp; Get vertex coordinates:&lt;/em&gt; The challenge here lies in
+finding a nice coordinate system, and by nice I mean one that's intuitive to
+understand, easy to implement and easy to maintain&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Build vertex matrix &amp;amp; read vertex matrix:&lt;/em&gt; Getting the vertices is already
+done, the challenge again lies in finding a good coordinate system.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Align &amp;amp; Scale transform:&lt;/em&gt; shouldn't pose any problems&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;World to Grid &amp;amp; Grid to World:&lt;/em&gt; you guessed it, deciding on a coodinate
+system&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Get Vectrosity Points:&lt;/em&gt; This will take the same points as used by rendering
+and drawing, but the array has to be processed first to fit Vectrosity's
+requirements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, all in all it looks pretty good. Unfortunately progress has been dragged
+down by my studies, I'm writing exams soon, so I can't afford to work on Grid
+Framework full time. The plan is to finish all the needed functionalityl for
+the first release. After that additional coordinate systems will be added and
+after that I'll add more drawing shapes like triangular and circular hex grids.
+That will conclude the hex grid chapter of Grid Framework.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 02 Sep 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-09-02:grid-framework/news/2012/09/02/hex-grid-progress/</guid><category>old-blog</category><category>progress</category></item><item><title>Hex grid drawing - finally!</title><link>http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/</link><description>&lt;p&gt;I have finished the drawing part for hex grids. As I mentioned before, there
+are many ways to draw hex grids and I want to cover as many of them as
+possible. Let's count all the possibilities that work now.&lt;/p&gt;
+&lt;p&gt;There are three plains to draw on, the XY-, XZ- and YZ-plain. In each case you
+have the choice of having pointy sides or flat sides, those are two
+possibilities. Every second line is offset upwards, so you can either draw
+those offsets or keep the grid compact, so two more choices. Each grid can
+begin with an offset colum or not (two more) and end with an offset column or
+not (again, two more). That's a total of 3 x 2 x 2 x 4 = 48 possibilities! On
+top of that no line should be calculated more than once, or else it would be
+drawn twice. That may seem trivial, but if your lines are semi-transparent the
+difference between lines drawn once and twice can be seen.&lt;/p&gt;
+&lt;p&gt;Needless to say I don't want to write and maintain 48 similar algorithms,
+everything has to be handled automatically by one single function. Eventually I
+got it, it works with any of those possibilities. I've prepared four variations
+of the same grid to give you an idea. The upper ones are the pointy sides, the
+lower ones are the flat sides. The left ones are fully drawn, the right ones
+are compact.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/images/hex-drawing.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;There are also other ways to draw a hex grid, as a rhomb, a triangle or a big
+hexagon made from smaller hexagons. I will do them after I have the scripting
+functionality done, drawing is independent from the other calculations.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 30 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-30:grid-framework/news/2012/08/30/hex-drawing/</guid><category>old-blog</category><category>progress</category></item><item><title>Swap variables in Unity</title><link>http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/</link><description>&lt;p&gt;I've decided to go with one HexGrid class and provide enough options. To do
+this I will need to swap around variables so I can use the same formulae for
+different cases. I could write the swapping part where it is needed, but then
+I'd be writing the same thing several times (which is a bad thing to do).
+Wouldn't it be better if there was some sort of swapping function? Could that
+function work for any type of variable? Could it work without needing to
+reassign variables again? Yes to all of that:&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Swap&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="k"&gt;ref&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;ref&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;It works the usual way, you create a temporary variable, assign one variable to
+it, then assign the second to the first and the temporary to the second. The T
+stands for the type, this is a generic function, meaning you can use it for any
+type you want. You can swap int, float or even something crazy like Collider or
+something usermade. The ref means that the changes done to the variables in the
+function are reflected right back. Usually a function "copies" the values
+passed and leaves the original variables untouched. To use the code you would
+write something like&lt;/p&gt;
+&lt;pre class="code csharp literal-block"&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Swap&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="k"&gt;ref&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;ref&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;There are some tricks floating around on the internet without the use of a
+temporary variable and using math tricks instead, don't use those. At best your
+code just gets ugly, at worst you even get worse performance. Also, you are
+limiting yourself to numbers only, whereas this Swap function works for
+anything. Hooray for generics!&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-25:grid-framework/news/2012/08/25/swap-variables-in-unity/</guid><category>old-blog</category><category>how-to</category></item><item><title>The current roadblock</title><link>http://hiphish.github.io/grid-framework/news/2012/08/23/current-roadblock/</link><description>&lt;p&gt;It has been over a week since my last post, so I might as well explain what's
+going on. As I finished rendering I had tightened up all loose ends that were
+left, I consider Grid Framework to be complete for rectangular grids. You can
+perform all the common calculations, debug things and visualize the grid
+properly, either using simple lines or even Vectrosity. This is just the first
+step though. Hex grids are very popular for games for various reasons, so it
+makes perfect sense to do them next, right? Well, here is where the problem
+starts.&lt;/p&gt;
+&lt;p&gt;See, while making Grid Framework there are several challenges I need to face
+(let's just ignore things like documentation or presentation for now).
+Obviously I need to code the whole thing. I also need to figure out the math
+for how to even do these calculations. None of those are really any big
+secrets, the math has been there for centuries and the coding part is just
+turning verbose instructions into C# code. It's a pretty straight-forward
+process, more or less, once you figured out what to do and how to do it. And
+that's where the current challenge lies.&lt;/p&gt;
+&lt;p&gt;Rectangular grids are relatively simple. Being in 3D and able to rotate and
+translate and having individual spacing made them more complicated, but it was
+still the same basic formulae, just more expanded. Hex grids are not as easy,
+simply because there is more you can do with them. This leaves me with some
+really nasty design decision.&lt;/p&gt;
+&lt;p&gt;When writing an extension I need to keep in mind that it will be used by lots
+of different people who might have different ideas about what a hex grid should
+work like. Some might want to fit a grid inside a rectangle, like in battle for
+Wesnoth, others might want one big hexagon made of smaller hexagons, like in
+Settlers of Catan. I cannot just pick one and tell the others to convert their
+game to the other type. This also raises the question of coordinates. A
+rectangular grid is just a standard cartesian coordinate system with some
+stretching and squeezing. I can even have fractions of a coordinate to give a
+precise position. If I fit a hex grid inside a rectangular grid, can I still
+have fractions? Do I even want such a feature? What should the coordinates
+represent, vertices or faces? What about the pointy side of a hexagon, is it
+one unit or just half a unit? Speaking of which, how does everything change if
+I want the tops to be pointy instead of the sides? Where should the origin lie?
+How many axes should even be there? (don't laugh, once concept uses four
+dimensions)&lt;/p&gt;
+&lt;p&gt;All of these questions can be answered, that is not the problem. The problem
+lies in answering them all in a way that is clean to implement, clean to
+maintain and clean for the end user to use. Should I make different hex grid
+classes, which would be easier to code, but would mean more code to maintain
+and more API for the user? I would like to just start coding and see what
+happens, but these questions need to be answered first, or the code will
+explode right in my face. I don't know how long it will take, but I'm working
+on it.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 23 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-23:grid-framework/news/2012/08/23/current-roadblock/</guid><category>old-blog</category><category>progress</category></item><item><title>Version 1.1.3 released</title><link>http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/</link><description>&lt;p&gt;You know, sometimes I look at something and wonder "what kind of idiot designed
+this!?", only this time I was the idiot. Let's say you wanted to render a
+simple 3x3 grid and you wanted the origin to be in the lower left corner. Well,
+you simply couldn't do that, not until now:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of custom range in inspector" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/images/custom-range.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Instead of using the size you can now specify your own range, the only
+limitation is that From has to be less than To obviously. As a nice extra touch
+those two fields will only appear when you you choose to use custom range,
+otherwise they will be hidden and won't clutter your view.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important note about updating:&lt;/strong&gt; Until now you got one folder and had to move the
+Plugins folder to the root of your project view manually. This is no longer the
+case, Grid Framework should now place all files in their proper directory
+without you having to do anything. If you have an older version of Grid
+Framework and get errors or warnings please delete all your old Grid Framework
+files. This is the last time you will have to do anything manually.&lt;/p&gt;
+&lt;p&gt;I am sorry for this inconvenience, but there is some common misinformation that
+all assets must be in one folder. The fact is you can send your entire "Assets"
+folder and the Asset Store Tools will be ignored.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 15 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-15:grid-framework/news/2012/08/15/version-113/</guid><category>old-blog</category></item><item><title>Version 1.1.2 released</title><link>http://hiphish.github.io/grid-framework/news/2012/08/14/version-112/</link><description>&lt;p&gt;It's up, version 1.1.2 brings Vectrosity support, better documentation and
+integrates Grid Framework into the menu bar. From now on you will never again
+have to drag scripts manually from the Plugins folder onto objects when using
+Grid Framework.&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/99J52oEFnPA" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;If you want to try the Vectrosity examples please uncomment the scripts. I had
+them commented so they wouldn't give errors to customers who don't have
+Vectrosity installed.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 14 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-14:grid-framework/news/2012/08/14/version-112/</guid><category>old-blog</category></item><item><title>Vectrosity progress</title><link>http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/</link><description>&lt;p&gt;Well, it's pretty much done, you can now get a set of Vector3 points for use
+with Vectrosity from just one line of code. I played a bit with Vectrosity to
+make an example scene and this is what it looks like:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot of laser-line grids" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/images/vectorsity-progress.png"/&gt;
+&lt;p class="caption"&gt;(yes, I am a sucker for laser lines)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The green grid just hangs there and rotates, the red grid bounces around (using
+Unity's physics engine), the yellow grid resizes itself all the time and the
+colourful grid changes the colours of its lines randomly. The "missing" lines
+in the last grid lines are not a bug, they are sill there but coloured black.&lt;/p&gt;
+&lt;p&gt;I expect version 1.1.2 to be the last feature update before adding Hex Grids,
+so I want to wrap up all the loose ends I might still have left. In particular
+I want to integrate the components into Unity's main interface, no more
+dragging scripts onto GameObjects.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 12 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-12:grid-framework/news/2012/08/12/vectrosity-progress/</guid><category>old-blog</category><category>example</category><category>extension</category></item><item><title>Line width for rendering</title><link>http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/</link><description>&lt;p&gt;I just submitted version 1.1.1 (&lt;em&gt;update: has been approved&lt;/em&gt;) which lets you set
+the width of the rendered line in the inspector. Here is an example, obviously
+it's over the top, but you can set the width to anything you like.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/images/line-width.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Now I just need to provide a nice function to pass rendering points to
+Vectrosity. I'm sure those of you who own a Vectrosity license would like to be
+able to combine the best of both. I promise when I'm done it will be the last
+time you'll see me talk about rendering for a while.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Thu, 09 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-09:grid-framework/news/2012/08/09/line-width-for-rendering/</guid><category>old-blog</category></item><item><title>Version 1.1.0 out now - rendering included</title><link>http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/</link><description>&lt;p&gt;Unity just approved version 1.1.0, which includes the new inspector panel and
+the rendering setup. Now you can see your grid in the finished game, no pro
+license or any other addon needed.&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/BhbrMHBasRs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 08 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-08:grid-framework/news/2012/08/08/version-110/</guid><category>old-blog</category></item><item><title>A new inspector</title><link>http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/</link><description>&lt;p&gt;Well, I wanted to do this sooner or later anyway, so I made a custom editor for
+the rectangluar grid. Before this I was using the default inspector panel:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/images/inspector.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;So, why am I doing GUI stuff if I'm supposed to work on the rendering? Well, as
+I said I need to clean up the code, which involves looping through two custom
+classes of mine, ColorVector3 and BoolVector3. If you used Vector3 you know you
+can access values using something like myVector.x, but you can also use an
+index instead: myVector[0]&lt;/p&gt;
+&lt;p&gt;I wanted to have both in my two classes so I could loop through them in one go
+rather than write a special case for each entry and provide an intuitive syntax
+for users. The solution was using an indexer, setters and getters. They all
+work fine in code, but I cannot get getters and setter to display in the
+inspector and manipulating the entries directly could break things. The
+solution was writing my own inspector from scratch.&lt;/p&gt;
+&lt;p&gt;Aside from now being able to provide a safe and clean way to set colors and
+toggle axes the new inspector looks cleaner and the attributes are sorted in a
+way that makes more sense, rather than the way the class is built. I'm still
+not satisfied with some parts, the axis colours don't have labels and the the
+hide axis flags should be on the same line, like the Vector3 field. However, if
+I force them on one line or add labels to the coulour flieds the space for the
+labels is so large that the controls start overlapping, so it looks even worse
+than before.&lt;/p&gt;
+&lt;p&gt;Anyway, it does look better now and gives me the code improvements I need for
+clean rendering, so all in all it's a success.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 07 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-07:grid-framework/news/2012/08/07/new-inspector/</guid><category>old-blog</category><category>progress</category></item><item><title>Grid rendering progress</title><link>http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/</link><description>&lt;p&gt;Take a look at this:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/images/grid-rendering-progress.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;What's so special? Look at the upper right corner, gizmos are turned off. This
+is a grid rendered at runtime that would be visible in a released game. There
+are still some things to care take of first: For one, the grid needs to get
+rendered every frame, which is not a big deal when using the GL class, but a
+Vectrosity-like approach where a mesh is built only once and then drawn once
+until it updates would be pretty neat. Also, the GL class doesn't let you set
+the width of lines, I could draw quads instead, but those are only thick if you
+look directly at them, otherwise they get thinner until they become invisble
+(in other words, they are flat). Lines are always the same, no matter the angle
+or distance, which could be exactly what you want or not. Maybe I could include
+some way for users to use Vectrosity easily if they have a license? In any
+case, I need to finish this first. The code is still very messy, being in large
+parts copy-pasted from the drawing code (which was kind of messy itself) and
+copy-pasting code is a sure way to have your project explode right in your
+face. I'll need to write a method to return a nice list of points that both
+drawing and rendering can use.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 06 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-06:grid-framework/news/2012/08/06/grid-rendering-progress/</guid><category>old-blog</category><category>progress</category></item><item><title>Version 1.0.1</title><link>http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/</link><description>&lt;p&gt;If you tried debugging the functions FindNearestFace() or FindNearestBox() you
+might have noticed that the cubes drawn didn't have the same rotation as the
+grid. While it didn't change anything about the returned value (only the centre
+of the cube mattered), it looked ugly. I've submitted a small update that fixes
+the rotation:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Image of a rotated cube gizmo" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/images/rotated-cube.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The update should get approved soon.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 04 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-04:grid-framework/news/2012/08/04/version-101/</guid><category>old-blog</category></item><item><title>Grid-based game logic</title><link>http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/</link><description>&lt;p&gt;Another video tutorial, howing how to use grid-based game logic in a puzzle
+game. This is the tutorial for the lights-out game I mentioned before and which
+has been included with the package.&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/sXlagrglfQ8" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;This tutorial is written in C# because it uses delegates and events. The reason
+why is so that no single tile needs to know about the other tiles, making this
+code extremely flexible, you culd even change your scene during runtime. If you
+don't know about delegates and events I really recommend you to check out
+prime31studios' video. Their video series really got me into C# development.&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/N2zdwKIsXJs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;To give you the basic idea, events and delegates mean that somewhere somehow
+something happens and some other objects react to that. The object that
+triggered the event itself has no idea who (if anyone) is listening and how
+they will resond. For example you could have an RPG where when you draw your
+sword it makes villagers run away and guards draw their own weapons. Your hero
+would not need to know how many villagers and guards (if any) are around, he
+just needs to fire the event and all listeners will react accordingly.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 03 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-03:grid-framework/news/2012/08/03/grid-based-game-logic/</guid><category>old-blog</category><category>example</category></item><item><title>Release!</title><link>http://hiphish.github.io/grid-framework/news/2012/08/01/release/</link><description>&lt;p&gt;Grid Framework has been approved and is fom now available on the Unity Asset
+Store for 15$&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://u3d.as/content/hi-phish/grid-framework"&gt;http://u3d.as/content/hi-phish/grid-framework&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the price for the initial release, it will go up as the amount of
+features increases, but all existing customers will get all updates for free.
+Please feel free to visit the support thread and drop me a line if you have any
+questions or suggestions. Once the first wave of purchases has passed and if
+there are no issues I will start working on either hex grids or grid rendering,
+whichever you guys might find more important.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins"&gt;http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And to think that is has already been four months since I started this blog...
+the framework has gone quite a long way from a quick &amp;amp; dirty solution I rolled
+up in two days to something I can proudly announce. I am looking forward to an
+even brighter future for Grid Framework.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 01 Aug 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-08-01:grid-framework/news/2012/08/01/release/</guid><category>old-blog</category></item><item><title>Grid movement and runtime snapping</title><link>http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/</link><description>&lt;p&gt;Well, I just sent my second submission. There are three examples included, one
+showcasing grid-based movement, one showcasing how to place objects on a grid
+during gameplay and the lights-out game mentioned below. i also made tutorial
+videos for the first two, showcasing how you can accomplish these tasks in a
+simple manner on your own:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/m9_efVi_tFs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QqUzcthkvcc" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 29 Jul 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-07-29:grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/</guid><category>old-blog</category><category>example</category></item><item><title>A quick update</title><link>http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/</link><description>&lt;p&gt;I have been contacted by an Asset Store admin, who recommends me to include a
+demo scene so users could see an end setup. I thought dragging a script onto an
+object is pretty straight-forward, but I agree, a demo scene would be a really
+good idea. The tricky party is coming up with good ideas; don't get me wrong, I
+have plenty of ideas for actual gameplay examples, but for a demo scene I need
+something more basic and at the same time more catchy. I already made a little
+sphere that randomly roams a grid face by face, stays within limits and
+immediately adapts to changes in the grid, all with just 32 lines of code total
+(not counting whitespaces and comments). I'll come up with two or three more
+nice demos, that should give a good impression of Grid Framework  in action.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 27 Jul 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-07-27:grid-framework/news/2012/07/27/a-quick-update/</guid><category>old-blog</category></item><item><title>Almost there...</title><link>http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/</link><description>&lt;p&gt;Well, it's alsmost done. Again. Turns out that making an asset is only half the
+job, you still need to hammer out any ugly dents, polish the thing and then
+change your job to become a graphic designer, a video commentator, a writer and
+a salesman! What good is the best asset if you present it in such a way that
+makes people not even want to take a look? I'm not claiming that I'm an expert
+in any of those fields, but I believe I did a pretty good job (well, maybe my
+voice work for the video could use some improvements). In a way I'm glad the
+old "images" I had prepared for the first version are now lost forever, that
+was something to turn people away forever. You cannot imagine how awful those
+looked.&lt;/p&gt;
+&lt;p&gt;Anyway, I finished the videos, I made the drawings for the asset store and I
+wrote the documentation. The only things left now are uploading the videos
+(which will take quite a while with my connection), writing a description text
+for the asset store (shouldn't be too much, so it won't take too long) and then
+sending the files over to Unity. In the meantime, please enjoy a small teaser:&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="an image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/images/Grid_image_big.png"/&gt;
+&lt;p class="caption"&gt;Unfortunately clicking this won't do anything. Yet.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sun, 22 Jul 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-07-22:grid-framework/news/2012/07/22/almost-there/</guid><category>old-blog</category></item><item><title>Turn off the lights!</title><link>http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/</link><description>&lt;p&gt;Here is a nice little puzzle game made using the grid framework. When you click
+a square that square and the four adjacent squares flip their color. Your task
+is to turn them all off.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Screenshot from lights out game example" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/images/lights-out.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The entire game uses only two scripts with a total of 70 lines of code. Sure,
+that may not seem like a small amount, but keep in mind that almost half of
+that is just whitespace and comments for better readability. The other half is
+mostly just to handle the user's input and only two lines are used for
+grid-based operations, i. e. finding out which tiles to flip. What's even
+better is that this works for any setup, you can even have holes and weird
+apendages like in the above picture. You could even move tiles during gameplay
+or generate the puzzle dynamically rather than by hand every time. Grid
+framework always finds the right tiles for you.&lt;/p&gt;
+&lt;p&gt;I will put up a video tutorial eventually once the package is released. I used
+delegates and events, so if you don't know what they are take a look at
+prime31studios' video tutorial:&lt;/p&gt;
+&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/N2zdwKIsXJs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 29 May 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-05-29:grid-framework/news/2012/05/29/turn-off-the-lights/</guid><category>old-blog</category><category>example</category></item><item><title>State of the game</title><link>http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/</link><description>&lt;p&gt;It has been over a month since I posted the introductory video and sent my
+application to Unity. I never received any confirmation, so I assume it got
+lost somewhere along the way...&lt;/p&gt;
+&lt;p&gt;Anyway, that doesn't mean I have been sitting here for over a month staring at
+the screen and refreshing my mail. I started working on this project because I
+needed a simple solution for one certain problem, that's how I started working
+and over time more and more ideas came to my mind. It was clear that I would
+need a complete rewrite sooner or later, so I decided to release a simple
+version first and then start the rewrite instead of throwing everything up to
+that point out the window.&lt;/p&gt;
+&lt;p&gt;When I sent my submission to Unity I was done with the old concept and started
+working on the new, more robust concept that would allow for far more features
+to be implemented cleanly. This meant switching to C# (since some things just
+aren't possible in UnityScript) and diving deeper into the documentation than
+ever before. I like the results. I set myself a few goals and so far I have
+achieved most of them. This includes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;grids as components instead of plain classes&lt;/li&gt;
+&lt;li&gt;fully support 3D grids and rotation&lt;/li&gt;
+&lt;li&gt;functions to find vertices, faces and boxes with just one line of code&lt;/li&gt;
+&lt;li&gt;a nice panel for aligning and scaling instead of that dirty workaround&lt;/li&gt;
+&lt;li&gt;switch between grid coordinates and world coordinates (and vice-versa) with just one line of code&lt;/li&gt;
+&lt;li&gt;every kind of grid (quare grid, hex grid, triangular grid) inherits from one common Grid class&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most work has been done under the hood to keep the code clean. It's easy to
+insert a new feature into clean code where I can leverage already existing
+methods instead of having to write the same thing several times (copy-pasting
+chunks of code is an awful idea!).  The one thing that still needs a good look
+are the methods related to the vertex matrix, it's one of those things that are
+easy to break if you aren't careful.&lt;/p&gt;
+&lt;p&gt;That said, once it's done the (hopefully now) first release would be ready to
+ship. I'd also have to rewrite the entire documentation and draw new logos for
+the Asset Store (in a way I'm glad my first submission got lost, those
+"drawings" were just aweful)&lt;/p&gt;
+&lt;p&gt;The fist release would only cover rectangular grids with hex grids added next,
+then finally triangular grids. I haven't started implementing them, but I have
+already done the math and I know how to do it, I just need to finish this
+first. The one last thing I can think of is grid pathfinding, but I won't even
+waste a thought on that until I get the other stuff done.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 14 May 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-05-14:grid-framework/news/2012/05/14/state-of-the-game/</guid><category>old-blog</category><category>progress</category></item><item><title>Introduction video</title><link>http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/</link><description>&lt;p&gt;As promised, here it is:&lt;/p&gt;
+&lt;p&gt;[video deleted]&lt;/p&gt;
+&lt;p&gt;A basic overview of what the first release has to offer. Stay tuned for future updates. The package is waiting for approval now.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Apr 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-04-11:grid-framework/news/2012/04/11/introduction-video/</guid><category>old-blog</category></item><item><title>Introduction</title><link>http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/</link><description>&lt;p&gt;Hello everyone :)&lt;/p&gt;
+&lt;p&gt;I have been working on making a 2D platformer in Unity in the spirit of the old
+8 Bit and 16 Bit games such as Super Mario and Sonic. One thing I really admire
+about those games is their sense of clockwork-like precision, you never feel
+cheated by the controls, you always know which jumps you can make and which
+ones you can't.&lt;/p&gt;
+&lt;p&gt;Part of this precision comes from how these games can easily be broken up into
+blocks. For example Mario is either 1x1 blocks or 1x2 blocks large (actually
+it's slightly less, but let's not get lost in details here), he can jump a
+certain height and certain distance at a certain given speed and the level
+designers can easily calculate how many blocks they need to use to make the
+game just challenging enough to be fun but not unfair.&lt;/p&gt;
+&lt;p&gt;Consequently, I would have to do the same thing. I would need to come up with a
+certain block size (let's say 1x1 in Unity units) and adjust the scale and
+position of everything accordingly by hand. Not fun at all. Wouldn't it be
+awesome if Unity had some sort of grid framework, some way of specifying the
+grid's spacing and origin and just have the computer do the rest? Couldn't the
+computer scale and position my blocks inside the grid instead of me?&lt;/p&gt;
+&lt;p&gt;Well, if you need it, then make it, that's what I told myself. After coming up
+with an approach and a long-term plan of what to do I made the first step, a 2D
+grid class that can be used for scaling and alignment. The script will match
+you objects as closely to the grid as possible, so if your block is slightly
+larger it will shrink and if it's slightly smaller it will grow. With just a
+single key combo you can turn this messy Breakout field&lt;/p&gt;
+&lt;p&gt;into this clean arrangement&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/images/Breakout.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Actually, it took me longer to put those blocks into the scene than to align
+and scale them. As you can see some blocks didn't even have the right
+proportions.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/images/Breakout2.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;Of course aligning and scaling is not all this is good for. As I mentioned
+before, the 2D grid is a class and as such can be used for scripting as well.
+The functions for scaling and aligning are built into the class so you can
+perform these actions during runtime. You could use the grid for path finding
+or anything you want. Every grid contains a matrix of its vertices, allowing
+you to instantly read any point within a specified range just by providing the
+coordinates, no math needed. Every grid is infinite in size since it's only
+defined by origin and spacing (the vertex matrix obviously isn't infinite) so
+there are no limitis to how far you can go with this grid.&lt;/p&gt;
+&lt;p&gt;I'm currently doing some polishing and fixing minor bugs. A promotional YouTube
+video will be coming soon, I finished writing the script, now I need to record
+it. Once I'm done the assets (including the documentation with scripting
+reference) will be avaible in the Unity Asset Store for an affordable price.
+The future plans are to properly support 3D grids with rotation, make the
+interface more convenient, have mouse snapping in the editor, hex grids and
+whatever else I can come up with.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 09 Apr 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-04-09:grid-framework/news/2012/04/09/introduction/</guid><category>old-blog</category></item><item><title>Something's coming...</title><link>http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/</link><description>&lt;p&gt;OK, let's test this new blog thing...&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="very early image of Grid Framework" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/images/infinite-grid.png"/&gt;
+&lt;p class="caption"&gt;behold the beauty of infinity...&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 27 Mar 2012 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2012-03-27:grid-framework/news/2012/03/27/somethings-coming/</guid><category>old-blog</category></item></channel></rss>

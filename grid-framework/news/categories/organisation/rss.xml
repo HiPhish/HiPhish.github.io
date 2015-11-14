@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/organisation/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>A new blog for Grid Framework</title><link>http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/</link><description>&lt;p&gt;Welcome to the new blog for Grid Framework on the new website. I have migrated
+all the old blog posts here as well (with all typos and everything). The old
+blog is still available for the time being, but I won't post anything there
+anymore.&lt;/p&gt;
+&lt;p&gt;This website has support for multiple blogs, so this blog will from now on be
+used for news only. Once I have feeds working you will also be able to
+subscribe to get the latests news delivered right to you.&lt;/p&gt;
+&lt;p&gt;That's if for now, this was the last step needed in the migration to the new
+website.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
+just a category such as &lt;em&gt;release&lt;/em&gt; for instance by navigating to that category
+and using the links in the top right-hand corner.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</guid></item><item><title>New website</title><link>http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/</link><description>&lt;p&gt;Over the last few months I have been busy redesigning the website and we are
+finally live now. Check it out:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;http://hiphish.github.io/grid-framework/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The new website has been rewritten from scratch, but all the old links are
+still valid. It is now a modern site that looks good on desktops, on tablets,
+on phones and even in text mode. All content is static and the site works fine
+with and without JavaScript enabled in your browser.&lt;/p&gt;
+&lt;div class="section" id="showcase-your-work"&gt;
+&lt;h2&gt;Showcase your work&lt;/h2&gt;
+&lt;p&gt;Judging by the five-star reviews you all seem to like Grid Framework, but what
+are you using it for? I want to have a showcase page on the website where I can
+show off some of the games made using Grid Framework. If you want your game
+featured drop me a line, include a screenshot (or give me permission to pick
+one myself) and a few sentences about your game and what you used Grid
+Framework for. I'm looking forward to seeing all the cool uses you came up
+with.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="about-the-new-website"&gt;
+&lt;h2&gt;About the new website&lt;/h2&gt;
+&lt;p&gt;The original website was made from hand-written HTML and CSS. While I like the
+pure hands-on approach it became quickly apparent that that wouldn't cut it in
+the long run. Take for example the navigation bar: It has to appear on every
+page, it has to be the same everywhere and the currently active item has to be
+highlighted. HTML has no interactive elements and no way to include snippets. I
+could have used JavaScript, but then the site would break down it people don't
+have JavaScript enabled.&lt;/p&gt;
+&lt;p&gt;I was looking into different solutions and settled for Pelican. Pelican is a
+static site generator, meaning you write template HTML pages with placeholders
+and you write your content separately. Pelican then generates the finished
+website from your template, content and a number of settings. This has all the
+benefits of being static while being easy to maintain.&lt;/p&gt;
+&lt;p&gt;For the actual website I decided instead of reinventing the wheel I would just
+leverage the work of people who know more about web development than me. I use
+Bootstrap as my CSS framework and jQuery for light JavaScript decoration. I
+also now have a proper gallery using Pretty Photo library. You can find a list
+of all components on the &lt;a class="reference external" href="http://hiphish.github.io/about"&gt;about&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;One final note about JavaScript if you are concerned about proprietary code:
+all the foreign code is free software and the code I have written is free as
+well (MIT licensed), no need to worry.&lt;/p&gt;
+&lt;p&gt;What is still missing is the blog. Because I intend the Workshop to be home to
+all my projects it would be a bad idea to lump all news into the same blog.
+Pelican has no capability of producing multiple blogs, I will have to write a
+multiblog plugin instead. Until then this blog stays the news site.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 26 Oct 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-10-26:grid-framework/news/2015/10/26/new-website/</guid><category>old-blog</category></item><item><title>Playable examples</title><link>http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/</link><description>&lt;p&gt;I have added playable builds of the examples to the website, now you can click
+the title of an example and try the result out in the Web Player. To get back
+click on the &lt;em&gt;Grid Framework examples&lt;/em&gt; label above the player. Just remember
+that you have to click into the player to get it to accept input.&lt;/p&gt;
+&lt;p&gt;Check out the web pages:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/examples/"&gt;http://hiphish.github.io/grid-framework/examples/&lt;/a&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 27 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-27:grid-framework/news/2015/01/27/playable-examples/</guid><category>old-blog</category><category>example</category></item><item><title>A homepage for Grid Framework</title><link>http://hiphish.github.io/grid-framework/news/2015/01/16/homepage/</link><description>&lt;p&gt;Grid Framework now has its own homepage:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;http://hiphish.github.io/grid-framework/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have been running this blog now for almost three years, which is way too long
+to go without a proper website. Back when I had just started out I didn't know
+if Grid Framework would ever take off, so I organised everything in a quick &amp;amp;
+simple manner, but I think it's finally time to step up my presentation.&lt;/p&gt;
+&lt;p&gt;The site is hosted on GitHub, so you can browse the source code if you wish,
+it's all handwritten in HTML and CSS, nothing fancy. There are still a few
+things I would like to overhaul, like a proper screenshot gallery, playable
+examples and redo the videos. But for now the site is at least presentable.&lt;/p&gt;
+&lt;p&gt;If you have any suggestions or find display errors on some devices please let
+me know.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 16 Jan 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-01-16:grid-framework/news/2015/01/16/homepage/</guid><category>old-blog</category></item></channel></rss>

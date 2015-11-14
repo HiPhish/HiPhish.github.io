@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Feeds are live now</title><link>http://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+links in the navigator or you can subscribe to a particular category in a blog.
+For that navigate to the category using either the navigator or by clicking the
+category button of an article.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</guid><category>website</category></item><item><title>We are live!</title><link>http://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+makes the site practically complete, at least as complete as a website can ever
+be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
+&lt;p&gt;I wanted to be able to have more than one blog on the site. A blog can be a
+place for personal ramblings about things no one else care about, but a blog
+can also be the primary source of news. Mixing these two seemed like a very bad
+idea to me; people might be only interested in one thing, for example Grid
+Framework in my case and they don't want their time wasted with other products
+and completely unrelated topics.&lt;/p&gt;
+&lt;p&gt;So here is my solution: have multiple blogs on the site. A blog consists of
+articles and the interface. Blogs can share articles, and the interface is
+generated accordingly. The interface is all you see around the main content:
+tabs, categories, archives, period archives and so on. I could for example have
+one blog for every project and one blog for all projects. People could either
+subscribe to the blogs they care about or they subscribe to the aggregate blog.
+Anything is possible really.&lt;/p&gt;
+&lt;p&gt;As for the blog interface itself, my main goal was in making it easy to
+navigate. Originally I had intended for a "temple"-like layout, also called the
+&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Holy_Grail_(web_design)"&gt;"Holy Grail"&lt;/a&gt; of web
+design because finding a hack-free implementation used to be like searching for
+the Holy Grail. Here is a sketch of what it looks like:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃          Header         ┃
+┣━━━┯━━━━━━━━━━━━━━━━━┯━━━┫
+┃   │                 │   ┃
+┃ N │     Content     │ A ┃
+┃ a │                 │ d ┃
+┃ v │                 │ s ┃
+┃   │                 │   ┃
+┃   │ &amp;lt;-           -&amp;gt; │   ┃
+┣━━━┷━━━━━━━━━━━━━━━━━┷━━━┫
+┃          Footer         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+&lt;/pre&gt;
+&lt;p&gt;Thanks to the new flexbox features of CSS this layout is now trivial to
+implement and the search is over, check out &lt;a class="reference external" href="http://philipwalton.github.io/solved-by-flexbox/"&gt;Solved by Flexbox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;However, I decided to opt out of the right column. For one it was making the
+content look too crammed in between, and the other reason is that I had no idea
+what to put in there. I wouldn't use ads because you need &lt;em&gt;a lot&lt;/em&gt; of clicks to
+make them worthwhile and this simply is not one of those blogs where I can put
+out content worth reading all the time.&lt;/p&gt;
+&lt;p&gt;The left column is used for navigation. This includes period-archives,
+categories, tags and authors. I went fancy with an accordion-style tree of
+articles, which sadly does not work without JavaScript. That's why the title of
+every navigator menu is also a hyperlink to the corresponding archive. Since
+archives are nested into archives I also added a navigation breadcrumbs menu
+above the content. The finished layout looks like this:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃          Header         ┃
+┣━━━┯━━━━━━━━━━━━━━━━━━━━━┫
+┃   │YYYY/MM/DD/slug      ┃
+┃ N ├─────────────────────┃
+┃ a │       Content       ┃
+┃ v │                     ┃
+┃   │                     ┃
+┃   │                     ┃
+┃   │ &amp;lt;-               -&amp;gt; ┃
+┣━━━┷━━━━━━━━━━━━━━━━━━━━━┫
+┃          Footer         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+&lt;/pre&gt;
+&lt;p&gt;The URL of each page is chosen so that moving one directory up in the hierarchy
+will move you to the parent archive. For instance, a blog post has the URL
+&lt;code&gt;website.com/blog/year/month/day/slug&lt;/code&gt;. Removing the &lt;cite&gt;slug&lt;/cite&gt; will take you
+to the daily archive, removing the day takes you to the monthly archive and
+removing the month takes you to the yearly archive. Removing even the year
+takes you to the index of the blog. Pretty neat. If changing the URL is too
+cumbersome one can also use the breadcrumbs at the top. In my case there are no
+daily archives because I will rarely ever write more than one post per day.&lt;/p&gt;
+&lt;p&gt;There is no way to subscribe to a blog at the moment, but making Pelican
+generate RSS feeds should be trivial. I just haven't looked into yet, I figured
+it was better to release now rather than holding back just because of a feature
+that does not affect the blogs themselves.&lt;/p&gt;
+&lt;p&gt;Some aspects of the blog might seem redundant, like having an &lt;em&gt;authors&lt;/em&gt; archive
+when there is only one author on the site. That's me "eating my own dogfood", I
+am using a feature because I want to demonstrate its purpose.&lt;/p&gt;
+&lt;p&gt;Well, that's it for now, we'll see where this ride will take be from now on.
+It's going to be interesting :)&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</guid><category>website</category></item></channel></rss>
