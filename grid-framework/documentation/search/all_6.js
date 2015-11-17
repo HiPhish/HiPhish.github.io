@@ -1,8 +1,8 @@
 var searchData=
 [
   ['getting_20started',['Getting Started',['../getting_started.html',1,'']]],
-  ['getvectrositypoints',['GetVectrosityPoints',['../class_g_f_grid_a21a5ed4cfa330e04e6ce8c951744b839.html#a21a5ed4cfa330e04e6ce8c951744b839',1,'GFGrid.GetVectrosityPoints(Vector3 from, Vector3 to)'],['../class_g_f_grid_a8ee183793ee692d671e39aaa93f4928e.html#a8ee183793ee692d671e39aaa93f4928e',1,'GFGrid.GetVectrosityPoints()']]],
-  ['getvectrositypointsseparate',['GetVectrosityPointsSeparate',['../class_g_f_grid_a53cd898dc26179856ac298b5213e6dfb.html#a53cd898dc26179856ac298b5213e6dfb',1,'GFGrid.GetVectrosityPointsSeparate(Vector3 from, Vector3 to)'],['../class_g_f_grid_a9c0d4962f326ba00115a40a2b82d0aa7.html#a9c0d4962f326ba00115a40a2b82d0aa7',1,'GFGrid.GetVectrosityPointsSeparate()']]],
+  ['getvectrositypoints',['GetVectrosityPoints',['../class_g_f_grid_a4dd7e4240b1788e2a90249368c4ac402.html#a4dd7e4240b1788e2a90249368c4ac402',1,'GFGrid.GetVectrosityPoints(Vector3 from, Vector3 to)'],['../class_g_f_grid_a1f84e87725820eca98582b59a17dde84.html#a1f84e87725820eca98582b59a17dde84',1,'GFGrid.GetVectrosityPoints()']]],
+  ['getvectrositypointsseparate',['GetVectrosityPointsSeparate',['../class_g_f_grid_ad35c89162073625b57b763c5cfcf4236.html#ad35c89162073625b57b763c5cfcf4236',1,'GFGrid.GetVectrosityPointsSeparate(Vector3 from, Vector3 to)'],['../class_g_f_grid_a005d3e5e00722041201fb67510020d3e.html#a005d3e5e00722041201fb67510020d3e',1,'GFGrid.GetVectrosityPointsSeparate()']]],
   ['gfgrid',['GFGrid',['../class_g_f_grid.html',1,'']]],
   ['gfhexgrid',['GFHexGrid',['../class_g_f_hex_grid.html',1,'']]],
   ['gflayeredgrid',['GFLayeredGrid',['../class_g_f_layered_grid.html',1,'']]],

@@ -69,7 +69,7 @@ var class_g_f_hex_grid =
     [ "RhombicToHerringU", "class_g_f_hex_grid_a95e3f6b72b073af645cd7ebe301a133c.html#a95e3f6b72b073af645cd7ebe301a133c", null ],
     [ "RhombicToRhombicD", "class_g_f_hex_grid_ad7bf26ea21e55594a011899d72a1a305.html#ad7bf26ea21e55594a011899d72a1a305", null ],
     [ "RhombicToWorld", "class_g_f_hex_grid_af8215888f6f22eccc2da17f0984fb5c1.html#af8215888f6f22eccc2da17f0984fb5c1", null ],
-    [ "ScaleVector3", "class_g_f_hex_grid_a534e73e65f65a117ebb6f4e1122f097d.html#a534e73e65f65a117ebb6f4e1122f097d", null ],
+    [ "ScaleVector3", "class_g_f_hex_grid_ab37248628654749618f4c381edf59414.html#ab37248628654749618f4c381edf59414", null ],
     [ "WorldToCubic", "class_g_f_hex_grid_a77f39b12ba07df6135bd28941e30d9ff.html#a77f39b12ba07df6135bd28941e30d9ff", null ],
     [ "WorldToGrid", "class_g_f_hex_grid_a476548c7582c1529de47f31ce891f4fd.html#a476548c7582c1529de47f31ce891f4fd", null ],
     [ "WorldToHerringD", "class_g_f_hex_grid_a40d8289d887c12c1fd95b3ec818ed22a.html#a40d8289d887c12c1fd95b3ec818ed22a", null ],
@@ -87,9 +87,13 @@ var class_g_f_hex_grid =
     [ "idxS", "class_g_f_hex_grid.html#a0205935311949fa09f0533597885f32d", null ],
     [ "lwMatrix", "class_g_f_hex_grid.html#a69040dd7be81a284d927e8c6e430a6f5", null ],
     [ "radius", "class_g_f_hex_grid_a99701e2998e2b7305bb1bbe0c1ef9506.html#a99701e2998e2b7305bb1bbe0c1ef9506", null ],
+    [ "rdwMatrix", "class_g_f_hex_grid.html#aa580c8837fd37c6279727a4b7f54b02c", null ],
+    [ "ruwMatrix", "class_g_f_hex_grid.html#af464f7972e416621a9de620db2de27ab", null ],
     [ "s", "class_g_f_hex_grid.html#aa60b738ed9e02828fdb1179b9d6e5655", null ],
     [ "side", "class_g_f_hex_grid_a09ba217a58d06021fe82fed119c96969.html#a09ba217a58d06021fe82fed119c96969", null ],
     [ "w", "class_g_f_hex_grid.html#ae1349f8cd5a284344c8f2b500bf991f9", null ],
     [ "width", "class_g_f_hex_grid_a6d9ef76fc36e9b3709feb605219672a7.html#a6d9ef76fc36e9b3709feb605219672a7", null ],
-    [ "wlMatrix", "class_g_f_hex_grid.html#a6c9210e610067d84d7de6b110763111c", null ]
+    [ "wlMatrix", "class_g_f_hex_grid.html#a6c9210e610067d84d7de6b110763111c", null ],
+    [ "wrdMatrix", "class_g_f_hex_grid.html#aae63cb6d497c26cc29f5d2e56764da09", null ],
+    [ "wruMatrix", "class_g_f_hex_grid.html#a7b0d9a2b6c4cdfdb3b5a04103a5c8488", null ]
 ];
