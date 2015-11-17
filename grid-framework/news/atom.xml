@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-14T00:00:00+01:00</updated><entry><title>A new blog for Grid Framework</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" rel="alternate"></link><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</id><summary type="html">&lt;p&gt;Welcome to the new blog for Grid Framework on the new website. I have migrated
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-17T00:00:00+01:00</updated><entry><title>Korean Asset Store description removed</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" rel="alternate"></link><updated>2015-11-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-17:grid-framework/news/2015/11/17/no-korean/</id><summary type="html">&lt;p&gt;I don't know why I even had a Korean Asset Store presentation in the first
+place, given that I don't speak Korean. I guess Unity must have auto-generated
+it based on my English description. Since I cannot verify nor maintain the
+information there I have removed it. So if any Korean customers are wondering
+what happened, that's the reason.&lt;/p&gt;
+</summary><category term="asset store"></category></entry><entry><title>A new blog for Grid Framework</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" rel="alternate"></link><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
+just a category such as &lt;em&gt;release&lt;/em&gt; for instance by navigating to that category
+and using the links in the top right-hand corner.&lt;/p&gt;
+&lt;p&gt;Welcome to the new blog for Grid Framework on the new website. I have migrated
 all the old blog posts here as well (with all typos and everything). The old
 blog is still available for the time being, but I won't post anything there
 anymore.&lt;/p&gt;
@@ -8,9 +16,6 @@ used for news only. Once I have feeds working you will also be able to
 subscribe to get the latests news delivered right to you.&lt;/p&gt;
 &lt;p&gt;That's if for now, this was the last step needed in the migration to the new
 website.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
-just a category such as &lt;em&gt;release&lt;/em&gt; for instance by navigating to that category
-and using the links in the top right-hand corner.&lt;/p&gt;
 </summary></entry><entry><title>New website</title><link href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" rel="alternate"></link><updated>2015-10-26T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-10-26:grid-framework/news/2015/10/26/new-website/</id><summary type="html">&lt;p&gt;Over the last few months I have been busy redesigning the website and we are
 finally live now. Check it out:&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;http://hiphish.github.io/grid-framework/&lt;/a&gt;&lt;/p&gt;
