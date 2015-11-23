@@ -236,7 +236,7 @@
 			}
 		</style>
 <!-- This script idea is taken from the Haskell homepage -->
-<script language="javascript">
+<script>
 			<!--
 			// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 			$(document).ready( function () {
@@ -267,12 +267,12 @@
 <p class="expand"><a>Click to expand</a></p>
 <div class="expandable">
 <div class="pygments">
-<pre><span class=" n">GameObject</span> <span class="n">go</span><span class="p">;</span>
-<span clas="" s="n">GFRectGrid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">GFRectGrid</span><span class="p">&gt;();</span>
-<span clas="" s="c1">// Set up the grid for 2:1 dimetric graphics</span>
-<span clas="" s="n">grid</span><span class="p">.</span><span class="n">spacing</span>  <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
-<span clas="" s="n">grid</span><span class="p">.</span><span class="n">shearing</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector6</span><span class="p">(-</span><span class="m">1</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
-<span clas="" s="c1">// Vector6 is a custom type, not part of the Unity API</span>
+<pre><span class="n">GameObject</span> <span class="n">go</span><span class="p">;</span>
+<span class="n">GFRectGrid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">GFRectGrid</span><span class="p">&gt;();</span>
+<span class="c1">// Set up the grid for 2:1 dimetric graphics</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">spacing</span>  <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">shearing</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector6</span><span class="p">(-</span><span class="m">1</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="c1">// Vector6 is a custom type, not part of the Unity API</span>
 </pre>
 </div>
 <p>
@@ -289,10 +289,10 @@
 						</p>
 <div class="pygments">
 <pre>
-<span clas="" s="c1">// This will work for any grid</span>
-<span clas="" s="n">GFGrid</span>  <span class="n">grid</span><span class="p">;</span>
-<span clas="" s="n">Vector3</span> <span class="n">gridCoordinates</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldCoordinates</span><span class="p">);</span>
-<span clas="" s="c1">// The exact implementation depends on the type of grid</span>
+<span class="c1">// This will work for any grid</span>
+<span class="n">GFGrid</span>  <span class="n">grid</span><span class="p">;</span>
+<span class="n">Vector3</span> <span class="n">gridCoordinates</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldCoordinates</span><span class="p">);</span>
+<span class="c1">// The exact implementation depends on the type of grid</span>
 </pre>
 </div>
 <p>
@@ -323,9 +323,9 @@
 							coordinates and pass them to your movement function:
 						</p>
 <div class="pygments">
-<pre><span class=" n">Vector3</span> <span class="n">origin</span>      <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">originInGrid</span>   <span class="p">);</span>
-<span clas="" s="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">desinatioInGrid</span><span class="p">);</span>
-<span clas="" s="n">MoveUnit</span><span class="p">(</span><span class="k">from</span><span class="p">:</span> <span class="n">origin</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">destination</span><span class="p">);</span>
+<pre><span class="n">Vector3</span> <span class="n">origin</span>      <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">originInGrid</span>   <span class="p">);</span>
+<span class="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">desinatioInGrid</span><span class="p">);</span>
+<span class="n">MoveUnit</span><span class="p">(</span><span class="k">from</span><span class="p">:</span> <span class="n">origin</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">destination</span><span class="p">);</span>
 </pre>
 </div>
 <p>

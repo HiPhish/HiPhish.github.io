@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 17 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Korean Asset Store description removed</title><link>http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/</link><description>&lt;p&gt;I don't know why I even had a Korean Asset Store presentation in the first
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 23 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Grid Framework version 1.8.4 released</title><link>http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/</link><description>&lt;p&gt;Version 1.8.4 of Grid Framework has been released. This version updates
+Vectrosity support to Vectrosity version 5, and it also changes how support for
+other plugins is enabled. It also introduces a new example: an endless grid in
+3D space.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;Changed:&lt;/em&gt; Support for Vectrosity and Playmaker needs to be enabled
+explicitly now. Please consult the user manual chapter about plugins.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Fixed:&lt;/em&gt; Updated Vectrosity support and examples to version 5.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; A new example showcases an infinite grid in 3D.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Plugin support needs to be enabled by defining preprocessor symbols in your
+project. The Unity user manual has a &lt;a class="reference external" href="http://docs.unity3d.com/Manual/PlatformDependentCompilation.html"&gt;chapter&lt;/a&gt; on the
+topic; my personal choice is to define the symbols project-wide. For that
+purpose create a file called &lt;code&gt;smcs.rsp&lt;/code&gt; with the following example contents:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+-define:GRID_FRAMEWORK_VECTROSITY
+-define:GRID_FRAMEWORK_VECTROSITY_4
+
+-define:GRID_FRAMEWORK_PLAYMAKER
+&lt;/pre&gt;
+&lt;p&gt;The first line enables support for Vectrosity in general and the second line
+enables support for Vectrosity 4, which is the legacy version, over whatever
+other version might exist. If only the first line is defined the latest version
+of Vectrosity is supported.  In the future I will add other symbols as the need
+arises, such as when Vectrosity 5 becomes the legacy version.&lt;/p&gt;
+&lt;p&gt;For Playmaker there is only one symbol. If you also want to use UnityScript you
+should define a file called &lt;code&gt;us.rsp&lt;/code&gt; with the same contents as well. This way
+is much cleaner and easier to manage than the way it was done before.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 23 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-23:grid-framework/news/2015/11/23/version-184/</guid></item><item><title>Korean Asset Store description removed</title><link>http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/</link><description>&lt;p&gt;I don't know why I even had a Korean Asset Store presentation in the first
 place, given that I don't speak Korean. I guess Unity must have auto-generated
 it based on my English description. Since I cannot verify nor maintain the
 information there I have removed it. So if any Korean customers are wondering
