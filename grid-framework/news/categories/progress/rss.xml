@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Spheric grid rendering</title><link>http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/</link><description>&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
+longitude like on Earth. Here is a GIF of a rendered grid rotating around its
+axis. Don't worry about the framerate, that's how the image was recorded to
+save space, the actual rotation is smooth as silk.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Rotating spheric grid animation" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/images/rotating-grid.gif"/&gt;
+&lt;/div&gt;
+&lt;p&gt;There is still backend work to be done before it can go live, but things are
+looking good so far. I hope I can release it still before the end of the year.&lt;/p&gt;
+&lt;p&gt;Also, fun fact: the perspective in the image makes the direction of the axis of
+rotation ambiguous. You cannot tell whether the north pole or the south pole is
+closer to the camera. If you focus on it you can make your brain change the
+rotation on the fly, and if you want to get really trippy you can make your
+brain see the grid rotate one way and the axis-arrows the other way.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 27 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</guid><category>spheric</category></item></channel></rss>

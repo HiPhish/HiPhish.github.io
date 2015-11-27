@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-23T00:00:00+01:00</updated><entry><title>Grid Framework version 1.8.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" rel="alternate"></link><updated>2015-11-23T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-23:grid-framework/news/2015/11/23/version-184/</id><summary type="html">&lt;p&gt;Version 1.8.4 of Grid Framework has been released. This version updates
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-27T00:00:00+01:00</updated><entry><title>Spheric grid rendering</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="alternate"></link><updated>2015-11-27T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</id><summary type="html">&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
+longitude like on Earth. Here is a GIF of a rendered grid rotating around its
+axis. Don't worry about the framerate, that's how the image was recorded to
+save space, the actual rotation is smooth as silk.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Rotating spheric grid animation" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/images/rotating-grid.gif"/&gt;
+&lt;/div&gt;
+&lt;p&gt;There is still backend work to be done before it can go live, but things are
+looking good so far. I hope I can release it still before the end of the year.&lt;/p&gt;
+&lt;p&gt;Also, fun fact: the perspective in the image makes the direction of the axis of
+rotation ambiguous. You cannot tell whether the north pole or the south pole is
+closer to the camera. If you focus on it you can make your brain change the
+rotation on the fly, and if you want to get really trippy you can make your
+brain see the grid rotate one way and the axis-arrows the other way.&lt;/p&gt;
+</summary><category term="spheric"></category></entry><entry><title>Grid Framework version 1.8.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" rel="alternate"></link><updated>2015-11-23T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-23:grid-framework/news/2015/11/23/version-184/</id><summary type="html">&lt;p&gt;Version 1.8.4 of Grid Framework has been released. This version updates
 Vectrosity support to Vectrosity version 5, and it also changes how support for
 other plugins is enabled. It also introduces a new example: an endless grid in
 3D space.&lt;/p&gt;
@@ -34,7 +48,7 @@ place, given that I don't speak Korean. I guess Unity must have auto-generated
 it based on my English description. Since I cannot verify nor maintain the
 information there I have removed it. So if any Korean customers are wondering
 what happened, that's the reason.&lt;/p&gt;
-</summary><category term="asset store"></category></entry><entry><title>A new blog for Grid Framework</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" rel="alternate"></link><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
+</summary><category term="asset-store"></category></entry><entry><title>A new blog for Grid Framework</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" rel="alternate"></link><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-12:grid-framework/news/2015/11/12/new-blog/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Feeds are live now, see the navigator. You can even subscribe to
 just a category such as &lt;em&gt;release&lt;/em&gt; for instance by navigating to that category
 and using the links in the top right-hand corner.&lt;/p&gt;
 &lt;p&gt;Welcome to the new blog for Grid Framework on the new website. I have migrated
