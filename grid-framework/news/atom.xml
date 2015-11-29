@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-27T00:00:00+01:00</updated><entry><title>Spheric grid rendering</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="alternate"></link><updated>2015-11-27T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</id><summary type="html">&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-30T00:00:00+01:00</updated><entry><title>Spherical grid coordinate systems</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" rel="alternate"></link><updated>2015-11-30T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-30:grid-framework/news/2015/11/30/spheric-coordinate-system/</id><summary type="html">&lt;p&gt;Progress has been better than expected and spheric grids are practically done.
+This is a good opportunity to take a look at the coordinate systems in spheric
+grids.&lt;/p&gt;
+&lt;p&gt;The first application for spheric grids that came to my mind was using them
+along the surface of a planet. The coordinate system used for navigation on
+Earth is called the &lt;em&gt;geographic coordinate system&lt;/em&gt;, a point is identified using
+its altitude (distance from the planet's surface), the longitude and the
+latitude.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Geographic coordinate system schematic" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/images/geographic-coordinates.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The latitude is the angle between the vector and the equatorial plane, the
+longitude is the angle between the vector and the plane of the prime meridian.
+This coordinate system has signed coordinates: points beneath the surface have
+negative altitude, the southern hemisphere has negative latitude and the
+western hemisphere has negative longitude.&lt;/p&gt;
+&lt;p&gt;The other coordinate system is &lt;em&gt;sphericl coordinates&lt;/em&gt;. This time we use the
+distance from the origin of the grid, the polar angle between the vector and
+the polar axis and the azimuth angle around the prime meridian.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Spherical coordinate system schematic" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/images/spherical-coordinates.png"/&gt;
+&lt;/div&gt;
+&lt;p&gt;This coordinate system has no negative coordinates: the polar angle at the
+equator is &lt;span class="formula"&gt;&lt;i&gt;π&lt;/i&gt; ⁄ 2&lt;/span&gt; (90°) and moving south increases the angle up to &lt;span class="formula"&gt;&lt;i&gt;π&lt;/i&gt;&lt;/span&gt; (180°) at
+the south pole, the azimuth angle works like polar coordinates and wraps around
+after a full circle.&lt;/p&gt;
+&lt;p&gt;There is also the &lt;em&gt;grid coordinate system&lt;/em&gt;, it is the same as spherical except
+that coordinates are given in relative grid lines rather than absolute distance
+and angles.&lt;/p&gt;
+&lt;div class="section" id="update-coming-soon"&gt;
+&lt;h2&gt;Update coming soon&lt;/h2&gt;
+&lt;p&gt;So far everything looks in order, I plan on submitting the update this week if
+everything goes well. I still have some more testing to run before I can
+declare it production ready, then it's up the Asset Store team. Spheric grids
+have been on the to-do list since the very start, so seeing them finally make
+it into Grid Framework is a big step for me and I am looking forward to seeing
+them in your games.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="spheric"></category><category term="coordinate system"></category></entry><entry><title>Spheric grid rendering</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="alternate"></link><updated>2015-11-27T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</id><summary type="html">&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
 longitude like on Earth. Here is a GIF of a rendered grid rotating around its
 axis. Don't worry about the framerate, that's how the image was recorded to
 save space, the actual rotation is smooth as silk.&lt;/p&gt;
