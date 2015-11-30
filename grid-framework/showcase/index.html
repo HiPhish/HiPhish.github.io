@@ -142,7 +142,7 @@
 
 
 <!-- All Bootstrap content must be inside a container div -->
-<main class="flex-body">
+<div class="flex-body">
 	<!-- Sub-site navigation bar -->
 	<div class="container">
 		<nav id="sub-navbar" class="navbar navbar-default" >
@@ -239,36 +239,41 @@
 <div class="container">
 <div class="row showcase">
 <div class="col-md-4">
-<a href="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png" rel="prettyPhoto[group]">
+<a data-rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png">
 <img alt="MYMMO" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png"/>
 </a>
 </div> <!-- /.col-md-4 -->
 <div class="col-md-8">
-<h2>MYMMO</h2>
+<h2>
+<a href="http://forums.tigsource.com/index.php?topic=50706.msg1185371">
+								MYMMO
+							</a>
+</h2>
 <blockquote>
 <p>
-							MYMMO is a Sim City inspired city builder with a twist: you are
-							the designer of an MMO RPG. Grid Framework is an instrumental
-							part of the world building toolset, I was able to get grid
-							snapping and zoning tools working with minimal hassle, love it.
+								MYMMO is a Sim City inspired city builder with a twist: you are
+								the designer of an MMO RPG. Grid Framework is an instrumental
+								part of the world building toolset, I was able to get grid
+								snapping and zoning tools working with minimal hassle, love it.
 							</p>
 <footer>
 								Aaron John-Baptiste, Gravity Apple
 							</footer>
 </blockquote>
-<a class="btn btn-default" href="http://forums.tigsource.com/index.php?topic=50706.msg1185371" role="button" target="_blank">
-							Homepage
-						</a>
 </div> <!-- /.col-md-8 -->
 </div> <!-- /.row /.showcase -->
 <div class="row showcase">
 <div class="col-md-4">
-<a href="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg" rel="prettyPhoto[group]">
+<a data-rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg">
 <img alt="Shallow Space" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg"/>
 </a>
 </div> <!-- /.col-md-4 -->
 <div class="col-md-8">
-<h2>Shallow Space</h2>
+<h2>
+<a href="http://shallow.space">
+								Shallow Space
+							</a>
+</h2>
 <blockquote>
 <p>
 								Shallow Space is an 3D RTS, we use the grid framework to add
@@ -278,7 +283,6 @@
 								James Martin, Special Circumstances
 							</footer>
 </blockquote>
-<a class="btn btn-default" href="http://shallow.space" role="button" target="_blank">Homepage</a>
 </div> <!-- /.col-md-8 -->
 </div> <!-- /.row /.showcase -->
 </div> <!-- /.container -->
@@ -291,10 +295,10 @@
 <p class="text-muted" id="disclaimer-general">
 <em>General disclaimer:</em> The author of Grid Framework is only
 				associated with the authors of the games displayed on this page through
-				Grid Framework.  Games are chosen arbitrarily based on their
-				suitability to demonstrate the diverse applications of use; neither is
-				the inclusion of a game is an endorsement, nor is the exclusion of a
-				game is a condemnation.
+				Grid Framework. Games are chosen arbitrarily based on their suitability
+				to demonstrate the diverse applications of use; the inclusion of a game
+				is neither  an endorsement, nor is the exclusion of a game is a
+				condemnation.
 			</p>
 </div>
 <!-- Script required for PrettyPhoto -->
@@ -302,14 +306,14 @@
 <script>
 			<!--
 			$(document).ready(function(){
-				$("a[rel^='prettyPhoto']").prettyPhoto( {
+				$("a[data-rel^='prettyPhoto']").prettyPhoto( {
 					social_tools:'', /* No Facebook buttons */
 				});
 			});
 			-->
 		</script>
 
-</main>
+</div>
 
 
 

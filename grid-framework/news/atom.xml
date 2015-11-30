@@ -15,7 +15,7 @@ longitude is the angle between the vector and the plane of the prime meridian.
 This coordinate system has signed coordinates: points beneath the surface have
 negative altitude, the southern hemisphere has negative latitude and the
 western hemisphere has negative longitude.&lt;/p&gt;
-&lt;p&gt;The other coordinate system is &lt;em&gt;sphericl coordinates&lt;/em&gt;. This time we use the
+&lt;p&gt;The other coordinate system is &lt;em&gt;spherical coordinates&lt;/em&gt;. This time we use the
 distance from the origin of the grid, the polar angle between the vector and
 the polar axis and the azimuth angle around the prime meridian.&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -37,7 +37,7 @@ have been on the to-do list since the very start, so seeing them finally make
 it into Grid Framework is a big step for me and I am looking forward to seeing
 them in your games.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="spheric"></category><category term="coordinate system"></category></entry><entry><title>Spheric grid rendering</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="alternate"></link><updated>2015-11-27T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</id><summary type="html">&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
+</summary><category term="spheric"></category><category term="coordinate-system"></category></entry><entry><title>Spheric grid rendering</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="alternate"></link><updated>2015-11-27T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-27:grid-framework/news/2015/11/27/spheric-rendering/</id><summary type="html">&lt;p&gt;I have been working on the next type of grid: spheric grids. Think latitude and
 longitude like on Earth. Here is a GIF of a rendered grid rotating around its
 axis. Don't worry about the framerate, that's how the image was recorded to
 save space, the actual rotation is smooth as silk.&lt;/p&gt;
@@ -412,7 +412,7 @@ just drawn as if they were at an angle, so rotation is out of question.&lt;/p&gt
 It works with arbitrary numbers and for all axes along any other axis, so you
 can shear your grids any way you want. It will be a feature for the 1.5 update
 once the upcoming 1.4.2 release gets approved.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Grid Framework version 1.4.1 released</title><link href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" rel="alternate"></link><updated>2014-05-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-05-09:grid-framework/news/2014/05/09/version-141/</id><summary type="html">&lt;p&gt;Actually it has been up for almost a month already, but I have been busy.
+</summary><category term="old-blog"></category></entry><entry><title>Grid Framework version 1.4.1 released</title><link href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" rel="alternate"></link><updated>2014-05-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-05-09:grid-framework/news/2014/05/09/version-141/</id><summary type="html">&lt;p&gt;Actually it has been up for almost a month already, but I have been busy.
 Anyway, this is the long-awaited release that brings PlayMaker support to Grid
 Framework, so here is the change log:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -637,7 +637,7 @@ need the vertex matrix methods back just unzip it and you won't notice any
 difference. Of course if enough people actually want the vertex matrix to stay
 in place I'll put it back, but if no one objects this will be the way to go.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="old-blog"></category><category term="progress"></category><category term="API-change"></category></entry><entry><title>CheckComponent()</title><link href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="alternate"></link><updated>2013-07-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-07-03:grid-framework/news/2013/07/03/check-component/</id><summary type="html">&lt;p&gt;Here is a quick but handy tip. Recently I found myself needing to reference
+</summary><category term="old-blog"></category><category term="API-change"></category></entry><entry><title>CheckComponent()</title><link href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="alternate"></link><updated>2013-07-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-07-03:grid-framework/news/2013/07/03/check-component/</id><summary type="html">&lt;p&gt;Here is a quick but handy tip. Recently I found myself needing to reference
 various components in my script without knowing if they exist. I have to get
 the component and then check if it exists, and if not add it to prevent null
 exceptions. Here is what you would write in such a case:&lt;/p&gt;
@@ -746,7 +746,7 @@ the Asset Store. Unity 4 has been out for half a year now, but even if you
 still want to stick with Unity 3 you shouldn't have any problems as I didn't
 use any Unity 4 exclusive API.&lt;/p&gt;
 &lt;p&gt;Well, that's it for now, thanks for reading.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Polar grid drawing refined</title><link href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" rel="alternate"></link><updated>2013-05-26T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-05-26:grid-framework/news/2013/05/26/polar-drawing/</id><summary type="html">&lt;p&gt;Hello again&lt;/p&gt;
+</summary><category term="old-blog"></category></entry><entry><title>Polar grid drawing refined</title><link href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" rel="alternate"></link><updated>2013-05-26T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-05-26:grid-framework/news/2013/05/26/polar-drawing/</id><summary type="html">&lt;p&gt;Hello again&lt;/p&gt;
 &lt;p&gt;Last time I showed a preview of polar grids it was a full cycle starting from
 the origin containing all layers up to the edge. During runtime if only part of
 the grid is visible to the player rendering the whole thing can be a waste of
@@ -780,7 +780,7 @@ for the lower price. You don't need to rush and get it immediately though, I'll
 post an at least one more update before I submit version 1.3.0.&lt;/p&gt;
 &lt;p&gt;As always, thank you for your support&lt;/p&gt;
 &lt;p&gt;HiPhish&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Grid Framework version 1.2.5 released</title><link href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" rel="alternate"></link><updated>2013-05-17T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-05-17:grid-framework/news/2013/05/17/version-125/</id><summary type="html">&lt;p&gt;This release serves as a preparation for Version 1.3.0, which will add polar
+</summary><category term="old-blog"></category></entry><entry><title>Grid Framework version 1.2.5 released</title><link href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" rel="alternate"></link><updated>2013-05-17T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-05-17:grid-framework/news/2013/05/17/version-125/</id><summary type="html">&lt;p&gt;This release serves as a preparation for Version 1.3.0, which will add polar
 grids&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;The methods NearestVertex/Face/BoxW and NearestVertex/Face/BoxG replace
@@ -878,7 +878,7 @@ three coordinate systems) have been written. The next parts should be easier to
 implement, but I'm not exactly sure how to design them (what exactly does
 "aligning" in a polar grid even mean?). I'll keep you updated once I have more
 to show.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Grid Framework version 1.2.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/" rel="alternate"></link><updated>2013-04-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-04-03:grid-framework/news/2013/04/03/version-124/</id><summary type="html">&lt;p&gt;Version 1.2.4 has been approved by the Asset Store team. Here are the new
+</summary><category term="old-blog"></category></entry><entry><title>Grid Framework version 1.2.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/" rel="alternate"></link><updated>2013-04-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-04-03:grid-framework/news/2013/04/03/version-124/</id><summary type="html">&lt;p&gt;Version 1.2.4 has been approved by the Asset Store team. Here are the new
 features:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;a caching feature that keeps the activity of the grabage collector low now,
@@ -1303,7 +1303,7 @@ treatment.&lt;/p&gt;
 &lt;p&gt;This brings me almost concludes the hex grid development. The only things left
 now are the vertex matrix methods, testing and fixing everything to make sure
 it's reliable and then writing the documentation.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Trying to fit a square peg into a hex hole</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" rel="alternate"></link><updated>2012-11-22T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-22:grid-framework/news/2012/11/22/square-peg-in-round-hole/</id><summary type="html">&lt;p&gt;The align feature has been giving me quite some headache lately. For small
+</summary><category term="old-blog"></category></entry><entry><title>Trying to fit a square peg into a hex hole</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" rel="alternate"></link><updated>2012-11-22T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-22:grid-framework/news/2012/11/22/square-peg-in-round-hole/</id><summary type="html">&lt;p&gt;The align feature has been giving me quite some headache lately. For small
 objects it's easy, just fit them inside the nearest hex. It gets more
 interesting once your object spans over more than one hex. Here is a screenshot
 from the game "Age of Wonders" for PC (I upscaled the image manually, AoW has a
@@ -1334,7 +1334,7 @@ calling "rigidbody" will return the RB of its parent. Thus it's always as if I
 clicked the parent sphere when I click any sphere of a structure.&lt;/p&gt;
 &lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/JxnZxlfhu9g" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;I think this is a good solution. Unless I somehow come up with a better way to
 do aligning this is what I'm going to stick with.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Grid Framework version 1.1.9 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" rel="alternate"></link><updated>2012-11-19T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-19:grid-framework/news/2012/11/19/version-119/</id><summary type="html">&lt;p&gt;Surprise update! Version 1.1.9 just got approved and it contains quite a few
+</summary><category term="old-blog"></category></entry><entry><title>Grid Framework version 1.1.9 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" rel="alternate"></link><updated>2012-11-19T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-19:grid-framework/news/2012/11/19/version-119/</id><summary type="html">&lt;p&gt;Surprise update! Version 1.1.9 just got approved and it contains quite a few
 changes:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;NEW METHOD AlignVector3: lets you align a single point represented as a
@@ -1430,7 +1430,7 @@ indicates the vertex closest to the grey sphere.&lt;/p&gt;
 &lt;p&gt;This may not seem like much, but being able to find faces, boxes and vertices
 is essential because the other functions rely on them. That's it for now, more
 updates to come soon.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category><category term="extension"></category></entry><entry><title>Vertex progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/" rel="alternate"></link><updated>2012-11-12T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-12:grid-framework/news/2012/11/12/vertex-progress/</id><summary type="html">&lt;p&gt;Good news at last, I just finished the finding functions for vertices, both in
+</summary><category term="old-blog"></category><category term="extension"></category></entry><entry><title>Vertex progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/" rel="alternate"></link><updated>2012-11-12T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-12:grid-framework/news/2012/11/12/vertex-progress/</id><summary type="html">&lt;p&gt;Good news at last, I just finished the finding functions for vertices, both in
 grid space and in world space. Here is a screenshot where the yellow gizmo
 indicates the vertex closest to the grey sphere.&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -1439,7 +1439,7 @@ indicates the vertex closest to the grey sphere.&lt;/p&gt;
 &lt;p&gt;This may not seem like much, but being able to find faces, boxes and vertices
 is essential because the other functions rely on them. That's it for now, more
 updates to come soon.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Back again</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" rel="alternate"></link><updated>2012-10-28T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-28:grid-framework/news/2012/10/28/back-again/</id><summary type="html">&lt;p&gt;I just wanted to drop a line saying I'm back to work. As I mentioned previously
+</summary><category term="old-blog"></category></entry><entry><title>Back again</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" rel="alternate"></link><updated>2012-10-28T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-28:grid-framework/news/2012/10/28/back-again/</id><summary type="html">&lt;p&gt;I just wanted to drop a line saying I'm back to work. As I mentioned previously
 I was busy with exams, so development ws slowed down and during the last couple
 of weeks I had to stop completely to concentrate on studies. Now that it's over
 I can get back to working on the hex grid update. Currently I'm about halfway
@@ -1558,7 +1558,7 @@ Framework full time. The plan is to finish all the needed functionalityl for
 the first release. After that additional coordinate systems will be added and
 after that I'll add more drawing shapes like triangular and circular hex grids.
 That will conclude the hex grid chapter of Grid Framework.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Hex grid drawing - finally!</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/" rel="alternate"></link><updated>2012-08-30T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-30:grid-framework/news/2012/08/30/hex-drawing/</id><summary type="html">&lt;p&gt;I have finished the drawing part for hex grids. As I mentioned before, there
+</summary><category term="old-blog"></category></entry><entry><title>Hex grid drawing - finally!</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/" rel="alternate"></link><updated>2012-08-30T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-30:grid-framework/news/2012/08/30/hex-drawing/</id><summary type="html">&lt;p&gt;I have finished the drawing part for hex grids. As I mentioned before, there
 are many ways to draw hex grids and I want to cover as many of them as
 possible. Let's count all the possibilities that work now.&lt;/p&gt;
 &lt;p&gt;There are three plains to draw on, the XY-, XZ- and YZ-plain. In each case you
@@ -1582,7 +1582,7 @@ are compact.&lt;/p&gt;
 &lt;p&gt;There are also other ways to draw a hex grid, as a rhomb, a triangle or a big
 hexagon made from smaller hexagons. I will do them after I have the scripting
 functionality done, drawing is independent from the other calculations.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Swap variables in Unity</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" rel="alternate"></link><updated>2012-08-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-25:grid-framework/news/2012/08/25/swap-variables-in-unity/</id><summary type="html">&lt;p&gt;I've decided to go with one HexGrid class and provide enough options. To do
+</summary><category term="old-blog"></category></entry><entry><title>Swap variables in Unity</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" rel="alternate"></link><updated>2012-08-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-25:grid-framework/news/2012/08/25/swap-variables-in-unity/</id><summary type="html">&lt;p&gt;I've decided to go with one HexGrid class and provide enough options. To do
 this I will need to swap around variables so I can use the same formulae for
 different cases. I could write the swapping part where it is needed, but then
 I'd be writing the same thing several times (which is a bad thing to do).
@@ -1655,7 +1655,7 @@ and more API for the user? I would like to just start coding and see what
 happens, but these questions need to be answered first, or the code will
 explode right in my face. I don't know how long it will take, but I'm working
 on it.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Version 1.1.3 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/" rel="alternate"></link><updated>2012-08-15T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-15:grid-framework/news/2012/08/15/version-113/</id><summary type="html">&lt;p&gt;You know, sometimes I look at something and wonder "what kind of idiot designed
+</summary><category term="old-blog"></category></entry><entry><title>Version 1.1.3 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/" rel="alternate"></link><updated>2012-08-15T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-15:grid-framework/news/2012/08/15/version-113/</id><summary type="html">&lt;p&gt;You know, sometimes I look at something and wonder "what kind of idiot designed
 this!?", only this time I was the idiot. Let's say you wanted to render a
 simple 3x3 grid and you wanted the origin to be in the lower left corner. Well,
 you simply couldn't do that, not until now:&lt;/p&gt;
@@ -1736,7 +1736,7 @@ labels is so large that the controls start overlapping, so it looks even worse
 than before.&lt;/p&gt;
 &lt;p&gt;Anyway, it does look better now and gives me the code improvements I need for
 clean rendering, so all in all it's a success.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Grid rendering progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/" rel="alternate"></link><updated>2012-08-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-06:grid-framework/news/2012/08/06/grid-rendering-progress/</id><summary type="html">&lt;p&gt;Take a look at this:&lt;/p&gt;
+</summary><category term="old-blog"></category></entry><entry><title>Grid rendering progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/" rel="alternate"></link><updated>2012-08-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-06:grid-framework/news/2012/08/06/grid-rendering-progress/</id><summary type="html">&lt;p&gt;Take a look at this:&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/images/grid-rendering-progress.png"/&gt;
 &lt;/div&gt;
@@ -1756,7 +1756,7 @@ parts copy-pasted from the drawing code (which was kind of messy itself) and
 copy-pasting code is a sure way to have your project explode right in your
 face. I'll need to write a method to return a nice list of points that both
 drawing and rendering can use.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Version 1.0.1</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" rel="alternate"></link><updated>2012-08-04T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-04:grid-framework/news/2012/08/04/version-101/</id><summary type="html">&lt;p&gt;If you tried debugging the functions FindNearestFace() or FindNearestBox() you
+</summary><category term="old-blog"></category></entry><entry><title>Version 1.0.1</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" rel="alternate"></link><updated>2012-08-04T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-04:grid-framework/news/2012/08/04/version-101/</id><summary type="html">&lt;p&gt;If you tried debugging the functions FindNearestFace() or FindNearestBox() you
 might have noticed that the cubes drawn didn't have the same rotation as the
 grid. While it didn't change anything about the returned value (only the centre
 of the cube mattered), it looked ugly. I've submitted a small update that fixes
@@ -1885,7 +1885,7 @@ then finally triangular grids. I haven't started implementing them, but I have
 already done the math and I know how to do it, I just need to finish this
 first. The one last thing I can think of is grid pathfinding, but I won't even
 waste a thought on that until I get the other stuff done.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="progress"></category></entry><entry><title>Introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" rel="alternate"></link><updated>2012-04-11T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-11:grid-framework/news/2012/04/11/introduction-video/</id><summary type="html">&lt;p&gt;As promised, here it is:&lt;/p&gt;
+</summary><category term="old-blog"></category></entry><entry><title>Introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" rel="alternate"></link><updated>2012-04-11T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-11:grid-framework/news/2012/04/11/introduction-video/</id><summary type="html">&lt;p&gt;As promised, here it is:&lt;/p&gt;
 &lt;p&gt;[video deleted]&lt;/p&gt;
 &lt;p&gt;A basic overview of what the first release has to offer. Stay tuned for future updates. The package is waiting for approval now.&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Introduction</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" rel="alternate"></link><updated>2012-04-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-09:grid-framework/news/2012/04/09/introduction/</id><summary type="html">&lt;p&gt;Hello everyone :)&lt;/p&gt;
