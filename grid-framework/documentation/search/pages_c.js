@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['understanding_20the_20concept_20of_20grids',['Understanding the concept of grids',['../concept_of_grid.html',1,'']]]
+  ['supporting_20other_20unity_20plugins',['Supporting other Unity plugins',['../plugins.html',1,'']]],
+  ['spherical_20grids',['Spherical grids',['../sphere_grid.html',1,'']]]
 ];

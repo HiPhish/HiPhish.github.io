@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -117,21 +117,27 @@ $(document).ready(function(){initNavTree('playmaker_support.html','');});
 <p>The amount of actions is very large, larger than any of the categories Playmaker ships by default, so it is recommended that you use the search field of Playmakers's action browser. Find the method or getter/setter you wish to invoke in the API documentation and then search for that name and it should show up.</p>
 <h2>Writing your own Playmaker actions </h2>
 <p>If you are familiar with Playmaker you can write your own actions. For the sake of consistency you will want to use the same inheritance pattern as was used for the official Grid Framework actions. While it is not strictly required that you follow the same pattern to produce working actions it will allow your actions to inherit any future improvements from the base classes. Any new Playmaker action always inherits from Playmaker's <code>FsmStateAction</code> class, from there on the inheritance tree is as follows:</p>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;FsmStateAction // required base class by Playmaker</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;|- FsmGFStateAction&lt;T&gt; : FsmStateAction where T : GFGrid</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;   |- FsmGFStateActionGetSet&lt;T&gt; : FsmGFStateAction&lt;T&gt; where T : GFGrid</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;   |  |- FsmGFStateActionGetSetGrid : FsmGFStateActionGetSet&lt;GFGrid&gt;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;   |  |- FsmGFStateActionGetSetRect : FsmGFStateActionGetSet&lt;GFRectGrid&gt;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;   |  |- FsmGFStateActionGetSetLayered&lt;T&gt; : FsmGFStateActionMethod&lt;T&gt; where T : GFLayeredGrid</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   |     |- FsmGFStateActionGetSetHex : FsmGFStateActionGetSetLayered &lt;GFHexGrid&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   |     |- FsmGFStateActionGetSetPolar : FsmGFStateActionGetSetLayered &lt;GFPolarGrid&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   |</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   |- FsmGFStateActionMethod&lt;T&gt; : FsmGFStateAction&lt;T&gt; where T : GFGrid</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;      |- FsmGFStateActionMethodGrid : FsmGFStateActionMethod&lt;GFGrid&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      |- FsmGFStateActionMethodRect : FsmGFStateActionMethod&lt;GFRectGrid&gt;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      |- FsmGFStateActionMethodLayered&lt;T&gt; : FsmGFStateActionMethod&lt;T&gt; where T : GFLayeredGrid</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;         |- FsmGFStateActionMethodHex : FsmGFStateActionMethodLayered&lt;GFHexGrid&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;         |- FsmGFStateActionMethodPolar : FsmGFStateActionMethodLayered&lt;GFPolarGrid&gt;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;FsmStateAction (required base class by Playmaker)</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;│</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;└─ FsmGFStateAction&lt;T&gt; : FsmStateAction where T : GFGrid</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;   │</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;   ├─ FsmGFStateActionGetSet&lt;T&gt; : FsmGFStateAction&lt;T&gt; where T : GFGrid</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;   │  │</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   │  ├─ FsmGFStateActionGetSetGrid : FsmGFStateActionGetSet&lt;GFGrid&gt;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   │  ├─ FsmGFStateActionGetSetRect : FsmGFStateActionGetSet&lt;GFRectGrid&gt;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   │  └─ FsmGFStateActionGetSetLayered&lt;T&gt; : FsmGFStateActionMethod&lt;T&gt; where T : GFLayeredGrid</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;   │     │</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;   │     ├─ FsmGFStateActionGetSetHex : FsmGFStateActionGetSetLayered &lt;GFHexGrid&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   │     └─ FsmGFStateActionGetSetPolar : FsmGFStateActionGetSetLayered &lt;GFPolarGrid&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   │</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;   └- FsmGFStateActionMethod&lt;T&gt; : FsmGFStateAction&lt;T&gt; where T : GFGrid</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      │</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      ├─ FsmGFStateActionMethodGrid : FsmGFStateActionMethod&lt;GFGrid&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      ├─ FsmGFStateActionMethodRect : FsmGFStateActionMethod&lt;GFRectGrid&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      └─ FsmGFStateActionMethodLayered&lt;T&gt; : FsmGFStateActionMethod&lt;T&gt; where T : GFLayeredGrid</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;         │</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;         ├─ FsmGFStateActionMethodHex : FsmGFStateActionMethodLayered&lt;GFHexGrid&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;         └─ FsmGFStateActionMethodPolar : FsmGFStateActionMethodLayered&lt;GFPolarGrid&gt;</div>
 </div><!-- fragment --><p>The class <code>FsmGFStateAction</code> is the base class for all Grid Framework actions, it contains all the common basic member variables and methods. From there on the rest of the inheritance tree is only used to keep things organised.</p>
 <p>Most important are the <code>grid</code> and <code>gridGameObject</code> member variables. The latter holds the reference to the GameObject that holds the grid and and usually defaults to the owner of the FSM. The former is used to cache the reference to the grid and its type is the type of the generic <code>T</code> parameter.</p>
 <p>Finally, the <code>abstract void DoAction()</code> method provides a place where to implement your actual action. Since it is abstract it does not have any implementation, you instead override it in you own sub-class and it is then called when the action fires.</p>
@@ -144,7 +150,7 @@ $(document).ready(function(){initNavTree('playmaker_support.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:06 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

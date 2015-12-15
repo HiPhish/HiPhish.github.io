@@ -3,15 +3,17 @@ var NAVTREE =
   [ "Grid Framework", "index.html", [
     [ "Index", "index.html", null ],
     [ "Overview", "overview.html", null ],
-    [ "Understanding the concept of grids", "concept_of_grid.html", null ],
+    [ "The concept of grids", "concept_of_grid.html", null ],
     [ "Abstract Grids", "abstract_grids.html", null ],
     [ "Rectangular Grids", "rectangular_grid.html", null ],
+    [ "Spherical grids", "sphere_grid.html", null ],
     [ "Hexagonal grids", "hex_grid.html", null ],
     [ "Polar grids", "polar_grid.html", null ],
     [ "Rendering and drawing a Grid", "rendering_drawing.html", null ],
     [ "Getting Started", "getting_started.html", null ],
     [ "Events", "events.html", null ],
     [ "Extending Grid Framework", "extending.html", null ],
+    [ "Frequently used snippets", "snippets.html", null ],
     [ "Debugging a grid", "debugging.html", null ],
     [ "Legacy Support", "legacy_support.html", null ],
     [ "Playmaker support", "playmaker_support.html", null ],
@@ -43,7 +45,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "abstract_grids.html",
-"class_grid_framework_1_1_vectors_1_1_vector6_ad689ca1d68c0bf615aca29ded8dc794f.html#ad689ca1d68c0bf615aca29ded8dc794f"
+"class_grid_framework_1_1_vectors_1_1_bool_vector3_ae48d3b107b2d350b68fac8bf8d7f7b0d.html#ae48d3b107b2d350b68fac8bf8d7f7b0d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

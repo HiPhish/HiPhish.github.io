@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hexagonal_20grids',['Hexagonal grids',['../hex_grid.html',1,'']]]
+  ['getting_20started',['Getting Started',['../getting_started.html',1,'']]]
 ];

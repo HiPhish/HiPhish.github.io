@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -110,27 +110,27 @@ $(document).ready(function(){initNavTree('events.html','');});
 <h2>GridChangedEvent </h2>
 <p>In Grid Framework there is an event sent every time one of the grid's properties is changed. You could use this in order to know when you have to perform recalculations and when it is save to store values. I'm not going to explain the details of events here, that would exceed the scope of the user manual, but I will give a simple example code. If you need more information I recommend the official <a href="http://msdn.microsoft.com/en-us/library/aa645739(v=vs.71).aspx">MSDN Event Tutorials</a>. Since this is a .NET feature it will only work in C#, not UnityScript.</p>
 <dl class="section note"><dt>Note</dt><dd>Since there is no proper way in Unity to be notified when an object's Transform (position, rotation or scale) has been changed the event will <em>not</em> be fired when the grid's Transform is being altered.</dd></dl>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;using UnityEngine;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;using System.Collections;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;public class EventTest : MonoBehaviour {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    public GFGrid grid; // the grid we use for reference</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    // subscribe to the event when the script becomes active</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    void OnEnable() {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        grid.GridChangedEvent += new GFGrid.GridChangedDelegate (SomeMethod);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    }</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    // unsubscribe to the event when the script becomes inactive</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    void OnDisable() {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        grid.GridChangedEvent -= new GFGrid.GridChangedDelegate (SomeMethod);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    // the method to call; it is important that the return type and parameters match the delegate</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    void SomeMethod( GFGrid changedGrid ) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        Debug.Log( &quot;Changes have been made to the grid with name &quot; + changedGrid.name);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="namespace_unity_engine.html">UnityEngine</a>;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>EventTest : MonoBehaviour {</div>
+<div class="line">    <span class="keyword">public</span> <a class="code" href="class_g_f_grid.html">GFGrid</a> grid; <span class="comment">// the grid we use for reference</span></div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// subscribe to the event when the script becomes active</span></div>
+<div class="line">    <span class="keywordtype">void</span> OnEnable() {</div>
+<div class="line">        grid.<a class="code" href="class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8.html#af3bfbed41ba24f963e871921c663f1f8">GridChangedEvent</a> += <span class="keyword">new</span> <a class="code" href="class_g_f_grid.html">GFGrid</a>.<a class="code" href="class_g_f_grid_a1b011f573c51561fbd9e411f821ba820.html#a1b011f573c51561fbd9e411f821ba820">GridChangedDelegate</a> (SomeMethod);</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// unsubscribe to the event when the script becomes inactive</span></div>
+<div class="line">    <span class="keywordtype">void</span> OnDisable() {</div>
+<div class="line">        grid.<a class="code" href="class_g_f_grid_af3bfbed41ba24f963e871921c663f1f8.html#af3bfbed41ba24f963e871921c663f1f8">GridChangedEvent</a> -= <span class="keyword">new</span> <a class="code" href="class_g_f_grid.html">GFGrid</a>.<a class="code" href="class_g_f_grid_a1b011f573c51561fbd9e411f821ba820.html#a1b011f573c51561fbd9e411f821ba820">GridChangedDelegate</a> (SomeMethod);</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// the method to call; it is important that the return type and parameters</span></div>
+<div class="line">    <span class="comment">// match the delegate</span></div>
+<div class="line">    <span class="keywordtype">void</span> SomeMethod( <a class="code" href="class_g_f_grid.html">GFGrid</a> changedGrid ) {</div>
+<div class="line">        Debug.Log( <span class="stringliteral">&quot;Changes have been made to grid &quot;</span> + changedGrid.name);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
 </div><!-- fragment --><p>The first thing we need to do is subscribe to the event; a good place for this would be when the script becomes active. In order to subscribe you call the object's event and then add via <code>+=</code> the method that will be called as a delegate. A delegate is similar to a function pointer in C or C++, it holds a reference to a function. It is important that the return type and amount and type of parameters matches the one of the delegate, but the actual contents of the method are entirely up to you. We can also unsubscribe to an event, which is done using <code>-=</code> when we want to stop listening. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('events.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:06 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

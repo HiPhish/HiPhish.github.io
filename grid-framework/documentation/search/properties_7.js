@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['originoffset',['originOffset',['../class_g_f_grid_a6fb374bcb7d726ff28e3f14817260d6c.html#a6fb374bcb7d726ff28e3f14817260d6c',1,'GFGrid']]]
+  ['meridians',['meridians',['../class_g_f_sphere_grid_ad68a35c65985dddb6750c345356209f5.html#ad68a35c65985dddb6750c345356209f5',1,'GFSphereGrid']]]
 ];

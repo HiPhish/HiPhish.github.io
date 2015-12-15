@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -121,13 +121,14 @@ $(document).ready(function(){initNavTree('rendering_drawing.html','');});
 <h2>Shared Settings </h2>
 <p>The rendering shares some options with the drawing. They have the same colours and you can toggle the axes individually. The members <code>hideGrid</code> and <code>hideOnPlay</code> are only for drawing, you can toggle rendering through the <code>renderGrid</code> flag. If you set the the <code>useSeparateRenderColor</code> to <em>true</em> can can also have separate colours for rendering and drawing.</p>
 <h2>Manual Rendering </h2>
-<p>Grid Framework has built-in capabilities to render a rectangular area using a <em>from</em> and <em>to</em> vector. If you want to render several areas you have to call the rendering method <code>RenderGrid</code> manually during Unity's <em>OnPostRender</em> callback. Take a look at this example: </p><pre class="fragment">GFGrid grid;
-Camera cam;
-void OnPostRender(){
-    grid.RenderGrid(Vector3.zero,  Vector3.one, 1, cam, cam.transform);
-    grid.RenderGrid(Vector3.zero, -Vector3.one, 1, cam, cam.transform);
-}
-</pre><p>To see a practical example take a look at the source code of the <em>GFGridRenderCamera</em> component. If you write your own grid renderer component you don't need the default one anymore.</p>
+<p>Grid Framework has built-in capabilities to render a rectangular area using a <em>from</em> and <em>to</em> vector. If you want to render several areas you have to call the rendering method <code>RenderGrid</code> manually during Unity's <em>OnPostRender</em> callback. Take a look at this example:</p>
+<div class="fragment"><div class="line"><a class="code" href="class_g_f_grid.html">GFGrid</a> grid;</div>
+<div class="line">Camera cam;</div>
+<div class="line"><span class="keywordtype">void</span> OnPostRender(){</div>
+<div class="line">    grid.<a class="code" href="class_g_f_grid_afe4760ba702ce1e54996f5750501f01f.html#afe4760ba702ce1e54996f5750501f01f">RenderGrid</a>(Vector3.zero,  Vector3.one, 1, cam, cam.transform);</div>
+<div class="line">    grid.<a class="code" href="class_g_f_grid_afe4760ba702ce1e54996f5750501f01f.html#afe4760ba702ce1e54996f5750501f01f">RenderGrid</a>(Vector3.zero, -Vector3.one, 1, cam, cam.transform);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>To see a practical example take a look at the source code of the <em>GFGridRenderCamera</em> component. If you write your own grid renderer component you don't need the default one anymore.</p>
 <h2>Rendering with Vectrosity </h2>
 <p><a href="http://starscenesoftware.com/vectrosity.html">Vectrosity</a> is a separate vector line drawing solution developed by Eric5h5 and not related to Grid Framework. If you own a license you can easily extract points from a grid in a format fit for use with Vectrosity. The included examples show how to combine both packages. For more information on how to use them together please refer to Grid Framework’s scripting reference and Vectrosity’s own documentation. Just like with rendering you can either use the grid’s <code>size</code> (default) or a custom range.</p>
 <div class="image">
@@ -147,7 +148,7 @@ an example of what is possible with Grid Framework and Vectrosity</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:05 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

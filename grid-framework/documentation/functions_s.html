@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -158,6 +158,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="class_g_f_hex_grid_ab37248628654749618f4c381edf59414.html#ab37248628654749618f4c381edf59414">GFHexGrid</a>
 , <a class="el" href="class_g_f_polar_grid_aa7d26ab4a4cfbe914001c7f635ee2ace.html#aa7d26ab4a4cfbe914001c7f635ee2ace">GFPolarGrid</a>
 , <a class="el" href="class_g_f_rect_grid_a31346980b7fc37aea46e750958c67963.html#a31346980b7fc37aea46e750958c67963">GFRectGrid</a>
+, <a class="el" href="class_g_f_sphere_grid_a4bb7634365d00b576bb3e192550a5ee1.html#a4bb7634365d00b576bb3e192550a5ee1">GFSphereGrid</a>
 </li>
 <li>Sector2Angle()
 : <a class="el" href="class_g_f_polar_grid_a675288b8c01f479b18411bb31c8d05eb.html#a675288b8c01f479b18411bb31c8d05eb">GFPolarGrid</a>
@@ -169,7 +170,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="class_g_f_polar_grid_a10ed1b65007dca14afb8fb6d22d36de0.html#a10ed1b65007dca14afb8fb6d22d36de0">GFPolarGrid</a>
 </li>
 <li>Set()
-: <a class="el" href="class_grid_framework_1_1_vectors_1_1_vector6_a12977d2e2d209c261711760c391195c8.html#a12977d2e2d209c261711760c391195c8">GridFramework.Vectors.Vector6</a>
+: <a class="el" href="class_grid_framework_1_1_vectors_1_1_vector6_a5f5e7129e8362d153d5e6a4068b532c5.html#a5f5e7129e8362d153d5e6a4068b532c5">GridFramework.Vectors.Vector6</a>
 </li>
 <li>shearing
 : <a class="el" href="class_g_f_rect_grid_af0534ff36d0058a2b00ea898c9ceadf6.html#af0534ff36d0058a2b00ea898c9ceadf6">GFRectGrid</a>
@@ -180,15 +181,31 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>size
 : <a class="el" href="class_g_f_grid_a336f54e5b5f677871876dc3d90cc611d.html#a336f54e5b5f677871876dc3d90cc611d">GFGrid</a>
 , <a class="el" href="class_g_f_polar_grid_a851ff16bfbf1204a1ab0b1b4de3ceb35.html#a851ff16bfbf1204a1ab0b1b4de3ceb35">GFPolarGrid</a>
+, <a class="el" href="class_g_f_sphere_grid_ac05919bb04ff509ad8208d0e29eb8621.html#ac05919bb04ff509ad8208d0e29eb8621">GFSphereGrid</a>
+</li>
+<li>smoothM
+: <a class="el" href="class_g_f_sphere_grid_ace44a6ab1e8dbbbf6fe423dd3bd1283f.html#ace44a6ab1e8dbbbf6fe423dd3bd1283f">GFSphereGrid</a>
 </li>
 <li>smoothness
 : <a class="el" href="class_g_f_polar_grid_a734237fa4e6ad811a84f36d6532ba9f9.html#a734237fa4e6ad811a84f36d6532ba9f9">GFPolarGrid</a>
 </li>
+<li>smoothP
+: <a class="el" href="class_g_f_sphere_grid_a583103c7074e3aa9744c7afbc6f1cf00.html#a583103c7074e3aa9744c7afbc6f1cf00">GFSphereGrid</a>
+</li>
 <li>spacing
 : <a class="el" href="class_g_f_rect_grid_a149aa6bd8f08def54ce1b9dd843b6421.html#a149aa6bd8f08def54ce1b9dd843b6421">GFRectGrid</a>
 </li>
+<li>SphericToGeographic()
+: <a class="el" href="class_g_f_sphere_grid_acbb05de504ffe18d4201624fd6dce4d9.html#acbb05de504ffe18d4201624fd6dce4d9">GFSphereGrid</a>
+</li>
+<li>SphericToGrid()
+: <a class="el" href="class_g_f_sphere_grid_a1d7a1cca5890d95a34b1217faebd9350.html#a1d7a1cca5890d95a34b1217faebd9350">GFSphereGrid</a>
+</li>
+<li>SphericToWorld()
+: <a class="el" href="class_g_f_sphere_grid_a800b460ec4529f23f0010eb6277e472a.html#a800b460ec4529f23f0010eb6277e472a">GFSphereGrid</a>
+</li>
 <li>Subtract()
-: <a class="el" href="class_grid_framework_1_1_vectors_1_1_vector6_afdccc269b1d2cc05b601f13bec6cf6c3.html#afdccc269b1d2cc05b601f13bec6cf6c3">GridFramework.Vectors.Vector6</a>
+: <a class="el" href="class_grid_framework_1_1_vectors_1_1_vector6_aff32cc229042cc6463e9332dd69f518a.html#aff32cc229042cc6463e9332dd69f518a">GridFramework.Vectors.Vector6</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -197,7 +214,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:54 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:07 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -110,9 +110,12 @@ $(document).ready(function(){initNavTree('rectangular_grid.html','');});
 <img src="rect_inspector.png" alt="rect_inspector.png"/>
 </div>
 <p>The central vertex has the grid coordinates (0, 0, 0) and each coordinate goes in the direction of the grid’s corresponding axis. Practically speaking, the vertex (1, 2, 3) would be one unit to the right, two units above and three units in front of the central vertex (all values in local space and multiples of <code>spacing</code>). Thus vertex coordinates are the same as the default grid coordinates.</p>
-<p>The coordinates for faces and boxes follow this pattern as well and they are given by their central point. This means the coordinates of the result from <code>NearestBoxG</code> will always contain half a unit: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;var box = myGrid.NearestBoxG (transform.position) // something like (1.5, 2.5, -0.5)</div>
-</div><!-- fragment --><p> The same applies to faces, however the coordinate that lies on the plane (e.g. Z for XY grids) will be a whole number: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;var tile = myGrid.NearestFaceG (transform.position, GFGridPlane.XY) // something like (1.5, 2.5, -1)</div>
-</div><!-- fragment --> <div class="image">
+<p>The coordinates for faces and boxes follow this pattern as well and they are given by their central point. This means the coordinates of the result from <code>NearestBoxG</code> will always contain half a unit:</p>
+<div class="fragment"><div class="line">var box = myGrid.NearestBoxG (transform.position)  <span class="comment">// e.g. (1.5, 2.5, -0.5)</span></div>
+</div><!-- fragment --><p>The same applies to faces, however the coordinate that lies on the plane (e.g. Z for XY grids) will be a whole number:</p>
+<div class="fragment"><div class="line"><span class="comment">// e.g. (1.5, 2.5, -1)</span></div>
+<div class="line">var tile = myGrid.NearestFaceG (transform.position, GFGridPlane.XY);</div>
+</div><!-- fragment --><div class="image">
 <img src="rect_coord.png" alt="rect_coord.png"/>
 </div>
 <dl class="section note"><dt>Note</dt><dd>This behaviour is different from previous versions. There the extra half unit was subtracted from the result, giving faces and boxes whole numbers. The problem with this is that it made conversion between grid- and world coordinates complicated and it was just a general mess. If you want the old behaviour back read the <a class="el" href="legacy_support.html">Legacy Support</a> section.</dd></dl>
@@ -132,7 +135,7 @@ $(document).ready(function(){initNavTree('rectangular_grid.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:05 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

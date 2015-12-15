@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rectangular_20grids',['Rectangular Grids',['../rectangular_grid.html',1,'']]],
-  ['rendering_20and_20drawing_20a_20grid',['Rendering and drawing a Grid',['../rendering_drawing.html',1,'']]]
+  ['playmaker_20support',['Playmaker support',['../playmaker_support.html',1,'']]],
+  ['polar_20grids',['Polar grids',['../polar_grid.html',1,'']]]
 ];

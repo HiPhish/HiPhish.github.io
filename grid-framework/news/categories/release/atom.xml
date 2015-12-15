@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/release/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-23T00:00:00+01:00</updated><entry><title>Grid Framework version 1.8.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" rel="alternate"></link><updated>2015-11-23T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-23:grid-framework/news/2015/11/23/version-184/</id><summary type="html">&lt;p&gt;Version 1.8.4 of Grid Framework has been released. This version updates
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/release/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-12-14T00:00:00+01:00</updated><entry><title>Grid Framework version 1.9.0 released</title><link href="http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/" rel="alternate"></link><updated>2015-12-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-12-14:grid-framework/news/2015/12/14/version-190/</id><summary type="html">&lt;p&gt;Version 1.9.0 of Grid Framework has been approved by the Asset Store team. This
+release  marks  the addition  of  the fourth  kind  of  grid to  the framework:
+spherical grids.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Rotating spheric grid animation" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/images/rotating-grid-2.gif"/&gt;
+&lt;/div&gt;
+&lt;p&gt;The full changelog:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;New:&lt;/em&gt; A new grid type, spherical grids.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Manual:&lt;/em&gt; Chapter with frequently used code snippets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This may not  look like much,  but spherical grids have  been on the to-do list
+since day  one, so  this is  a major  step. The  other change  is a  new manual
+chapter that contains  useful snippets based  on frequent questions people have
+asked over the years. I hope you find it useful.&lt;/p&gt;
+&lt;p&gt;I'm not quite sure  what to do next.  I have been having second  thoughts about
+pathfinding  because there  are many  ways to  implement it  and all have their
+strengths and  weaknesses, there  is no  ideal solution. It  might be better to
+provide an easy interface  for an existing pathfinding solution instead. If you
+are using the popular  &lt;a class="reference external" href="http://arongranberg.com/astar/"&gt;A*&lt;/a&gt; plugin for Unity  there will be something about it
+in the next article.&lt;/p&gt;
+&lt;p&gt;There is also  triangular grids,  which are just  a &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_tiling"&gt;triangular tiling&lt;/a&gt; of hex
+grids, so if  I can't think of anything  else I'll go for that instead.  If you
+have a better idea just drop me a line.&lt;/p&gt;
+</summary></entry><entry><title>Grid Framework version 1.8.4 released</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" rel="alternate"></link><updated>2015-11-23T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-23:grid-framework/news/2015/11/23/version-184/</id><summary type="html">&lt;p&gt;Version 1.8.4 of Grid Framework has been released. This version updates
 Vectrosity support to Vectrosity version 5, and it also changes how support for
 other plugins is enabled. It also introduces a new example: an endless grid in
 3D space.&lt;/p&gt;

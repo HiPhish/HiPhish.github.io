@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -109,15 +109,19 @@ $(document).ready(function(){initNavTree('getting_started.html','');});
 <h2>Setting up a new grid </h2>
 <p>Choose a GameObject in your scene that will carry the grid. Go to Component → Grid Framework and choose the grid component you want to add. Alternatively you can create a grid from scratch by going to GameObject → Create Grid. Once you have your grid in place you can then position it by moving and rotating the GameObject, you can change the settings and you can reference it through scripting.</p>
 <h2>Creating grids programatically </h2>
-<p>All grids inherit from the <em><a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a></em> class, which in turn inherits from Unity's own <em>MonoBehaviour</em> class (the class of all scripts). As such grids can be created programatically the same way as any other component in Unity.</p>
-<p>The usual approach is to use the <code>AddComponent</code> method of the <em>GameObject</em> class to add a new grid to the scene </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;GameObject go;                                   // object to carry the grid</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;GFRectGrid grid = go.AddComponent&lt;GFRectGrid&gt;(); // reference to the new grid</div>
-</div><!-- fragment --><p> Here we use the rectangular grid as an example, but any grid works the same way. Also keep in mind that the abstract grid classes cannot be instantiated, they only serve as abstraction.</p>
+<p>All grids inherit from the <code><a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a></code> class, which in turn inherits from Unity's own <em>MonoBehaviour</em> class (the class of all scripts). As such grids can be created programatically the same way as any other component in Unity.</p>
+<p>The usual approach is to use the <code>AddComponent</code> method of the <em>GameObject</em> class to add a new grid to the scene</p>
+<div class="fragment"><div class="line">GameObject go;                                    <span class="comment">// object to carry the grid</span></div>
+<div class="line"><a class="code" href="class_g_f_rect_grid.html">GFRectGrid</a> grid = go.AddComponent&lt;<a class="code" href="class_g_f_rect_grid.html">GFRectGrid</a>&gt;();  <span class="comment">// reference to the new grid</span></div>
+</div><!-- fragment --><p>Here we use the rectangular grid as an example, but any grid works the same way. Also keep in mind that the abstract grid classes cannot be instantiated, they only serve as abstraction.</p>
 <h2>Referencing a grid </h2>
-<p>You can reference a grid the same way you would reference any other component: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;var myGrid: GFGrid = myGameObject.GetComponent.&lt;GFGrid&gt;();// UnityScript</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;GFGrid myGrid = myGameObject.GetComponent&lt;GFGrid&gt;();      // C#</div>
-</div><!-- fragment --><p> This syntax is the <a href="http://docs.unity3d.com/Documentation/Manual/GenericFunctions.html">generic</a> version of <a href="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.GetComponent.html">GetComponent</a> which returns a value of type <a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a> instead of Component. See the Unity Script reference for more information. You can access any grid variable or method directly like this: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;myVector3 = myGrid.WorldToGrid(transform.position);</div>
-</div><!-- fragment --><p> If you need a special variable that is exclusive to a certain grid type (like <code>spacing</code> for rectangular grids) you will need to use that specific type rather than the more general <code><a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a></code>: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;var myGrid: GFRectGrid = myGameObject.GetComponent.&lt;GFRectGrid&gt;();</div>
+<p>You can reference a grid the same way you would reference any other component:</p>
+<div class="fragment"><div class="line"><a class="code" href="class_g_f_grid.html">GFGrid</a> myGrid = myGameObject.GetComponent&lt;<a class="code" href="class_g_f_grid.html">GFGrid</a>&gt;();  <span class="comment">// C#</span></div>
+</div><!-- fragment --><div class="fragment"><div class="line">var myGrid: <a class="code" href="class_g_f_grid.html">GFGrid</a> = myGameObject.GetComponent.&lt;<a class="code" href="class_g_f_grid.html">GFGrid</a>&gt;();  <span class="comment">// UnityScript</span></div>
+</div><!-- fragment --><p>This syntax is the <a href="http://docs.unity3d.com/Documentation/Manual/GenericFunctions.html">generic</a> version of <a href="http://docs.unity3d.com/Documentation/ScriptReference/GameObject.GetComponent.html">GetComponent</a> which returns a value of type <code><a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a></code> instead of Component. See the Unity Script reference for more information. You can access any grid variable or method directly like this:</p>
+<div class="fragment"><div class="line">myVector3 = myGrid.<a class="code" href="class_g_f_grid_a81cec06aaa87e7984b83b8f3f718cd9a.html#a81cec06aaa87e7984b83b8f3f718cd9a">WorldToGrid</a>(transform.position);</div>
+</div><!-- fragment --><p>If you need a special variable that is exclusive to a certain grid type (like <code>spacing</code> for rectangular grids) you will need to use that specific type rather than the more general <code><a class="el" href="class_g_f_grid.html" title="Abstract base class for all Grid Framework grids.">GFGrid</a></code>:</p>
+<div class="fragment"><div class="line">var myGrid: <a class="code" href="class_g_f_rect_grid.html">GFRectGrid</a> = myGameObject.GetComponent.&lt;<a class="code" href="class_g_f_rect_grid.html">GFRectGrid</a>&gt;();</div>
 </div><!-- fragment --><h2>Drawing the grid </h2>
 <p>A grid can be drawn using gizmos to give you a visual representation of what is otherwise infinitely large. Note that gizmos draw the grid for you, but they don’t render the grid in a finished and published game during runtime. If you wish the grid to be visible during runtime you need to render it.</p>
 <p>In the editor you can set flags to hide the grid altogether, hide it only in play mode, draw a sphere at the origin and set colours. If you cannot see the grid even though <code>hideOnPlay</code> is disabled make sure that “Gizmos” in the upper right corner of the game view window is enabled.</p>
@@ -138,7 +142,7 @@ $(document).ready(function(){initNavTree('getting_started.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:06 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

@@ -96,7 +96,7 @@ html{height:100%;}
  * needs to be a flexbox itself as well in order to push the pagination
  * elements down. */
 .HolyGrail-content{
-	margin-top:1.5em
+	margin-top:1.5em;
 
 	display:-webkit-box;
 	display:-webkit-flex;

@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -130,6 +130,7 @@ Inheritance diagram for GFGrid:</div>
   <map id="GFGrid_map" name="GFGrid_map">
 <area href="class_g_f_layered_grid.html" title="The parent class for all layered grids." alt="GFLayeredGrid" shape="rect" coords="55,56,155,80"/>
 <area href="class_g_f_rect_grid.html" title="A standard three-dimensional rectangular grid." alt="GFRectGrid" shape="rect" coords="165,56,265,80"/>
+<area href="class_g_f_sphere_grid.html" title="A spherical grid: latitude, longitude and altitude. " alt="GFSphereGrid" shape="rect" coords="275,56,375,80"/>
 <area href="class_g_f_hex_grid.html" title="A grid consisting of flat hexagonal grids stacked on top of each other. " alt="GFHexGrid" shape="rect" coords="0,112,100,136"/>
 <area href="class_g_f_polar_grid.html" title="A polar grid based on cylindrical coordinates." alt="GFPolarGrid" shape="rect" coords="110,112,210,136"/>
 </map>
@@ -140,12 +141,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b011f573c51561fbd9e411f821ba820"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_a1b011f573c51561fbd9e411f821ba820.html#a1b011f573c51561fbd9e411f821ba820">GridChangedDelegate</a> (<a class="el" href="class_g_f_grid.html">GFGrid</a> grid)</td></tr>
 <tr class="memdesc:a1b011f573c51561fbd9e411f821ba820"><td class="mdescLeft">&#160;</td><td class="mdescRight">A delegate for handling events when the grid has been changed in such a way that it requires a redraw <a href="class_g_f_grid_a1b011f573c51561fbd9e411f821ba820.html#a1b011f573c51561fbd9e411f821ba820">More...</a><br /></td></tr>
 <tr class="separator:a1b011f573c51561fbd9e411f821ba820"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c424ac71404a8c87a958b5b5952eb0f"><td class="memItemLeft" align="right" valign="top">abstract Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f.html#a3c424ac71404a8c87a958b5b5952eb0f">WorldToGrid</a> (Vector3 worldPoint)</td></tr>
-<tr class="memdesc:a3c424ac71404a8c87a958b5b5952eb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts world coordinates to grid coordinates. <a href="class_g_f_grid_a3c424ac71404a8c87a958b5b5952eb0f.html#a3c424ac71404a8c87a958b5b5952eb0f">More...</a><br /></td></tr>
-<tr class="separator:a3c424ac71404a8c87a958b5b5952eb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af32d7bfcecb5da3fdc47b972b551e33e"><td class="memItemLeft" align="right" valign="top">abstract Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e.html#af32d7bfcecb5da3fdc47b972b551e33e">GridToWorld</a> (Vector3 gridPoint)</td></tr>
-<tr class="memdesc:af32d7bfcecb5da3fdc47b972b551e33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts grid coordinates to world coordinates. <a href="class_g_f_grid_af32d7bfcecb5da3fdc47b972b551e33e.html#af32d7bfcecb5da3fdc47b972b551e33e">More...</a><br /></td></tr>
-<tr class="separator:af32d7bfcecb5da3fdc47b972b551e33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81cec06aaa87e7984b83b8f3f718cd9a"><td class="memItemLeft" align="right" valign="top">abstract Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_a81cec06aaa87e7984b83b8f3f718cd9a.html#a81cec06aaa87e7984b83b8f3f718cd9a">WorldToGrid</a> (Vector3 world)</td></tr>
+<tr class="memdesc:a81cec06aaa87e7984b83b8f3f718cd9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts world coordinates to grid coordinates. <a href="class_g_f_grid_a81cec06aaa87e7984b83b8f3f718cd9a.html#a81cec06aaa87e7984b83b8f3f718cd9a">More...</a><br /></td></tr>
+<tr class="separator:a81cec06aaa87e7984b83b8f3f718cd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad2fc5a6b63ca193533a72c68e4f1e0"><td class="memItemLeft" align="right" valign="top">abstract Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_a3ad2fc5a6b63ca193533a72c68e4f1e0.html#a3ad2fc5a6b63ca193533a72c68e4f1e0">GridToWorld</a> (Vector3 grid)</td></tr>
+<tr class="memdesc:a3ad2fc5a6b63ca193533a72c68e4f1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts grid coordinates to world coordinates. <a href="class_g_f_grid_a3ad2fc5a6b63ca193533a72c68e4f1e0.html#a3ad2fc5a6b63ca193533a72c68e4f1e0">More...</a><br /></td></tr>
+<tr class="separator:a3ad2fc5a6b63ca193533a72c68e4f1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5865880fa767bf5562301bca419b8bb9"><td class="memItemLeft" align="right" valign="top">abstract Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_f_grid_a5865880fa767bf5562301bca419b8bb9.html#a5865880fa767bf5562301bca419b8bb9">NearestVertexW</a> (Vector3 worldPoint, bool doDebug)</td></tr>
 <tr class="memdesc:a5865880fa767bf5562301bca419b8bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the world position of the nearest vertex. <a href="class_g_f_grid_a5865880fa767bf5562301bca419b8bb9.html#a5865880fa767bf5562301bca419b8bb9">More...</a><br /></td></tr>
 <tr class="separator:a5865880fa767bf5562301bca419b8bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -293,7 +294,7 @@ Events</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_g_f_grid.html">GFGrid</a></li>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:06 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

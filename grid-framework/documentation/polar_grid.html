@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Grid Framework
-   &#160;<span id="projectnumber">1.8.3</span>
+   &#160;<span id="projectnumber">1.9.0</span>
    </div>
    <div id="projectbrief">Easy grid setup and scripting for Unity 3D</div>
   </td>
@@ -137,10 +137,11 @@ $(document).ready(function(){initNavTree('polar_grid.html','');});
 <p>This is a standard cylindrical coordinate system and internally it is the default coordinate system. In a standard XY-grid the first coordinate is the <em>radius</em>, the second coordinate is the <em>polar angle</em> and the third coordinate is the <em>height</em>, all distances measured in world length. This coordinate system is not affected by <code>radius</code>, <code>sectors</code> or <code>depth</code>, it’s great if you want to have full control over your points. For general information about polar and cylindrical grids please refer to a mathematical textbook (or Wikipedia ^^).</p>
 <h2>The grid coordinate system </h2>
 <p>This one is similar to the above, except the values now are directly influenced by <code>radius</code>, <code>sectors</code> and <code>depth</code>. The <em>radius</em> gives us the distance from the origin as a multiple of the grid’s <code>radius</code> and the <em>height</em> is a multiple of the grid’s <code>depth</code>. The curious value is the <em>angle</em>, because rather than being the angle in radians or degrees it tells us how many sectors we are away from the polar axis. The maximum number is the amount of segments.</p>
-<p>This coordinate system is great if you want to think in terms of “grid points”, for example in a board game. If you want to move the player one unit towards the outside and two units counter-clockwise you could write </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;var myPlayerPosition: Vector3 = myGrid.WorldToGrid(player.transform.position);</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;myPlayerPosition += Vector3(1, 2, 0);</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;player.transform.position = myGrid.GridToWorld(myPlayerPosition);</div>
-</div><!-- fragment --><p> Note how you don’t need to know anything about the grid and its values, you just concentrate on the movement itself.</p>
+<p>This coordinate system is great if you want to think in terms of “grid points”, for example in a board game. If you want to move the player one unit towards the outside and two units counter-clockwise you could write</p>
+<div class="fragment"><div class="line">var myPlayerPosition: Vector3 = myGrid.WorldToGrid(player.transform.position);</div>
+<div class="line">myPlayerPosition += Vector3(1, 2, 0);</div>
+<div class="line">player.transform.position = myGrid.GridToWorld(myPlayerPosition);</div>
+</div><!-- fragment --><p>Note how you don’t need to know anything about the grid and its values, you just concentrate on the movement itself.</p>
 <div class="image">
 <img src="polar_grid.png" alt="polar_grid.png"/>
 </div>
@@ -158,7 +159,7 @@ $(document).ready(function(){initNavTree('polar_grid.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Nov 23 2015 23:43:53 for Grid Framework by
+    <li class="footer">Generated on Fri Dec 11 2015 22:48:05 for Grid Framework by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

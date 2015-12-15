@@ -7,7 +7,8 @@ var hierarchy =
         [ "GFHexGrid", "class_g_f_hex_grid.html", null ],
         [ "GFPolarGrid", "class_g_f_polar_grid.html", null ]
       ] ],
-      [ "GFRectGrid", "class_g_f_rect_grid.html", null ]
+      [ "GFRectGrid", "class_g_f_rect_grid.html", null ],
+      [ "GFSphereGrid", "class_g_f_sphere_grid.html", null ]
     ] ],
     [ "GridFramework.Vectors.Vector6", "class_grid_framework_1_1_vectors_1_1_vector6.html", null ]
 ];

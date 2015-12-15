@@ -5,5 +5,6 @@ var annotated_dup =
     [ "GFHexGrid", "class_g_f_hex_grid.html", "class_g_f_hex_grid" ],
     [ "GFLayeredGrid", "class_g_f_layered_grid.html", "class_g_f_layered_grid" ],
     [ "GFPolarGrid", "class_g_f_polar_grid.html", "class_g_f_polar_grid" ],
-    [ "GFRectGrid", "class_g_f_rect_grid.html", "class_g_f_rect_grid" ]
+    [ "GFRectGrid", "class_g_f_rect_grid.html", "class_g_f_rect_grid" ],
+    [ "GFSphereGrid", "class_g_f_sphere_grid.html", "class_g_f_sphere_grid" ]
 ];
