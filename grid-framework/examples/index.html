@@ -263,7 +263,7 @@
 				that as the destination of our movement function.
 			</p>
 <!-- worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction)); -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="n">worldPosition</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldPosition</span><span class="p">)</span> <span class="p">+</span> <span class="n">direction</span><span class="p">));
 </span></pre>
@@ -299,7 +299,7 @@
 <!--     // by the spacing (to get grid units) and round down to the nearest integer -->
 <!--     size[i] = Mathf.FloorToInt(Mathf.Abs(movementGrid.renderFrom[i] - movementGrid.renderTo[i]) / movementGrid.spacing[i]); -->
 <!-- }                                                                               -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="kt">var</span> <span class="n">size</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
@@ -317,7 +317,7 @@
 <!--     for(int i = 0; i < 2; i++){                                                       -->
 <!--     square[i] = Mathf.FloorToInt(movementGrid.NearestBoxG(vec)[i]) - originSquare[i]; -->
 <!-- }                                                                                     -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="kt">var</span> <span class="n">square</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
@@ -346,7 +346,7 @@
 <!--     //flip the state of this switch                         -->
 <!--     isOn = !isOn;                                           -->
 <!-- }                                                           -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="k">if</span><span class="p">(</span><span class="n">theGrid</span><span class="p">.</span><span class="n">IsAdjacent</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">switchPosition</span><span class="p">)){</span>
     <span class="c1">//flip the state of this switch</span>
@@ -384,7 +384,7 @@
 <!--      bool isDiagonal = 0.25f <= Mathf.Abs(position.x-reference.x) && 0.25f <= Mathf.Abs(position.y-reference.y) && isAdjacent; -->
 <!--      return isAdjacent && !isDiagonal;                                                                                         -->
 <!-- 	}                                                                                                                             -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsAdjacent</span><span class="p">(</span><span class="k">this</span> <span class="n">GFGrid</span> <span class="n">theGrid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">){</span>
     <span class="c1">//convert to Grid Space first</span>
@@ -428,7 +428,7 @@
 				as grid coordinates and convert them to world coordinates.
 			</p>
 <!-- Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0)); -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="n">Vector3</span> <span class="n">targetPosition</span> <span class="p">=</span> <span class="n">levelGrid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="m">0</span><span class="p">));</span>
 </pre>
@@ -447,7 +447,7 @@
 			</p>
 <!-- transform.position = cursorWorldPoint; -->
 <!-- grid.AlignTransform(transform);        -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">cursorWorldPoint</span><span class="p">;</span>
 <span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">);</span>
@@ -468,7 +468,7 @@
 <!-- -->
 <!-- myGrid.renderFrom += rangeShift;                           -->
 <!-- myGrid.renderTo   += rangeShift;                           -->
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
     <span class="n">rangeShift</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">lastPosition</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>

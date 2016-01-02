@@ -304,7 +304,7 @@
 						of courese there is more to it in practice, but this gives you a
 						good idea.
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="c1">// Origin and rotation are inherited from the GameObject</span>
 <span class="k">class</span> <span class="nc">GFRectGrid</span> <span class="p">:</span> <span class="n">GFGrid</span> <span class="p">{</span>
@@ -330,7 +330,7 @@
 						Grids are subclasses of Unity's <code>Component</code> class and
 						can be manipulated like any other component.
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="kd">var</span> <span class="nx">grid</span> <span class="o">:</span> <span class="nx">GFRectGrid</span> <span class="o">=</span> <span class="nx">gameObject</span><span class="p">.</span><span class="nx">GetComponent</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">GFRectGrid</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="nx">grid</span><span class="p">.</span><span class="nx">spacing</span> <span class="o">=</span> <span class="nx">Vector3</span><span class="p">.</span><span class="nx">one</span><span class="p">;</span>
@@ -354,7 +354,7 @@
 						we can replicate this very easily. This code example creates a
 						three-dimenstional array of world-positions of grid vertices:
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
@@ -404,7 +404,7 @@
 						plugin. That way you have full control over the shape. The get the points of the lines
 						to render use the grid's <code>GridToWorld</code> method:
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="n">Vector3</span> from<span class="p">,</span> <span class="n">to</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
@@ -434,7 +434,7 @@
 						we can get these vertices from the grid by looping over the range we
 						want to use:
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
 <span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
@@ -465,7 +465,7 @@
 						Let's assume your object should fit into the centre of the nearest
 						face. Here is the code:
 					</p>
-<div class="pygments">
+<div class="highlight">
 <pre><span class=" n">Transform</span> <span class="n">myObject</span><span class="p">;</span> <span class="c1">// Object to align</span>
 <span class="n">GFGrid</span>    <span class="n">myGrid</span><span class="p">;</span>   <span class="c1">// Grid to align to</span>
 

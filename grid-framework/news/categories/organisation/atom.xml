@@ -1,5 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-17T00:00:00+01:00</updated><entry><title>Korean Asset Store description removed</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" rel="alternate"></link><updated>2015-11-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-17:grid-framework/news/2015/11/17/no-korean/</id><summary type="html">&lt;p&gt;I don't know why I even had a Korean Asset Store presentation in the first
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-02T00:00:00+01:00</updated><entry><title>What's coming in 2016</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" rel="alternate"></link><updated>2016-01-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-02:grid-framework/news/2016/01/02/new-year-2016/</id><summary type="html">&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
+the  release  of  the  new  website,  which  was  later that same year scrapped
+completely for a yet another website.  I was also able to finally integrate the
+last of the originally planned grids into Grid Framework.&lt;/p&gt;
+&lt;p&gt;During this time I have been weighted down by my own mistakes quite a lot. When
+I originally wrote Grid Framework I was fairly inexperienced, my knowledge came
+mostly  from  textbooks and  things you  learn in  classes.  There was  nothing
+&lt;em&gt;techincally&lt;/em&gt;  wrong about what  I had  learned,  the framework was functioning
+correctly, but maintainability was getting worse and worse over time. There are
+some things textbooks simply can't teach you.&lt;/p&gt;
+&lt;p&gt;This  is why I  have  decided to  start work  on  Grid  Framework  version 2.0.
+Following the rules of &lt;a class="reference external" href="http://semver.org"&gt;Semantic Versioning&lt;/a&gt; this means  that version 2.0 will
+not be API-compatible with previous versions.  This is a clean cut, but it will
+result in a leaner and  cleaner API for users as well,  and everything  removed
+from the old API will  have an almost 1:1  equivalent. If you cannot migrate to
+2.0 the old 1.x  branch will still be  maintained with  bug-fixes if necessary.
+The upgrade will be free to existing customers.&lt;/p&gt;
+&lt;div class="section" id="why-version-2-0"&gt;
+&lt;h2&gt;Why version 2.0?&lt;/h2&gt;
+&lt;p&gt;I will try to explain my reasons for breaking backwards-compatibility. Making a
+version 2.0 was going to happen sooner or later anyway, so why now?&lt;/p&gt;
+&lt;div class="section" id="the-classes-are-simply-too-large"&gt;
+&lt;h3&gt;The classes are simply too large&lt;/h3&gt;
+&lt;p&gt;At the  time of  writing this Grid Framework  is at version 1.9.0  and this  is
+the number of lines in the code:&lt;/p&gt;
+&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;colgroup&gt;
+&lt;col width="38%"&gt;&lt;/col&gt;
+&lt;col width="12%"&gt;&lt;/col&gt;
+&lt;col width="21%"&gt;&lt;/col&gt;
+&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;
+&lt;th class="head"&gt;Code&lt;/th&gt;
+&lt;th class="head"&gt;Comment&lt;/th&gt;
+&lt;th class="head"&gt;Blank&lt;/th&gt;
+&lt;th class="head"&gt;Total&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;GFGrid&lt;/td&gt;
+&lt;td&gt;520&lt;/td&gt;
+&lt;td&gt;512&lt;/td&gt;
+&lt;td&gt;104&lt;/td&gt;
+&lt;td&gt;1136&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFRectGrid&lt;/td&gt;
+&lt;td&gt;202&lt;/td&gt;
+&lt;td&gt;167&lt;/td&gt;
+&lt;td&gt;51&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFSphereGrid&lt;/td&gt;
+&lt;td&gt;356&lt;/td&gt;
+&lt;td&gt;615&lt;/td&gt;
+&lt;td&gt;92&lt;/td&gt;
+&lt;td&gt;1063&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFHexGrid&lt;/td&gt;
+&lt;td&gt;1257&lt;/td&gt;
+&lt;td&gt;1102&lt;/td&gt;
+&lt;td&gt;241&lt;/td&gt;
+&lt;td&gt;2600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFPolarGrid&lt;/td&gt;
+&lt;td&gt;395&lt;/td&gt;
+&lt;td&gt;366&lt;/td&gt;
+&lt;td&gt;74&lt;/td&gt;
+&lt;td&gt;835&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This is simply too much,  especially for  hexagonal grids.  How did  it come to
+this?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="do-one-thing-and-do-it-well"&gt;
+&lt;h3&gt;Do one thing and do it well&lt;/h3&gt;
+&lt;p&gt;What is a &lt;em&gt;grid&lt;/em&gt; in the first place?  In my case it is a coordinate system.  So
+what does a coordinate system do? It can convert coordinates for example.  What
+it does  not do  is  render  itself  or  align objects.  It &lt;em&gt;can&lt;/em&gt;  be used  for
+such purpose,  but that not what it does itself.  And yet these tasks make up a
+big part of the code, especially in hexagonal grids with their many shapes.&lt;/p&gt;
+&lt;p&gt;Rendering  will  be  moved into  dedicated &lt;em&gt;renderer&lt;/em&gt;  components. Unity does a
+similar thing for meshes:  the &lt;code&gt;Mesh&lt;/code&gt; class does not render the mesh, the class
+&lt;code&gt;MeshRenderer&lt;/code&gt; does.  New grid shapes are then simply new renderers,  making it
+very easy for users to swap out renderers or even write their own ones.&lt;/p&gt;
+&lt;p&gt;Other  functions  can  be moved  into special  utility  classes,  I haven't yet
+decided on that one, but they will be moved out of the grid for certain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="less-is-more"&gt;
+&lt;h3&gt;Less is more&lt;/h3&gt;
+&lt;p&gt;Some API features  fall into the  "nice to have,  but not necessary"  category.
+Take for example the &lt;code&gt;hideGridOnPlay&lt;/code&gt; flag:  when it is &lt;code&gt;true&lt;/code&gt; the grid will be
+hidden while the game is  running but visible in scene view.  Sounds handy, but
+it's not really needed when we could use this instead:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;GFGrid&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;Start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hideGrid&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And while we're at it,  why do we even have a flag  for hiding the  entire grid
+when we have flags for the individual axes. Theses "nice to have" features will
+be cut out entirely.  It might seem like a regression at first, but the gain in
+productivity from leaner and more  readable API will easily make up for the few
+extra lines of code.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="you-ain-t-gonna-need-it"&gt;
+&lt;h3&gt;You ain't gonna need it&lt;/h3&gt;
+&lt;p&gt;When I originally wrote Grid Framework I had  this great idea that you would be
+able to call a method on any grid and it would always  do what you would expect
+it to do. Sadly some concepts  just don't make sense for every grid. Take as an
+example  &lt;em&gt;scaling&lt;/em&gt; an  object to  the  grid.  This makes  perfect  sense  for a
+rectangular grid because an  object's &lt;code&gt;Transform&lt;/code&gt; is a cuboid box as well.  But
+how do you scale  a cuboid in a honeycomb,  a circle or a sphere?  It just does
+not make sense to ask such a question. I will have to see what to keep and what
+to just throw out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;TL;RD:  It's time to cut off the ugly growth,  and see which parts  have actual
+value. Those will be moved to dedicated classes, giving you a nicer API to work
+with and make the code more maintainable.&lt;/p&gt;
+&lt;p&gt;At the moment I'm refactoring the renderers out,  this will already shave off a
+huge chunk  of code.  Then I'll see  what's next,  I don't want  to cut off too
+much, but on the other hand  if I don't cut it off now it will have to wait for
+version 3.0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="grid-framework-for-other-engines"&gt;
+&lt;h2&gt;Grid Framework for other engines&lt;/h2&gt;
+&lt;p&gt;2015 has seen a big change in how game engines are licensed.  Unity Pro, Unreal
+4 and Source are now available free of charge for development.  This is a great
+opportunity to port Grid Framework to those engine as well. This has been a big
+motivator  as well for  starting version 2.0,  now that all the  original goals
+have been met.  Currently all the classes are too dependent on Unit's API. With
+smaller classes and a cleaner API it is much easier to keep different codebases
+in synch feature-wise.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="in-summary"&gt;
+&lt;h2&gt;In summary&lt;/h2&gt;
+&lt;p&gt;I don't have to  announce anything in regards  to other engines yet,  I want to
+finish the  move to version  2.0 first  and solidify  the API.  In the meantime
+there is no reason  to wait for 2.0 if you want to be productive,  the features
+to be dropped have  proven themselves  to be barely useful  anyway and the rest
+will have pretty  much 1:1 equivalents.  The 1.x code is  not defective,  it is
+just large, so don't worry about using the old API.  And as I said, the upgrade
+will be free to existing customers.&lt;/p&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>Korean Asset Store description removed</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" rel="alternate"></link><updated>2015-11-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-17:grid-framework/news/2015/11/17/no-korean/</id><summary type="html">&lt;p&gt;I don't know why I even had a Korean Asset Store presentation in the first
 place, given that I don't speak Korean. I guess Unity must have auto-generated
 it based on my English description. Since I cannot verify nor maintain the
 information there I have removed it. So if any Korean customers are wondering
