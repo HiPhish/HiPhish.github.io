@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 02 Jan 2016 00:00:00 +0100</lastBuildDate><item><title>What's coming in 2016</title><link>http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/</link><description>&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 13 Jan 2016 00:00:00 +0100</lastBuildDate><item><title>First major step towards 2.0</title><link>http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/</link><description>&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
+renderers into their  own class.  Until now the  task of rendering the grid was
+part of the grid class, this made the classes much larger and it was impossible
+to add one's own rendering shapes without modifying the grids themselves.&lt;/p&gt;
+&lt;p&gt;The new  approach is  much cleaner  and more  in the spirit  of object-oriented
+programming:  The grid itself  does not  render anything at all.  It provides a
+public interface  that has all  the information needed for  &lt;em&gt;another&lt;/em&gt; object to
+compute all  the points necessary.  This second  object is the &lt;em&gt;renderer&lt;/em&gt;, it's
+another &lt;code&gt;Component&lt;/code&gt; attached to a &lt;code&gt;GameObject&lt;/code&gt;. In order to create a new custom
+shape you would just have to write a new renderer class and use the same public
+interface I used as well.  This means you get to use exactly the same API I was
+using as well, no hacking around in the source or using undocumented API.&lt;/p&gt;
+&lt;p&gt;I was glad to find that the public  API provided in version 1.x is all I needed
+to rewrite all  existing renderers.  This means that if  you already  know Grid
+Framework there is  nothing new to learn.  There are still  some questions open
+about how exactly to handle renderers;  currently all renderers are components,
+that's a very simple approach but it  has one nasty limitation: you cannot have
+more than one renderer of every type attached to the same &lt;code&gt;GameObject&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let's say you have two wizards and you want to visualise the area of effect for
+their spells.  It would make  sense to use  two different renderers of the same
+type on  the  same grid,  one for each wizard.  However,  since you cannot have
+more than one renderer per grid you  would have to make a duplicate of the grid
+&lt;code&gt;GameObject&lt;/code&gt;.  One solution  would  be to  drop the  &lt;code&gt;Component&lt;/code&gt; idea  and make
+renderers just regular classes,  but then we lose the ability to set properties
+in the inspector, and that is unacceptable.&lt;/p&gt;
+&lt;p&gt;The best idea I have so far is  to strike a balance between those two concepts:
+there will be a  container type for  renderers that  can contain  any amount of
+renderers.  The container  will be  a &lt;code&gt;Component&lt;/code&gt;  with a very  small inspector
+interface that  contains a sort  of foldout  for every renderer.  The renderers
+define their  own inspector  interface which  is then  rendered as  part of the
+container's interface.&lt;/p&gt;
+&lt;p&gt;The downside to this  is that the renderers  are now concerned  with two tasks:
+rendering the grid and their inspector interface.  It's small price to pay, but
+still. Maybe I will be able to come up with something better in the meantime.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 13 Jan 2016 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2016-01-13:grid-framework/news/2016/01/13/first-step-to-20/</guid></item><item><title>What's coming in 2016</title><link>http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/</link><description>&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
 the  release  of  the  new  website,  which  was  later that same year scrapped
 completely for a yet another website.  I was also able to finally integrate the
 last of the originally planned grids into Grid Framework.&lt;/p&gt;

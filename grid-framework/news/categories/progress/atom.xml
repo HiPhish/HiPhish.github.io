@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-11-30T00:00:00+01:00</updated><entry><title>Spherical grid coordinate systems</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" rel="alternate"></link><updated>2015-11-30T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-30:grid-framework/news/2015/11/30/spheric-coordinate-system/</id><summary type="html">&lt;p&gt;Progress has been better than expected and spheric grids are practically done.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-13T00:00:00+01:00</updated><entry><title>First major step towards 2.0</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/" rel="alternate"></link><updated>2016-01-13T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-13:grid-framework/news/2016/01/13/first-step-to-20/</id><summary type="html">&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
+renderers into their  own class.  Until now the  task of rendering the grid was
+part of the grid class, this made the classes much larger and it was impossible
+to add one's own rendering shapes without modifying the grids themselves.&lt;/p&gt;
+&lt;p&gt;The new  approach is  much cleaner  and more  in the spirit  of object-oriented
+programming:  The grid itself  does not  render anything at all.  It provides a
+public interface  that has all  the information needed for  &lt;em&gt;another&lt;/em&gt; object to
+compute all  the points necessary.  This second  object is the &lt;em&gt;renderer&lt;/em&gt;, it's
+another &lt;code&gt;Component&lt;/code&gt; attached to a &lt;code&gt;GameObject&lt;/code&gt;. In order to create a new custom
+shape you would just have to write a new renderer class and use the same public
+interface I used as well.  This means you get to use exactly the same API I was
+using as well, no hacking around in the source or using undocumented API.&lt;/p&gt;
+&lt;p&gt;I was glad to find that the public  API provided in version 1.x is all I needed
+to rewrite all  existing renderers.  This means that if  you already  know Grid
+Framework there is  nothing new to learn.  There are still  some questions open
+about how exactly to handle renderers;  currently all renderers are components,
+that's a very simple approach but it  has one nasty limitation: you cannot have
+more than one renderer of every type attached to the same &lt;code&gt;GameObject&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let's say you have two wizards and you want to visualise the area of effect for
+their spells.  It would make  sense to use  two different renderers of the same
+type on  the  same grid,  one for each wizard.  However,  since you cannot have
+more than one renderer per grid you  would have to make a duplicate of the grid
+&lt;code&gt;GameObject&lt;/code&gt;.  One solution  would  be to  drop the  &lt;code&gt;Component&lt;/code&gt; idea  and make
+renderers just regular classes,  but then we lose the ability to set properties
+in the inspector, and that is unacceptable.&lt;/p&gt;
+&lt;p&gt;The best idea I have so far is  to strike a balance between those two concepts:
+there will be a  container type for  renderers that  can contain  any amount of
+renderers.  The container  will be  a &lt;code&gt;Component&lt;/code&gt;  with a very  small inspector
+interface that  contains a sort  of foldout  for every renderer.  The renderers
+define their  own inspector  interface which  is then  rendered as  part of the
+container's interface.&lt;/p&gt;
+&lt;p&gt;The downside to this  is that the renderers  are now concerned  with two tasks:
+rendering the grid and their inspector interface.  It's small price to pay, but
+still. Maybe I will be able to come up with something better in the meantime.&lt;/p&gt;
+</summary></entry><entry><title>Spherical grid coordinate systems</title><link href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" rel="alternate"></link><updated>2015-11-30T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-30:grid-framework/news/2015/11/30/spheric-coordinate-system/</id><summary type="html">&lt;p&gt;Progress has been better than expected and spheric grids are practically done.
 This is a good opportunity to take a look at the coordinate systems in spheric
 grids.&lt;/p&gt;
 &lt;p&gt;The first application for spheric grids that came to my mind was using them
