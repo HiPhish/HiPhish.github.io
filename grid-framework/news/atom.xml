@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-13T00:00:00+01:00</updated><entry><title>First major step towards 2.0</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/" rel="alternate"></link><updated>2016-01-13T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-13:grid-framework/news/2016/01/13/first-step-to-20/</id><summary type="html">&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-17T00:00:00+01:00</updated><entry><title>First major step towards 2.0</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/" rel="alternate"></link><updated>2016-01-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-13:grid-framework/news/2016/01/13/first-step-to-20/</id><summary type="html">&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
 renderers into their  own class.  Until now the  task of rendering the grid was
 part of the grid class, this made the classes much larger and it was impossible
 to add one's own rendering shapes without modifying the grids themselves.&lt;/p&gt;
@@ -33,6 +33,19 @@ container's interface.&lt;/p&gt;
 &lt;p&gt;The downside to this  is that the renderers  are now concerned  with two tasks:
 rendering the grid and their inspector interface.  It's small price to pay, but
 still. Maybe I will be able to come up with something better in the meantime.&lt;/p&gt;
+&lt;div class="section" id="update"&gt;
+&lt;h2&gt;Update&lt;/h2&gt;
+&lt;p&gt;Well, this has been a waste of time:  turns out that you can have more than one
+component of the same type per &lt;code&gt;GameObject&lt;/code&gt;. I think that's the way to go then.
+Here is a  screenshot of it:  there is one  underlying main  grid which  uses a
+rectangular shape and two cone grids.  Every renderer has its  own setting like
+colour, position and so on.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Hexagonal grid with two hexagonal grids inside it" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/images/multi-renderers.png"/&gt;
+&lt;p class="caption"&gt;One wizard is  about to cast  the fireball  spell while another  is about to
+cast an ice-wall spell.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </summary></entry><entry><title>What's coming in 2016</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" rel="alternate"></link><updated>2016-01-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-02:grid-framework/news/2016/01/02/new-year-2016/</id><summary type="html">&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
 the  release  of  the  new  website,  which  was  later that same year scrapped
 completely for a yet another website.  I was also able to finally integrate the

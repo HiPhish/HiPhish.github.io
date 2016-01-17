@@ -246,6 +246,11 @@
 					<abbr class="published" title="Published: 2016-01-13T00:00:00+01:00">
 						2016-01-13
 					</abbr>
+					<br />
+					<span class="glyphicon glyphicon-edit"></span>
+					<abbr class="modified" title="Modified: 2016-01-17T00:00:00+01:00">
+						2016-01-17
+					</abbr>
 					<address class="vcard author">
 					</address>
 				</footer><!-- /.post-info -->
@@ -284,6 +289,19 @@ container's interface.</p>
 <p>The downside to this  is that the renderers  are now concerned  with two tasks:
 rendering the grid and their inspector interface.  It's small price to pay, but
 still. Maybe I will be able to come up with something better in the meantime.</p>
+<div class="section" id="update">
+<h2>Update</h2>
+<p>Well, this has been a waste of time:  turns out that you can have more than one
+component of the same type per <code>GameObject</code>. I think that's the way to go then.
+Here is a  screenshot of it:  there is one  underlying main  grid which  uses a
+rectangular shape and two cone grids.  Every renderer has its  own setting like
+colour, position and so on.</p>
+<div class="figure">
+<img alt="Hexagonal grid with two hexagonal grids inside it" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/images/multi-renderers.png"/>
+<p class="caption">One wizard is  about to cast  the fireball  spell while another  is about to
+cast an ice-wall spell.</p>
+</div>
+</div>
 
 				</article><!-- /.entry-content -->
 				<footer>
