@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 17 Jan 2016 00:00:00 +0100</lastBuildDate><item><title>First major step towards 2.0</title><link>http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/</link><description>&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 25 Jan 2016 00:00:00 +0100</lastBuildDate><item><title>Namespaces for everything</title><link>http://hiphish.github.io/grid-framework/news/2016/01/25/namespace-everything/</link><description>&lt;p&gt;Releasing a new major  version is a good  opportunity to  say goodbye  to older
+versions of your environment.  Version 2.0 will require at  least Unity version
+5.0, which will free me from the restrictions of previous versions.&lt;/p&gt;
+&lt;p&gt;One particular  restriction has  been the  lack of namespaces for  classes that
+inherit  from  &lt;code&gt;MonoBehaviour&lt;/code&gt;.  I don't  know anymore  which version  had that
+problem,  but essentially any  sub-class of  &lt;code&gt;MonoBehaviour&lt;/code&gt; had to  be in  the
+global namespace and  this lead to the ugly &lt;code&gt;GF&lt;/code&gt; prefix everywhere.  The prefix
+has been dropped  now from all  the grid  classes and  they are  in a  properly
+namespaced order.&lt;/p&gt;
+&lt;p&gt;The root namespace is &lt;code&gt;GridFramework&lt;/code&gt;,  there a number of  other namespaces are
+nested in it.  Grids reside in the &lt;code&gt;GridFramework.Grids&lt;/code&gt; namespace, their class
+names are the  same except for the  &lt;code&gt;GF&lt;/code&gt; prefix.  This is what a  piece of user
+code looks like without namespaces:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;GFRectGrid&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;gridPosition&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WorldToGrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let's use namespaces instead:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;UnityEngine&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;GridFramework.Grids&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;RectGrid&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;gridPosition&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WorldToGrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This may not  seem like much,  but keep in  mind that the  standalone renderers
+introduce a number  of new classes  as well,  if every one  of those had the be
+prefixes as well it would get very ugly very quickly.  Renderers reside  in the
+&lt;code&gt;GridFramework.Renderers&lt;/code&gt;  namespace  where  every  type of  grid  has its  own
+sub-namespace on top of that.  So if we want to use a rhombic hex-grid renderer
+we use the  &lt;code&gt;GridFramework.Renderers.Hexagonal.Rhombic&lt;/code&gt; class.  Why this  extra
+namespace in between?  All renderers  inherit from  a common grid-specific base
+class,  e.g.  &lt;code&gt;GridFramework.Renderers.Hexagonal.Renderer&lt;/code&gt;,  which in  turn all
+inherit from a common base class &lt;code&gt;GridFramework.Renderers.Renderer&lt;/code&gt;. This means
+that in order to implement your own renderer you already have a very good basis
+to build upon.&lt;/p&gt;
+&lt;p&gt;There might be more  namespaces down the line,  but they won't be as important.
+If you are concerned that  declarations might get  too large use the C# &lt;code&gt;using&lt;/code&gt;
+directive:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;Renderer&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GridFramework&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Renderers&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Hexagonal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Renderer&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyHexRenderer&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Renderer&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// ...&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And finally,  when everything is nicely  tucked away in different namespaces it
+is much easier to find what you are looking for in the documentation.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 25 Jan 2016 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2016-01-25:grid-framework/news/2016/01/25/namespace-everything/</guid></item><item><title>First major step towards 2.0</title><link>http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/</link><description>&lt;p&gt;I have  now finished the first major task  towards version 2.0:  extracting the
 renderers into their  own class.  Until now the  task of rendering the grid was
 part of the grid class, this made the classes much larger and it was impossible
 to add one's own rendering shapes without modifying the grids themselves.&lt;/p&gt;
