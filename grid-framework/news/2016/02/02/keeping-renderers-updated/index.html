@@ -214,69 +214,195 @@
 					<!-- Breadcrumbs to period archives -->
 					<ol class="breadcrumb">
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/">
-								2012
+							<a href="http://hiphish.github.io/grid-framework/news/2016/">
+								2016
 							</a>
 						</li>
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/07/">
-								7
+							<a href="http://hiphish.github.io/grid-framework/news/2016/02/">
+								2
 							</a>
 						</li>
 						<li class="active">
-								27
+								2
 						</li>
 						<li class="active">
-							a-quick-update
+							keeping-renderers-updated
 						</li>
 						<li></li>  <!-- a closing list item -->
 					</ol>
 					<h2 class="entry-title">
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" rel="bookmark" title="Permalink to A quick update">
-							A quick update
+						<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" rel="bookmark" title="Permalink to Keeping the renderers updated and efficient">
+							Keeping the renderers updated and efficient
 						</a>
-						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/misc/" role="button">
-							misc
+						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/progress/" role="button">
+							progress
 						</a>
 					</h2>
 				
 				</header>
 				<footer class="post-info">
 					<span class="glyphicon glyphicon-pencil"></span>
-					<abbr class="published" title="Published: 2012-07-27T00:00:00+02:00">
-						2012-07-27
+					<abbr class="published" title="Published: 2016-02-02T00:00:00+01:00">
+						2016-02-02
 					</abbr>
 					<address class="vcard author">
 					</address>
 				</footer><!-- /.post-info -->
 				<article class="entry-content">
-					<p>I have been contacted by an Asset Store admin, who recommends me to include a
-demo scene so users could see an end setup. I thought dragging a script onto an
-object is pretty straight-forward, but I agree, a demo scene would be a really
-good idea. The tricky party is coming up with good ideas; don't get me wrong, I
-have plenty of ideas for actual gameplay examples, but for a demo scene I need
-something more basic and at the same time more catchy. I already made a little
-sphere that randomly roams a grid face by face, stays within limits and
-immediately adapts to changes in the grid, all with just 32 lines of code total
-(not counting whitespaces and comments). I'll come up with two or three more
-nice demos, that should give a good impression of Grid Framework  in action.</p>
+					<p>Rendering a grid is a three-step process: first we count how many lines we need
+to render and  allocate the space needed,  then we compute their end points and
+finally we send them to Unity to do its thing. In the earliest versions of Grid
+Framework these three  steps had been done every frame.  Since arrays in C# are
+heap objects this would send the garbage  collector in overdrive for very large
+grids.</p>
+<p>An optimisation  was put in  place very quickly:  if the  grid has  not changed
+simply re-use  the existing points.  If the points have changed,  but not their
+amount re-use the array and only overwrite the values in it.  This could be the
+case for example when  you change the spacing of a rectangular grid,  the lines
+change, but their amount stays the same.</p>
+<p>Since back then  there were no  separate renderer classes  everything was  done
+inside the grid class and I had full control over everything going on,  but now
+we need some way for the renderer object to know when the grid has changed. The
+obvious solution would be  to keep a local copy of every public property of the
+grid in the renderer and compare the copy to the original every frame:</p>
+<div class="highlight"><pre><span class="c1">// private variables in the renderer</span>
+<span class="kt">var</span> <span class="n">spacing</span>  <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Spacing</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">shearing</span> <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Shearing</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="nf">GridHasChanged</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">spacing</span> <span class="p">!=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Spacing</span> <span class="p">||</span> <span class="n">shearing</span> <span class="p">!=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Shearing</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>This is pretty simple,  but it wastes memory by keeping basically a second copy
+of the grid and we would still have to run the method every frame. There has to
+be a better solution in which  the renderer does not not have to poll the grid,
+but the renderer gets notified by the grid instead.</p>
+<div class="section" id="subscribing-to-grid-events">
+<h2>Subscribing to grid events</h2>
+<p>C# offers such a feature  with events and delegates.  We define an event in the
+grid class and fire  it from the grid.  The renderer can subscribe to the event
+by setting a method to run when the grid fires the event.  This distributes the
+work  neatly  between  grid  and  renderer:  the  grid  does not  know who  has
+subscribed  to it  and  is only  concerned  with  firing the  event,  while the
+renderer takes on the responsibility of performing the actual action.</p>
+<p>The  renderer  subscribes  when  it  is  enabled  and  unsubscribes when  it is
+disabled.  The syntax is a bit odd:  the grid exposes  an event type and we add
+the delegates of  the method to call to it using the <code>+=</code> operator.  A delegate
+is  a  method  reference,  similar to  a function  pointer in  the C-family  of
+languages.</p>
+<div class="highlight"><pre><span class="c1">// The arguments of the event are encapsulated in their own type</span>
+<span class="k">using</span> <span class="nn">SpacingEventArgs</span> <span class="p">=</span> <span class="n">GridFramework</span><span class="p">.</span><span class="n">Grids</span><span class="p">.</span><span class="n">RectGrid</span><span class="p">.</span><span class="n">SpacingEventArgs</span><span class="p">;</span>
+
+<span class="c1">// Subscribe when the renderer gets enabled</span>
+<span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Grid</span><span class="p">.</span><span class="n">SpacingChanged</span> <span class="p">+=</span> <span class="n">OnSpacingChanged</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Unsubscribe when the renderer gets disabled</span>
+<span class="k">void</span> <span class="nf">OnDisable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Grid</span><span class="p">.</span><span class="n">SpacingChanged</span> <span class="p">-=</span> <span class="n">OnSpacingChanged</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The action to perform</span>
+<span class="k">private</span> <span class="k">void</span> <span class="nf">OnSpacingChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">source</span><span class="p">,</span> <span class="n">SpacingEventArgs</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Code goes here...</span>
+<span class="p">}</span>
+</pre></div>
+<p>These facilities are public and available to users as well if they want to
+subscribe.</p>
+<p>Using events for everything would be overkill though, for changes to the
+renderer itself we still use regular private methods inside the renderer class:</p>
+<div class="highlight"><pre><span class="c1">// Public accessor for member variable</span>
+<span class="k">public</span> <span class="n">Vector3</span> <span class="n">From</span> <span class="p">{</span>
+    <span class="k">get</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_from</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">set</span> <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">previous</span> <span class="p">=</span> <span class="n">_from</span><span class="p">;</span>
+        <span class="n">_from</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">value</span><span class="p">,</span> <span class="n">To</span><span class="p">);</span>
+        <span class="n">OnFromChanged</span><span class="p">(</span><span class="n">previous</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">OnFromChanged</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">previous</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Code goes here...</span>
+<span class="p">}</span>
+</pre></div>
+<p>We  cannot  subscribe  to these  changes,  nor should  we.  The changes  to the
+renderer  affect only  the points  computed,  it's a  black box  where you  get
+coordinates out and nothing more.</p>
+</div>
+<div class="section" id="ok-we-know-the-grid-has-changed-what-now">
+<h2>OK, we know the grid has changed, what now?</h2>
+<p>Knowing that something has changed is the first step, the next one is to decide
+what to do with that knowledge. The easiest solution is to just re-count and
+re-compute everything. If the amount of lines has not changed we don't need to
+allocate a new array, but other than that we don't save any work.</p>
+<div class="highlight"><pre><span class="kt">int</span> <span class="n">numberOfLines</span><span class="p">;</span>
+
+<span class="n">Vector3</span><span class="p">[][]</span> <span class="n">lines</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">Length</span> <span class="p">!=</span> <span class="n">numberOfLines</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// allocate a new array</span>
+<span class="p">}</span>
+</pre></div>
+<p>We could instead use the knowledge of <em>what</em> has  changed to make very specific
+adjustments which  might perform  better.  If we  take rectangular  grids as an
+example again,  a change in spacing can be replicated by multiplying all points
+with a number of matrices.  Profiling the two  possibilities has shown that the
+more complicated  approach performs  about  twice as well  on a 100 × 100 × 100
+grid.  The extra effort  is not always worth it though,  and if you are writing
+your own renderers  you should profile  the performance  of the  naive approach
+first.</p>
+</div>
+<div class="section" id="it-s-not-that-simple-though">
+<h2>It's not that simple though</h2>
+<p>Ideally this would be it, but Unity throws a few roadblocks in my way. For one,
+there is no  way to subscribe  reliably outside  of play  mode.  This means  in
+editor mode we have to re-count and re-compute the points anyway.  There are no
+new arrays allocated if we don't have to, so there is that.  Performance in the
+editor is not  as crucial and  I haven't  noticed any impact  on the editor for
+reasonably sized grids, so this shouldn't be an issue in practice.</p>
+<p>Another roadblock  is that  there is  no way  to be  notified when  an object's
+<code>Transform</code> changes. We have to do it the hard way:</p>
+<div class="highlight"><pre><span class="k">private</span> <span class="n">Vector3</span>    <span class="n">_oldPosition</span><span class="p">;</span>
+<span class="k">private</span> <span class="n">Quaternion</span> <span class="n">_oldRotation</span><span class="p">;</span>
+
+<span class="k">private</span> <span class="kt">bool</span> <span class="nf">TransformHasChanged</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">result</span> <span class="p">|=</span> <span class="n">_oldPosition</span> <span class="p">!=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+    <span class="n">result</span> <span class="p">|=</span> <span class="n">_oldRotation</span> <span class="p">!=</span> <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+
+    <span class="n">_oldPosition</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+    <span class="n">_oldRotation</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>These workarounds have the same drawbacks as discussed above, but they are much
+smaller now that they are reduced to just two cases.</p>
+</div>
+<div class="section" id="only-work-when-enabled">
+<h2>Only work when enabled</h2>
+<p>The final optimisation  is to not  work at al l when not necessary:  a renderer
+will not perform any of  these tasks when it is disabled.  This is the simplest
+of all, we unsubscribe from all events, the rendering system skips the renderer
+and nothing  is drawn.  Aside from  its  memory footprint  the renderer  has no
+impact on the game.  Disabling a renderer is done the same way as for any other
+Unity script,  either by  unchecking the  box in  the editor  or by setting the
+<code>enabled</code>  member  variable  to <code>false</code>.  This  was  not  possible  in previous
+versions where the renderer and the grid were one and the same object.</p>
+</div>
 
 				</article><!-- /.entry-content -->
 				<footer>
 					<hr />
-					<p>Tagged:
-						<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">old-blog</a>
-</p>
 					<nav>
 						<ul class="pager">
 							<li class="previous">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" rel="prev">
+								<a href="http://hiphish.github.io/grid-framework/news/2016/01/25/namespace-everything/" rel="prev">
 									<span aria-hidden="true">&larr;</span> Older
-								</a>
-							</li>
-							<li class="next">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" rel="next">
-									Newer <span aria-hidden="true">&rarr;</span>
 								</a>
 							</li>
 						</ul>
@@ -295,16 +421,16 @@ nice demos, that should give a good impression of Grid Framework  in action.</p>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">4</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2016
+						<i class="glyphicon glyphicon-chevron-down"></i>2016
 					</a>
 					<!-- Months in 2016 -->
-					<div class="list-group collapse" id="y-2016-item">
+					<div class="list-group collapse in" id="y-2016-item">
 						<a href="#y-2016-m-2-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>February
+							<i class="glyphicon glyphicon-chevron-down"></i>February
 						</a>
 						<!-- Articles in 2 -->
-						<div class="list-group collapse" id="y-2016-m-2-item">
+						<div class="list-group collapse in" id="y-2016-m-2-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" class="list-group-item">
 								Keeping the renderers updated and efficient
 							</a>
@@ -616,10 +742,10 @@ nice demos, that should give a good impression of Grid Framework  in action.</p>
 					</div>
 					<a href="#y-2012-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">40</span>
-						<i class="glyphicon glyphicon-chevron-down"></i>2012
+						<i class="glyphicon glyphicon-chevron-right"></i>2012
 					</a>
 					<!-- Months in 2012 -->
-					<div class="list-group collapse in" id="y-2012-item">
+					<div class="list-group collapse" id="y-2012-item">
 						<a href="#y-2012-m-12-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">4</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>December
@@ -753,10 +879,10 @@ nice demos, that should give a good impression of Grid Framework  in action.</p>
 						</div>
 						<a href="#y-2012-m-7-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-down"></i>July
+							<i class="glyphicon glyphicon-chevron-right"></i>July
 						</a>
 						<!-- Articles in 7 -->
-						<div class="list-group collapse in" id="y-2012-m-7-item">
+						<div class="list-group collapse" id="y-2012-m-7-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" class="list-group-item">
 								Grid movement and runtime snapping
 							</a>
