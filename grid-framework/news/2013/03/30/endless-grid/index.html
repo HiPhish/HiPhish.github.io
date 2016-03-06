@@ -270,7 +270,7 @@ old points are no longer valid), so caching doesn't do anything. The solution
 here is to add a little buffer, to make the grid larger than the view port, so
 we can move the camera a bit without going off the grid. Here is the video
 showing it step by step:</p>
-<div align="left" class="youtube"><iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QVOrLlwZEtU" width="420"></iframe></div><p>With such a small grid there is no real difference in using caching of not, but
+<div class="youtube youtube-16x9"><iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QVOrLlwZEtU"></iframe></div><p>With such a small grid there is no real difference in using caching of not, but
 the concept is there if you need it for larger cases. This example will work in
 the current version of Grid Framework, but caching is a feature of the upcoming
 version 1.2.4, which is still waiting for approval.</p>
@@ -309,11 +309,21 @@ version 1.2.4, which is still waiting for approval.</p>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">4</span>
+						<span class="badge">5</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>2016
 					</a>
 					<!-- Months in 2016 -->
 					<div class="list-group collapse" id="y-2016-item">
+						<a href="#y-2016-m-3-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>March
+						</a>
+						<!-- Articles in 3 -->
+						<div class="list-group collapse" id="y-2016-m-3-item">
+							<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
+								Official extension methods
+							</a>
+						</div>
 						<a href="#y-2016-m-2-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>February
@@ -923,10 +933,13 @@ version 1.2.4, which is still waiting for approval.</p>
 						</a>
 					</div>
 					<a href="#cat-progress-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">20</span>
+						<span class="badge">21</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>progress
 					</a>
 					<div class="list-group collapse" id="cat-progress-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
+							Official extension methods
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" class="list-group-item">
 							Keeping the renderers updated and efficient
 						</a>

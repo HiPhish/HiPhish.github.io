@@ -657,13 +657,13 @@ folder and the Asset Store Tools will be ignored.&lt;/p&gt;
 integrates Grid Framework into the menu bar. From now on you will never again
 have to drag scripts manually from the Plugins folder onto objects when using
 Grid Framework.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/99J52oEFnPA" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;If you want to try the Vectrosity examples please uncomment the scripts. I had
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/99J52oEFnPA"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;If you want to try the Vectrosity examples please uncomment the scripts. I had
 them commented so they wouldn't give errors to customers who don't have
 Vectrosity installed.&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Version 1.1.0 out now - rendering included</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/" rel="alternate"></link><updated>2012-08-08T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-08:grid-framework/news/2012/08/08/version-110/</id><summary type="html">&lt;p&gt;Unity just approved version 1.1.0, which includes the new inspector panel and
 the rendering setup. Now you can see your grid in the finished game, no pro
 license or any other addon needed.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/BhbrMHBasRs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category></entry><entry><title>Version 1.0.1</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" rel="alternate"></link><updated>2012-08-04T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-04:grid-framework/news/2012/08/04/version-101/</id><summary type="html">&lt;p&gt;If you tried debugging the functions FindNearestFace() or FindNearestBox() you
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/BhbrMHBasRs"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category></entry><entry><title>Version 1.0.1</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" rel="alternate"></link><updated>2012-08-04T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-04:grid-framework/news/2012/08/04/version-101/</id><summary type="html">&lt;p&gt;If you tried debugging the functions FindNearestFace() or FindNearestBox() you
 might have noticed that the cubes drawn didn't have the same rotation as the
 grid. While it didn't change anything about the returned value (only the centre
 of the cube mattered), it looked ugly. I've submitted a small update that fixes

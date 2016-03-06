@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-02-02T00:00:00+01:00</updated><entry><title>Keeping the renderers updated and efficient</title><link href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" rel="alternate"></link><updated>2016-02-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-02-02:grid-framework/news/2016/02/02/keeping-renderers-updated/</id><summary type="html">&lt;p&gt;Rendering a grid is a three-step process: first we count how many lines we need
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-03-05T00:00:00+01:00</updated><entry><title>Official extension methods</title><link href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" rel="alternate"></link><updated>2016-03-05T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-03-05:grid-framework/news/2016/03/05/official-extensions/</id><summary type="html">&lt;p&gt;If you have been  following my updates  in regards to version 2.0 you will have
+noticed that  one of the themes  has been slimming  down the API.  Some things,
+such as the &lt;code&gt;renderGrid&lt;/code&gt; flag are easy to replace  with something  more general
+or trivial to  replicate with one or  two lines of code.  Other methods however
+are non-trivial to implement,  useful to have and general enough to included in
+the framework.&lt;/p&gt;
+&lt;p&gt;This is where  extension methods come in.  Extension methods are a C# syntactic
+sugar  feature that  allows us  to write new methods  that can be treated as if
+they were instance methods of another class&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// Define the extension method&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;GetTwice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt; &lt;span class="n"&gt;MyClass&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;once&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="p"&gt;*&lt;/span&gt; &lt;span class="n"&gt;once&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Use the method&lt;/span&gt;
+&lt;span class="n"&gt;MyClass&lt;/span&gt; &lt;span class="n"&gt;myInstance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;four&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myInstance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetTwice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Extensions will be used for all the methods that are useful to have,  but don't
+rally belong  into the class itself.  Extensions reside  in their own namespace
+and need  to be  explicitly  imported  using  a &lt;code&gt;using&lt;/code&gt; statement.  Here is  a
+practical example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;GridFramework.Grids&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;GridFramework.Extensions.Nearest&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;RectGrid&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;vertex&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NearestVertex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Vector3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                    &lt;span class="n"&gt;RectGrid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CoordinateSystem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Grid&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While I was at it I also dropped the &lt;code&gt;W&lt;/code&gt; and &lt;code&gt;G&lt;/code&gt; suffixes,  instead you have to
+pass a  coordinate  system as  an argument.  If you  don't want  to  specify an
+argument every time you can write an extension method of your own.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;GridFramework.Grids&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="nn"&gt;GridFramework.Extensions.Nearest&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="nf"&gt;NearestVertex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt; &lt;span class="n"&gt;RectGrid&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Vector3&lt;/span&gt; &lt;span class="n"&gt;position&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;var&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RectGrid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CoordinateSystem&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Grid&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;NearestVertex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Extension methods allow me to group methods by their problem domain rather than
+the class they belong to.  Namespacing them also means t hey won't clutter your
+completion suggestions unless you import them explicitly.&lt;/p&gt;
+&lt;p&gt;For  now  the  methods  for alignment,  scaling,  finding  nearest  points  and
+Vectrosity support will be made into official extension methods.  This will cut
+down the size of  the grid classes  massively down: grids will only store their
+instance methods,  relevant enumerations,  accessors and  coordinate conversion
+methods.  In the  future new  extension  methods  can be  added with  their own
+namespace if the need arises.&lt;/p&gt;
+</summary></entry><entry><title>Keeping the renderers updated and efficient</title><link href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" rel="alternate"></link><updated>2016-02-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-02-02:grid-framework/news/2016/02/02/keeping-renderers-updated/</id><summary type="html">&lt;p&gt;Rendering a grid is a three-step process: first we count how many lines we need
 to render and  allocate the space needed,  then we compute their end points and
 finally we send them to Unity to do its thing. In the earliest versions of Grid
 Framework these three  steps had been done every frame.  Since arrays in C# are
@@ -648,7 +697,7 @@ you don't have to learn a new IDE for every project.&lt;/p&gt;
 &lt;p&gt;In fact, I have been designing my new upcoming website in Vim as well, the same
 editor I use for writing Grid Framework. How cool is that? Here is a video I
 found on YouTube of someone using Vim to edit text with the speed of though:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/lQNFfhC4QI8" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Grid Framework version 1.7.0 released</title><link href="http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/" rel="alternate"></link><updated>2014-12-11T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-12-11:grid-framework/news/2014/12/11/version-170/</id><summary type="html">&lt;p&gt;Version 1.7.0 of Grid Framework has just been approved by the Asset Store team.
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lQNFfhC4QI8"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Grid Framework version 1.7.0 released</title><link href="http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/" rel="alternate"></link><updated>2014-12-11T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-12-11:grid-framework/news/2014/12/11/version-170/</id><summary type="html">&lt;p&gt;Version 1.7.0 of Grid Framework has just been approved by the Asset Store team.
 This release brings some more love for hexagonal grids in the form of two new
 coordinate systems and four new rendering shapes.&lt;/p&gt;
 &lt;p&gt;The new coordinate systems are the downwards herringbone coordinate system
@@ -1323,7 +1372,7 @@ old points are no longer valid), so caching doesn't do anything. The solution
 here is to add a little buffer, to make the grid larger than the view port, so
 we can move the camera a bit without going off the grid. Here is the video
 showing it step by step:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QVOrLlwZEtU" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;With such a small grid there is no real difference in using caching of not, but
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QVOrLlwZEtU"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;With such a small grid there is no real difference in using caching of not, but
 the concept is there if you need it for larger cases. This example will work in
 the current version of Grid Framework, but caching is a feature of the upcoming
 version 1.2.4, which is still waiting for approval.&lt;/p&gt;
@@ -1639,7 +1688,7 @@ would have to write just one script for any type of grid? Luckily this is no
 problem in Unity thanks to extension methods and if you have the code, then
 wrapping it up into an extension method can de done in a few minutes. Take a
 look at my latest video tutorial:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/W_QteDtqHK4" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Extension methods are only available in C#, but once you've written the method
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/W_QteDtqHK4"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Extension methods are only available in C#, but once you've written the method
 you can use it in any of Unity's scripting languages. Aside from keeping your
 code cleaner, extension methods have the advantage that if you need to make
 adjustments to your game logic you only need to do it in one place and every
@@ -1647,7 +1696,7 @@ call of the method benefits from it.&lt;/p&gt;
 </summary><category term="extension"></category></entry><entry><title>Hex Grid introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" rel="alternate"></link><updated>2012-12-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-12-17:grid-framework/news/2012/12/17/hex-intro/</id><summary type="html">&lt;p&gt;I made a short video giving you an overview of hex grids, so you can see them
 right in action. I'll make a video on how to extend Grid Framework with your
 own methods yourself next,&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/1mb95Nhv8I0" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Grid Framework version 1.2.0 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/" rel="alternate"></link><updated>2012-12-07T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-12-07:grid-framework/news/2012/12/07/version-120/</id><summary type="html">&lt;p&gt;The wait is over, version 1.2.0 is out, bringing you the long promised hex
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/1mb95Nhv8I0"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Grid Framework version 1.2.0 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/" rel="alternate"></link><updated>2012-12-07T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-12-07:grid-framework/news/2012/12/07/version-120/</id><summary type="html">&lt;p&gt;The wait is over, version 1.2.0 is out, bringing you the long promised hex
 grids. I'll soon make a video demonstrating the new grid, in the meantime let
 me explain it in words. My implementation brings you all the features you knew
 from rectangular grids, except on a hex grid, and both grids inherit from the
@@ -1746,7 +1795,7 @@ the parent spheres have Rigidbodies, but all spheres have colliders and the
 script. Unity is designed in such a way that if an object has no rigidbody
 calling "rigidbody" will return the RB of its parent. Thus it's always as if I
 clicked the parent sphere when I click any sphere of a structure.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/JxnZxlfhu9g" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;I think this is a good solution. Unless I somehow come up with a better way to
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/JxnZxlfhu9g"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;I think this is a good solution. Unless I somehow come up with a better way to
 do aligning this is what I'm going to stick with.&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Grid Framework version 1.1.9 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" rel="alternate"></link><updated>2012-11-19T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-19:grid-framework/news/2012/11/19/version-119/</id><summary type="html">&lt;p&gt;Surprise update! Version 1.1.9 just got approved and it contains quite a few
 changes:&lt;/p&gt;
@@ -1866,7 +1915,7 @@ a few lines of plain text and you get perfect clockwork-like precision. This
 opens up new possibilities for faster development, easier maintenance, easier
 level editors and support for user-made content. Just take a look at how simle,
 yet effective it is:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/lvYWbJ8ohkA" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Version 1.1.7 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/" rel="alternate"></link><updated>2012-10-05T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-05:grid-framework/news/2012/10/05/version-117/</id><summary type="html">&lt;p&gt;Version 1.1.7 has been approved by the Asset Store team. I fixed a small typo
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lvYWbJ8ohkA"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Version 1.1.7 released</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/" rel="alternate"></link><updated>2012-10-05T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-05:grid-framework/news/2012/10/05/version-117/</id><summary type="html">&lt;p&gt;Version 1.1.7 has been approved by the Asset Store team. I fixed a small typo
 that prevented the menu item for adding the GFGridRenderCamera component from
 working and I added two more examples,  video tutorials will follow soon. I
 also redid the screenshots because the Asset Store ate my old ones somehow.&lt;/p&gt;
@@ -2093,7 +2142,7 @@ folder and the Asset Store Tools will be ignored.&lt;/p&gt;
 integrates Grid Framework into the menu bar. From now on you will never again
 have to drag scripts manually from the Plugins folder onto objects when using
 Grid Framework.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/99J52oEFnPA" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;If you want to try the Vectrosity examples please uncomment the scripts. I had
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/99J52oEFnPA"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;If you want to try the Vectrosity examples please uncomment the scripts. I had
 them commented so they wouldn't give errors to customers who don't have
 Vectrosity installed.&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Vectrosity progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" rel="alternate"></link><updated>2012-08-12T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-12:grid-framework/news/2012/08/12/vectrosity-progress/</id><summary type="html">&lt;p&gt;Well, it's pretty much done, you can now get a set of Vector3 points for use
@@ -2124,7 +2173,7 @@ time you'll see me talk about rendering for a while.&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Version 1.1.0 out now - rendering included</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/" rel="alternate"></link><updated>2012-08-08T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-08:grid-framework/news/2012/08/08/version-110/</id><summary type="html">&lt;p&gt;Unity just approved version 1.1.0, which includes the new inspector panel and
 the rendering setup. Now you can see your grid in the finished game, no pro
 license or any other addon needed.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/BhbrMHBasRs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category></entry><entry><title>A new inspector</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/" rel="alternate"></link><updated>2012-08-07T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-07:grid-framework/news/2012/08/07/new-inspector/</id><summary type="html">&lt;p&gt;Well, I wanted to do this sooner or later anyway, so I made a custom editor for
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/BhbrMHBasRs"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category></entry><entry><title>A new inspector</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/" rel="alternate"></link><updated>2012-08-07T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-07:grid-framework/news/2012/08/07/new-inspector/</id><summary type="html">&lt;p&gt;Well, I wanted to do this sooner or later anyway, so I made a custom editor for
 the rectangluar grid. Before this I was using the default inspector panel:&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="some image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/images/inspector.png"/&gt;
@@ -2182,12 +2231,12 @@ the rotation:&lt;/p&gt;
 </summary><category term="old-blog"></category></entry><entry><title>Grid-based game logic</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" rel="alternate"></link><updated>2012-08-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-03:grid-framework/news/2012/08/03/grid-based-game-logic/</id><summary type="html">&lt;p&gt;Another video tutorial, howing how to use grid-based game logic in a puzzle
 game. This is the tutorial for the lights-out game I mentioned before and which
 has been included with the package.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/sXlagrglfQ8" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;This tutorial is written in C# because it uses delegates and events. The reason
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/sXlagrglfQ8"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;This tutorial is written in C# because it uses delegates and events. The reason
 why is so that no single tile needs to know about the other tiles, making this
 code extremely flexible, you culd even change your scene during runtime. If you
 don't know about delegates and events I really recommend you to check out
 prime31studios' video. Their video series really got me into C# development.&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/N2zdwKIsXJs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;To give you the basic idea, events and delegates mean that somewhere somehow
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/N2zdwKIsXJs"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;To give you the basic idea, events and delegates mean that somewhere somehow
 something happens and some other objects react to that. The object that
 triggered the event itself has no idea who (if anyone) is listening and how
 they will resond. For example you could have an RPG where when you draw your
@@ -2213,7 +2262,7 @@ showcasing grid-based movement, one showcasing how to place objects on a grid
 during gameplay and the lights-out game mentioned below. i also made tutorial
 videos for the first two, showcasing how you can accomplish these tasks in a
 simple manner on your own:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/m9_efVi_tFs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QqUzcthkvcc" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>A quick update</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" rel="alternate"></link><updated>2012-07-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-27:grid-framework/news/2012/07/27/a-quick-update/</id><summary type="html">&lt;p&gt;I have been contacted by an Asset Store admin, who recommends me to include a
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/m9_efVi_tFs"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QqUzcthkvcc"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>A quick update</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" rel="alternate"></link><updated>2012-07-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-27:grid-framework/news/2012/07/27/a-quick-update/</id><summary type="html">&lt;p&gt;I have been contacted by an Asset Store admin, who recommends me to include a
 demo scene so users could see an end setup. I thought dragging a script onto an
 object is pretty straight-forward, but I agree, a demo scene would be a really
 good idea. The tricky party is coming up with good ideas; don't get me wrong, I
@@ -2260,7 +2309,7 @@ framework always finds the right tiles for you.&lt;/p&gt;
 &lt;p&gt;I will put up a video tutorial eventually once the package is released. I used
 delegates and events, so if you don't know what they are take a look at
 prime31studios' video tutorial:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/N2zdwKIsXJs" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>State of the game</title><link href="http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/" rel="alternate"></link><updated>2012-05-14T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-05-14:grid-framework/news/2012/05/14/state-of-the-game/</id><summary type="html">&lt;p&gt;It has been over a month since I posted the introductory video and sent my
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/N2zdwKIsXJs"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>State of the game</title><link href="http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/" rel="alternate"></link><updated>2012-05-14T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-05-14:grid-framework/news/2012/05/14/state-of-the-game/</id><summary type="html">&lt;p&gt;It has been over a month since I posted the introductory video and sent my
 application to Unity. I never received any confirmation, so I assume it got
 lost somewhere along the way...&lt;/p&gt;
 &lt;p&gt;Anyway, that doesn't mean I have been sitting here for over a month staring at

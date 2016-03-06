@@ -215,6 +215,32 @@
 						<article class="hentry">
 							<header>
 								<h2 class="entry-title">
+									<a href="http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/" rel="bookmark" title="Permalink to Seemingly endless grids and performance">
+										Seemingly endless grids and performance
+									</a>
+								</h2>
+							</header>
+							<footer class="article-info">
+								<span class="glyphicon glyphicon-pencil"></span>
+								<abbr class="article-published" title="Published: 2013-03-30T00:00:00+01:00">
+									2013-03-30
+								</abbr>
+								<address class="vcard author">
+								</address>
+							</footer><!-- /.article-info -->
+							<div class="entry-content">
+								<p>I've been dealing with performance in Grid Framework recently and added a
+feature that will keep the Garbage Collector from going crazy. Until now
+rendering always went like this: Manager requests rendering from grid -&gt; grid
+calculates the end points of each line -&gt; these points get passed to Unity's ...</p>
+							</div><!-- /.entry-content -->
+						</article>
+						<hr />
+				  </li>
+					<li class="article-summary">
+						<article class="hentry">
+							<header>
+								<h2 class="entry-title">
 									<a href="http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/" rel="bookmark" title="Permalink to Grid Framework version 1.2.3 released">
 										Grid Framework version 1.2.3 released
 									</a>
@@ -368,7 +394,7 @@ if you could ...</p>
 								<p>I made a short video giving you an overview of hex grids, so you can see them
 right in action. I'll make a video on how to extend Grid Framework with your
 own methods yourself next,</p>
-<div align="left" class="youtube"><iframe frameborder="0" height="315" src="https://www.youtube.com/embed/1mb95Nhv8I0" width="420"></iframe></div>
+<div class="youtube youtube-16x9"><iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/1mb95Nhv8I0"></iframe></div>
 							</div><!-- /.entry-content -->
 						</article>
 						<hr />
@@ -451,32 +477,6 @@ performing the aligning and scaling without having ...</p>
 						</article>
 						<hr />
 				  </li>
-					<li class="article-summary">
-						<article class="hentry">
-							<header>
-								<h2 class="entry-title">
-									<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" rel="bookmark" title="Permalink to How about herring for lunch?">
-										How about herring for lunch?
-									</a>
-								</h2>
-							</header>
-							<footer class="article-info">
-								<span class="glyphicon glyphicon-pencil"></span>
-								<abbr class="article-published" title="Published: 2012-11-27T00:00:00+01:00">
-									2012-11-27
-								</abbr>
-								<address class="vcard author">
-								</address>
-							</footer><!-- /.article-info -->
-							<div class="entry-content">
-								<p>Another progress update: WorldToGrid and GridToWorld are now implemented. For
-those who don't know, those two functions convert a point's coordinates from
-world space to grid space, the coordinate system used to locate points relative
-to the grid's properties, and back. For rectangular grids it's a ...</p>
-							</div><!-- /.entry-content -->
-						</article>
-						<hr />
-				  </li>
 				</ul><!-- /#posts-list -->
 			</div> <!-- / .article-main -->
 			
@@ -549,11 +549,21 @@ to the grid's properties, and back. For rectangular grids it's a ...</p>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">4</span>
+						<span class="badge">5</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>2016
 					</a>
 					<!-- Months in 2016 -->
 					<div class="list-group collapse" id="y-2016-item">
+						<a href="#y-2016-m-3-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>March
+						</a>
+						<!-- Articles in 3 -->
+						<div class="list-group collapse" id="y-2016-m-3-item">
+							<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
+								Official extension methods
+							</a>
+						</div>
 						<a href="#y-2016-m-2-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>February
@@ -1163,10 +1173,13 @@ to the grid's properties, and back. For rectangular grids it's a ...</p>
 						</a>
 					</div>
 					<a href="#cat-progress-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">20</span>
+						<span class="badge">21</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>progress
 					</a>
 					<div class="list-group collapse" id="cat-progress-item">
+						<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
+							Official extension methods
+						</a>
 						<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" class="list-group-item">
 							Keeping the renderers updated and efficient
 						</a>

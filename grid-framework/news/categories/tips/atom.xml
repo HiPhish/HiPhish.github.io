@@ -19,7 +19,7 @@ old points are no longer valid), so caching doesn't do anything. The solution
 here is to add a little buffer, to make the grid larger than the view port, so
 we can move the camera a bit without going off the grid. Here is the video
 showing it step by step:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/QVOrLlwZEtU" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;With such a small grid there is no real difference in using caching of not, but
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QVOrLlwZEtU"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;With such a small grid there is no real difference in using caching of not, but
 the concept is there if you need it for larger cases. This example will work in
 the current version of Grid Framework, but caching is a feature of the upcoming
 version 1.2.4, which is still waiting for approval.&lt;/p&gt;
@@ -32,7 +32,7 @@ would have to write just one script for any type of grid? Luckily this is no
 problem in Unity thanks to extension methods and if you have the code, then
 wrapping it up into an extension method can de done in a few minutes. Take a
 look at my latest video tutorial:&lt;/p&gt;
-&lt;div align="left" class="youtube"&gt;&lt;iframe frameborder="0" height="315" src="https://www.youtube.com/embed/W_QteDtqHK4" width="420"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Extension methods are only available in C#, but once you've written the method
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/W_QteDtqHK4"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;Extension methods are only available in C#, but once you've written the method
 you can use it in any of Unity's scripting languages. Aside from keeping your
 code cleaner, extension methods have the advantage that if you need to make
 adjustments to your game logic you only need to do it in one place and every
