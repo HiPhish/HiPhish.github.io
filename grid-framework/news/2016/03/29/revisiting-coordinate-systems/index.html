@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -212,45 +209,126 @@
 	<div class="container flex-block">
 
 		<div id="content" class="HolyGrail-content">
-<!-- Breadcrumbs to period archives -->
-<ol class="breadcrumb">
-	<li>
-		<a href="http://hiphish.github.io/grid-framework/news/2016/">
-			2016
-		</a>
-	</li>
-	<li class="active">
-			2
-	</li>
-	<li></li>  <!-- a closing list item -->
-</ol>
+			<div class="article-main">
+				<header>
+					<!-- Breadcrumbs to period archives -->
+					<ol class="breadcrumb">
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2016/">
+								2016
+							</a>
+						</li>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2016/03/">
+								3
+							</a>
+						</li>
+						<li class="active">
+								29
+						</li>
+						<li class="active">
+							revisiting-coordinate-systems
+						</li>
+						<li></li>  <!-- a closing list item -->
+					</ol>
+					<h2 class="entry-title">
+						<a href="http://hiphish.github.io/grid-framework/news/2016/03/29/revisiting-coordinate-systems/" rel="bookmark" title="Permalink to Revisiting coordinate systems">
+							Revisiting coordinate systems
+						</a>
+						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/progress/" role="button">
+							progress
+						</a>
+					</h2>
+				
+				</header>
+				<footer class="post-info">
+					<span class="glyphicon glyphicon-pencil"></span>
+					<abbr class="published" title="Published: 2016-03-29T00:00:00+02:00">
+						2016-03-29
+					</abbr>
+					<address class="vcard author">
+					</address>
+				</footer><!-- /.post-info -->
+				<article class="entry-content">
+					<p>There are basically two types of grid in Grid Framework: 3D grids and layered
+grids. 3D grids use all three dimensions, these are rectangular and spherical
+grids, while layered grids are 2D grids stacked on top of each other for a
+third dimension. In this post I will explain how the coordinate systems of
+layered girds will change in version 2.0.</p>
+<div class="section" id="how-it-is-in-version-1-x">
+<h2>How it is in version 1.x</h2>
+<p>Layered grids are 2D grids that are extended by a third dimension. This
+dimension is the <em>layer</em>. The question is how such a grid should be embedded in
+the surrounding 3D space. We could map the X- and Y-coordinates of the grid to
+the X- and Y-coordinates of the 3D space and map the layer to the Z-coordinate.
+Or we could use any other permutation.</p>
+<p>For a 2D game it makes sense if the X- and Y-coordinates of both spaces match.
+But what if we want to make a top-down 3D game? It would make more sense to map
+the X- and any Y-coordinates to the world's X- and Z-coordinates respectively
+and the layer to the Y-coordinate. And this is where the problem starts.</p>
+<p>Unit's coordinate system is left-handed, this means that if you take your left
+hand and have the thumb be the first axis, the index finger the second axis,
+then your middle finger is the third axis and it is pointing away from you.</p>
+<pre class="code literal-block">
+Y
+|   Z
+|  /   A left-handed coordinate system
+| /
+|/
++--------X
+</pre>
+<p>If we use the X-axis as the first one, the Z-axis as the second one and the
+Y-axis as the third axis our coordinate system becomes right-handed. We have
+the choice between either changing the handedness or having a Y-axis that
+points downwards. In version 1.x I had chosen the former.</p>
+<p>If you can't see the change in handedness try it out, take your left hand,
+point the thumb right, the middle finger up and your index finger will point
+towards you instead of away from you.</p>
+</div>
+<div class="section" id="how-it-will-be-in-version-2-0">
+<h2>How it will be in version 2.0</h2>
+<p>Changing handedness really causes more problems than it supposedly solves, so
+this will be completely scrapped, every coordinate system is left-handed. In a
+top-down game the X-axis of the grid will map to the Z-axis of the world, the
+Y-axis to the X-axis and the Z-axis to the Y-axis.</p>
+<pre class="code literal-block">
+Z
+|   X
+|  /   Rotated 60° about the (1, 1, 1) axis
+| /
+|/
++--------Y
+</pre>
+<p>There are good mathematical reasons for this, but the important part is that if
+we keep applying this transformation we cycle through the different left-handed
+permutations. This can easily be implemented as a matrix transformation.</p>
+<p>So that raises another question, if all we are doing here is rotating the grid,
+why don't we just rotate the grid using Unity's own capabilities? Why do we
+even have a grid plane in the first place? That's what I thought as well, so
+the grid plane has been scrapped completely for version 2.0, you just rotate
+the grid the way you like it.</p>
+<p>Finally, in version 1.x I also tried to match the grid-coordinates with the
+world coordinates, i.e. what would be the Y-coordinate in an XY-grid would
+become the Z-coordinate in an XZ-grid. I did this because I thought it would
+make more sense when you write your game-logic in an XZ-coordinate system, but
+that was making too many assumptions and just made everything even more
+complicated.</p>
+</div>
 
-<ul id="articles-list">
-	<li class="article-summary">
-		<article class="hentry">
-			<header>
-				<h2 class="entry-title">
-					<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" rel="bookmark" title="Permalink to Keeping the renderers updated and efficient">
-						Keeping the renderers updated and efficient
-					</a>
-				</h2>
-			</header>
-			<footer class="article-info">
-				<abbr class="article-published" title="2016-02-02T00:00:00+01:00"> 2016-02-02 </abbr>
-				<address class="vcard author">
-					By
-					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
-				</address>
-			</footer><!-- /.article-info -->
-			<div class="entry-content">
-				<p>Rendering a grid is a three-step process: first we count how many lines we need
-to render and  allocate the space needed,  then we compute their end points and
-finally we send them to Unity to do its thing. In the earliest versions of Grid
-Framework these three  steps had ...</p>
-			</div><!-- /.entry-content -->
-		</article>
-  </li>
-</ul><!-- /#posts-list -->
+				</article><!-- /.entry-content -->
+				<footer>
+					<hr />
+					<nav>
+						<ul class="pager">
+							<li class="previous">
+								<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" rel="prev">
+									<span aria-hidden="true">&larr;</span> Older
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</footer>
+			</div> <!-- / .article-main -->
 		</div> <!-- / #content .HolyGrail-content -->
 
 
@@ -263,16 +341,16 @@ Framework these three  steps had ...</p>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">6</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2016
+						<i class="glyphicon glyphicon-chevron-down"></i>2016
 					</a>
 					<!-- Months in 2016 -->
-					<div class="list-group collapse" id="y-2016-item">
+					<div class="list-group collapse in" id="y-2016-item">
 						<a href="#y-2016-m-3-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>March
+							<i class="glyphicon glyphicon-chevron-down"></i>March
 						</a>
 						<!-- Articles in 3 -->
-						<div class="list-group collapse" id="y-2016-m-3-item">
+						<div class="list-group collapse in" id="y-2016-m-3-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2016/03/29/revisiting-coordinate-systems/" class="list-group-item">
 								Revisiting coordinate systems
 							</a>

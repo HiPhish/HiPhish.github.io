@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 05 Mar 2016 00:00:00 +0100</lastBuildDate><item><title>Official extension methods</title><link>http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/</link><description>&lt;p&gt;If you have been  following my updates  in regards to version 2.0 you will have
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 29 Mar 2016 00:00:00 +0200</lastBuildDate><item><title>Revisiting coordinate systems</title><link>http://hiphish.github.io/grid-framework/news/2016/03/29/revisiting-coordinate-systems/</link><description>&lt;p&gt;There are basically two types of grid in Grid Framework: 3D grids and layered
+grids. 3D grids use all three dimensions, these are rectangular and spherical
+grids, while layered grids are 2D grids stacked on top of each other for a
+third dimension. In this post I will explain how the coordinate systems of
+layered girds will change in version 2.0.&lt;/p&gt;
+&lt;div class="section" id="how-it-is-in-version-1-x"&gt;
+&lt;h2&gt;How it is in version 1.x&lt;/h2&gt;
+&lt;p&gt;Layered grids are 2D grids that are extended by a third dimension. This
+dimension is the &lt;em&gt;layer&lt;/em&gt;. The question is how such a grid should be embedded in
+the surrounding 3D space. We could map the X- and Y-coordinates of the grid to
+the X- and Y-coordinates of the 3D space and map the layer to the Z-coordinate.
+Or we could use any other permutation.&lt;/p&gt;
+&lt;p&gt;For a 2D game it makes sense if the X- and Y-coordinates of both spaces match.
+But what if we want to make a top-down 3D game? It would make more sense to map
+the X- and any Y-coordinates to the world's X- and Z-coordinates respectively
+and the layer to the Y-coordinate. And this is where the problem starts.&lt;/p&gt;
+&lt;p&gt;Unit's coordinate system is left-handed, this means that if you take your left
+hand and have the thumb be the first axis, the index finger the second axis,
+then your middle finger is the third axis and it is pointing away from you.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Y
+|   Z
+|  /   A left-handed coordinate system
+| /
+|/
++--------X
+&lt;/pre&gt;
+&lt;p&gt;If we use the X-axis as the first one, the Z-axis as the second one and the
+Y-axis as the third axis our coordinate system becomes right-handed. We have
+the choice between either changing the handedness or having a Y-axis that
+points downwards. In version 1.x I had chosen the former.&lt;/p&gt;
+&lt;p&gt;If you can't see the change in handedness try it out, take your left hand,
+point the thumb right, the middle finger up and your index finger will point
+towards you instead of away from you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-it-will-be-in-version-2-0"&gt;
+&lt;h2&gt;How it will be in version 2.0&lt;/h2&gt;
+&lt;p&gt;Changing handedness really causes more problems than it supposedly solves, so
+this will be completely scrapped, every coordinate system is left-handed. In a
+top-down game the X-axis of the grid will map to the Z-axis of the world, the
+Y-axis to the X-axis and the Z-axis to the Y-axis.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Z
+|   X
+|  /   Rotated 60° about the (1, 1, 1) axis
+| /
+|/
++--------Y
+&lt;/pre&gt;
+&lt;p&gt;There are good mathematical reasons for this, but the important part is that if
+we keep applying this transformation we cycle through the different left-handed
+permutations. This can easily be implemented as a matrix transformation.&lt;/p&gt;
+&lt;p&gt;So that raises another question, if all we are doing here is rotating the grid,
+why don't we just rotate the grid using Unity's own capabilities? Why do we
+even have a grid plane in the first place? That's what I thought as well, so
+the grid plane has been scrapped completely for version 2.0, you just rotate
+the grid the way you like it.&lt;/p&gt;
+&lt;p&gt;Finally, in version 1.x I also tried to match the grid-coordinates with the
+world coordinates, i.e. what would be the Y-coordinate in an XY-grid would
+become the Z-coordinate in an XZ-grid. I did this because I thought it would
+make more sense when you write your game-logic in an XZ-coordinate system, but
+that was making too many assumptions and just made everything even more
+complicated.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 29 Mar 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-03-29:grid-framework/news/2016/03/29/revisiting-coordinate-systems/</guid></item><item><title>Official extension methods</title><link>http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/</link><description>&lt;p&gt;If you have been  following my updates  in regards to version 2.0 you will have
 noticed that  one of the themes  has been slimming  down the API.  Some things,
 such as the &lt;code&gt;renderGrid&lt;/code&gt; flag are easy to replace  with something  more general
 or trivial to  replicate with one or  two lines of code.  Other methods however
