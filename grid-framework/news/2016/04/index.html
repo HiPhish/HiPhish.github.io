@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -209,94 +212,45 @@
 	<div class="container flex-block">
 
 		<div id="content" class="HolyGrail-content">
-			<div class="article-main">
-				<header>
-					<!-- Breadcrumbs to period archives -->
-					<ol class="breadcrumb">
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/">
-								2012
-							</a>
-						</li>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/">
-								11
-							</a>
-						</li>
-						<li class="active">
-								30
-						</li>
-						<li class="active">
-							version-1110
-						</li>
-						<li></li>  <!-- a closing list item -->
-					</ol>
-					<h2 class="entry-title">
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" rel="bookmark" title="Permalink to Grid Framework version 1.1.10 released">
-							Grid Framework version 1.1.10 released
-						</a>
-						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/release/" role="button">
-							release
-						</a>
-					</h2>
-				
-				</header>
-				<footer class="post-info">
-					<span class="glyphicon glyphicon-pencil"></span>
-					<abbr class="published" title="Published: 2012-11-30T00:00:00+01:00">
-						2012-11-30
-					</abbr>
-					<address class="vcard author">
-					</address>
-				</footer><!-- /.post-info -->
-				<article class="entry-content">
-					<p>The 1.1.10 update brings in a new function, ScaleVector3(Vector scl) : Vector3
-which takes in a vector and then scales it so it fits inside the grid. This is
-similar to AlignVector3, which was introduced in the last update, to allow
-performing the aligning and scaling without having to provide an actual
-Transform.</p>
-<p>In other news, the hex grids are almost done. All the functionality has been
-written, now I need to clean everything up and write the documentation. Hex
-grids will be officially introduced in the 1.2.0 update, which I expect to
-release within the next week or, if something goes wrong, the week after.
-Unfortunately, due to all the work I have put into Grid Framework since the
-first release I cannot charge 15$ anymore, starting with 1.2.0 the price will
-be raised to 20$, so if you want a copy of Grid Framework, now is the time to
-get it. When I originally released Grid Framework there were still many loose
-ends and it was not integrated well into the workflow. When you downloaded it
-from the Asset Store you had to move files manually in place, there were no
-menu entries, you had to drag a script manually onto objects, there was no
-custom inspector panel, there was no rendering, no Vectrosity support and less
-examples included. Over the time I have been adressing all these shortcomings
-and improving, but none on its own felt like they were justifying a price
-increase. With hex grids I'm bringing in a major functionality update and I
-believe the 20$ price tag is still well justified. Of course anyone who has
-already purchased Grid Framework will get this and all future updates for free,
-that was the deal when I first launched it and nothing is going to change about
-that.</p>
+<!-- Breadcrumbs to period archives -->
+<ol class="breadcrumb">
+	<li>
+		<a href="http://hiphish.github.io/grid-framework/news/2016/">
+			2016
+		</a>
+	</li>
+	<li class="active">
+			4
+	</li>
+	<li></li>  <!-- a closing list item -->
+</ol>
 
-				</article><!-- /.entry-content -->
-				<footer>
-					<hr />
-					<p>Tagged:
-						<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">old-blog</a>
-</p>
-					<nav>
-						<ul class="pager">
-							<li class="previous">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" rel="prev">
-									<span aria-hidden="true">&larr;</span> Older
-								</a>
-							</li>
-							<li class="next">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120-submitted/" rel="next">
-									Newer <span aria-hidden="true">&rarr;</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</footer>
-			</div> <!-- / .article-main -->
+<ul id="articles-list">
+	<li class="article-summary">
+		<article class="hentry">
+			<header>
+				<h2 class="entry-title">
+					<a href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" rel="bookmark" title="Permalink to Managing renderers">
+						Managing renderers
+					</a>
+				</h2>
+			</header>
+			<footer class="article-info">
+				<abbr class="article-published" title="2016-04-13T00:00:00+02:00"> 2016-04-13 </abbr>
+				<address class="vcard author">
+					By
+					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
+				</address>
+			</footer><!-- /.article-info -->
+			<div class="entry-content">
+				<p>Breaking the rendering  task out of the grid  into its own dedicated class is a
+good first step, but if all we have gained from this is several smaller classes
+we haven't  really gained much.  In this entry  I will discuss  how version 2.0
+gives you more control ...</p>
+			</div><!-- /.entry-content -->
+		</article>
+  </li>
+</ul><!-- /#posts-list -->
 		</div> <!-- / #content .HolyGrail-content -->
 
 
@@ -653,10 +607,10 @@ that.</p>
 					</div>
 					<a href="#y-2012-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">40</span>
-						<i class="glyphicon glyphicon-chevron-down"></i>2012
+						<i class="glyphicon glyphicon-chevron-right"></i>2012
 					</a>
 					<!-- Months in 2012 -->
-					<div class="list-group collapse in" id="y-2012-item">
+					<div class="list-group collapse" id="y-2012-item">
 						<a href="#y-2012-m-12-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">4</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>December
@@ -678,10 +632,10 @@ that.</p>
 						</div>
 						<a href="#y-2012-m-11-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">7</span>
-							<i class="glyphicon glyphicon-chevron-down"></i>November
+							<i class="glyphicon glyphicon-chevron-right"></i>November
 						</a>
 						<!-- Articles in 11 -->
-						<div class="list-group collapse in" id="y-2012-m-11-item">
+						<div class="list-group collapse" id="y-2012-m-11-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" class="list-group-item">
 								Grid Framework version 1.1.10 released
 							</a>
