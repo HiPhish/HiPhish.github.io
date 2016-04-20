@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-04-13T00:00:00+02:00</updated><entry><title>Managing renderers</title><link href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" rel="alternate"></link><updated>2016-04-13T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-13:grid-framework/news/2016/04/13/managing-renderers/</id><summary type="html">&lt;p&gt;Breaking the rendering  task out of the grid  into its own dedicated class is a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-04-20T00:00:00+02:00</updated><entry><title>One unified directory</title><link href="http://hiphish.github.io/grid-framework/news/2016/04/20/one-directory/" rel="alternate"></link><updated>2016-04-20T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-20:grid-framework/news/2016/04/20/one-directory/</id><summary type="html">&lt;p&gt;In version  1.x Grid Framework  has been distributed  over several directories:
+&lt;em&gt;Plugins&lt;/em&gt;,  &lt;em&gt;Editor&lt;/em&gt;,  &lt;em&gt;WebPlayerTemplates&lt;/em&gt;  and  &lt;em&gt;GridFamework&lt;/em&gt;.  I  did  this
+because  it seemed  logical to  split the  content by purpose,  but some people
+disagreed with my choice,  so for version 2.0  everything will unify everything
+in one directory.&lt;/p&gt;
+&lt;p&gt;Here is what it looked like before:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Assets
+├─Editor
+│ └─Grid Famework
+│   └─...
+├─Grid Framework
+│ └─...
+├─Plugins
+│ └─Grid Famework
+│   └─...
+└─WebPlayerTemplates
+  └─Grid Framework Documentation
+    └─...
+&lt;/pre&gt;
+&lt;p&gt;And this is what it looks like now:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Assets
+└─Plugins
+  └─Grid Famework
+    ├─Changelog.md
+    ├─readme.txt
+    ├─Editor
+    │ └─...
+    ├─Examples
+    │ └─...
+    ├─Extensions
+    │ └─...
+    ├─Grids
+    │ └─...
+    ├─Interfaces
+    │ └─...
+    ├─Matrices
+    │ └─...
+    ├─Playmaker Actions
+    │ └─...
+    ├─Renderers
+    │ └─...
+    ├─Rendering
+    │ └─...
+    ├─Resources
+    │ └─...
+    ├─Test
+    │ └─...
+    └─Vectors
+      └─...
+&lt;/pre&gt;
+&lt;p&gt;Now all  of Grid Framework  is confined to  one directory i nside your project.
+There is one  downside though:  UnityScript source files  are compiled after C#
+source files in the &lt;em&gt;Plugins&lt;/em&gt; directory. This means that examples can no longer
+be written  in UnityScript.  My choice was  to either rewrite  the  UnityScript
+examples or  give up  the unified  directory.  I have  chosen  the former,  the
+examples are simple enough  that even people  unfamiliar with C# can understand
+them and most of the examples cannot be implemented in UnityScrip anyway. In my
+opinion Unity has done us a disfavour by  having two languages when one of them
+is a second-class citizen, and pushing that one as the default.&lt;/p&gt;
+&lt;p&gt;Finally,  I still haven't figured out what  to do with the &lt;em&gt;WebPlayerTemplates&lt;/em&gt;
+directory. I have been distributing the documentation in that directory because
+otherwise Unity would try to compile  the JavaScript files as UnityScript files
+and  fail.   It  is  unacceptable   to  publish  a  framework  withoutt offline
+documentation,  but at the  same time I  don't like  abusing the  directory and
+spamming  people's project.  One idea  would be  to ZIP  the documentation  and
+include it like that. Another possibility would be to change the file extension
+of every JavaScript file to for example  &lt;code&gt;.txt&lt;/code&gt;,  but then I would also have to
+change every reference in every HTML and JavaScript file as well.&lt;/p&gt;
+</summary></entry><entry><title>Managing renderers</title><link href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" rel="alternate"></link><updated>2016-04-13T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-13:grid-framework/news/2016/04/13/managing-renderers/</id><summary type="html">&lt;p&gt;Breaking the rendering  task out of the grid  into its own dedicated class is a
 good first step, but if all we have gained from this is several smaller classes
 we haven't  really gained much.  In this entry  I will discuss  how version 2.0
 gives you more control over the rendering process.&lt;/p&gt;

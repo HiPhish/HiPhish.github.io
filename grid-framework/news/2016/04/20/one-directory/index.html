@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -212,98 +209,132 @@
 	<div class="container flex-block">
 
 		<div id="content" class="HolyGrail-content">
-<!-- Breadcrumbs to period archives -->
-<ol class="breadcrumb">
-	<li>
-		<a href="http://hiphish.github.io/grid-framework/news/2013/">
-			2013
-		</a>
-	</li>
-	<li class="active">
-			5
-	</li>
-	<li></li>  <!-- a closing list item -->
-</ol>
+			<div class="article-main">
+				<header>
+					<!-- Breadcrumbs to period archives -->
+					<ol class="breadcrumb">
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2016/">
+								2016
+							</a>
+						</li>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2016/04/">
+								4
+							</a>
+						</li>
+						<li class="active">
+								20
+						</li>
+						<li class="active">
+							one-directory
+						</li>
+						<li></li>  <!-- a closing list item -->
+					</ol>
+					<h2 class="entry-title">
+						<a href="http://hiphish.github.io/grid-framework/news/2016/04/20/one-directory/" rel="bookmark" title="Permalink to One unified directory">
+							One unified directory
+						</a>
+						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/progress/" role="button">
+							progress
+						</a>
+					</h2>
+				
+				</header>
+				<footer class="post-info">
+					<span class="glyphicon glyphicon-pencil"></span>
+					<abbr class="published" title="Published: 2016-04-20T00:00:00+02:00">
+						2016-04-20
+					</abbr>
+					<address class="vcard author">
+					</address>
+				</footer><!-- /.post-info -->
+				<article class="entry-content">
+					<p>In version  1.x Grid Framework  has been distributed  over several directories:
+<em>Plugins</em>,  <em>Editor</em>,  <em>WebPlayerTemplates</em>  and  <em>GridFamework</em>.  I  did  this
+because  it seemed  logical to  split the  content by purpose,  but some people
+disagreed with my choice,  so for version 2.0  everything will unify everything
+in one directory.</p>
+<p>Here is what it looked like before:</p>
+<pre class="code literal-block">
+Assets
+├─Editor
+│ └─Grid Famework
+│   └─...
+├─Grid Framework
+│ └─...
+├─Plugins
+│ └─Grid Famework
+│   └─...
+└─WebPlayerTemplates
+  └─Grid Framework Documentation
+    └─...
+</pre>
+<p>And this is what it looks like now:</p>
+<pre class="code literal-block">
+Assets
+└─Plugins
+  └─Grid Famework
+    ├─Changelog.md
+    ├─readme.txt
+    ├─Editor
+    │ └─...
+    ├─Examples
+    │ └─...
+    ├─Extensions
+    │ └─...
+    ├─Grids
+    │ └─...
+    ├─Interfaces
+    │ └─...
+    ├─Matrices
+    │ └─...
+    ├─Playmaker Actions
+    │ └─...
+    ├─Renderers
+    │ └─...
+    ├─Rendering
+    │ └─...
+    ├─Resources
+    │ └─...
+    ├─Test
+    │ └─...
+    └─Vectors
+      └─...
+</pre>
+<p>Now all  of Grid Framework  is confined to  one directory i nside your project.
+There is one  downside though:  UnityScript source files  are compiled after C#
+source files in the <em>Plugins</em> directory. This means that examples can no longer
+be written  in UnityScript.  My choice was  to either rewrite  the  UnityScript
+examples or  give up  the unified  directory.  I have  chosen  the former,  the
+examples are simple enough  that even people  unfamiliar with C# can understand
+them and most of the examples cannot be implemented in UnityScrip anyway. In my
+opinion Unity has done us a disfavour by  having two languages when one of them
+is a second-class citizen, and pushing that one as the default.</p>
+<p>Finally,  I still haven't figured out what  to do with the <em>WebPlayerTemplates</em>
+directory. I have been distributing the documentation in that directory because
+otherwise Unity would try to compile  the JavaScript files as UnityScript files
+and  fail.   It  is  unacceptable   to  publish  a  framework  withoutt offline
+documentation,  but at the  same time I  don't like  abusing the  directory and
+spamming  people's project.  One idea  would be  to ZIP  the documentation  and
+include it like that. Another possibility would be to change the file extension
+of every JavaScript file to for example  <code>.txt</code>,  but then I would also have to
+change every reference in every HTML and JavaScript file as well.</p>
 
-<ul id="articles-list">
-	<li class="article-summary">
-		<article class="hentry">
-			<header>
-				<h2 class="entry-title">
-					<a href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" rel="bookmark" title="Permalink to Polar grid drawing refined">
-						Polar grid drawing refined
-					</a>
-				</h2>
-			</header>
-			<footer class="article-info">
-				<abbr class="article-published" title="2013-05-26T00:00:00+02:00"> 2013-05-26 </abbr>
-				<address class="vcard author">
-					By
-					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
-				</address>
-			</footer><!-- /.article-info -->
-			<div class="entry-content">
-				<p>Hello again</p>
-<p>Last time I showed a preview of polar grids it was a full cycle starting from
-the origin containing all layers up to the edge. During runtime if only part of
-the grid is visible to the player rendering the whole thing can be a waste of
-resources ...</p>
-			</div><!-- /.entry-content -->
-		</article>
-  </li>
-	<li class="article-summary">
-		<article class="hentry">
-			<header>
-				<h2 class="entry-title">
-					<a href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" rel="bookmark" title="Permalink to Grid Framework version 1.2.5 released">
-						Grid Framework version 1.2.5 released
-					</a>
-				</h2>
-			</header>
-			<footer class="article-info">
-				<abbr class="article-published" title="2013-05-17T00:00:00+02:00"> 2013-05-17 </abbr>
-				<address class="vcard author">
-					By
-					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
-				</address>
-			</footer><!-- /.article-info -->
-			<div class="entry-content">
-				<p>This release serves as a preparation for Version 1.3.0, which will add polar
-grids</p>
-<ul class="simple">
-<li>The methods NearestVertex/Face/BoxW and NearestVertex/Face/BoxG replace
-FindNearestVertex/Face/Box and GetVertex/Face/BoxCoordinates respectively.
-This is just a change in name, as the old nomencalture was confusing and
-makes no ...</li></ul>
-			</div><!-- /.entry-content -->
-		</article>
-  </li>
-	<li class="article-summary">
-		<article class="hentry">
-			<header>
-				<h2 class="entry-title">
-					<a href="http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/" rel="bookmark" title="Permalink to A first look at polar grids">
-						A first look at polar grids
-					</a>
-				</h2>
-			</header>
-			<footer class="article-info">
-				<abbr class="article-published" title="2013-05-10T00:00:00+02:00"> 2013-05-10 </abbr>
-				<address class="vcard author">
-					By
-					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
-				</address>
-			</footer><!-- /.article-info -->
-			<div class="entry-content">
-				<p>I've been working on the next type of grid: polar grids. The <a class="reference external" href="http://en.wikipedia.org/wiki/Polar_coordinates">polar
-grid</a> is based on polar
-coordinates, meaning instead of identifying a point's position using X and Y
-coordinates we use a radius and an angle. The radius tells us how far from the
-origin the ...</p>
-			</div><!-- /.entry-content -->
-		</article>
-  </li>
-</ul><!-- /#posts-list -->
+				</article><!-- /.entry-content -->
+				<footer>
+					<hr />
+					<nav>
+						<ul class="pager">
+							<li class="previous">
+								<a href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" rel="prev">
+									<span aria-hidden="true">&larr;</span> Older
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</footer>
+			</div> <!-- / .article-main -->
 		</div> <!-- / #content .HolyGrail-content -->
 
 
@@ -316,16 +347,16 @@ origin the ...</p>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">8</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2016
+						<i class="glyphicon glyphicon-chevron-down"></i>2016
 					</a>
 					<!-- Months in 2016 -->
-					<div class="list-group collapse" id="y-2016-item">
+					<div class="list-group collapse in" id="y-2016-item">
 						<a href="#y-2016-m-4-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>April
+							<i class="glyphicon glyphicon-chevron-down"></i>April
 						</a>
 						<!-- Articles in 4 -->
-						<div class="list-group collapse" id="y-2016-m-4-item">
+						<div class="list-group collapse in" id="y-2016-m-4-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2016/04/20/one-directory/" class="list-group-item">
 								One unified directory
 							</a>
