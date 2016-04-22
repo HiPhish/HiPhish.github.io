@@ -68,7 +68,7 @@ above the content. The finished layout looks like this:&lt;/p&gt;
 &lt;/pre&gt;
 &lt;p&gt;The URL of each page is chosen so that moving one directory up in the hierarchy
 will move you to the parent archive. For instance, a blog post has the URL
-&lt;code&gt;website.com/blog/year/month/day/slug&lt;/code&gt;. Removing the &lt;cite&gt;slug&lt;/cite&gt; will take you
+&lt;code&gt;website.com/blog/year/month/day/slug&lt;/code&gt;. Removing the &lt;code&gt;slug&lt;/code&gt; will take you
 to the daily archive, removing the day takes you to the monthly archive and
 removing the month takes you to the yearly archive. Removing even the year
 takes you to the index of the blog. Pretty neat. If changing the URL is too

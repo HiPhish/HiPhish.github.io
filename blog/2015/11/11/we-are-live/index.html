@@ -255,7 +255,7 @@ above the content. The finished layout looks like this:</p>
 </pre>
 <p>The URL of each page is chosen so that moving one directory up in the hierarchy
 will move you to the parent archive. For instance, a blog post has the URL
-<code>website.com/blog/year/month/day/slug</code>. Removing the <cite>slug</cite> will take you
+<code>website.com/blog/year/month/day/slug</code>. Removing the <code>slug</code> will take you
 to the daily archive, removing the day takes you to the monthly archive and
 removing the month takes you to the yearly archive. Removing even the year
 takes you to the index of the blog. Pretty neat. If changing the URL is too
@@ -298,6 +298,23 @@ It's going to be interesting :)</p>
 				<strong><a href="http://hiphish.github.io/blog/archives/">Archives</a></strong>
 				<!-- Period navigation -->
 				<div class="list-group list-group-root hidden-xs">
+					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>2016
+					</a>
+					<!-- Months in 2016 -->
+					<div class="list-group collapse" id="y-2016-item">
+						<a href="#y-2016-m-4-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>April
+						</a>
+						<!-- Articles in 4 -->
+						<div class="list-group collapse" id="y-2016-m-4-item">
+							<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+								Neovim has tab-local working directories now
+							</a>
+						</div>
+					</div>
 					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">2</span>
 						<i class="glyphicon glyphicon-chevron-down"></i>2015
@@ -325,6 +342,15 @@ It's going to be interesting :)</p>
 			<div>
 				<strong style="display:block;"><a href="http://hiphish.github.io/blog/categories/">Categories</a></strong>
 				<div class="list-group list-group-root hidden-xs">
+					<a href="#cat-Open-Source-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>Open-Source
+					</a>
+					<div class="list-group collapse" id="cat-Open-Source-item">
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
+					</div>
 					<a href="#cat-organisation-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">2</span>
 						<i class="glyphicon glyphicon-chevron-right"></i>organisation
@@ -343,6 +369,15 @@ It's going to be interesting :)</p>
 			<div>
 				<strong style="display:block;"><a href="http://hiphish.github.io/blog/tags/">Tags</a></strong>
 				<div class="list-group list-group-root hidden-xs">
+					<a href="#tag-neovim-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>neovim
+					</a>
+					<div class="list-group collapse" id="tag-neovim-item">
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
+					</div>
 					<a href="#tag-website-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">2</span>
 						<span class="glyphicon glyphicon-chevron-right"></span>website
@@ -362,10 +397,13 @@ It's going to be interesting :)</p>
 				<strong style="display:block;"><a href="http://hiphish.github.io/blog/authors/">Authors</a></strong>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#aut-HiPhish-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">2</span>
+						<span class="badge">3</span>
 						<span class="glyphicon glyphicon-chevron-right"></span>HiPhish
 					</a>
 					<div class="list-group collapse" id="aut-HiPhish-item">
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
 						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
 							Feeds are live now
 						</a>
