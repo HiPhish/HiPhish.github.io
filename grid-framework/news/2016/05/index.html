@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -209,109 +212,48 @@
 	<div class="container flex-block">
 
 		<div id="content" class="HolyGrail-content">
-			<div class="article-main">
-				<header>
-					<!-- Breadcrumbs to period archives -->
-					<ol class="breadcrumb">
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/">
-								2015
-							</a>
-						</li>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/">
-								11
-							</a>
-						</li>
-						<li class="active">
-								30
-						</li>
-						<li class="active">
-							spheric-coordinate-system
-						</li>
-						<li></li>  <!-- a closing list item -->
-					</ol>
-					<h2 class="entry-title">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" rel="bookmark" title="Permalink to Spherical grid coordinate systems">
-							Spherical grid coordinate systems
-						</a>
-						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/progress/" role="button">
-							progress
-						</a>
-					</h2>
-				
-				</header>
-				<footer class="post-info">
-					<span class="glyphicon glyphicon-pencil"></span>
-					<abbr class="published" title="Published: 2015-11-30T00:00:00+01:00">
-						2015-11-30
-					</abbr>
-					<address class="vcard author">
-					</address>
-				</footer><!-- /.post-info -->
-				<article class="entry-content">
-					<p>Progress has been better than expected and spheric grids are practically done.
-This is a good opportunity to take a look at the coordinate systems in spheric
-grids.</p>
-<p>The first application for spheric grids that came to my mind was using them
-along the surface of a planet. The coordinate system used for navigation on
-Earth is called the <em>geographic coordinate system</em>, a point is identified using
-its altitude (distance from the planet's surface), the longitude and the
-latitude.</p>
-<div class="figure">
-<img alt="Geographic coordinate system schematic" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/images/geographic-coordinates.png"/>
-</div>
-<p>The latitude is the angle between the vector and the equatorial plane, the
-longitude is the angle between the vector and the plane of the prime meridian.
-This coordinate system has signed coordinates: points beneath the surface have
-negative altitude, the southern hemisphere has negative latitude and the
-western hemisphere has negative longitude.</p>
-<p>The other coordinate system is <em>spherical coordinates</em>. This time we use the
-distance from the origin of the grid, the polar angle between the vector and
-the polar axis and the azimuth angle around the prime meridian.</p>
-<div class="figure">
-<img alt="Spherical coordinate system schematic" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/images/spherical-coordinates.png"/>
-</div>
-<p>This coordinate system has no negative coordinates: the polar angle at the
-equator is <span class="formula"><i>π</i> ⁄ 2</span> (90°) and moving south increases the angle up to <span class="formula"><i>π</i></span> (180°) at
-the south pole, the azimuth angle works like polar coordinates and wraps around
-after a full circle.</p>
-<p>There is also the <em>grid coordinate system</em>, it is the same as spherical except
-that coordinates are given in relative grid lines rather than absolute distance
-and angles.</p>
-<div class="section" id="update-coming-soon">
-<h2>Update coming soon</h2>
-<p>So far everything looks in order, I plan on submitting the update this week if
-everything goes well. I still have some more testing to run before I can
-declare it production ready, then it's up the Asset Store team. Spheric grids
-have been on the to-do list since the very start, so seeing them finally make
-it into Grid Framework is a big step for me and I am looking forward to seeing
-them in your games.</p>
-</div>
+<!-- Breadcrumbs to period archives -->
+<ol class="breadcrumb">
+	<li>
+		<a href="http://hiphish.github.io/grid-framework/news/2016/">
+			2016
+		</a>
+	</li>
+	<li class="active">
+			5
+	</li>
+	<li></li>  <!-- a closing list item -->
+</ol>
 
-				</article><!-- /.entry-content -->
-				<footer>
-					<hr />
-					<p>Tagged:
-						<a href="http://hiphish.github.io/grid-framework/news/tags/coordinate-system/">coordinate-system</a>
-						<a href="http://hiphish.github.io/grid-framework/news/tags/spheric/">spheric</a>
-</p>
-					<nav>
-						<ul class="pager">
-							<li class="previous">
-								<a href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" rel="prev">
-									<span aria-hidden="true">&larr;</span> Older
-								</a>
-							</li>
-							<li class="next">
-								<a href="http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/" rel="next">
-									Newer <span aria-hidden="true">&rarr;</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</footer>
-			</div> <!-- / .article-main -->
+<ul id="articles-list">
+	<li class="article-summary">
+		<article class="hentry">
+			<header>
+				<h2 class="entry-title">
+					<a href="http://hiphish.github.io/grid-framework/news/2016/05/06/docs-solved/" rel="bookmark" title="Permalink to Documentation dilemma solved">
+						Documentation dilemma solved
+					</a>
+				</h2>
+			</header>
+			<footer class="article-info">
+				<abbr class="article-published" title="2016-05-06T00:00:00+02:00"> 2016-05-06 </abbr>
+				<address class="vcard author">
+					By
+					<a class="url fn" href="http://hiphish.github.io/">HiPhish</a>
+				</address>
+			</footer><!-- /.article-info -->
+			<div class="entry-content">
+				<p>I have finished the build system,  which also includes the previously discussed
+documentation dilemma.  The problem was the presence of actual JavaScript files
+which Unity kept confusing for UnityScript files, because Unity keeps referring
+to UnityScript as JavaScript.</p>
+<div class="section" id="the-build-system">
+<h2>The build system</h2>
+<p>When you purchase  Grid Framework from the  Asset Store ...</p></div>
+			</div><!-- /.entry-content -->
+		</article>
+  </li>
+</ul><!-- /#posts-list -->
 		</div> <!-- / #content .HolyGrail-content -->
 
 
@@ -396,10 +338,10 @@ them in your games.</p>
 					</div>
 					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">13</span>
-						<i class="glyphicon glyphicon-chevron-down"></i>2015
+						<i class="glyphicon glyphicon-chevron-right"></i>2015
 					</a>
 					<!-- Months in 2015 -->
-					<div class="list-group collapse in" id="y-2015-item">
+					<div class="list-group collapse" id="y-2015-item">
 						<a href="#y-2015-m-12-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">1</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>December
@@ -412,10 +354,10 @@ them in your games.</p>
 						</div>
 						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">5</span>
-							<i class="glyphicon glyphicon-chevron-down"></i>November
+							<i class="glyphicon glyphicon-chevron-right"></i>November
 						</a>
 						<!-- Articles in 11 -->
-						<div class="list-group collapse in" id="y-2015-m-11-item">
+						<div class="list-group collapse" id="y-2015-m-11-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" class="list-group-item">
 								Spherical grid coordinate systems
 							</a>

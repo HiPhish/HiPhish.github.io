@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 22 Apr 2016 00:00:00 +0200</lastBuildDate><item><title>Fixing what has been broken</title><link>http://hiphish.github.io/grid-framework/news/2016/04/22/fixing-broken/</link><description>&lt;p&gt;A quick  status update,  all the  examples and  the align  panel that  had been
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/progress/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 06 May 2016 00:00:00 +0200</lastBuildDate><item><title>Documentation dilemma solved</title><link>http://hiphish.github.io/grid-framework/news/2016/05/06/docs-solved/</link><description>&lt;p&gt;I have finished the build system,  which also includes the previously discussed
+documentation dilemma.  The problem was the presence of actual JavaScript files
+which Unity kept confusing for UnityScript files, because Unity keeps referring
+to UnityScript as JavaScript.&lt;/p&gt;
+&lt;div class="section" id="the-build-system"&gt;
+&lt;h2&gt;The build system&lt;/h2&gt;
+&lt;p&gt;When you purchase  Grid Framework from the  Asset Store you get the full source
+code instead of a DLL,  but I still have to package everything in a format that
+is suitable for distribution.  First I need a  new blank Unity project,  then I
+import the assets to  publish into the project,  then I import the  Asset Store
+tools and finally I upload it.&lt;/p&gt;
+&lt;p&gt;In the very early  days I was doing it all by hand,  but it goes without saying
+that it was a very tedious and error-prone process.  Some way of automation was
+needed.  Unity can  be operated  from the  command line  and since  I'm  a Unix
+programmer I was already familiar with Make.&lt;/p&gt;
+&lt;p&gt;The Make process is as follows:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;I have  a Unity  project where all  the work happens,  so I launch  Unity in
+command-line mode and export all the relevant files as a Unity package.&lt;/li&gt;
+&lt;li&gt;The documentation is build from  the source and separately maintained manual
+pages.&lt;/li&gt;
+&lt;li&gt;A new Unity  project is  created in  command-line  mode and  the package  is
+imported.  Afterwards  the  previously   built  documentation  is  imported,
+followed by the Asset Store tools.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;At this point  I have a  fresh Unity project  ready for shipping.  All  this is
+executed  by  typing &lt;code&gt;make publish&lt;/code&gt;  in  my shell.  The only  way to  make this
+process even easier would  be to bind this to  a key in Vim, but I'm not &lt;em&gt;that&lt;/em&gt;
+lazy ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-documentation-dilemma"&gt;
+&lt;h2&gt;The documentation dilemma&lt;/h2&gt;
+&lt;p&gt;In version  1.x my  solution  to  the documentation  dilemma was  to abuse  the
+&lt;em&gt;WebPlayerTemplates&lt;/em&gt; directory.  UnityScript files  in that  directory  will be
+ignored by  the compiler,  thus my JavaScript files were safe there.  Of course
+this is not what  that directory is for and  some people did not like how I was
+taking over  a directory  they needed.  The band-aid  solution was  to host the
+documentation online so people could delete their local copy.&lt;/p&gt;
+&lt;p&gt;I have now solved the problem in a way that will satisfy everyone. The trick is
+that JavaScript  files do not actually  have to end in &lt;code&gt;.js&lt;/code&gt;,  you just have to
+tell the browser  what they are.  If I was writing  my own HTML  and JavaScript
+this would be  the end of the story,  but I use Doxygen  to generate it  for me
+instead and Doxygen names JavaScript files such that they end in &lt;code&gt;.js&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;How can we fix this?  We would have to rename every JavaScript file and then go
+through every  single HTML  and JavaScript  file and  change all  references to
+JavaScript files accordingly.  This whole process would have to be automated so
+we can carry it out right after generating the documentation.&lt;/p&gt;
+&lt;p&gt;One of the Unix philosophies is to have many small programs that carry out very
+specific and specialised  tasks and then glue  them together through scripting.
+We can perform all the above steps using a &lt;code&gt;for&lt;/code&gt; loop, &lt;code&gt;find&lt;/code&gt;, &lt;code&gt;mv&lt;/code&gt; and &lt;code&gt;sed&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First we need  to find all the files  we are looking for.  The first time these
+are just JavaScript  files and the second time  around it's HTML and JavaScript
+files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# Find all JavaScript files&lt;/span&gt;
+find ./build/documentation/html/ -type f -name &lt;span class="s1"&gt;'*.js'&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Find all HTML and JavaScript files (JS files after being renamed)&lt;/span&gt;
+find ./build/documentation/html/ -type f -name &lt;span class="s1"&gt;'*.js.txt'&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+        -or -name &lt;span class="s1"&gt;'*.html'&lt;/span&gt;JavaScript files
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These two  lines would  just list  the files,  but  we  don't want  files names
+printed to  the terminal,  we want  to loop  over them.  Wrapping a  command in
+backticks replaces their content with the output of the command.  Let's use the
+output in a &lt;code&gt;for&lt;/code&gt; loop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# I'm only showing the first one here&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; f in &lt;span class="sb"&gt;`&lt;/span&gt;find ./build/documentation/html/ -type f -name &lt;span class="s1"&gt;'*.js'&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Inside the loop we can use the variable &lt;code&gt;$f&lt;/code&gt; to reference the current file. The
+renaming process is very simple,  we just append &lt;code&gt;.txt&lt;/code&gt; to the file name;  this
+way &lt;code&gt;navtree.js&lt;/code&gt; becomes &lt;code&gt;navtree.js.txt&lt;/code&gt; for example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# The file extension doesn't really matter, but everyone knows what a text&lt;/span&gt;
+&lt;span class="c1"&gt;# file is, so I might as well use that.&lt;/span&gt;
+mv &lt;span class="nv"&gt;$f&lt;/span&gt; &lt;span class="nv"&gt;$f&lt;/span&gt;.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now for the harder part:  we have to  go through the contents  of all files and
+change any reference to a file ending in &lt;code&gt;.js&lt;/code&gt; to the same,  except with &lt;code&gt;.txt&lt;/code&gt;
+appended.  The program &lt;code&gt;sed&lt;/code&gt; can do this;  &lt;code&gt;sed&lt;/code&gt; stands for &lt;em&gt;Stream Editor&lt;/em&gt; and
+it can edit text files automatically based on commands passed to it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# '-E' means using modern regex, '-i "" ' means in-place overwriting&lt;/span&gt;
+sed -E -i &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="s1"&gt;'s/([_a-zA-Z0-9]*)\.js/\1.js.txt/'&lt;/span&gt; &lt;span class="nv"&gt;$f&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;sed&lt;/code&gt;  finds  the  parts  we  want  to  replace  using the  regular  expression
+&lt;code&gt;([_a-zA-Z0-9]*)\.js&lt;/code&gt;  and then replaces the match  with the file name followed
+by &lt;code&gt;.js.txt&lt;/code&gt;  using &lt;code&gt;\1.js.txt&lt;/code&gt;  (the &lt;code&gt;\1&lt;/code&gt; stands for the  match of the braces,
+which is the file name in practice).&lt;/p&gt;
+&lt;p&gt;And that's essentially it.  All that is left now is  writing it on one line and
+escaping the dollar signs for Make.  This solution makes it possible to include
+the full documentation  working out of the box  from any directory.  Now all of
+Grid Framework  can be  placed  in a  single  subdirectory of  &lt;em&gt;Plugins&lt;/em&gt;.  Once
+version 2  gets published  I will  update version  1 to  not use  the old  hack
+anymore.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 06 May 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-05-06:grid-framework/news/2016/05/06/docs-solved/</guid></item><item><title>Fixing what has been broken</title><link>http://hiphish.github.io/grid-framework/news/2016/04/22/fixing-broken/</link><description>&lt;p&gt;A quick  status update,  all the  examples and  the align  panel that  had been
 broken by the  API change are  working  now again.  As I had  mentioned  when I
 outlined the  plans for version 2.0,  this update  will break the API.  A major
 version bump is an  opportunity to throw out old cruft,  decouple what does not
