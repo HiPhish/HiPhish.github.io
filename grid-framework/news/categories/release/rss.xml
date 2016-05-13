@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/release/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Dec 2015 00:00:00 +0100</lastBuildDate><item><title>Grid Framework version 1.9.0 released</title><link>http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/</link><description>&lt;p&gt;Version 1.9.0 of Grid Framework has been approved by the Asset Store team. This
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/categories/release/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 13 May 2016 00:00:00 +0200</lastBuildDate><item><title>Grid Framework version 1.9.1 released</title><link>http://hiphish.github.io/grid-framework/news/2016/05/13/version-191/</link><description>&lt;p&gt;We are almost  at version 2.0,  but version 1.x  has not been forgotten.  In my
+previous post  I was  discussing how  version 2.0  will be  distributed as  one
+directory,  including the documentation.  The abuse of the &lt;em&gt;WebPlayerTemplates&lt;/em&gt;
+directory has been a thorn in my side since the start, and since the problem is
+solved for version 2.0 I have applied the same fix.&lt;/p&gt;
+&lt;p&gt;Sadly I was not able to put everything under one directory due to Unity 4:  the
+top-level &lt;em&gt;Editor&lt;/em&gt;  directory is necessary,  otherwise the  inspectors will not
+display.  The same goes for examples written in UnityScript.  If you don't need
+the examples you can throw them away, but the &lt;em&gt;Editor&lt;/em&gt; directory has to stay.&lt;/p&gt;
+&lt;p&gt;None of these  issues exist in Unity 5,  but version 1.x has to support Unity 4
+as well,  so there  is nothing  I can do.  Grid Framework  version 2.0  will be
+exclusive to Unity 5.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 13 May 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-05-13:grid-framework/news/2016/05/13/version-191/</guid></item><item><title>Grid Framework version 1.9.0 released</title><link>http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/</link><description>&lt;p&gt;Version 1.9.0 of Grid Framework has been approved by the Asset Store team. This
 release  marks  the addition  of  the fourth  kind  of  grid to  the framework:
 spherical grids.&lt;/p&gt;
 &lt;div class="figure"&gt;
