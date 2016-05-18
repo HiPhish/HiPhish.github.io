@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-05-13T00:00:00+02:00</updated><entry><title>Grid Framework version 1.9.1 released</title><link href="http://hiphish.github.io/grid-framework/news/2016/05/13/version-191/" rel="alternate"></link><updated>2016-05-13T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-05-13:grid-framework/news/2016/05/13/version-191/</id><summary type="html">&lt;p&gt;We are almost  at version 2.0,  but version 1.x  has not been forgotten.  In my
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-05-18T00:00:00+02:00</updated><entry><title>Version 2.0.0 has been submitted</title><link href="http://hiphish.github.io/grid-framework/news/2016/05/18/submitted-200/" rel="alternate"></link><updated>2016-05-18T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-05-18:grid-framework/news/2016/05/18/submitted-200/</id><summary type="html">&lt;p&gt;One of the hardest  tasks when creating something is actually shipping it,  but
+it's finally time now,  version 2.0 has  been submitted to the  Asset Store for
+review.  After  some  last-minute  changes here  and there, fixing  typos  and
+re-adjusting screenshots I think we are good to go.  I still have to figure out
+how to set up the Upgrade option in the Asset Store, but it can't be that hard.
+The submission  process officially takes  between five to ten working days,  so
+hopefully the new version will be up soon.&lt;/p&gt;
+</summary></entry><entry><title>Grid Framework version 1.9.1 released</title><link href="http://hiphish.github.io/grid-framework/news/2016/05/13/version-191/" rel="alternate"></link><updated>2016-05-13T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-05-13:grid-framework/news/2016/05/13/version-191/</id><summary type="html">&lt;p&gt;We are almost  at version 2.0,  but version 1.x  has not been forgotten.  In my
 previous post  I was  discussing how  version 2.0  will be  distributed as  one
 directory,  including the documentation.  The abuse of the &lt;em&gt;WebPlayerTemplates&lt;/em&gt;
 directory has been a thorn in my side since the start, and since the problem is
