@@ -1,7 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 18 May 2016 00:00:00 +0200</lastBuildDate><item><title>Version 2.0.0 has been submitted</title><link>http://hiphish.github.io/grid-framework/news/2016/05/18/submitted-200/</link><description>&lt;p&gt;One of the hardest  tasks when creating something is actually shipping it,  but
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/grid-framework/news/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 25 May 2016 00:00:00 +0200</lastBuildDate><item><title>Grid Framework version 2.0.0 released</title><link>http://hiphish.github.io/grid-framework/news/2016/05/25/release-200/</link><description>&lt;p&gt;After almost half  a year in  the making  Grid Framework  version 2.0  has been
+released on the Unity &lt;a class="reference external" href="https://www.assetstore.unity3d.com/en/#!/content/62498"&gt;Asset Store&lt;/a&gt;. This is the first major release since the
+initial launch  and will make Grid Framework  easier to use,  more powerful and
+more flexible with no extra performance overhead.  Being a major version update
+this breaks compatibility  with the version 1.x releases,  but an upgrade guide
+is included in  the user manual.  If you  still cannot  upgrade to  2.0 you can
+still keep using 1.x, but the old releases will not be getting any new features
+anymore.&lt;/p&gt;
+&lt;p&gt;Version 1.x  has been  deprecated on  the Asset Store,  which means  you can no
+longer purchase it,  but you  can still  access it if  you purchased it  in the
+past. All existing customers  can get a free upgrade to version 2.0,  it really
+is that much better.&lt;/p&gt;
+&lt;div class="section" id="what-is-new"&gt;
+&lt;h2&gt;What is new&lt;/h2&gt;
+&lt;p&gt;The changes are too many to list as a simple changelog,  almost all of the code
+has been refactored. I will give you the highlights instead.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Separate grids and rederers&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;In the past a grid has had many jobs:  be a grid, convert coordinates,  show
+the  grid  and possibly  even  more. This lead  to very  few but  very large
+classes with a  large public API.  It was hard  for users to  find what they
+were looking for and hard from me to maintain.&lt;/p&gt;
+&lt;p class="last"&gt;The  tasks  have  now  been  split  up:  Grids are  just grids  and  convert
+coordinates while designated renderer  classes are responsible for computing
+how to display the grids. There can be more than one renderer type for every
+grid, such as the different shapes of hex grids. This leads to more classes,
+but every class is much smaller than the one big class it originates from.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;A leaner and cleaner API&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Some features had  been added to  Grid Framework because  they seemed handy,
+but while  re-evaluating  the framework  I found  that a  lot  of  them were
+redundant of leftovers from previous  releases that had been kept in for the
+sake of compatibility. Take for examples &lt;code&gt;size&lt;/code&gt; and &lt;code&gt;renderFrom&lt;/code&gt;/&lt;code&gt;renderTo&lt;/code&gt;,
+the  &lt;code&gt;size&lt;/code&gt;  is  really  just a  special case  of setting  &lt;code&gt;renderFrom&lt;/code&gt; and
+&lt;code&gt;renderTo&lt;/code&gt; to the same value with opposite sign.&lt;/p&gt;
+&lt;p class="last"&gt;This is just confusing and adds no real value for the user. If something can
+be  fully  replicated with  one or  two  lines  of code  and no  overhead it
+shouldn't be part of the framework. A major release is a good opportunity to
+throw out the old stuff.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Official extension methods&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Throwing redundant  API out  is easy,  but what  about API that  is actually
+useful but does  not really fit  the nature of  the class?  Take for example
+&lt;code&gt;AlignTransform&lt;/code&gt;:  aligning objects is very useful and not too trivial,  but
+it does  not really  belong in  the grid  class.  The C#  language  offers a
+feature for this: extension methods.&lt;/p&gt;
+&lt;p class="last"&gt;Extension methods need to be explicitly imported,  but they are used just as
+if they were methods of  the class they extend.  Grid Framework comes with a
+number of useful standard extension methods grouped by task. You will now be
+able to find what you are looking for much faster.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;A flexible rendering pipeline&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;In version 1.x the  rendering process has been  mostly "magic" where you set
+the values of the  grid and then lines appear.  In version 2.0 the rendering
+now passes through a number of stages  and you can intercept any of them and
+take full control over the process from there.&lt;/p&gt;
+&lt;p class="last"&gt;Of course if  you don't need  that you can  leave things as  they are and it
+will just work as it did before.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Events fired by grids&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;We are now making use  of the C# ability to use  messages on certain events,
+i.e. when the  properties of a grid change.  This allows you to only do work
+when something has happened instead of having to poll the grid constantly.&lt;/p&gt;
+&lt;p class="last"&gt;This feature is used by renderers to only update the lines when the grid has
+actually changed.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Namespaces over prefixes&lt;/dt&gt;
+&lt;dd&gt;Older  versions  of Unity  had  trouble with  &lt;code&gt;MonoBehaviour&lt;/code&gt;  subclasses in
+custom namespaces, forcing me to prefix every class with &lt;code&gt;GF&lt;/code&gt;. Because Unity
+versions less than 5 are no longer  supported the prefix has been dropped in
+favour of finely grained namespaces.&lt;/dd&gt;
+&lt;dt&gt;Write your own&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Splitting up  large classes  has a  very pleasant  side effect:  you can now
+write  your  own grids,  renderers  and  extension methods.  This  makes  it
+possible the extend the framework  to your particular needs just the way you
+need it.&lt;/p&gt;
+&lt;p class="last"&gt;For version 2.0 the protected  properties of classes are documented as well,
+you now  have exactly  the same  power over the  framework as  I do  without
+having to modify the original.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Unified directory&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Last but not least,  all of Grid Framework is now contained in one directory
+in your project. T here is nothing to clutter up your project anymore thanks
+to improvements to the engine in Unity 5 now that I was able to drop support
+for Unity 4.&lt;/p&gt;
+&lt;p class="last"&gt;In  particular  this means  that the  &lt;em&gt;WebPlayerTemplates&lt;/em&gt;  directory is  no
+longer  being  abused  to  stop  Unity  from compiling  JavaScript  files as
+UnityScript.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class="section" id="file-size-comparison"&gt;
+&lt;h2&gt;File size comparison&lt;/h2&gt;
+&lt;p&gt;When I originally announced the major version update I was looking at the sizes
+of the classes in terms of lines of code. Here is the old chart:&lt;/p&gt;
+&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;colgroup&gt;
+&lt;col width="38%"&gt;&lt;/col&gt;
+&lt;col width="12%"&gt;&lt;/col&gt;
+&lt;col width="21%"&gt;&lt;/col&gt;
+&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;
+&lt;th class="head"&gt;Code&lt;/th&gt;
+&lt;th class="head"&gt;Comment&lt;/th&gt;
+&lt;th class="head"&gt;Blank&lt;/th&gt;
+&lt;th class="head"&gt;Total&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;GFGrid&lt;/td&gt;
+&lt;td&gt;520&lt;/td&gt;
+&lt;td&gt;512&lt;/td&gt;
+&lt;td&gt;104&lt;/td&gt;
+&lt;td&gt;1136&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFRectGrid&lt;/td&gt;
+&lt;td&gt;202&lt;/td&gt;
+&lt;td&gt;167&lt;/td&gt;
+&lt;td&gt;51&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFSphereGrid&lt;/td&gt;
+&lt;td&gt;356&lt;/td&gt;
+&lt;td&gt;615&lt;/td&gt;
+&lt;td&gt;92&lt;/td&gt;
+&lt;td&gt;1063&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFHexGrid&lt;/td&gt;
+&lt;td&gt;1257&lt;/td&gt;
+&lt;td&gt;1102&lt;/td&gt;
+&lt;td&gt;241&lt;/td&gt;
+&lt;td&gt;2600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GFPolarGrid&lt;/td&gt;
+&lt;td&gt;395&lt;/td&gt;
+&lt;td&gt;366&lt;/td&gt;
+&lt;td&gt;74&lt;/td&gt;
+&lt;td&gt;835&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Even if we ignore the comments these classes are huge,  especially &lt;code&gt;GFHexGrid&lt;/code&gt;.
+How do the new grids fare in comparison?&lt;/p&gt;
+&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;colgroup&gt;
+&lt;col width="24%"&gt;&lt;/col&gt;
+&lt;col width="9%"&gt;&lt;/col&gt;
+&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="11%"&gt;&lt;/col&gt;
+&lt;col width="11%"&gt;&lt;/col&gt;
+&lt;col width="30%"&gt;&lt;/col&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;
+&lt;th class="head"&gt;Code&lt;/th&gt;
+&lt;th class="head"&gt;Comment&lt;/th&gt;
+&lt;th class="head"&gt;Blank&lt;/th&gt;
+&lt;th class="head"&gt;Total&lt;/th&gt;
+&lt;th class="head"&gt;Code reduction&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Grid&lt;/td&gt;
+&lt;td&gt;37&lt;/td&gt;
+&lt;td&gt;69&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;111&lt;/td&gt;
+&lt;td&gt;93%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;RectGrid&lt;/td&gt;
+&lt;td&gt;143&lt;/td&gt;
+&lt;td&gt;174&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;352&lt;/td&gt;
+&lt;td&gt;29%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;SphereGrid&lt;/td&gt;
+&lt;td&gt;264&lt;/td&gt;
+&lt;td&gt;440&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;td&gt;768&lt;/td&gt;
+&lt;td&gt;26%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HexGrid&lt;/td&gt;
+&lt;td&gt;443&lt;/td&gt;
+&lt;td&gt;944&lt;/td&gt;
+&lt;td&gt;108&lt;/td&gt;
+&lt;td&gt;1545&lt;/td&gt;
+&lt;td&gt;65%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;PolarGrid&lt;/td&gt;
+&lt;td&gt;179&lt;/td&gt;
+&lt;td&gt;242&lt;/td&gt;
+&lt;td&gt;42&lt;/td&gt;
+&lt;td&gt;464&lt;/td&gt;
+&lt;td&gt;55%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The biggest reduction is in the abstract &lt;code&gt;Grid&lt;/code&gt; class which is the basis of all
+grids.  The massive reduction comes from  factoring out the rendering task into
+the new flexible  pipeline and the removal  of a lot of redundant API.  At this
+point &lt;code&gt;Grid&lt;/code&gt; is just a skeleton of private and protected members.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;HexGrid&lt;/code&gt; has had more  than half of its  code removed,  the largest part of it
+was the different ways  to render a hex grid which  are now individual renderer
+classes.  The class is still quite large though, because of the many coordinate
+systems it has. However, factoring out the coordinate system conversions out of
+grids would remove all functionality out of them.&lt;/p&gt;
+&lt;p&gt;The other grids  have had less  code reduction because  they were already quite
+small,  the  large  API  was  mostly  just  inherited  from  the parent  class.
+&lt;code&gt;PolarGrid&lt;/code&gt; has had  a nice reduction  because a lot of  conversions have  been
+made into extension methods.&lt;/p&gt;
+&lt;p&gt;If you are wondering  why I have more lines  of comments than actual code,  the
+reason is  that the  API documentation  is written  inside the  source files as
+special comments.  On top of that the proper  way of writing API comments is to
+use XML  syntax.  Doxygen can use  other styles  of comments,  but last  time I
+checked only XML comments would show up in MonoDevelop during auto completion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="where-to-go-from-here"&gt;
+&lt;h2&gt;Where to go from here&lt;/h2&gt;
+&lt;p&gt;As far as features are  concerned I think Grid Framework is very complete.  I'm
+still open to suggestions,  but I don't  have any concrete  plans for now.  The
+next step is to  step up my presentation,  the introduction video is still from
+the initial release and the screenshots are very crude to put it nicely. I also
+need  a  better  looking  logo,  made  with  vectors  preferably.  I have  been
+experimenting with different illustration software,  but none had to ability to
+generate a  nice regular grid,  I need some programmatic solution.  &lt;a class="reference external" href="https://racket-lang.org"&gt;Racket&lt;/a&gt; can
+generate vector graphics from code, so I'll try to look into that.&lt;/p&gt;
+&lt;p&gt;I would  also  like  to replace  the &lt;a class="reference external" href="http://www.doxygen.nl"&gt;Doxygen&lt;/a&gt;-generated  documentation  with  a
+&lt;a class="reference external" href="http://www.sphinx-doc.org/en/stable/"&gt;Sphinx&lt;/a&gt;-based one.  Doxygen is great for extracting documentation comments from
+source files,  but the HTML  output is very rigid.  Sphinx lets  me use  &lt;a class="reference external" href="http://jinja.pocoo.org"&gt;Jinja&lt;/a&gt;
+templates,  which is something I am already using for this website.  This would
+require a C#  domain for Sphinx,  something I have been working on on the side,
+but it is nowhere near useful yet.&lt;/p&gt;
+&lt;p&gt;Another thing I would  like to do is port Grid Framework  to engines other than
+Unity. With version 2.0 the codebase is in a state that is clean enough that it
+could be re-written  in another language.  I'm not announcing anything yet,  so
+don't hold your breath too long :)&lt;/p&gt;
+&lt;p&gt;If you have made  it this far thank  you for reading and  I hope you will enjoy
+the improvements.  If you like the  product please  leave a review,  and if you
+don't like it tell  me so I can make it better.  Don't forget that you can have
+your games showcased on my website as well,  I really want to see what you make
+with Grid Framework.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 25 May 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-05-25:grid-framework/news/2016/05/25/release-200/</guid></item><item><title>Version 2.0.0 has been submitted</title><link>http://hiphish.github.io/grid-framework/news/2016/05/18/submitted-200/</link><description>&lt;p&gt;One of the hardest  tasks when creating something is actually shipping it,  but
 it's finally time now,  version 2.0 has  been submitted to the  Asset Store for
-review.  After  some  last-minute  changes here  and there, fixing  typos  and
+review.  After  some  last-minute  changes here  and there,  fixing  typos  and
 re-adjusting screenshots I think we are good to go.  I still have to figure out
 how to set up the Upgrade option in the Asset Store, but it can't be that hard.
 The submission  process officially takes  between five to ten working days,  so
