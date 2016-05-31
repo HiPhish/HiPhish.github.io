@@ -1,0 +1,412 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>HiPhish's Workshop</title>
+
+		<!-- HTML page metadata -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="HiPhish's Workshop" />
+		<meta name="author" content="HiPhish" />
+
+		<!-- Favicon if one is set -->
+
+
+		<!-- Style sheets -->
+
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet" href="http://hiphish.github.io/css/bootstrap.min.css" />
+
+
+
+		<!-- Main theme CSS file taking precedence over Bootstrap -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/main.css" />
+
+
+		<!-- Code highlight using CSS classes from Pygments -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/pygment.css" />
+
+		<!-- "Holy Grail" page design -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
+
+		<!-- Collapsible tree-like Bootstrap list groups -->
+		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
+
+		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
+		<script src="http://hiphish.github.io/theme/js/main.js"></script>
+
+		<script src="http://hiphish.github.io/js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body class="HolyGrail">
+
+		<!-- Top navigation bar -->
+		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<!-- Burger menu -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+			<!-- The list of navbar items -->
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="/grid-framework" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Grid Framework <span></span>					</a>
+					<ul class="dropdown-menu">
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework">
+								Overview							</a>
+						</li>
+
+						<li class="divider" role="separator"></li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/features">
+								Features							</a>
+						</li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/examples">
+								Examples							</a>
+						</li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/gallery">
+								Gallery							</a>
+						</li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/showcase">
+								Showcase							</a>
+						</li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/faq">
+								FAQ							</a>
+						</li>
+
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news">
+								News							</a>
+						</li>
+
+						<li class="divider" role="separator"></li>
+
+						<li>
+							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins" target="_blank">
+								Support							</a>
+						</li>
+
+						<li class="divider" role="separator"></li>
+
+						<li>
+							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+								Buy Now <span class="badge">30$</span>							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="https://gitlab.com/HiPhish/ntfs-clone" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Open Source <span></span>					</a>
+					<ul class="dropdown-menu">
+
+						<li>
+							<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
+								NTFS-Clone							</a>
+						</li>
+
+						<li>
+							<a href="https://gitlab.com/HiPhish/roll" target="_blank">
+								roll							</a>
+						</li>
+
+						<li>
+							<a href="https://github.com/HiPhish/Newton-method" target="_blank">
+								Newton's Method in C							</a>
+						</li>
+
+						<li>
+							<a href="https://github.com/HiPhish/XeenTools" target="_blank">
+								Xeen Tools							</a>
+						</li>
+
+						<li>
+							<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
+								Wolf3D Extract							</a>
+						</li>
+
+						<li>
+							<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
+								Game Source Documentation							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class=" ">
+					<a href="/blog">
+						Blog					</a>
+				</li>
+				<li class=" ">
+					<a href="/about">
+						About					</a>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+<main class="flex-body">
+
+
+	<!-- Main content and two pillars -->
+	<div class="container flex-block">
+
+		<div id="content" class="HolyGrail-content">
+<!-- Breadcrumbs to period archives -->
+<ol class="breadcrumb">
+	<li>
+		<a href="http://hiphish.github.io/blog/2016/">
+			2016
+		</a>
+	</li>
+	<li class="active">
+			5
+	</li>
+	<li></li>  <!-- a closing list item -->
+</ol>
+
+<ul id="articles-list">
+	<li class="article-summary">
+		<article class="hentry">
+			<header>
+				<h2 class="entry-title">
+					<a href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" rel="bookmark" title="Permalink to Introducing NTFS-Clone">
+						Introducing NTFS-Clone
+					</a>
+				</h2>
+			</header>
+			<footer class="article-info">
+				<abbr class="article-published" title="2016-05-31T00:00:00+02:00"> 2016-05-31 </abbr>
+				<address class="vcard author">
+					By
+					<a class="url fn" href="http://hiphish.github.io/blog/authors/hiphish/">HiPhish</a>
+				</address>
+			</footer><!-- /.article-info -->
+			<div class="entry-content">
+				<p>This is  a very  useful project  I had  written quite  a while  ago at work and
+recently found collecting dust on my hard drive. It lets you create perfect 1:1
+copies of NTFS hard drives on Unix.  The problem with every software I had come
+across was  that it ...</p>
+			</div><!-- /.entry-content -->
+		</article>
+  </li>
+</ul><!-- /#posts-list -->
+		</div> <!-- / #content .HolyGrail-content -->
+
+
+		<!-- Left pillar - article navigator -->
+		<nav id="article-navigator" class="HolyGrail-nav well">
+		
+			<div>
+				<strong><a href="http://hiphish.github.io/blog/archives/">Archives</a></strong>
+				<!-- Period navigation -->
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">2</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>2016
+					</a>
+					<!-- Months in 2016 -->
+					<div class="list-group collapse" id="y-2016-item">
+						<a href="#y-2016-m-5-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>May
+						</a>
+						<!-- Articles in 5 -->
+						<div class="list-group collapse" id="y-2016-m-5-item">
+							<a href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" class="list-group-item">
+								Introducing NTFS-Clone
+							</a>
+						</div>
+						<a href="#y-2016-m-4-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">1</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>April
+						</a>
+						<!-- Articles in 4 -->
+						<div class="list-group collapse" id="y-2016-m-4-item">
+							<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+								Neovim has tab-local working directories now
+							</a>
+						</div>
+					</div>
+					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">2</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>2015
+					</a>
+					<!-- Months in 2015 -->
+					<div class="list-group collapse" id="y-2015-item">
+						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
+							<span class="badge">2</span>
+							<i class="glyphicon glyphicon-chevron-right"></i>November
+						</a>
+						<!-- Articles in 11 -->
+						<div class="list-group collapse" id="y-2015-m-11-item">
+							<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+								Feeds are live now
+							</a>
+							<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+								We are live!
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/categories/">Categories</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#cat-ntfs-clone-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>ntfs-clone
+					</a>
+					<div class="list-group collapse" id="cat-ntfs-clone-item">
+						<a href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" class="list-group-item">
+							Introducing NTFS-Clone
+						</a>
+					</div>
+					<a href="#cat-Open-Source-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>Open-Source
+					</a>
+					<div class="list-group collapse" id="cat-Open-Source-item">
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
+					</div>
+					<a href="#cat-organisation-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">2</span>
+						<i class="glyphicon glyphicon-chevron-right"></i>organisation
+					</a>
+					<div class="list-group collapse" id="cat-organisation-item">
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+		
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/tags/">Tags</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#tag-neovim-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">1</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>neovim
+					</a>
+					<div class="list-group collapse" id="tag-neovim-item">
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
+					</div>
+					<a href="#tag-website-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">2</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>website
+					</a>
+					<div class="list-group collapse" id="tag-website-item">
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<strong style="display:block;"><a href="http://hiphish.github.io/blog/authors/">Authors</a></strong>
+				<div class="list-group list-group-root hidden-xs">
+					<a href="#aut-HiPhish-item" class="list-group-item" data-toggle="collapse">
+						<span class="badge">4</span>
+						<span class="glyphicon glyphicon-chevron-right"></span>HiPhish
+					</a>
+					<div class="list-group collapse" id="aut-HiPhish-item">
+						<a href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" class="list-group-item">
+							Introducing NTFS-Clone
+						</a>
+						<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" class="list-group-item">
+							Neovim has tab-local working directories now
+						</a>
+						<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" class="list-group-item">
+							Feeds are live now
+						</a>
+						<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" class="list-group-item">
+							We are live!
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<strong>Subscribe:
+				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a> </strong>
+
+		</nav>
+	
+		<!-- Right pillar -->
+		<!--<aside class="HolyGrail-ads well"><strong>Advertisements</strong></aside>-->
+
+	</div> <!-- / .container .flex-block -->
+</main><!-- /.flex-body -->
+
+
+		<footer class="site-footer HolyGrail-footer">
+	<div class="container">
+		<div class="col-md-8 footer-left">
+			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
+			</a>
+			<p class="text-muted">
+<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+			</p>
+		</div> <!-- /.col-md-8 -->
+
+		<div class="col-md-4 footer-right">
+			<span class="pull-right">
+				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
+				</a>
+				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
+					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
+				</a>
+			</span> <!-- /.pull-right -->
+		</div> <!-- /.col-md-4 -->
+		<p class="text-muted text-right"></p>
+	</div> <!-- /.container -->
+</footer>
+
+
+	</body>
+</html>

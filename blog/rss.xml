@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 22 Apr 2016 00:00:00 +0200</lastBuildDate><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 May 2016 00:00:00 +0200</lastBuildDate><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
+recently found collecting dust on my hard drive. It lets you create perfect 1:1
+copies of NTFS hard drives on Unix.  The problem with every software I had come
+across was  that it would copy the data,  but that wasn't enough,  so we had to
+run Windows repair on every single drive.&lt;/p&gt;
+&lt;p&gt;What makes NTFS-Clone different from these other software is that the resulting
+drive works out of the box.  I achieved this by  following the Unix philosophy:
+there are already  command-line tools  that do small parts of the job,  so if I
+can take  them and  glue them  together in  the right  way I  can solve the big
+problem.&lt;/p&gt;
+&lt;p&gt;The result  was rock-stable  and since it  was run on  the command-line we were
+able  to automate  the entire process  to clone multiple  drives in  succession
+instead of having to babysit them all day. So if you are right now wasting your
+time babysitting hard drives, grab yourself a copy of &lt;a class="reference external" href="https://gitlab.com/HiPhish/ntfs-clone"&gt;NTFS-Clone&lt;/a&gt; and buy one
+of those things where you can plug in several drives and automate your work.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 31 May 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-05-31:blog/2016/05/31/into-ntfs-clone/</guid></item><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
 this post I will explain what it does and why you will love it.&lt;/p&gt;
 &lt;div class="section" id="what-are-working-directories-in-vim"&gt;
 &lt;h2&gt;What are working directories in Vim?&lt;/h2&gt;
