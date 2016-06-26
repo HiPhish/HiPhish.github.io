@@ -237,27 +237,12 @@
 	</div>
 
 	
-<style scoped="scoped">
-			/* Style sheet for PrettyPhoto framework */
-			@import url("../../css/prettyPhoto.css");
-
-			.showcase {
-				margin-bottom: 30px;
-				padding-top: 20px;
-				padding-bottom: 20px;
-			}
-			.showcase:hover {
-				border-radius: 5px;
-			}
-
-			.showcase img {
-			}
-			.showcase p {
-			}
-			.showcase h2 {
-			}
-			.showcase a {
-			}
+<!-- Style sheet for Maginific Popup framework -->
+<style media="screen" scoped="scoped" type="text/css">
+			@import url("../../css/magnific-popup.css")
+		</style>
+<style media="screen" scoped="scoped" type="text/css">
+			@import url("../../css/magnific-popup-custom.css")
 		</style>
 <div class="container">
 <h1>Made using Grid Framework</h1>
@@ -269,8 +254,8 @@
 <hr/>
 <div class="container">
 <div class="row showcase">
-<div class="col-md-4">
-<a data-rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png">
+<div class="col-md-4 showcase-pic">
+<a href="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png">
 <img alt="MYMMO" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/showcase/images/mymmo.png"/>
 </a>
 </div> <!-- /.col-md-4 -->
@@ -294,8 +279,8 @@
 </div> <!-- /.col-md-8 -->
 </div> <!-- /.row /.showcase -->
 <div class="row showcase">
-<div class="col-md-4">
-<a data-rel="prettyPhoto[group]" href="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg">
+<div class="col-md-4 showcase-pic">
+<a href="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg">
 <img alt="Shallow Space" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/showcase/images/shallow-space.jpg"/>
 </a>
 </div> <!-- /.col-md-4 -->
@@ -332,47 +317,57 @@
 				condemnation.
 			</p>
 </div>
-<!-- Script required for PrettyPhoto -->
-<script charset="utf-8" src="../../js/jquery.prettyPhoto.js" type="text/javascript"></script>
-<script>
-			<!--
-			$(document).ready(function(){
-				$("a[data-rel^='prettyPhoto']").prettyPhoto( {
-					social_tools:'', /* No Facebook buttons */
+<!-- Script required for Magnific Popup -->
+<script charset="utf-8" src="../../js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script charset="utf-8" type="text/javascript">
+			$(document).ready(function() {
+				$('.showcase-pic').magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					mainClass: 'mfp-with-zoom',
+					gallery: {
+						enabled:true,
+					},
+					zoom: {
+						enabled: true,
+						duration: 200,
+						easing: 'ease-in-out',
+						opener: function(openerElement) {
+							return openerElement.is('img') ? openerElement : openerElement.find('img');
+						}
+					}
 				});
-			});
-			-->
+			})
 		</script>
 
 </div>
 
 
 
-		<footer class="site-footer HolyGrail-footer">
-	<div class="container">
-		<div class="col-md-8 footer-left">
-			<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
-				<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
+		<footer role="contentinfo" class="site-footer HolyGrail-footer">
+<div class="container">
+	<div class="col-md-8 footer-left">
+		<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+			<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
+		</a>
+		<p class="text-muted">
+			<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
+			© 2015, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+		</p>
+	</div>  <!-- /.col-md-8 -->
+
+	<div class="col-md-4 footer-right">
+		<span class="pull-right">
+			<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
+				<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
 			</a>
-			<p class="text-muted">
-<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a> © 2015, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-			</p>
-		</div> <!-- /.col-md-8 -->
-
-		<div class="col-md-4 footer-right">
-			<span class="pull-right">
-				<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-				</a>
-				<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-					<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-				</a>
-			</span> <!-- /.pull-right -->
-		</div> <!-- /.col-md-4 -->
-		<p class="text-muted text-right"></p>
-	</div> <!-- /.container -->
-</footer>
-
+			<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
+				<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
+			</a>
+		</span>  <!-- /.pull-right -->
+	</div>  <!-- /.col-md-4 -->
+	<p class="text-muted text-right"></p>
+</div>  <!-- /.container -->		</footer>
 
 	</body>
 </html>

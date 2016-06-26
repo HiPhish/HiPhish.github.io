@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 May 2016 00:00:00 +0200</lastBuildDate><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 25 Jun 2016 00:00:00 +0200</lastBuildDate><item><title>Highlighting NSImageView the right way</title><link>http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
+while dragging a file.  You would think  that it's a very simple task,  and you
+would be right, but judging by some of the things on the internet it looks like
+an unsolved problem.&lt;/p&gt;
+&lt;p&gt;The difficult part about Mac development is not Objective-C, if you know C then
+you can learn  Objective-C in a  few days.  The hard part is Cocoa.  Cocoa is a
+very old framework,  older than .NET, Java and macOS.  A framework  this old is
+guaranteed to have grown a lot  over the years and finding what you are looking
+for can  be a  daunting task.  Even Apple's  own documentation  is filled  with
+deprecated API calls or downright bad practice.&lt;/p&gt;
+&lt;div class="section" id="the-wrong-way"&gt;
+&lt;h2&gt;The wrong way&lt;/h2&gt;
+&lt;p&gt;Here is how Apple's own documentation highlights an &lt;code&gt;NSImageView&lt;/code&gt; instance. The
+code is from the official &lt;a class="reference external" href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html"&gt;CocoaDragAndDrop&lt;/a&gt; example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="cm"&gt;/*------------------------------------------------------&lt;/span&gt;
+&lt;span class="cm"&gt;        draw method is overridden to do drop highlighing&lt;/span&gt;
+&lt;span class="cm"&gt;    --------------------------------------------------------*/&lt;/span&gt;
+    &lt;span class="c1"&gt;//do the usual draw operation to display the image&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="nl"&gt;drawRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;rect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;highlight&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;//highlight by overlaying a gray border&lt;/span&gt;
+        &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="n"&gt;NSColor&lt;/span&gt; &lt;span class="n"&gt;grayColor&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;NSBezierPath&lt;/span&gt; &lt;span class="nl"&gt;setDefaultLineWidth&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;NSBezierPath&lt;/span&gt; &lt;span class="nl"&gt;strokeRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are other  implementations on the internet,  but those can be excused for
+not being official. They all have the same fundamental problem anyway,  so I'll
+just use this one for illustration.&lt;/p&gt;
+&lt;p&gt;The implementation  looks simple  enough and works,  but only  as long  as your
+&lt;code&gt;NSImageView&lt;/code&gt; instance satisfies the assumptions made here.  We assume that our
+view object will always have  the outline of a rectangle and we assume that the
+chosen colour  will always  be adequate.  In my  case the first  assumption was
+already broken from the start because I was using the &lt;em&gt;Bezel&lt;/em&gt; style for my view
+objects, a style that is part of Cocoa itself. There is also no telling when in
+the future Apple might change the default colours, making your choice of colour
+inadequate. And that's not even going into portability if you want to use
+GNUStep to port your app to other operating systems.&lt;/p&gt;
+&lt;p&gt;What we want is an abstraction.  Abstractions provide us with a clean interface
+that can remain stable while  the underlying implementation  can change wildly.
+Cocoa has abstractions everywhere, such as using &lt;code&gt;NSURL&lt;/code&gt; for file paths instead
+of C  strings  or even &lt;code&gt;NSString&lt;/code&gt;.  Doing things  your own  way should  only be
+reserved for when  you actually have control over the underlying code.  So if I
+were  to  draw my  own  shapes  for an  &lt;code&gt;NSView&lt;/code&gt; I  would  also  be comfortable
+hard-coding my own highlighting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-right-way"&gt;
+&lt;h2&gt;The right way™&lt;/h2&gt;
+&lt;p&gt;As it turns out  Cocoa already provides  us with the  means of abstraction  for
+highlighting.  The &lt;code&gt;NSControl&lt;/code&gt; class has the &lt;code&gt;highlighted&lt;/code&gt; property,  which has
+the getter &lt;code&gt;isHighlighted&lt;/code&gt;,  so we don't need  a new property.  For drawing the
+actual highlight &lt;code&gt;NSView&lt;/code&gt;  provides the method &lt;code&gt;drawFocusRingMask&lt;/code&gt;.  Subclasses
+can override  the property  to implement  their own  highlighting  and  luckily
+&lt;code&gt;NSImageView&lt;/code&gt; does exacly that.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="nl"&gt;drawRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;dirtyRect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt; &lt;span class="n"&gt;isHighlighted&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt; &lt;span class="n"&gt;drawFocusRingMask&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now your code is future-proof and will work regardless of the shape you choose.
+Well, at least until Apple deprecates this method.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Jun 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</guid><category>cocoa</category></item><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
 recently found collecting dust on my hard drive. It lets you create perfect 1:1
 copies of NTFS hard drives on Unix.  The problem with every software I had come
 across was  that it would copy the data,  but that wasn't enough,  so we had to
