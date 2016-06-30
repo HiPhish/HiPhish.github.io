@@ -299,7 +299,10 @@
 <div class="expandable">
 <div class="highlight">
 <pre><span class="n">GameObject</span> <span class="n">go</span><span class="p">;</span>
-<span class="n">GFRectGrid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">GFRectGrid</span><span class="p">&gt;();</span>
+<span class="n">RectGrid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">RectGrid</span><span class="p">&gt;();</span>
+<span></span><span class="c1">// Add a renderer for display</span>
+<span></span><span class="n">go</span><span class="p">.</span><span class="n">AddComponent</span><span class="p">&lt;</span><span class="n">Parallelepiped</span><span class="p">&gt;();</span>
+
 <span class="c1">// Set up the grid for 2:1 dimetric graphics</span>
 <span class="n">grid</span><span class="p">.</span><span class="n">spacing</span>  <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
 <span class="n">grid</span><span class="p">.</span><span class="n">shearing</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector6</span><span class="p">(-</span><span class="m">1</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
@@ -307,25 +310,10 @@
 </pre>
 </div>
 <p>
-							The grid classes are prefixed with <code>GF</code> to prevent name
-							collisions with other types you might have in your own code. Ideally
-							they would be properly namespaced, but the Unity editor has problems
-							with namespaced components. Non-component types, such as
-							<code>Vector6</code> on the other hand are namespaced and will not
-							collide with other types.
+							All custom types reside in custom namespaces to protect from name
+							collisions with your own types or possible future types from
+							Unity. The namespace import was omitted for brevity.
 						</p>
-<p>
-							All grids are in a class hierachy that allows you write common code
-							once and have if work for all kinds of grids:
-						</p>
-<div class="highlight">
-<pre>
-<span class="c1">// This will work for any grid</span>
-<span class="n">GFGrid</span>  <span class="n">grid</span><span class="p">;</span>
-<span class="n">Vector3</span> <span class="n">gridCoordinates</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldCoordinates</span><span class="p">);</span>
-<span class="c1">// The exact implementation depends on the type of grid</span>
-</pre>
-</div>
 <p>
 							With the grid set up in your scene you are ready to go. You now have
 							access to a vast and rich API you can use for your own application.
@@ -354,28 +342,29 @@
 							coordinates and pass them to your movement function:
 						</p>
 <div class="highlight">
-<pre><span class="n">Vector3</span> <span class="n">origin</span>      <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">originInGrid</span>   <span class="p">);</span>
-<span class="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">desinatioInGrid</span><span class="p">);</span>
+<pre><span class="n">Vector3</span> <span class="n">origin</span>      <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">originInGrid</span>    <span class="p">);</span>
+<span class="n">Vector3</span> <span class="n">destination</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">gridToWorld</span><span class="p">(</span><span class="n">desinationInGrid</span><span class="p">);</span>
 <span class="n">MoveUnit</span><span class="p">(</span><span class="k">from</span><span class="p">:</span> <span class="n">origin</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="n">destination</span><span class="p">);</span>
 </pre>
 </div>
 <p>
 							A common task is snapping things to a grid, for example when the
-							player is trying to place building in a strategy game. This is where the
-							SnapToGrid method comes into play:
+							player is trying to place building in a strategy game. This is
+							where the <code>AlignTransform</code> extension method comes into
+							play:
 						</p>
 <div class="highlight">
 <pre>
-<span class="n">Transform</span> <span class="n">trnf</span><span class="p">;</span>
+<span class="n">Transform</span> <span class="n">t</span><span class="p">;</span>
 <span class="c1">// Move the object the usual way with no snapping first</span>
 <span class="c1">// And then correct its position by snapping</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">trnf</span><span class="p">);</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </pre>
 </div>
 <p>
-							Usually the AlignTransform method is smart enough to do what you want,
-							but if you want more control you can use the lower-level methods to
-							build your own rules.
+							Usually the <code>AlignTransform</code> method is smart enough to
+							do what you want, but if you want more control you can use the
+							lower-level methods to build your own rules.
 						</p>
 </div> <!-- /.expandable -->
 </div> <!-- /.col-md-6 foldout -->
@@ -400,8 +389,8 @@
 							as close to it as possible in Unity. Best of all, grids are in 3D
 							and move and, being components, rotate with the object they are
 							attached to; if you need a grid's rotation or position just get
-							the information from the Transform component, like any other
-							object in Unity.
+							the information from the <code>Transform</code> component, like
+							any other object in Unity.
 						</p>
 <div class="highlight">
 <pre>
@@ -443,20 +432,20 @@
 <p class="expand"><a>Click to expand</a></p>
 <div class="expandable">
 <p>
-							Redering is done using Unity's low-level rendering capabilities,
-							so it is blazing fast even on mobile devices. Keep in mind
-							though, that while the rendering is cheap, getting points for
-							large and very dense grids might not be. If your grids are
-							exceptionally large you will be glad to know that Grid Framework
-							can compute points for use with the popular Vectrosity add-on.
+							Redering is done using <code>Renderer</code> components and
+							Unity's low-level rendering capabilities, so it is blazing fast
+							even on mobile devices. Keep in mind though, that while the
+							rendering is cheap, getting points for large and very dense grids
+							might not be. If your grids are exceptionally large you will be
+							glad to know that Grid Framework can compute points for use with
+							the popular Vectrosity add-on.
 						</p>
 <div class="highlight">
 <pre>
-<span class="c1">// Set the rendering range and colour, turn off the Z-axis</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">renderFrom</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span> <span class="m">0</span><span class="p">,</span>  <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">renderTo</span>   <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">axisColors</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ColorVector3</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">black</span><span class="p">);</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">hideAxis</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="c1">// Set the rendering range and colour</span>
+<span class="n">renderer</span><span class="p">.</span><span class="n">From</span>   <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span> <span class="m">0</span><span class="p">,</span>  <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+<span class="n">renderer</span><span class="p">.</span><span class="n">To</span>     <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
+<span class="n">renderer</span><span class="p">.</span><span class="n">ColorX</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">black</span><span class="p">;</span>
 </pre>
 </div>
 </div> <!-- /.expandable -->

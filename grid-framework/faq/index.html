@@ -307,6 +307,9 @@
 <a href="q-patterns">What grids are supported?</a>
 </li>
 <li>
+<a href="q-renderer-types">Which renderers are supported?</a>
+</li>
+<li>
 <a href="#q-shape">Can I make irregular grid shapes?</a>
 </li>
 <li>
@@ -332,13 +335,13 @@
 						properties. It is not a finite set of points in space.
 
 						Here is a very rough sketch of what a grid class could look like;
-						of courese there is more to it in practice, but this gives you a
+						of course there is more to it in practice, but this gives you a
 						good idea.
 					</p>
 <div class="highlight">
 <pre>
 <span class="c1">// Origin and rotation are inherited from the GameObject</span>
-<span class="k">class</span> <span class="nc">GFRectGrid</span> <span class="p">:</span> <span class="n">GFGrid</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">RectGrid</span> <span class="p">:</span> <span class="n">Grid</span> <span class="p">{</span>
     <span class="k">public</span> <span class="n">Vector3</span> <span class="n">spacing</span><span class="p">;</span>
     <span class="k">public</span> <span class="n">Vector6</span> <span class="n">shearing</span><span class="p">;</span>
 <span class="p">};</span>
@@ -363,17 +366,10 @@
 					</p>
 <div class="highlight">
 <pre>
-<span class="kd">var</span> <span class="nx">grid</span> <span class="o">:</span> <span class="nx">GFRectGrid</span> <span class="o">=</span> <span class="nx">gameObject</span><span class="p">.</span><span class="nx">GetComponent</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">GFRectGrid</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">grid</span> <span class="o">:</span> <span class="nx">RectGrid</span> <span class="o">=</span> <span class="nx">gameObject</span><span class="p">.</span><span class="nx">GetComponent</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">RectGrid</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="nx">grid</span><span class="p">.</span><span class="nx">spacing</span> <span class="o">=</span> <span class="nx">Vector3</span><span class="p">.</span><span class="nx">one</span><span class="p">;</span>
 </pre>
 </div>
-<p>
-						The included examples are written in both C# as well as UnitScript
-						where possible.  Some examples however use language features not
-						present in UnityScript and could only be written in C#. These
-						features are not related to Grid Framework itself, they are general
-						limitations of UnityScript.
-					</p>
 </div>
 </div>
 <div class="faq-item">
@@ -381,22 +377,23 @@
 <div class="faq-a well well-sm">
 <p>
 						A grid does not store any data in its vertices, cells or anywhere
-						because it does not store any vertices to begin with.  That said,
-						we can replicate this very easily. This code example creates a
-						three-dimenstional array of world-positions of grid vertices:
+						because it does not store any vertices to begin with. With that
+						said, we can replicate this very easily. This code example creates
+						a three-dimenstional array of world-positions of grid vertices. We
+						will use a rectangular grid in this example.
 					</p>
 <div class="highlight">
 <pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
-<span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
+<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
 
 <span class="c1">// Change this to whatever type you want</span>
 <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">]</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">];</span>
 
 <span class="c1">// Loop over the grid</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// store the world coordinates of the grid points</span>
             <span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
         <span class="p">}</span>
@@ -405,7 +402,8 @@
 </div>
 <p>
 						You can then index the array using the grid coordinates of the vertex
-						you want.
+						you want. We used a simple <code>Vector3</code> for our array
+						elements, but we could have used any custom data type as well.
 					</p>
 </div> <!-- /.faq-a well well-sm -->
 </div> <!-- /.faq-item -->
@@ -422,27 +420,84 @@
 </div>
 </div>
 <div class="faq-item">
+<h2 class="faq-q" id="q-renderer-types">Which renderers are supported?</h2>
+<div class="faq-a well well-sm">
+<p>
+						The renderers depend on the type of grid, with hexagonal grids
+						providing multiple renderers.
+					</p>
+<ul>
+<li>
+							Rectangular use the <code>Parallelepiped</code> renderer which
+							renders the grid as a parallelepiped of adjacent
+							parallelepipeds.
+						</li>
+<li>
+							Spherical grids use the <code>Sphere</code> renderer to render
+							a potentially partial spherical grid, such as the latitude and
+							longitude grid on a globe. It can render spheres within
+							spheres.
+						</li>
+<li>
+							Polar grids use the <code>Cylinder</code> renderer to display a
+							cylindric shape where the circular portion can have a starting
+							and ending angle.
+						</li>
+<li>
+							Hexagonal grids can rendered as a <code>Cone</code>, a possibly
+							partial large hexagon made of many smaller hexagons. The name
+							derives from the fact that this shape is often used in
+							hex-based games to characterize a cone-shaped area of effect.
+						</li>
+<li>
+							Hexagonal grids can also be rendered as a
+							<code>Rectangle</code> where every odd column is shifted up- or
+							downwards or clipped.
+						</li>
+<li>
+							Hexagonal grids can be rendered as a <code>Rhombus</code> which
+							can be slated up- or downwards.
+						</li>
+<li>
+							Hexagonal grids can be rendered as a <code>Herringbone </code>
+							pattern of edges connecting the central points of the hexes
+							rather than drawing the hexes themselves.
+						</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
 <h2 class="faq-q" id="q-shape">Can I make irregular grid shapes?</h2>
 <div class="faq-a well well-sm">
 <p>
-						Not out of the box. One way to fake it is by having multiple grids,
-						one for all the calculations and the other for displaying the parts
-						that make up the irregular shape. Grids that are not rendered do not
-						take up rendering resources.
+						Yes, there are multiple ways. The easiest way is to have multiple
+						renderers per grid. Every renderer can then render a different
+						finite part of the infinitely large grid.
 					</p>
 <p>
-						Another solution would be to do the rendering yourself or using a rendering
-						plugin. That way you have full control over the shape. The get the points of the lines
-						to render use the grid's <code>GridToWorld</code> method:
+						If you wish for more control than that you will have to write your
+						own renderer class. Grid Framework provides you with the same
+						protected API as was used in writing the official renderers, you
+						have the full power at your command.
+					</p>
+<p>
+						Finally, you can do the rendering yourself or using a rendering
+						plugin of your choice for Unity. That way you have full control
+						over the shape. You can get the points of the lines to render use
+						the grid's <code>GridToWorld</code> method:
 					</p>
 <div class="highlight">
 <pre>
 <span class="n">Vector3</span> from<span class="p">,</span> <span class="n">to</span><span class="p">;</span>
-<span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
+<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
 
 <span class="n">Vector3</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="n">line</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[]</span> <span class="p">{</span><span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span>from<span class="p">),</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">to</span><span class="p">)</span><span class="p">};</span>
 </pre>
 </div>
+<p>
+						This last approach should not be necessary in most cases, the
+						renderer API is powerful enough.
+					</p>
 </div> <!-- /.faq-a well well-sm -->
 </div> <!-- /.faq-item -->
 <div class="faq-item">
@@ -468,14 +523,14 @@
 <div class="highlight">
 <pre>
 <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
-<span class="n">GFGrid</span> <span class="n">grid</span><span class="p">;</span>
+<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
 
 <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">]</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">];</span>
 
 <span class="c1">// Loop over the grid</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// store the world coordinates of the grid points</span>
             <span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
         <span class="p">}</span>
@@ -494,11 +549,11 @@
 <p>
 						Yes, the easiest way is to align the position to grid coordinates.
 						Let's assume your object should fit into the centre of the nearest
-						face. Here is the code:
+						face. Here is the code using a rectangular grid:
 					</p>
 <div class="highlight">
 <pre><span class=" n">Transform</span> <span class="n">myObject</span><span class="p">;</span> <span class="c1">// Object to align</span>
-<span class="n">GFGrid</span>    <span class="n">myGrid</span><span class="p">;</span>   <span class="c1">// Grid to align to</span>
+<span class="n">RectGrid</span>  <span class="n">myGrid</span><span class="p">;</span>   <span class="c1">// Grid to align to</span>
 
 <span class="c1">// Use common defaults</span>
 <span class="n">myGrid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">myObject</span><span class="p">);</span>

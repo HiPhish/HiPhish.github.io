@@ -325,18 +325,18 @@
 				matrix need to be? A few lines of code get the work done.
 			</p>
 <!-- var size = new int[2];                                                          -->
-<!-- for(int i = 0; i < 2; i++){                                                     -->
+<!-- for(var i = 0; i < 2; i++){                                                     -->
 <!--     // get the distance between both ends (in world units), divide it           -->
 <!--     // by the spacing (to get grid units) and round down to the nearest integer -->
-<!--     size[i] = Mathf.FloorToInt(Mathf.Abs(movementGrid.renderFrom[i] - movementGrid.renderTo[i]) / movementGrid.spacing[i]); -->
+<!--     size[i] = Mathf.FloorToInt(Mathf.Abs(renderer.From[i] - renderer.To[i]) / grid.Spacing[i]); -->
 <!-- }                                                                               -->
 <div class="highlight">
 <pre>
 <span class="kt">var</span> <span class="n">size</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
     <span class="c1">// get the distance between both ends (in world units), divide it</span>
     <span class="c1">// by the spacing (to get grid units) and round down to the nearest integer</span>
-    <span class="n">size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">renderFrom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">movementGrid</span><span class="p">.</span><span class="n">renderTo</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">/</span> <span class="n">movementGrid</span><span class="p">.</span><span class="n">spacing</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">renderer</span><span class="p">.</span><span class="n">From</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">renderer</span><span class="p">.</span><span class="n">To</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">/</span> <span class="n">grid</span><span class="p">.</span><span class="n">Spacing</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <span class="p">}</span>
 </pre>
 </div>
@@ -345,14 +345,14 @@
 				code do the job.
 			</p>
 <!-- var square = new int[2];                                                              -->
-<!--     for(int i = 0; i < 2; i++){                                                       -->
-<!--     square[i] = Mathf.FloorToInt(movementGrid.NearestBoxG(vec)[i]) - originSquare[i]; -->
+<!--     for(var i = 0; i < 2; i++){                                                       -->
+<!--     square[i] = Mathf.FloorToInt(movementGrid.NearestCell(vec)[i]) - originSquare[i]; -->
 <!-- }                                                                                     -->
 <div class="highlight">
 <pre>
 <span class="kt">var</span> <span class="n">square</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
-    <span class="n">square</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">NearestBoxG</span><span class="p">(</span><span class="n">vec</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="p">-</span> <span class="n">originSquare</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
+    <span class="n">square</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">NearestCell</span><span class="p">(</span><span class="n">vec</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="p">-</span> <span class="n">originSquare</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 </pre>
 </div>
@@ -390,55 +390,40 @@
 <iframe class="pull-right" id="extending" src="http://www.youtube.com/embed/W_QteDtqHK4" title="YouTube"></iframe>
 <h1>extending Grid Framework with your own methods</h1>
 <p>
-				This is a continuation of the above example where we extend the game to use a
-				hexagonal grid. Needless to say we don't want to write almost the same script
-				twice, so instead we will learn how to write our own method for the GFGrid
-				class that picks its implementation depending on the specific type of grid we
-				use. Then we can use the same script for both rectangular, hexagonal and polar grids.
+				This is a continuation of the above example where we extend the game to
+				use a hexagonal grid. Needless to say we don't want to write almost the
+				same script twice, so instead we will learn how to write our own method
+				for a grid class that picks its implementation depending on the
+				specific type of grid we use. Then we can use the same script for both
+				rectangular, hexagonal and polar grids.
 			</p>
 <p>Here is the example of how it works for rectangular grids:</p>
-<!-- public static bool IsAdjacent(this GFGrid theGrid, Vector3 position, Vector3 reference){   -->
-<!--     //convert to Grid Space first                                                          -->
-<!--     Vector3 gridPosition = the Grid.WorldToGrid(position);//the light we want to test      -->
-<!--     Vector3 gridReference = theGrid.WorldToGrid(reference);//the light that was pressed    -->
-<!--     //pick the implentation based on the type of grid                                      -->
-<!--     if (theGrid.GetType() == typeof(GFRectGrid)) {                                         -->
-<!--         return RectIsAdjacent((GFRectGrid)theGrid, gridPosition, gridReference);           -->
-<!--     } else if (...) {                                                                      -->
-<!--         // and so on...                                                                    -->
-<!--     } else                                                                                 -->
-<!--         return false;                                                                      -->
-<!--     }                                                                                      -->
-<!-- }                                                                                          -->
-<!-- 	private static bool RectIsAdjacent(GFRectGrid theGrid, Vector3 position, Vector3 reference){                                  -->
-<!--      bool isAdjacent = Mathf.Abs(position.x-reference.x) <= 1.25f && Mathf.Abs(position.y-reference.y) <= 1.25f;               -->
-<!--      bool isDiagonal = 0.25f <= Mathf.Abs(position.x-reference.x) && 0.25f <= Mathf.Abs(position.y-reference.y) && isAdjacent; -->
-<!--      return isAdjacent && !isDiagonal;                                                                                         -->
-<!-- 	}                                                                                                                             -->
-<div class="highlight">
-<pre>
-<span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsAdjacent</span><span class="p">(</span><span class="k">this</span> <span class="n">GFGrid</span> <span class="n">theGrid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">){</span>
-    <span class="c1">//convert to Grid Space first</span>
-    <span class="n">Vector3</span> <span class="n">gridPosition</span> <span class="p">=</span> <span class="n">the Grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">position</span><span class="p">);</span><span class="c1">//the light we want to test</span>
-        <span class="n">Vector3</span> <span class="n">gridReference</span> <span class="p">=</span> <span class="n">theGrid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">reference</span><span class="p">);</span><span class="c1">//the light that was pressed</span>
+<!-- public static bool IsAdjacent(this RectGrid grid, Vector3 position, Vector3 reference) { -->
+<!--     // Convert to Grid Space first                                                       -->
+<!--     var gPosition  = grid.WorldToGrid(position);  // The point we want to test           -->
+<!--     var gReference = grid.WorldToGrid(reference); // The point we want to reference      -->
+<!-- -->
+<!--     var deltaX = Mathf.Abs(gPosition.x - gReference.x);                                  -->
+<!--     var deltaY = Mathf.Abs(gPosition.y - gReference.y);                                  -->
+<!--     var isAdjacent = deltaX <= 1.25f && deltaY <= 1.25f;                                 -->
+<!--     var isDiagonal = -1.25f <= deltaX && 0.25f <= deltaY && isAdjacent;                  -->
+<!-- -->
+<!--     return isAdjacent && !isDiagonal;                                                    -->
+<!-- }                                                                                        -->
+<div class="highlight"><pre><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsAdjacent</span><span class="p">(</span><span class="k">this</span> <span class="n">RectGrid
+</span> <span class="n">grid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Convert to Grid Space first</span>
+    <span class="kt">var</span> <span class="n">gPosition</span>  <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">position</span><span class="p">);</span>  <span class="c1">// The point we want to test</span>
+    <span class="kt">var</span> <span class="n">gReference</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">reference</span><span class="p">);</span> <span class="c1">// The point we want to reference</span>
 
-    <span class="c1">//pick the implentation based on the type of grid</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">theGrid</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">==</span> <span class="k">typeof</span><span class="p">(</span><span class="n">GFRectGrid</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nf">RectIsAdjacent</span><span class="p">((</span><span class="n">GFRectGrid</span><span class="p">)</span><span class="n">theGrid</span><span class="p">,</span> <span class="n">gridPosition</span><span class="p">,</span> <span class="n">gridReference</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(...)</span> <span class="p">{</span>
-        <span class="c1">// and so on...</span>
-    <span class="p">}</span> <span class="k">else</span>
-        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="kt">var</span> <span class="n">deltaX</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">gPosition</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">gReference</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">deltaY</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">gPosition</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">gReference</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">isAdjacent</span> <span class="p">=</span> <span class="n">deltaX</span> <span class="p">&lt;=</span> <span class="m">1.25f</span> <span class="p">&amp;&amp;</span> <span class="n">deltaY</span> <span class="p">&lt;=</span> <span class="m">1.25f</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">isDiagonal</span> <span class="p">=</span> <span class="p">-</span><span class="m">1.25f</span> <span class="p">&lt;=</span> <span class="n">deltaX</span> <span class="p">&amp;&amp;</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">deltaY</span> <span class="p">&amp;&amp;</span> <span class="n">isAdjacent</span><span class="p">;</span>
 
-<span class="k">private</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">RectIsAdjacent</span><span class="p">(</span><span class="n">GFRectGrid</span> <span class="n">theGrid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">){</span>
-    <span class="kt">bool</span> <span class="n">isAdjacent</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">1.25f</span> <span class="p">&amp;&amp;</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">1.25f</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">isDiagonal</span> <span class="p">=</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">reference</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">isAdjacent</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">isAdjacent</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">isDiagonal</span><span class="p">;</span>
+    <span></span><span class="k">return</span> <span class="n">isAdjacent</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">isDiagonal</span><span class="p">;</span>
 <span class="p">}</span>
-</pre>
-</div>
+</pre></div>
 <hr/>
 <iframe class="pull-right" id="assembling" src="http://www.youtube.com/embed/lvYWbJ8ohkA" title="YouTube"></iframe>
 <h1 id="level-design"><a href="./level-design">Assembling a level from text file</a></h1>
@@ -497,16 +482,16 @@
 <!-- 	rangeShift[i] += transform.position[i] - lastPosition[i]; -->
 <!-- }                                                          -->
 <!-- -->
-<!-- myGrid.renderFrom += rangeShift;                           -->
-<!-- myGrid.renderTo   += rangeShift;                           -->
+<!-- renderer.From += rangeShift;                               -->
+<!-- renderer.To   += rangeShift;                               -->
 <div class="highlight">
 <pre>
 <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
     <span class="n">rangeShift</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">lastPosition</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="n">myGrid</span><span class="p">.</span><span class="n">renderFrom</span> <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
-<span class="n">myGrid</span><span class="p">.</span><span class="n">renderTo</span>   <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
+<span class="n">renderer</span><span class="p">.</span><span class="n">From</span> <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
+<span class="n">renderer</span><span class="p">.</span><span class="n">To</span>   <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
 </pre>
 </div>
 <hr/>

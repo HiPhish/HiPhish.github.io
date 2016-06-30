@@ -245,90 +245,67 @@
 					<!-- Breadcrumbs to period archives -->
 					<ol class="breadcrumb">
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/">
-								2012
+							<a href="http://hiphish.github.io/grid-framework/news/2016/">
+								2016
 							</a>
 						</li>
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/">
-								11
+							<a href="http://hiphish.github.io/grid-framework/news/2016/06/">
+								6
 							</a>
 						</li>
 						<li class="active">
-								22
+								30
 						</li>
 						<li class="active">
-							square-peg-in-round-hole
+							release-210
 						</li>
 						<li></li>  <!-- a closing list item -->
 					</ol>
 					<h2 class="entry-title">
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" rel="bookmark" title="Permalink to Trying to fit a square peg into a hex hole">
-							Trying to fit a square peg into a hex hole
+						<a href="http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/" rel="bookmark" title="Permalink to Grid Framework version 2.1.0 released">
+							Grid Framework version 2.1.0 released
 						</a>
-						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/progress/" role="button">
-							progress
+						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/release/" role="button">
+							release
 						</a>
 					</h2>
 				
 				</header>
 				<footer class="post-info">
 					<span class="glyphicon glyphicon-pencil"></span>
-					<abbr class="published" title="Published: 2012-11-22T00:00:00+01:00">
-						2012-11-22
+					<abbr class="published" title="Published: 2016-06-30T00:00:00+02:00">
+						2016-06-30
 					</abbr>
 					<address class="vcard author">
 					</address>
 				</footer><!-- /.post-info -->
 				<article class="entry-content">
-					<p>The align feature has been giving me quite some headache lately. For small
-objects it's easy, just fit them inside the nearest hex. It gets more
-interesting once your object spans over more than one hex. Here is a screenshot
-from the game "Age of Wonders" for PC (I upscaled the image manually, AoW has a
-very low resolution)</p>
-<div class="figure">
-<img alt='Screenshot from "Age of Wonders"' class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/images/AoW.png"/>
-</div>
-<p>As you can see the city goes over two hexes and no matter which of the two I
-click, I always select the city. I tried many ways of calculating a resonable
-way how to fit such an object into a hex grid, but no matter what I tried, it
-was bloated, had many cases and, worst of all, didn't really make any sense.
-The way Unity is designed is to work with rectangular objects which might be
-rotated. In a hex grid system everything is rotated, but only from our point of
-view, in terms of game logic everything is the normal way. This is what is
-causing problems, I'm trying to force one viewpoint into a different context.</p>
-<p>So, what's the solution? I decided to go for the easiest and most intuitive
-approach: each object will be placed into the centre of its nearest hex. What
-about objects that need to go over two fields? In that case the user would have
-to set the pivot point manually, either in the 3D modelling aplication or in
-Unity by parenting the object to another object and placing them relative to
-each other so the pivot object is where you want the pivot point to be. In
-fact, this is exactly how the Age of Wonders editor is doing it.</p>
-<p>You'll get a better idea of what I mean when you see it in action. In this
-video I'm assembling the structure directly inside the editor. Note that only
-the parent spheres have Rigidbodies, but all spheres have colliders and the
-script. Unity is designed in such a way that if an object has no rigidbody
-calling "rigidbody" will return the RB of its parent. Thus it's always as if I
-clicked the parent sphere when I click any sphere of a structure.</p>
-<div class="youtube youtube-16x9"><iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/JxnZxlfhu9g"></iframe></div><p>I think this is a good solution. Unless I somehow come up with a better way to
-do aligning this is what I'm going to stick with.</p>
+					<p>Grid Framework version 2.1.0 has been approved by the Asset Store. This release
+brings  new  features  in making  some  previously  read-only  properties  also
+writeable, fixes compiler issues in connection with Playmaker actions and makes
+the code comply with the Visual Studio compiler.</p>
+<p>The  newly writeable  properties are computed  properties  which depend  on one
+stored property. When writing to the property the inverse of reading formula is
+applied. These properties are:</p>
+<ul class="simple">
+<li>In hexagonal grids <code>Width</code>, <code>Height</code>, <code>Side</code></li>
+<li>In polar grids: <code>Radians</code>, <code>Degrees</code></li>
+<li>In spherical grids: <code>Polar</code>, <code>PolarDeg</code>, <code>Azimuth</code>, <code>AzimuthDeg</code></li>
+</ul>
+<p>The properties of the hexagonal grid are particularly useful,  because half the
+<code>Height</code> is the radius of the inscribed circle. Previously if you wanted to set
+the size  of a  hexagon based  on the  inner radius  in the  editor you  had to
+compute the outer one by hand, but now you can just set the <code>Height</code> directly.</p>
 
 				</article><!-- /.entry-content -->
 				<footer>
 					<hr />
-					<p>Tagged:
-						<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">old-blog</a>
-</p>
 					<nav>
 						<ul class="pager">
 							<li class="previous">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" rel="prev">
+								<a href="http://hiphish.github.io/grid-framework/news/2016/06/05/release-201/" rel="prev">
 									<span aria-hidden="true">&larr;</span> Older
-								</a>
-							</li>
-							<li class="next">
-								<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" rel="next">
-									Newer <span aria-hidden="true">&rarr;</span>
 								</a>
 							</li>
 						</ul>
@@ -347,16 +324,16 @@ do aligning this is what I'm going to stick with.</p>
 				<div class="list-group list-group-root hidden-xs">
 					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">15</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2016
+						<i class="glyphicon glyphicon-chevron-down"></i>2016
 					</a>
 					<!-- Months in 2016 -->
-					<div class="list-group collapse" id="y-2016-item">
+					<div class="list-group collapse in" id="y-2016-item">
 						<a href="#y-2016-m-6-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>June
+							<i class="glyphicon glyphicon-chevron-down"></i>June
 						</a>
 						<!-- Articles in 6 -->
-						<div class="list-group collapse" id="y-2016-m-6-item">
+						<div class="list-group collapse in" id="y-2016-m-6-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/" class="list-group-item">
 								Grid Framework version 2.1.0 released
 							</a>
@@ -729,10 +706,10 @@ do aligning this is what I'm going to stick with.</p>
 					</div>
 					<a href="#y-2012-item" class="list-group-item" data-toggle="collapse">
 						<span class="badge">40</span>
-						<i class="glyphicon glyphicon-chevron-down"></i>2012
+						<i class="glyphicon glyphicon-chevron-right"></i>2012
 					</a>
 					<!-- Months in 2012 -->
-					<div class="list-group collapse in" id="y-2012-item">
+					<div class="list-group collapse" id="y-2012-item">
 						<a href="#y-2012-m-12-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">4</span>
 							<i class="glyphicon glyphicon-chevron-right"></i>December
@@ -754,10 +731,10 @@ do aligning this is what I'm going to stick with.</p>
 						</div>
 						<a href="#y-2012-m-11-item" class="list-group-item" data-toggle="collapse">
 							<span class="badge">7</span>
-							<i class="glyphicon glyphicon-chevron-down"></i>November
+							<i class="glyphicon glyphicon-chevron-right"></i>November
 						</a>
 						<!-- Articles in 11 -->
-						<div class="list-group collapse in" id="y-2012-m-11-item">
+						<div class="list-group collapse" id="y-2012-m-11-item">
 							<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" class="list-group-item">
 								Grid Framework version 1.1.10 released
 							</a>
