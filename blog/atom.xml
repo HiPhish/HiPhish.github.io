@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-06-25T00:00:00+02:00</updated><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-07-06T00:00:00+02:00</updated><entry><title>Introducing IPS-Tools</title><link href="http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/" rel="alternate"></link><updated>2016-07-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</id><summary type="html">&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
+and I was really disappointed  that there are no proper  Unix programs for that
+purpose available.  So I set out to make my own,  but instead of just  applying
+patches it would be a complete suite of tools to handle all IPS-related tasks.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://gitlab.com/HiPhish/IPS-Tools"&gt;IPS-Tools&lt;/a&gt; is the result, it consists of three standalone CLI programs, one CLI
+program that acts as an entry point to the suite, and a C library for inclusion
+in other applications. There are three programs because I have identified three
+problem domains: applying a patch, generating a patch and examining a patch.&lt;/p&gt;
+&lt;p&gt;The tools are all written in C99 using only the standard library, they are tiny
+and  should  run  on  pretty  much  anything.  Great  for  embedding  in  other
+applications.  In fact,  I have a  GUI frontend that  uses the library  to give
+users a drag &amp;amp; drop interface, but it still needs some more polish before I can
+release it.&lt;/p&gt;
+&lt;p&gt;I also took the opportunity  to write a complete specification  of the IPS file
+format, because all I was able to find have been bits and pieces everywhere and
+only closed-source programs, so I had to piece things together. IPS is a fairly
+simple format,  but it  has some  hairy corners  because over  time people have
+added  extensions  to it  (compressed records  and truncation).  With IPS-tools
+there is a complete  file specification and  a reference implementation  freely
+available to the public.&lt;/p&gt;
+</summary></entry><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -82,7 +102,7 @@ problem.&lt;/p&gt;
 &lt;p&gt;The result  was rock-stable  and since it  was run on  the command-line we were
 able  to automate  the entire process  to clone multiple  drives in  succession
 instead of having to babysit them all day. So if you are right now wasting your
-time babysitting hard drives, grab yourself a copy of &lt;a class="reference external" href="https://gitlab.com/HiPhish/ntfs-clone"&gt;NTFS-Clone&lt;/a&gt; and buy one
+time babysitting hard drives,  grab yourself a copy  of &lt;a class="reference external" href="https://gitlab.com/HiPhish/ntfs-clone"&gt;NTFS-Clone&lt;/a&gt; and buy one
 of those things where you can plug in several drives and automate your work.&lt;/p&gt;
 </summary></entry><entry><title>Neovim has tab-local working directories now</title><link href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" rel="alternate"></link><updated>2016-04-22T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</id><summary type="html">&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
 this post I will explain what it does and why you will love it.&lt;/p&gt;
