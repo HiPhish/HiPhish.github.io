@@ -115,7 +115,7 @@
 						<li class="divider" role="separator"></li>
 
 						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 								Buy Now <span class="badge">35$</span>							</a>
 						</li>
 					</ul>
@@ -334,7 +334,7 @@ We can perform all the above steps using a <code>for</code> loop, <code>find</co
 <p>First we need  to find all the files  we are looking for.  The first time these
 are just JavaScript  files and the second time  around it's HTML and JavaScript
 files.</p>
-<div class="highlight"><pre><span class="c1"># Find all JavaScript files</span>
+<div class="highlight"><pre><span></span><span class="c1"># Find all JavaScript files</span>
 find ./build/documentation/html/ -type f -name <span class="s1">'*.js'</span>
 
 <span class="c1"># Find all HTML and JavaScript files (JS files after being renamed)</span>
@@ -345,13 +345,13 @@ find ./build/documentation/html/ -type f -name <span class="s1">'*.js.txt'</span
 printed to  the terminal,  we want  to loop  over them.  Wrapping a  command in
 backticks replaces their content with the output of the command.  Let's use the
 output in a <code>for</code> loop.</p>
-<div class="highlight"><pre><span class="c1"># I'm only showing the first one here</span>
+<div class="highlight"><pre><span></span><span class="c1"># I'm only showing the first one here</span>
 <span class="k">for</span> f in <span class="sb">`</span>find ./build/documentation/html/ -type f -name <span class="s1">'*.js'</span><span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
 </pre></div>
 <p>Inside the loop we can use the variable <code>$f</code> to reference the current file. The
 renaming process is very simple,  we just append <code>.txt</code> to the file name;  this
 way <code>navtree.js</code> becomes <code>navtree.js.txt</code> for example.</p>
-<div class="highlight"><pre><span class="c1"># The file extension doesn't really matter, but everyone knows what a text</span>
+<div class="highlight"><pre><span></span><span class="c1"># The file extension doesn't really matter, but everyone knows what a text</span>
 <span class="c1"># file is, so I might as well use that.</span>
 mv <span class="nv">$f</span> <span class="nv">$f</span>.txt
 </pre></div>
@@ -359,7 +359,7 @@ mv <span class="nv">$f</span> <span class="nv">$f</span>.txt
 change any reference to a file ending in <code>.js</code> to the same,  except with <code>.txt</code>
 appended.  The program <code>sed</code> can do this;  <code>sed</code> stands for <em>Stream Editor</em> and
 it can edit text files automatically based on commands passed to it.</p>
-<div class="highlight"><pre><span class="c1"># '-E' means using modern regex, '-i "" ' means in-place overwriting</span>
+<div class="highlight"><pre><span></span><span class="c1"># '-E' means using modern regex, '-i "" ' means in-place overwriting</span>
 sed -E -i <span class="s2">""</span> <span class="s1">'s/([_a-zA-Z0-9]*)\.js/\1.js.txt/'</span> <span class="nv">$f</span>
 </pre></div>
 <p><code>sed</code>  finds  the  parts  we  want  to  replace  using the  regular  expression

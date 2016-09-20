@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-06-25T00:00:00+02:00</updated><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-06-25T00:00:00+02:00</updated><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><published>2016-06-25T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -14,7 +14,7 @@ deprecated API calls or downright bad practice.&lt;/p&gt;
 &lt;h2&gt;The wrong way&lt;/h2&gt;
 &lt;p&gt;Here is how Apple's own documentation highlights an &lt;code&gt;NSImageView&lt;/code&gt; instance. The
 code is from the official &lt;a class="reference external" href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html"&gt;CocoaDragAndDrop&lt;/a&gt; example.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="cm"&gt;/*------------------------------------------------------&lt;/span&gt;
 &lt;span class="cm"&gt;        draw method is overridden to do drop highlighing&lt;/span&gt;
@@ -58,7 +58,7 @@ the getter &lt;code&gt;isHighlighted&lt;/code&gt;,  so we don't need  a new prop
 actual highlight &lt;code&gt;NSView&lt;/code&gt;  provides the method &lt;code&gt;drawFocusRingMask&lt;/code&gt;.  Subclasses
 can override  the property  to implement  their own  highlighting  and  luckily
 &lt;code&gt;NSImageView&lt;/code&gt; does exacly that.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="nl"&gt;drawRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;dirtyRect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt; &lt;span class="n"&gt;isHighlighted&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;

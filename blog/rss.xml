@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 Jul 2016 00:00:00 +0200</lastBuildDate><item><title>Introducing IPS-Tools</title><link>http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/</link><description>&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Wed, 06 Jul 2016 00:00:00 +0200</lastBuildDate><item><title>Introducing IPS-Tools</title><link>http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/</link><description>&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
 and I was really disappointed  that there are no proper  Unix programs for that
 purpose available.  So I set out to make my own,  but instead of just  applying
 patches it would be a complete suite of tools to handle all IPS-related tasks.&lt;/p&gt;
@@ -19,7 +19,7 @@ simple format,  but it  has some  hairy corners  because over  time people have
 added  extensions  to it  (compressed records  and truncation).  With IPS-tools
 there is a complete  file specification and  a reference implementation  freely
 available to the public.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 06 Jul 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</guid></item><item><title>Highlighting NSImageView the right way</title><link>http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 06 Jul 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</guid></item><item><title>Highlighting NSImageView the right way</title><link>http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -34,7 +34,7 @@ deprecated API calls or downright bad practice.&lt;/p&gt;
 &lt;h2&gt;The wrong way&lt;/h2&gt;
 &lt;p&gt;Here is how Apple's own documentation highlights an &lt;code&gt;NSImageView&lt;/code&gt; instance. The
 code is from the official &lt;a class="reference external" href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html"&gt;CocoaDragAndDrop&lt;/a&gt; example.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="cm"&gt;/*------------------------------------------------------&lt;/span&gt;
 &lt;span class="cm"&gt;        draw method is overridden to do drop highlighing&lt;/span&gt;
@@ -78,7 +78,7 @@ the getter &lt;code&gt;isHighlighted&lt;/code&gt;,  so we don't need  a new prop
 actual highlight &lt;code&gt;NSView&lt;/code&gt;  provides the method &lt;code&gt;drawFocusRingMask&lt;/code&gt;.  Subclasses
 can override  the property  to implement  their own  highlighting  and  luckily
 &lt;code&gt;NSImageView&lt;/code&gt; does exacly that.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="nl"&gt;drawRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;dirtyRect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt; &lt;span class="n"&gt;isHighlighted&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -89,7 +89,7 @@ can override  the property  to implement  their own  highlighting  and  luckily
 &lt;p&gt;Now your code is future-proof and will work regardless of the shape you choose.
 Well, at least until Apple deprecates this method.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Jun 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</guid><category>cocoa</category></item><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Jun 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</guid><category>cocoa</category></item><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
 recently found collecting dust on my hard drive. It lets you create perfect 1:1
 copies of NTFS hard drives on Unix.  The problem with every software I had come
 across was  that it would copy the data,  but that wasn't enough,  so we had to
@@ -104,7 +104,7 @@ able  to automate  the entire process  to clone multiple  drives in  succession
 instead of having to babysit them all day. So if you are right now wasting your
 time babysitting hard drives,  grab yourself a copy  of &lt;a class="reference external" href="https://gitlab.com/HiPhish/ntfs-clone"&gt;NTFS-Clone&lt;/a&gt; and buy one
 of those things where you can plug in several drives and automate your work.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 31 May 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-05-31:blog/2016/05/31/into-ntfs-clone/</guid></item><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 31 May 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-05-31:blog/2016/05/31/into-ntfs-clone/</guid></item><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
 this post I will explain what it does and why you will love it.&lt;/p&gt;
 &lt;div class="section" id="what-are-working-directories-in-vim"&gt;
 &lt;h2&gt;What are working directories in Vim?&lt;/h2&gt;
@@ -186,11 +186,11 @@ affects all windows displaying that buffer.  Of course such a scope would raise
 new design concerns and it's questionable whether it would even be useful,  but
 the important point is that it is now possible.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</guid><category>neovim</category></item><item><title>Feeds are live now</title><link>http://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</guid><category>neovim</category></item><item><title>Feeds are live now</title><link>http://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
 category button of an article.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</guid><category>website</category></item><item><title>We are live!</title><link>http://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</guid><category>website</category></item><item><title>We are live!</title><link>http://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
 makes the site practically complete, at least as complete as a website can ever
 be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
 &lt;p&gt;I wanted to be able to have more than one blog on the site. A blog can be a
@@ -270,4 +270,4 @@ when there is only one author on the site. That's me "eating my own dogfood", I
 am using a feature because I want to demonstrate its purpose.&lt;/p&gt;
 &lt;p&gt;Well, that's it for now, we'll see where this ride will take be from now on.
 It's going to be interesting :)&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</guid><category>website</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Nov 2015 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</guid><category>website</category></item></channel></rss>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/categories/open-source/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 22 Apr 2016 00:00:00 +0200</lastBuildDate><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Fri, 22 Apr 2016 00:00:00 +0200</lastBuildDate><item><title>Neovim has tab-local working directories now</title><link>http://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
 this post I will explain what it does and why you will love it.&lt;/p&gt;
 &lt;div class="section" id="what-are-working-directories-in-vim"&gt;
 &lt;h2&gt;What are working directories in Vim?&lt;/h2&gt;
@@ -81,4 +81,4 @@ affects all windows displaying that buffer.  Of course such a scope would raise
 new design concerns and it's questionable whether it would even be useful,  but
 the important point is that it is now possible.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</guid><category>neovim</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 22 Apr 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</guid><category>neovim</category></item></channel></rss>

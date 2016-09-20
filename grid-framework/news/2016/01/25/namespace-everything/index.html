@@ -115,7 +115,7 @@
 						<li class="divider" role="separator"></li>
 
 						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 								Buy Now <span class="badge">35$</span>							</a>
 						</li>
 					</ul>
@@ -294,13 +294,13 @@ namespaced order.</p>
 nested in it.  Grids reside in the <code>GridFramework.Grids</code> namespace, their class
 names are the  same except for the  <code>GF</code> prefix.  This is what a  piece of user
 code looks like without namespaces:</p>
-<div class="highlight"><pre><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 
 <span class="n">GFRectGrid</span> <span class="n">grid</span><span class="p">;</span>
 <span class="n">Vector3</span> <span class="n">gridPosition</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">));</span>
 </pre></div>
 <p>Let's use namespaces instead:</p>
-<div class="highlight"><pre><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">GridFramework.Grids</span><span class="p">;</span>
 
 <span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
@@ -320,7 +320,7 @@ to build upon.</p>
 <p>There might be more  namespaces down the line,  but they won't be as important.
 If you are concerned that  declarations might get  too large use the C# <code>using</code>
 directive:</p>
-<div class="highlight"><pre><span class="k">using</span> <span class="nn">Renderer</span> <span class="p">=</span> <span class="n">GridFramework</span><span class="p">.</span><span class="n">Renderers</span><span class="p">.</span><span class="n">Hexagonal</span><span class="p">.</span><span class="n">Renderer</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Renderer</span> <span class="p">=</span> <span class="n">GridFramework</span><span class="p">.</span><span class="n">Renderers</span><span class="p">.</span><span class="n">Hexagonal</span><span class="p">.</span><span class="n">Renderer</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">MyHexRenderer</span> <span class="p">:</span> <span class="n">Renderer</span> <span class="p">{</span>
     <span class="c1">// ...</span>

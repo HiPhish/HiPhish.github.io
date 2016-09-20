@@ -115,7 +115,7 @@
 						<li class="divider" role="separator"></li>
 
 						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 								Buy Now <span class="badge">35$</span>							</a>
 						</li>
 					</ul>
@@ -236,7 +236,7 @@ deprecated API calls or downright bad practice.</p>
 <h2>The wrong way</h2>
 <p>Here is how Apple's own documentation highlights an <code>NSImageView</code> instance. The
 code is from the official <a class="reference external" href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html">CocoaDragAndDrop</a> example.</p>
-<div class="highlight"><pre><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">drawRect:</span><span class="p">(</span><span class="n">NSRect</span><span class="p">)</span><span class="nv">rect</span>
+<div class="highlight"><pre><span></span><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">drawRect:</span><span class="p">(</span><span class="n">NSRect</span><span class="p">)</span><span class="nv">rect</span>
 <span class="p">{</span>
     <span class="cm">/*------------------------------------------------------</span>
 <span class="cm">        draw method is overridden to do drop highlighing</span>
@@ -280,7 +280,7 @@ the getter <code>isHighlighted</code>,  so we don't need  a new property.  For d
 actual highlight <code>NSView</code>  provides the method <code>drawFocusRingMask</code>.  Subclasses
 can override  the property  to implement  their own  highlighting  and  luckily
 <code>NSImageView</code> does exacly that.</p>
-<div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">drawRect:</span><span class="p">(</span><span class="n">NSRect</span><span class="p">)</span><span class="nv">dirtyRect</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">drawRect:</span><span class="p">(</span><span class="n">NSRect</span><span class="p">)</span><span class="nv">dirtyRect</span> <span class="p">{</span>
     <span class="p">[</span><span class="nb">super</span> <span class="nl">drawRect</span><span class="p">:</span><span class="n">dirtyRect</span><span class="p">];</span>
 
     <span class="k">if</span> <span class="p">([</span><span class="nb">self</span> <span class="n">isHighlighted</span><span class="p">])</span> <span class="p">{</span>

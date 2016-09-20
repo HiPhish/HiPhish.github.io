@@ -115,7 +115,7 @@
 						<li class="divider" role="separator"></li>
 
 						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 								Buy Now <span class="badge">35$</span>							</a>
 						</li>
 					</ul>
@@ -290,7 +290,7 @@ the framework.</p>
 <p>This is where  extension methods come in.  Extension methods are a C# syntactic
 sugar  feature that  allows us  to write new methods  that can be treated as if
 they were instance methods of another class</p>
-<div class="highlight"><pre><span class="c1">// Define the extension method</span>
+<div class="highlight"><pre><span></span><span class="c1">// Define the extension method</span>
 <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">GetTwice</span><span class="p">(</span><span class="k">this</span> <span class="n">MyClass</span> <span class="n">instance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">once</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="m">2</span> <span class="p">*</span> <span class="n">once</span><span class="p">;</span>
 <span class="p">}</span>
@@ -303,7 +303,7 @@ they were instance methods of another class</p>
 rally belong  into the class itself.  Extensions reside  in their own namespace
 and need  to be  explicitly  imported  using  a <code>using</code> statement.  Here is  a
 practical example:</p>
-<div class="highlight"><pre><span class="k">using</span> <span class="nn">GridFramework.Grids</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">GridFramework.Grids</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">GridFramework.Extensions.Nearest</span><span class="p">;</span>
 
 <span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
@@ -313,7 +313,7 @@ practical example:</p>
 <p>While I was at it I also dropped the <code>W</code> and <code>G</code> suffixes,  instead you have to
 pass a  coordinate  system as  an argument.  If you  don't want  to  specify an
 argument every time you can write an extension method of your own.</p>
-<div class="highlight"><pre><span class="k">using</span> <span class="nn">GridFramework.Grids</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">GridFramework.Grids</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">GridFramework.Extensions.Nearest</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">static</span> <span class="nf">NearestVertex</span><span class="p">(</span><span class="k">this</span> <span class="n">RectGrid</span> <span class="n">grid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span>

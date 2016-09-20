@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-01-09T00:00:00+01:00</updated><entry><title>Goodbye MonoDevelop, hello Vim</title><link href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" rel="alternate"></link><updated>2015-01-09T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-01-09:grid-framework/news/2015/01/09/hello-vim/</id><summary type="html">&lt;p&gt;One thing that has been getting on my nerves ever since I started working with
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2015-01-09T00:00:00+01:00</updated><entry><title>Goodbye MonoDevelop, hello Vim</title><link href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" rel="alternate"></link><published>2015-01-09T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-01-09:grid-framework/news/2015/01/09/hello-vim/</id><summary type="html">&lt;p&gt;One thing that has been getting on my nerves ever since I started working with
 Unity has been MonoDevelop. While it is a good IDE for the most part it
 suffered from a number of annoying issues, such as folds randomly opening, poor
 performance, and auto completion randomly not working. Your mileage may vary,
@@ -39,7 +39,7 @@ you don't have to learn a new IDE for every project.&lt;/p&gt;
 &lt;p&gt;In fact, I have been designing my new upcoming website in Vim as well, the same
 editor I use for writing Grid Framework. How cool is that? Here is a video I
 found on YouTube of someone using Vim to edit text with the speed of though:&lt;/p&gt;
-&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lQNFfhC4QI8"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Whitelisting subdirectories in Git</title><link href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" rel="alternate"></link><updated>2014-09-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-09-09:grid-framework/news/2014/09/09/whitelisting-in-git/</id><summary type="html">&lt;p&gt;After having migrated the development of Grid Framework to Git I wanted to set
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lQNFfhC4QI8"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Whitelisting subdirectories in Git</title><link href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" rel="alternate"></link><published>2014-09-09T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2014-09-09:grid-framework/news/2014/09/09/whitelisting-in-git/</id><summary type="html">&lt;p&gt;After having migrated the development of Grid Framework to Git I wanted to set
 it up to track only certain sub-directories. I turned out that whitelisting is
 quite tricky, so here is how I did it for people who might run into the same
 problem.&lt;/p&gt;
@@ -91,7 +91,7 @@ necessay to escape the space character.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Whitelisted the Unity meta files of whitelisted folders as well,
 just in case. Of course if you are not using Unity you need to figure out if
 and what meta files you have instead and if they need to be tracked as well.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Status update and Doxygen rant</title><link href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" rel="alternate"></link><updated>2013-08-02T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-08-02:grid-framework/news/2013/08/02/status-update/</id><summary type="html">&lt;p&gt;It has been two weeks snce my last update, so I wanted to let you guys know
+</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Status update and Doxygen rant</title><link href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" rel="alternate"></link><published>2013-08-02T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-08-02:grid-framework/news/2013/08/02/status-update/</id><summary type="html">&lt;p&gt;It has been two weeks snce my last update, so I wanted to let you guys know
 what I am currently at. The good news is that the new coordinate systems have
 been implemented and are ready to use. Of course there is still the obligatory
 last check to do, but i expect everything to be fine. All methods that got the
@@ -118,7 +118,7 @@ PDF documentation anymore though, the HTML is more flexible to read and
 navigate, plus the PDF generated by Doxygen looks rather... ugly.&lt;/p&gt;
 &lt;p&gt;Now that I've got everything out of the way it's time to wrap it up and
 hopefully get it released next week.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>CheckComponent()</title><link href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="alternate"></link><updated>2013-07-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-07-03:grid-framework/news/2013/07/03/check-component/</id><summary type="html">&lt;p&gt;Here is a quick but handy tip. Recently I found myself needing to reference
+</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>CheckComponent()</title><link href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="alternate"></link><published>2013-07-03T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-07-03:grid-framework/news/2013/07/03/check-component/</id><summary type="html">&lt;p&gt;Here is a quick but handy tip. Recently I found myself needing to reference
 various components in my script without knowing if they exist. I have to get
 the component and then check if it exists, and if not add it to prevent null
 exceptions. Here is what you would write in such a case:&lt;/p&gt;
@@ -167,7 +167,7 @@ just like GetComponent.&lt;/p&gt;
 // use this in any of your scripts:
 MeshCollider mc = CheckComponent&amp;lt;MeshCollider&amp;gt;();
 &lt;/pre&gt;
-</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Unity and properties/accessors</title><link href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" rel="alternate"></link><updated>2013-02-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-02-14:grid-framework/news/2013/02/14/properties-accessors/</id><summary type="html">&lt;p&gt;As mentioned in the previous post I'd like to relate my experience with using
+</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Unity and properties/accessors</title><link href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" rel="alternate"></link><published>2013-02-14T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-02-14:grid-framework/news/2013/02/14/properties-accessors/</id><summary type="html">&lt;p&gt;As mentioned in the previous post I'd like to relate my experience with using
 properties in Unity and how to make them work properly. Properties are a C#
 feature and not available in UnityScript (another reason to ditch UnityScript).
 To help demonstrate what I mean I will be using a "circle" class.&lt;/p&gt;
@@ -283,7 +283,7 @@ variable to something appropriate for angles:&lt;/p&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
-</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Happy new year</title><link href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" rel="alternate"></link><updated>2013-01-01T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-01-01:grid-framework/news/2013/01/01/new-year/</id><summary type="html">&lt;p&gt;A happy new year to everyone! This has been quite a year for me, so what better
+</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Happy new year</title><link href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" rel="alternate"></link><published>2013-01-01T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2013-01-01:grid-framework/news/2013/01/01/new-year/</id><summary type="html">&lt;p&gt;A happy new year to everyone! This has been quite a year for me, so what better
 opportunity to recap the birth process and evolution of Grid and set the plans
 for this year?&lt;/p&gt;
 &lt;div class="section" id="how-it-all-began"&gt;
@@ -396,10 +396,10 @@ comes.&lt;/p&gt;
 &lt;p&gt;Well, that's it for this time. Have a good year 2013 and thank you all for your
 support :)&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Hex Grid introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" rel="alternate"></link><updated>2012-12-17T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-12-17:grid-framework/news/2012/12/17/hex-intro/</id><summary type="html">&lt;p&gt;I made a short video giving you an overview of hex grids, so you can see them
+</summary><category term="old-blog"></category><category term="rant"></category></entry><entry><title>Hex Grid introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" rel="alternate"></link><published>2012-12-17T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-12-17:grid-framework/news/2012/12/17/hex-intro/</id><summary type="html">&lt;p&gt;I made a short video giving you an overview of hex grids, so you can see them
 right in action. I'll make a video on how to extend Grid Framework with your
 own methods yourself next,&lt;/p&gt;
-&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/1mb95Nhv8I0"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>How to loop through a list and remove items</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" rel="alternate"></link><updated>2012-11-16T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-16:grid-framework/news/2012/11/16/how-to-loop/</id><summary type="html">&lt;p&gt;The other day I had the following problem: I had a list of Transfoms and I
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/1mb95Nhv8I0"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>How to loop through a list and remove items</title><link href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" rel="alternate"></link><published>2012-11-16T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-11-16:grid-framework/news/2012/11/16/how-to-loop/</id><summary type="html">&lt;p&gt;The other day I had the following problem: I had a list of Transfoms and I
 wanted to remove the entries that met a certain condition. This is what I had
 written:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -441,20 +441,20 @@ have left the code short. If you know that your list will always be small
 enough I'd go for the slower but shorter approach. In my case though I have no
 idea how large the list will eventually be, so using the for-loop makes perfect
 sense. I hope some of you find this useful in the future.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Back again</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" rel="alternate"></link><updated>2012-10-28T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-28:grid-framework/news/2012/10/28/back-again/</id><summary type="html">&lt;p&gt;I just wanted to drop a line saying I'm back to work. As I mentioned previously
+</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Back again</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" rel="alternate"></link><published>2012-10-28T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-28:grid-framework/news/2012/10/28/back-again/</id><summary type="html">&lt;p&gt;I just wanted to drop a line saying I'm back to work. As I mentioned previously
 I was busy with exams, so development ws slowed down and during the last couple
 of weeks I had to stop completely to concentrate on studies. Now that it's over
 I can get back to working on the hex grid update. Currently I'm about halfway
 done, maybe more. I'll keep you updated :) Finally, I'd like to thank everyone
 who bought Grid Framework so far, you guys have made all this effort worthwhile
 and you are the ones who allow me to go on with it. Thank you.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Example video: Level Design and Text parsing in Unity3D</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" rel="alternate"></link><updated>2012-10-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-06:grid-framework/news/2012/10/06/example-parsing/</id><summary type="html">&lt;p&gt;I made another example video for Grid Framework, this time for the recently
+</summary><category term="old-blog"></category></entry><entry><title>Example video: Level Design and Text parsing in Unity3D</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" rel="alternate"></link><published>2012-10-06T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-06:grid-framework/news/2012/10/06/example-parsing/</id><summary type="html">&lt;p&gt;I made another example video for Grid Framework, this time for the recently
 introduced text parsing example. Now building new levels is as easy as writing
 a few lines of plain text and you get perfect clockwork-like precision. This
 opens up new possibilities for faster development, easier maintenance, easier
 level editors and support for user-made content. Just take a look at how simle,
 yet effective it is:&lt;/p&gt;
-&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lvYWbJ8ohkA"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Cannot log into my account</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/" rel="alternate"></link><updated>2012-10-02T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-02:grid-framework/news/2012/10/02/cannot-log-in/</id><summary type="html">&lt;p&gt;I've written two new examples, one that takes a plain text file and parses it
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/lvYWbJ8ohkA"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Cannot log into my account</title><link href="http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/" rel="alternate"></link><published>2012-10-02T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-10-02:grid-framework/news/2012/10/02/cannot-log-in/</id><summary type="html">&lt;p&gt;I've written two new examples, one that takes a plain text file and parses it
 to create a breakout-style level based on a grid without changing the scene,
 the other is a continuation of my grid-based movement exmple where I can place
 obstacles on the grid and the sphere will not step on those squares (without
@@ -468,7 +468,7 @@ provided that you already own Grid Framework. On a related note, it appears
 that Grid Framework's product page in the Asset Store doesn't have any
 screenshots. I did submit screenshots, but they don't appear for me, I don't
 know if other people can't see them either.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Swap variables in Unity</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" rel="alternate"></link><updated>2012-08-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-25:grid-framework/news/2012/08/25/swap-variables-in-unity/</id><summary type="html">&lt;p&gt;I've decided to go with one HexGrid class and provide enough options. To do
+</summary><category term="old-blog"></category></entry><entry><title>Swap variables in Unity</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" rel="alternate"></link><published>2012-08-25T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-25:grid-framework/news/2012/08/25/swap-variables-in-unity/</id><summary type="html">&lt;p&gt;I've decided to go with one HexGrid class and provide enough options. To do
 this I will need to swap around variables so I can use the same formulae for
 different cases. I could write the swapping part where it is needed, but then
 I'd be writing the same thing several times (which is a bad thing to do).
@@ -497,7 +497,7 @@ temporary variable and using math tricks instead, don't use those. At best your
 code just gets ugly, at worst you even get worse performance. Also, you are
 limiting yourself to numbers only, whereas this Swap function works for
 anything. Hooray for generics!&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Vectrosity progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" rel="alternate"></link><updated>2012-08-12T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-12:grid-framework/news/2012/08/12/vectrosity-progress/</id><summary type="html">&lt;p&gt;Well, it's pretty much done, you can now get a set of Vector3 points for use
+</summary><category term="old-blog"></category><category term="how-to"></category></entry><entry><title>Vectrosity progress</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" rel="alternate"></link><published>2012-08-12T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-12:grid-framework/news/2012/08/12/vectrosity-progress/</id><summary type="html">&lt;p&gt;Well, it's pretty much done, you can now get a set of Vector3 points for use
 with Vectrosity from just one line of code. I played a bit with Vectrosity to
 make an example scene and this is what it looks like:&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -512,7 +512,7 @@ in the last grid lines are not a bug, they are sill there but coloured black.&lt
 so I want to wrap up all the loose ends I might still have left. In particular
 I want to integrate the components into Unity's main interface, no more
 dragging scripts onto GameObjects.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="example"></category><category term="extension"></category></entry><entry><title>Line width for rendering</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" rel="alternate"></link><updated>2012-08-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-09:grid-framework/news/2012/08/09/line-width-for-rendering/</id><summary type="html">&lt;p&gt;I just submitted version 1.1.1 (&lt;em&gt;update: has been approved&lt;/em&gt;) which lets you set
+</summary><category term="old-blog"></category><category term="example"></category><category term="extension"></category></entry><entry><title>Line width for rendering</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" rel="alternate"></link><published>2012-08-09T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-09:grid-framework/news/2012/08/09/line-width-for-rendering/</id><summary type="html">&lt;p&gt;I just submitted version 1.1.1 (&lt;em&gt;update: has been approved&lt;/em&gt;) which lets you set
 the width of the rendered line in the inspector. Here is an example, obviously
 it's over the top, but you can set the width to anything you like.&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -522,7 +522,7 @@ it's over the top, but you can set the width to anything you like.&lt;/p&gt;
 Vectrosity. I'm sure those of you who own a Vectrosity license would like to be
 able to combine the best of both. I promise when I'm done it will be the last
 time you'll see me talk about rendering for a while.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Grid-based game logic</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" rel="alternate"></link><updated>2012-08-03T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-03:grid-framework/news/2012/08/03/grid-based-game-logic/</id><summary type="html">&lt;p&gt;Another video tutorial, howing how to use grid-based game logic in a puzzle
+</summary><category term="old-blog"></category></entry><entry><title>Grid-based game logic</title><link href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" rel="alternate"></link><published>2012-08-03T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-08-03:grid-framework/news/2012/08/03/grid-based-game-logic/</id><summary type="html">&lt;p&gt;Another video tutorial, howing how to use grid-based game logic in a puzzle
 game. This is the tutorial for the lights-out game I mentioned before and which
 has been included with the package.&lt;/p&gt;
 &lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/sXlagrglfQ8"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;This tutorial is written in C# because it uses delegates and events. The reason
@@ -537,12 +537,12 @@ they will resond. For example you could have an RPG where when you draw your
 sword it makes villagers run away and guards draw their own weapons. Your hero
 would not need to know how many villagers and guards (if any) are around, he
 just needs to fire the event and all listeners will react accordingly.&lt;/p&gt;
-</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Grid movement and runtime snapping</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" rel="alternate"></link><updated>2012-07-29T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-29:grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/</id><summary type="html">&lt;p&gt;Well, I just sent my second submission. There are three examples included, one
+</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Grid movement and runtime snapping</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" rel="alternate"></link><published>2012-07-29T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-29:grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/</id><summary type="html">&lt;p&gt;Well, I just sent my second submission. There are three examples included, one
 showcasing grid-based movement, one showcasing how to place objects on a grid
 during gameplay and the lights-out game mentioned below. i also made tutorial
 videos for the first two, showcasing how you can accomplish these tasks in a
 simple manner on your own:&lt;/p&gt;
-&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/m9_efVi_tFs"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QqUzcthkvcc"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>A quick update</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" rel="alternate"></link><updated>2012-07-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-27:grid-framework/news/2012/07/27/a-quick-update/</id><summary type="html">&lt;p&gt;I have been contacted by an Asset Store admin, who recommends me to include a
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/m9_efVi_tFs"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/QqUzcthkvcc"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>A quick update</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" rel="alternate"></link><published>2012-07-27T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-27:grid-framework/news/2012/07/27/a-quick-update/</id><summary type="html">&lt;p&gt;I have been contacted by an Asset Store admin, who recommends me to include a
 demo scene so users could see an end setup. I thought dragging a script onto an
 object is pretty straight-forward, but I agree, a demo scene would be a really
 good idea. The tricky party is coming up with good ideas; don't get me wrong, I
@@ -552,7 +552,7 @@ sphere that randomly roams a grid face by face, stays within limits and
 immediately adapts to changes in the grid, all with just 32 lines of code total
 (not counting whitespaces and comments). I'll come up with two or three more
 nice demos, that should give a good impression of Grid Framework  in action.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Almost there...</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" rel="alternate"></link><updated>2012-07-22T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-22:grid-framework/news/2012/07/22/almost-there/</id><summary type="html">&lt;p&gt;Well, it's alsmost done. Again. Turns out that making an asset is only half the
+</summary><category term="old-blog"></category></entry><entry><title>Almost there...</title><link href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" rel="alternate"></link><published>2012-07-22T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-07-22:grid-framework/news/2012/07/22/almost-there/</id><summary type="html">&lt;p&gt;Well, it's alsmost done. Again. Turns out that making an asset is only half the
 job, you still need to hammer out any ugly dents, polish the thing and then
 change your job to become a graphic designer, a video commentator, a writer and
 a salesman! What good is the best asset if you present it in such a way that
@@ -571,7 +571,7 @@ sending the files over to Unity. In the meantime, please enjoy a small teaser:&l
 &lt;img alt="an image" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/images/Grid_image_big.png"/&gt;
 &lt;p class="caption"&gt;Unfortunately clicking this won't do anything. Yet.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Turn off the lights!</title><link href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" rel="alternate"></link><updated>2012-05-29T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-05-29:grid-framework/news/2012/05/29/turn-off-the-lights/</id><summary type="html">&lt;p&gt;Here is a nice little puzzle game made using the grid framework. When you click
+</summary><category term="old-blog"></category></entry><entry><title>Turn off the lights!</title><link href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" rel="alternate"></link><published>2012-05-29T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-05-29:grid-framework/news/2012/05/29/turn-off-the-lights/</id><summary type="html">&lt;p&gt;Here is a nice little puzzle game made using the grid framework. When you click
 a square that square and the four adjacent squares flip their color. Your task
 is to turn them all off.&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -589,10 +589,10 @@ framework always finds the right tiles for you.&lt;/p&gt;
 &lt;p&gt;I will put up a video tutorial eventually once the package is released. I used
 delegates and events, so if you don't know what they are take a look at
 prime31studios' video tutorial:&lt;/p&gt;
-&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/N2zdwKIsXJs"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" rel="alternate"></link><updated>2012-04-11T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-11:grid-framework/news/2012/04/11/introduction-video/</id><summary type="html">&lt;p&gt;As promised, here it is:&lt;/p&gt;
+&lt;div class="youtube youtube-16x9"&gt;&lt;iframe allowfullscreen="" frameborder="0" seamless="" src="https://www.youtube.com/embed/N2zdwKIsXJs"&gt;&lt;/iframe&gt;&lt;/div&gt;</summary><category term="old-blog"></category><category term="example"></category></entry><entry><title>Introduction video</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" rel="alternate"></link><published>2012-04-11T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-11:grid-framework/news/2012/04/11/introduction-video/</id><summary type="html">&lt;p&gt;As promised, here it is:&lt;/p&gt;
 &lt;p&gt;[video deleted]&lt;/p&gt;
 &lt;p&gt;A basic overview of what the first release has to offer. Stay tuned for future updates. The package is waiting for approval now.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Introduction</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" rel="alternate"></link><updated>2012-04-09T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-09:grid-framework/news/2012/04/09/introduction/</id><summary type="html">&lt;p&gt;Hello everyone :)&lt;/p&gt;
+</summary><category term="old-blog"></category></entry><entry><title>Introduction</title><link href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" rel="alternate"></link><published>2012-04-09T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-04-09:grid-framework/news/2012/04/09/introduction/</id><summary type="html">&lt;p&gt;Hello everyone :)&lt;/p&gt;
 &lt;p&gt;I have been working on making a 2D platformer in Unity in the spirit of the old
 8 Bit and 16 Bit games such as Super Mario and Sonic. One thing I really admire
 about those games is their sense of clockwork-like precision, you never feel
@@ -642,7 +642,7 @@ reference) will be avaible in the Unity Asset Store for an affordable price.
 The future plans are to properly support 3D grids with rotation, make the
 interface more convenient, have mouse snapping in the editor, hex grids and
 whatever else I can come up with.&lt;/p&gt;
-</summary><category term="old-blog"></category></entry><entry><title>Something's coming...</title><link href="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/" rel="alternate"></link><updated>2012-03-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-03-27:grid-framework/news/2012/03/27/somethings-coming/</id><summary type="html">&lt;p&gt;OK, let's test this new blog thing...&lt;/p&gt;
+</summary><category term="old-blog"></category></entry><entry><title>Something's coming...</title><link href="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/" rel="alternate"></link><published>2012-03-27T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2012-03-27:grid-framework/news/2012/03/27/somethings-coming/</id><summary type="html">&lt;p&gt;OK, let's test this new blog thing...&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="very early image of Grid Framework" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/images/infinite-grid.png"/&gt;
 &lt;p class="caption"&gt;behold the beauty of infinity...&lt;/p&gt;

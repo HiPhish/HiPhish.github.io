@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/categories/organisation/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Feeds are live now</title><link>http://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Sat, 14 Nov 2015 00:00:00 +0100</lastBuildDate><item><title>Feeds are live now</title><link>http://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
 category button of an article.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</guid><category>website</category></item><item><title>We are live!</title><link>http://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 14 Nov 2015 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</guid><category>website</category></item><item><title>We are live!</title><link>http://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
 makes the site practically complete, at least as complete as a website can ever
 be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
 &lt;p&gt;I wanted to be able to have more than one blog on the site. A blog can be a
@@ -83,4 +83,4 @@ when there is only one author on the site. That's me "eating my own dogfood", I
 am using a feature because I want to demonstrate its purpose.&lt;/p&gt;
 &lt;p&gt;Well, that's it for now, we'll see where this ride will take be from now on.
 It's going to be interesting :)&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Nov 2015 00:00:00 +0100</pubDate><guid>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</guid><category>website</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Wed, 11 Nov 2015 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</guid><category>website</category></item></channel></rss>

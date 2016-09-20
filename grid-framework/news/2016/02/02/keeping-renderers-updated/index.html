@@ -115,7 +115,7 @@
 						<li class="divider" role="separator"></li>
 
 						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 								Buy Now <span class="badge">35$</span>							</a>
 						</li>
 					</ul>
@@ -297,7 +297,7 @@ inside the grid class and I had full control over everything going on,  but now
 we need some way for the renderer object to know when the grid has changed. The
 obvious solution would be  to keep a local copy of every public property of the
 grid in the renderer and compare the copy to the original every frame:</p>
-<div class="highlight"><pre><span class="c1">// private variables in the renderer</span>
+<div class="highlight"><pre><span></span><span class="c1">// private variables in the renderer</span>
 <span class="kt">var</span> <span class="n">spacing</span>  <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Spacing</span><span class="p">;</span>
 <span class="kt">var</span> <span class="n">shearing</span> <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Shearing</span><span class="p">;</span>
 
@@ -322,7 +322,7 @@ disabled.  The syntax is a bit odd:  the grid exposes  an event type and we add
 the delegates of  the method to call to it using the <code>+=</code> operator.  A delegate
 is  a  method  reference,  similar to  a function  pointer in  the C-family  of
 languages.</p>
-<div class="highlight"><pre><span class="c1">// The arguments of the event are encapsulated in their own type</span>
+<div class="highlight"><pre><span></span><span class="c1">// The arguments of the event are encapsulated in their own type</span>
 <span class="k">using</span> <span class="nn">SpacingEventArgs</span> <span class="p">=</span> <span class="n">GridFramework</span><span class="p">.</span><span class="n">Grids</span><span class="p">.</span><span class="n">RectGrid</span><span class="p">.</span><span class="n">SpacingEventArgs</span><span class="p">;</span>
 
 <span class="c1">// Subscribe when the renderer gets enabled</span>
@@ -344,7 +344,7 @@ languages.</p>
 subscribe.</p>
 <p>Using events for everything would be overkill though, for changes to the
 renderer itself we still use regular private methods inside the renderer class:</p>
-<div class="highlight"><pre><span class="c1">// Public accessor for member variable</span>
+<div class="highlight"><pre><span></span><span class="c1">// Public accessor for member variable</span>
 <span class="k">public</span> <span class="n">Vector3</span> <span class="n">From</span> <span class="p">{</span>
     <span class="k">get</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">_from</span><span class="p">;</span>
@@ -369,7 +369,7 @@ coordinates out and nothing more.</p>
 what to do with that knowledge. The easiest solution is to just re-count and
 re-compute everything. If the amount of lines has not changed we don't need to
 allocate a new array, but other than that we don't save any work.</p>
-<div class="highlight"><pre><span class="kt">int</span> <span class="n">numberOfLines</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">numberOfLines</span><span class="p">;</span>
 
 <span class="n">Vector3</span><span class="p">[][]</span> <span class="n">lines</span><span class="p">;</span>
 
@@ -396,7 +396,7 @@ editor is not  as crucial and  I haven't  noticed any impact  on the editor for
 reasonably sized grids, so this shouldn't be an issue in practice.</p>
 <p>Another roadblock  is that  there is  no way  to be  notified when  an object's
 <code>Transform</code> changes. We have to do it the hard way:</p>
-<div class="highlight"><pre><span class="k">private</span> <span class="n">Vector3</span>    <span class="n">_oldPosition</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">private</span> <span class="n">Vector3</span>    <span class="n">_oldPosition</span><span class="p">;</span>
 <span class="k">private</span> <span class="n">Quaternion</span> <span class="n">_oldRotation</span><span class="p">;</span>
 
 <span class="k">private</span> <span class="kt">bool</span> <span class="nf">TransformHasChanged</span><span class="p">()</span> <span class="p">{</span>

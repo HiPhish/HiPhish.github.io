@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><atom:link href="http://192.168.0.190:8000/blog/categories/misc/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 25 Jun 2016 00:00:00 +0200</lastBuildDate><item><title>Highlighting NSImageView the right way</title><link>http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Sat, 25 Jun 2016 00:00:00 +0200</lastBuildDate><item><title>Highlighting NSImageView the right way</title><link>http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -14,7 +14,7 @@ deprecated API calls or downright bad practice.&lt;/p&gt;
 &lt;h2&gt;The wrong way&lt;/h2&gt;
 &lt;p&gt;Here is how Apple's own documentation highlights an &lt;code&gt;NSImageView&lt;/code&gt; instance. The
 code is from the official &lt;a class="reference external" href="https://developer.apple.com/library/mac/samplecode/CocoaDragAndDrop/Introduction/Intro.html"&gt;CocoaDragAndDrop&lt;/a&gt; example.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;rect&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="cm"&gt;/*------------------------------------------------------&lt;/span&gt;
 &lt;span class="cm"&gt;        draw method is overridden to do drop highlighing&lt;/span&gt;
@@ -58,7 +58,7 @@ the getter &lt;code&gt;isHighlighted&lt;/code&gt;,  so we don't need  a new prop
 actual highlight &lt;code&gt;NSView&lt;/code&gt;  provides the method &lt;code&gt;drawFocusRingMask&lt;/code&gt;.  Subclasses
 can override  the property  to implement  their own  highlighting  and  luckily
 &lt;code&gt;NSImageView&lt;/code&gt; does exacly that.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nf"&gt;drawRect:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NSRect&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;dirtyRect&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="nl"&gt;drawRect&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;dirtyRect&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nb"&gt;self&lt;/span&gt; &lt;span class="n"&gt;isHighlighted&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -69,4 +69,4 @@ can override  the property  to implement  their own  highlighting  and  luckily
 &lt;p&gt;Now your code is future-proof and will work regardless of the shape you choose.
 Well, at least until Apple deprecates this method.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Jun 2016 00:00:00 +0200</pubDate><guid>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</guid><category>cocoa</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 25 Jun 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</guid><category>cocoa</category></item></channel></rss>
