@@ -1,0 +1,25 @@
+.blog-body > main {
+	padding-left: 0;
+	margin-left: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+.blog-body > main > nav > h1 {
+	display: none;
+}
+
+.blog-body > main > article > header {
+	border-bottom-style: solid;
+	border-bottom-width: 0.1em;
+	border-bottom-color: rgba(0, 0, 0, 0.125);
+	margin-bottom: 1em;
+}
+
+.blog-body > main > footer {
+	margin-top: auto;
+}
+
+.blog-body > main > footer > nav > h1 {
+	display: none;
+}

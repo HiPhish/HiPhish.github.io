@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-07-06T00:00:00+02:00</updated><entry><title>Introducing IPS-Tools</title><link href="http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/" rel="alternate"></link><published>2016-07-06T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</id><summary type="html">&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-07-06T00:00:00+02:00</updated><entry><title>Introducing IPS-Tools</title><link href="http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/" rel="alternate"></link><published>2016-07-06T00:00:00+02:00</published><updated>2016-07-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</id><summary type="html">&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
 and I was really disappointed  that there are no proper  Unix programs for that
 purpose available.  So I set out to make my own,  but instead of just  applying
 patches it would be a complete suite of tools to handle all IPS-related tasks.&lt;/p&gt;
@@ -19,7 +19,7 @@ simple format,  but it  has some  hairy corners  because over  time people have
 added  extensions  to it  (compressed records  and truncation).  With IPS-tools
 there is a complete  file specification and  a reference implementation  freely
 available to the public.&lt;/p&gt;
-</summary></entry><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><published>2016-06-25T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+</summary></entry><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><published>2016-06-25T00:00:00+02:00</published><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -89,7 +89,7 @@ can override  the property  to implement  their own  highlighting  and  luckily
 &lt;p&gt;Now your code is future-proof and will work regardless of the shape you choose.
 Well, at least until Apple deprecates this method.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="cocoa"></category></entry><entry><title>Introducing NTFS-Clone</title><link href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" rel="alternate"></link><published>2016-05-31T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-05-31:blog/2016/05/31/into-ntfs-clone/</id><summary type="html">&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
+</summary><category term="cocoa"></category></entry><entry><title>Introducing NTFS-Clone</title><link href="http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/" rel="alternate"></link><published>2016-05-31T00:00:00+02:00</published><updated>2016-05-31T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-05-31:blog/2016/05/31/into-ntfs-clone/</id><summary type="html">&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
 recently found collecting dust on my hard drive. It lets you create perfect 1:1
 copies of NTFS hard drives on Unix.  The problem with every software I had come
 across was  that it would copy the data,  but that wasn't enough,  so we had to
@@ -104,7 +104,7 @@ able  to automate  the entire process  to clone multiple  drives in  succession
 instead of having to babysit them all day. So if you are right now wasting your
 time babysitting hard drives,  grab yourself a copy  of &lt;a class="reference external" href="https://gitlab.com/HiPhish/ntfs-clone"&gt;NTFS-Clone&lt;/a&gt; and buy one
 of those things where you can plug in several drives and automate your work.&lt;/p&gt;
-</summary></entry><entry><title>Neovim has tab-local working directories now</title><link href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" rel="alternate"></link><published>2016-04-22T00:00:00+02:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</id><summary type="html">&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
+</summary></entry><entry><title>Neovim has tab-local working directories now</title><link href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" rel="alternate"></link><published>2016-04-22T00:00:00+02:00</published><updated>2016-04-22T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-04-22:blog/2016/04/22/neovim-tcd/</id><summary type="html">&lt;p&gt;My Neovim PR to add tab-local working directories has recently been merged.  In
 this post I will explain what it does and why you will love it.&lt;/p&gt;
 &lt;div class="section" id="what-are-working-directories-in-vim"&gt;
 &lt;h2&gt;What are working directories in Vim?&lt;/h2&gt;
@@ -186,11 +186,11 @@ affects all windows displaying that buffer.  Of course such a scope would raise
 new design concerns and it's questionable whether it would even be useful,  but
 the important point is that it is now possible.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="neovim"></category></entry><entry><title>Feeds are live now</title><link href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" rel="alternate"></link><published>2015-11-14T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</id><summary type="html">&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+</summary><category term="neovim"></category></entry><entry><title>Feeds are live now</title><link href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" rel="alternate"></link><published>2015-11-14T00:00:00+01:00</published><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</id><summary type="html">&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
 category button of an article.&lt;/p&gt;
-</summary><category term="website"></category></entry><entry><title>We are live!</title><link href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="alternate"></link><published>2015-11-11T00:00:00+01:00</published><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</id><summary type="html">&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+</summary><category term="website"></category></entry><entry><title>We are live!</title><link href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="alternate"></link><published>2015-11-11T00:00:00+01:00</published><updated>2015-11-11T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</id><summary type="html">&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
 makes the site practically complete, at least as complete as a website can ever
 be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
 &lt;p&gt;I wanted to be able to have more than one blog on the site. A blog can be a

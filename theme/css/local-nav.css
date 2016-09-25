@@ -1,0 +1,53 @@
+/* A local navigation bar, used by sub-sites. Uses flexbox */
+
+/* The .local-nav class does not have any style of its own, it just serves to
+ * mark an item as as the container of the local navbar. */
+
+.local-nav {
+	border-bottom-style: solid;
+	border-bottom-width: 0.1em;
+	border-bottom-color: rgba(0, 0, 0, 0.125);
+	margin-bottom: 1em;
+}
+
+.local-nav > h1 {
+	display: none;
+}
+
+.local-nav > ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 0em;
+}
+
+.local-nav > ul > li {
+	padding: 10px;
+	margin-bottom: 0em;
+}
+
+/* This will push the first item completely to the left. Apply other styling
+ * here as well. */
+.local-nav > ul > li:first-child {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-right: auto;
+}
+
+.local-nav > ul > li.active {
+	font-weight: bold;
+}
+
+.local-nav > ul > li > a {
+	text-decoration: none;
+}
+
+
+@media(max-width: 768px) {
+
+	.local-nav > ul > li:first-child {
+		flex: 1 100%;
+	}
+}

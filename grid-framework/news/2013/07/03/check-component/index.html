@@ -1,287 +1,305 @@
 
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE HTML>
+<html lang="en">
 	<head>
-		<title>HiPhish's Workshop</title>
-
-		<!-- HTML page metadata -->
 		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="HiPhish's Workshop" />
-		<meta name="author" content="HiPhish" />
 
-		<!-- Favicon if one is set -->
-
-
-		<!-- Style sheets -->
-
+		<title>
+			HiPhish's Workshop
+		</title>
+		
 		<!-- Bootstrap integration -->
-		<link rel="stylesheet" href="http://hiphish.github.io/css/bootstrap.min.css" />
+		<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
+		crossorigin="anonymous" />
 
+		<!-- Bootstrap customisation -->
+		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all" />
 
+		<!-- My own style sheets -->
+		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all">
+		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all">
+<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
+	
+<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
 
-		<!-- Main theme CSS file taking precedence over Bootstrap -->
-		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/main.css" />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
-		<!-- Code highlight using CSS classes from Pygments -->
-		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/pygment.css" />
-
-		<!-- "Holy Grail" page design -->
-		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/grail.css" />
-
-		<!-- Collapsible tree-like Bootstrap list groups -->
-		<link rel="stylesheet" href="http://hiphish.github.io/theme/css/list-tree.css" />
-
-		<script src="http://hiphish.github.io/js/jquery.min.js"></script>
-		<script src="http://hiphish.github.io/theme/js/main.js"></script>
-
-		<script src="http://hiphish.github.io/js/bootstrap.min.js"></script>
-
+		<!-- Bootstrap Javascript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
 	</head>
-
-	<body class="HolyGrail">
-
-		<!-- Top navigation bar -->
-		<nav id="main-navbar" class="navbar navbar-default HolyGrail-header">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<!-- Burger menu -->
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-navbar-collapse">
-			<!-- The list of navbar items -->
-			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a href="/grid-framework" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						Grid Framework <span></span>					</a>
-					<ul class="dropdown-menu">
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework">
-								Overview							</a>
-						</li>
-
-						<li class="divider" role="separator"></li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/features">
-								Features							</a>
-						</li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/examples">
-								Examples							</a>
-						</li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/gallery">
-								Gallery							</a>
-						</li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/showcase">
-								Showcase							</a>
-						</li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/faq">
-								FAQ							</a>
-						</li>
-
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news">
-								News							</a>
-						</li>
-
-						<li class="divider" role="separator"></li>
-
-						<li>
-							<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins" target="_blank">
-								Support							</a>
-						</li>
-
-						<li class="divider" role="separator"></li>
-
-						<li>
-							<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-								Buy Now <span class="badge">35$</span>							</a>
-						</li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a href="https://gitlab.com/HiPhish/ntfs-clone" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						Open Source <span></span>					</a>
-					<ul class="dropdown-menu">
-
-						<li>
-							<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-								NTFS-Clone							</a>
-						</li>
-
-						<li>
-							<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-								roll							</a>
-						</li>
-
-						<li>
-							<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-								Newton's Method in C							</a>
-						</li>
-
-						<li>
-							<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-								Xeen Tools							</a>
-						</li>
-
-						<li>
-							<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-								Wolf3D Extract							</a>
-						</li>
-
-						<li>
-							<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-								Game Source Documentation							</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class=" ">
-					<a href="/blog">
-						Blog					</a>
-				</li>
-				<li class=" ">
-					<a href="/about">
-						About					</a>
-				</li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
-
-
-<main class="flex-body">
-	<!-- Sub-site navigation bar -->
-	<div class="HolyGrail-header container">
-		<nav id="sub-navbar" class="navbar navbar-default" >
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-subnavbar-collapse" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<!-- Burger menu -->
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="http://hiphish.github.io/grid-framework">Grid Framework</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-subnavbar-collapse">
-			<!-- The list of navbar items -->
-			<ul class="nav navbar-nav navbar-right">
-				<li class=" ">
-					<a href="/grid-framework/features">
-						Features					</a>
-				</li>
-				<li class=" ">
-					<a href="/grid-framework/examples">
-						Examples					</a>
-				</li>
-				<li class=" ">
-					<a href="/grid-framework/gallery">
-						Gallery					</a>
-				</li>
-				<li class=" ">
-					<a href="/grid-framework/showcase">
-						Showcase					</a>
-				</li>
-				<li class=" ">
-					<a href="/grid-framework/faq">
-						FAQ					</a>
-				</li>
-				<li class=" active">
-					<a href="/grid-framework/news">
-						News <span class="sr-only">(current)</span>					</a>
-				</li>
-				<li class=" ">
-					<a href="http://forum.unity3d.com/threads/144886-Grid-Framework-scripting-and-editor-plugins" target="_blank">
-						Support					</a>
-				</li>
-				<li class=" ">
-					<!-- Wrap link-button in a 'div' to preserve layout -->
-					<div class="navbar-btn">
-						<a class="btn btn-default" href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
-							Buy <span class="badge">35$</span>						</a>
+	<body>
+		<h1>HTML-page body</h1>
+		<header>
+			<!-- Top navigation bar -->
+			<nav id="main-navbar" class="navbar navbar-default">
+				<h1>Site-wide navigation bar</h1>
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
 					</div>
-				</li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="main-navbar-collapse">
+						<!-- The list of navbar items -->
+						<ul class="nav navbar-nav">
+							<li class="dropdown active">
+								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
+								<ul class="dropdown-menu">
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework">
+											Overview										</a>
+									</li>
+
+									<li class="divider" role="seperator"></li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/features">
+											Features										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/examples">
+											Examples										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/gallery">
+											Gallery										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/showcase">
+											Showcase										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/faq">
+											FAQ										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/news">
+											News										</a>
+									</li>
+
+									<li class="divider" role="seperator"></li>
+
+									<li>
+										<a href="http://hiphish.github.iohttp://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
+											Support										</a>
+									</li>
+
+									<li class="divider" role="seperator"></li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://www.assetstore.unity3d.com/#/content/62498" target="_blank">
+											Buy Now <span class="badge">35$</span>										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Open Source <span></span>								</a>
+								<ul class="dropdown-menu">
+
+									<li>
+										<a href="http://hiphish.github.iohttps://gitlab.com/HiPhish/ntfs-clone" target="_blank">
+											NTFS-Clone										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://gitlab.com/HiPhish/roll" target="_blank">
+											roll										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Newton-method" target="_blank">
+											Newton's Method in C										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://github.com/HiPhish/XeenTools" target="_blank">
+											Xeen Tools										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Wolf3DExtract" target="_blank">
+											Wolf3D Extract										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Game-Source-Documentation" target="_blank">
+											Game Source Documentation										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+								<li class=" ">
+									<a href="/blog">
+										Blog									</a>
+								</li>
+								<li class=" ">
+									<a href="/about">
+										About									</a>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<section class="container">
+			<h1>Document body</h1>
+<!-- Sub-site navigation bar -->
+<nav class="local-nav">
+	<h1>Sub-site navigation bar</h1>
+	<ul>
+		<li>
+			<a href="http://hiphish.github.io/grid-framework">
+				Grid Framework
+			</a>
+		</li>
+
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/features">
+				Features
+			</a>
+		</li>
+
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/examples">
+				Examples
+			</a>
+		</li>
+
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/gallery">
+				Gallery
+			</a>
+		</li>
+
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/showcase">
+				Showcase
+			</a>
+		</li>
+
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/faq">
+				FAQ
+			</a>
+		</li>
+
+		<li class="active">
+			News <span class="sr-only">(current)</span>
+		</li>
+
+		<li>
+			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
+				Support
+			</a>
+		</li>
+
+		<li>
+			<a href="https://www.assetstore.unity3d.com/#/content/4004" target="_blank">
+				Buy <span class="badge">35$</span>
+			</a>
+		</li>
+	</ul>
 </nav>
 
-	</div>
+
+<section class="blog-body">
+	<h1>Blog</h1>
+
+	<!-- Article body -->
+<main>
+	<nav class="blog-breadcrumbs">
+	<h1>Breadcrumbs navigation</h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/news/">
+				news
+			</a>
+		</li>
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/news/2013/">
+				2013
+			</a>
+		<li>
+			<a href="http://hiphish.github.io/grid-framework/news/2013/07/">
+				07
+			</a>
+		<li class="active">
+			3
+		</li>
+		</li>
+		<li class="active">
+			check-component
+		</li>
+		</li>
+		<!-- Empty li for closing slash -->
+		<li></li>
+	</ol>
+</nav>
 
 
-	<!-- Main content and two pillars -->
-	<div class="container flex-block">
+	<article>
+		<!-- Title of the article -->
+		<h1>
+			<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="bookmark" title="Permalink to CheckComponent()">
+				CheckComponent()
+			</a>
+		</h1>
 
-		<div id="content" class="HolyGrail-content">
-			<div class="article-main">
-				<header>
-					<!-- Breadcrumbs to period archives -->
-					<ol class="breadcrumb">
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/">
-								2013
-							</a>
-						</li>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/07/">
-								7
-							</a>
-						</li>
-						<li class="active">
-								3
-						</li>
-						<li class="active">
-							check-component
-						</li>
-						<li></li>  <!-- a closing list item -->
-					</ol>
-					<h2 class="entry-title">
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" rel="bookmark" title="Permalink to CheckComponent()">
-							CheckComponent()
-						</a>
-						<a class="btn btn-default pull-right" href="http://hiphish.github.io/grid-framework/news/categories/misc/" role="button">
-							misc
-						</a>
-					</h2>
-				
-				</header>
-				<footer class="post-info">
-					<span class="glyphicon glyphicon-pencil"></span>
-					<abbr class="published" title="Published: 2013-07-03T00:00:00+02:00">
-						2013-07-03
-					</abbr>
-					<address class="vcard author">
-					</address>
-				</footer><!-- /.post-info -->
-				<article class="entry-content">
-					<p>Here is a quick but handy tip. Recently I found myself needing to reference
+		<header>
+<!-- Date of the article -->
+			<p>
+				<time class="published" datetime="2013-07-03T00:00:00+02:00">
+					Published: 2013-07-03
+				</time>
+			</p>
+
+			<!-- TODO: This has to be something nicer than a button -->
+			<p>
+				Category:
+				<a class="" href="http://hiphish.github.io/grid-framework/news/categories/misc/">
+					misc
+				</a>
+			</p>
+
+			<!-- TODO: This has to be something nicer than a button -->
+			<p>
+				Tags:
+				<a class="" href="http://hiphish.github.io/grid-framework/news/tags/how-to/">
+					how-to
+				</a>
+				<a class="" href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
+					old-blog
+				</a>
+			</p>
+		</header>
+
+		<!-- Content of the article -->
+		<p>Here is a quick but handy tip. Recently I found myself needing to reference
 various components in my script without knowing if they exist. I have to get
 the component and then check if it exists, and if not add it to prevent null
 exceptions. Here is what you would write in such a case:</p>
@@ -331,1328 +349,315 @@ just like GetComponent.</p>
 MeshCollider mc = CheckComponent&lt;MeshCollider&gt;();
 </pre>
 
-				</article><!-- /.entry-content -->
-				<footer>
-					<hr />
-					<p>Tagged:
-						<a href="http://hiphish.github.io/grid-framework/news/tags/how-to/">how-to</a>
-						<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">old-blog</a>
-</p>
-					<nav>
-						<ul class="pager">
-							<li class="previous">
-								<a href="http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/" rel="prev">
-									<span aria-hidden="true">&larr;</span> Older
-								</a>
-							</li>
-							<li class="next">
-								<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" rel="next">
-									Newer <span aria-hidden="true">&rarr;</span>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</footer>
-			</div> <!-- / .article-main -->
-		</div> <!-- / #content .HolyGrail-content -->
+	</article>
 
-
-		<!-- Left pillar - article navigator -->
-		<nav id="article-navigator" class="HolyGrail-nav well">
-		
-			<div>
-				<strong><a href="http://hiphish.github.io/grid-framework/news/archives/">Archives</a></strong>
-				<!-- Period navigation -->
-				<div class="list-group list-group-root hidden-xs">
-					<a href="#y-2016-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">15</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2016
+	<footer>
+		<!-- Navigation items (next/previous) -->
+		<nav>
+			<h1>Previous/next article</h1>
+			<ul class="pager">
+				<li class="previous">
+					<a href="http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/" rel="prev">
+						<span aria-hidden="true">&larr;</span> Grid Framework version 1.3.0 released
 					</a>
-					<!-- Months in 2016 -->
-					<div class="list-group collapse" id="y-2016-item">
-						<a href="#y-2016-m-6-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>June
-						</a>
-						<!-- Articles in 6 -->
-						<div class="list-group collapse" id="y-2016-m-6-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/" class="list-group-item">
-								Grid Framework version 2.1.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/06/05/release-201/" class="list-group-item">
-								Grid Framework version 2.0.1 released
-							</a>
-						</div>
-						<a href="#y-2016-m-5-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">4</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>May
-						</a>
-						<!-- Articles in 5 -->
-						<div class="list-group collapse" id="y-2016-m-5-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/05/25/release-200/" class="list-group-item">
-								Grid Framework version 2.0.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/05/18/submitted-200/" class="list-group-item">
-								Version 2.0.0 has been submitted
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/05/13/version-191/" class="list-group-item">
-								Grid Framework version 1.9.1 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/05/06/docs-solved/" class="list-group-item">
-								Documentation dilemma solved
-							</a>
-						</div>
-						<a href="#y-2016-m-4-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>April
-						</a>
-						<!-- Articles in 4 -->
-						<div class="list-group collapse" id="y-2016-m-4-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/04/22/fixing-broken/" class="list-group-item">
-								Fixing what has been broken
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/04/20/one-directory/" class="list-group-item">
-								One unified directory
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" class="list-group-item">
-								Managing renderers
-							</a>
-						</div>
-						<a href="#y-2016-m-3-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>March
-						</a>
-						<!-- Articles in 3 -->
-						<div class="list-group collapse" id="y-2016-m-3-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/03/29/revisiting-coordinate-systems/" class="list-group-item">
-								Revisiting coordinate systems
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
-								Official extension methods
-							</a>
-						</div>
-						<a href="#y-2016-m-2-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>February
-						</a>
-						<!-- Articles in 2 -->
-						<div class="list-group collapse" id="y-2016-m-2-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" class="list-group-item">
-								Keeping the renderers updated and efficient
-							</a>
-						</div>
-						<a href="#y-2016-m-1-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>January
-						</a>
-						<!-- Articles in 1 -->
-						<div class="list-group collapse" id="y-2016-m-1-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2016/01/25/namespace-everything/" class="list-group-item">
-								Namespaces for everything
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/" class="list-group-item">
-								First major step towards 2.0
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" class="list-group-item">
-								What's coming in 2016
-							</a>
-						</div>
-					</div>
-					<a href="#y-2015-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">13</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2015
+				</li>
+				<li class="next">
+					<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" rel="next">
+						What's up next? <span aria-hidden="true">&rarr;</span>
 					</a>
-					<!-- Months in 2015 -->
-					<div class="list-group collapse" id="y-2015-item">
-						<a href="#y-2015-m-12-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>December
-						</a>
-						<!-- Articles in 12 -->
-						<div class="list-group collapse" id="y-2015-m-12-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/" class="list-group-item">
-								Grid Framework version 1.9.0 released
-							</a>
-						</div>
-						<a href="#y-2015-m-11-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">5</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>November
-						</a>
-						<!-- Articles in 11 -->
-						<div class="list-group collapse" id="y-2015-m-11-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" class="list-group-item">
-								Spherical grid coordinate systems
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" class="list-group-item">
-								Spheric grid rendering
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" class="list-group-item">
-								Grid Framework version 1.8.4 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" class="list-group-item">
-								Korean Asset Store description removed
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
-								A new blog for Grid Framework
-							</a>
-						</div>
-						<a href="#y-2015-m-10-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>October
-						</a>
-						<!-- Articles in 10 -->
-						<div class="list-group collapse" id="y-2015-m-10-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
-								New website
-							</a>
-						</div>
-						<a href="#y-2015-m-3-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>March
-						</a>
-						<!-- Articles in 3 -->
-						<div class="list-group collapse" id="y-2015-m-3-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2015/03/11/version-180/" class="list-group-item">
-								Grid Framework version 1.8.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/03/01/version-174/" class="list-group-item">
-								Grid Framework version 1.7.4 released
-							</a>
-						</div>
-						<a href="#y-2015-m-1-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">4</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>January
-						</a>
-						<!-- Articles in 1 -->
-						<div class="list-group collapse" id="y-2015-m-1-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/" class="list-group-item">
-								Playable examples
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/01/21/version-172/" class="list-group-item">
-								Grid Framework version 1.7.2 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/01/16/homepage/" class="list-group-item">
-								A homepage for Grid Framework
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" class="list-group-item">
-								Goodbye MonoDevelop, hello Vim
-							</a>
-						</div>
-					</div>
-					<a href="#y-2014-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">8</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2014
-					</a>
-					<!-- Months in 2014 -->
-					<div class="list-group collapse" id="y-2014-item">
-						<a href="#y-2014-m-12-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>December
-						</a>
-						<!-- Articles in 12 -->
-						<div class="list-group collapse" id="y-2014-m-12-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/" class="list-group-item">
-								Grid Framework version 1.7.0 released
-							</a>
-						</div>
-						<a href="#y-2014-m-11-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>November
-						</a>
-						<!-- Articles in 11 -->
-						<div class="list-group collapse" id="y-2014-m-11-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/11/07/version-153/" class="list-group-item">
-								Grid Framework version 1.5.3 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2014/11/06/version-152/" class="list-group-item">
-								Grid Framework version 1.5.2 released
-							</a>
-						</div>
-						<a href="#y-2014-m-10-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>October
-						</a>
-						<!-- Articles in 10 -->
-						<div class="list-group collapse" id="y-2014-m-10-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/10/01/version-151/" class="list-group-item">
-								Grid Framework version 1.5.1 released
-							</a>
-						</div>
-						<a href="#y-2014-m-9-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>September
-						</a>
-						<!-- Articles in 9 -->
-						<div class="list-group collapse" id="y-2014-m-9-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/09/16/version-150/" class="list-group-item">
-								Grid Framework version 1.5.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" class="list-group-item">
-								Whitelisting subdirectories in Git
-							</a>
-						</div>
-						<a href="#y-2014-m-8-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>August
-						</a>
-						<!-- Articles in 8 -->
-						<div class="list-group collapse" id="y-2014-m-8-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/08/24/shearing/" class="list-group-item">
-								Shearing
-							</a>
-						</div>
-						<a href="#y-2014-m-5-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>May
-						</a>
-						<!-- Articles in 5 -->
-						<div class="list-group collapse" id="y-2014-m-5-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" class="list-group-item">
-								Grid Framework version 1.4.1 released
-							</a>
-						</div>
-					</div>
-					<a href="#y-2013-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">19</span>
-						<i class="glyphicon glyphicon-chevron-down"></i>2013
-					</a>
-					<!-- Months in 2013 -->
-					<div class="list-group collapse in" id="y-2013-item">
-						<a href="#y-2013-m-12-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>December
-						</a>
-						<!-- Articles in 12 -->
-						<div class="list-group collapse" id="y-2013-m-12-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/12/10/version-135/" class="list-group-item">
-								Grid Framework version 1.3.5 released
-							</a>
-						</div>
-						<a href="#y-2013-m-9-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>September
-						</a>
-						<!-- Articles in 9 -->
-						<div class="list-group collapse" id="y-2013-m-9-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/09/20/version-134/" class="list-group-item">
-								Grid Framework version 1.3.4 released
-							</a>
-						</div>
-						<a href="#y-2013-m-8-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>August
-						</a>
-						<!-- Articles in 8 -->
-						<div class="list-group collapse" id="y-2013-m-8-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/08/28/version-133/" class="list-group-item">
-								Grid Framework version 1.3.3 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/08/09/version-132/" class="list-group-item">
-								Grid Framework version 1.3.2 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" class="list-group-item">
-								Status update and Doxygen rant
-							</a>
-						</div>
-						<a href="#y-2013-m-7-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-down"></i>July
-						</a>
-						<!-- Articles in 7 -->
-						<div class="list-group collapse in" id="y-2013-m-7-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" class="list-group-item">
-								What's up next?
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" class="list-group-item">
-								CheckComponent()
-							</a>
-						</div>
-						<a href="#y-2013-m-6-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>June
-						</a>
-						<!-- Articles in 6 -->
-						<div class="list-group collapse" id="y-2013-m-6-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/" class="list-group-item">
-								Grid Framework version 1.3.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/06/12/version-130-submit/" class="list-group-item">
-								Version 1.3.0 submitted
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/06/09/feature-freeze-polar/" class="list-group-item">
-								Feature freeze for polar grids
-							</a>
-						</div>
-						<a href="#y-2013-m-5-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>May
-						</a>
-						<!-- Articles in 5 -->
-						<div class="list-group collapse" id="y-2013-m-5-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" class="list-group-item">
-								Polar grid drawing refined
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" class="list-group-item">
-								Grid Framework version 1.2.5 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/" class="list-group-item">
-								A first look at polar grids
-							</a>
-						</div>
-						<a href="#y-2013-m-4-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>April
-						</a>
-						<!-- Articles in 4 -->
-						<div class="list-group collapse" id="y-2013-m-4-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/" class="list-group-item">
-								Grid Framework version 1.2.4 released
-							</a>
-						</div>
-						<a href="#y-2013-m-3-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>March
-						</a>
-						<!-- Articles in 3 -->
-						<div class="list-group collapse" id="y-2013-m-3-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/" class="list-group-item">
-								Seemingly endless grids and performance
-							</a>
-						</div>
-						<a href="#y-2013-m-2-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>February
-						</a>
-						<!-- Articles in 2 -->
-						<div class="list-group collapse" id="y-2013-m-2-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/" class="list-group-item">
-								Grid Framework version 1.2.3 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" class="list-group-item">
-								Unity and properties/accessors
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/" class="list-group-item">
-								Grid Framework version 1.2.2 released
-							</a>
-						</div>
-						<a href="#y-2013-m-1-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>January
-						</a>
-						<!-- Articles in 1 -->
-						<div class="list-group collapse" id="y-2013-m-1-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" class="list-group-item">
-								Happy new year
-							</a>
-						</div>
-					</div>
-					<a href="#y-2012-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">40</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>2012
-					</a>
-					<!-- Months in 2012 -->
-					<div class="list-group collapse" id="y-2012-item">
-						<a href="#y-2012-m-12-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">4</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>December
-						</a>
-						<!-- Articles in 12 -->
-						<div class="list-group collapse" id="y-2012-m-12-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/" class="list-group-item">
-								How to extend Grid Framework with your own methods
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" class="list-group-item">
-								Hex Grid introduction video
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/" class="list-group-item">
-								Grid Framework version 1.2.0 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120-submitted/" class="list-group-item">
-								Grid Framework version 1.2.0 submitted
-							</a>
-						</div>
-						<a href="#y-2012-m-11-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">7</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>November
-						</a>
-						<!-- Articles in 11 -->
-						<div class="list-group collapse" id="y-2012-m-11-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" class="list-group-item">
-								Grid Framework version 1.1.10 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" class="list-group-item">
-								How about herring for lunch?
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" class="list-group-item">
-								Trying to fit a square peg into a hex hole
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" class="list-group-item">
-								Grid Framework version 1.1.9 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" class="list-group-item">
-								How to loop through a list and remove items
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/" class="list-group-item">
-								Hex Grids love Vectrosity
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/" class="list-group-item">
-								Vertex progress
-							</a>
-						</div>
-						<a href="#y-2012-m-10-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">4</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>October
-						</a>
-						<!-- Articles in 10 -->
-						<div class="list-group collapse" id="y-2012-m-10-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" class="list-group-item">
-								Back again
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" class="list-group-item">
-								Example video: Level Design and Text parsing in Unity3D
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/" class="list-group-item">
-								Version 1.1.7 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/" class="list-group-item">
-								Cannot log into my account
-							</a>
-						</div>
-						<a href="#y-2012-m-9-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">4</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>September
-						</a>
-						<!-- Articles in 9 -->
-						<div class="list-group collapse" id="y-2012-m-9-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/" class="list-group-item">
-								Version 1.1.6 submitted
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/" class="list-group-item">
-								Version 1.1.5 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/" class="list-group-item">
-								Version 1.1.4 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/" class="list-group-item">
-								Hex grid progress so far
-							</a>
-						</div>
-						<a href="#y-2012-m-8-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">13</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>August
-						</a>
-						<!-- Articles in 8 -->
-						<div class="list-group collapse" id="y-2012-m-8-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/" class="list-group-item">
-								Hex grid drawing - finally!
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" class="list-group-item">
-								Swap variables in Unity
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/23/current-roadblock/" class="list-group-item">
-								The current roadblock
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/" class="list-group-item">
-								Version 1.1.3 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/14/version-112/" class="list-group-item">
-								Version 1.1.2 released
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" class="list-group-item">
-								Vectrosity progress
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" class="list-group-item">
-								Line width for rendering
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/" class="list-group-item">
-								Version 1.1.0 out now - rendering included
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/" class="list-group-item">
-								A new inspector
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/" class="list-group-item">
-								Grid rendering progress
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" class="list-group-item">
-								Version 1.0.1
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" class="list-group-item">
-								Grid-based game logic
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/01/release/" class="list-group-item">
-								Release!
-							</a>
-						</div>
-						<a href="#y-2012-m-7-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">3</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>July
-						</a>
-						<!-- Articles in 7 -->
-						<div class="list-group collapse" id="y-2012-m-7-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" class="list-group-item">
-								Grid movement and runtime snapping
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" class="list-group-item">
-								A quick update
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" class="list-group-item">
-								Almost there...
-							</a>
-						</div>
-						<a href="#y-2012-m-5-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>May
-						</a>
-						<!-- Articles in 5 -->
-						<div class="list-group collapse" id="y-2012-m-5-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" class="list-group-item">
-								Turn off the lights!
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/" class="list-group-item">
-								State of the game
-							</a>
-						</div>
-						<a href="#y-2012-m-4-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">2</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>April
-						</a>
-						<!-- Articles in 4 -->
-						<div class="list-group collapse" id="y-2012-m-4-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" class="list-group-item">
-								Introduction video
-							</a>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" class="list-group-item">
-								Introduction
-							</a>
-						</div>
-						<a href="#y-2012-m-3-item" class="list-group-item" data-toggle="collapse">
-							<span class="badge">1</span>
-							<i class="glyphicon glyphicon-chevron-right"></i>March
-						</a>
-						<!-- Articles in 3 -->
-						<div class="list-group collapse" id="y-2012-m-3-item">
-							<a href="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/" class="list-group-item">
-								Something's coming...
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		
-		
-			<div>
-				<strong style="display:block;"><a href="http://hiphish.github.io/grid-framework/news/categories/">Categories</a></strong>
-				<div class="list-group list-group-root hidden-xs">
-					<a href="#cat-misc-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">22</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>misc
-					</a>
-					<div class="list-group collapse" id="cat-misc-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" class="list-group-item">
-							Goodbye MonoDevelop, hello Vim
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" class="list-group-item">
-							Whitelisting subdirectories in Git
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" class="list-group-item">
-							Status update and Doxygen rant
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" class="list-group-item">
-							CheckComponent()
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" class="list-group-item">
-							Unity and properties/accessors
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" class="list-group-item">
-							Happy new year
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" class="list-group-item">
-							Hex Grid introduction video
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" class="list-group-item">
-							How to loop through a list and remove items
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" class="list-group-item">
-							Back again
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" class="list-group-item">
-							Example video: Level Design and Text parsing in Unity3D
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/" class="list-group-item">
-							Cannot log into my account
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" class="list-group-item">
-							Swap variables in Unity
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" class="list-group-item">
-							Vectrosity progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" class="list-group-item">
-							Line width for rendering
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" class="list-group-item">
-							Grid-based game logic
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" class="list-group-item">
-							Grid movement and runtime snapping
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" class="list-group-item">
-							A quick update
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" class="list-group-item">
-							Almost there...
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" class="list-group-item">
-							Turn off the lights!
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" class="list-group-item">
-							Introduction video
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" class="list-group-item">
-							Introduction
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/" class="list-group-item">
-							Something's coming...
-						</a>
-					</div>
-					<a href="#cat-organisation-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">6</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>organisation
-					</a>
-					<div class="list-group collapse" id="cat-organisation-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" class="list-group-item">
-							What's coming in 2016
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" class="list-group-item">
-							Korean Asset Store description removed
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/12/new-blog/" class="list-group-item">
-							A new blog for Grid Framework
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
-							New website
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/" class="list-group-item">
-							Playable examples
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/16/homepage/" class="list-group-item">
-							A homepage for Grid Framework
-						</a>
-					</div>
-					<a href="#cat-progress-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">27</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>progress
-					</a>
-					<div class="list-group collapse" id="cat-progress-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2016/05/18/submitted-200/" class="list-group-item">
-							Version 2.0.0 has been submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/05/06/docs-solved/" class="list-group-item">
-							Documentation dilemma solved
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/04/22/fixing-broken/" class="list-group-item">
-							Fixing what has been broken
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/04/20/one-directory/" class="list-group-item">
-							One unified directory
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/04/13/managing-renderers/" class="list-group-item">
-							Managing renderers
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/03/29/revisiting-coordinate-systems/" class="list-group-item">
-							Revisiting coordinate systems
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" class="list-group-item">
-							Official extension methods
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" class="list-group-item">
-							Keeping the renderers updated and efficient
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/01/25/namespace-everything/" class="list-group-item">
-							Namespaces for everything
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/01/13/first-step-to-20/" class="list-group-item">
-							First major step towards 2.0
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" class="list-group-item">
-							Spherical grid coordinate systems
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" class="list-group-item">
-							Spheric grid rendering
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/08/24/shearing/" class="list-group-item">
-							Shearing
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" class="list-group-item">
-							What's up next?
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/09/feature-freeze-polar/" class="list-group-item">
-							Feature freeze for polar grids
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" class="list-group-item">
-							Polar grid drawing refined
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/" class="list-group-item">
-							A first look at polar grids
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" class="list-group-item">
-							How about herring for lunch?
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" class="list-group-item">
-							Trying to fit a square peg into a hex hole
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/" class="list-group-item">
-							Hex Grids love Vectrosity
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/" class="list-group-item">
-							Vertex progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/" class="list-group-item">
-							Hex grid progress so far
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/" class="list-group-item">
-							Hex grid drawing - finally!
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/23/current-roadblock/" class="list-group-item">
-							The current roadblock
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/" class="list-group-item">
-							A new inspector
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/" class="list-group-item">
-							Grid rendering progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/" class="list-group-item">
-							State of the game
-						</a>
-					</div>
-					<a href="#cat-release-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">38</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>release
-					</a>
-					<div class="list-group collapse" id="cat-release-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/" class="list-group-item">
-							Grid Framework version 2.1.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/06/05/release-201/" class="list-group-item">
-							Grid Framework version 2.0.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/05/25/release-200/" class="list-group-item">
-							Grid Framework version 2.0.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2016/05/13/version-191/" class="list-group-item">
-							Grid Framework version 1.9.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/12/14/version-190/" class="list-group-item">
-							Grid Framework version 1.9.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/23/version-184/" class="list-group-item">
-							Grid Framework version 1.8.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/03/11/version-180/" class="list-group-item">
-							Grid Framework version 1.8.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/03/01/version-174/" class="list-group-item">
-							Grid Framework version 1.7.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/21/version-172/" class="list-group-item">
-							Grid Framework version 1.7.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/" class="list-group-item">
-							Grid Framework version 1.7.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/11/07/version-153/" class="list-group-item">
-							Grid Framework version 1.5.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/11/06/version-152/" class="list-group-item">
-							Grid Framework version 1.5.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/10/01/version-151/" class="list-group-item">
-							Grid Framework version 1.5.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/09/16/version-150/" class="list-group-item">
-							Grid Framework version 1.5.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" class="list-group-item">
-							Grid Framework version 1.4.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/12/10/version-135/" class="list-group-item">
-							Grid Framework version 1.3.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/09/20/version-134/" class="list-group-item">
-							Grid Framework version 1.3.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/28/version-133/" class="list-group-item">
-							Grid Framework version 1.3.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/09/version-132/" class="list-group-item">
-							Grid Framework version 1.3.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/" class="list-group-item">
-							Grid Framework version 1.3.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/12/version-130-submit/" class="list-group-item">
-							Version 1.3.0 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" class="list-group-item">
-							Grid Framework version 1.2.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/" class="list-group-item">
-							Grid Framework version 1.2.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/" class="list-group-item">
-							Grid Framework version 1.2.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/" class="list-group-item">
-							Grid Framework version 1.2.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/" class="list-group-item">
-							Grid Framework version 1.2.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120-submitted/" class="list-group-item">
-							Grid Framework version 1.2.0 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" class="list-group-item">
-							Grid Framework version 1.1.10 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" class="list-group-item">
-							Grid Framework version 1.1.9 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/" class="list-group-item">
-							Version 1.1.7 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/" class="list-group-item">
-							Version 1.1.6 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/" class="list-group-item">
-							Version 1.1.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/" class="list-group-item">
-							Version 1.1.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/" class="list-group-item">
-							Version 1.1.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/14/version-112/" class="list-group-item">
-							Version 1.1.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/" class="list-group-item">
-							Version 1.1.0 out now - rendering included
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" class="list-group-item">
-							Version 1.0.1
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/01/release/" class="list-group-item">
-							Release!
-						</a>
-					</div>
-					<a href="#cat-tips-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">2</span>
-						<i class="glyphicon glyphicon-chevron-right"></i>tips
-					</a>
-					<div class="list-group collapse" id="cat-tips-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/" class="list-group-item">
-							Seemingly endless grids and performance
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/" class="list-group-item">
-							How to extend Grid Framework with your own methods
-						</a>
-					</div>
-				</div>
-			</div>
-		
-			<div>
-				<strong style="display:block;"><a href="http://hiphish.github.io/grid-framework/news/tags/">Tags</a></strong>
-				<div class="list-group list-group-root hidden-xs">
-					<a href="#tag-API-change-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>API-change
-					</a>
-					<div class="list-group collapse" id="tag-API-change-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" class="list-group-item">
-							What's up next?
-						</a>
-					</div>
-					<a href="#tag-asset-store-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>asset-store
-					</a>
-					<div class="list-group collapse" id="tag-asset-store-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/17/no-korean/" class="list-group-item">
-							Korean Asset Store description removed
-						</a>
-					</div>
-					<a href="#tag-coordinate-system-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">1</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>coordinate-system
-					</a>
-					<div class="list-group collapse" id="tag-coordinate-system-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" class="list-group-item">
-							Spherical grid coordinate systems
-						</a>
-					</div>
-					<a href="#tag-example-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">7</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>example
-					</a>
-					<div class="list-group collapse" id="tag-example-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/" class="list-group-item">
-							Playable examples
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/" class="list-group-item">
-							Seemingly endless grids and performance
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" class="list-group-item">
-							Example video: Level Design and Text parsing in Unity3D
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" class="list-group-item">
-							Vectrosity progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" class="list-group-item">
-							Grid-based game logic
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" class="list-group-item">
-							Grid movement and runtime snapping
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" class="list-group-item">
-							Turn off the lights!
-						</a>
-					</div>
-					<a href="#tag-extension-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">4</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>extension
-					</a>
-					<div class="list-group collapse" id="tag-extension-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" class="list-group-item">
-							Grid Framework version 1.4.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/" class="list-group-item">
-							How to extend Grid Framework with your own methods
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/" class="list-group-item">
-							Hex Grids love Vectrosity
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" class="list-group-item">
-							Vectrosity progress
-						</a>
-					</div>
-					<a href="#tag-how-to-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">6</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>how-to
-					</a>
-					<div class="list-group collapse" id="tag-how-to-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" class="list-group-item">
-							Whitelisting subdirectories in Git
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" class="list-group-item">
-							CheckComponent()
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" class="list-group-item">
-							Unity and properties/accessors
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" class="list-group-item">
-							Hex Grid introduction video
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" class="list-group-item">
-							How to loop through a list and remove items
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" class="list-group-item">
-							Swap variables in Unity
-						</a>
-					</div>
-					<a href="#tag-old-blog-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">73</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>old-blog
-					</a>
-					<div class="list-group collapse" id="tag-old-blog-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/10/26/new-website/" class="list-group-item">
-							New website
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/03/11/version-180/" class="list-group-item">
-							Grid Framework version 1.8.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/03/01/version-174/" class="list-group-item">
-							Grid Framework version 1.7.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/27/playable-examples/" class="list-group-item">
-							Playable examples
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/21/version-172/" class="list-group-item">
-							Grid Framework version 1.7.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/16/homepage/" class="list-group-item">
-							A homepage for Grid Framework
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" class="list-group-item">
-							Goodbye MonoDevelop, hello Vim
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/12/11/version-170/" class="list-group-item">
-							Grid Framework version 1.7.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/11/07/version-153/" class="list-group-item">
-							Grid Framework version 1.5.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/11/06/version-152/" class="list-group-item">
-							Grid Framework version 1.5.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/10/01/version-151/" class="list-group-item">
-							Grid Framework version 1.5.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/09/16/version-150/" class="list-group-item">
-							Grid Framework version 1.5.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/09/09/whitelisting-in-git/" class="list-group-item">
-							Whitelisting subdirectories in Git
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/08/24/shearing/" class="list-group-item">
-							Shearing
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2014/05/09/version-141/" class="list-group-item">
-							Grid Framework version 1.4.1 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/12/10/version-135/" class="list-group-item">
-							Grid Framework version 1.3.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/09/20/version-134/" class="list-group-item">
-							Grid Framework version 1.3.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/28/version-133/" class="list-group-item">
-							Grid Framework version 1.3.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/09/version-132/" class="list-group-item">
-							Grid Framework version 1.3.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" class="list-group-item">
-							Status update and Doxygen rant
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/" class="list-group-item">
-							What's up next?
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/" class="list-group-item">
-							CheckComponent()
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/17/version-130/" class="list-group-item">
-							Grid Framework version 1.3.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/12/version-130-submit/" class="list-group-item">
-							Version 1.3.0 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/06/09/feature-freeze-polar/" class="list-group-item">
-							Feature freeze for polar grids
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/26/polar-drawing/" class="list-group-item">
-							Polar grid drawing refined
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/17/version-125/" class="list-group-item">
-							Grid Framework version 1.2.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/05/10/first-look-polar/" class="list-group-item">
-							A first look at polar grids
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/04/03/version-124/" class="list-group-item">
-							Grid Framework version 1.2.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/" class="list-group-item">
-							Seemingly endless grids and performance
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/28/version-123/" class="list-group-item">
-							Grid Framework version 1.2.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/14/properties-accessors/" class="list-group-item">
-							Unity and properties/accessors
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/" class="list-group-item">
-							Grid Framework version 1.2.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" class="list-group-item">
-							Happy new year
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/17/hex-intro/" class="list-group-item">
-							Hex Grid introduction video
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120/" class="list-group-item">
-							Grid Framework version 1.2.0 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/12/07/version-120-submitted/" class="list-group-item">
-							Grid Framework version 1.2.0 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/30/version-1110/" class="list-group-item">
-							Grid Framework version 1.1.10 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/27/herring-for-lunch/" class="list-group-item">
-							How about herring for lunch?
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/22/square-peg-in-round-hole/" class="list-group-item">
-							Trying to fit a square peg into a hex hole
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/19/version-119/" class="list-group-item">
-							Grid Framework version 1.1.9 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/16/how-to-loop/" class="list-group-item">
-							How to loop through a list and remove items
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/13/hex-grids-love-vectrosity/" class="list-group-item">
-							Hex Grids love Vectrosity
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/11/12/vertex-progress/" class="list-group-item">
-							Vertex progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/28/back-again/" class="list-group-item">
-							Back again
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/06/example-parsing/" class="list-group-item">
-							Example video: Level Design and Text parsing in Unity3D
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/05/version-117/" class="list-group-item">
-							Version 1.1.7 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/10/02/cannot-log-in/" class="list-group-item">
-							Cannot log into my account
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/" class="list-group-item">
-							Version 1.1.6 submitted
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/" class="list-group-item">
-							Version 1.1.5 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/" class="list-group-item">
-							Version 1.1.4 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/" class="list-group-item">
-							Hex grid progress so far
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/30/hex-drawing/" class="list-group-item">
-							Hex grid drawing - finally!
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/25/swap-variables-in-unity/" class="list-group-item">
-							Swap variables in Unity
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/23/current-roadblock/" class="list-group-item">
-							The current roadblock
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/15/version-113/" class="list-group-item">
-							Version 1.1.3 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/14/version-112/" class="list-group-item">
-							Version 1.1.2 released
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/12/vectrosity-progress/" class="list-group-item">
-							Vectrosity progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/09/line-width-for-rendering/" class="list-group-item">
-							Line width for rendering
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/08/version-110/" class="list-group-item">
-							Version 1.1.0 out now - rendering included
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/07/new-inspector/" class="list-group-item">
-							A new inspector
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/06/grid-rendering-progress/" class="list-group-item">
-							Grid rendering progress
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/04/version-101/" class="list-group-item">
-							Version 1.0.1
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/03/grid-based-game-logic/" class="list-group-item">
-							Grid-based game logic
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/08/01/release/" class="list-group-item">
-							Release!
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/29/grid-movement-and-runtime-snapping/" class="list-group-item">
-							Grid movement and runtime snapping
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/27/a-quick-update/" class="list-group-item">
-							A quick update
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/07/22/almost-there/" class="list-group-item">
-							Almost there...
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/05/29/turn-off-the-lights/" class="list-group-item">
-							Turn off the lights!
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/05/14/state-of-the-game/" class="list-group-item">
-							State of the game
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/04/11/introduction-video/" class="list-group-item">
-							Introduction video
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/04/09/introduction/" class="list-group-item">
-							Introduction
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2012/03/27/somethings-coming/" class="list-group-item">
-							Something's coming...
-						</a>
-					</div>
-					<a href="#tag-rant-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">3</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>rant
-					</a>
-					<div class="list-group collapse" id="tag-rant-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/" class="list-group-item">
-							Goodbye MonoDevelop, hello Vim
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/08/02/status-update/" class="list-group-item">
-							Status update and Doxygen rant
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" class="list-group-item">
-							Happy new year
-						</a>
-					</div>
-					<a href="#tag-spheric-item" class="list-group-item" data-toggle="collapse">
-						<span class="badge">2</span>
-						<span class="glyphicon glyphicon-chevron-right"></span>spheric
-					</a>
-					<div class="list-group collapse" id="tag-spheric-item">
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/30/spheric-coordinate-system/" class="list-group-item">
-							Spherical grid coordinate systems
-						</a>
-						<a href="http://hiphish.github.io/grid-framework/news/2015/11/27/spheric-rendering/" class="list-group-item">
-							Spheric grid rendering
-						</a>
-					</div>
-				</div>
-			</div>
-
-
-			<strong>Subscribe:
-				<a href="http://hiphish.github.io/grid-framework/news/rss.xml">RSS</a>
-				<a href="http://hiphish.github.io/grid-framework/news/atom.xml">Atom</a> </strong>
-
+				</li>
+			</ul>
 		</nav>
-	
-		<!-- Right pillar -->
-		<!--<aside class="HolyGrail-ads well"><strong>Advertisements</strong></aside>-->
+	</footer>
+</main>
 
-	</div> <!-- / .container .flex-block -->
-</main><!-- /.flex-body -->
+	<!-- "Left" pillar, article navigation -->
+	<nav class="well">
+		<!-- This navigator contains links to the various archive types. -->
+		<h1>Blog navigation</h1>
 
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/grid-framework/news/archives/">
+					Archives
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/2016/">
+						2016 (15)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/2015/">
+						2015 (13)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/2014/">
+						2014 (8)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/2013/">
+						2013 (19)
+					</a>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/12/">
+								December (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/09/">
+								September (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/08/">
+								August (3)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/07/">
+								July (2)
+							</a>
+							<ul>
+								<li>
+									<a href="http://hiphish.github.io/grid-framework/news/2013/07/19/whats-up-next/">
+										What's up next?
+									</a>
+								</li>
+								<li>
+									<a href="http://hiphish.github.io/grid-framework/news/2013/07/03/check-component/">
+										CheckComponent()
+									</a>
+								</li>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/06/">
+								June (3)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/05/">
+								May (3)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/04/">
+								April (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/03/">
+								March (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/02/">
+								February (3)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/grid-framework/news/2013/01/">
+								January (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+						<ul>
+						</ul>
+					</ul>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/2012/">
+						2012 (40)
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-		<footer role="contentinfo" class="site-footer HolyGrail-footer">
-<div class="container">
-	<div class="col-md-8 footer-left">
-		<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
-			<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-		</a>
-		<p class="text-muted">
-			<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-			© 2015, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-		</p>
-	</div>  <!-- /.col-md-8 -->
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/grid-framework/news/categories/">
+					Categories
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/categories/misc/">
+						misc (22)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/categories/organisation/">
+						organisation (6)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/categories/progress/">
+						progress (27)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/categories/release/">
+						release (38)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/categories/tips/">
+						tips (2)
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-	<div class="col-md-4 footer-right">
-		<span class="pull-right">
-			<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-				<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-			</a>
-			<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-				<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-			</a>
-		</span>  <!-- /.pull-right -->
-	</div>  <!-- /.col-md-4 -->
-	<p class="text-muted text-right"></p>
-</div>  <!-- /.container -->		</footer>
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/grid-framework/news/tags/">
+					Tags
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/coordinate-system/">
+						coordinate-system (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
+						old-blog (73)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/extension/">
+						extension (4)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/how-to/">
+						how-to (6)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/api-change/">
+						API-change (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/rant/">
+						rant (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/spheric/">
+						spheric (2)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/asset-store/">
+						asset-store (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/grid-framework/news/tags/example/">
+						example (7)
+					</a>
+				</li>
+			</ul>
+		</nav>
 
+		<aside>
+			<h1>Subscription options</h1>
+			<strong>
+				Subscribe:
+				<a href="http://hiphish.github.io/grid-framework/news/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/grid-framework/news/atom.xml">Atom</a>
+			</strong>
+		</aside>
+	</nav>
+</section>
+		</section>
+
+		<!-- Footer of the website -->
+		<footer>
+			<div class="container">
+				<div class="col-md-8 footer-self">
+					<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
+					</a>
+					<p class="text-muted">
+						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
+						© 2015-2016, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+					</p>
+				</div>  <!-- /.col-md-8 -->
+
+				<div class="col-md-4 footer-social">
+					<span class="pull-right">
+						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
+							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
+						</a>
+						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
+							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
+						</a>
+					</span>  <!-- /.pull-right -->
+				</div>  <!-- /.col-md-4 -->
+			</div>
+		</footer>
 	</body>
 </html>
+

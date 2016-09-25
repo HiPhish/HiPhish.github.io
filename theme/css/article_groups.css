@@ -1,0 +1,16 @@
+.blog-body > #blog-categories {
+	padding-left: 0;
+	margin-left: 1em;
+}
+
+.blog-body > #blog-categories > nav > h1 {
+	display: none;
+}
+
+.blog-body > #blog-categories > h1 {
+	display: none;
+}
+
+.blog-body > #blog-categories ul {
+}
+

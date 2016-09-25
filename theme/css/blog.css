@@ -1,0 +1,74 @@
+.blog-body {
+	display: flex;
+}
+
+/* This only serves for outlining, hide it from visual display. */
+.blog-body > h1 {
+	display: none;
+}
+
+
+.blog-body > nav {
+	width: 20em;
+	order: -1;  /* Move the navigator left from the article */
+}
+
+.blog-body > nav > h1 {
+	display: none;
+}
+
+
+.blog-body > nav > nav > h1 {
+	font-size: 1.5em;
+}
+
+.blog-body > nav > aside > h1 {
+	display: none;
+}
+
+.blog-body > nav > nav ul {
+	list-style: none;
+	padding-left: 0.5em;
+}
+
+
+.blog-breadcrumbs > ol {
+	margin-bottom: 0;
+}
+
+.blog-breadcrumbs > h1 {
+	display: none;
+}
+
+
+/* For small displays we need some adjustments. The navigator and the articles
+ * next to each other are too wide, so we change the layout to vertical. We
+ * also move the navigator beneath the articles. The navigator itself has all
+ * the lists hidden because they would take up too much vertical space. Instead
+ * we leave only the headings, the user can click those to get taken to the
+ * archives directly. */
+@media(max-width: 768px) {
+	/* Re-arrange the articles and navigator vertically */
+	.blog-body {
+		flex-direction: column;
+	}
+
+	/* The navigator comes after the articles now. */
+	.blog-body > nav {
+		order: 0;
+		width: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	/* Hide the navigator lists, they are too large */
+	.blog-body > nav > nav ul {
+		display: none;
+	}
+
+	/* Push the aside onto the next line */
+	.blog-body > nav > aside {
+		flex: 0 1 100%;
+	}
+}
