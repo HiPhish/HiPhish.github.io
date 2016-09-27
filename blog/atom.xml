@@ -1,5 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-07-06T00:00:00+02:00</updated><entry><title>Introducing IPS-Tools</title><link href="http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/" rel="alternate"></link><published>2016-07-06T00:00:00+02:00</published><updated>2016-07-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</id><summary type="html">&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-09-27T00:00:00+02:00</updated><entry><title>Rewriting the Workshop</title><link href="http://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/" rel="alternate"></link><published>2016-09-27T00:00:00+02:00</published><updated>2016-09-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-09-27:blog/2016/09/27/rewriting-the-workshop/</id><summary type="html">&lt;p&gt;At this point I  could start to make rewriting  my website an annual tradition.
+There have been a number of little  details that have been rubbing me the wrong
+way for almost a year now;  the biggest one was the navigation bar on sub-sites
+like the  Grid Framework  product site.  There were  also accessibility  issues
+relating  to  the lack  of a  proper  HTML  document  outline  and  the  use of
+JavaScript.&lt;/p&gt;
+&lt;div class="section" id="the-sub-site-navigation-bar"&gt;
+&lt;h2&gt;The sub-site navigation bar&lt;/h2&gt;
+&lt;p&gt;Until now I had simply been using the same standard navigation bar that is also
+on top of every page.  This worked,  but it was pretty ugly because even though
+one bar was clearly subordinate both looked the same. The sub-site bar needs to
+be smaller and less prominent.&lt;/p&gt;
+&lt;p&gt;The solution was to  roll my own code for  my own sub-site navigation bar.  The
+bar itself is simply  a plain &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;  and I am using the  CSS flexbox module to
+style it. Here is what the HTML looks like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"sub-site-nav"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Sub-site navigation bar&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Title&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item 1&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item 2&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item 3&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item 4&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That's it,  we only specify that  our &lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; is a  sub-site navigation bar and
+let the CSS style the elements accordingly. You will also notice that the title
+is part of the list as well; I will use CSS to style the title differently, but
+some people prefer to  make the title a separate element from the list.  I made
+it  part of  the list  because  despite the  visual  distinction it is  all one
+navigation bar and the title should be counted when enumerating the list.&lt;/p&gt;
+&lt;p&gt;With the content set  in place we can start applying the style to it.  Since we
+have wrapped everything  inside a &lt;code&gt;.sub-site-nav&lt;/code&gt;  item we style only its child
+elements.  First let's  hide the  heading,  it's  only used  for   the document
+outline.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;h1&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now comes the interesting part: the list.  I am using the CSS flexbox module to
+style the site, it's a fairly new feature that allows us to pass specifications
+in CSS on how to distribute elements and let the browser figure out the optimum
+instead of computing values by hand. To this end we have to declare the list to
+be a flex container&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="nb"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The  last property  &lt;code&gt;justify-content: flex-end&lt;/code&gt;  will push all elements  to the
+right while preserving their order  (non-flexbox hacks would always reverse the
+order).  We are almost done,  but in order to make the  navigation look good we
+have to make the title stand out from the other list items.  Since the title is
+the first child of the list we can use the &lt;code&gt;first-child&lt;/code&gt; pseudo-class:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="nd"&gt;:first-child&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;margin-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will push  the first element as  far to the left as possible.  All that is
+now left is  styling the list  elements themselves  so they  look good.  I also
+styled the &lt;code&gt;nav&lt;/code&gt;  itself to  give it a border  line at the  bottom to stand out
+from the rest of the page.  Thanks to flexbox it has been dead-simple to evenly
+distribute the  items in a  few lines of  CSS instead of  heaving to  resort to
+awkward helper-classes or empty &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; elements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="document-outline"&gt;
+&lt;h2&gt;Document outline&lt;/h2&gt;
+&lt;p&gt;The  document outline  is what made  me rewrite all  the templates  almost from
+scratch.  The old  outline  was  all flat,  so I  had to  introduce  sectioning
+elements where I had  &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; elements before and  use semantic HTML where ever
+possible. In order to make it possible to identify those sections I also had to
+add headings  everywhere and  hide them via CSS,  as shown above.  The workshop
+should now become more  accessible once more client  software starts supporting
+the  outline algorithm.  Go ahead and try it out,  open this page in the &lt;a class="reference external" href="http://gsnedders.html5.org/outliner/"&gt;HTML5
+Outliner&lt;/a&gt; and see the result.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-new-blog-navigator"&gt;
+&lt;h2&gt;A new blog navigator&lt;/h2&gt;
+&lt;p&gt;The sidebar for the blogs has also been changed from the ground up. The old one
+was too  bulky and  had a  fancy  "accordion"  feature:  clicking a  year would
+un-collapse a list  of sub-entries.  That way  you could  click a year,  then a
+month, and you would see all articles for that month right in the side bar.  It
+was pretty fancy,  but not very useful and utterly unusable without JavaScript,
+so I threw it out.&lt;/p&gt;
+&lt;p&gt;The new  navigator is all static:  clicking a year will take you to the archive
+of that year instead.  You can  see all articles  from that year in the body of
+the page,  and in the  navigator a  sub-list of  months will  appear under that
+year.  Clicking a month will  take you to the archive of that month,  narrowing
+the body of the page down to only those articles.&lt;/p&gt;
+&lt;p&gt;Effectively the  new navigator  has exactly  the same  features as the old one,
+except it is static now. This means you will have to load a new page, but since
+there is no JavaScript to execute  this will be very fast. The new navigator is
+also more accessible because it only lists the relevant items instead of having
+an archive of the entire blog at all times.&lt;/p&gt;
+&lt;p&gt;Finally, on small screen sizes the navigator is moved down beneath the articles
+and all the lists are hidden. They would take up too much screen space, instead
+the reader can  click the titles or  the archives and get taken there.  This is
+accomplished using flexbox again. Here is the HTML first:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"blog-body"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Blog&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+   &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;main&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        All the articles go here
+     &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;main&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Blog navigation&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Archives&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+          ...
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Categories&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+          ...
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Tags&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+          ...
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;/* The blog body contains the navigator and the articles list */&lt;/span&gt;
+&lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c"&gt;/* Move the navigator left from the article */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will put the article(s) and  the navigator horizontally next to each other
+and move the  navigator visually  before the  article by  changing  the &lt;code&gt;order&lt;/code&gt;
+property. For smaller devices we use a media query to change the flex direction
+to a colum, which will put the navigator on top of the articles.  We change the
+order to move the navigator down and hide the lists.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;@media&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;768px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="c"&gt;/* Re-arrange the articles and navigator vertically */&lt;/span&gt;
+   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;direction&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;}&lt;/span&gt;
+
+   &lt;span class="c"&gt;/* The navigator comes after the articles now. */&lt;/span&gt;
+   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="nb"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;space&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;between&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;}&lt;/span&gt;
+
+   &lt;span class="c"&gt;/* Hide the navigator lists, they are too large */&lt;/span&gt;
+   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hamburger-menu-without-javascript"&gt;
+&lt;h2&gt;Hamburger menu without JavaScript&lt;/h2&gt;
+&lt;p&gt;Every site should provide its  full functionality without requiring JavaScript.
+It might  not be as pretty,  but it has to fully work.  The standard navigation
+bar example from Bootstrap requires JavaScript for the toggle, but it turns out
+that it can  also be accomplished without.  The following  trick comes from the
+blog of &lt;a class="reference external" href="http://viralpatel.net/blogs/bootstrap-navbar-menu-without-javascript/"&gt;Viral Patel&lt;/a&gt;, so all credit goes to him.&lt;/p&gt;
+&lt;p&gt;Here is the HTML:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar navbar-default"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"container"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;input&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"checkbox"&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-toggle-cbox"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-header"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;label&lt;/span&gt; &lt;span class="na"&gt;for&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-toggle-cbox"&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-toggle collapsed"&lt;/span&gt;
+             &lt;span class="na"&gt;data-toggle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"collapse"&lt;/span&gt; &lt;span class="na"&gt;data-target&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#navbar"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"sr-only"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Toggle navigation&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icon-bar"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icon-bar"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icon-bar"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;label&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-brand"&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Project name&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar"&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"navbar-collapse collapse"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"nav navbar-nav"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"active"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Home&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"#about"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;About&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The differences are  the existence of a new  &lt;code&gt;&amp;lt;input type="checkbox"&amp;gt;&lt;/code&gt;  element
+and changing the  &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; to a &lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt;.  This by itself won't do anything,
+we need a few lines of CSS as well:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nn"&gt;#navbar-toggle-cbox&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;none&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nn"&gt;#navbar-toggle-cbox&lt;/span&gt;&lt;span class="nd"&gt;:checked&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt; &lt;span class="nc"&gt;.collapse&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;First we  hide the checkbox  from sight,  then we  use its  state to toggle the
+display of the &lt;code&gt;.collapse&lt;/code&gt;.  If JavaScript is available  the new hamburger menu
+will work  just like before,  but if  JavaScript is  unavailable the  collapsed
+items will still pop up.  It won't be as pretty because there will be no smooth
+animation, but it will be usable.&lt;/p&gt;
+&lt;p&gt;I consider this a hack because it introduces an extra HTML item, but as long as
+there is no built-in  solution in HTML or CSS  every approach is more or less a
+hack.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="website"></category></entry><entry><title>Introducing IPS-Tools</title><link href="http://hiphish.github.io/blog/2016/07/06/intro-ips-tools/" rel="alternate"></link><published>2016-07-06T00:00:00+02:00</published><updated>2016-07-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-07-06:blog/2016/07/06/intro-ips-tools/</id><summary type="html">&lt;p&gt;I found myself needing a program to apply binary patches in the IPS file format
 and I was really disappointed  that there are no proper  Unix programs for that
 purpose available.  So I set out to make my own,  but instead of just  applying
 patches it would be a complete suite of tools to handle all IPS-related tasks.&lt;/p&gt;
