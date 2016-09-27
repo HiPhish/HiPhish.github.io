@@ -42,3 +42,14 @@ body > footer img {
 #main-navbar > h1 {
 	display: none;
 }
+
+
+/* Navigation bar without JavaScript, idea from
+ * http://viralpatel.net/blogs/bootstrap-navbar-menu-without-javascript/ */
+
+#navbar-toggle-cbox {
+  display:none
+}
+#navbar-toggle-cbox:checked ~ .collapse {
+    display: block;
+}
