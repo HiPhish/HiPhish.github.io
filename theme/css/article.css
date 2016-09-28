@@ -1,8 +1,13 @@
 .blog-body > main {
 	padding-left: 0;
 	margin-left: 1em;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .blog-body > main > nav > h1 {

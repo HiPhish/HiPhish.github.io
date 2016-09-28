@@ -15,9 +15,14 @@
 }
 
 .local-nav > ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-end;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
 	list-style-type: none;
 	padding: 0;
 	margin-bottom: 0em;
@@ -48,6 +53,8 @@
 @media(max-width: 768px) {
 
 	.local-nav > ul > li:first-child {
-		flex: 1 100%;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 100%;
+		        flex: 1 100%;
 	}
 }
