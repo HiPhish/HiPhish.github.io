@@ -6,11 +6,8 @@
 
 
 #products {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+	flex-wrap: wrap;
 	margin: -2em 0 2em -2em;
 }
 
@@ -19,24 +16,15 @@
 }
 
 #products > article {
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0 33.3333%;
-	        flex: 0 0 33.3333%;
-	display: -webkit-box;
-	display: -ms-flexbox;
+	flex: 0 0 33.3333%;
 	display: flex;
 	/* Style the appearance of the card */
 	padding: 2em 0 0 2em;
 }
 
 #products > article > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+	flex-direction: column;
 	padding: 0.5em;
 	border: 1px solid #E7ECEE;
 	border-radius: 0.5rem;
@@ -48,12 +36,8 @@
 
 #products > article > div > img {
 	/* Move the image in front of the text, center cross-wise (horizontally) */
-	-webkit-box-ordinal-group: 0;
-	    -ms-flex-order: -1;
-	        order: -1;
-	-ms-flex-item-align: center;
-	    -ms-grid-row-align: center;
-	    align-self: center;
+	order: -1;
+	align-self: center;
 	/* Style the appearance of the image */
 	width: 330px;
 	border-radius: 0.5rem;
@@ -69,8 +53,6 @@
 	}
 
 	#products > article {
-		-webkit-box-flex: 0;
-		    -ms-flex: 0 0 100%;
-		        flex: 0 0 100%;
+		flex: 0 0 100%;
 	}
 }
