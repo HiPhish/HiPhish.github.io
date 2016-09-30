@@ -1,8 +1,3 @@
-.blog-body > section {
-	padding-left: 0;
-	margin-left: 1em;
-}
-
 .blog-body > section > nav > h1 {
 	display: none;
 }
@@ -14,13 +9,6 @@
 
 .blog-body > section > h1 {
 	display: none;
-}
-
-.blog-body > section {
-	padding-left: 0;
-	margin-left: 1em;
-	display: flex;
-	flex-direction: column;
 }
 
 .blog-body > section > h1 {

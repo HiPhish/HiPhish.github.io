@@ -16,6 +16,9 @@ body > section {
 .blog-body > section {
 	flex: 1;
 	display: flex;
+	flex-direction: column;
+	padding-left: 0;
+	margin-left: 1em;
 }
 
 .blog-body > nav {
