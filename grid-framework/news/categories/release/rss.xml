@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Thu, 30 Jun 2016 00:00:00 +0200</lastBuildDate><item><title>Grid Framework version 2.1.0 released</title><link>http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/</link><description>&lt;p&gt;Grid Framework version 2.1.0 has been approved by the Asset Store. This release
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Tue, 08 Nov 2016 00:00:00 +0100</lastBuildDate><item><title>Grid Framework version 2.1.1 released</title><link>http://hiphish.github.io/grid-framework/news/2016/11/08/release-211/</link><description>&lt;p&gt;Grid Framework version  2.1.1 has been approved  by the Asset Store.  This is a
+maintenance release  which fixes  an error about  &lt;code&gt;get_dataPath&lt;/code&gt;  in the latest
+Unity version.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 08 Nov 2016 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-11-08:grid-framework/news/2016/11/08/release-211/</guid></item><item><title>Grid Framework version 2.1.0 released</title><link>http://hiphish.github.io/grid-framework/news/2016/06/30/release-210/</link><description>&lt;p&gt;Grid Framework version 2.1.0 has been approved by the Asset Store. This release
 brings  new  features  in making  some  previously  read-only  properties  also
 writeable, fixes compiler issues in connection with Playmaker actions and makes
 the code comply with the Visual Studio compiler.&lt;/p&gt;
