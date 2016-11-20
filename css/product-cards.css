@@ -40,6 +40,7 @@
 	align-self: center;
 	/* Style the appearance of the image */
 	width: 330px;
+	max-height: 145px;
 	border-radius: 0.5rem;
 }
 
