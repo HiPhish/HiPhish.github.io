@@ -243,24 +243,24 @@ Examples - Grid Framework - Grid Framework
 <p>
 			To help you get started Grid Framework comes with several examples
 			showing you how to implement from scratch features commonly found in
-			games, such as moving along a grid, using the grid for game logic like
-			in a puzzle game, assembling a level or even extending Grid Framework
-			with your own methods without touching the source code of Grid
-			Framework itself.
+			games, such as moving along a grid, using the grid for game logic like in
+			a puzzle game, assembling a level or even extending Grid Framework with
+			your own methods without touching the source code of Grid Framework
+			itself.
 		</p>
 <p>
-			All the examples are written both in C# and Java Script, when technically
-			possible, and the source code has comments explaining the idea behind almost
-			every line of code. I also have tutorial videos where I build those examples
-			from scratch and expain the idea behind the code, for those of you who prefer
-			learning by doing rather than having the source code served to them in one go.
+			The source code has comments explaining the idea behind almost every line
+			of code. I also have tutorial videos where I build those examples from
+			scratch and expain the idea behind the code, for those of you who prefer
+			learning by doing rather than having the source code served to them in
+			one go.
 		</p>
 <p>
-			Click a title to get to a playable build, or watch a video of
-			me coding the example live. These videos were recorded at
-			different points in Grid Framworks development and the
-			interface and usability may appear more crude than it currently
-			is.
+			Click a title to get to a playable build, or watch a video of me coding
+			the example live. These videos were recorded at different points in Grid
+			Framworks development and the interface and usability may appear more
+			crude than it currently is. If the example doesn't load right away please
+			be patient.
 		</p>
 <hr/>
 <iframe class="pull-right" src="http://www.youtube.com/embed/m9_efVi_tFs" title="YouTube video player"></iframe>
@@ -268,9 +268,9 @@ Examples - Grid Framework - Grid Framework
 <p>
 			One of the most common uses for grids is movement. Maybe you have a tactical
 			game, or a board game or you just want the old-school feel of tile based games.
-			In this example we convert a sphere's world coordinates to grid coordinates and
+			In this example we convert the hero's world coordinates to grid coordinates and
 			then move it in grid space before converting the result back to world space. As
-			an extra touch we can limit the sphere to only stay within the bounds of the
+			an extra touch we can limit the hero to only stay within the bounds of the
 			grid size. We need this because grids are infinitely large, so the sphere could
 			wander off into infinity.
 		</p>
@@ -281,85 +281,83 @@ Examples - Grid Framework - Grid Framework
 			direction to it, convert the result back to world space and use
 			that as the destination of our movement function.
 		</p>
-<!-- worldPosition = grid.GridToWorld(grid.WorldToGrid(worldPosition) + direction)); -->
+<!-- var goal = grid.WorldToGrid(transform.position) -->
+<!-- goal += Vector3.right; -->
+<!-- transform.position = grid.GridToWorld(goal); -->
 <div class="highlight">
 <pre>
-<span class="n">worldPosition</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">worldPosition</span><span class="p">)</span> <span class="p">+</span> <span class="n">direction</span><span class="p">));
-</span></pre>
+<span class="kt">var</span> <span class="n">goal</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">)</span>
+<span class="n">goal</span> <span class="p">+=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
+<span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">goal</span><span class="p">);</span></pre>
 </div>
 <p>
-			In such a simple case it would make more sense to convert the
-			possible directions to world space and store the results. Instead
-			of converting back and forth all the time we could then just add
-			the direction in world coordinates, saving a two steps in the
-			process.  But this for demonstation purpose.
+			This alone is not that interesting, so let's limit the player to the
+			visible region of the grid. Every grid is infinitely large, but the
+			<em>renderer</em> has a range we can use as limits before converting back
+			to world coordinates:
 		</p>
-<hr/>
-<iframe class="pull-right" src="http://www.youtube.com/embed/m9_efVi_tFs" title="YouTube video player"></iframe>
-<h1 id="obstacles"><a href="./obstacles">Moving with obstacles</a></h1>
-<p>
-			Moving around freely is nice, but let's make it more interesting by introducing
-			obstacles. We could just use Unity's physics along with raycasting to see if our
-			target location is free, but where would be the fun in that? Instead in this
-			example we learn how to build a matrix where each entry corresponds to a tile
-			in the grid. For the sake of simplicity we only store a bolean value, whether
-			the tile is free or occupied, in the matrix, but we could easily extend the
-			format to store more information, such as the terrain, the type of obstacle
-			(wall, enemy, door, item) or even a reference to the object blocking our path.
-		</p>
-<p>
-			The core of the example is a matrix of boolean values. We use Grid
-			Framework to determine the size of the matrix.  How large does the
-			matrix need to be? A few lines of code get the work done.
-		</p>
-<!-- var size = new int[2];                                                          -->
-<!-- for(var i = 0; i < 2; i++){                                                     -->
-<!--     // get the distance between both ends (in world units), divide it           -->
-<!--     // by the spacing (to get grid units) and round down to the nearest integer -->
-<!--     size[i] = Mathf.FloorToInt(Mathf.Abs(renderer.From[i] - renderer.To[i]) / grid.Spacing[i]); -->
-<!-- }                                                                               -->
+<!-- if (goal.x < _renderer.From.x || goal.x > _renderer.To.x) -->
+<!-- return; -->
+<!-- if (goal.y < _renderer.From.y || goal.y > _renderer.To.y) -->
+<!-- return; -->
 <div class="highlight">
 <pre>
-<span class="kt">var</span> <span class="n">size</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
-  <span class="c1">// get the distance between both ends (in world units), divide it</span>
-  <span class="c1">// by the spacing (to get grid units) and round down to the nearest integer</span>
-  <span class="n">size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">renderer</span><span class="p">.</span><span class="n">From</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">renderer</span><span class="p">.</span><span class="n">To</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">/</span> <span class="n">grid</span><span class="p">.</span><span class="n">Spacing</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="p">}</span>
-</pre>
+<span class="k">if</span> <span class="p">(</span><span class="n">goal</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">From</span><span class="p">.</span><span class="n">x</span> <span class="p">||</span> <span class="n">goal</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">goal</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">From</span><span class="p">.</span><span class="n">y</span> <span class="p">||</span> <span class="n">goal</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span></pre>
 </div>
 <p>
-			And how do we find out the matrix position of a tile? Two lines of
-			code do the job.
+			As a final touch, let's use Grid Framework to store the map of the game.
+			It will know which tiles are OK to walk on and which ones are obstacles.
+			We will use a 2D array to keep track of the game; each entry's row and
+			column corresponds to the tile's X- and Y coordinates in the grid.
 		</p>
-<!-- var square = new int[2];                                                              -->
-<!--     for(var i = 0; i < 2; i++){                                                       -->
-<!--     square[i] = Mathf.FloorToInt(movementGrid.NearestCell(vec)[i]) - originSquare[i]; -->
-<!-- }                                                                                     -->
+<!-- // After checking for range, before converting to world coordinates -->
+<!-- if (!FreeTile(_goal)) { -->
+<!-- 	return; -->
+<!-- } -->
+<!-- // Building the matrix -->
+<!-- var rows    = Mathf.FloorToInt(_renderer.To.x); -->
+<!-- var columns = Mathf.FloorToInt(_renderer.To.y); -->
+<!-- _tiles = new bool[rows, columns]; -->
+<!-- // Checking a tile -->
+<!-- var r = Mathf.FloorToInt(tile.x); -->
+<!-- var c = Mathf.FloorToInt(tile.y); -->
+<!-- return _tiles[r, c]; -->
 <div class="highlight">
 <pre>
-<span class="kt">var</span> <span class="n">square</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
-<span class="k">for</span><span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++){</span>
-  <span class="n">square</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">movementGrid</span><span class="p">.</span><span class="n">NearestCell</span><span class="p">(</span><span class="n">vec</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="p">-</span> <span class="n">originSquare</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="c1">// After checking for range, before converting to world coordinates</span>
+<span class="k">if</span> <span class="p">(!</span><span class="n">FreeTile</span><span class="p">(</span><span class="n">_goal</span><span class="p">))</span> <span class="p">{</span>
+	<span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
-</pre>
+
+<span class="c1">// Building the matrix</span>
+<span class="kt">var</span> <span class="n">rows</span>    <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">columns</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">_tiles</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">];</span>
+
+<span class="c1">// Checking a tile (grid coordinates)</span>
+<span class="kt">var</span> <span class="n">r</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">c</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="k">return</span> <span class="n">_tiles</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">];</span></pre>
 </div>
 <hr/>
 <iframe class="pull-right" src="http://www.youtube.com/embed/sXlagrglfQ8" title="YouTube"></iframe>
 <h1 id="lights"><a href="./lights">lights-out puzzle game</a></h1>
 <p>
 			Here we learn how write a simple puzzle game where the goal is to turn all the
-			lights off and every time you click a square that square and the four adjacent
-			ones flip their colour. No tile knows anything about its surrounding tiles,
+			lights off and every time you click a light that light and the four adjacent
+			ones flip their state. No light knows anything about its surrounding lights,
 			making this game very flexible, you can have all sorts of crazy shapes and
-			holes in it. This example uses delegates and events and is therefore only
-			available in C#.
+			holes in it.
 		</p>
 <p>
-			The core of this example is comparing the grid coordinates of the
-			tiles to the one tile that was clicked to decide whether to switch
-			colour. The logic is nicely encapsulated in a custom extension
-			method and works for any type of grid:
+			The core of this example is comparing the grid coordinates of the tiles
+			to the one tile that was clicked to decide whether to switch colour. The
+			logic is nicely encapsulated in a custom extension method, making it
+			appear as if has always been part of Grid Framework.
 		</p>
 <!-- if(theGrid.IsAdjacent(transform.position, switchPosition)){ -->
 <!--     //flip the state of this switch                         -->
@@ -375,61 +373,23 @@ Examples - Grid Framework - Grid Framework
 </div>
 <p>This extension method is not part of Grid Framework's API, but we can use it as if it were.</p>
 <hr/>
-<iframe class="pull-right" id="extending" src="http://www.youtube.com/embed/W_QteDtqHK4" title="YouTube"></iframe>
-<h1>extending Grid Framework with your own methods</h1>
-<p>
-			This is a continuation of the above example where we extend the game to
-			use a hexagonal grid. Needless to say we don't want to write almost the
-			same script twice, so instead we will learn how to write our own method
-			for a grid class that picks its implementation depending on the
-			specific type of grid we use. Then we can use the same script for both
-			rectangular, hexagonal and polar grids.
-		</p>
-<p>Here is the example of how it works for rectangular grids:</p>
-<!-- public static bool IsAdjacent(this RectGrid grid, Vector3 position, Vector3 reference) { -->
-<!--     // Convert to Grid Space first                                                       -->
-<!--     var gPosition  = grid.WorldToGrid(position);  // The point we want to test           -->
-<!--     var gReference = grid.WorldToGrid(reference); // The point we want to reference      -->
-<!-- -->
-<!--     var deltaX = Mathf.Abs(gPosition.x - gReference.x);                                  -->
-<!--     var deltaY = Mathf.Abs(gPosition.y - gReference.y);                                  -->
-<!--     var isAdjacent = deltaX <= 1.25f && deltaY <= 1.25f;                                 -->
-<!--     var isDiagonal = -1.25f <= deltaX && 0.25f <= deltaY && isAdjacent;                  -->
-<!-- -->
-<!--     return isAdjacent && !isDiagonal;                                                    -->
-<!-- }                                                                                        -->
-<div class="highlight"><pre><span class="k">public</span> <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsAdjacent</span><span class="p">(</span><span class="k">this</span> <span class="n">RectGrid
-</span> <span class="n">grid</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">position</span><span class="p">,</span> <span class="n">Vector3</span> <span class="n">reference</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Convert to Grid Space first</span>
-  <span class="kt">var</span> <span class="n">gPosition</span>  <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">position</span><span class="p">);</span>  <span class="c1">// The point we want to test</span>
-  <span class="kt">var</span> <span class="n">gReference</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">reference</span><span class="p">);</span> <span class="c1">// The point we want to reference</span>
-
-  <span class="kt">var</span> <span class="n">deltaX</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">gPosition</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">gReference</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
-  <span class="kt">var</span> <span class="n">deltaY</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">gPosition</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">gReference</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-  <span class="kt">var</span> <span class="n">isAdjacent</span> <span class="p">=</span> <span class="n">deltaX</span> <span class="p">&lt;=</span> <span class="m">1.25f</span> <span class="p">&amp;&amp;</span> <span class="n">deltaY</span> <span class="p">&lt;=</span> <span class="m">1.25f</span><span class="p">;</span>
-  <span class="kt">var</span> <span class="n">isDiagonal</span> <span class="p">=</span> <span class="p">-</span><span class="m">1.25f</span> <span class="p">&lt;=</span> <span class="n">deltaX</span> <span class="p">&amp;&amp;</span> <span class="m">0.25f</span> <span class="p">&lt;=</span> <span class="n">deltaY</span> <span class="p">&amp;&amp;</span> <span class="n">isAdjacent</span><span class="p">;</span>
-
-  <span></span><span class="k">return</span> <span class="n">isAdjacent</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">isDiagonal</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-<hr/>
 <iframe class="pull-right" id="assembling" src="http://www.youtube.com/embed/lvYWbJ8ohkA" title="YouTube"></iframe>
-<h1 id="level-design"><a href="./level-design">Assembling a level from text file</a></h1>
+<h1 id="level-design"><a href="./level-design">Assembling a level from data</a></h1>
 <p>
-			In this example we create a breakout field by parsing a plain text file placing
-			objects on the grid according to the position inside the file. This appoach
-			has several advantages; most obviously it is faster and easier to design level
-			in plain text rather than in an editor, you can add new levels very easily or
-			allow players to add their own levels and you can reverse the process to write
-			a text file from an ingame level editor. Instead of having a separate scene for
-			each level we only need one scene, we can build new levels without having to
-			worry about carrying the background or music from scene to scene, allowing for
+			In this example we create a bubble puzzle field from an array by placing
+			objects on the grid according to the position inside the array. This
+			approach has several advantages; most obviously it is faster and easier
+			to design levels in data than in an editor, you can add new levels very
+			easily, parse them from files, add a level editor, or allow players to
+			add their own levels. Instead of having a separate scene for each level
+			we only need one scene, we can build new levels without having to worry
+			about carrying the background or music from scene to scene, allowing for
 			seamless transition.
 		</p>
 <p>
-			The core of this example is the position of a character in the
-			textfile, i.e. the row and column.  We use these text coordinates
-			as grid coordinates and convert them to world coordinates.
+			The core of this example is the position of a entries in the array, i.e.
+			the row and column.  We use these array coordinates as grid coordinates
+			and convert them to world coordinates.
 		</p>
 <!-- Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0)); -->
 <div class="highlight">
@@ -442,12 +402,8 @@ Examples - Grid Framework - Grid Framework
 <h1 id="snapping"><a href="./snapping">Runtime snapping</a></h1>
 <p>
 			If you want to allow the user to place object only on the grid, then this
-			example is for you. For an extra challenge the grid has been rotated to create
-			an isometric view effect. In reality you should rotat the camera instead.
-		</p>
-<p>
-			Snapping is a two-step process: first we move the object to where
-			the cursor is pointing, then we correct the position.
+			example is for you.	Snapping is a two-step process: first we move the
+			object to where the cursor is pointing, then we correct the position.
 		</p>
 <!-- transform.position = cursorWorldPoint; -->
 <!-- grid.AlignTransform(transform);        -->
@@ -485,19 +441,17 @@ Examples - Grid Framework - Grid Framework
 <hr/>
 <h1 id="terrain"><a href="./terrain">Terrain mesh generation</a></h1>
 <p>
-			We generate a mesh as a SimCity-like terrain using a plain text file as
-			our height map. The file contains integer values which are then used to
-			create mesh vertices which match up with grid vertices. Clicking a
-			vertex reaises or lowers it. Everything is accompished be converting from
-			grid coordinates to world coordinates.
+			We generate a mesh as a SimCity-like terrain from data. Clicking a vertex
+			raises or lowers it. Everything is accomplished be converting from grid
+			coordinates to world coordinates.
 		</p>
 <hr/>
 <h1 id="dial"><a href="./dial">Rotary dial</a></h1>
 <p>
-			A rotary dial as it could have been found on older phones. When the
-			player clicks a sector of this polar grid the grid coordinates are
-			used to determine which number was selected and use it to control
-			the animation and print that number on the console.
+			A rotary dial as it would have been found on older phones. When the
+			player clicks a sector of this polar grid the grid coordinates are used
+			to determine which number was selected and use it to control the
+			animation and print that number on the console.
 		</p>
 <hr/>
 <h1 id="sliding"><a href="./sliding">Sliding puzzle</a></h1>
@@ -533,7 +487,7 @@ Examples - Grid Framework - Grid Framework
 					</a>
 					<p class="text-muted">
 						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2016, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+						© 2015-2017, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 					</p>
 				</div>  <!-- /.col-md-8 -->
 

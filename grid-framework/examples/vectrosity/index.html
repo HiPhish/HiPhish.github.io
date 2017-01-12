@@ -228,23 +228,30 @@ Vectrosity - Grid Framework - Grid Framework
 <!-- Main content of the page is located here -->
 <main class="col-md-12 container">
 	
-<!-- Mandatory Unity web player scripts and stylesheet -->
-<script src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js" type="text/javascript"></script>
-<script src="../../../js/web-player-object.js" type="text/javascript"></script>
-<script src="../../../js/web-player.js" type="text/javascript"></script>
 <style scoped="scoped" type="text/css"> @import url("../../../css/web-player.css"); </style>
-<link href="http://hiphish.github.io/grid-framework/examples/vectrosity/example.unity3d"/>
-<p class="backlink"><a href="../#vectrosity">Grid Framework examples</a> | <strong>Vectrosity</strong></p>
-<div class="content">
-<div id="unityPlayer">
-<div class="missing">
-<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-<img alt="Unity Web Player. Install now!" class="img-responsive" height="63" src="http://webplayer.unity3d.com/installation/getunity.png" width="193"/>
-</a>
-</div>
-</div>
-</div>
-
+<link href="http://hiphish.github.io/grid-framework/examples/vectrosity/Release/example.datagz">
+<link href="http://hiphish.github.io/grid-framework/examples/vectrosity/Release/example.jsgz">
+<link href="http://hiphish.github.io/grid-framework/examples/vectrosity/Release/example.asm.jsgz">
+<link href="http://hiphish.github.io/grid-framework/examples/vectrosity/Release/example.memgz">
+<p class="backlink">
+<a href="../#vectrosity">Grid Framework examples</a> | <strong>Vectrosity support</strong>
+</p>
+<canvas height="450" id="canvas" oncontextmenu="event.preventDefault()" width="600px"></canvas>
+<script type="text/javascript">
+			var Module = {
+				TOTAL_MEMORY: 268435456,
+				errorhandler: null,
+				compatibilitycheck: null,
+				backgroundColor: "#222C36",
+				splashStyle: "Light",
+				dataUrl: "Release/example.data",
+				codeUrl: "Release/example.js",
+				asmUrl: "Release/example.asm.js",
+				memUrl: "Release/example.mem",
+			}
+		</script>
+<script src="http://hiphish.github.io/grid-framework/examples/vectrosity/Release/UnityLoader.js"></script>
+</link></link></link></link>
 </main>		</section>
 
 		<!-- Footer of the website -->
@@ -256,7 +263,7 @@ Vectrosity - Grid Framework - Grid Framework
 					</a>
 					<p class="text-muted">
 						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2016, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+						© 2015-2017, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 					</p>
 				</div>  <!-- /.col-md-8 -->
 
