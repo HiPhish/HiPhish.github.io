@@ -1,0 +1,52 @@
+/* The jumbotron used on the main page */
+.jumbotron {
+	padding-top: 1.5em;
+	background-size: cover;
+	color: white;
+	text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+
+/* Foldouts used on the features page */
+.foldout {
+	cursor: pointer;
+}
+
+.foldout:hover {
+	background-color: rgb(240,240,240);
+	border-radius: 5px;
+}
+
+.expand {
+	/* Javascript will override this to make it visible again        */
+	/* If Javascript is disabled there is no reason to display this. */
+	display: none;
+}
+
+
+/* The examples page with its YouTube links */
+iframe {
+	float:left;
+	margin-right:1em;
+	margin-bottom:2em;
+	margin-left:1em;
+	border-image-source:initial;
+	border-image-slice:initial;
+	border-image-width:initial;
+	border-image-outset:initial;
+	border-image-repeat:initial;
+	border:1px solid #000000;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+	/* TODO each .foldout should have a bottom separator, but the hr should be
+	 * hidden */
+	hr {
+		display: none;
+	}
+	.foldout {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		margin-bottom: 1em;
+	}
+}

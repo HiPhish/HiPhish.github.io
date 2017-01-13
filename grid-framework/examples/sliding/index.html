@@ -20,6 +20,9 @@ Sliding Puzzle - Grid Framework - Grid Framework
 		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
 		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
 
+		<!-- These style sheets are specific to this page -->
+		<link rel="stylesheet" href="/css/web-player.css" type="text/css" media="all"/>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -37,10 +40,10 @@ Sliding Puzzle - Grid Framework - Grid Framework
 				<h1>Site-wide navigation bar</h1>
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="container-fluid">
-					<input type="checkbox" value="" name="" id="navbar-toggle-cbox"/>
+					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar">
+						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -63,7 +66,7 @@ Sliding Puzzle - Grid Framework - Grid Framework
 											Overview										</a>
 									</li>
 
-									<li class="divider" role="seperator"></li>
+									<li class="divider" role="separator"></li>
 
 									<li>
 										<a href="http://hiphish.github.io/grid-framework/features">
@@ -95,17 +98,17 @@ Sliding Puzzle - Grid Framework - Grid Framework
 											News										</a>
 									</li>
 
-									<li class="divider" role="seperator"></li>
+									<li class="divider" role="separator"></li>
 
 									<li>
-										<a href="http://hiphish.github.iohttp://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
+										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
 											Support										</a>
 									</li>
 
-									<li class="divider" role="seperator"></li>
+									<li class="divider" role="separator"></li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://www.assetstore.unity3d.com/#/content/62498" target="_blank">
+										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
 											Buy Now <span class="badge">35$</span>										</a>
 									</li>
 								</ul>
@@ -116,32 +119,32 @@ Sliding Puzzle - Grid Framework - Grid Framework
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="http://hiphish.github.iohttps://gitlab.com/HiPhish/ntfs-clone" target="_blank">
+										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
 											NTFS-Clone										</a>
 									</li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://gitlab.com/HiPhish/roll" target="_blank">
+										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
 											roll										</a>
 									</li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Newton-method" target="_blank">
+										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
 											Newton's Method in C										</a>
 									</li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://github.com/HiPhish/XeenTools" target="_blank">
+										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
 											Xeen Tools										</a>
 									</li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Wolf3DExtract" target="_blank">
+										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
 											Wolf3D Extract										</a>
 									</li>
 
 									<li>
-										<a href="http://hiphish.github.iohttps://github.com/HiPhish/Game-Source-Documentation" target="_blank">
+										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
 											Game Source Documentation										</a>
 									</li>
 								</ul>
@@ -228,11 +231,10 @@ Sliding Puzzle - Grid Framework - Grid Framework
 <!-- Main content of the page is located here -->
 <main class="col-md-12 container">
 	
-<style scoped="scoped" type="text/css"> @import url("../../../css/web-player.css"); </style>
-<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.datagz">
-<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.jsgz">
-<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.asm.jsgz">
-<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.memgz">
+<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.datagz"/>
+<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.jsgz"/>
+<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.asm.jsgz"/>
+<link href="http://hiphish.github.io/grid-framework/examples/sliding/Release/example.memgz"/>
 <p class="backlink">
 <a href="../#vectrosity">Grid Framework examples</a> | <strong>Sliding puzzle</strong>
 </p>
@@ -243,7 +245,7 @@ Sliding Puzzle - Grid Framework - Grid Framework
 			it keeps track of which squares are occupied and which are free, then it
 			restricts movement accordingly by clamping the position vector.
 		</p>
-<canvas height="450" id="canvas" oncontextmenu="event.preventDefault()" width="600px"></canvas>
+<canvas height="450" id="canvas" oncontextmenu="event.preventDefault()" width="600"></canvas>
 <script type="text/javascript">
 			var Module = {
 				TOTAL_MEMORY: 268435456,
@@ -258,7 +260,7 @@ Sliding Puzzle - Grid Framework - Grid Framework
 			}
 		</script>
 <script src="http://hiphish.github.io/grid-framework/examples/sliding/Release/UnityLoader.js"></script>
-</link></link></link></link>
+
 </main>		</section>
 
 		<!-- Footer of the website -->
