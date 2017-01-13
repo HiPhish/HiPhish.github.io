@@ -1,9 +1,6 @@
 /* Custom styles for Magnific Popup, based on official examples */
 
-.mfp-with-zoom .mfp-container,
-.mfp-with-zoom.mfp-bg {
-  opacity: 0;
-  -webkit-backface-visibility: hidden;
+.mfp-with-zoom .mfp-container .mfp-with-zoom.mfp-bg {
   /* ideally, transition speed should match zoom duration */
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;

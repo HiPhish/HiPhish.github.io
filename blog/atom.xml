@@ -15,7 +15,7 @@ documents without interruption.&lt;/p&gt;
 &lt;h2&gt;A new info reader&lt;/h2&gt;
 &lt;p&gt;The best way to get  and idea of info.vim is to see it  right in action in this
 asccicast:&lt;/p&gt;
-&lt;a class="reference external image-reference" href="https://asciinema.org/a/92884"&gt;&lt;img alt="" class="img-responsive align-center" src="https://asciinema.org/a/92884.png" style="width: 50%;"/&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://asciinema.org/a/92884"&gt;&lt;img alt="Screencast of using Info.vim" class="img-responsive align-center" src="https://asciinema.org/a/92884.png" style="width: 50%;"/&gt;&lt;/a&gt;
 &lt;p&gt;Opening the manual to the Bourne Again Shell is as easy as typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;Info bash
 &lt;/pre&gt;&lt;/div&gt;

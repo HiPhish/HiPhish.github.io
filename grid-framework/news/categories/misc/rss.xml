@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Fri, 09 Jan 2015 00:00:00 +0100</lastBuildDate><item><title>Goodbye MonoDevelop, hello Vim</title><link>http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/</link><description>&lt;p&gt;One thing that has been getting on my nerves ever since I started working with
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Fri, 13 Jan 2017 00:00:00 +0100</lastBuildDate><item><title>Pretty examples</title><link>http://hiphish.github.io/grid-framework/news/2017/01/13/reworked-examples/</link><description>&lt;p&gt;The presentation  of Grid Framework has  been a sore  spot in my eyes  from day
+one. Primitive  shapes are good enough  when prototyping, but when  you want to
+sell something you  need to have that  extra "bang", or else  your product will
+look like something thrown together over a weekend.&lt;/p&gt;
+&lt;p&gt;This is why I have been spending time lately redoing the examples. If you click
+one one of the playable examples on the website you will now see actual sprites
+and textures  instead of Unity's  primitive shapes. The lights-out  example now
+has  sprites of  light bulbs,  the movement  example has  a retro  tileset, the
+terrain mesh construction example has a  repeating texture, and so on. What has
+been a huge help is that Unity 5 supports sprites out of the box. This has made
+supporting  2D images  a breeze  without having  to rely  on other  packages or
+rolling my own like I had to in the past.&lt;/p&gt;
+&lt;img alt="Screeshot of the Lights Out example" class="img-responsive" src="http://hiphish.github.io/grid-framework/news/2017/01/13/reworked-examples/lights-out.png"/&gt;
+&lt;p&gt;You won't  be able  to find these  new examples in  Grid Framework  yet though,
+there is already  an update awaiting approval  and if I were  to upload another
+release it would  delay the pending one.  That's also the reason  why I haven't
+update  the  screenshots either,  that  would  be  dangerously close  to  false
+advertising at this point in time.&lt;/p&gt;
+&lt;p&gt;One final note, the examples are now running in Unity's WebGL player instead of
+the old  Unity web player.  That's a good thing  because it doesn't  require an
+extra browser plugin from  the user, but it doesn't play  well with Pelican (my
+static site  generator). For  now there  is no loading  progress bar  because I
+would have to go through Unity's  progress bar implementation, and there is not
+much documentation on that topic. Oh  well, another time then, the examples are
+fortunately not large.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Fri, 13 Jan 2017 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2017-01-13:grid-framework/news/2017/01/13/reworked-examples/</guid></item><item><title>Goodbye MonoDevelop, hello Vim</title><link>http://hiphish.github.io/grid-framework/news/2015/01/09/hello-vim/</link><description>&lt;p&gt;One thing that has been getting on my nerves ever since I started working with
 Unity has been MonoDevelop. While it is a good IDE for the most part it
 suffered from a number of annoying issues, such as folds randomly opening, poor
 performance, and auto completion randomly not working. Your mileage may vary,
