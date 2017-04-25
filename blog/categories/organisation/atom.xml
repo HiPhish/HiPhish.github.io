@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-09-27T00:00:00+02:00</updated><entry><title>Rewriting the Workshop</title><link href="http://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/" rel="alternate"></link><published>2016-09-27T00:00:00+02:00</published><updated>2016-09-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-09-27:blog/2016/09/27/rewriting-the-workshop/</id><summary type="html">&lt;p&gt;At this point I  could start to make rewriting  my website an annual tradition.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop - organisation</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-09-27T00:00:00+02:00</updated><entry><title>Rewriting the Workshop</title><link href="http://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/" rel="alternate"></link><published>2016-09-27T00:00:00+02:00</published><updated>2016-09-27T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-09-27:/blog/2016/09/27/rewriting-the-workshop/</id><summary type="html">&lt;p&gt;At this point I  could start to make rewriting  my website an annual tradition.
+There have been a number of little  details that have been rubbing me the wrong
+way for almost a year now;  the biggest one was the navigation bar on sub-sites
+like the  Grid Framework  product site …&lt;/p&gt;</summary><content type="html">&lt;p&gt;At this point I  could start to make rewriting  my website an annual tradition.
 There have been a number of little  details that have been rubbing me the wrong
 way for almost a year now;  the biggest one was the navigation bar on sub-sites
 like the  Grid Framework  product site.  There were  also accessibility  issues
@@ -36,8 +39,8 @@ navigation bar and the title should be counted when enumerating the list.&lt;/p&
 have wrapped everything  inside a &lt;code&gt;.sub-site-nav&lt;/code&gt;  item we style only its child
 elements.  First let's  hide the  heading,  it's  only used  for   the document
 outline.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;h1&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;h1&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now comes the interesting part: the list.  I am using the CSS flexbox module to
@@ -45,10 +48,10 @@ style the site, it's a fairly new feature that allows us to pass specifications
 in CSS on how to distribute elements and let the browser figure out the optimum
 instead of computing values by hand. To this end we have to declare the list to
 be a flex container&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="nb"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;flex-wrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;justify-content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex-end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The  last property  &lt;code&gt;justify-content: flex-end&lt;/code&gt;  will push all elements  to the
@@ -56,8 +59,8 @@ right while preserving their order  (non-flexbox hacks would always reverse the
 order).  We are almost done,  but in order to make the  navigation look good we
 have to make the title stand out from the other list items.  Since the title is
 the first child of the list we can use the &lt;code&gt;first-child&lt;/code&gt; pseudo-class:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;.sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="nd"&gt;:first-child&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;margin-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;sub-site-nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;first-child&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;margin-right&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will push  the first element as  far to the left as possible.  All that is
@@ -132,12 +135,12 @@ accomplished using flexbox again. Here is the HTML first:&lt;/p&gt;
 &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;/* The blog body contains the navigator and the articles list */&lt;/span&gt;
-&lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c"&gt;/* Move the navigator left from the article */&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;order&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c"&gt;/* Move the navigator left from the article */&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will put the article(s) and  the navigator horizontally next to each other
@@ -145,23 +148,23 @@ and move the  navigator visually  before the  article by  changing  the &lt;code
 property. For smaller devices we use a media query to change the flex direction
 to a colum, which will put the navigator on top of the articles.  We change the
 order to move the navigator down and hide the lists.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;@media&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;768px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="k"&gt;media&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;max-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;768px&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
    &lt;span class="c"&gt;/* Re-arrange the articles and navigator vertically */&lt;/span&gt;
-   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;direction&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;blog-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;flex-direction&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;column&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
    &lt;span class="p"&gt;}&lt;/span&gt;
 
    &lt;span class="c"&gt;/* The navigator comes after the articles now. */&lt;/span&gt;
-   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="nb"&gt;justify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;content&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;space&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;between&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;order&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;flex-wrap&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;wrap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="k"&gt;justify-content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;space-between&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
    &lt;span class="p"&gt;}&lt;/span&gt;
 
    &lt;span class="c"&gt;/* Hide the navigator lists, they are too large */&lt;/span&gt;
-   &lt;span class="nc"&gt;.blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;blog-body&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;nav&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
    &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -199,11 +202,11 @@ blog of &lt;a class="reference external" href="http://viralpatel.net/blogs/boots
 &lt;p&gt;The differences are  the existence of a new  &lt;code&gt;&amp;lt;input type="checkbox"&amp;gt;&lt;/code&gt;  element
 and changing the  &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; to a &lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt;.  This by itself won't do anything,
 we need a few lines of CSS as well:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nn"&gt;#navbar-toggle-cbox&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;none&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;navbar-toggle-cbox&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kc"&gt;none&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="nn"&gt;#navbar-toggle-cbox&lt;/span&gt;&lt;span class="nd"&gt;:checked&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt; &lt;span class="nc"&gt;.collapse&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="nb"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;navbar-toggle-cbox&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;checked&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;collapse&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;block&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;First we  hide the checkbox  from sight,  then we  use its  state to toggle the
@@ -215,11 +218,17 @@ animation, but it will be usable.&lt;/p&gt;
 there is no built-in  solution in HTML or CSS  every approach is more or less a
 hack.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="website"></category></entry><entry><title>Feeds are live now</title><link href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" rel="alternate"></link><published>2015-11-14T00:00:00+01:00</published><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-14:blog/2015/11/14/feeds-live-now/</id><summary type="html">&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+</content><category term="website"></category></entry><entry><title>Feeds are live now</title><link href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" rel="alternate"></link><published>2015-11-14T00:00:00+01:00</published><updated>2015-11-14T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-14:/blog/2015/11/14/feeds-live-now/</id><summary type="html">&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+links in the navigator or you can subscribe to a particular category in a blog.
+For that navigate to the category using either the navigator or by clicking the
+category button of an article …&lt;/p&gt;</summary><content type="html">&lt;p&gt;RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
 category button of an article.&lt;/p&gt;
-</summary><category term="website"></category></entry><entry><title>We are live!</title><link href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="alternate"></link><published>2015-11-11T00:00:00+01:00</published><updated>2015-11-11T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-11:blog/2015/11/11/we-are-live/</id><summary type="html">&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+</content><category term="website"></category></entry><entry><title>We are live!</title><link href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="alternate"></link><published>2015-11-11T00:00:00+01:00</published><updated>2015-11-11T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2015-11-11:/blog/2015/11/11/we-are-live/</id><summary type="html">&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
+makes the site practically complete, at least as complete as a website can ever
+be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
+&lt;p&gt;I wanted to be able to have more than one blog on …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The Workshop blog is finally up and running, in all its static glory. This
 makes the site practically complete, at least as complete as a website can ever
 be anyway. It also works great with my &lt;a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican"&gt;Multiblog&lt;/a&gt; plugin.&lt;/p&gt;
 &lt;p&gt;I wanted to be able to have more than one blog on the site. A blog can be a
@@ -299,4 +308,4 @@ when there is only one author on the site. That's me "eating my own dogfood", I
 am using a feature because I want to demonstrate its purpose.&lt;/p&gt;
 &lt;p&gt;Well, that's it for now, we'll see where this ride will take be from now on.
 It's going to be interesting :)&lt;/p&gt;
-</summary><category term="website"></category></entry></feed>
+</content><category term="website"></category></entry></feed>

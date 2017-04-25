@@ -1,5 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-11-20T00:00:00+01:00</updated><entry><title>Introducing info.vim</title><link href="http://hiphish.github.io/blog/2016/11/20/introducing-infovim/" rel="alternate"></link><published>2016-11-20T00:00:00+01:00</published><updated>2016-11-20T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-11-20:blog/2016/11/20/introducing-infovim/</id><summary type="html">&lt;p&gt;There  is a  new project  up at  the Workshop:  &lt;a class="reference external" href="https://gitlab.com/HiPhish/info.vim"&gt;info.vim&lt;/a&gt;, a  Vim plugin  which
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop - misc</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/categories/misc/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2017-04-25T00:00:00+02:00</updated><entry><title>Outlining of HTML pages is fundamentally broken</title><link href="http://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/" rel="alternate"></link><published>2017-04-25T00:00:00+02:00</published><updated>2017-04-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-04-25:/blog/2017/04/25/html-outline-fundamentally-broken/</id><summary type="html">&lt;p&gt;If you were to run the Workshop through an HTML validator you would notice a
+lot of warnings about the document outline. What is going on here? HTML 5
+defines an &lt;a class="reference external" href="https://www.w3.org/TR/html5/sections.html#outline"&gt;outline algorithm&lt;/a&gt; which allows browsers and assistive
+technologies to create an outline of the page. In theory a blind …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you were to run the Workshop through an HTML validator you would notice a
+lot of warnings about the document outline. What is going on here? HTML 5
+defines an &lt;a class="reference external" href="https://www.w3.org/TR/html5/sections.html#outline"&gt;outline algorithm&lt;/a&gt; which allows browsers and assistive
+technologies to create an outline of the page. In theory a blind person could
+ask their reader for the outline of the page and get a sort of table of
+contents which they could use to quickly jump to a specific part of the page.&lt;/p&gt;
+&lt;p&gt;The problem is the “in theory” part. The outline algorithm has not been
+implemented in any of the common browsers and it probably &lt;a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/"&gt;never will be&lt;/a&gt;.
+Instead authors are supposed to use the rank of headings &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; through &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;
+to convey the outline of the document, which is a fundamentally broken concept.&lt;/p&gt;
+&lt;div class="section" id="html-does-not-know-what-it-wants-to-be"&gt;
+&lt;h2&gt;HTML does not know what it wants to be&lt;/h2&gt;
+&lt;p&gt;HTML was originally an application of &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language"&gt;SGML&lt;/a&gt;, it was meant to mark up documents.
+As such the concept of &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; through &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; made sense. The contents of the
+document would be inside the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; and would flow in a one-dimensional way
+from top to bottom.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;About Grid Framework&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  Lorem ipsum...
+
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Advantages of Grid Framework&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Advantages over other solutions&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  Lorem ipsum...
+
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Advantages over self-made solutions&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h3&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  Lorem ipsum...
+
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Features of Grid Framework&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  Lorem ipsum...
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The number of ranks was hard-coded, but six is enough for a document. The
+headings could be used as targets to jump to, and since the document is
+one-dimensional there is no ambiguity as to what belongs under which heading.&lt;/p&gt;
+&lt;p&gt;Of course a product website that looks like it was written in a word processor
+does not look appealing, so people began stretching HTML beyond what it was
+meant to be. If you look at the source code of the Workshop you will see that
+everything is built in a tree-like fashion. You have sections within sections,
+multiple navigation items, and two-dimensional layout (some sites even have
+three-dimensional layout with popup elements).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="html-sectioning-tags-solve-the-problem"&gt;
+&lt;h2&gt;HTML sectioning tags solve the problem&lt;/h2&gt;
+&lt;p&gt;Prior to HTML 5 this lead to &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;-itis, where the page was littered with
+&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; elements with no semantic meaning. This is bad, HTML is supposed to be
+all about the content, not the layout. HTML 5 added semantic sectioning, which
+solved the problem: the one-dimensional structure was abandoned in favour of a
+tree-based structure. Authors can still write classic one-dimensional
+documents, but they can also structure the page in terms of sections where
+sections can contain any number of sub-sections:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"logo.svg"&lt;/span&gt;&lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      ...
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;...&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;header&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;main&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      ...
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;main&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      ...
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;aside&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+      ...
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;aside&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;section&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    ...
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;footer&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What about the outline though? Now I know that there is some page element for
+navigation, but which kind of navigation is it? This information is conveyed by
+the old heading elements. Simple enough, just add a &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; as the first child
+of the section and you are good to go. At least that is how it is supposed to
+work in theory.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-problem-with-hard-coded-heading-ranks"&gt;
+&lt;h2&gt;The problem with hard-coded heading ranks&lt;/h2&gt;
+&lt;p&gt;Ideally the rank of the heading does not matter to the outline algorithm. We
+could use a &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; for every section and the algorithm would count the section
+instead of looking at the rank. Unfortunately this is not implemented in any of
+the major browsers and the &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is treated as a page-wide top-level heading.
+In other words, the nesting of our sections is lost and the outline is
+completely flat.&lt;/p&gt;
+&lt;p&gt;If you look at the simple example above you will notice that the &lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt; is a
+rank three element, so its proper heading would need to be &lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt;. This leaves
+only three more ranks of headings for the contents of the &lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;. We are
+still using the old one-dimensional outline method for multi-dimensional
+content.&lt;/p&gt;
+&lt;div class="section" id="lack-of-heading-ranks"&gt;
+&lt;h3&gt;Lack of heading ranks&lt;/h3&gt;
+&lt;p&gt;The code snippet I provided was a very simple example, in reality nesting can
+go even deeper. Take the Grid Framework news blog: the list of articles has
+rank four, and every article preview has rank five. If there is a heading in
+the article preview itself that‘s already at rank six, the lowest rank possible
+in HTML. One might argue that I should not have built so many ranks in the
+first place, but I disagree; the top level (1) is the common structure for the
+entire site, the next level (2) is the Grid Framework sub-site, followed by the
+blog structure (3), which contains the list of articles (4). This is all
+logical nesting based on the hierarchy of the page within the site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hard-coded-headings-break-article"&gt;
+&lt;h3&gt;Hard-coded headings break &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The problem becomes even more glaring when you consider that an &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt;
+element is supposed to be an element that can stand on its own without the
+surrounding content, such as a blog post, a comment or a product card. If the
+article cannot have a rank one heading, then it can never stand on its own.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="automation-concerns"&gt;
+&lt;h3&gt;Automation concerns&lt;/h3&gt;
+&lt;p&gt;This is also a problem with automatic generation of pages. Take this post as an
+example: while writing it I should not have to concern myself with the question
+of what ranks the headings will have to have in the surrounding page. In fact,
+I cannot do that, because after changing the template or uploading the post to
+another service or running it through a converter the surrounding ranks could
+be completely different, or the concept of surrounding ranks might not even be
+applicable. Furthermore, what if I run out of ranks? This article already has
+three ranks of titles, now imagine If I wanted to publish actual in-depth
+documents.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-could-the-problem-be-solved"&gt;
+&lt;h2&gt;How could the problem be solved?&lt;/h2&gt;
+&lt;p&gt;The &lt;a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/#comment-2130593"&gt;last comment&lt;/a&gt; in the &lt;a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/"&gt;above linked&lt;/a&gt; article describes a good solution:
+use the nesting of a section for the global rank and use &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; through &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;
+for local ranks within that section. Every section would begin with a &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;
+and could contain lesser ranks, but the effective rank of each heading would be
+the sum of the section‘s rank and the rank of the heading. This way it would be
+possible to structure pages multi-dimensionally, but still use a
+one-dimensional structure &lt;em&gt;inside&lt;/em&gt; a section.&lt;/p&gt;
+&lt;p&gt;Taking this blog post as an example again, my generator would use the headings
+&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; through &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; and the browser would figure out the true rank of a
+heading based on how deep the post is actually nested inside the page.
+Furthermore, since this post is an &lt;code&gt;&amp;lt;article&amp;gt;&lt;/code&gt; it could be cropped out of the
+page and still make sense on its own.&lt;/p&gt;
+&lt;p&gt;So what should I do with the Workshop in the meantime? Nothing. I‘m sorry, but
+the current one-dimensional ranking system simply cannot be made to work with
+this design. In order to make it work I would have to throw away most of the
+tree-based design in favour of a flat design with barely no structure. The cost
+does no outweigh the benefits. Browser manufacturers need to get their houses
+in order, it cannot be that we have WebAssembly and WebGL shaders in our
+browsers, but no way of generating an outline for blind people. This is really
+telling about where their priorities lie.&lt;/p&gt;
+&lt;p&gt;And before anyone decides to call me unprofessional for this attitude, try
+outlining the websites of some of the larger companies who hire professional
+web designers to work on their sites and see what the result looks like.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="html"></category><category term="rant"></category><category term="outline"></category></entry><entry><title>Introducing info.vim</title><link href="http://hiphish.github.io/blog/2016/11/20/introducing-infovim/" rel="alternate"></link><published>2016-11-20T00:00:00+01:00</published><updated>2016-11-20T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-11-20:/blog/2016/11/20/introducing-infovim/</id><summary type="html">&lt;p&gt;There  is a  new project  up at  the Workshop:  &lt;a class="reference external" href="https://gitlab.com/HiPhish/info.vim"&gt;info.vim&lt;/a&gt;, a  Vim plugin  which
+implements a  complete reader and browser  for info documents from  within Vim.
+This is similar to the standalone &lt;code&gt;info&lt;/code&gt; program or the Emacs info mode.&lt;/p&gt;
+&lt;p&gt;Info documents  are generally produced by  the &lt;a class="reference external" href="https://www.gnu.org/software/texinfo/"&gt;Texinfo&lt;/a&gt; program, which …&lt;/p&gt;</summary><content type="html">&lt;p&gt;There  is a  new project  up at  the Workshop:  &lt;a class="reference external" href="https://gitlab.com/HiPhish/info.vim"&gt;info.vim&lt;/a&gt;, a  Vim plugin  which
 implements a  complete reader and browser  for info documents from  within Vim.
 This is similar to the standalone &lt;code&gt;info&lt;/code&gt; program or the Emacs info mode.&lt;/p&gt;
 &lt;p&gt;Info documents  are generally produced by  the &lt;a class="reference external" href="https://www.gnu.org/software/texinfo/"&gt;Texinfo&lt;/a&gt; program, which  is also
@@ -68,7 +226,10 @@ column number:&lt;/p&gt;
 collecting dust  on your  hard drive  so far,  and don't  forget to  report any
 issues you might come across.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="vim"></category><category term="info"></category></entry><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><published>2016-06-25T00:00:00+02:00</published><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+</content><category term="vim"></category><category term="info"></category></entry><entry><title>Highlighting NSImageView the right way</title><link href="http://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/" rel="alternate"></link><published>2016-06-25T00:00:00+02:00</published><updated>2016-06-25T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-06-25:/blog/2016/06/25/highlighting-nsimageview/</id><summary type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
+while dragging a file.  You would think  that it's a very simple task,  and you
+would be right, but judging …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  &lt;code&gt;NSImageView&lt;/code&gt; when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -138,4 +299,4 @@ can override  the property  to implement  their own  highlighting  and  luckily
 &lt;p&gt;Now your code is future-proof and will work regardless of the shape you choose.
 Well, at least until Apple deprecates this method.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="cocoa"></category></entry></feed>
+</content><category term="cocoa"></category></entry></feed>

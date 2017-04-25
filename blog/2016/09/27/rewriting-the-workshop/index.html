@@ -295,8 +295,8 @@ navigation bar and the title should be counted when enumerating the list.</p>
 have wrapped everything  inside a <code>.sub-site-nav</code>  item we style only its child
 elements.  First let's  hide the  heading,  it's  only used  for   the document
 outline.</p>
-<div class="highlight"><pre><span></span><span class="nc">.sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">h1</span> <span class="p">{</span>
-   <span class="nb">display</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">h1</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>Now comes the interesting part: the list.  I am using the CSS flexbox module to
@@ -304,10 +304,10 @@ style the site, it's a fairly new feature that allows us to pass specifications
 in CSS on how to distribute elements and let the browser figure out the optimum
 instead of computing values by hand. To this end we have to declare the list to
 be a flex container</p>
-<div class="highlight"><pre><span></span><span class="nc">.sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="p">{</span>
-   <span class="nb">display</span><span class="o">:</span> <span class="n">flex</span><span class="p">;</span>
-   <span class="n">flex</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="n">wrap</span><span class="p">;</span>
-   <span class="nb">justify</span><span class="o">-</span><span class="nb">content</span><span class="o">:</span> <span class="n">flex</span><span class="o">-</span><span class="n">end</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+   <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
+   <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex-end</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>The  last property  <code>justify-content: flex-end</code>  will push all elements  to the
@@ -315,8 +315,8 @@ right while preserving their order  (non-flexbox hacks would always reverse the
 order).  We are almost done,  but in order to make the  navigation look good we
 have to make the title stand out from the other list items.  Since the title is
 the first child of the list we can use the <code>first-child</code> pseudo-class:</p>
-<div class="highlight"><pre><span></span><span class="nc">.sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:first-child</span> <span class="p">{</span>
-   <span class="nb">margin-right</span><span class="o">:</span> <span class="nb">auto</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">sub-site-nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="p">:</span><span class="nd">first-child</span> <span class="p">{</span>
+   <span class="k">margin-right</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>This will push  the first element as  far to the left as possible.  All that is
@@ -391,12 +391,12 @@ accomplished using flexbox again. Here is the HTML first:</p>
 <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="c">/* The blog body contains the navigator and the articles list */</span>
-<span class="nc">.blog-body</span> <span class="p">{</span>
-   <span class="nb">display</span><span class="o">:</span> <span class="n">flex</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">blog-body</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="p">{</span>
-   <span class="n">order</span><span class="o">:</span> <span class="m">-1</span><span class="p">;</span>  <span class="c">/* Move the navigator left from the article */</span>
+<span class="p">.</span><span class="nc">blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="p">{</span>
+   <span class="k">order</span><span class="p">:</span> <span class="mi">-1</span><span class="p">;</span>  <span class="c">/* Move the navigator left from the article */</span>
 <span class="p">}</span>
 </pre></div>
 <p>This will put the article(s) and  the navigator horizontally next to each other
@@ -404,23 +404,23 @@ and move the  navigator visually  before the  article by  changing  the <code>or
 property. For smaller devices we use a media query to change the flex direction
 to a colum, which will put the navigator on top of the articles.  We change the
 order to move the navigator down and hide the lists.</p>
-<div class="highlight"><pre><span></span><span class="k">@media</span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="k">media</span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
    <span class="c">/* Re-arrange the articles and navigator vertically */</span>
-   <span class="nc">.blog-body</span> <span class="p">{</span>
-      <span class="n">flex</span><span class="o">-</span><span class="nb">direction</span><span class="o">:</span> <span class="n">column</span><span class="p">;</span>
+   <span class="p">.</span><span class="nc">blog-body</span> <span class="p">{</span>
+      <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
    <span class="p">}</span>
 
    <span class="c">/* The navigator comes after the articles now. */</span>
-   <span class="nc">.blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="p">{</span>
-      <span class="n">order</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-      <span class="nb">display</span><span class="o">:</span> <span class="n">flex</span><span class="p">;</span>
-      <span class="n">flex</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="n">wrap</span><span class="p">;</span>
-      <span class="nb">justify</span><span class="o">-</span><span class="nb">content</span><span class="o">:</span> <span class="n">space</span><span class="o">-</span><span class="n">between</span><span class="p">;</span>
+   <span class="p">.</span><span class="nc">blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="p">{</span>
+      <span class="k">order</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+      <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
+      <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space-between</span><span class="p">;</span>
    <span class="p">}</span>
 
    <span class="c">/* Hide the navigator lists, they are too large */</span>
-   <span class="nc">.blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="nt">ul</span> <span class="p">{</span>
-      <span class="nb">display</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+   <span class="p">.</span><span class="nc">blog-body</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">nav</span> <span class="nt">ul</span> <span class="p">{</span>
+      <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -458,11 +458,11 @@ blog of <a class="reference external" href="http://viralpatel.net/blogs/bootstra
 <p>The differences are  the existence of a new  <code>&lt;input type="checkbox"&gt;</code>  element
 and changing the  <code>&lt;button&gt;</code> to a <code>&lt;label&gt;</code>.  This by itself won't do anything,
 we need a few lines of CSS as well:</p>
-<div class="highlight"><pre><span></span><span class="nn">#navbar-toggle-cbox</span> <span class="p">{</span>
-   <span class="nb">display</span><span class="o">:</span><span class="nb">none</span>
+<div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">navbar-toggle-cbox</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span><span class="kc">none</span>
 <span class="p">}</span>
-<span class="nn">#navbar-toggle-cbox</span><span class="nd">:checked</span> <span class="o">~</span> <span class="nc">.collapse</span> <span class="p">{</span>
-   <span class="nb">display</span><span class="o">:</span> <span class="nb">block</span><span class="p">;</span>
+<span class="p">#</span><span class="nn">navbar-toggle-cbox</span><span class="p">:</span><span class="nd">checked</span> <span class="o">~</span> <span class="p">.</span><span class="nc">collapse</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>First we  hide the checkbox  from sight,  then we  use its  state to toggle the
@@ -510,6 +510,11 @@ hack.</p>
 				</a>
 			</h1>
 			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/2017/">
+						2017 (1)
+					</a>
+				</li>
 				<li>
 					<a href="http://hiphish.github.io/blog/2016/">
 						2016 (6)
@@ -596,7 +601,7 @@ hack.</p>
 				</li>
 				<li>
 					<a href="http://hiphish.github.io/blog/categories/misc/">
-						misc (2)
+						misc (3)
 					</a>
 				</li>
 				<li>
@@ -635,8 +640,13 @@ hack.</p>
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/blog/tags/neovim/">
-						neovim (1)
+					<a href="http://hiphish.github.io/blog/tags/outline/">
+						outline (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/vim/">
+						vim (1)
 					</a>
 				</li>
 				<li>
@@ -645,8 +655,18 @@ hack.</p>
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/blog/tags/vim/">
-						vim (1)
+					<a href="http://hiphish.github.io/blog/tags/rant/">
+						rant (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/html/">
+						html (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/neovim/">
+						neovim (1)
 					</a>
 				</li>
 			</ul>
