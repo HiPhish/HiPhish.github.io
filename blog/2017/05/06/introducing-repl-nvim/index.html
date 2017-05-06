@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
@@ -21,8 +22,8 @@
 		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
 		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
-
-<link rel="stylesheet" href="/theme/css/article_index.css" type="text/css" media="all">
+	
+<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -57,9 +58,9 @@
 					<div class="collapse navbar-collapse" id="main-navbar-collapse">
 						<!-- The list of navbar items -->
 						<ul class="nav navbar-nav">
-							<li class="dropdown active">
+							<li class="dropdown">
 								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
+									Grid Framework <span></span>								</a>
 								<ul class="dropdown-menu">
 
 									<li>
@@ -189,63 +190,6 @@
 
 		<section class="container">
 			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/examples">
-				Examples
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/gallery">
-				Gallery
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/faq">
-				FAQ
-			</a>
-		</li>
-
-		<li class="active">
-			News <span class="sr-only">(current)</span>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
-</nav>
 
 
 <section class="blog-body">
@@ -253,124 +197,136 @@
 
 	<!-- Article body -->
 	<section>
-<h1>
-	Articles for year 2012, month September
-</h1>
-
-<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
+<main>
+	<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
 	<h1>Breadcrumbs navigation</h1>
 	<ol class="breadcrumb">
 		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/">
-				news
+			<a href="http://hiphish.github.io/blog/">
+				blog
 			</a>
 		</li>
 		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/2012/">
-				2012
+			<a href="http://hiphish.github.io/blog/2017/">
+				2017
+			</a>
+		<li>
+			<a href="http://hiphish.github.io/blog/2017/05/">
+				05
 			</a>
 		<li class="active">
-			09
+			6
+		</li>
+		<li class="active">
+			introducing-repl-nvim
 		</li>
 	</ol>
 </nav>
 
 
-<main role="main">
-	<ul>
-	<li>
-		<article>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/">
-					Version 1.1.6 submitted
+	<article>
+		<!-- Title of the article -->
+		<h1>
+			<a href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/" rel="bookmark" title="Permalink to Introducing REPL.nvim">
+				Introducing REPL.nvim
+			</a>
+		</h1>
+
+		<header>
+<!-- Date of the article -->
+			<p>
+				<time class="published" datetime="2017-05-06T00:00:00+02:00">
+					Published: 2017-05-06
+				</time>
+			</p>
+
+			<!-- TODO: This has to be something nicer than a button -->
+			<p>
+				Category:
+				<a class="" href="http://hiphish.github.io/blog/categories/open-source/">
+					Open-Source
 				</a>
-			</h1>
+			</p>
 
-			<header>
-				<p>
-					<time datetime="2012-09-22T00:00:00+02:00">
-						Published: 2012-09-22
-					</time>
-				</p>
-			</header>
-
-			<p><strong>Important Note:</strong> The classes Grid and RectGrid have been renamed to GFGrid
-and GFRectGrid, you will need to change your source code accordingly.</p>
-<p>You might be wondering why I would do such a thing more than one month after
-releasing the package. Using regular English words is simple and intuitive …</p>
-		</article>
-	</li>	
-	<li>
-		<article>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/">
-					Version 1.1.5 released
+			<!-- TODO: This has to be something nicer than a button -->
+			<p>
+				Tags:
+				<a class="" href="http://hiphish.github.io/blog/tags/vim/">
+					vim
 				</a>
-			</h1>
+			</p>
+		</header>
 
-			<header>
-				<p>
-					<time datetime="2012-09-06T00:00:00+02:00">
-						Published: 2012-09-06
-					</time>
-				</p>
-			</header>
+		<!-- Content of the article -->
+		<p>Integrating a REPL in Vim has been a difficult issue in the past, but with
+Nvim's built-in terminal emulator it is just a few commands away. My new
+<a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/">REPL.nvim</a> plugin now puts the REPL only one command away, for any
+programming language you wish. The end goal is to have a complete generic and
+configurable REPL framework which can be customised to the needs of any
+language and which forms a solid foundation for other plugins as well.</p>
+<div class="section" id="what-is-repl-nvim-and-why-should-you-care">
+<h2>What is REPL.nvim and why should you care?</h2>
+<p>In its most simple form REPL.nvim is a wrapper around Nvim's built-in terminal
+emulator. You execute the <code>:Repl</code> command and a new window containing a running
+REPL instance opens up. Behind the scenes <code>:Repl</code> opens a new buffer, sets the
+parameters, executes <code>:terminal</code> and launches the REPL process. Originally
+REPL.nvim started out as just a REPL for <a class="reference external" href="https://www.gnu.org/software/guile/">GNU Guile</a>, but I quickly noticed
+that all Guile-specific code could be completely isolated, leaving me with a
+language-agnostic plugin.</p>
+<p>This means that the plugin consists roughly speaking of two parts: the actual
+plugin that does all the work, and the configuration data which controls the
+plugin. The configuration can be set per file type, so any language will have
+its own separate settings. As an example, here are the Python settings:</p>
+<div class="highlight"><pre><span></span><span class="k">let</span> <span class="k">g</span>:repl[<span class="s1">'python'</span>]: {
+    \ <span class="s1">'bin'</span>: <span class="s1">'python'</span><span class="p">,</span>
+    \ <span class="s1">'args'</span>: []<span class="p">,</span>
+    \ <span class="s1">'syntax'</span>: <span class="s1">''</span><span class="p">,</span>
+    \ <span class="s1">'title'</span>: <span class="s1">'Python REPL'</span><span class="p">,</span>
+\ }<span class="p">,</span>
+</pre></div>
+<p>All settings are stored inside a dictionary and each entry can be overridden by
+user settings or plugins.</p>
+</div>
+<div class="section" id="the-current-state-of-repl-nvim">
+<h2>The current state of REPL.nvim</h2>
+<p>REPL.nvim is already a fully working REPL wrapper. Not many REPLs are supported
+at the moment, but adding those is trivial. They can be added to the user's own
+Nvim settings, as a plugin, or you could submit a patch to the official
+<a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/">repository</a>.</p>
+<p>The next step is to grow the API. As I mentioned above, my goal is to have a
+complete framework which other plugins can hook up to. This means that even if
+they want to completely re-route the signal to their own functions they should
+be able to do so. For instance, a plugin which uses a regular Nvim buffer
+instead of wrapping the terminal emulator should be able to add one entry to
+the configuration:</p>
+<div class="highlight"><pre><span></span><span class="c">" This is not yet implemented</span>
+<span class="k">let</span> <span class="k">g</span>:repl.python.launch_repl <span class="p">=</span> {type <span class="p">-&gt;</span> some_function<span class="p">(</span>type<span class="p">)</span>}
+</pre></div>
+<p>Thanks to the introduction of lambdas in Vim 8 and Nvim 0.2 it is possible to
+make the plugin fully functional.</p>
+</div>
+<div class="section" id="contributions-are-welcome">
+<h2>Contributions are welcome</h2>
+<p>If you want to support a REPL or if you have ideas for the API let me know. I
+want to be able to support as many REPLs out of the box with reasonable
+settings as possible. Head over to the <a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/">repository</a> and get your hands on it.</p>
+</div>
 
-			<p>As per request the custom rendering range now affects drawing as well, not just
-rendering. If you are wondering why this wasn't the case before, it was a
-leftover from before the custom rendering range got implemented. Originally the
-custom range was only meant for rendering because that would be …</p>
-		</article>
-	</li>	
-	<li>
-		<article>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/">
-					Version 1.1.4 released
-				</a>
-			</h1>
+	</article>
 
-			<header>
-				<p>
-					<time datetime="2012-09-05T00:00:00+02:00">
-						Published: 2012-09-05
-					</time>
-				</p>
-			</header>
-
-			<p>Version 1.1.4 has been approved. It doesn't add anything new for a change,
-instead it fixes a bug where lines with a width larger than 1 were drawn on top
-of things they were supposed to be under.</p>
-
-		</article>
-	</li>	
-	<li>
-		<article>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/">
-					Hex grid progress so far
-				</a>
-			</h1>
-
-			<header>
-				<p>
-					<time datetime="2012-09-02T00:00:00+02:00">
-						Published: 2012-09-02
-					</time>
-				</p>
-			</header>
-
-			<p>Here's a quick status update:</p>
-<ul class="simple">
-<li><em>Drawing:</em> This works perfectly now, the hexes are drawn properly as
-described in the post before, and now i have added lines that connect the
-different layers of the grid.</li>
-<li><em>Rendering:</em> Like drawing alsmost finished, except one minor issue. In the
-rectangular grids you can …</li></ul>
-		</article>
-	</li>	
-</ul>
-
+	<footer>
+		<!-- Navigation items (next/previous) -->
+		<nav>
+			<h1>Previous/next article</h1>
+			<ul class="pager">
+				<li class="previous">
+					<a href="http://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/" rel="prev">
+						<span aria-hidden="true">&larr;</span> Outlining of HTML pages is fundamentally broken
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</footer>
 </main>
 	</section>
 
@@ -381,91 +337,24 @@ rectangular grids you can …</li></ul>
 
 		<nav>
 			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/archives/">
+				<a href="http://hiphish.github.io/blog/archives/">
 					Archives
 				</a>
 			</h1>
 			<ul>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2017/">
+					<a href="http://hiphish.github.io/blog/2017/">
 						2017 (2)
 					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2016/">
-						2016 (16)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2015/">
-						2015 (13)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2014/">
-						2014 (8)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2013/">
-						2013 (19)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2012/">
-						2012 (40)
-					</a>
 					<ul>
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/12/">
-								December (4)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/11/">
-								November (7)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/10/">
-								October (4)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/09/">
-								September (4)
+							<a href="http://hiphish.github.io/blog/2017/05/">
+								May (1)
 							</a>
 							<ul>
 								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2012/09/22/version-116/">
-										Version 1.1.6 submitted
-									</a>
-								</li>
-								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2012/09/06/version-115/">
-										Version 1.1.5 released
-									</a>
-								</li>
-								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2012/09/05/version-114/">
-										Version 1.1.4 released
-									</a>
-								</li>
-								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2012/09/02/hex-grid-progress/">
-										Hex grid progress so far
+									<a href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/">
+										Introducing REPL.nvim
 									</a>
 								</li>
 							</ul>
@@ -473,83 +362,57 @@ rectangular grids you can …</li></ul>
 					</ul>
 					<ul>
 						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/08/">
-								August (13)
+							<a href="http://hiphish.github.io/blog/2017/04/">
+								April (1)
 							</a>
 							<ul>
 							</ul>
 						</li>
 					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/07/">
-								July (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/05/">
-								May (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/04/">
-								April (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2012/03/">
-								March (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2016/">
+						2016 (6)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2015/">
+						2015 (2)
+					</a>
 				</li>
 			</ul>
 		</nav>
 
 		<nav>
 			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/categories/">
+				<a href="http://hiphish.github.io/blog/categories/">
 					Categories
 				</a>
 			</h1>
 			<ul>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/misc/">
-						misc (23)
+					<a href="http://hiphish.github.io/blog/categories/ips-tools/">
+						ips-tools (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/organisation/">
-						organisation (6)
+					<a href="http://hiphish.github.io/blog/categories/misc/">
+						misc (3)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/progress/">
-						progress (27)
+					<a href="http://hiphish.github.io/blog/categories/ntfs-clone/">
+						ntfs-clone (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/release/">
-						release (40)
+					<a href="http://hiphish.github.io/blog/categories/open-source/">
+						Open-Source (2)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/tips/">
-						tips (2)
+					<a href="http://hiphish.github.io/blog/categories/organisation/">
+						organisation (3)
 					</a>
 				</li>
 			</ul>
@@ -557,54 +420,44 @@ rectangular grids you can …</li></ul>
 
 		<nav>
 			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/tags/">
+				<a href="http://hiphish.github.io/blog/tags/">
 					Tags
 				</a>
 			</h1>
 			<ul>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/coordinate-system/">
-						coordinate-system (1)
+					<a href="http://hiphish.github.io/blog/tags/info/">
+						info (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
-						old-blog (73)
+					<a href="http://hiphish.github.io/blog/tags/website/">
+						website (3)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/extension/">
-						extension (4)
+					<a href="http://hiphish.github.io/blog/tags/outline/">
+						outline (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/how-to/">
-						how-to (6)
+					<a href="http://hiphish.github.io/blog/tags/vim/">
+						vim (3)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/api-change/">
-						API-change (1)
+					<a href="http://hiphish.github.io/blog/tags/cocoa/">
+						cocoa (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/rant/">
-						rant (3)
+					<a href="http://hiphish.github.io/blog/tags/rant/">
+						rant (1)
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/spheric/">
-						spheric (2)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/asset-store/">
-						asset-store (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/example/">
-						example (7)
+					<a href="http://hiphish.github.io/blog/tags/html/">
+						html (1)
 					</a>
 				</li>
 			</ul>
@@ -614,8 +467,8 @@ rectangular grids you can …</li></ul>
 			<h1>Subscription options</h1>
 			<strong>
 				Subscribe:
-				<a href="http://hiphish.github.io/grid-framework/news/rss.xml">RSS</a>
-				<a href="http://hiphish.github.io/grid-framework/news/atom.xml">Atom</a>
+				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a>
 			</strong>
 		</aside>
 	</nav>
