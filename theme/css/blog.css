@@ -1,11 +1,20 @@
 body > section {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .blog-body {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
 }
 
 /* This only serves for outlining, hide it from visual display. */
@@ -14,17 +23,27 @@ body > section {
 }
 
 .blog-body > section {
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	padding-left: 0;
 	margin-left: 1em;
 }
 
 .blog-body > nav {
 	width: 15em;
-	flex-shrink: 0;
-	order: -1;  /* Move the navigator left from the article */
+	-ms-flex-negative: 0;
+	    flex-shrink: 0;
+	-webkit-box-ordinal-group: 0;
+	    -ms-flex-order: -1;
+	        order: -1;  /* Move the navigator left from the article */
 }
 
 .blog-body > nav > h1 {
@@ -64,16 +83,26 @@ body > section {
 @media(max-width: 768px) {
 	/* Re-arrange the articles and navigator vertically */
 	.blog-body {
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 
 	/* The navigator comes after the articles now. */
 	.blog-body > nav {
-		order: 0;
+		-webkit-box-ordinal-group: 1;
+		    -ms-flex-order: 0;
+		        order: 0;
 		width: auto;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 
 	.blog-body > nav > nav > h1 {
@@ -87,6 +116,8 @@ body > section {
 
 	/* Push the aside onto the next line */
 	.blog-body > nav > aside {
-		flex: 0 1 100%;
+		-webkit-box-flex: 0;
+		    -ms-flex: 0 1 100%;
+		        flex: 0 1 100%;
 	}
 }

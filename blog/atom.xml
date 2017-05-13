@@ -1,5 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2017-05-06T00:00:00+02:00</updated><entry><title>Introducing REPL.nvim</title><link href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/" rel="alternate"></link><published>2017-05-06T00:00:00+02:00</published><updated>2017-05-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-05-06:/blog/2017/05/06/introducing-repl-nvim/</id><summary type="html">&lt;p&gt;Integrating a REPL in Vim has been a difficult issue in the past, but with
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2017-05-13T00:00:00+02:00</updated><entry><title>Creating a mock REPL on Unix</title><link href="http://hiphish.github.io/blog/2017/05/13/mock-repl-unix/" rel="alternate"></link><published>2017-05-13T00:00:00+02:00</published><updated>2017-05-13T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-05-13:/blog/2017/05/13/mock-repl-unix/</id><summary type="html">&lt;p&gt;During the development of &lt;a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/"&gt;REPL.nvim&lt;/a&gt; I had to be able to test the plugin
+without relying on any particular REPL present on the development system. The
+solution was to create a mock REPL, a shell script which acts like a really
+dumb REPL. Here is the code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;EOF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;false …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;During the development of &lt;a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/"&gt;REPL.nvim&lt;/a&gt; I had to be able to test the plugin
+without relying on any particular REPL present on the development system. The
+solution was to create a mock REPL, a shell script which acts like a really
+dumb REPL. Here is the code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;EOF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;false&lt;/span&gt;
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'This is a dummy REPL, it does nothing and comes with no warranty.'&lt;/span&gt;
+&lt;span class="k"&gt;until&lt;/span&gt; &lt;span class="nv"&gt;$EOF&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'&amp;gt;&amp;gt;&amp;gt; '&lt;/span&gt;
+        &lt;span class="nb"&gt;read&lt;/span&gt; -r &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;EOF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'true'&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; ! &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;continue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;fi&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="c1"&gt;# Terminating new line if there was no reply&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; ! &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first line is a simple state variable which will be set to &lt;code&gt;true&lt;/code&gt; once the
+user presses &lt;code&gt;^D&lt;/code&gt;. As long as the variable remains &lt;code&gt;false&lt;/code&gt; the loop will keep
+running.&lt;/p&gt;
+&lt;p&gt;Next comes the actual &lt;em&gt;Loop&lt;/em&gt; part of the REPL; it prints a prompt and then
+reads a line indefinitely. The &lt;em&gt;Read&lt;/em&gt; part is implemented using the built-in
+&lt;code&gt;read&lt;/code&gt; to store the result in the implicit variable &lt;code&gt;$REPLY&lt;/code&gt;. Should &lt;code&gt;read&lt;/code&gt;
+read &lt;code&gt;^D&lt;/code&gt; the exist code will be non-zero, causing the conditional &lt;code&gt;||&lt;/code&gt; to set
+the &lt;code&gt;EOF&lt;/code&gt; variable to &lt;code&gt;true&lt;/code&gt;. This is our exit mechanism out of the REPL. There
+is no &lt;em&gt;Evaluate&lt;/em&gt; part since this is a mock REPL (or you could say that any
+input evaluates to itself). Finally the &lt;em&gt;Print&lt;/em&gt; part is implemented by using
+&lt;code&gt;echo&lt;/code&gt; to echo back the input.&lt;/p&gt;
+&lt;p&gt;Technically the REPL could also be implemented with less code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;EOF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="k"&gt;until&lt;/span&gt; &lt;span class="nv"&gt;$EOF&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'&amp;gt;&amp;gt;&amp;gt; '&lt;/span&gt;
+        &lt;span class="nb"&gt;read&lt;/span&gt; -r &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;EOF&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'true'&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The additional code is just to give the REPL some extra polish. It's not really
+needed if no human will never use it, but I like the extra touch. The first
+line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; ! &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="k"&gt;continue&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;prevents the loop from reaching the &lt;code&gt;echo&lt;/code&gt; if &lt;code&gt;$REPLY&lt;/code&gt; is an empty string.
+Without it if the user does not enter any text an empty line would be printed:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+# Without extra touch
+&amp;gt;&amp;gt;&amp;gt; foo
+foo
+&amp;gt;&amp;gt;&amp;gt;
+
+&amp;gt;&amp;gt;&amp;gt; bar
+bar
+
+# With textra touch
+&amp;gt;&amp;gt;&amp;gt; foo
+foo
+&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; bar
+bar
+&lt;/pre&gt;
+&lt;p&gt;The other line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; ! &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$REPLY&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;causes &lt;code&gt;echo&lt;/code&gt; to display an empty string. This empty string will move the shell
+prompt onto the next line:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+# Without extra polish
+sh-3.2$ sh mock-repl.sh
+This is a dummy REPL, it does nothing and comes with no warranty.
+&amp;gt;&amp;gt;&amp;gt; foo
+foo
+&amp;gt;&amp;gt;&amp;gt; sh-3.2$
+
+# With extra polish
+sh-3.2$ sh mock-repl.sh
+This is a dummy REPL, it does nothing and comes with no warranty.
+&amp;gt;&amp;gt;&amp;gt; foo
+foo
+&amp;gt;&amp;gt;&amp;gt; ^D
+sh-3.2$
+&lt;/pre&gt;
+&lt;p&gt;The mock REPL can then be invoked like any other shell script and be used in
+place of a real REPL program when testing. That way we do not have to be wary
+of any side effects and the developer does not need to have any particular
+program installed on their system.&lt;/p&gt;
+</content></entry><entry><title>Introducing REPL.nvim</title><link href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/" rel="alternate"></link><published>2017-05-06T00:00:00+02:00</published><updated>2017-05-06T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-05-06:/blog/2017/05/06/introducing-repl-nvim/</id><summary type="html">&lt;p&gt;Integrating a REPL in Vim has been a difficult issue in the past, but with
 Nvim's built-in terminal emulator it is just a few commands away. My new
 &lt;a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/"&gt;REPL.nvim&lt;/a&gt; plugin now puts the REPL only one command away, for any
 programming language you wish. The end goal is to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Integrating a REPL in Vim has been a difficult issue in the past, but with

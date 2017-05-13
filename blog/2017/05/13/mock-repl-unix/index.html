@@ -207,18 +207,18 @@
 			</a>
 		</li>
 		<li>
-			<a href="http://hiphish.github.io/blog/2015/">
-				2015
+			<a href="http://hiphish.github.io/blog/2017/">
+				2017
 			</a>
 		<li>
-			<a href="http://hiphish.github.io/blog/2015/11/">
-				11
+			<a href="http://hiphish.github.io/blog/2017/05/">
+				05
 			</a>
 		<li class="active">
-			14
+			13
 		</li>
 		<li class="active">
-			feeds-live-now
+			mock-repl-unix
 		</li>
 	</ol>
 </nav>
@@ -227,41 +227,112 @@
 	<article>
 		<!-- Title of the article -->
 		<h1>
-			<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/" rel="bookmark" title="Permalink to Feeds are live now">
-				Feeds are live now
+			<a href="http://hiphish.github.io/blog/2017/05/13/mock-repl-unix/" rel="bookmark" title="Permalink to Creating a mock REPL on Unix">
+				Creating a mock REPL on Unix
 			</a>
 		</h1>
 
 		<header>
 <!-- Date of the article -->
 			<p>
-				<time class="published" datetime="2015-11-14T00:00:00+01:00">
-					Published: 2015-11-14
+				<time class="published" datetime="2017-05-13T00:00:00+02:00">
+					Published: 2017-05-13
 				</time>
 			</p>
 
 			<!-- TODO: This has to be something nicer than a button -->
 			<p>
 				Category:
-				<a class="" href="http://hiphish.github.io/blog/categories/organisation/">
-					organisation
-				</a>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Tags:
-				<a class="" href="http://hiphish.github.io/blog/tags/website/">
-					website
+				<a class="" href="http://hiphish.github.io/blog/categories/misc/">
+					misc
 				</a>
 			</p>
 		</header>
 
 		<!-- Content of the article -->
-		<p>RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
-links in the navigator or you can subscribe to a particular category in a blog.
-For that navigate to the category using either the navigator or by clicking the
-category button of an article.</p>
+		<p>During the development of <a class="reference external" href="https://gitlab.com/HiPhish/repl.nvim/">REPL.nvim</a> I had to be able to test the plugin
+without relying on any particular REPL present on the development system. The
+solution was to create a mock REPL, a shell script which acts like a really
+dumb REPL. Here is the code:</p>
+<div class="highlight"><pre><span></span><span class="nv">EOF</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="nb">echo</span> <span class="s1">'This is a dummy REPL, it does nothing and comes with no warranty.'</span>
+<span class="k">until</span> <span class="nv">$EOF</span> <span class="p">;</span> <span class="k">do</span>
+        <span class="nb">printf</span> <span class="s1">'&gt;&gt;&gt; '</span>
+        <span class="nb">read</span> -r <span class="o">||</span> <span class="nv">EOF</span><span class="o">=</span><span class="s1">'true'</span>
+        <span class="k">if</span> <span class="o">[</span> ! <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="k">continue</span><span class="p">;</span> <span class="k">fi</span>
+        <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span>
+<span class="k">done</span>
+<span class="c1"># Terminating new line if there was no reply</span>
+<span class="k">if</span> <span class="o">[</span> ! <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="s1">''</span><span class="p">;</span> <span class="k">fi</span>
+</pre></div>
+<p>The first line is a simple state variable which will be set to <code>true</code> once the
+user presses <code>^D</code>. As long as the variable remains <code>false</code> the loop will keep
+running.</p>
+<p>Next comes the actual <em>Loop</em> part of the REPL; it prints a prompt and then
+reads a line indefinitely. The <em>Read</em> part is implemented using the built-in
+<code>read</code> to store the result in the implicit variable <code>$REPLY</code>. Should <code>read</code>
+read <code>^D</code> the exist code will be non-zero, causing the conditional <code>||</code> to set
+the <code>EOF</code> variable to <code>true</code>. This is our exit mechanism out of the REPL. There
+is no <em>Evaluate</em> part since this is a mock REPL (or you could say that any
+input evaluates to itself). Finally the <em>Print</em> part is implemented by using
+<code>echo</code> to echo back the input.</p>
+<p>Technically the REPL could also be implemented with less code:</p>
+<div class="highlight"><pre><span></span><span class="nv">EOF</span><span class="o">=</span><span class="nb">false</span>
+<span class="k">until</span> <span class="nv">$EOF</span> <span class="p">;</span> <span class="k">do</span>
+        <span class="nb">printf</span> <span class="s1">'&gt;&gt;&gt; '</span>
+        <span class="nb">read</span> -r <span class="o">||</span> <span class="nv">EOF</span><span class="o">=</span><span class="s1">'true'</span>
+        <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span>
+<span class="k">done</span>
+</pre></div>
+<p>The additional code is just to give the REPL some extra polish. It's not really
+needed if no human will never use it, but I like the extra touch. The first
+line</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> ! <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="k">continue</span><span class="p">;</span> <span class="k">fi</span>
+</pre></div>
+<p>prevents the loop from reaching the <code>echo</code> if <code>$REPLY</code> is an empty string.
+Without it if the user does not enter any text an empty line would be printed:</p>
+<pre class="code literal-block">
+# Without extra touch
+&gt;&gt;&gt; foo
+foo
+&gt;&gt;&gt;
+
+&gt;&gt;&gt; bar
+bar
+
+# With textra touch
+&gt;&gt;&gt; foo
+foo
+&gt;&gt;&gt;
+&gt;&gt;&gt; bar
+bar
+</pre>
+<p>The other line</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> ! <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="s1">''</span><span class="p">;</span> <span class="k">fi</span>
+</pre></div>
+<p>causes <code>echo</code> to display an empty string. This empty string will move the shell
+prompt onto the next line:</p>
+<pre class="code literal-block">
+# Without extra polish
+sh-3.2$ sh mock-repl.sh
+This is a dummy REPL, it does nothing and comes with no warranty.
+&gt;&gt;&gt; foo
+foo
+&gt;&gt;&gt; sh-3.2$
+
+# With extra polish
+sh-3.2$ sh mock-repl.sh
+This is a dummy REPL, it does nothing and comes with no warranty.
+&gt;&gt;&gt; foo
+foo
+&gt;&gt;&gt; ^D
+sh-3.2$
+</pre>
+<p>The mock REPL can then be invoked like any other shell script and be used in
+place of a real REPL program when testing. That way we do not have to be wary
+of any side effects and the developer does not need to have any particular
+program installed on their system.</p>
 
 	</article>
 
@@ -271,13 +342,8 @@ category button of an article.</p>
 			<h1>Previous/next article</h1>
 			<ul class="pager">
 				<li class="previous">
-					<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/" rel="prev">
-						<span aria-hidden="true">&larr;</span> We are live!
-					</a>
-				</li>
-				<li class="next">
-					<a href="http://hiphish.github.io/blog/2016/04/22/neovim-tcd/" rel="next">
-						Neovim has tab-local working directories now <span aria-hidden="true">&rarr;</span>
+					<a href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/" rel="prev">
+						<span aria-hidden="true">&larr;</span> Introducing REPL.nvim
 					</a>
 				</li>
 			</ul>
@@ -302,6 +368,34 @@ category button of an article.</p>
 					<a href="http://hiphish.github.io/blog/2017/">
 						2017 (3)
 					</a>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/blog/2017/05/">
+								May (2)
+							</a>
+							<ul>
+								<li>
+									<a href="http://hiphish.github.io/blog/2017/05/13/mock-repl-unix/">
+										Creating a mock REPL on Unix
+									</a>
+								</li>
+								<li>
+									<a href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/">
+										Introducing REPL.nvim
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/blog/2017/04/">
+								April (1)
+							</a>
+							<ul>
+							</ul>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<a href="http://hiphish.github.io/blog/2016/">
@@ -312,25 +406,6 @@ category button of an article.</p>
 					<a href="http://hiphish.github.io/blog/2015/">
 						2015 (2)
 					</a>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/blog/2015/11/">
-								November (2)
-							</a>
-							<ul>
-								<li>
-									<a href="http://hiphish.github.io/blog/2015/11/14/feeds-live-now/">
-										Feeds are live now
-									</a>
-								</li>
-								<li>
-									<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/">
-										We are live!
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
 				</li>
 			</ul>
 		</nav>

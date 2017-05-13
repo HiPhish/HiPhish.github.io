@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
@@ -5,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<title>
-Gallery - Grid Framework - Grid Framework
+			HiPhish's Workshop
 		</title>
 		
 		<!-- Bootstrap integration -->
@@ -19,14 +20,12 @@ Gallery - Grid Framework - Grid Framework
 		<!-- My own style sheets -->
 		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
 		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
 
-		<!-- These style sheets are specific to this page -->
-		<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/css/magnific-popup-custom.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/theme/css/article_index.css" type="text/css" media="all">
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
 
 		<!-- Bootstrap Javascript -->
 		<script
@@ -58,9 +57,9 @@ Gallery - Grid Framework - Grid Framework
 					<div class="collapse navbar-collapse" id="main-navbar-collapse">
 						<!-- The list of navbar items -->
 						<ul class="nav navbar-nav">
-							<li class="dropdown active">
+							<li class="dropdown">
 								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
+									Grid Framework <span></span>								</a>
 								<ul class="dropdown-menu">
 
 									<li>
@@ -190,162 +189,202 @@ Gallery - Grid Framework - Grid Framework
 
 		<section class="container">
 			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
+
+
+<section class="blog-body">
+	<h1>Blog</h1>
+
+	<!-- Article body -->
+	<section>
+<h1>Articles of the blog</h1>
+
+<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
+	<h1>Breadcrumbs navigation</h1>
+	<ol class="breadcrumb">
 		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
+			<a href="http://hiphish.github.io/blog/">
+				blog
 			</a>
 		</li>
-
 		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
+			<a href="http://hiphish.github.io/blog/authors/">
+				authors
 			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/examples">
-				Examples
-			</a>
-		</li>
-
 		<li class="active">
-			Gallery <span class="sr-only">(current)</span>
+			HiPhish
 		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/faq">
-				FAQ
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news">
-				News
-			</a>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
+	</ol>
 </nav>
 
 
-<!-- Main content of the page is located here -->
-<main class="col-md-12 container">
-	
-<p>
-			Click on one of the thumbnails to see the full image or mouse over for
-			the description. The examples shown here are all included with Grid
-			Framework. Please keep in mind that the	Vectrosity example requires you
-			to own a Vectrosity license.
-		</p>
-<div class="gallery thumbnails">
-<div class="row">
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/grids.png" title="Adding a grid to the scene is as easy as assigning any other component in Unity.">
-<img alt="Four kinds of grids: rectangular, spherical, polar and hexagonal" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/grids.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/renderers.png" title="Renderers display the grid in the scene; use one of the existing ones or write your own.">
-<img alt="Customizable grid renderers" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/renderers.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/documentation.png" title="The user manual explains the components and how to use them, the scripting reference covers every part of the API.">
-<img alt="User manual and reference manual included" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/documentation.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/menu-bar.png" title="No menu clutter, everything fits inside Unity as it should.">
-<img alt="Menu items are integrated into Unity's menus" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/menu-bar.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-</div>
-<div class="row">
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/lights.png" title="The included example shows how a grid can be used as a common base of communication between unrelated objects.">
-<img alt="Example included: lights-out game" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/lights.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/movement.png" title="Use grids to compute way-points for grid-based movement.">
-<img alt="Example included: movement and snapping" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/movement.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/infinite.png" title="Adjust the range of grid renderer on the fly to create the illusion of an infinitely scrolling grid.">
-<img alt="Example included: infinitely scrolling grid" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/infinite.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/terrain.png" title="Generate a mesh from simple data by converting the data to world-coordinates.">
-<img alt="Example included: generate mesh from data" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/terrain.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-</div>
-<div class="row">
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/level.png" title="Place objects in the world based on grid coordinates.">
-<img alt="Example included: build levels from data" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/level.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/dial.png" title="Use the grid coordinates of a point to drive an animation script">
-<img alt="Example included: rotary dial" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/dial.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-<div class="col-sm-3">
-<a class="thumbnail" href="http://hiphish.github.io/grid-framework/gallery/images/vectrosity.png" title="Users of Vectrosity can have the lines of renderer generate with one method call">
-<img alt="Vectrosity support" class="img-responsive group1" src="http://hiphish.github.io/grid-framework/gallery/images/vectrosity.png"/>
-</a>
-</div> <!-- end col-sm-3 -->
-</div>
-</div>
-<!-- Script required for Magnific Popup -->
-<script charset="utf-8" src="/js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script type="text/javascript">
-			$(document).ready(function() {
-				$('.gallery').magnificPopup({
-					delegate: 'a',
-					type: 'image',
-					key: 'screenshots',
-					mainClass: 'mfp-with-zoom',
-					gallery: {
-						enabled:true,
-					},
-					zoom: {
-						enabled: true,
-						duration: 200,
-						easing: 'ease-in-out',
-						opener: function(openerElement) {
-							return openerElement.is('img') ? openerElement : openerElement.find('img');
-						}
-					}
-				});
-			})
-		</script>
+<main>
+<ul>
+	<li>
+		<article>
+			<h1>
+				<a href="http://hiphish.github.io/blog/2015/11/11/we-are-live/">
+					We are live!
+				</a>
+			</h1>
 
-</main>		</section>
+			<header>
+				<p>
+					<time datetime="2015-11-11T00:00:00+01:00">
+						Published: 2015-11-11
+					</time>
+				</p>
+			</header>
+
+			<p>The Workshop blog is finally up and running, in all its static glory. This
+makes the site practically complete, at least as complete as a website can ever
+be anyway. It also works great with my <a class="reference external" href="https://gitlab.com/HiPhish/Multiblog-Pelican">Multiblog</a> plugin.</p>
+<p>I wanted to be able to have more than one blog on …</p>
+		</article>
+	</li>	
+</ul>
+
+</main>
+
+<footer>
+	<!-- Pagination navigation -->
+	<nav class="paginator text-center">
+		<ul class="pagination">
+			<li>
+				<a href="http://hiphish.github.io/blog/authors/hiphish">
+					1
+				</a>
+			</li>
+			<li>
+				<a href="http://hiphish.github.io/blog/authors/hiphish/2">
+					2
+				</a>
+			</li>
+		</ul>
+	</nav>
+</footer>
+	</section>
+
+	<!-- "Left" pillar, article navigation -->
+	<nav class="well">
+		<!-- This navigator contains links to the various archive types. -->
+		<h1>Blog navigation</h1>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/archives/">
+					Archives
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/2017/">
+						2017 (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2016/">
+						2016 (6)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2015/">
+						2015 (2)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/categories/">
+					Categories
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/ips-tools/">
+						ips-tools (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/misc/">
+						misc (4)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/ntfs-clone/">
+						ntfs-clone (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/open-source/">
+						Open-Source (2)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/organisation/">
+						organisation (3)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/tags/">
+					Tags
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/info/">
+						info (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/website/">
+						website (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/outline/">
+						outline (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/vim/">
+						vim (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/cocoa/">
+						cocoa (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/rant/">
+						rant (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/html/">
+						html (1)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<aside>
+			<h1>Subscription options</h1>
+			<strong>
+				Subscribe:
+				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a>
+			</strong>
+		</aside>
+	</nav>
+</section>
+		</section>
 
 		<!-- Footer of the website -->
 		<footer>
