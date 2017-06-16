@@ -31,9 +31,6 @@ pre.code {
 .highlight pre { 
 	background-color: #002b36;
 	color: #93a1a1;
-	overflow: auto;
-	word-wrap: normal;
-	white-space: pre;
 }
 
 .highlight .c { color: #586e75 } /* Comment */
