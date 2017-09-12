@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Sat, 18 Mar 2017 00:00:00 +0100</lastBuildDate><item><title>Grid Framework version 2.1.4 released</title><link>http://hiphish.github.io/grid-framework/news/2017/03/18/release-214/</link><description>&lt;p&gt;Grid Framework version 2.1.4 has been approved by the Asset Store.  This update
+<rss version="2.0"><channel><title>HiPhish's Workshop</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0200</lastBuildDate><item><title>Grid Framework version 2.1.6 released</title><link>http://hiphish.github.io/grid-framework/news/2017/09/12/release-216/</link><description>&lt;p&gt;Grid Framework version 2.1.6 has been approved by the Asset Store. This release
+fixes compilation issues with the upcoming Unity version 2017.2.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 12 Sep 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2017-09-12:/grid-framework/news/2017/09/12/release-216/</guid></item><item><title>Grid Framework version 2.1.4 released</title><link>http://hiphish.github.io/grid-framework/news/2017/03/18/release-214/</link><description>&lt;p&gt;Grid Framework version 2.1.4 has been approved by the Asset Store.  This update
 fixes the algorithm for finding the nearest face in a hex grid,  and it changes
 how images in the documentation are handled.&lt;/p&gt;
 &lt;p&gt;In previous  releases images  were just  regular PNG  files inside  a directory
