@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop - organisation</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-02T00:00:00+01:00</updated><entry><title>What's coming in 2016</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" rel="alternate"></link><published>2016-01-02T00:00:00+01:00</published><updated>2016-01-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-02:/grid-framework/news/2016/01/02/new-year-2016/</id><summary type="html">&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop - organisation</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://127.0.1.1:8000/grid-framework/news/categories/organisation/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2016-01-02T00:00:00+01:00</updated><entry><title>What's coming in 2016</title><link href="http://hiphish.github.io/grid-framework/news/2016/01/02/new-year-2016/" rel="alternate"></link><published>2016-01-02T00:00:00+01:00</published><updated>2016-01-02T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2016-01-02:/grid-framework/news/2016/01/02/new-year-2016/</id><summary type="html">&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
 the  release  of  the  new  website,  which  was  later that same year scrapped
 completely for a yet another website.  I was also able to finally integrate the
 last of the originally planned grids …&lt;/p&gt;</summary><content type="html">&lt;p&gt;It's the start of a new year,  time to look back and look ahead.  2015 has seen
@@ -27,13 +27,13 @@ version 2.0 was going to happen sooner or later anyway, so why now?&lt;/p&gt;
 &lt;h3&gt;The classes are simply too large&lt;/h3&gt;
 &lt;p&gt;At the  time of  writing this Grid Framework  is at version 1.9.0  and this  is
 the number of lines in the code:&lt;/p&gt;
-&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;table border="1" class="docutils  table-striped table-hover table"&gt;
 &lt;colgroup&gt;
-&lt;col width="38%"&gt;&lt;/col&gt;
-&lt;col width="12%"&gt;&lt;/col&gt;
-&lt;col width="21%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="38%"/&gt;
+&lt;col width="12%"/&gt;
+&lt;col width="21%"/&gt;
+&lt;col width="15%"/&gt;
+&lt;col width="15%"/&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;

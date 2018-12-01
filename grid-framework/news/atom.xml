@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2017-09-12T00:00:00+02:00</updated><entry><title>Grid Framework version 2.1.6 released</title><link href="http://hiphish.github.io/grid-framework/news/2017/09/12/release-216/" rel="alternate"></link><published>2017-09-12T00:00:00+02:00</published><updated>2017-09-12T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-09-12:/grid-framework/news/2017/09/12/release-216/</id><summary type="html">&lt;p&gt;Grid Framework version 2.1.6 has been approved by the Asset Store. This release
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://127.0.1.1:8000/grid-framework/news/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2018-12-01T00:00:00+01:00</updated><entry><title>Grid Framework version 2.1.7 released</title><link href="http://hiphish.github.io/grid-framework/news/2018/12/01/release-217/" rel="alternate"></link><published>2018-12-01T00:00:00+01:00</published><updated>2018-12-01T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2018-12-01:/grid-framework/news/2018/12/01/release-217/</id><summary type="html">&lt;p&gt;Grid frameworks version 2.1.7 has been approved by the Asset Store. This
+release improves integration of Grid Framework with the Unity Editor's undo
+system. You can now fully undo and redo any change to any grid or renderer
+property.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Grid frameworks version 2.1.7 has been approved by the Asset Store. This
+release improves integration of Grid Framework with the Unity Editor's undo
+system. You can now fully undo and redo any change to any grid or renderer
+property.&lt;/p&gt;
+</content></entry><entry><title>Grid Framework version 2.1.6 released</title><link href="http://hiphish.github.io/grid-framework/news/2017/09/12/release-216/" rel="alternate"></link><published>2017-09-12T00:00:00+02:00</published><updated>2017-09-12T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-09-12:/grid-framework/news/2017/09/12/release-216/</id><summary type="html">&lt;p&gt;Grid Framework version 2.1.6 has been approved by the Asset Store. This release
 fixes compilation issues with the upcoming Unity version 2017.2.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Grid Framework version 2.1.6 has been approved by the Asset Store. This release
 fixes compilation issues with the upcoming Unity version 2017.2.&lt;/p&gt;
@@ -14,7 +22,7 @@ how images in the documentation are handled.&lt;/p&gt;
 structure,  which meant  they would  clutter up  your texture  selector because
 Unity  did not  know  that those  images  were  never intended  to  be used  as
 textures.  The solution to this was very simple,  it's the same trick I already
-used before to prevent Unity from compiling the Javascript files: add &lt;code&gt;.txt&lt;/code&gt; to
+used before to prevent Unity from compiling the Javascript files: add &lt;span class="formula"&gt;.&lt;i&gt;txt&lt;/i&gt;&lt;/span&gt; to
 the file extension.  The browser does not care about  file extensions and Unity
 ignores the images now&lt;/p&gt;
 &lt;p&gt;Speaking of  documentation,  somehow the 2.1.3 build  shipped without it.  That
@@ -192,13 +200,13 @@ UnityScript.&lt;/p&gt;
 &lt;h2&gt;File size comparison&lt;/h2&gt;
 &lt;p&gt;When I originally announced the major version update I was looking at the sizes
 of the classes in terms of lines of code. Here is the old chart:&lt;/p&gt;
-&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;table border="1" class="docutils  table-striped table-hover table"&gt;
 &lt;colgroup&gt;
-&lt;col width="38%"&gt;&lt;/col&gt;
-&lt;col width="12%"&gt;&lt;/col&gt;
-&lt;col width="21%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="38%"/&gt;
+&lt;col width="12%"/&gt;
+&lt;col width="21%"/&gt;
+&lt;col width="15%"/&gt;
+&lt;col width="15%"/&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;
@@ -243,14 +251,14 @@ of the classes in terms of lines of code. Here is the old chart:&lt;/p&gt;
 &lt;/table&gt;
 &lt;p&gt;Even if we ignore the comments these classes are huge,  especially &lt;code&gt;GFHexGrid&lt;/code&gt;.
 How do the new grids fare in comparison?&lt;/p&gt;
-&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;table border="1" class="docutils  table-striped table-hover table"&gt;
 &lt;colgroup&gt;
-&lt;col width="24%"&gt;&lt;/col&gt;
-&lt;col width="9%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
-&lt;col width="11%"&gt;&lt;/col&gt;
-&lt;col width="11%"&gt;&lt;/col&gt;
-&lt;col width="30%"&gt;&lt;/col&gt;
+&lt;col width="24%"/&gt;
+&lt;col width="9%"/&gt;
+&lt;col width="15%"/&gt;
+&lt;col width="11%"/&gt;
+&lt;col width="11%"/&gt;
+&lt;col width="30%"/&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;
@@ -1044,13 +1052,13 @@ version 2.0 was going to happen sooner or later anyway, so why now?&lt;/p&gt;
 &lt;h3&gt;The classes are simply too large&lt;/h3&gt;
 &lt;p&gt;At the  time of  writing this Grid Framework  is at version 1.9.0  and this  is
 the number of lines in the code:&lt;/p&gt;
-&lt;table border="1" class=" table-striped docutils table-hover table"&gt;
+&lt;table border="1" class="docutils  table-striped table-hover table"&gt;
 &lt;colgroup&gt;
-&lt;col width="38%"&gt;&lt;/col&gt;
-&lt;col width="12%"&gt;&lt;/col&gt;
-&lt;col width="21%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
-&lt;col width="15%"&gt;&lt;/col&gt;
+&lt;col width="38%"/&gt;
+&lt;col width="12%"/&gt;
+&lt;col width="21%"/&gt;
+&lt;col width="15%"/&gt;
+&lt;col width="15%"/&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt;Class&lt;/th&gt;

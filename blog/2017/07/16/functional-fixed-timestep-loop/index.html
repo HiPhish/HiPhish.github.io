@@ -277,7 +277,7 @@ time in the real world, only the output has to match.</p>
 virtual time has passed in the simulation so far and by how much virtual time
 to advance the simulation. Whether this matches up with the real world or not
 does not matter for now.</p>
-<div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="nv">Δt</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 <p>This raises the next question: if the simulation is fed the "time" instead of
 getting the time itself, where does this "time" come from? The answer is that
@@ -285,7 +285,7 @@ there is a function which emits a <code>Δt</code> signal. This signal is then r
 the <code>simulate</code> function.</p>
 <div class="highlight"><pre><span></span><span class="c1">;; `t` is the time that has passed so far in the simulation since it was</span>
 <span class="c1">;; started, `lag` will be explained later</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 <p>So what then is calling the emitter function? The game loop. The game loop
 measures real time and based on that decides on how many <code>Δt</code> signals to emit.
@@ -313,11 +313,11 @@ a fake clock which advances time by one second every call.</p>
 </pre></div>
 <p>We will also need some fake <code>simulate</code> and <code>render</code> functions:</p>
 <div class="highlight"><pre><span></span><span class="c1">;; A real simulation function does not take lag, but we want to show it here</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="nv">Δt</span> <span class="nv">lag</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">display </span><span class="s">"Simulating with t="</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">display </span><span class="nv">t</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">display </span><span class="s">", Δt="</span><span class="p">)</span>
-  <span class="p">(</span><span class="nb">display </span><span class="err">Δ</span><span class="nv">t</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">display </span><span class="nv">Δt</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">display </span><span class="s">", lag="</span><span class="p">)</span>
   <span class="p">(</span><span class="nb">display </span><span class="nv">lag</span><span class="p">)</span>
   <span class="p">(</span><span class="nf">newline</span><span class="p">))</span>
@@ -338,7 +338,7 @@ function.</p>
 <span class="c1">;;;   simulate  Callback to execute on every tick</span>
 <span class="c1">;;;   render    Callback to execute every frame</span>
 <span class="c1">;;;   quit      Whether to exit the game loop</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">run-game-loop</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">run-game-loop</span> <span class="nv">Δt</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">)</span>
 </pre></div>
 <p>The parameters are in place of what would normally be the state in imperative
 programming. <code>t</code> is the total virtual time passed so far, <code>Δt</code> is the fixed
@@ -355,12 +355,12 @@ boolean that tells us whether to exit the loop.</p>
 <span class="c1">;;</span>
 <span class="c1">;; Returns: The time the simulation has been advanced by and the remaining</span>
 <span class="c1">;; lag.</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">lag</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">lag</span> <span class="nv">Δt</span><span class="p">)</span>
     <span class="p">(</span><span class="nb">values </span><span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>  <span class="c1">; We cannot fit in any more ticks, return</span>
     <span class="p">(</span><span class="nf">begin</span>
-      <span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
-      <span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">lag</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)))))</span>
+      <span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="nv">Δt</span> <span class="nv">lag</span><span class="p">)</span>
+      <span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">t</span> <span class="nv">Δt</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">lag</span> <span class="nv">Δt</span><span class="p">)))))</span>
 </pre></div>
 <p>The <code>lag</code> is how much simulation time we have to process. As an example, let's
 say our <code>Δt</code> is 50 milliseconds and a frame takes one second, that means we can
@@ -376,12 +376,12 @@ the <code>lag</code> it returns the <code>t</code> and <code>lag</code> as retur
 <div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let* </span><span class="p">((</span><span class="nf">new-time</span> <span class="p">(</span><span class="nf">real-time</span><span class="p">))</span>
        <span class="c1">;; How long the last frame took to compute</span>
        <span class="p">(</span><span class="nf">frame-time</span> <span class="p">(</span><span class="nb">- </span><span class="nv">new-time</span> <span class="nv">time</span><span class="p">)))</span>
-  <span class="p">(</span><span class="nf">let-values</span> <span class="p">(((</span><span class="nf">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="nv">t</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">lag</span> <span class="nv">frame-time</span><span class="p">))))</span>
+  <span class="p">(</span><span class="nf">let-values</span> <span class="p">(((</span><span class="nf">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="nv">t</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">lag</span> <span class="nv">frame-time</span><span class="p">))))</span>
     <span class="p">(</span><span class="nf">render</span><span class="p">)</span>
     <span class="p">(</span><span class="k">if </span><span class="nv">quit</span>
       <span class="ss">'done</span>
       <span class="p">(</span><span class="nf">run-game-loop</span>
-        <span class="err">Δ</span><span class="nv">t</span>
+        <span class="nv">Δt</span>
         <span class="nv">t</span>
         <span class="nv">new-time</span>
         <span class="nv">lag</span>
@@ -408,7 +408,7 @@ something more sensible.</p>
 <span class="c1">;;;   simulate  Callback to execute on every tick</span>
 <span class="c1">;;;   render    Callback to execute every frame</span>
 <span class="c1">;;;   quit      Whether to exit the game loop</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">run-game-loop</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">run-game-loop</span> <span class="nv">Δt</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">)</span>
 
   <span class="c1">;; Emit a Δt signal for simulation</span>
   <span class="c1">;;</span>
@@ -418,28 +418,28 @@ something more sensible.</p>
   <span class="c1">;;</span>
   <span class="c1">;; Returns: The time the simulation has been advanced by and the remaining</span>
   <span class="c1">;; lag.</span>
-  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">lag</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">lag</span> <span class="nv">Δt</span><span class="p">)</span>
       <span class="p">(</span><span class="nb">values </span><span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>  <span class="c1">; We cannot fit in any more ticks, return</span>
       <span class="p">(</span><span class="nf">begin</span>
-        <span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">lag</span><span class="p">)</span>
-        <span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">t</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">lag</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">)))))</span>
+        <span class="p">(</span><span class="nf">simulate</span> <span class="nv">t</span> <span class="nv">Δt</span> <span class="nv">lag</span><span class="p">)</span>
+        <span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">t</span> <span class="nv">Δt</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">lag</span> <span class="nv">Δt</span><span class="p">)))))</span>
 
   <span class="p">(</span><span class="k">let* </span><span class="p">((</span><span class="nf">new-time</span> <span class="p">(</span><span class="nf">real-time</span><span class="p">))</span>
          <span class="p">(</span><span class="nf">frame-time</span> <span class="p">(</span><span class="nb">- </span><span class="nv">new-time</span> <span class="nv">time</span><span class="p">)))</span> <span class="c1">; How long the last frame took to compute</span>
-    <span class="p">(</span><span class="nf">let-values</span> <span class="p">(((</span><span class="nf">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="p">(</span><span class="nf">emit-</span><span class="err">Δ</span><span class="nv">t-signal</span> <span class="nv">t</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">lag</span> <span class="nv">frame-time</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nf">let-values</span> <span class="p">(((</span><span class="nf">t</span> <span class="nv">lag</span><span class="p">)</span> <span class="p">(</span><span class="nf">emit-Δt-signal</span> <span class="nv">t</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">lag</span> <span class="nv">frame-time</span><span class="p">))))</span>
       <span class="p">(</span><span class="nf">render</span><span class="p">)</span>
       <span class="p">(</span><span class="k">if </span><span class="nv">quit</span>
         <span class="ss">'done</span>
-        <span class="p">(</span><span class="nf">run-game-loop</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">t</span> <span class="nv">new-time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="p">(</span><span class="nb">&gt;= </span><span class="nv">t</span> <span class="p">(</span><span class="nb">* </span><span class="mi">10</span> <span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">))))))))</span>
+        <span class="p">(</span><span class="nf">run-game-loop</span> <span class="nv">Δt</span> <span class="nv">t</span> <span class="nv">new-time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="p">(</span><span class="nb">&gt;= </span><span class="nv">t</span> <span class="p">(</span><span class="nb">* </span><span class="mi">10</span> <span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">))))))))</span>
 </pre></div>
 <p>Let's take it for a test ride.</p>
 <div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">t</span> <span class="mi">0</span> <span class="p">)</span>
-      <span class="p">(</span><span class="err">Δ</span><span class="nv">t</span> <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">Δt</span> <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">)</span> <span class="mi">2</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">time</span> <span class="p">(</span><span class="nf">real-time</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">lag</span> <span class="mi">0</span><span class="p">)</span>
       <span class="p">(</span><span class="nf">quit</span> <span class="no">#f</span><span class="p">))</span>
-  <span class="p">(</span><span class="nf">run-game-loop</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">))</span>
+  <span class="p">(</span><span class="nf">run-game-loop</span> <span class="nv">Δt</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">))</span>
 </pre></div>
 <p>This will run the loop with two simulations per second.</p>
 <pre class="code literal-block">
@@ -495,11 +495,11 @@ particular the first frame will only have 16ms of lag.</p>
 
 <span class="c1">;;; Adjusted Δt starting value</span>
 <span class="p">(</span><span class="k">let </span><span class="p">((</span><span class="nf">t</span> <span class="mi">0</span> <span class="p">)</span>
-      <span class="p">(</span><span class="err">Δ</span><span class="nv">t</span> <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">)</span> <span class="mi">50</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">Δt</span> <span class="p">(</span><span class="nb">/ </span><span class="p">(</span><span class="nf">jiffies-per-second</span><span class="p">)</span> <span class="mi">50</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">time</span> <span class="p">(</span><span class="nf">real-time</span><span class="p">))</span>
       <span class="p">(</span><span class="nf">lag</span> <span class="mi">0</span><span class="p">)</span>
       <span class="p">(</span><span class="nf">quit</span> <span class="no">#f</span><span class="p">))</span>
-  <span class="p">(</span><span class="nf">run-game-loop</span> <span class="err">Δ</span><span class="nv">t</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">))</span>
+  <span class="p">(</span><span class="nf">run-game-loop</span> <span class="nv">Δt</span> <span class="nv">t</span> <span class="nv">time</span> <span class="nv">lag</span> <span class="nv">simulate</span> <span class="nv">render</span> <span class="nv">quit</span><span class="p">))</span>
 </pre></div>
 <p>Here is the output:</p>
 <pre class="code literal-block">
@@ -547,10 +547,10 @@ step. I haven't bothered to implement the extra interpolation found in the
 original article since that only involves the renderer. It is very simple to
 compute the interpolation factor:</p>
 <div class="highlight"><pre><span></span><span class="c1">;;; Add an α parameter</span>
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">render</span> <span class="err">α</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">render</span> <span class="nv">α</span><span class="p">)</span> <span class="o">...</span><span class="p">)</span>
 
 <span class="c1">;;; Inside the game loop</span>
-<span class="p">(</span><span class="nf">render</span> <span class="p">(</span><span class="nb">/ </span><span class="nv">lag</span> <span class="err">Δ</span><span class="nv">t</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">render</span> <span class="p">(</span><span class="nb">/ </span><span class="nv">lag</span> <span class="nv">Δt</span><span class="p">))</span>
 </pre></div>
 <p>Since the lag is less than <code>Δt</code> the <code>α</code> is between zero (inclusive) and one
 (exclusive). Another fun idea would have been to make the time increment of
@@ -577,6 +577,11 @@ simulation with the fixed time step.</p>
 						<span aria-hidden="true">&larr;</span> Creating a mock REPL on Unix
 					</a>
 				</li>
+				<li class="next">
+					<a href="http://hiphish.github.io/blog/2018/12/01/gnu-linux/" rel="next">
+						Goodbye macOS, hello GNU/Linux <span aria-hidden="true">&rarr;</span>
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</footer>
@@ -595,6 +600,11 @@ simulation with the fixed time step.</p>
 				</a>
 			</h1>
 			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/2018/">
+						2018 (1)
+					</a>
+				</li>
 				<li>
 					<a href="http://hiphish.github.io/blog/2017/">
 						2017 (4)
@@ -674,7 +684,7 @@ simulation with the fixed time step.</p>
 				</li>
 				<li>
 					<a href="http://hiphish.github.io/blog/categories/organisation/">
-						organisation (3)
+						organisation (4)
 					</a>
 				</li>
 			</ul>
@@ -688,6 +698,26 @@ simulation with the fixed time step.</p>
 			</h1>
 			<ul>
 				<li>
+					<a href="http://hiphish.github.io/blog/tags/vim/">
+						vim (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/html/">
+						html (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/rant/">
+						rant (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/outline/">
+						outline (1)
+					</a>
+				</li>
+				<li>
 					<a href="http://hiphish.github.io/blog/tags/info/">
 						info (1)
 					</a>
@@ -698,28 +728,8 @@ simulation with the fixed time step.</p>
 					</a>
 				</li>
 				<li>
-					<a href="http://hiphish.github.io/blog/tags/outline/">
-						outline (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/vim/">
-						vim (3)
-					</a>
-				</li>
-				<li>
 					<a href="http://hiphish.github.io/blog/tags/cocoa/">
 						cocoa (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/rant/">
-						rant (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/html/">
-						html (1)
 					</a>
 				</li>
 			</ul>
@@ -741,12 +751,12 @@ simulation with the fixed time step.</p>
 		<footer>
 			<div class="container">
 				<div class="col-md-8 footer-self">
-					<a href="http://192.168.0.190:8000" title="HiPhish's Workshop">
+					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
 						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
 					</a>
 					<p class="text-muted">
 						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2017, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
 					</p>
 				</div>  <!-- /.col-md-8 -->
 

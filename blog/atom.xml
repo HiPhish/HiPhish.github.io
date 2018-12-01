@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://192.168.0.190:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2017-07-16T00:00:00+02:00</updated><entry><title>A purely functional fixed timestep loop</title><link href="http://hiphish.github.io/blog/2017/07/16/functional-fixed-timestep-loop/" rel="alternate"></link><published>2017-07-16T00:00:00+02:00</published><updated>2017-07-16T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-07-16:/blog/2017/07/16/functional-fixed-timestep-loop/</id><summary type="html">&lt;p&gt;There is a great article by Glenn Fiedler titled &lt;a class="reference external" href="http://gafferongames.com/game-physics/fix-your-timestep/"&gt;“Fix Your Timestep!”&lt;/a&gt; in
+<feed xmlns="http://www.w3.org/2005/Atom"><title>HiPhish's Workshop</title><link href="http://hiphish.github.io/" rel="alternate"></link><link href="http://127.0.1.1:8000/blog/atom.xml" rel="self"></link><id>http://hiphish.github.io/</id><updated>2018-12-01T00:00:00+01:00</updated><entry><title>Goodbye macOS, hello GNU/Linux</title><link href="http://hiphish.github.io/blog/2018/12/01/gnu-linux/" rel="alternate"></link><published>2018-12-01T00:00:00+01:00</published><updated>2018-12-01T00:00:00+01:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2018-12-01:/blog/2018/12/01/gnu-linux/</id><summary type="html">&lt;p&gt;I knew this day would come eventually, so here we are: I moved from macOS to
+GNU/Linux as my operating system. It has been a couple of months since then and
+I have settled in pretty comfortably; some things are better some things are
+worse, and some things are …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I knew this day would come eventually, so here we are: I moved from macOS to
+GNU/Linux as my operating system. It has been a couple of months since then and
+I have settled in pretty comfortably; some things are better some things are
+worse, and some things are just plain different.&lt;/p&gt;
+&lt;p&gt;The distribution I have picked is Kubuntu. I did not have the time for
+experimenting with a new operating system, so I wanted something that would
+work out of the box for the most part and provide sensible default software. I
+can still switch to a different distro eventually, but this is where I am for
+now. Now it just happened that my switch coincided with Ubuntu abandoning the
+Unity desktop environment in favour of Gnome 3, and I don't have the best
+opinion of Gnome 3. So I picked the KDE flavour of Ubuntu and it has been
+pretty nice.&lt;/p&gt;
+&lt;p&gt;Why switch in the first place? Well, my old Mac was getting really old, it did
+not support the recent macOS releases and security update for my version were
+about to stop (the Specre patch was the last one as far as I know). At the same
+time Apple was making macOS just worse: more locked down, removing Free and
+Open APIs like OpenGL, and the only "improvements" were just further
+integration into the iEcosystem. Add to that Apple devices have been getting
+even more expensive in recent years. There was no way I was switching back to
+Windows either, that would be even worse.&lt;/p&gt;
+&lt;p&gt;At the same time, the Free desktop environments have been taking notes and made
+improvements to the point where I can seriously say that using GNU/Linux is
+easier than using Windows or macOS. So here I am, finally on a real Free
+Software operating system, as it should be.&lt;/p&gt;
+&lt;div class="section" id="making-kde-more-mac-like"&gt;
+&lt;h2&gt;Making KDE more Mac-like&lt;/h2&gt;
+&lt;p&gt;The nice thing about KDE is how customisable it is by default. I was able to
+replicate the Mac desktop using only what is shipped by default within a day or
+so with no prior experience with KDE.&lt;/p&gt;
+&lt;p&gt;The first thing I did was remove the existing panels, and instead create a
+panel at the top and one on the side. The side panel is my "dock" and the top
+panel is the global menu bar.&lt;/p&gt;
+&lt;p&gt;The dock contains an icons-only task manager widget, a trashcan widget, a
+folder view widget for my downloads folder and a couple of handy widgets as
+well. This replicates the Mac dock very well.&lt;/p&gt;
+&lt;p&gt;The top panel contains an applications menu widget, the global menu bar widget
+and a whole bunch of status icons widgets on the right. Sadly the global menu
+does not work with all GUI frameworks, but most of my applications are written
+in Qt, so that's OK.&lt;/p&gt;
+&lt;p&gt;There are real dock applications like Plank and Latte Dock, but I found that
+those don't work as well as a panel with widgets and take longer to load. Yes,
+they look fancier, but I don't really care. Functionality is more important
+than appearance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="new-and-old-applications"&gt;
+&lt;h2&gt;New and old applications&lt;/h2&gt;
+&lt;p&gt;With a new operating system there comes a new set of applications to choose
+from. All my command-line applications I was able to keep, which is very good,
+since those are my heavy lifters. My complex &lt;a class="reference external" href="https://gitlab.com/HiPhish/nvim-config"&gt;Neovim setup&lt;/a&gt; worked with very few
+adjustments as well, so I was able to get back to work very quickly.&lt;/p&gt;
+&lt;p&gt;What I really miss are the old iWork, iLife and Pixelmator. Those applications
+had really nailed the user interface in every detail. I said &lt;em&gt;old&lt;/em&gt; because
+nothing good can last forever, Apple had rewritten iWork and iLife, and the new
+applications are really not as good. The old ones would have stopped working
+eventually anyway, so I guess I would have had to switch sooner or later
+anyway. LibreOffice and Gimp just are not as nice, but oh well, that's what I'm
+stuck with, so I'll have to suck it down. Maybe I can use Krita for some image
+editing tasks as well.&lt;/p&gt;
+&lt;p&gt;Unity has been my biggest roadblock in regards to making the switch. There is
+still no official Unity Editor builds for GNU/Linux, only the eternal beta.
+Since I sell &lt;a class="reference external" href="http://hiphish.github.io/grid-framework/"&gt;Grid Framework&lt;/a&gt; I have to be able to run Unity. Fortunately the
+beta works good enough for my needs, so I'm good to go.&lt;/p&gt;
+&lt;p&gt;There is no Wineskin on GNU/Linux, so I settled for PlayOnLinux. Honestly, I
+could have used Wine without frontend just fine, but the biggest advantage of
+PlayOnLinux is that it lets me have different versions of Wine per program and
+switch them out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="package-management-madness"&gt;
+&lt;h2&gt;Package management madness&lt;/h2&gt;
+&lt;p&gt;On macOS you don't have a package manager, you use what Apple gives you and you
+better learn to like it that way. This is good because it gives you a stable
+system of curated packages. It is also bad because if you disagree with Apple's
+choice you are stuck.&lt;/p&gt;
+&lt;p&gt;This is why third-party package managers like Homebrew exist. The cool part
+about Homebrew is that it stays out of the system's way: packages are installed
+in &lt;code&gt;/usr/local/&lt;/code&gt; and don't require &lt;code&gt;sudo&lt;/code&gt;. Actually, packages are not installed
+into &lt;code&gt;/usr/local/&lt;/code&gt;, but &lt;code&gt;/usr/local/Cellar&lt;/code&gt;, each in its own directory, and
+then everything is symlinked into place.&lt;/p&gt;
+&lt;p&gt;On Ubuntu your package manager is &lt;code&gt;apt&lt;/code&gt;, it installs every package into the
+system directly. If anything happens during an installation of upgrade your
+system will be all messed up because &lt;code&gt;apt&lt;/code&gt; is directly messing with the system
+directories. But seriously, how often does that happen? No, the bigger problem
+is when you want a more recent version of a package and start adding PPAs. One
+or two PPAs are not a big deal, but with every new PPA you are messing with a
+curated collection of packages and introducing instability to the system.&lt;/p&gt;
+&lt;p&gt;This is where distro-agnostic package managers come in. Flatpak is a common
+one, it simply bundles the dependencies of each package. However, the real
+solution in my opinion at least are functional package managers like &lt;a class="reference external" href="https://nixos.org/o"&gt;Nix&lt;/a&gt; and
+&lt;a class="reference external" href="https://www.gnu.org/software/guix/"&gt;Guix&lt;/a&gt;. I picked Guix for the time being because I like that it uses Scheme for
+its packages, but we'll see about that. I'm trying to do as much package
+management through Guix instead of &lt;code&gt;apt&lt;/code&gt; now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="password-management"&gt;
+&lt;h2&gt;Password management&lt;/h2&gt;
+&lt;p&gt;To my shame I have to admit that I was using the proprietary 1Password for
+years. Yes, trusting a proprietary application with your passwords is a really
+bright idea, I know. It was just too convenient to give up, but with that
+option gone I had to find a substitute. I think &lt;code&gt;pass&lt;/code&gt; fits the bill very well:
+it uses PGP for encryption, plain text files and directories for storing data
+and has a nice terminal interface. Honestly, what more do I even want? This is
+the sort of application which you want to be as simple as it can be, because
+the more parts there are, the more can break.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="where-to-go-from-here"&gt;
+&lt;h2&gt;Where to go from here&lt;/h2&gt;
+&lt;p&gt;So what was the point of this post? I don't really know, I guess I just felt
+like writing it. I'm very satisfied how things have turned out, so I'm going to
+stay like this for the foreseeable future.&lt;/p&gt;
+&lt;/div&gt;
+</content></entry><entry><title>A purely functional fixed timestep loop</title><link href="http://hiphish.github.io/blog/2017/07/16/functional-fixed-timestep-loop/" rel="alternate"></link><published>2017-07-16T00:00:00+02:00</published><updated>2017-07-16T00:00:00+02:00</updated><author><name>HiPhish</name></author><id>tag:hiphish.github.io,2017-07-16:/blog/2017/07/16/functional-fixed-timestep-loop/</id><summary type="html">&lt;p&gt;There is a great article by Glenn Fiedler titled &lt;a class="reference external" href="http://gafferongames.com/game-physics/fix-your-timestep/"&gt;“Fix Your Timestep!”&lt;/a&gt; in
 which the author explains various approaches to writing a game loop and
 concludes with a loop that provides a fixed time step for simulation. If you
 are not familiar with this topic go read the article first …&lt;/p&gt;</summary><content type="html">&lt;p&gt;There is a great article by Glenn Fiedler titled &lt;a class="reference external" href="http://gafferongames.com/game-physics/fix-your-timestep/"&gt;“Fix Your Timestep!”&lt;/a&gt; in
@@ -29,7 +141,7 @@ time in the real world, only the output has to match.&lt;/p&gt;
 virtual time has passed in the simulation so far and by how much virtual time
 to advance the simulation. Whether this matches up with the real world or not
 does not matter for now.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This raises the next question: if the simulation is fed the "time" instead of
 getting the time itself, where does this "time" come from? The answer is that
@@ -37,7 +149,7 @@ there is a function which emits a &lt;code&gt;Δt&lt;/code&gt; signal. This sign
 the &lt;code&gt;simulate&lt;/code&gt; function.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;;; `t` is the time that has passed so far in the simulation since it was&lt;/span&gt;
 &lt;span class="c1"&gt;;; started, `lag` will be explained later&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So what then is calling the emitter function? The game loop. The game loop
 measures real time and based on that decides on how many &lt;code&gt;Δt&lt;/code&gt; signals to emit.
@@ -65,11 +177,11 @@ a fake clock which advances time by one second every call.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We will also need some fake &lt;code&gt;simulate&lt;/code&gt; and &lt;code&gt;render&lt;/code&gt; functions:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;;; A real simulation function does not take lag, but we want to show it here&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="s"&gt;"Simulating with t="&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="s"&gt;", Δt="&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="s"&gt;", lag="&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;display &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;newline&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
@@ -90,7 +202,7 @@ function.&lt;/p&gt;
 &lt;span class="c1"&gt;;;;   simulate  Callback to execute on every tick&lt;/span&gt;
 &lt;span class="c1"&gt;;;;   render    Callback to execute every frame&lt;/span&gt;
 &lt;span class="c1"&gt;;;;   quit      Whether to exit the game loop&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The parameters are in place of what would normally be the state in imperative
 programming. &lt;code&gt;t&lt;/code&gt; is the total virtual time passed so far, &lt;code&gt;Δt&lt;/code&gt; is the fixed
@@ -107,12 +219,12 @@ boolean that tells us whether to exit the loop.&lt;/p&gt;
 &lt;span class="c1"&gt;;;&lt;/span&gt;
 &lt;span class="c1"&gt;;; Returns: The time the simulation has been advanced by and the remaining&lt;/span&gt;
 &lt;span class="c1"&gt;;; lag.&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;lt; &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;lt; &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;values &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;; We cannot fit in any more ticks, return&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;begin&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The &lt;code&gt;lag&lt;/code&gt; is how much simulation time we have to process. As an example, let's
 say our &lt;code&gt;Δt&lt;/code&gt; is 50 milliseconds and a frame takes one second, that means we can
@@ -128,12 +240,12 @@ the &lt;code&gt;lag&lt;/code&gt; it returns the &lt;code&gt;t&lt;/code&gt; and &
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let* &lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nf"&gt;new-time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;real-time&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
        &lt;span class="c1"&gt;;; How long the last frame took to compute&lt;/span&gt;
        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;frame-time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;new-time&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;let-values&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;frame-time&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;let-values&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;frame-time&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="nv"&gt;quit&lt;/span&gt;
       &lt;span class="ss"&gt;'done&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt;
-        &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;
+        &lt;span class="nv"&gt;Δt&lt;/span&gt;
         &lt;span class="nv"&gt;t&lt;/span&gt;
         &lt;span class="nv"&gt;new-time&lt;/span&gt;
         &lt;span class="nv"&gt;lag&lt;/span&gt;
@@ -160,7 +272,7 @@ something more sensible.&lt;/p&gt;
 &lt;span class="c1"&gt;;;;   simulate  Callback to execute on every tick&lt;/span&gt;
 &lt;span class="c1"&gt;;;;   render    Callback to execute every frame&lt;/span&gt;
 &lt;span class="c1"&gt;;;;   quit      Whether to exit the game loop&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
   &lt;span class="c1"&gt;;; Emit a Δt signal for simulation&lt;/span&gt;
   &lt;span class="c1"&gt;;;&lt;/span&gt;
@@ -170,28 +282,28 @@ something more sensible.&lt;/p&gt;
   &lt;span class="c1"&gt;;;&lt;/span&gt;
   &lt;span class="c1"&gt;;; Returns: The time the simulation has been advanced by and the remaining&lt;/span&gt;
   &lt;span class="c1"&gt;;; lag.&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;lt; &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;lt; &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;values &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;; We cannot fit in any more ticks, return&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;begin&lt;/span&gt;
-        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;)))))&lt;/span&gt;
 
   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let* &lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nf"&gt;new-time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;real-time&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;frame-time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;- &lt;/span&gt;&lt;span class="nv"&gt;new-time&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt; &lt;span class="c1"&gt;; How long the last frame took to compute&lt;/span&gt;
-    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;let-values&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;frame-time&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;let-values&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;emit-Δt-signal&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;+ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;frame-time&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="nv"&gt;quit&lt;/span&gt;
         &lt;span class="ss"&gt;'done&lt;/span&gt;
-        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;new-time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;gt;= &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;* &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;))))))))&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;new-time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&amp;gt;= &lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;* &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;))))))))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Let's take it for a test ride.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Δt&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;real-time&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;lag&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;quit&lt;/span&gt; &lt;span class="no"&gt;#f&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will run the loop with two simulations per second.&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -247,11 +359,11 @@ particular the first frame will only have 16ms of lag.&lt;/p&gt;
 
 &lt;span class="c1"&gt;;;; Adjusted Δt starting value&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;let &lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nf"&gt;t&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Δt&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;jiffies-per-second&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;time&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;real-time&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;lag&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;quit&lt;/span&gt; &lt;span class="no"&gt;#f&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;run-game-loop&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;simulate&lt;/span&gt; &lt;span class="nv"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;quit&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Here is the output:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -299,10 +411,10 @@ step. I haven't bothered to implement the extra interpolation found in the
 original article since that only involves the renderer. It is very simple to
 compute the interpolation factor:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;;;; Add an α parameter&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt; &lt;span class="err"&gt;α&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;define &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt; &lt;span class="nv"&gt;α&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="c1"&gt;;;; Inside the game loop&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;render&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;/ &lt;/span&gt;&lt;span class="nv"&gt;lag&lt;/span&gt; &lt;span class="nv"&gt;Δt&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Since the lag is less than &lt;code&gt;Δt&lt;/code&gt; the &lt;code&gt;α&lt;/code&gt; is between zero (inclusive) and one
 (exclusive). Another fun idea would have been to make the time increment of
@@ -633,7 +745,7 @@ documents without interruption.&lt;/p&gt;
 &lt;h2&gt;A new info reader&lt;/h2&gt;
 &lt;p&gt;The best way to get  and idea of info.vim is to see it  right in action in this
 asccicast:&lt;/p&gt;
-&lt;a class="reference external image-reference" href="https://asciinema.org/a/92884"&gt;&lt;img alt="Screencast of using Info.vim" class="img-responsive align-center" src="https://asciinema.org/a/92884.png" style="width: 50%;"/&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://asciinema.org/a/92884"&gt;&lt;img alt="Screencast of using Info.vim" class="align-center img-responsive" src="https://asciinema.org/a/92884.png" style="width: 50%;"/&gt;&lt;/a&gt;
 &lt;p&gt;Opening the manual to the Bourne Again Shell is as easy as typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;Info bash
 &lt;/pre&gt;&lt;/div&gt;
@@ -1181,7 +1293,7 @@ above the content. The finished layout looks like this:&lt;/p&gt;
 &lt;/pre&gt;
 &lt;p&gt;The URL of each page is chosen so that moving one directory up in the hierarchy
 will move you to the parent archive. For instance, a blog post has the URL
-&lt;code&gt;website.com/blog/year/month/day/slug&lt;/code&gt;. Removing the &lt;code&gt;slug&lt;/code&gt; will take you
+&lt;code&gt;website.com/blog/year/month/day/slug&lt;/code&gt;. Removing the &lt;cite&gt;slug&lt;/cite&gt; will take you
 to the daily archive, removing the day takes you to the monthly archive and
 removing the month takes you to the yearly archive. Removing even the year
 takes you to the index of the blog. Pretty neat. If changing the URL is too

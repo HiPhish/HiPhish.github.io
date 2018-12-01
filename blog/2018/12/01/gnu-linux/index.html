@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>
+			HiPhish's Workshop
+		</title>
+		
+		<!-- Bootstrap integration -->
+		<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
+		crossorigin="anonymous"/>
+
+		<!-- Bootstrap customisation -->
+		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
+
+		<!-- My own style sheets -->
+		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
+	
+<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<!-- Bootstrap Javascript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>HTML-page body</h1>
+		<header>
+			<!-- Top navigation bar -->
+			<nav id="main-navbar" class="navbar navbar-default">
+				<h1>Site-wide navigation bar</h1>
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="container-fluid">
+					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</label>
+						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="main-navbar-collapse">
+						<!-- The list of navbar items -->
+						<ul class="nav navbar-nav">
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Grid Framework <span></span>								</a>
+								<ul class="dropdown-menu">
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework">
+											Overview										</a>
+									</li>
+
+									<li class="divider" role="separator"></li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/features">
+											Features										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/examples">
+											Examples										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/gallery">
+											Gallery										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/showcase">
+											Showcase										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/faq">
+											FAQ										</a>
+									</li>
+
+									<li>
+										<a href="http://hiphish.github.io/grid-framework/news">
+											News										</a>
+									</li>
+
+									<li class="divider" role="separator"></li>
+
+									<li>
+										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
+											Support										</a>
+									</li>
+
+									<li class="divider" role="separator"></li>
+
+									<li>
+										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
+											Buy Now <span class="badge">35$</span>										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Open Source <span></span>								</a>
+								<ul class="dropdown-menu">
+
+									<li>
+										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
+											NTFS-Clone										</a>
+									</li>
+
+									<li>
+										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
+											roll										</a>
+									</li>
+
+									<li>
+										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
+											Newton's Method in C										</a>
+									</li>
+
+									<li>
+										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
+											Xeen Tools										</a>
+									</li>
+
+									<li>
+										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
+											Wolf3D Extract										</a>
+									</li>
+
+									<li>
+										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
+											Game Source Documentation										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Nvim/Vim Plugins <span></span>								</a>
+								<ul class="dropdown-menu">
+
+									<li>
+										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
+											Info.vim										</a>
+									</li>
+
+									<li>
+										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
+											REPL.nvim										</a>
+									</li>
+
+									<li>
+										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
+											jinja.vim										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+								<li class=" ">
+									<a href="/blog">
+										Blog									</a>
+								</li>
+								<li class=" ">
+									<a href="/about">
+										About									</a>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<section class="container">
+			<h1>Document body</h1>
+
+
+<section class="blog-body">
+	<h1>Blog</h1>
+
+	<!-- Article body -->
+	<section>
+<main>
+	<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
+	<h1>Breadcrumbs navigation</h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="http://hiphish.github.io/blog/">
+				blog
+			</a>
+		</li>
+		<li>
+			<a href="http://hiphish.github.io/blog/2018/">
+				2018
+			</a>
+		<li>
+			<a href="http://hiphish.github.io/blog/2018/12/">
+				12
+			</a>
+		<li class="active">
+			1
+		</li>
+		<li class="active">
+			gnu-linux
+		</li>
+	</ol>
+</nav>
+
+
+	<article>
+		<!-- Title of the article -->
+		<h1>
+			<a href="http://hiphish.github.io/blog/2018/12/01/gnu-linux/" rel="bookmark" title="Permalink to Goodbye macOS, hello GNU/Linux">
+				Goodbye macOS, hello GNU/Linux
+			</a>
+		</h1>
+
+		<header>
+<!-- Date of the article -->
+			<p>
+				<time class="published" datetime="2018-12-01T00:00:00+01:00">
+					Published: 2018-12-01
+				</time>
+			</p>
+
+			<!-- TODO: This has to be something nicer than a button -->
+			<p>
+				Category:
+				<a class="" href="http://hiphish.github.io/blog/categories/organisation/">
+					organisation
+				</a>
+			</p>
+		</header>
+
+		<!-- Content of the article -->
+		<p>I knew this day would come eventually, so here we are: I moved from macOS to
+GNU/Linux as my operating system. It has been a couple of months since then and
+I have settled in pretty comfortably; some things are better some things are
+worse, and some things are just plain different.</p>
+<p>The distribution I have picked is Kubuntu. I did not have the time for
+experimenting with a new operating system, so I wanted something that would
+work out of the box for the most part and provide sensible default software. I
+can still switch to a different distro eventually, but this is where I am for
+now. Now it just happened that my switch coincided with Ubuntu abandoning the
+Unity desktop environment in favour of Gnome 3, and I don't have the best
+opinion of Gnome 3. So I picked the KDE flavour of Ubuntu and it has been
+pretty nice.</p>
+<p>Why switch in the first place? Well, my old Mac was getting really old, it did
+not support the recent macOS releases and security update for my version were
+about to stop (the Specre patch was the last one as far as I know). At the same
+time Apple was making macOS just worse: more locked down, removing Free and
+Open APIs like OpenGL, and the only "improvements" were just further
+integration into the iEcosystem. Add to that Apple devices have been getting
+even more expensive in recent years. There was no way I was switching back to
+Windows either, that would be even worse.</p>
+<p>At the same time, the Free desktop environments have been taking notes and made
+improvements to the point where I can seriously say that using GNU/Linux is
+easier than using Windows or macOS. So here I am, finally on a real Free
+Software operating system, as it should be.</p>
+<div class="section" id="making-kde-more-mac-like">
+<h2>Making KDE more Mac-like</h2>
+<p>The nice thing about KDE is how customisable it is by default. I was able to
+replicate the Mac desktop using only what is shipped by default within a day or
+so with no prior experience with KDE.</p>
+<p>The first thing I did was remove the existing panels, and instead create a
+panel at the top and one on the side. The side panel is my "dock" and the top
+panel is the global menu bar.</p>
+<p>The dock contains an icons-only task manager widget, a trashcan widget, a
+folder view widget for my downloads folder and a couple of handy widgets as
+well. This replicates the Mac dock very well.</p>
+<p>The top panel contains an applications menu widget, the global menu bar widget
+and a whole bunch of status icons widgets on the right. Sadly the global menu
+does not work with all GUI frameworks, but most of my applications are written
+in Qt, so that's OK.</p>
+<p>There are real dock applications like Plank and Latte Dock, but I found that
+those don't work as well as a panel with widgets and take longer to load. Yes,
+they look fancier, but I don't really care. Functionality is more important
+than appearance.</p>
+</div>
+<div class="section" id="new-and-old-applications">
+<h2>New and old applications</h2>
+<p>With a new operating system there comes a new set of applications to choose
+from. All my command-line applications I was able to keep, which is very good,
+since those are my heavy lifters. My complex <a class="reference external" href="https://gitlab.com/HiPhish/nvim-config">Neovim setup</a> worked with very few
+adjustments as well, so I was able to get back to work very quickly.</p>
+<p>What I really miss are the old iWork, iLife and Pixelmator. Those applications
+had really nailed the user interface in every detail. I said <em>old</em> because
+nothing good can last forever, Apple had rewritten iWork and iLife, and the new
+applications are really not as good. The old ones would have stopped working
+eventually anyway, so I guess I would have had to switch sooner or later
+anyway. LibreOffice and Gimp just are not as nice, but oh well, that's what I'm
+stuck with, so I'll have to suck it down. Maybe I can use Krita for some image
+editing tasks as well.</p>
+<p>Unity has been my biggest roadblock in regards to making the switch. There is
+still no official Unity Editor builds for GNU/Linux, only the eternal beta.
+Since I sell <a class="reference external" href="http://hiphish.github.io/grid-framework/">Grid Framework</a> I have to be able to run Unity. Fortunately the
+beta works good enough for my needs, so I'm good to go.</p>
+<p>There is no Wineskin on GNU/Linux, so I settled for PlayOnLinux. Honestly, I
+could have used Wine without frontend just fine, but the biggest advantage of
+PlayOnLinux is that it lets me have different versions of Wine per program and
+switch them out.</p>
+</div>
+<div class="section" id="package-management-madness">
+<h2>Package management madness</h2>
+<p>On macOS you don't have a package manager, you use what Apple gives you and you
+better learn to like it that way. This is good because it gives you a stable
+system of curated packages. It is also bad because if you disagree with Apple's
+choice you are stuck.</p>
+<p>This is why third-party package managers like Homebrew exist. The cool part
+about Homebrew is that it stays out of the system's way: packages are installed
+in <code>/usr/local/</code> and don't require <code>sudo</code>. Actually, packages are not installed
+into <code>/usr/local/</code>, but <code>/usr/local/Cellar</code>, each in its own directory, and
+then everything is symlinked into place.</p>
+<p>On Ubuntu your package manager is <code>apt</code>, it installs every package into the
+system directly. If anything happens during an installation of upgrade your
+system will be all messed up because <code>apt</code> is directly messing with the system
+directories. But seriously, how often does that happen? No, the bigger problem
+is when you want a more recent version of a package and start adding PPAs. One
+or two PPAs are not a big deal, but with every new PPA you are messing with a
+curated collection of packages and introducing instability to the system.</p>
+<p>This is where distro-agnostic package managers come in. Flatpak is a common
+one, it simply bundles the dependencies of each package. However, the real
+solution in my opinion at least are functional package managers like <a class="reference external" href="https://nixos.org/o">Nix</a> and
+<a class="reference external" href="https://www.gnu.org/software/guix/">Guix</a>. I picked Guix for the time being because I like that it uses Scheme for
+its packages, but we'll see about that. I'm trying to do as much package
+management through Guix instead of <code>apt</code> now.</p>
+</div>
+<div class="section" id="password-management">
+<h2>Password management</h2>
+<p>To my shame I have to admit that I was using the proprietary 1Password for
+years. Yes, trusting a proprietary application with your passwords is a really
+bright idea, I know. It was just too convenient to give up, but with that
+option gone I had to find a substitute. I think <code>pass</code> fits the bill very well:
+it uses PGP for encryption, plain text files and directories for storing data
+and has a nice terminal interface. Honestly, what more do I even want? This is
+the sort of application which you want to be as simple as it can be, because
+the more parts there are, the more can break.</p>
+</div>
+<div class="section" id="where-to-go-from-here">
+<h2>Where to go from here</h2>
+<p>So what was the point of this post? I don't really know, I guess I just felt
+like writing it. I'm very satisfied how things have turned out, so I'm going to
+stay like this for the foreseeable future.</p>
+</div>
+
+	</article>
+
+	<footer>
+		<!-- Navigation items (next/previous) -->
+		<nav>
+			<h1>Previous/next article</h1>
+			<ul class="pager">
+				<li class="previous">
+					<a href="http://hiphish.github.io/blog/2017/07/16/functional-fixed-timestep-loop/" rel="prev">
+						<span aria-hidden="true">&larr;</span> A purely functional fixed timestep loop
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</footer>
+</main>
+	</section>
+
+	<!-- "Left" pillar, article navigation -->
+	<nav class="well">
+		<!-- This navigator contains links to the various archive types. -->
+		<h1>Blog navigation</h1>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/archives/">
+					Archives
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/2018/">
+						2018 (1)
+					</a>
+					<ul>
+						<li>
+							<a href="http://hiphish.github.io/blog/2018/12/">
+								December (1)
+							</a>
+							<ul>
+								<li>
+									<a href="http://hiphish.github.io/blog/2018/12/01/gnu-linux/">
+										Goodbye macOS, hello GNU/Linux
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2017/">
+						2017 (4)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2016/">
+						2016 (6)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/2015/">
+						2015 (2)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/categories/">
+					Categories
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/ips-tools/">
+						ips-tools (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/misc/">
+						misc (5)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/ntfs-clone/">
+						ntfs-clone (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/open-source/">
+						Open-Source (2)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/categories/organisation/">
+						organisation (4)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<nav>
+			<h1>
+				<a href="http://hiphish.github.io/blog/tags/">
+					Tags
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/vim/">
+						vim (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/html/">
+						html (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/rant/">
+						rant (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/outline/">
+						outline (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/info/">
+						info (1)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/website/">
+						website (3)
+					</a>
+				</li>
+				<li>
+					<a href="http://hiphish.github.io/blog/tags/cocoa/">
+						cocoa (1)
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<aside>
+			<h1>Subscription options</h1>
+			<strong>
+				Subscribe:
+				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
+				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a>
+			</strong>
+		</aside>
+	</nav>
+</section>
+		</section>
+
+		<!-- Footer of the website -->
+		<footer>
+			<div class="container">
+				<div class="col-md-8 footer-self">
+					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
+						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
+					</a>
+					<p class="text-muted">
+						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
+						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+					</p>
+				</div>  <!-- /.col-md-8 -->
+
+				<div class="col-md-4 footer-social">
+					<span class="pull-right">
+						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
+							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
+						</a>
+						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
+							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
+						</a>
+					</span>  <!-- /.pull-right -->
+				</div>  <!-- /.col-md-4 -->
+			</div>
+		</footer>
+	</body>
+</html>
+
