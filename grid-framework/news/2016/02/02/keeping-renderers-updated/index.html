@@ -1,725 +1,108 @@
-
-
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<title>
-			HiPhish's Workshop
-		</title>
-		
-		<!-- Bootstrap integration -->
-		<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
-		crossorigin="anonymous"/>
-
-		<!-- Bootstrap customisation -->
-		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
-
-		<!-- My own style sheets -->
-		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
-	
-<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-		<!-- Bootstrap Javascript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h1>HTML-page body</h1>
-		<header>
-			<!-- Top navigation bar -->
-			<nav id="main-navbar" class="navbar navbar-default">
-				<h1>Site-wide navigation bar</h1>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="container-fluid">
-					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</label>
-						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="main-navbar-collapse">
-						<!-- The list of navbar items -->
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework">
-											Overview										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/features">
-											Features										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/examples">
-											Examples										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/gallery">
-											Gallery										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/showcase">
-											Showcase										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/faq">
-											FAQ										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/news">
-											News										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-											Support										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-											Buy Now <span class="badge">35$</span>										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Open Source <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-											NTFS-Clone										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-											roll										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-											Newton's Method in C										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-											Xeen Tools										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-											Wolf3D Extract										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-											Game Source Documentation										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Nvim/Vim Plugins <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
-											Info.vim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
-											REPL.nvim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
-											jinja.vim										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-								<li class=" ">
-									<a href="/blog">
-										Blog									</a>
-								</li>
-								<li class=" ">
-									<a href="/about">
-										About									</a>
-								</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<section class="container">
-			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/examples">
-				Examples
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/gallery">
-				Gallery
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/faq">
-				FAQ
-			</a>
-		</li>
-
-		<li class="active">
-			News <span class="sr-only">(current)</span>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-
-<section class="blog-body">
-	<h1>Blog</h1>
-
-	<!-- Article body -->
-	<section>
-<main>
-	<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
-	<h1>Breadcrumbs navigation</h1>
-	<ol class="breadcrumb">
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/">
-				news
-			</a>
-		</li>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/2016/">
-				2016
-			</a>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/2016/02/">
-				02
-			</a>
-		<li class="active">
-			2
-		</li>
-		<li class="active">
-			keeping-renderers-updated
-		</li>
-	</ol>
-</nav>
-
-
-	<article>
-		<!-- Title of the article -->
-		<h1>
-			<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/" rel="bookmark" title="Permalink to Keeping the renderers updated and efficient">
-				Keeping the renderers updated and efficient
-			</a>
-		</h1>
-
-		<header>
-<!-- Date of the article -->
-			<p>
-				<time class="published" datetime="2016-02-02T00:00:00+01:00">
-					Published: 2016-02-02
-				</time>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Category:
-				<a class="" href="http://hiphish.github.io/grid-framework/news/categories/progress/">
-					progress
-				</a>
-			</p>
-		</header>
-
-		<!-- Content of the article -->
-		<p>Rendering a grid is a three-step process: first we count how many lines we need
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop-Grid Framework</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/article.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><h1>HTML-page body</h1><header><nav id="main-navbar" class="navbar navbar-default"><h1>Site-wide navigation bar</h1><div class="container-fluid"><input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox" /><div class="navbar-header"><label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></label><a class="navbar-brand" href="/">HiPhish's Workshop</a></div><div class="collapse navbar-collapse" id="main-navbar-collapse"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" href="/grid-framework/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grid Framework</a><ul class="dropdown-menu"><li><a href="/grid-framework/">Overview</a></li><li class="divider" role="separator"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li class="divider" role="separator"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li class="divider" role="separator"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/open-source/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open Source</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/vim/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vim/Nvim plugins</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></div></div></nav></header><section class="container"><h1>Document body</h1><nav class="local-nav"><h1>Sub-site navigation bar</h1><ul><li><a href="/grid-framework/">Grid Framework</a></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498/">Buy <span class="badge">35$</span></a></li></ul></nav><section class="col-md-12 container"><h1>Blog</h1><section><nav class="blog-breadcrumbs" aria-label="Breadcrumbs"><h1>Breadcrumbs navigation</h1><ol class="breadcrumb"><li class=""><a href="../../../..">news</a></li><li class=""><a href="../../..">2016</a></li><li class=""><a href="../..">02</a></li><li class="active">02</li><li class="active">keeping-renderers-updated</li></ol></nav><main><article><h1><a href="." title="Permalink to Keeping the renderers updated and efficient" rel="bookmark">Keeping the renderers updated and efficient</a></h1><header><p><time class="published" datetime="2016-02-02">Published: 2016-02-02</time></p><p>Category: <a href="../../../../categories/progress/">progress</a></p></header><p>Rendering a grid is a three-step process: first we count how many lines we need
 to render and  allocate the space needed,  then we compute their end points and
 finally we send them to Unity to do its thing. In the earliest versions of Grid
 Framework these three  steps had been done every frame.  Since arrays in C# are
 heap objects this would send the garbage  collector in overdrive for very large
-grids.</p>
-<p>An optimisation  was put in  place very quickly:  if the  grid has  not changed
+grids.</p><p>An optimisation  was put in  place very quickly:  if the  grid has  not changed
 simply re-use  the existing points.  If the points have changed,  but not their
 amount re-use the array and only overwrite the values in it.  This could be the
 case for example when  you change the spacing of a rectangular grid,  the lines
-change, but their amount stays the same.</p>
-<p>Since back then  there were no  separate renderer classes  everything was  done
+change, but their amount stays the same.</p><p>Since back then  there were no  separate renderer classes  everything was  done
 inside the grid class and I had full control over everything going on,  but now
 we need some way for the renderer object to know when the grid has changed. The
 obvious solution would be  to keep a local copy of every public property of the
-grid in the renderer and compare the copy to the original every frame:</p>
-<div class="highlight"><pre><span></span><span class="c1">// private variables in the renderer</span>
-<span class="kt">var</span> <span class="n">spacing</span>  <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Spacing</span><span class="p">;</span>
-<span class="kt">var</span> <span class="n">shearing</span> <span class="p">=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Shearing</span><span class="p">;</span>
+grid in the renderer and compare the copy to the original every frame:</p><pre><code class="language-cs">// private variables in the renderer
+var spacing  = Grid.Spacing;
+var shearing = Grid.Shearing;
 
-<span class="kt">bool</span> <span class="nf">GridHasChanged</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">spacing</span> <span class="p">!=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Spacing</span> <span class="p">||</span> <span class="n">shearing</span> <span class="p">!=</span> <span class="n">Grid</span><span class="p">.</span><span class="n">Shearing</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-<p>This is pretty simple,  but it wastes memory by keeping basically a second copy
+bool GridHasChanged() {
+    return spacing != Grid.Spacing || shearing != Grid.Shearing;
+}</code></pre><p>This is pretty simple,  but it wastes memory by keeping basically a second copy
 of the grid and we would still have to run the method every frame. There has to
 be a better solution in which  the renderer does not not have to poll the grid,
-but the renderer gets notified by the grid instead.</p>
-<div class="section" id="subscribing-to-grid-events">
-<h2>Subscribing to grid events</h2>
-<p>C# offers such a feature  with events and delegates.  We define an event in the
+but the renderer gets notified by the grid instead.</p><h2>Subscribing to grid events</h2><p>C# offers such a feature  with events and delegates.  We define an event in the
 grid class and fire  it from the grid.  The renderer can subscribe to the event
 by setting a method to run when the grid fires the event.  This distributes the
 work  neatly  between  grid  and  renderer:  the  grid  does not  know who  has
 subscribed  to it  and  is only  concerned  with  firing the  event,  while the
-renderer takes on the responsibility of performing the actual action.</p>
-<p>The  renderer  subscribes  when  it  is  enabled  and  unsubscribes when  it is
+renderer takes on the responsibility of performing the actual action.</p><p>The  renderer  subscribes  when  it  is  enabled  and  unsubscribes when  it is
 disabled.  The syntax is a bit odd:  the grid exposes  an event type and we add
 the delegates of  the method to call to it using the <code>+=</code> operator.  A delegate
 is  a  method  reference,  similar to  a function  pointer in  the C-family  of
-languages.</p>
-<div class="highlight"><pre><span></span><span class="c1">// The arguments of the event are encapsulated in their own type</span>
-<span class="k">using</span> <span class="nn">SpacingEventArgs</span> <span class="p">=</span> <span class="n">GridFramework</span><span class="p">.</span><span class="n">Grids</span><span class="p">.</span><span class="n">RectGrid</span><span class="p">.</span><span class="n">SpacingEventArgs</span><span class="p">;</span>
+languages.</p><pre><code class="language-cs">// The arguments of the event are encapsulated in their own type
+using SpacingEventArgs = GridFramework.Grids.RectGrid.SpacingEventArgs;
 
-<span class="c1">// Subscribe when the renderer gets enabled</span>
-<span class="k">void</span> <span class="nf">OnEnable</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Grid</span><span class="p">.</span><span class="n">SpacingChanged</span> <span class="p">+=</span> <span class="n">OnSpacingChanged</span><span class="p">;</span>
-<span class="p">}</span>
+// Subscribe when the renderer gets enabled
+void OnEnable() {
+    Grid.SpacingChanged += OnSpacingChanged;
+}
 
-<span class="c1">// Unsubscribe when the renderer gets disabled</span>
-<span class="k">void</span> <span class="nf">OnDisable</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Grid</span><span class="p">.</span><span class="n">SpacingChanged</span> <span class="p">-=</span> <span class="n">OnSpacingChanged</span><span class="p">;</span>
-<span class="p">}</span>
+// Unsubscribe when the renderer gets disabled
+void OnDisable() {
+    Grid.SpacingChanged -= OnSpacingChanged;
+}
 
-<span class="c1">// The action to perform</span>
-<span class="k">private</span> <span class="k">void</span> <span class="nf">OnSpacingChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">source</span><span class="p">,</span> <span class="n">SpacingEventArgs</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Code goes here...</span>
-<span class="p">}</span>
-</pre></div>
-<p>These facilities are public and available to users as well if they want to
-subscribe.</p>
-<p>Using events for everything would be overkill though, for changes to the
-renderer itself we still use regular private methods inside the renderer class:</p>
-<div class="highlight"><pre><span></span><span class="c1">// Public accessor for member variable</span>
-<span class="k">public</span> <span class="n">Vector3</span> <span class="n">From</span> <span class="p">{</span>
-    <span class="k">get</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">_from</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">set</span> <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">previous</span> <span class="p">=</span> <span class="n">_from</span><span class="p">;</span>
-        <span class="n">_from</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="k">value</span><span class="p">,</span> <span class="n">To</span><span class="p">);</span>
-        <span class="n">OnFromChanged</span><span class="p">(</span><span class="n">previous</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+// The action to perform
+private void OnSpacingChanged(object source, SpacingEventArgs args) {
+    // Code goes here...
+}</code></pre><p>These facilities are public and available to users as well if they want to
+subscribe.</p><p>Using events for everything would be overkill though, for changes to the
+renderer itself we still use regular private methods inside the renderer class:</p><pre><code class="language-cs">// Public accessor for member variable
+public Vector3 From {
+    get {
+        return _from;
+    } set {
+        var previous = _from;
+        _from = Vector3.Min(value, To);
+        OnFromChanged(previous);
+    }
+}
 
-<span class="k">private</span> <span class="k">void</span> <span class="nf">OnFromChanged</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">previous</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Code goes here...</span>
-<span class="p">}</span>
-</pre></div>
-<p>We  cannot  subscribe  to these  changes,  nor should  we.  The changes  to the
+private void OnFromChanged(Vector3 previous) {
+    // Code goes here...
+}</code></pre><p>We  cannot  subscribe  to these  changes,  nor should  we.  The changes  to the
 renderer  affect only  the points  computed,  it's a  black box  where you  get
-coordinates out and nothing more.</p>
-</div>
-<div class="section" id="ok-we-know-the-grid-has-changed-what-now">
-<h2>OK, we know the grid has changed, what now?</h2>
-<p>Knowing that something has changed is the first step, the next one is to decide
+coordinates out and nothing more.</p><h2>OK, we know the grid has changed, what now?</h2><p>Knowing that something has changed is the first step, the next one is to decide
 what to do with that knowledge. The easiest solution is to just re-count and
 re-compute everything. If the amount of lines has not changed we don't need to
-allocate a new array, but other than that we don't save any work.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">numberOfLines</span><span class="p">;</span>
+allocate a new array, but other than that we don't save any work.</p><pre><code class="language-cs">int numberOfLines;
 
-<span class="n">Vector3</span><span class="p">[][]</span> <span class="n">lines</span><span class="p">;</span>
+Vector3[][] lines;
 
-<span class="k">if</span> <span class="p">(</span><span class="n">lines</span><span class="p">.</span><span class="n">Length</span> <span class="p">!=</span> <span class="n">numberOfLines</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// allocate a new array</span>
-<span class="p">}</span>
-</pre></div>
-<p>We could instead use the knowledge of <em>what</em> has  changed to make very specific
+if (lines.Length != numberOfLines) {
+    // allocate a new array
+}</code></pre><p>We could instead use the knowledge of <em>what</em> has  changed to make very specific
 adjustments which  might perform  better.  If we  take rectangular  grids as an
 example again,  a change in spacing can be replicated by multiplying all points
 with a number of matrices.  Profiling the two  possibilities has shown that the
 more complicated  approach performs  about  twice as well  on a 100 × 100 × 100
 grid.  The extra effort  is not always worth it though,  and if you are writing
 your own renderers  you should profile  the performance  of the  naive approach
-first.</p>
-</div>
-<div class="section" id="it-s-not-that-simple-though">
-<h2>It's not that simple though</h2>
-<p>Ideally this would be it, but Unity throws a few roadblocks in my way. For one,
+first.</p><h2>It's not that simple though</h2><p>Ideally this would be it, but Unity throws a few roadblocks in my way. For one,
 there is no  way to subscribe  reliably outside  of play  mode.  This means  in
 editor mode we have to re-count and re-compute the points anyway.  There are no
 new arrays allocated if we don't have to, so there is that.  Performance in the
 editor is not  as crucial and  I haven't  noticed any impact  on the editor for
-reasonably sized grids, so this shouldn't be an issue in practice.</p>
-<p>Another roadblock  is that  there is  no way  to be  notified when  an object's
-<code>Transform</code> changes. We have to do it the hard way:</p>
-<div class="highlight"><pre><span></span><span class="k">private</span> <span class="n">Vector3</span>    <span class="n">_oldPosition</span><span class="p">;</span>
-<span class="k">private</span> <span class="n">Quaternion</span> <span class="n">_oldRotation</span><span class="p">;</span>
+reasonably sized grids, so this shouldn't be an issue in practice.</p><p>Another roadblock  is that  there is  no way  to be  notified when  an object's
+<code>Transform</code> changes. We have to do it the hard way:</p><pre><code class="language-cs">private Vector3    _oldPosition;
+private Quaternion _oldRotation;
 
-<span class="k">private</span> <span class="kt">bool</span> <span class="nf">TransformHasChanged</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">result</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+private bool TransformHasChanged() {
+    bool result = false;
 
-    <span class="n">result</span> <span class="p">|=</span> <span class="n">_oldPosition</span> <span class="p">!=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
-    <span class="n">result</span> <span class="p">|=</span> <span class="n">_oldRotation</span> <span class="p">!=</span> <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+    result |= _oldPosition != transform.position;
+    result |= _oldRotation != transform.rotation;
 
-    <span class="n">_oldPosition</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
-    <span class="n">_oldRotation</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">;</span>
+    _oldPosition = transform.position;
+    _oldRotation = transform.rotation;
 
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-<p>These workarounds have the same drawbacks as discussed above, but they are much
-smaller now that they are reduced to just two cases.</p>
-</div>
-<div class="section" id="only-work-when-enabled">
-<h2>Only work when enabled</h2>
-<p>The final optimisation  is to not  work at al l when not necessary:  a renderer
+    return result;
+}</code></pre><p>These workarounds have the same drawbacks as discussed above, but they are much
+smaller now that they are reduced to just two cases.</p><h2>Only work when enabled</h2><p>The final optimisation  is to not  work at al l when not necessary:  a renderer
 will not perform any of  these tasks when it is disabled.  This is the simplest
 of all, we unsubscribe from all events, the rendering system skips the renderer
 and nothing  is drawn.  Aside from  its  memory footprint  the renderer  has no
 impact on the game.  Disabling a renderer is done the same way as for any other
 Unity script,  either by  unchecking the  box in  the editor  or by setting the
 <code>enabled</code>  member  variable  to <code>false</code>.  This  was  not  possible  in previous
-versions where the renderer and the grid were one and the same object.</p>
-</div>
-
-	</article>
-
-	<footer>
-		<!-- Navigation items (next/previous) -->
-		<nav>
-			<h1>Previous/next article</h1>
-			<ul class="pager">
-				<li class="previous">
-					<a href="http://hiphish.github.io/grid-framework/news/2016/01/25/namespace-everything/" rel="prev">
-						<span aria-hidden="true">&larr;</span> Namespaces for everything
-					</a>
-				</li>
-				<li class="next">
-					<a href="http://hiphish.github.io/grid-framework/news/2016/03/05/official-extensions/" rel="next">
-						Official extension methods <span aria-hidden="true">&rarr;</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</footer>
-</main>
-	</section>
-
-	<!-- "Left" pillar, article navigation -->
-	<nav class="well">
-		<!-- This navigator contains links to the various archive types. -->
-		<h1>Blog navigation</h1>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/archives/">
-					Archives
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2018/">
-						2018 (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2017/">
-						2017 (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2016/">
-						2016 (16)
-					</a>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/11/">
-								November (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/06/">
-								June (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/05/">
-								May (4)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/04/">
-								April (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/03/">
-								March (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/02/">
-								February (1)
-							</a>
-							<ul>
-								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2016/02/02/keeping-renderers-updated/">
-										Keeping the renderers updated and efficient
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2016/01/">
-								January (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2015/">
-						2015 (13)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2014/">
-						2014 (8)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2013/">
-						2013 (19)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2012/">
-						2012 (40)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/categories/">
-					Categories
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/misc/">
-						misc (23)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/organisation/">
-						organisation (6)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/progress/">
-						progress (27)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/release/">
-						release (42)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/tips/">
-						tips (2)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/tags/">
-					Tags
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/spheric/">
-						spheric (2)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/coordinate-system/">
-						coordinate-system (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/asset-store/">
-						asset-store (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
-						old-blog (73)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/example/">
-						example (7)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/rant/">
-						rant (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/how-to/">
-						how-to (6)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/extension/">
-						extension (4)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/api-change/">
-						API-change (1)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<aside>
-			<h1>Subscription options</h1>
-			<strong>
-				Subscribe:
-				<a href="http://hiphish.github.io/grid-framework/news/rss.xml">RSS</a>
-				<a href="http://hiphish.github.io/grid-framework/news/atom.xml">Atom</a>
-			</strong>
-		</aside>
-	</nav>
-</section>
-		</section>
-
-		<!-- Footer of the website -->
-		<footer>
-			<div class="container">
-				<div class="col-md-8 footer-self">
-					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
-						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-					</a>
-					<p class="text-muted">
-						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-					</p>
-				</div>  <!-- /.col-md-8 -->
-
-				<div class="col-md-4 footer-social">
-					<span class="pull-right">
-						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-						</a>
-						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-						</a>
-					</span>  <!-- /.pull-right -->
-				</div>  <!-- /.col-md-4 -->
-			</div>
-		</footer>
-	</body>
-</html>
-
+versions where the renderer and the grid were one and the same object.</p><footer><hr /><nav><ul class="pager"><li class="previous"><a href="../../../../2016/01/25/namespace-everything/" rel="prev"><span aria-hidden="true">←</span> Namespaces for everything</a></li><li class="next"><a href="../../../../2016/03/05/official-extensions/" rel="next">Official extension methods <span aria-hidden="true">→</span></a></li></ul></nav></footer></article></main></section><nav class="well"><h1>Blog navigation</h1><nav><h1><a href="/grid-framework/news/archive/">Archive</a></h1><ul><li><a href="/grid-framework/news/2018/">2018 (1)</a></li><li><a href="/grid-framework/news/2017/">2017 (3)</a></li><li><a href="/grid-framework/news/2016/">2016 (16)</a></li><li><a href="/grid-framework/news/2015/">2015 (13)</a></li><li><a href="/grid-framework/news/2014/">2014 (8)</a></li><li><a href="/grid-framework/news/2013/">2013 (19)</a></li><li><a href="/grid-framework/news/2012/">2012 (40)</a></li></ul></nav><nav><h1><a href="/grid-framework/news/categories/">Categories</a></h1><ul><li><a href="/grid-framework/news/categories/tips/">tips (2)</a></li><li><a href="/grid-framework/news/categories/organisation/">organisation (6)</a></li><li><a href="/grid-framework/news/categories/progress/">progress (26)</a></li><li><a href="/grid-framework/news/categories/misc/">misc (24)</a></li><li><a href="/grid-framework/news/categories/release/">release (42)</a></li></ul></nav><nav><h1><a href="/grid-framework/news/tags/">Tags</a></h1><ul><li><a href="/grid-framework/news/tags/API-change/">API-change (1)</a></li><li><a href="/grid-framework/news/tags/extension/">extension (4)</a></li><li><a href="/grid-framework/news/tags/how-to/">how-to (6)</a></li><li><a href="/grid-framework/news/tags/rant/">rant (3)</a></li><li><a href="/grid-framework/news/tags/example/">example (7)</a></li><li><a href="/grid-framework/news/tags/old-blog/">old-blog (74)</a></li><li><a href="/grid-framework/news/tags/asset-store/">asset-store (1)</a></li><li><a href="/grid-framework/news/tags/coordinate-system/">coordinate-system (1)</a></li><li><a href="/grid-framework/news/tags/spheric/">spheric (1)</a></li></ul></nav><aside><strong>Subscribe:</strong> <a href="/grid-framework/news/rss.xml" type="application/rss+xml">RSS</a></aside></nav></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>

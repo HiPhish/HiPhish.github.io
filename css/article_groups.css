@@ -1,0 +1,11 @@
+.blog-body > section > nav > h1 {
+	display: none;
+}
+
+.blog-body > section > h1 {
+	display: none;
+}
+
+.blog-body > section ul {
+}
+

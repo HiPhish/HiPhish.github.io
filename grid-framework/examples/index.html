@@ -1,519 +1,97 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Examples - Grid Framework-Grid Framework</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/grid-framework.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><h1>HTML-page body</h1><header><nav id="main-navbar" class="navbar navbar-default"><h1>Site-wide navigation bar</h1><div class="container-fluid"><input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox" /><div class="navbar-header"><label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></label><a class="navbar-brand" href="/">HiPhish's Workshop</a></div><div class="collapse navbar-collapse" id="main-navbar-collapse"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" href="/grid-framework/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grid Framework</a><ul class="dropdown-menu"><li><a href="/grid-framework/">Overview</a></li><li class="divider" role="separator"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li class="divider" role="separator"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li class="divider" role="separator"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/open-source/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open Source</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/vim/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vim/Nvim plugins</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></div></div></nav></header><section class="container"><h1>Document body</h1><nav class="local-nav"><h1>Sub-site navigation bar</h1><ul><li><a href="/grid-framework/">Grid Framework</a></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498/">Buy <span class="badge">35$</span></a></li></ul></nav><section class="col-md-12 container"><p>To help you get started Grid Framework comes with several examples
+      showing you how to implement from scratch features commonly found in
+      games, such as moving along a grid, using the grid for game logic like in
+      a puzzle game, assembling a level or even extending Grid Framework with
+      your own methods without touching the source code of Grid Framework
+      itself.</p><p>The source code has comments explaining the idea behind almost every line
+       of code. I also have tutorial videos where I build those examples from
+       scratch and explain the idea behind the code, for those of you who prefer
+       learning by doing rather than having the source code served to them in
+       one go.</p><p>Click a title to get to a playable build, or watch a video of me coding
+       the example live. These videos were recorded at different points in Grid
+       Frameworks development and the interface and usability may appear more
+       crude than it currently is. If the example doesn't load right away
+       please be patient.</p><hr /><iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" class="pull-right"></iframe><h1 id="movement"><a href="movement/">Moving along a grid</a></h1><p>One of the most common uses for grids is movement. Maybe you have a
+        tactical game, or a board game or you just want the old-school feel of
+        tile based games.  In this example we convert the hero's world
+        coordinates to grid coordinates and then move it in grid space before
+        converting the result back to world space. As an extra touch we can
+        limit the hero to only stay within the bounds of the grid size. We
+        need this because grids are infinitely large, so the sphere could
+        wander off into infinity.</p><p>This example demonstrates one of the simplest and most common uses for
+        Grid Framework: converting between coordinate systems. We take the
+        object's current position, convert is to grid space, add a direction to
+        it, convert the result back to world space and use that as the
+        destination of our movement function.</p><div class="highlight"><pre>var goal = grid.WorldToGrid(transform.position)
+goal += Vector3.right;
+transform.position = grid.GridToWorld(goal);</pre></div><p>This alone is not that interesting, so let's limit the player to the
+         visible region of the grid. Every grid is infinitely large, but the <em>renderer</em> has a range we can use as limits before converting back
+        to world coordinates:</p><div class="highlight"><pre>if (goal.x &lt; _renderer.From.x || goal.x &gt; _renderer.To.x)
+    return;
+if (goal.y &lt; _renderer.From.y || goal.y &gt; _renderer.To.y)
+    return;</pre></div><p>As a final touch, let's use Grid Framework to store the map of the
+        game.  It will know which tiles are OK to walk on and which ones are
+        obstacles.  We will use a 2D array to keep track of the game; each
+        entry's row and column corresponds to the tile's X- and Y coordinates
+        in the grid.</p><div class="highlight"><pre>// After checking for range, before converting to world coordinates
+if (!FreeTile(_goal)) {
+    return;
+}
 
-		<title>
-Examples - Grid Framework - Grid Framework
-		</title>
-		
-		<!-- Bootstrap integration -->
-		<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
-		crossorigin="anonymous"/>
+// Building the matrix
+var rows    = Mathf.FloorToInt(_renderer.To.x);
+var columns = Mathf.FloorToInt(_renderer.To.y);
 
-		<!-- Bootstrap customisation -->
-		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
+_tiles = new bool[rows, columns];
 
-		<!-- My own style sheets -->
-		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
+// Checking a tile (grid coordinates)
+var r = Mathf.FloorToInt(tile.x);
+var c = Mathf.FloorToInt(tile.y);
+return _tiles[r, c];</pre></div><iframe title="YouTube video player" src="http://www.youtube.com/embed/sXlagrglfQ8" class="pull-right"></iframe><h1 id="lights"><a href="lights/">Lights-out puzzle game</a></h1><p>Here we learn how write a simple puzzle game where the goal is to turn
+        all the lights off and every time you click a light that light and the
+        four adjacent ones flip their state. No light knows anything about its
+        surrounding lights, making this game very flexible, you can have all
+        sorts of crazy shapes and holes in it.</p><p>The core of this example is comparing the grid coordinates of the
+        tiles to the one tile that was clicked to decide whether to switch
+        colour. The logic is nicely encapsulated in a custom extension method,
+        making it appear as if has always been part of Grid Framework.</p><div class="highlight"><pre>if(theGrid.IsAdjacent(transform.position, switchPosition)){
+    //flip the state of this switch
+    isOn = !isOn;}</pre></div><p>This extension method is not part of Grid Framework's API, but we can
+        use it as if it were.</p><iframe title="YouTube video player" src="http://www.youtube.com/embed/lvYWbJ8ohkA" class="pull-right"></iframe><h1 id="level-design"><a href="level-design/">Assembling a level from data</a></h1><p>In this example we create a bubble puzzle field from an array by
+        placing objects on the grid according to the position inside the array.
+        This approach has several advantages; most obviously it is faster and
+        easier to design levels in data than in an editor, you can add new
+        levels very easily, parse them from files, add a level editor, or allow
+        players to add their own levels. Instead of having a separate scene for
+        each level we only need one scene, we can build new levels without
+        having to worry about carrying the background or music from scene to
+        scene, allowing for seamless transition.</p><p>The core of this example is the position of a entries in the array,
+        i.e.  the row and column.  We use these array coordinates as grid
+        coordinates and convert them to world coordinates.</p><div class="highlight"><pre>Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));</pre></div><iframe title="YouTube video player" src="http://www.youtube.com/embed/QqUzcthkvcc" class="pull-right"></iframe><h1 id="snapping"><a href="snapping/">Runtime snapping</a></h1><p>If you want to allow the user to place object only on the grid, then
+        this example is for you.  Snapping is a two-step process: first we move
+        the object to where the cursor is pointing, then we correct the
+        position.</p><div class="highlight"><pre>transform.position = cursorWorldPoint;
+grid.AlignTransform(transform);</pre></div><h1 id="endless"><a href="endless/">Seemingly endless grid</a></h1><p>Grids are infinity large when it come to calculations, but rendering
+        an infinite amount of lines is impossible.  We will use a trick instead
+        where we dynamically adjust the rendering range of the grid according
+        to the camera.  The result is a seamless illusion that only renders the
+        bare minimum and only updates when it has to.</p><div class="highlight"><pre>for (int i = 0; i &lt; 3; i++) {
+    rangeShift[i] += transform.position[i] - lastPosition[i];
+}
 
-		<!-- These style sheets are specific to this page -->
-		<link rel="stylesheet" href="/css/grid-framework.css" type="text/css" media="all"/>
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
-
-		<!-- Bootstrap Javascript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h1>HTML-page body</h1>
-		<header>
-			<!-- Top navigation bar -->
-			<nav id="main-navbar" class="navbar navbar-default">
-				<h1>Site-wide navigation bar</h1>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="container-fluid">
-					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</label>
-						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="main-navbar-collapse">
-						<!-- The list of navbar items -->
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework">
-											Overview										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/features">
-											Features										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/examples">
-											Examples										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/gallery">
-											Gallery										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/showcase">
-											Showcase										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/faq">
-											FAQ										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/news">
-											News										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-											Support										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-											Buy Now <span class="badge">35$</span>										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Open Source <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-											NTFS-Clone										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-											roll										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-											Newton's Method in C										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-											Xeen Tools										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-											Wolf3D Extract										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-											Game Source Documentation										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Nvim/Vim Plugins <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
-											Info.vim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
-											REPL.nvim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
-											jinja.vim										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-								<li class=" ">
-									<a href="/blog">
-										Blog									</a>
-								</li>
-								<li class=" ">
-									<a href="/about">
-										About									</a>
-								</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<section class="container">
-			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
-			</a>
-		</li>
-
-		<li class="active">
-			Examples <span class="sr-only">(current)</span>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/gallery">
-				Gallery
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/faq">
-				FAQ
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news">
-				News
-			</a>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-
-<!-- Main content of the page is located here -->
-<main class="col-md-12 container">
-	
-<p>
-			To help you get started Grid Framework comes with several examples
-			showing you how to implement from scratch features commonly found in
-			games, such as moving along a grid, using the grid for game logic like in
-			a puzzle game, assembling a level or even extending Grid Framework with
-			your own methods without touching the source code of Grid Framework
-			itself.
-		</p>
-<p>
-			The source code has comments explaining the idea behind almost every line
-			of code. I also have tutorial videos where I build those examples from
-			scratch and expain the idea behind the code, for those of you who prefer
-			learning by doing rather than having the source code served to them in
-			one go.
-		</p>
-<p>
-			Click a title to get to a playable build, or watch a video of me coding
-			the example live. These videos were recorded at different points in Grid
-			Framworks development and the interface and usability may appear more
-			crude than it currently is. If the example doesn't load right away please
-			be patient.
-		</p>
-<hr/>
-<iframe class="pull-right" src="http://www.youtube.com/embed/m9_efVi_tFs" title="YouTube video player"></iframe>
-<h1 id="movement"><a href="./movement">Moving along a grid</a></h1>
-<p>
-			One of the most common uses for grids is movement. Maybe you have a tactical
-			game, or a board game or you just want the old-school feel of tile based games.
-			In this example we convert the hero's world coordinates to grid coordinates and
-			then move it in grid space before converting the result back to world space. As
-			an extra touch we can limit the hero to only stay within the bounds of the
-			grid size. We need this because grids are infinitely large, so the sphere could
-			wander off into infinity.
-		</p>
-<p>
-			This example demonstrates one of the simplest and most common uses
-			for Grid Framework: converting between coordinate systems. We take
-			the object's current position, convert is to grid space, add a
-			direction to it, convert the result back to world space and use
-			that as the destination of our movement function.
-		</p>
-<!-- var goal = grid.WorldToGrid(transform.position) -->
-<!-- goal += Vector3.right; -->
-<!-- transform.position = grid.GridToWorld(goal); -->
-<div class="highlight">
-<pre>
-<span class="kt">var</span> <span class="n">goal</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">WorldToGrid</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">)</span>
-<span class="n">goal</span> <span class="p">+=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">right</span><span class="p">;</span>
-<span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">goal</span><span class="p">);</span></pre>
-</div>
-<p>
-			This alone is not that interesting, so let's limit the player to the
-			visible region of the grid. Every grid is infinitely large, but the
-			<em>renderer</em> has a range we can use as limits before converting back
-			to world coordinates:
-		</p>
-<!-- if (goal.x < _renderer.From.x || goal.x > _renderer.To.x) -->
-<!-- return; -->
-<!-- if (goal.y < _renderer.From.y || goal.y > _renderer.To.y) -->
-<!-- return; -->
-<div class="highlight">
-<pre>
-<span class="k">if</span> <span class="p">(</span><span class="n">goal</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">From</span><span class="p">.</span><span class="n">x</span> <span class="p">||</span> <span class="n">goal</span><span class="p">.</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">goal</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">From</span><span class="p">.</span><span class="n">y</span> <span class="p">||</span> <span class="n">goal</span><span class="p">.</span><span class="n">y</span> <span class="p">&gt;</span> <span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
-        <span class="k">return</span><span class="p">;</span></pre>
-</div>
-<p>
-			As a final touch, let's use Grid Framework to store the map of the game.
-			It will know which tiles are OK to walk on and which ones are obstacles.
-			We will use a 2D array to keep track of the game; each entry's row and
-			column corresponds to the tile's X- and Y coordinates in the grid.
-		</p>
-<!-- // After checking for range, before converting to world coordinates -->
-<!-- if (!FreeTile(_goal)) { -->
-<!-- 	return; -->
-<!-- } -->
-<!-- // Building the matrix -->
-<!-- var rows    = Mathf.FloorToInt(_renderer.To.x); -->
-<!-- var columns = Mathf.FloorToInt(_renderer.To.y); -->
-<!-- _tiles = new bool[rows, columns]; -->
-<!-- // Checking a tile -->
-<!-- var r = Mathf.FloorToInt(tile.x); -->
-<!-- var c = Mathf.FloorToInt(tile.y); -->
-<!-- return _tiles[r, c]; -->
-<div class="highlight">
-<pre>
-<span class="c1">// After checking for range, before converting to world coordinates</span>
-<span class="k">if</span> <span class="p">(!</span><span class="n">FreeTile</span><span class="p">(</span><span class="n">_goal</span><span class="p">))</span> <span class="p">{</span>
-	<span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// Building the matrix</span>
-<span class="kt">var</span> <span class="n">rows</span>    <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
-<span class="kt">var</span> <span class="n">columns</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">_renderer</span><span class="p">.</span><span class="n">To</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-
-<span class="n">_tiles</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">];</span>
-
-<span class="c1">// Checking a tile (grid coordinates)</span>
-<span class="kt">var</span> <span class="n">r</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
-<span class="kt">var</span> <span class="n">c</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">FloorToInt</span><span class="p">(</span><span class="n">tile</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-<span class="k">return</span> <span class="n">_tiles</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">];</span></pre>
-</div>
-<hr/>
-<iframe class="pull-right" src="http://www.youtube.com/embed/sXlagrglfQ8" title="YouTube"></iframe>
-<h1 id="lights"><a href="./lights">lights-out puzzle game</a></h1>
-<p>
-			Here we learn how write a simple puzzle game where the goal is to turn all the
-			lights off and every time you click a light that light and the four adjacent
-			ones flip their state. No light knows anything about its surrounding lights,
-			making this game very flexible, you can have all sorts of crazy shapes and
-			holes in it.
-		</p>
-<p>
-			The core of this example is comparing the grid coordinates of the tiles
-			to the one tile that was clicked to decide whether to switch colour. The
-			logic is nicely encapsulated in a custom extension method, making it
-			appear as if has always been part of Grid Framework.
-		</p>
-<!-- if(theGrid.IsAdjacent(transform.position, switchPosition)){ -->
-<!--     //flip the state of this switch                         -->
-<!--     isOn = !isOn;                                           -->
-<!-- }                                                           -->
-<div class="highlight">
-<pre>
-<span class="k">if</span><span class="p">(</span><span class="n">theGrid</span><span class="p">.</span><span class="n">IsAdjacent</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">switchPosition</span><span class="p">)){</span>
-  <span class="c1">//flip the state of this switch</span>
-  <span class="n">isOn</span> <span class="p">=</span> <span class="p">!</span><span class="n">isOn</span><span class="p">;</span>
-<span class="p">}</span>
-</pre>
-</div>
-<p>This extension method is not part of Grid Framework's API, but we can use it as if it were.</p>
-<hr/>
-<iframe class="pull-right" id="assembling" src="http://www.youtube.com/embed/lvYWbJ8ohkA" title="YouTube"></iframe>
-<h1 id="level-design"><a href="./level-design">Assembling a level from data</a></h1>
-<p>
-			In this example we create a bubble puzzle field from an array by placing
-			objects on the grid according to the position inside the array. This
-			approach has several advantages; most obviously it is faster and easier
-			to design levels in data than in an editor, you can add new levels very
-			easily, parse them from files, add a level editor, or allow players to
-			add their own levels. Instead of having a separate scene for each level
-			we only need one scene, we can build new levels without having to worry
-			about carrying the background or music from scene to scene, allowing for
-			seamless transition.
-		</p>
-<p>
-			The core of this example is the position of a entries in the array, i.e.
-			the row and column.  We use these array coordinates as grid coordinates
-			and convert them to world coordinates.
-		</p>
-<!-- Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0)); -->
-<div class="highlight">
-<pre>
-<span class="n">Vector3</span> <span class="n">targetPosition</span> <span class="p">=</span> <span class="n">levelGrid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="m">0</span><span class="p">));</span>
-</pre>
-</div>
-<hr/>
-<iframe class="pull-right" src="http://www.youtube.com/embed/QqUzcthkvcc" title="YouTube"></iframe>
-<h1 id="snapping"><a href="./snapping">Runtime snapping</a></h1>
-<p>
-			If you want to allow the user to place object only on the grid, then this
-			example is for you.	Snapping is a two-step process: first we move the
-			object to where the cursor is pointing, then we correct the position.
-		</p>
-<!-- transform.position = cursorWorldPoint; -->
-<!-- grid.AlignTransform(transform);        -->
-<div class="highlight">
-<pre>
-<span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">cursorWorldPoint</span><span class="p">;</span>
-<span class="n">grid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">);</span>
-</pre>
-</div>
-<hr/>
-<h1 id="endless"><a href="./endless">Seemingly endless grid</a></h1>
-<p>
-			Grids are infinity large when it come to calculations, but rendering an
-			infinite amount of lines is impossible.  We will use a trick instead
-			where we dynamically adjust the rendering range of the grid according
-			to the camera.  The result is a seamless illusion that only renders the
-			bare minimum and only updates when it has to.
-		</p>
-<!-- for (int i = 0; i < 3; i++) {                              -->
-<!-- 	rangeShift[i] += transform.position[i] - lastPosition[i]; -->
-<!-- }                                                          -->
-<!-- -->
-<!-- renderer.From += rangeShift;                               -->
-<!-- renderer.To   += rangeShift;                               -->
-<div class="highlight">
-<pre>
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
-  <span class="n">rangeShift</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span> <span class="n">lastPosition</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="p">}</span>
-
-<span class="n">renderer</span><span class="p">.</span><span class="n">From</span> <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
-<span class="n">renderer</span><span class="p">.</span><span class="n">To</span>   <span class="p">+=</span> <span class="n">rangeShift</span><span class="p">;</span>
-</pre>
-</div>
-<hr/>
-<h1 id="terrain"><a href="./terrain">Terrain mesh generation</a></h1>
-<p>
-			We generate a mesh as a SimCity-like terrain from data. Clicking a vertex
-			raises or lowers it. Everything is accomplished be converting from grid
-			coordinates to world coordinates.
-		</p>
-<hr/>
-<h1 id="dial"><a href="./dial">Rotary dial</a></h1>
-<p>
-			A rotary dial as it would have been found on older phones. When the
-			player clicks a sector of this polar grid the grid coordinates are used
-			to determine which number was selected and use it to control the
-			animation and print that number on the console.
-		</p>
-<hr/>
-<h1 id="sliding"><a href="./sliding">Sliding puzzle</a></h1>
-<p>
-			Sometimes Unit's physics engine is too good for its own good and we need something
-			simpler instead. In a sliding puzzle it is common for blocks to be touching each
-			other with no space between, yet the player will expect there to be no friction.
-			In this example we use Grid Framework to construct a matrix of cells and track for
-			each cell whether it's free or occupied. Then we restrict movement of the blocks
-			based on that information.
-		</p>
-<hr/>
-<h1 id="snake"><a href="./snake">Snake game</a></h1>
-<p>
-			Another example of tile-base movement. The snake is made of several
-			segments, linked together using a list. Only the head moves, the other
-			segments follow their parent.
-		</p>
-<h1 id="vectrosity"><a href="./vectrosity">Vectrosity support</a></h1>
-<p>
-			Having some fun with Vectrosity and laser lines. The grids can move around or
-			even change their properties at runtime.
-		</p>
-
-</main>		</section>
-
-		<!-- Footer of the website -->
-		<footer>
-			<div class="container">
-				<div class="col-md-8 footer-self">
-					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
-						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-					</a>
-					<p class="text-muted">
-						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-					</p>
-				</div>  <!-- /.col-md-8 -->
-
-				<div class="col-md-4 footer-social">
-					<span class="pull-right">
-						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-						</a>
-						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-						</a>
-					</span>  <!-- /.pull-right -->
-				</div>  <!-- /.col-md-4 -->
-			</div>
-		</footer>
-	</body>
-</html>
-
+renderer.From += rangeShift;
+renderer.To   += rangeShift;</pre></div><h1 id="terrain"><a href="terrain/">Terrain mesh generation</a></h1><p>We generate a mesh as a SimCity-like terrain from data. Clicking a
+        vertex raises or lowers it. Everything is accomplished be converting
+        from grid coordinates to world coordinates.</p><h1 id="dial"><a href="dial/">Rotary dial</a></h1><p>A rotary dial as it would have been found on older phones. When the
+        player clicks a sector of this polar grid the grid coordinates are used
+        to determine which number was selected and use it to control the
+        animation and print that number on the console.</p><h1 id="sliding"><a href="sliding/">Sliding puzzle</a></h1><p>Sometimes Unit's physics engine is too good for its own good and we
+        need something simpler instead. In a sliding puzzle it is common for
+        blocks to be touching each other with no space between, yet the player
+        will expect there to be no friction.  In this example we use Grid
+        Framework to construct a matrix of cells and track for each cell
+        whether it's free or occupied. Then we restrict movement of the blocks
+        based on that information.</p><h1 id="snake"><a href="snake/">Snake game</a></h1><p>Another example of tile-base movement. The snake is made of several
+        segments, linked together using a list. Only the head moves, the other
+        segments follow their parent.</p><h1 id="vectrosity"><a href="vectrosity/">Vectrosity support</a></h1><p>Having some fun with Vectrosity and laser lines. The grids can move
+        around or even change their properties at runtime.</p></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>

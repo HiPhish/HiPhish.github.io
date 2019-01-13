@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop - tips</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Sat, 30 Mar 2013 00:00:00 +0100</lastBuildDate><item><title>Seemingly endless grids and performance</title><link>http://hiphish.github.io/grid-framework/news/2013/03/30/endless-grid/</link><description>&lt;p&gt;I've been dealing with performance in Grid Framework recently and added a
-feature that will keep the Garbage Collector from going crazy. Until now
-rendering always went like this: Manager requests rendering from grid -&amp;gt; grid
-calculates the end points of each line -&amp;gt; these points get passed to Unity's GL
-class …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Sat, 30 Mar 2013 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2013-03-30:/grid-framework/news/2013/03/30/endless-grid/</guid><category>old-blog</category><category>example</category></item><item><title>How to extend Grid Framework with your own methods</title><link>http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/</link><description>&lt;p&gt;Let's say you just bought Grid Framework, wrote some game logic and now you
-want to reuse it. Wouldn't it be great if it was a class method in Grid
-Framework so you could simply call it with one line of code? Even better, what
-if you could have one …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Mon, 24 Dec 2012 00:00:00 +0100</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2012-12-24:/grid-framework/news/2012/12/24/how-to-extend/</guid><category>extension</category></item></channel></rss>

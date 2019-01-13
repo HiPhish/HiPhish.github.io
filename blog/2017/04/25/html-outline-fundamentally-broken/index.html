@@ -1,366 +1,77 @@
-
-
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<title>
-			HiPhish's Workshop
-		</title>
-		
-		<!-- Bootstrap integration -->
-		<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
-		crossorigin="anonymous"/>
-
-		<!-- Bootstrap customisation -->
-		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
-
-		<!-- My own style sheets -->
-		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
-	
-<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-		<!-- Bootstrap Javascript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h1>HTML-page body</h1>
-		<header>
-			<!-- Top navigation bar -->
-			<nav id="main-navbar" class="navbar navbar-default">
-				<h1>Site-wide navigation bar</h1>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="container-fluid">
-					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</label>
-						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="main-navbar-collapse">
-						<!-- The list of navbar items -->
-						<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework">
-											Overview										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/features">
-											Features										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/examples">
-											Examples										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/gallery">
-											Gallery										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/showcase">
-											Showcase										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/faq">
-											FAQ										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/news">
-											News										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-											Support										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-											Buy Now <span class="badge">35$</span>										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Open Source <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-											NTFS-Clone										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-											roll										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-											Newton's Method in C										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-											Xeen Tools										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-											Wolf3D Extract										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-											Game Source Documentation										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Nvim/Vim Plugins <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
-											Info.vim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
-											REPL.nvim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
-											jinja.vim										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-								<li class=" ">
-									<a href="/blog">
-										Blog									</a>
-								</li>
-								<li class=" ">
-									<a href="/about">
-										About									</a>
-								</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<section class="container">
-			<h1>Document body</h1>
-
-
-<section class="blog-body">
-	<h1>Blog</h1>
-
-	<!-- Article body -->
-	<section>
-<main>
-	<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
-	<h1>Breadcrumbs navigation</h1>
-	<ol class="breadcrumb">
-		<li>
-			<a href="http://hiphish.github.io/blog/">
-				blog
-			</a>
-		</li>
-		<li>
-			<a href="http://hiphish.github.io/blog/2017/">
-				2017
-			</a>
-		<li>
-			<a href="http://hiphish.github.io/blog/2017/04/">
-				04
-			</a>
-		<li class="active">
-			25
-		</li>
-		<li class="active">
-			html-outline-fundamentally-broken
-		</li>
-	</ol>
-</nav>
-
-
-	<article>
-		<!-- Title of the article -->
-		<h1>
-			<a href="http://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/" rel="bookmark" title="Permalink to Outlining of HTML pages is fundamentally broken">
-				Outlining of HTML pages is fundamentally broken
-			</a>
-		</h1>
-
-		<header>
-<!-- Date of the article -->
-			<p>
-				<time class="published" datetime="2017-04-25T00:00:00+02:00">
-					Published: 2017-04-25
-				</time>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Category:
-				<a class="" href="http://hiphish.github.io/blog/categories/misc/">
-					misc
-				</a>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Tags:
-				<a class="" href="http://hiphish.github.io/blog/tags/html/">
-					html
-				</a>
-				<a class="" href="http://hiphish.github.io/blog/tags/outline/">
-					outline
-				</a>
-				<a class="" href="http://hiphish.github.io/blog/tags/rant/">
-					rant
-				</a>
-			</p>
-		</header>
-
-		<!-- Content of the article -->
-		<p>If you were to run the Workshop through an HTML validator you would notice a
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/article.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><h1>HTML-page body</h1><header><nav id="main-navbar" class="navbar navbar-default"><h1>Site-wide navigation bar</h1><div class="container-fluid"><input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox" /><div class="navbar-header"><label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></label><a class="navbar-brand" href="/">HiPhish's Workshop</a></div><div class="collapse navbar-collapse" id="main-navbar-collapse"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" href="/grid-framework/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grid Framework</a><ul class="dropdown-menu"><li><a href="/grid-framework/">Overview</a></li><li class="divider" role="separator"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li class="divider" role="separator"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li class="divider" role="separator"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/open-source/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open Source</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/vim/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vim/Nvim plugins</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></div></div></nav></header><section class="container"><h1>Document body</h1><section class="col-md-12 container"><h1>Blog</h1><section><nav class="blog-breadcrumbs" aria-label="Breadcrumbs"><h1>Breadcrumbs navigation</h1><ol class="breadcrumb"><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2017</a></li><li class=""><a href="../..">04</a></li><li class="active">25</li><li class="active">html-outline-fundamentally-broken</li></ol></nav><main><article><h1><a href="." title="Permalink to Outlining of HTML pages is fundamentally broken" rel="bookmark">Outlining of HTML pages is fundamentally broken</a></h1><header><p><time class="published" datetime="2017-04-25">Published: 2017-04-25</time></p><p>Category: <a href="../../../../categories/misc/">misc</a></p><p>Tags: <a href="../../../../tags/html/">html </a><a href="../../../../tags/rant/">rant </a><a href="../../../../tags/outline/">outline </a></p></header><p>If you were to run the Workshop through an HTML validator you would notice a
 lot of warnings about the document outline. What is going on here? HTML 5
-defines an <a class="reference external" href="https://www.w3.org/TR/html5/sections.html#outline">outline algorithm</a> which allows browsers and assistive
+defines an <a href="https://www.w3.org/TR/html5/sections.html#outline">outline algorithm</a> which allows browsers and assistive
 technologies to create an outline of the page. In theory a blind person could
 ask their reader for the outline of the page and get a sort of table of
-contents which they could use to quickly jump to a specific part of the page.</p>
-<p>The problem is the “in theory” part. The outline algorithm has not been
-implemented in any of the common browsers and it probably <a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/">never will be</a>.
+contents which they could use to quickly jump to a specific part of the page.</p><p>The problem is the “in theory” part. The outline algorithm has not been
+implemented in any of the common browsers and it probably <a href="http://html5doctor.com/computer-says-no-to-html5-document-outline/">never will be</a>.
 Instead authors are supposed to use the rank of headings <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>
-to convey the outline of the document, which is a fundamentally broken concept.</p>
-<div class="section" id="html-does-not-know-what-it-wants-to-be">
-<h2>HTML does not know what it wants to be</h2>
-<p>HTML was originally an application of <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language">SGML</a>, it was meant to mark up documents.
-As such the concept of <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> made sense. The contents of the
-document would be inside the <code>&lt;body&gt;</code> and would flow in a one-dimensional way
-from top to bottom.</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>About Grid Framework<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+to convey the outline of the document, which is a fundamentally broken concept.</p><h2>HTML does not know what it wants to be</h2><p>HTML was originally an application of <a href="https://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language">SGML</a>, it was meant to mark up
+documents.  As such the concept of <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> made sense. The
+contents of the document would be inside the <code>&lt;body&gt;</code> and would flow in a
+one-dimensional way from top to bottom.</p><pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;About Grid Framework&lt;/h1&gt;
   Lorem ipsum...
 
-  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Advantages of Grid Framework<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  &lt;h2&gt;Advantages of Grid Framework&lt;/h2&gt;
 
-  <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Advantages over other solutions<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+  &lt;h3&gt;Advantages over other solutions&lt;/h3&gt;
   Lorem ipsum...
 
-  <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Advantages over self-made solutions<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+  &lt;h3&gt;Advantages over self-made solutions&lt;/h3&gt;
   Lorem ipsum...
 
-  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Features of Grid Framework<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  &lt;h2&gt;Features of Grid Framework&lt;/h2&gt;
   Lorem ipsum...
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</pre></div>
-<p>The number of ranks was hard-coded, but six is enough for a document. The
+&lt;/body&gt;</code></pre><p>The number of ranks was hard-coded, but six is enough for a document. The
 headings could be used as targets to jump to, and since the document is
-one-dimensional there is no ambiguity as to what belongs under which heading.</p>
-<p>Of course a product website that looks like it was written in a word processor
+one-dimensional there is no ambiguity as to what belongs under which heading.</p><p>Of course a product website that looks like it was written in a word processor
 does not look appealing, so people began stretching HTML beyond what it was
 meant to be. If you look at the source code of the Workshop you will see that
 everything is built in a tree-like fashion. You have sections within sections,
 multiple navigation items, and two-dimensional layout (some sites even have
-three-dimensional layout with popup elements).</p>
-</div>
-<div class="section" id="html-sectioning-tags-solve-the-problem">
-<h2>HTML sectioning tags solve the problem</h2>
-<p>Prior to HTML 5 this lead to <code>&lt;div&gt;</code>-itis, where the page was littered with
+three-dimensional layout with popup elements).</p><h2>HTML sectioning tags solve the problem</h2><p>Prior to HTML 5 this lead to <code>&lt;div&gt;</code>-itis, where the page was littered with
 <code>&lt;div&gt;</code> elements with no semantic meaning. This is bad, HTML is supposed to be
 all about the content, not the layout. HTML 5 added semantic sectioning, which
 solved the problem: the one-dimensional structure was abandoned in favour of a
 tree-based structure. Authors can still write classic one-dimensional
 documents, but they can also structure the page in terms of sections where
-sections can contain any number of sub-sections:</p>
-<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"logo.svg"</span><span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+sections can contain any number of sub-sections:</p><pre><code class="language-html">&lt;body&gt;
+  &lt;header&gt;
+    &lt;img src=&quot;logo.svg&quot;/&gt;
+    &lt;nav&gt;
       ...
-    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+    &lt;/nav&gt;
+  &lt;header&gt;
+  &lt;section&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;
       ...
-    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+    &lt;/main&gt;
+    &lt;nav&gt;
       ...
-    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">aside</span><span class="p">&gt;</span>
+    &lt;/nav&gt;
+    &lt;aside&gt;
       ...
-    <span class="p">&lt;/</span><span class="nt">aside</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>
+    &lt;/aside&gt;
+  &lt;/section&gt;
+  &lt;footer&gt;
     ...
-  <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</pre></div>
-<p>What about the outline though? Now I know that there is some page element for
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre><p>What about the outline though? Now I know that there is some page element for
 navigation, but which kind of navigation is it? This information is conveyed by
 the old heading elements. Simple enough, just add a <code>&lt;h1&gt;</code> as the first child
 of the section and you are good to go. At least that is how it is supposed to
-work in theory.</p>
-</div>
-<div class="section" id="the-problem-with-hard-coded-heading-ranks">
-<h2>The problem with hard-coded heading ranks</h2>
-<p>Ideally the rank of the heading does not matter to the outline algorithm. We
+work in theory.</p><h2>The problem with hard-coded heading ranks</h2><p>Ideally the rank of the heading does not matter to the outline algorithm. We
 could use a <code>&lt;h1&gt;</code> for every section and the algorithm would count the section
 instead of looking at the rank. Unfortunately this is not implemented in any of
 the major browsers and the <code>&lt;h1&gt;</code> is treated as a page-wide top-level heading.
 In other words, the nesting of our sections is lost and the outline is
-completely flat.</p>
-<p>If you look at the simple example above you will notice that the <code>&lt;main&gt;</code> is a
+completely flat.</p><p>If you look at the simple example above you will notice that the <code>&lt;main&gt;</code> is a
 rank three element, so its proper heading would need to be <code>&lt;h3&gt;</code>. This leaves
 only three more ranks of headings for the contents of the <code>&lt;main&gt;</code>. We are
 still using the old one-dimensional outline method for multi-dimensional
-content.</p>
-<div class="section" id="lack-of-heading-ranks">
-<h3>Lack of heading ranks</h3>
-<p>The code snippet I provided was a very simple example, in reality nesting can
+content.</p><h3>Lack of heading ranks</h3><p>The code snippet I provided was a very simple example, in reality nesting can
 go even deeper. Take the Grid Framework news blog: the list of articles has
 rank four, and every article preview has rank five. If there is a heading in
 the article preview itself that‘s already at rank six, the lowest rank possible
@@ -368,18 +79,10 @@ in HTML. One might argue that I should not have built so many ranks in the
 first place, but I disagree; the top level (1) is the common structure for the
 entire site, the next level (2) is the Grid Framework sub-site, followed by the
 blog structure (3), which contains the list of articles (4). This is all
-logical nesting based on the hierarchy of the page within the site.</p>
-</div>
-<div class="section" id="hard-coded-headings-break-article">
-<h3>Hard-coded headings break <code>&lt;article&gt;</code></h3>
-<p>The problem becomes even more glaring when you consider that an <code>&lt;article&gt;</code>
+logical nesting based on the hierarchy of the page within the site.</p><h3>Hard-coded headings break <code>&lt;article&gt;</code></h3><p>The problem becomes even more glaring when you consider that an <code>&lt;article&gt;</code>
 element is supposed to be an element that can stand on its own without the
 surrounding content, such as a blog post, a comment or a product card. If the
-article cannot have a rank one heading, then it can never stand on its own.</p>
-</div>
-<div class="section" id="automation-concerns">
-<h3>Automation concerns</h3>
-<p>This is also a problem with automatic generation of pages. Take this post as an
+article cannot have a rank one heading, then it can never stand on its own.</p><h3>Automation concerns</h3><p>This is also a problem with automatic generation of pages. Take this post as an
 example: while writing it I should not have to concern myself with the question
 of what ranks the headings will have to have in the surrounding page. In fact,
 I cannot do that, because after changing the template or uploading the post to
@@ -387,243 +90,23 @@ another service or running it through a converter the surrounding ranks could
 be completely different, or the concept of surrounding ranks might not even be
 applicable. Furthermore, what if I run out of ranks? This article already has
 three ranks of titles, now imagine If I wanted to publish actual in-depth
-documents.</p>
-</div>
-</div>
-<div class="section" id="how-could-the-problem-be-solved">
-<h2>How could the problem be solved?</h2>
-<p>The <a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/#comment-2130593">last comment</a> in the <a class="reference external" href="http://html5doctor.com/computer-says-no-to-html5-document-outline/">above linked</a> article describes a good solution:
-use the nesting of a section for the global rank and use <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>
-for local ranks within that section. Every section would begin with a <code>&lt;h1&gt;</code>
-and could contain lesser ranks, but the effective rank of each heading would be
-the sum of the section‘s rank and the rank of the heading. This way it would be
+documents.</p><h2>How could the problem be solved?</h2><p>The <a href="http://html5doctor.com/computer-says-no-to-html5-document-outline/#comment-2130593">last comment</a> in the <a href="http://html5doctor.com/computer-says-no-to-html5-document-outline/">above linked</a> article describes a good solution: use
+the nesting of a section for the global rank and use <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> for
+local ranks within that section. Every section would begin with a <code>&lt;h1&gt;</code> and
+could contain lesser ranks, but the effective rank of each heading would be the
+sum of the section‘s rank and the rank of the heading. This way it would be
 possible to structure pages multi-dimensionally, but still use a
-one-dimensional structure <em>inside</em> a section.</p>
-<p>Taking this blog post as an example again, my generator would use the headings
+one-dimensional structure <em>inside</em> a section.</p><p>Taking this blog post as an example again, my generator would use the headings
 <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> and the browser would figure out the true rank of a
 heading based on how deep the post is actually nested inside the page.
 Furthermore, since this post is an <code>&lt;article&gt;</code> it could be cropped out of the
-page and still make sense on its own.</p>
-<p>So what should I do with the Workshop in the meantime? Nothing. I‘m sorry, but
+page and still make sense on its own.</p><p>So what should I do with the Workshop in the meantime? Nothing. I‘m sorry, but
 the current one-dimensional ranking system simply cannot be made to work with
 this design. In order to make it work I would have to throw away most of the
 tree-based design in favour of a flat design with barely no structure. The cost
 does no outweigh the benefits. Browser manufacturers need to get their houses
 in order, it cannot be that we have WebAssembly and WebGL shaders in our
 browsers, but no way of generating an outline for blind people. This is really
-telling about where their priorities lie.</p>
-<p>And before anyone decides to call me unprofessional for this attitude, try
+telling about where their priorities lie.</p><p>And before anyone decides to call me unprofessional for this attitude, try
 outlining the websites of some of the larger companies who hire professional
-web designers to work on their sites and see what the result looks like.</p>
-</div>
-
-	</article>
-
-	<footer>
-		<!-- Navigation items (next/previous) -->
-		<nav>
-			<h1>Previous/next article</h1>
-			<ul class="pager">
-				<li class="previous">
-					<a href="http://hiphish.github.io/blog/2016/11/20/introducing-infovim/" rel="prev">
-						<span aria-hidden="true">&larr;</span> Introducing info.vim
-					</a>
-				</li>
-				<li class="next">
-					<a href="http://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/" rel="next">
-						Introducing REPL.nvim <span aria-hidden="true">&rarr;</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</footer>
-</main>
-	</section>
-
-	<!-- "Left" pillar, article navigation -->
-	<nav class="well">
-		<!-- This navigator contains links to the various archive types. -->
-		<h1>Blog navigation</h1>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/blog/archives/">
-					Archives
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/blog/2018/">
-						2018 (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/2017/">
-						2017 (4)
-					</a>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/blog/2017/07/">
-								July (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/blog/2017/05/">
-								May (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/blog/2017/04/">
-								April (1)
-							</a>
-							<ul>
-								<li>
-									<a href="http://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/">
-										Outlining of HTML pages is fundamentally broken
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/2016/">
-						2016 (6)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/2015/">
-						2015 (2)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/blog/categories/">
-					Categories
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/blog/categories/ips-tools/">
-						ips-tools (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/categories/misc/">
-						misc (5)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/categories/ntfs-clone/">
-						ntfs-clone (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/categories/open-source/">
-						Open-Source (2)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/categories/organisation/">
-						organisation (4)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/blog/tags/">
-					Tags
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/vim/">
-						vim (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/html/">
-						html (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/rant/">
-						rant (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/outline/">
-						outline (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/info/">
-						info (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/website/">
-						website (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/blog/tags/cocoa/">
-						cocoa (1)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<aside>
-			<h1>Subscription options</h1>
-			<strong>
-				Subscribe:
-				<a href="http://hiphish.github.io/blog/rss.xml">RSS</a>
-				<a href="http://hiphish.github.io/blog/atom.xml">Atom</a>
-			</strong>
-		</aside>
-	</nav>
-</section>
-		</section>
-
-		<!-- Footer of the website -->
-		<footer>
-			<div class="container">
-				<div class="col-md-8 footer-self">
-					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
-						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-					</a>
-					<p class="text-muted">
-						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-					</p>
-				</div>  <!-- /.col-md-8 -->
-
-				<div class="col-md-4 footer-social">
-					<span class="pull-right">
-						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-						</a>
-						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-						</a>
-					</span>  <!-- /.pull-right -->
-				</div>  <!-- /.col-md-4 -->
-			</div>
-		</footer>
-	</body>
-</html>
-
+web designers to work on their sites and see what the result looks like.</p><footer><hr /><nav><ul class="pager"><li class="previous"><a href="../../../../2016/11/20/introducing-info.vim/" rel="prev"><span aria-hidden="true">←</span> Introducing info.vim</a></li><li class="next"><a href="../../../../2017/05/06/introducing-repl-nvim/" rel="next">Introducing REPL.nvim <span aria-hidden="true">→</span></a></li></ul></nav></footer></article></main></section><nav class="well"><h1>Blog navigation</h1><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/ntfs-clone/">ntfs-clone (1)</a></li><li><a href="/blog/categories/ips-tools/">ips-tools (1)</a></li><li><a href="/blog/categories/info.vim/">info.vim (1)</a></li><li><a href="/blog/categories/open-source/">open-source (2)</a></li><li><a href="/blog/categories/misc/">misc (4)</a></li><li><a href="/blog/categories/organisation/">organisation (4)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/website/">website (3)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/outline/">outline (1)</a></li><li><a href="/blog/tags/rant/">rant (1)</a></li><li><a href="/blog/tags/html/">html (1)</a></li><li><a href="/blog/tags/vim/">vim (3)</a></li></ul></nav><aside><strong>Subscribe:</strong> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside></nav></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>

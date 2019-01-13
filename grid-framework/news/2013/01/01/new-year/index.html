@@ -1,340 +1,13 @@
-
-
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<title>
-			HiPhish's Workshop
-		</title>
-		
-		<!-- Bootstrap integration -->
-		<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
-		crossorigin="anonymous"/>
-
-		<!-- Bootstrap customisation -->
-		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
-
-		<!-- My own style sheets -->
-		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="/theme/css/blog.css" type="text/css" media="all">
-	
-<link rel="stylesheet" href="/theme/css/article.css" type="text/css" media="all">
-
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-		<!-- Bootstrap Javascript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h1>HTML-page body</h1>
-		<header>
-			<!-- Top navigation bar -->
-			<nav id="main-navbar" class="navbar navbar-default">
-				<h1>Site-wide navigation bar</h1>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="container-fluid">
-					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</label>
-						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="main-navbar-collapse">
-						<!-- The list of navbar items -->
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework">
-											Overview										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/features">
-											Features										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/examples">
-											Examples										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/gallery">
-											Gallery										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/showcase">
-											Showcase										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/faq">
-											FAQ										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/news">
-											News										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-											Support										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-											Buy Now <span class="badge">35$</span>										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Open Source <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-											NTFS-Clone										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-											roll										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-											Newton's Method in C										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-											Xeen Tools										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-											Wolf3D Extract										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-											Game Source Documentation										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Nvim/Vim Plugins <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
-											Info.vim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
-											REPL.nvim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
-											jinja.vim										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-								<li class=" ">
-									<a href="/blog">
-										Blog									</a>
-								</li>
-								<li class=" ">
-									<a href="/about">
-										About									</a>
-								</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<section class="container">
-			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/examples">
-				Examples
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/gallery">
-				Gallery
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/faq">
-				FAQ
-			</a>
-		</li>
-
-		<li class="active">
-			News <span class="sr-only">(current)</span>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-
-<section class="blog-body">
-	<h1>Blog</h1>
-
-	<!-- Article body -->
-	<section>
-<main>
-	<nav class="blog-breadcrumbs" aria-label="Breadcrumbs">
-	<h1>Breadcrumbs navigation</h1>
-	<ol class="breadcrumb">
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/">
-				news
-			</a>
-		</li>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/2013/">
-				2013
-			</a>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news/2013/01/">
-				01
-			</a>
-		<li class="active">
-			1
-		</li>
-		<li class="active">
-			new-year
-		</li>
-	</ol>
-</nav>
-
-
-	<article>
-		<!-- Title of the article -->
-		<h1>
-			<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/" rel="bookmark" title="Permalink to Happy new year">
-				Happy new year
-			</a>
-		</h1>
-
-		<header>
-<!-- Date of the article -->
-			<p>
-				<time class="published" datetime="2013-01-01T00:00:00+01:00">
-					Published: 2013-01-01
-				</time>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Category:
-				<a class="" href="http://hiphish.github.io/grid-framework/news/categories/misc/">
-					misc
-				</a>
-			</p>
-
-			<!-- TODO: This has to be something nicer than a button -->
-			<p>
-				Tags:
-				<a class="" href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
-					old-blog
-				</a>
-				<a class="" href="http://hiphish.github.io/grid-framework/news/tags/rant/">
-					rant
-				</a>
-			</p>
-		</header>
-
-		<!-- Content of the article -->
-		<p>A happy new year to everyone! This has been quite a year for me, so what better
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop-Grid Framework</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/article.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><h1>HTML-page body</h1><header><nav id="main-navbar" class="navbar navbar-default"><h1>Site-wide navigation bar</h1><div class="container-fluid"><input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox" /><div class="navbar-header"><label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></label><a class="navbar-brand" href="/">HiPhish's Workshop</a></div><div class="collapse navbar-collapse" id="main-navbar-collapse"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" href="/grid-framework/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grid Framework</a><ul class="dropdown-menu"><li><a href="/grid-framework/">Overview</a></li><li class="divider" role="separator"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li class="divider" role="separator"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li class="divider" role="separator"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/open-source/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open Source</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/vim/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vim/Nvim plugins</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></div></div></nav></header><section class="container"><h1>Document body</h1><nav class="local-nav"><h1>Sub-site navigation bar</h1><ul><li><a href="/grid-framework/">Grid Framework</a></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498/">Buy <span class="badge">35$</span></a></li></ul></nav><section class="col-md-12 container"><h1>Blog</h1><section><nav class="blog-breadcrumbs" aria-label="Breadcrumbs"><h1>Breadcrumbs navigation</h1><ol class="breadcrumb"><li class=""><a href="../../../..">news</a></li><li class=""><a href="../../..">2013</a></li><li class=""><a href="../..">01</a></li><li class="active">01</li><li class="active">new-year</li></ol></nav><main><article><h1><a href="." title="Permalink to Happy new year" rel="bookmark">Happy new year</a></h1><header><p><time class="published" datetime="2013-01-01">Published: 2013-01-01</time></p><p>Category: <a href="../../../../categories/misc/">misc</a></p><p>Tags: <a href="../../../../tags/old-blog/">old-blog </a><a href="../../../../tags/rant/">rant </a></p></header><p>A happy new year to everyone! This has been quite a year for me, so what better
 opportunity to recap the birth process and evolution of Grid and set the plans
-for this year?</p>
-<div class="section" id="how-it-all-began">
-<h2>How it all began</h2>
-<p>One day I was sitting at my computer, trying to place blocks in Unity, thinking
+for this year?</p><h2>How it all began</h2><p>One day I was sitting at my computer, trying to place blocks in Unity, thinking
 how great it would be if there was some sort of extension, a framework if you
 will, that would auto snap objects to a grid of my choice. Unity already has
 some form of grid built in, but it's rather poor to say the least.
 Unfortunately a quick Google search didn't yield anything useful, so was left
-waiting for someone who knew how to program a copmputer to make such an
+waiting for someone who knew how to program a computer to make such an
 extension. Then it struck me: I am someone and I know how to program a
-computer!</p>
-</div>
-<div class="section" id="the-first-draft">
-<h2>The first draft</h2>
-<p>So I sat down, took out some pen and paper and started deriving th formulae.
+computer!</p><h2>The first draft</h2><p>So I sat down, took out some pen and paper and started deriving th formulae.
 After a while I had a plan and I wrote a nice simple makeshift solution. It
 worked but in my head all sorts of great ideas popped up. What if the grid was
 in 3D and could be rotated? Would it be possible not to just align objects but
@@ -342,19 +15,14 @@ construct an entire coordinate system out of it? What if the origin of the grid
 was not the origin of the world but any point in space? Would it be possible to
 have more than one grid in the scene? How about entirely different grid shapes
 than just squares? And if all that was possible, wouldn't be possible to use
-the grid for more than just aliging? Could the grid be used for actual
-gameplay?</p>
-<p>The idea at the time was to get the makeshift solution polished up a bit and
+the grid for more than just aligning? Could the grid be used for actual
+gameplay?</p><p>The idea at the time was to get the makeshift solution polished up a bit and
 then give it away for free and ask for a small donation or sell if really
 cheaply. This idea was humble, if you want to be nice, or stupid, if you want
 to be realistic. Essentially, it wouldn't have made any user happy nor would it
 have made me money. No one would win. Fortunately the Asset Store submission
 got lost somehow and remembering the awful drawings I had for the Asset Store
-pictures, it really was for the best.</p>
-</div>
-<div class="section" id="this-time-for-real">
-<h2>This Time For Real</h2>
-<p>The lesson I leared was that if you want to do something do it either right or
+pictures, it really was for the best.</p><h2>This Time For Real</h2><p>The lesson I learned was that if you want to do something do it either right or
 don't do it at all. People will remember a halfassed effort and you will never
 be able to shake it off. Instead I decided to get serious this time, I switched
 my language from JavaScript to C#, dug into the deepest depths of the Unity
@@ -364,44 +32,30 @@ Nonetheless, if I had the chance to travel back in time I wouldn't do anything
 differently (except for some lessons I had to learn the hard way), the
 experience alone of crafting something on your own and working towards a goal
 is very rewarding. I don't think there was anything left from the first draft,
-and even if it was it is all gone by now. Good riddance.</p>
-<p>If it had been just the coding part it would have been enough already. Being a
+and even if it was it is all gone by now. Good riddance.</p><p>If it had been just the coding part it would have been enough already. Being a
 one man team however, I also had to write the documentation, design a logo,
 create the Asset Store promotional material and write descriptions for the
 Store and the forum thread. I never learned anything about marketing, but I did
-work in retail, this is where my exerience came in handy. On the internet I can
-think all day about the description text, but when it comes to talking face to
-face with real people your brain has to act very quickly.</p>
-</div>
-<div class="section" id="the-first-release">
-<h2>The First Release</h2>
-<p>If you were to ask me what the hardest part was, I would say finishing it.
+work in retail, this is where my experience came in handy. On the internet I
+can think all day about the description text, but when it comes to talking face
+to face with real people your brain has to act very quickly.</p><h2>The First Release</h2><p>If you were to ask me what the hardest part was, I would say finishing it.
 There comes a point when you have to draw the line and stop adding new features
 so you can iron out the remaining bugs and wrap up the lose ends. There were
 still some left after the release though, mainly the integration into Unity's
-interface, no cusom inspectors for the grid classes and the complete lack of
+interface, no custom inspectors for the grid classes and the complete lack of
 rendering. I decided to tackle those as quickly as possible, for I was running
-out of time.</p>
-</div>
-<div class="section" id="the-1-1-x-line">
-<h2>The 1.1.x Line</h2>
-<p>I had no idea how to do the rendering and at one point I was considering
+out of time.</p><h2>The 1.1.x Line</h2><p>I had no idea how to do the rendering and at one point I was considering
 imitating Vectrosity's behaviour (after asking for permission of course).
 Anyone who owns Vectrosity and who has taken a look at the code will be blown
 away by all the work of the author, there was no way I could just rip out some
 parts and call it a day. Instead I decided to write my own rendering solution
 and offer Vectrosity support as an option, since I already had a license and
 the two looked like a perfect fit. Both solutions work in fundamentally
-different ways, so users can choose the one they like best. Yay for choice ^^</p>
-<p>After getting rendering, the biggest missing feature, and Vectrosity support
+different ways, so users can choose the one they like best. Yay for choice ^^</p><p>After getting rendering, the biggest missing feature, and Vectrosity support
 out I had two things to do: many small improvements like a custom rendering
 range or additional functions and of course hex grids. This was during the
 summer when I was busy studying for exams, so my work on Grid Framework slowed
-down to a crawl after the first few 1.1.x releases.</p>
-</div>
-<div class="section" id="version-1-2-x-and-hex-grids">
-<h2>Version 1.2.x and hex grids</h2>
-<p>After the exams I was finally able to devote time to Grid Framework again. The
+down to a crawl after the first few 1.1.x releases.</p><h2>Version 1.2.x and hex grids</h2><p>After the exams I was finally able to devote time to Grid Framework again. The
 hardest part about hex grids was not so much the math, although that wasn't
 easy either, but how many possibilities there are to do hex grids. I already
 discussed this topic a few months ago, but this was a real pain. It was clear I
@@ -410,323 +64,16 @@ all the cases. In the end the solution was not really hard, it was the journey
 there, I just couldn't find anything on the internet or in any book about how
 to do it. What really matters in the end though, is that I was able to deliver
 one class for all cases, fitting right with my design principles established in
-the first release.</p>
-</div>
-<div class="section" id="the-future-of-grid-framework">
-<h2>The Future of Grid Framework</h2>
-<p>Well, that's it for last year, but what can you expect for 2013? First of all,
+the first release.</p><h2>The Future of Grid Framework</h2><p>Well, that's it for last year, but what can you expect for 2013? First of all,
 I'm working on my own website, so far it has only been this blog and the forum
 thread, but I would like to give Grid Framework a proper web presence. I had to
 learn HTML and CSS from scratch, but the site is almost done, just a few
-finishing touches and it should be up soon.</p>
-<p>Hex grids have the same feature set as rectangular grids, but there is more we
+finishing touches and it should be up soon.</p><p>Hex grids have the same feature set as rectangular grids, but there is more we
 can do with them, most notably more coordinate systems. Expect more updates for
 hex grids after the site has launched. There are also a few minor features I
 would like to get done all across Grid Framework, so I'll add them inbetween
-the more important releases.</p>
-<p>Triangular grids and path finding are next on the priority list, I just haven't
+the more important releases.</p><p>Triangular grids and path finding are next on the priority list, I just haven't
 decided which one would be more important. Triangular grids sound easier, but
 path finding seems more useful. I'll have to think this over when the time
-comes.</p>
-<p>Well, that's it for this time. Have a good year 2013 and thank you all for your
-support :)</p>
-</div>
-
-	</article>
-
-	<footer>
-		<!-- Navigation items (next/previous) -->
-		<nav>
-			<h1>Previous/next article</h1>
-			<ul class="pager">
-				<li class="previous">
-					<a href="http://hiphish.github.io/grid-framework/news/2012/12/24/how-to-extend/" rel="prev">
-						<span aria-hidden="true">&larr;</span> How to extend Grid Framework with your own methods
-					</a>
-				</li>
-				<li class="next">
-					<a href="http://hiphish.github.io/grid-framework/news/2013/02/12/version-122/" rel="next">
-						Grid Framework version 1.2.2 released <span aria-hidden="true">&rarr;</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</footer>
-</main>
-	</section>
-
-	<!-- "Left" pillar, article navigation -->
-	<nav class="well">
-		<!-- This navigator contains links to the various archive types. -->
-		<h1>Blog navigation</h1>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/archives/">
-					Archives
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2018/">
-						2018 (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2017/">
-						2017 (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2016/">
-						2016 (16)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2015/">
-						2015 (13)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2014/">
-						2014 (8)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2013/">
-						2013 (19)
-					</a>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/12/">
-								December (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/09/">
-								September (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/08/">
-								August (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/07/">
-								July (2)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/06/">
-								June (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/05/">
-								May (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/04/">
-								April (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/03/">
-								March (1)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/02/">
-								February (3)
-							</a>
-							<ul>
-							</ul>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<a href="http://hiphish.github.io/grid-framework/news/2013/01/">
-								January (1)
-							</a>
-							<ul>
-								<li>
-									<a href="http://hiphish.github.io/grid-framework/news/2013/01/01/new-year/">
-										Happy new year
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/2012/">
-						2012 (40)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/categories/">
-					Categories
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/misc/">
-						misc (23)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/organisation/">
-						organisation (6)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/progress/">
-						progress (27)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/release/">
-						release (42)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/categories/tips/">
-						tips (2)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>
-				<a href="http://hiphish.github.io/grid-framework/news/tags/">
-					Tags
-				</a>
-			</h1>
-			<ul>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/spheric/">
-						spheric (2)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/coordinate-system/">
-						coordinate-system (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/asset-store/">
-						asset-store (1)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/old-blog/">
-						old-blog (73)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/example/">
-						example (7)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/rant/">
-						rant (3)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/how-to/">
-						how-to (6)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/extension/">
-						extension (4)
-					</a>
-				</li>
-				<li>
-					<a href="http://hiphish.github.io/grid-framework/news/tags/api-change/">
-						API-change (1)
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<aside>
-			<h1>Subscription options</h1>
-			<strong>
-				Subscribe:
-				<a href="http://hiphish.github.io/grid-framework/news/rss.xml">RSS</a>
-				<a href="http://hiphish.github.io/grid-framework/news/atom.xml">Atom</a>
-			</strong>
-		</aside>
-	</nav>
-</section>
-		</section>
-
-		<!-- Footer of the website -->
-		<footer>
-			<div class="container">
-				<div class="col-md-8 footer-self">
-					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
-						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-					</a>
-					<p class="text-muted">
-						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-					</p>
-				</div>  <!-- /.col-md-8 -->
-
-				<div class="col-md-4 footer-social">
-					<span class="pull-right">
-						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-						</a>
-						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-						</a>
-					</span>  <!-- /.pull-right -->
-				</div>  <!-- /.col-md-4 -->
-			</div>
-		</footer>
-	</body>
-</html>
-
+comes.</p><p>Well, that's it for this time. Have a good year 2013 and thank you all for your
+support :)</p><footer><hr /><nav><ul class="pager"><li class="previous"><a href="../../../../2012/12/24/how-to-extend/" rel="prev"><span aria-hidden="true">←</span> How to extend Grid Framework with your own methods</a></li><li class="next"><a href="../../../../2013/02/12/version-122/" rel="next">Grid Framework version 1.2.2 released <span aria-hidden="true">→</span></a></li></ul></nav></footer></article></main></section><nav class="well"><h1>Blog navigation</h1><nav><h1><a href="/grid-framework/news/archive/">Archive</a></h1><ul><li><a href="/grid-framework/news/2018/">2018 (1)</a></li><li><a href="/grid-framework/news/2017/">2017 (3)</a></li><li><a href="/grid-framework/news/2016/">2016 (16)</a></li><li><a href="/grid-framework/news/2015/">2015 (13)</a></li><li><a href="/grid-framework/news/2014/">2014 (8)</a></li><li><a href="/grid-framework/news/2013/">2013 (19)</a></li><li><a href="/grid-framework/news/2012/">2012 (40)</a></li></ul></nav><nav><h1><a href="/grid-framework/news/categories/">Categories</a></h1><ul><li><a href="/grid-framework/news/categories/tips/">tips (2)</a></li><li><a href="/grid-framework/news/categories/organisation/">organisation (6)</a></li><li><a href="/grid-framework/news/categories/progress/">progress (26)</a></li><li><a href="/grid-framework/news/categories/misc/">misc (24)</a></li><li><a href="/grid-framework/news/categories/release/">release (42)</a></li></ul></nav><nav><h1><a href="/grid-framework/news/tags/">Tags</a></h1><ul><li><a href="/grid-framework/news/tags/API-change/">API-change (1)</a></li><li><a href="/grid-framework/news/tags/extension/">extension (4)</a></li><li><a href="/grid-framework/news/tags/how-to/">how-to (6)</a></li><li><a href="/grid-framework/news/tags/rant/">rant (3)</a></li><li><a href="/grid-framework/news/tags/example/">example (7)</a></li><li><a href="/grid-framework/news/tags/old-blog/">old-blog (74)</a></li><li><a href="/grid-framework/news/tags/asset-store/">asset-store (1)</a></li><li><a href="/grid-framework/news/tags/coordinate-system/">coordinate-system (1)</a></li><li><a href="/grid-framework/news/tags/spheric/">spheric (1)</a></li></ul></nav><aside><strong>Subscribe:</strong> <a href="/grid-framework/news/rss.xml" type="application/rss+xml">RSS</a></aside></nav></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>

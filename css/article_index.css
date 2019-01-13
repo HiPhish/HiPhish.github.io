@@ -1,0 +1,35 @@
+body > section.container > section > section > nav > h1 {
+	display: none;
+}
+
+body > section.container > section > section > main >ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+body > section.container > section > section > h1 {
+	display: none;
+}
+
+body > section.container > section > section > h1 {
+	display: none;
+}
+
+body > section.container > section > section > nav > h1 {
+	display: none;
+}
+
+body > section.container > section > section > footer {
+	margin-top: auto;
+}
+
+body > section.container > section > section > ul {
+	list-style: none;
+	padding: 0;
+}
+
+body > section.container > section > section > main > ul > li {
+	border-bottom-style: solid;
+	border-bottom-width: 0.1em;
+	border-bottom-color: rgba(0, 0, 0, 0.125);
+}

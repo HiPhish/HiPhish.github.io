@@ -2,6 +2,9 @@
 
 .mfp-with-zoom .mfp-container .mfp-with-zoom.mfp-bg {
   /* ideally, transition speed should match zoom duration */
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
 
@@ -16,5 +19,3 @@
 .mfp-with-zoom.mfp-removing.mfp-bg {
   opacity: 0;
 }
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hZ25pZmljLXBvcHVwLWN1c3RvbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0VBQWtFOztBQUVsRTtFQUNFLDBEQUEwRDtFQUkxRCw4QkFBOEI7Q0FDL0I7O0FBRUQ7SUFDSSxXQUFXO0NBQ2Q7QUFDRDtJQUNJLGFBQWE7Q0FDaEI7O0FBRUQ7O0VBRUUsV0FBVztDQUNaIiwiZmlsZSI6Im1hZ25pZmljLXBvcHVwLWN1c3RvbS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDdXN0b20gc3R5bGVzIGZvciBNYWduaWZpYyBQb3B1cCwgYmFzZWQgb24gb2ZmaWNpYWwgZXhhbXBsZXMgKi9cblxuLm1mcC13aXRoLXpvb20gLm1mcC1jb250YWluZXIgLm1mcC13aXRoLXpvb20ubWZwLWJnIHtcbiAgLyogaWRlYWxseSwgdHJhbnNpdGlvbiBzcGVlZCBzaG91bGQgbWF0Y2ggem9vbSBkdXJhdGlvbiAqL1xuICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2Utb3V0O1xuICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2Utb3V0O1xuICAtby10cmFuc2l0aW9uOiBhbGwgMC4ycyBlYXNlLW91dDtcbiAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZS1vdXQ7XG59XG5cbi5tZnAtd2l0aC16b29tLm1mcC1yZWFkeSAubWZwLWNvbnRhaW5lciB7XG4gICAgb3BhY2l0eTogMTtcbn1cbi5tZnAtd2l0aC16b29tLm1mcC1yZWFkeS5tZnAtYmcge1xuICAgIG9wYWNpdHk6IDAuODtcbn1cblxuLm1mcC13aXRoLXpvb20ubWZwLXJlbW92aW5nIC5tZnAtY29udGFpbmVyLFxuLm1mcC13aXRoLXpvb20ubWZwLXJlbW92aW5nLm1mcC1iZyB7XG4gIG9wYWNpdHk6IDA7XG59XG4iXX0= */

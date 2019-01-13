@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop - ntfs-clone</title><link>http://hiphish.github.io/</link><description></description><lastBuildDate>Tue, 31 May 2016 00:00:00 +0200</lastBuildDate><item><title>Introducing NTFS-Clone</title><link>http://hiphish.github.io/blog/2016/05/31/into-ntfs-clone/</link><description>&lt;p&gt;This is  a very  useful project  I had  written quite  a while  ago at work and
-recently found collecting dust on my hard drive. It lets you create perfect 1:1
-copies of NTFS hard drives on Unix.  The problem with every software I had come
-across was  that it …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">HiPhish</dc:creator><pubDate>Tue, 31 May 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:hiphish.github.io,2016-05-31:/blog/2016/05/31/into-ntfs-clone/</guid></item></channel></rss>

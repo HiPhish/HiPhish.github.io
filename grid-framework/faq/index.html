@@ -1,614 +1,108 @@
-<!DOCTYPE HTML>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>FAQ - Grid Framwork-Grid Framework</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><h1>HTML-page body</h1><header><nav id="main-navbar" class="navbar navbar-default"><h1>Site-wide navigation bar</h1><div class="container-fluid"><input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox" /><div class="navbar-header"><label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></label><a class="navbar-brand" href="/">HiPhish's Workshop</a></div><div class="collapse navbar-collapse" id="main-navbar-collapse"><ul class="nav navbar-nav"><li class="dropdown"><a class="dropdown-toggle" href="/grid-framework/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grid Framework</a><ul class="dropdown-menu"><li><a href="/grid-framework/">Overview</a></li><li class="divider" role="separator"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li class="divider" role="separator"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li class="divider" role="separator"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/open-source/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open Source</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li class="dropdown"><a class="dropdown-toggle" href="/vim/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vim/Nvim plugins</a><ul class="dropdown-menu"><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></div></div></nav></header><section class="container"><h1>Document body</h1><nav class="local-nav"><h1>Sub-site navigation bar</h1><ul><li><a href="/grid-framework/">Grid Framework</a></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498/">Buy <span class="badge">35$</span></a></li></ul></nav><section class="col-md-12 container"><style scoped="scoped">h1 {
+        text-transform: capitalize;
+      }
+      .faq-toc ul {
+        list-style-type: none;
+        padding-left: 0px;
+      }
+      .faq-q a {
+        cursor: pointer;
+      }
+      .faq-a {
+      }</style><script src="js/faq.js"></script><p>Do you have a question before buying? Check here to see if someone had
+       the same question before you. If you don't find what you were looking
+       for just ask, the more people ask the same thing, the more likely I am
+       to add your question to the list as well.</p><hr /><div class="faq-toc"><ul><li><a href="#q-can-i">Can I do...</a></li><li><a href="#q-js">Does Grid Framework work with UnityScript?</a></li><li><a href="#q-data">Can I store data in the grid?</a></li><li><a href="#q-patterns">What grids are supported?</a></li><li><a href="#q-renderer-types">Which renderers are supported?</a></li><li><a href="#q-shape">Can I make irregular grid shapes?</a></li><li><a href="#q-irregular">What about irregurar grids like Voronoi grids?</a></li><li><a href="#q-path">Is pathfinding included, or can I use a pathfinding plugin?</a></li><li><a href="#q-restrict">Can I restrict movement or position to the grid?</a></li></ul></div><div class="faq-item"><h2 id="q-can-i" class="faq-q">Can I do...</h2><div class="faq-a well well-sm"><p>Most questions asked can be answered by understanding what a <em>grid</em>in Grid Framework is: it is a grid in a mathematical
+        sense, which means it is defined by an origin and some basic
+        properties (like spacing for rectangular grids) and some visual
+        properties. It is not a finite set of points in space.</p><p>Here is a very rough sketch of what a grid class could look like;
+        of course there is more to it in practice, but this gives you a good
+        idea.</p><div class="highlight"><pre>// Origin and rotation are inherited from the GameObject
+class RectGrid : Grid {
+    public Vector3 spacing;
+    public Vector6 shearing;
+};</pre></div><p>This is what allows grids to be infinitely large in the game and very
+        small in memory at the same time. All calculations are performed in
+        constant time and cost the same regardless of where in the grid you
+        are.  The portion of the grid you see is just a finite-sized slice of
+        what is infinitely large.</p></div></div><div class="faq-item"><h2 id="q-js" class="faq-q">Does Grid Framework work with UnityScript?</h2><div class="faq-a well well-sm"><p>Yes, UnityScript and C# get compiled to the same bytecode anyway.
+        Grids are subclasses of Unity's  (code Component)  class and can be
+        manipulated like any other component.</p><div class="highlight"><pre>var grid : RectGrid = gameObject.GetComponent.&lt;RectGrid&gt;();
+grid.spacing = Vector3.one;</pre></div></div></div><div class="faq-item"><h2 id="q-data" class="faq-q">Can I store data in the grid?</h2><div class="faq-a well well-sm"><p>A grid does not store any data in its vertices, cells or anywhere
+        because it does not store any vertices to begin with. With that said, we
+        can replicate this very easily. This code example creates a
+        three-dimenstional array of world-positions of grid vertices. We will
+        use a rectangular grid in this example.</p><div class="highlight"><pre>int width, height, depth;
+RectGrid grid;
 
-		<title>
-FAQ - Grid Framwork - Grid Framework
-		</title>
-		
-		<!-- Bootstrap integration -->
-		<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
-		crossorigin="anonymous"/>
+// Change this to whatever type you want
+Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
 
-		<!-- Bootstrap customisation -->
-		<link rel="stylesheet" href="/theme/css/custom.css" type="text/css" media="all"/>
+// Loop over the grid
+for (var i = 0; i &lt; width; ++i) {
+    for (var j = 0; j &lt; height, ++j) {
+        for (var k = 0; k &lt; depth, ++k) {
+            // store the world coordinates of the grid points
+            vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
+        }
+    }
+}</pre></div><p>You can then index the array using the grid coordinates of the vertex
+        you want. We used a simple <code>Vector3</code> for our array elements, but we could have used any custom data type
+        as well.</p></div></div><div class="faq-item"><h2 id="q-patterns" class="faq-q">What grids are supported?</h2><div class="faq-a well well-sm"><p>At the moment rectangular, spherical, hexagonal and polar
+        (cylindrical) grids are supported. Rectangular grids can also have a
+        shearing to slant them for an isometric look. Hexagonal and polar grids
+        are two-dimensional and can be stacked on top of each other for the
+        third dimension.</p></div></div><div class="faq-item"><h2 id="q-renderer-types" class="faq-q">Which renderers are supported?</h2><div class="faq-a well well-sm"><p>The renderers depend on the type of grid, with hexagonal grids
+        providing multiple renderers.</p><ul><li>Rectangular use the <code>Parallelepiped</code>renderer which renders the grid as a parallelepiped of adjacent
+           parallelepipeds.</li><li>Spherical grids use the <code>Sphere</code> renderer to render a potentially partial spherical grid, such as
+           the latitude and longitude grid on a globe. It can render spheres
+           within spheres.</li><li>Polar grids use the <code>Cylinder</code> renderer to display a cylindric shape where the circular portion
+           can have a starting and ending angle.</li><li>Hexagonal grids can rendered as a <code>Cone</code>, a possibly partial large hexagon made of many smaller hexagons.
+           The name derives from the fact that this shape is often used in
+           hex-based games to characterize a cone-shaped area of effect.</li><li>Hexagonal grids can also be rendered as a <code>Rectangle</code> where every odd column is shifted up- or downwards or clipped.</li><li>Hexagonal grids can be rendered as a <code>Rhombus</code> which can be slated up- or downwards.</li><li>Hexagonal grids can be rendered as a <code>Herringbone</code> pattern of edges connecting the central points of the hexes rather
+           than drawing the hexes themselves.</li></ul></div></div><div class="faq-item"><h2 id="q-shape" class="faq-q">Can I make irregular grid shapes?</h2><div class="faq-a well well-sm"><p>Yes, there are multiple ways. The easiest way is to have multiple
+        renderers per grid. Every renderer can then render a different finite
+        part of the infinitely large grid.</p><p>If you wish for more control than that you will have to write your own
+        renderer class. Grid Framework provides you with the same protected API
+        as was used in writing the official renderers, you have the full power
+        at your command.</p><p>Finally, you can do the rendering yourself or using a rendering plugin
+        of your choice for Unity. That way you have full control over the
+        shape. You can get the points of the lines to render use the grid's
+        (code GridToWorld)  method:</p><div class="highlight"><pre>Vector3 from, to;
+RectGrid grid;
 
-		<!-- My own style sheets -->
-		<link rel="stylesheet" href="/theme/css/local-nav.css" type="text/css" media="all"/>
-		<link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" media="all"/>
+Vector3[2] line = new Vector3[] {grid.GridToWorld(from), grid.GridToWorld(to)};</pre></div><p>This last approach should not be necessary in most cases, the renderer
+         API is powerful enough.</p></div></div><div class="faq-item"><h2 id="q-irregular" class="faq-q">What about irregurar grids like Voronoi grids?</h2><div class="faq-a well well-sm"><p>No, a grid (also called a lattice) has to be regular by definition.
+         Voronoi &quot;grids&quot; are not actually grids, they are graphs and finite in
+         size and therefore not suitable for Grid Framework.</p></div></div><div class="faq-item"><h2 id="q-path" class="faq-q">Is pathfinding included, or can I use a pathfinding plugin?</h2><div class="faq-a well well-sm"><p>At the moment of this writing there is no built-in pathfinding, but
+        using Grid Framework with a pathfinding plugin is easy. The plugin will
+        need a list of vertices to contrustruct the nav-mesh from, and we can
+        get these vertices from the grid by looping over the range we want to
+        use:</p><div class="highlight"><pre>int width, height, depth;
+RectGrid grid;
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
+Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
 
-		<!-- Bootstrap Javascript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<h1>HTML-page body</h1>
-		<header>
-			<!-- Top navigation bar -->
-			<nav id="main-navbar" class="navbar navbar-default">
-				<h1>Site-wide navigation bar</h1>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="container-fluid">
-					<input type="checkbox" value="" name="navbar-toggle-cbox" id="navbar-toggle-cbox"/>
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="navbar-toggle-cbox">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</label>
-						<a class="navbar-brand" href="http://hiphish.github.io">HiPhish's Workshop</a>
-					</div>
+// Loop over the grid
+for (var i = 0; i &lt; width; ++i) {
+    for (var j = 0; j &lt; height, ++j) {
+        for (var k = 0; k &lt; depth, ++k) {
+            // store the world coordinates of the grid points
+            vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
+        }
+    }
+}</pre></div><p>These vertices are in world coordinates and can be then passed on to
+       your pathfinding code.</p></div></div><div class="faq-item"><h2 id="q-restrict" class="faq-q">Can I restrict movement or position to the grid?</h2><div class="faq-a well well-sm"><p>Yes, the easiest way is to align the position to grid coordinates.
+         Let's assume your object should fit into the centre of the nearest
+         face. Here is the code using a rectangular grid:</p><div class="highlight"><pre>Transform myObject; // Object to align
+RectGrid  myGrid;   // Grid to align to
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="main-navbar-collapse">
-						<!-- The list of navbar items -->
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a class="dropdown-toggle" href="/grid-framework" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Grid Framework <span></span> <span class="sr-only">(current)</span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework">
-											Overview										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/features">
-											Features										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/examples">
-											Examples										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/gallery">
-											Gallery										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/showcase">
-											Showcase										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/faq">
-											FAQ										</a>
-									</li>
-
-									<li>
-										<a href="http://hiphish.github.io/grid-framework/news">
-											News										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-											Support										</a>
-									</li>
-
-									<li class="divider" role="separator"></li>
-
-									<li>
-										<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-											Buy Now <span class="badge">35$</span>										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/ntfs-clone" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Open Source <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/ntfs-clone" target="_blank">
-											NTFS-Clone										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/roll" target="_blank">
-											roll										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Newton-method" target="_blank">
-											Newton's Method in C										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/XeenTools" target="_blank">
-											Xeen Tools										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Wolf3DExtract" target="_blank">
-											Wolf3D Extract										</a>
-									</li>
-
-									<li>
-										<a href="https://github.com/HiPhish/Game-Source-Documentation" target="_blank">
-											Game Source Documentation										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" href="https://gitlab.com/HiPhish/info.vim" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									Nvim/Vim Plugins <span></span>								</a>
-								<ul class="dropdown-menu">
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/info.vim" target="_blank">
-											Info.vim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/repl.nvim" target="_blank">
-											REPL.nvim										</a>
-									</li>
-
-									<li>
-										<a href="https://gitlab.com/HiPhish/jinja.vim" target="_blank">
-											jinja.vim										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-								<li class=" ">
-									<a href="/blog">
-										Blog									</a>
-								</li>
-								<li class=" ">
-									<a href="/about">
-										About									</a>
-								</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
-
-		<section class="container">
-			<h1>Document body</h1>
-<!-- Sub-site navigation bar -->
-<nav class="local-nav">
-	<h1>Sub-site navigation bar</h1>
-	<ul>
-		<li>
-			<a href="http://hiphish.github.io/grid-framework">
-				Grid Framework
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/features">
-				Features
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/examples">
-				Examples
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/gallery">
-				Gallery
-			</a>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/showcase">
-				Showcase
-			</a>
-		</li>
-
-		<li class="active">
-			FAQ <span class="sr-only">(current)</span>
-		</li>
-
-		<li>
-			<a href="http://hiphish.github.io/grid-framework/news">
-				News
-			</a>
-		</li>
-
-		<li>
-			<a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/" target="_blank">
-				Support
-			</a>
-		</li>
-
-		<li>
-			<a href="https://www.assetstore.unity3d.com/#/content/62498" target="_blank">
-				Buy <span class="badge">35$</span>
-			</a>
-		</li>
-	</ul>
-</nav>
-
-
-<!-- Main content of the page is located here -->
-<main class="col-md-12 container">
-	
-<style scoped="scoped">
-			h1 {
-				text-transform: capitalize;
-			}
-			.faq-toc ul {
-				list-style-type: none;
-				padding-left: 0px;
-			}
-			.faq-q a {
-				cursor: pointer;
-			}
-			.faq-a {
-			}
-		</style>
-<script>
-			<!--
-			// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
-			$(document).ready( function () {
-				$('.faq-toc').hide();
-
-				/* Move the "more questions..." paragraph */
-				$more = $('.faq-toc p').detach();
-				$('.faq-item').each(function() {
-					/* FAQ-item, -question and -answer */
-					var $item = $(this);
-					var $q    = $item.find('.faq-q');
-					var $a    = $item.find('.faq-a');
-
-					/* Hide the answer */
-					$a.hide();
-
-					/* Redo the question into a hyperlink */
-					var text = $q.text();
-					$q2 = $('<p class="faq-q"><a>' + text + '</ a></ p>')
-					$q.replaceWith($q2);
-
-					/* Toggle the answer on click */
-					$q2.click(function() {
-						$a.slideToggle();
-					});
-
-					$more.appendTo($item);
-				});
-			});
-			// @license-end
-			-->
-		</script>
-<p>
-				Do you have a question before buying? Check here to see if someone had
-				the same question before you. If you don't find what you were looking
-				for just ask, the more people ask the same thing, the more likely I am
-				to add your question to the list as well.
-			</p>
-<hr/>
-<div class="faq-toc">
-<ul>
-<li>
-<a href="#q-can-i">Can I do...</a>
-</li>
-<li>
-<a href="#q-js">Does Grid Framework work with UnityScript?</a>
-</li>
-<li>
-<a href="#q-data">Can I store data in the grid?</a>
-</li>
-<li>
-<a href="q-patterns">What grids are supported?</a>
-</li>
-<li>
-<a href="q-renderer-types">Which renderers are supported?</a>
-</li>
-<li>
-<a href="#q-shape">Can I make irregular grid shapes?</a>
-</li>
-<li>
-<a href="#q-irregular">What about irregurar grids like Voronoi grids?</a>
-</li>
-<li>
-<a href="#q-path">Is pathfinding included, or can I use a pathfinding plugin?</a>
-</li>
-<li>
-<a href="#q-restrict">Can I restrict movement or position to the grid?</a>
-</li>
-</ul>
-<hr/>
-</div>
-<div class="faq-item">
-<h2 class="faq-q" id="q-1">Can I do...</h2>
-<div class="faq-a well well-sm">
-<p>
-						Most questions asked can be answered by understanding what a
-						<em>grid</em> in Grid Framework is: it is a grid in a mathematical
-						sense, which means it is defined by an origin and some basic
-						properties (like spacing for rectangular grids) and some visual
-						properties. It is not a finite set of points in space.
-
-						Here is a very rough sketch of what a grid class could look like;
-						of course there is more to it in practice, but this gives you a
-						good idea.
-					</p>
-<div class="highlight">
-<pre>
-<span class="c1">// Origin and rotation are inherited from the GameObject</span>
-<span class="k">class</span> <span class="nc">RectGrid</span> <span class="p">:</span> <span class="n">Grid</span> <span class="p">{</span>
-    <span class="k">public</span> <span class="n">Vector3</span> <span class="n">spacing</span><span class="p">;</span>
-    <span class="k">public</span> <span class="n">Vector6</span> <span class="n">shearing</span><span class="p">;</span>
-<span class="p">};</span>
-</pre>
-</div>
-<p>
-						This is what allows grids to be infinitely large in the game and
-						very small in memory at the same time. All calculations are
-						performed in constant time and cost the same regardless of where in
-						the grid you are. The portion of the grid you see is just a
-						finite-sized slice of what is infinitely large.
-					</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-<div class="faq-item">
-<h2 class="faq-q" id="q-js">Does Grid Framework work with UnityScript?</h2>
-<div class="faq-a well well-sm">
-<p>
-						Yes, UnityScript and C# get compiled to the same bytecode anyway.
-						Grids are subclasses of Unity's <code>Component</code> class and
-						can be manipulated like any other component.
-					</p>
-<div class="highlight">
-<pre>
-<span class="kd">var</span> <span class="nx">grid</span> <span class="o">:</span> <span class="nx">RectGrid</span> <span class="o">=</span> <span class="nx">gameObject</span><span class="p">.</span><span class="nx">GetComponent</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">RectGrid</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="nx">grid</span><span class="p">.</span><span class="nx">spacing</span> <span class="o">=</span> <span class="nx">Vector3</span><span class="p">.</span><span class="nx">one</span><span class="p">;</span>
-</pre>
-</div>
-</div>
-</div>
-<div class="faq-item">
-<h2 class="faq-q" id="q-data">Can I store data in the grid?</h2>
-<div class="faq-a well well-sm">
-<p>
-						A grid does not store any data in its vertices, cells or anywhere
-						because it does not store any vertices to begin with. With that
-						said, we can replicate this very easily. This code example creates
-						a three-dimenstional array of world-positions of grid vertices. We
-						will use a rectangular grid in this example.
-					</p>
-<div class="highlight">
-<pre>
-<span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
-<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
-
-<span class="c1">// Change this to whatever type you want</span>
-<span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">]</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">];</span>
-
-<span class="c1">// Loop over the grid</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// store the world coordinates of the grid points</span>
-            <span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span></pre>
-</div>
-<p>
-						You can then index the array using the grid coordinates of the vertex
-						you want. We used a simple <code>Vector3</code> for our array
-						elements, but we could have used any custom data type as well.
-					</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-<div class="faq-item">
-<h2 class="faq-q" id="q-patterns">What grids are supported?</h2>
-<div class="faq-a well well-sm">
-<p>
-						At the moment rectangular, spherical, hexagonal and polar
-						(cylindric) grids are supported. Rectangular grids can also have a
-						shearig to slant them for an isometric look. Hexagonal and polar
-						grids are two-dimensional and can be stacked on top of each other
-						for the third dimenstion.
-					</p>
-</div>
-</div>
-<div class="faq-item">
-<h2 class="faq-q" id="q-renderer-types">Which renderers are supported?</h2>
-<div class="faq-a well well-sm">
-<p>
-						The renderers depend on the type of grid, with hexagonal grids
-						providing multiple renderers.
-					</p>
-<ul>
-<li>
-							Rectangular use the <code>Parallelepiped</code> renderer which
-							renders the grid as a parallelepiped of adjacent
-							parallelepipeds.
-						</li>
-<li>
-							Spherical grids use the <code>Sphere</code> renderer to render
-							a potentially partial spherical grid, such as the latitude and
-							longitude grid on a globe. It can render spheres within
-							spheres.
-						</li>
-<li>
-							Polar grids use the <code>Cylinder</code> renderer to display a
-							cylindric shape where the circular portion can have a starting
-							and ending angle.
-						</li>
-<li>
-							Hexagonal grids can rendered as a <code>Cone</code>, a possibly
-							partial large hexagon made of many smaller hexagons. The name
-							derives from the fact that this shape is often used in
-							hex-based games to characterize a cone-shaped area of effect.
-						</li>
-<li>
-							Hexagonal grids can also be rendered as a
-							<code>Rectangle</code> where every odd column is shifted up- or
-							downwards or clipped.
-						</li>
-<li>
-							Hexagonal grids can be rendered as a <code>Rhombus</code> which
-							can be slated up- or downwards.
-						</li>
-<li>
-							Hexagonal grids can be rendered as a <code>Herringbone </code>
-							pattern of edges connecting the central points of the hexes
-							rather than drawing the hexes themselves.
-						</li>
-</ul>
-</div>
-</div>
-<div class="faq-item">
-<h2 class="faq-q" id="q-shape">Can I make irregular grid shapes?</h2>
-<div class="faq-a well well-sm">
-<p>
-						Yes, there are multiple ways. The easiest way is to have multiple
-						renderers per grid. Every renderer can then render a different
-						finite part of the infinitely large grid.
-					</p>
-<p>
-						If you wish for more control than that you will have to write your
-						own renderer class. Grid Framework provides you with the same
-						protected API as was used in writing the official renderers, you
-						have the full power at your command.
-					</p>
-<p>
-						Finally, you can do the rendering yourself or using a rendering
-						plugin of your choice for Unity. That way you have full control
-						over the shape. You can get the points of the lines to render use
-						the grid's <code>GridToWorld</code> method:
-					</p>
-<div class="highlight">
-<pre>
-<span class="n">Vector3</span> from<span class="p">,</span> <span class="n">to</span><span class="p">;</span>
-<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
-
-<span class="n">Vector3</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="n">line</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[]</span> <span class="p">{</span><span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span>from<span class="p">),</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">to</span><span class="p">)</span><span class="p">};</span>
-</pre>
-</div>
-<p>
-						This last approach should not be necessary in most cases, the
-						renderer API is powerful enough.
-					</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-<div class="faq-item">
-<h2 class="faq-q" id="q-irregular">What about irregurar grids like Voronoi grids?</h2>
-<div class="faq-a well well-sm">
-<p>
-						No, a grid (also called a lattice) has to be regular by definition.
-						Voronoi "grids" are not actually grids, they are graphs and finite in
-						size and therefore not suitable for Grid Framework.
-					</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-<div class="faq-item">
-<h2 class="faq-q" id="q-path">Is pathfinding included, or can I use a pathfinding plugin?</h2>
-<div class="faq-a well well-sm">
-<p>
-						At the moment of this writing there is no built-in pathfinding, but
-						using Grid Framework with a pathfinding plugin is easy. The plugin
-						will need a list of vertices to contrustruct the nav-mesh from, and
-						we can get these vertices from the grid by looping over the range we
-						want to use:
-					</p>
-<div class="highlight">
-<pre>
-<span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">;</span>
-<span class="n">RectGrid</span> <span class="n">grid</span><span class="p">;</span>
-
-<span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">]</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">[</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">depth</span><span class="p">];</span>
-
-<span class="c1">// Loop over the grid</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">width</span><span class="p">;</span> <span class="p">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">height</span><span class="p">,</span> <span class="p">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">depth</span><span class="p">,</span> <span class="p">++</span><span class="n">k</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// store the world coordinates of the grid points</span>
-            <span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span></pre>
-</div>
-<p>
-					These vertices are in world coordinates and can be then passed on to
-					your pathfinding code.
-				</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-<div class="faq-item">
-<h2 class="faq-q" id="q-restrict">Can I restrict movement or position to the grid?</h2>
-<div class="faq-a well well-sm">
-<p>
-						Yes, the easiest way is to align the position to grid coordinates.
-						Let's assume your object should fit into the centre of the nearest
-						face. Here is the code using a rectangular grid:
-					</p>
-<div class="highlight">
-<pre><span class=" n">Transform</span> <span class="n">myObject</span><span class="p">;</span> <span class="c1">// Object to align</span>
-<span class="n">RectGrid</span>  <span class="n">myGrid</span><span class="p">;</span>   <span class="c1">// Grid to align to</span>
-
-<span class="c1">// Use common defaults</span>
-<span class="n">myGrid</span><span class="p">.</span><span class="n">AlignTransform</span><span class="p">(</span><span class="n">myObject</span><span class="p">);</span>
-<span class="c1">// More control</span>
-<span class="n">myObject</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">myGrid</span><span class="p">.</span><span class="n">AlignVector3</span><span class="p">(</span><span class="n">myObject</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
-<span class="c1">// Use grid coordinates</span>
-<span class="n">Vector3</span> <span class="n">gridPosition</span><span class="p">;</span>
-<span class="n">myObject</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">myGrid</span><span class="p">.</span><span class="n">GridToWorld</span><span class="p">(</span><span class="n">gridPosition</span><span class="p">);</span>
-</pre>
-</div>
-<p>
-						As you can see there are multiple possibilities, depending on what
-						suits you best. To restrict continuous movement apply the snapping
-						of your choice on every frame in you <code>Update()</code> method.
-					</p>
-</div> <!-- /.faq-a well well-sm -->
-</div> <!-- /.faq-item -->
-
-</main>		</section>
-
-		<!-- Footer of the website -->
-		<footer>
-			<div class="container">
-				<div class="col-md-8 footer-self">
-					<a href="http://127.0.1.1:8000" title="HiPhish's Workshop">
-						<img src="http://hiphish.github.io/images/footer/logo.png" alt="HiPhish's Workshop" />
-					</a>
-					<p class="text-muted">
-						<a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" alt="Creative Commons Attribution-ShareAlike 4.0International License" src="http://hiphish.github.io/images/footer/cc.svg" /></a>
-						© 2015-2018, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
-					</p>
-				</div>  <!-- /.col-md-8 -->
-
-				<div class="col-md-4 footer-social">
-					<span class="pull-right">
-						<a href="https://github.com/HiPhish" title="GitHub" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/github.png" alt="GitHub"/>
-						</a>
-						<a href="https://gitlab.com/u/HiPhish" title="GitLab" target="_blank">
-							<img  class="img-circle" src="http://hiphish.github.io/images/footer/gitlab.png" alt="GitLab"/>
-						</a>
-					</span>  <!-- /.pull-right -->
-				</div>  <!-- /.col-md-4 -->
-			</div>
-		</footer>
-	</body>
-</html>
-
+// Use common defaults
+myGrid.AlignTransform(myObject);
+// More control
+myObject.position = myGrid.AlignVector3(myObject.position);
+// Use grid coordinates
+Vector3 gridPosition;
+myObject.position = myGrid.GridToWorld(gridPosition);</pre></div><p>As you can see there are multiple possibilities, depending on what
+        suits you best. To restrict continuous movement apply the snapping of
+        your choice on every frame in your <code>Update()</code> method.</p></div></div></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>
