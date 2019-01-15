@@ -11,53 +11,18 @@
        the example live. These videos were recorded at different points in Grid
        Frameworks development and the interface and usability may appear more
        crude than it currently is. If the example doesn't load right away
-       please be patient.</p><hr /><iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs" class="pull-right"></iframe><h1 id="movement"><a href="movement/">Moving along a grid</a></h1><p>One of the most common uses for grids is movement. Maybe you have a
+       please be patient.</p><hr /><h1 id="movement"><a href="movement/">Moving along a grid</a></h1><div class="example"><iframe title="YouTube video player" src="http://www.youtube.com/embed/m9_efVi_tFs"></iframe><div><p>One of the most common uses for grids is movement. Maybe you have a
         tactical game, or a board game or you just want the old-school feel of
         tile based games.  In this example we convert the hero's world
         coordinates to grid coordinates and then move it in grid space before
         converting the result back to world space. As an extra touch we can
         limit the hero to only stay within the bounds of the grid size. We
         need this because grids are infinitely large, so the sphere could
-        wander off into infinity.</p><p>This example demonstrates one of the simplest and most common uses for
-        Grid Framework: converting between coordinate systems. We take the
-        object's current position, convert is to grid space, add a direction to
-        it, convert the result back to world space and use that as the
-        destination of our movement function.</p><div class="highlight"><pre>var goal = grid.WorldToGrid(transform.position)
-goal += Vector3.right;
-transform.position = grid.GridToWorld(goal);</pre></div><p>This alone is not that interesting, so let's limit the player to the
-         visible region of the grid. Every grid is infinitely large, but the <em>renderer</em> has a range we can use as limits before converting back
-        to world coordinates:</p><div class="highlight"><pre>if (goal.x &lt; _renderer.From.x || goal.x &gt; _renderer.To.x)
-    return;
-if (goal.y &lt; _renderer.From.y || goal.y &gt; _renderer.To.y)
-    return;</pre></div><p>As a final touch, let's use Grid Framework to store the map of the
-        game.  It will know which tiles are OK to walk on and which ones are
-        obstacles.  We will use a 2D array to keep track of the game; each
-        entry's row and column corresponds to the tile's X- and Y coordinates
-        in the grid.</p><div class="highlight"><pre>// After checking for range, before converting to world coordinates
-if (!FreeTile(_goal)) {
-    return;
-}
-
-// Building the matrix
-var rows    = Mathf.FloorToInt(_renderer.To.x);
-var columns = Mathf.FloorToInt(_renderer.To.y);
-
-_tiles = new bool[rows, columns];
-
-// Checking a tile (grid coordinates)
-var r = Mathf.FloorToInt(tile.x);
-var c = Mathf.FloorToInt(tile.y);
-return _tiles[r, c];</pre></div><iframe title="YouTube video player" src="http://www.youtube.com/embed/sXlagrglfQ8" class="pull-right"></iframe><h1 id="lights"><a href="lights/">Lights-out puzzle game</a></h1><p>Here we learn how write a simple puzzle game where the goal is to turn
+        wander off into infinity.</p></div></div><h1 id="lights"><a href="lights/">Lights-out puzzle game</a></h1><div class="example"><iframe title="YouTube video player" src="http://www.youtube.com/embed/sXlagrglfQ8"></iframe><div><p>Here we learn how write a simple puzzle game where the goal is to turn
         all the lights off and every time you click a light that light and the
         four adjacent ones flip their state. No light knows anything about its
         surrounding lights, making this game very flexible, you can have all
-        sorts of crazy shapes and holes in it.</p><p>The core of this example is comparing the grid coordinates of the
-        tiles to the one tile that was clicked to decide whether to switch
-        colour. The logic is nicely encapsulated in a custom extension method,
-        making it appear as if has always been part of Grid Framework.</p><div class="highlight"><pre>if(theGrid.IsAdjacent(transform.position, switchPosition)){
-    //flip the state of this switch
-    isOn = !isOn;}</pre></div><p>This extension method is not part of Grid Framework's API, but we can
-        use it as if it were.</p><iframe title="YouTube video player" src="http://www.youtube.com/embed/lvYWbJ8ohkA" class="pull-right"></iframe><h1 id="level-design"><a href="level-design/">Assembling a level from data</a></h1><p>In this example we create a bubble puzzle field from an array by
+        sorts of crazy shapes and holes in it.</p></div></div><h1 id="level-design"><a href="level-design/">Assembling a level from data</a></h1><div class="example"><iframe title="YouTube video player" src="http://www.youtube.com/embed/lvYWbJ8ohkA"></iframe><div><p>In this example we create a bubble puzzle field from an array by
         placing objects on the grid according to the position inside the array.
         This approach has several advantages; most obviously it is faster and
         easier to design levels in data than in an editor, you can add new
@@ -65,13 +30,11 @@ return _tiles[r, c];</pre></div><iframe title="YouTube video player" src="http:/
         players to add their own levels. Instead of having a separate scene for
         each level we only need one scene, we can build new levels without
         having to worry about carrying the background or music from scene to
-        scene, allowing for seamless transition.</p><p>The core of this example is the position of a entries in the array,
-        i.e.  the row and column.  We use these array coordinates as grid
-        coordinates and convert them to world coordinates.</p><div class="highlight"><pre>Vector3 targetPosition = levelGrid.GridToWorld(new Vector3(column, row, 0));</pre></div><iframe title="YouTube video player" src="http://www.youtube.com/embed/QqUzcthkvcc" class="pull-right"></iframe><h1 id="snapping"><a href="snapping/">Runtime snapping</a></h1><p>If you want to allow the user to place object only on the grid, then
+        scene, allowing for seamless transition.</p></div></div><h1 id="snapping"><a href="snapping/">Runtime snapping</a></h1><div class="example"><iframe title="YouTube video player" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe><div><p>If you want to allow the user to place object only on the grid, then
         this example is for you.  Snapping is a two-step process: first we move
         the object to where the cursor is pointing, then we correct the
         position.</p><div class="highlight"><pre>transform.position = cursorWorldPoint;
-grid.AlignTransform(transform);</pre></div><h1 id="endless"><a href="endless/">Seemingly endless grid</a></h1><p>Grids are infinity large when it come to calculations, but rendering
+grid.AlignTransform(transform);</pre></div></div></div><h1 id="endless"><a href="endless/">Seemingly endless grid</a></h1><p>Grids are infinity large when it come to calculations, but rendering
         an infinite amount of lines is impossible.  We will use a trick instead
         where we dynamically adjust the rendering range of the grid according
         to the camera.  The result is a seamless illusion that only renders the

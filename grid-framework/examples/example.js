@@ -4,8 +4,8 @@ var Module = {
 	compatibilitycheck: null,
 	backgroundColor: "#222C36",
 	splashStyle: "Light",
-	dataUrl: "Release/example.data",
-	codeUrl: "Release/example.js",
-	asmUrl: "Release/example.asm.js",
-	memUrl: "Release/example.mem",
+	dataUrl: "example.data",
+	codeUrl: "example.js",
+	asmUrl: "example.asm.js",
+	memUrl: "example.mem",
 }
