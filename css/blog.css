@@ -1,3 +1,7 @@
+/* The following colour values are being used:
+ *   - Pager elements: #18bc9c
+ */
+
 body > section {
 	display: flex;
 	flex-direction: column;
@@ -19,6 +23,7 @@ body > section.container > section > section {
 	flex-direction: column;
 	padding-left: 0;
 	margin-left: 1em;
+	margin-bottom: 20px;
 }
 
 body > section.container > section > nav {
@@ -46,13 +51,62 @@ body > section.container > section > nav > nav ul {
 }
 
 
-.blog-breadcrumbs > ol {
+/* ---[ Blog breadcrumbs ]-------------------------------------------------- */
+ol.breadcrumbs {
 	margin-bottom: 0;
+	padding: 0.5em 1em;
+	list-style: none;
+	background-color: #ecf0f1;
+	border-radius: 0.3em;
 }
 
-.blog-breadcrumbs > h1 {
-	display: none;
+ol.breadcrumbs > li {
+	display: inline-block;
+	color: #95a5a6;
 }
+ol.breadcrumbs > li:after {
+	content: "\00a0/\00a0";
+	padding: 0 0.25em;
+	color: #cccccc;
+}
+
+ol.breadcrumbs > li > a {
+	text-decoration: none;
+}
+ol.breadcrumbs > li > a:hover {
+	text-decoration: underline;
+}
+/* ------------------------------------------------------------------------- */
+
+
+/* ---[ Pager (previous & next post) ]-------------------------------------- */
+footer.blog-pager > nav {  /* The class should be renamed after removing Bootstrap */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+footer.blog-pager > nav > a {
+	color: #fff;
+	text-decoration: none;
+	background-color: #18bc9c;
+	padding: 0.25em 1em;
+	border-radius: 2em;
+	text-align: center;
+}
+footer.blog-pager > nav > a:last-child {
+	margin-left: auto;
+}
+footer.blog-pager > nav > a:focus {
+	background-color: #0f7864;
+}
+footer.blog-pager > nav > a:hover {
+	background-color: #0f7864;
+}
+/* ------------------------------------------------------------------------- */
 
 /* ---[ Limit the width of elements in the post ]--------------------------- */
 
