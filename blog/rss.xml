@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Wed, 16 Jan 2019 12:53:10 +0100</lastBuildDate><item><title>A new static site generator</title><link>https://hiphish.github.io/blog/2019/01/15/a-new-ssg/</link><description>Over two years already without rewriting the workshop? I have to rectify this,
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Thu, 17 Jan 2019 00:47:44 +0100</lastBuildDate><item><title>Introducing Quicklisp.nvim</title><link>https://hiphish.github.io/blog/2019/01/17/quicklisp.nvim/</link><description>One of the new features of https://neovim.io/Neovim is its ability to write plugins in any
+programming language, provided that there is a plugin host available. I have
+wanted to play around with the https://github.com/adolenc/cl-neovim/Common Lisp host for a while, and I like for
+something useful to come out of it in the end, so I created https://gitlab.com/HiPhish/quicklisp.nvimQuicklisp.nvim, a
+plugin which allows users to manage Common Lisp libraries from inside Neovim.</description><pubDate>Thu, 17 Jan 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>A new static site generator</title><link>https://hiphish.github.io/blog/2019/01/15/a-new-ssg/</link><description>Over two years already without rewriting the workshop? I have to rectify this,
 with the greatest rewrite yet! I have abandoned Pelican because I constantly
 had to adjust things manually after the build process, and even then there were
 parts of the website that weren't working. This put me off from blogging, since
@@ -28,7 +32,7 @@ technologies to create an outline of the page. In theory a blind person could
 ask their reader for the outline of the page and get a sort of table of
 contents which they could use to quickly jump to a specific part of the page.</description><pubDate>Tue, 25 Apr 2017 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing info.vim</title><link>https://hiphish.github.io/blog/2016/11/20/introducing-info.vim/</link><description>There is a new project up at the Workshop: https://gitlab.com/HiPhish/info.viminfo.vim, a Vim plugin which
 implements a complete reader and browser for info documents from within Vim.
-This is similar to the standalone info program or the Emacs info mode.</description><pubDate>Sun, 20 Nov 2016 00:00:00 Z</pubDate><category>info.vim</category></item><item><title>Rewriting the Workshop</title><link>https://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/</link><description>At this point I  could start to make rewriting  my website an annual tradition.
+This is similar to the standalone info program or the Emacs info mode.</description><pubDate>Sun, 20 Nov 2016 00:00:00 Z</pubDate><category>vim</category></item><item><title>Rewriting the Workshop</title><link>https://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/</link><description>At this point I  could start to make rewriting  my website an annual tradition.
 There have been a number of little  details that have been rubbing me the wrong
 way for almost a year now;  the biggest one was the navigation bar on sub-sites
 like the  Grid Framework  product site.  There were  also accessibility  issues
