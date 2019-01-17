@@ -13,6 +13,18 @@ p {
 	text-align: justify;
 }
 
+/* ---[ Source cod display ]------------------------------------------------ */
+pre {
+	background-color: #002b36;
+	overflow-x: auto;
+	word-wrap: normal;
+	white-space: pre;
+}
+pre > code {
+	color: #93a1a1;
+}
+/* ------------------------------------------------------------------------- */
+
 body > section {
 	flex: 1;
 }
