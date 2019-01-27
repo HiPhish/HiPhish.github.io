@@ -1,0 +1,131 @@
+/* Main style sheet, will eventually replace Bootstrap. */
+
+
+/* ===[ TOP NAVIGATION MENU ]=============================================== */
+nav#main-navbar {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #2c3e50;
+	margin-bottom: 1.0em;
+}
+
+nav#main-navbar > * {  /* Pleasant spacing around all elements */
+	padding: 0 1.0em;
+	margin: 0;
+}
+
+nav#main-navbar a {  /* Style for all hyperlinks, overrides defaults */
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 0.7em 0em;
+} nav#main-navbar a:hover {
+	color: #18bc9c;
+}
+
+
+/* ---[ The header container is the div ]----------------------------------- */
+nav#main-navbar > div {  /* Contains home label and hamburger toggle */
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.3em;
+}
+
+nav#main-navbar > div > label {
+	display: none;
+	color: #ffffff;
+	padding: 0.15em 0.5em;
+	border: 1px #1a242f solid;
+	border-radius: 0.3em;
+	margin: 0;  /* Override Bootstrap (remove this after de-bootstrapping) */
+} nav#main-navbar > div > label::after {
+	content: "☰"  /* Trigram for Heaven */
+}
+/* ------------------------------------------------------------------------- */
+
+
+/* ---[ The actual content of the nav ]------------------------------------- */
+nav#main-navbar > ul {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 2;  /* Allows growth of the ul inside the nav */
+}
+
+nav#main-navbar > ul > li {
+	margin: 0 0.5em;  /* Empty space between items */
+}
+
+nav#main-navbar > ul > li > ul {
+	display: none;
+	z-index: 1;
+	position: absolute;
+	background-color: #ffffff;
+	list-style: none;
+	padding: 0.3em 0;
+	border: 1px solid rgba(0,0,0,0.15);
+	border-radius: 0.2em;
+	box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.175);
+}
+/* ------------------------------------------------------------------------- */
+
+
+/* ===[ Responsive design ]================================================= */
+@media(min-width: 769px) {  /* Desktop-sized screens */
+	nav#main-navbar > ul > li.push-end {  /* The first item after the gap */
+		margin-left: auto;
+	}
+	nav#main-navbar > ul > li:hover > ul {
+		display: block;
+	}
+	nav#main-navbar > ul > li > ul > li[hidden] {  /* Separators */
+		display:block;
+		height: 1px;
+		margin: 0.5em 0;
+		background-color: #e5e5e5;
+	}
+	nav#main-navbar > ul > li > ul a {
+		padding: 0.3em 1.5em;
+		color: #839499;
+	}
+	nav#main-navbar > ul > li:hover > ul > li:hover > a {
+		background-color: #2c3e50;
+		color: #ffffff;
+	}
+}
+
+/* ------------------------------------------------------------------------- */
+@media(max-width: 768px) {  /* Mobile-sized screens (phones, tablets) */
+	nav#main-navbar {
+		flex-direction:	column;
+		align-items: stretch;
+	}
+
+	nav#main-navbar > div > label {
+		display: block;
+	} nav#main-navbar > div > label:hover {
+		background-color: #1a242f4d;
+	}
+
+	nav#main-navbar > ul {
+		display: none;
+		flex-direction: column;
+		border-top: 1px solid #425262;
+	}
+	nav#main-navbar > ul > li {
+		margin: 0em;
+	}
+	nav#main-navbar > ul > li.push-end {
+		margin-top: 1.0em;
+	}
+
+	nav#main-navbar > input#main-nav-hamburger:checked ~ div > label {
+		background-color: #1a242f;
+	}
+	nav#main-navbar > input#main-nav-hamburger:checked ~ ul {
+		display: flex;
+	}
+}
