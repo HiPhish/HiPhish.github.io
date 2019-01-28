@@ -1,0 +1,83 @@
+body > nav {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+body > nav a {
+	display: block;
+}
+
+body > nav > div {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+body > nav > div > label {
+	display: none;
+	border: 1px #1a242f solid;
+}
+body > nav > div > label::after {
+	content: "☰"  /* Trigram for Heaven */
+}
+
+body > nav > ul {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 2;  /* Allows growth of the ul inside the nav */
+	list-style: none;
+}
+
+body > nav > ul > li {
+	margin: 0 0.5em;
+}
+body > nav > ul > li > ul {
+	display: none;
+	z-index: 1;
+	position: absolute;
+	list-style: none;
+}
+
+@media(min-width: 769px) {  /* Desktop-sized screens */
+	body > nav > ul > li.push-end {
+		margin-left: auto;
+	}
+
+	body > nav > ul > li:hover > ul {
+		display: block;
+		padding: 0;
+		background-color: grey;
+	}
+
+	body > nav > ul > li:hover > ul > li[hidden] {  /* Separator */
+		display:block;
+		height: 1px;
+		margin: 0.5em 0;
+		background-color: red;
+	}
+}
+
+@media(max-width: 768px) {  /* Mobile-sized screens (phones, tablets) */
+	body > nav {
+		flex-direction:	column;
+		align-items: stretch;
+	}
+
+	body > nav > div > label {
+		display: block;  /* Override the default for hidden */
+	}
+
+	body > nav > ul {
+		display: none;
+		flex-direction: column;
+	}
+
+	body > nav > ul > li.push-end {
+		margin-top: 1.0em;
+	}
+
+	body > nav > input#main-navbar-hambuger:checked ~ ul{
+		display: flex;
+	}
+}

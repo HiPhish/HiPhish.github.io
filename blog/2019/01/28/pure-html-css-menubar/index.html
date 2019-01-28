@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/custom.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/article.css" type="text/css" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/open-source/">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><section class="container"><h1>Document body</h1><section class="col-md-12 container"><h1>Blog</h1><section><nav aria-label="Breadcrumbs"><ol class="breadcrumbs"><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2019</a></li><li class=""><a href="../..">01</a></li><li class="active">28</li><li class="active">pure-html-css-menubar</li></ol></nav><main><article><h1><a href="." title="Permalink to A pure HTML &amp; CSS menubar" rel="bookmark">A pure HTML &amp; CSS menubar</a></h1><header><p><time class="published" datetime="2019-01-28">Published: 2019-01-28</time></p><p>Category: <a href="../../../../categories/organisation/">organisation</a></p></header><p>In the process of de-Bootstrapping the workshop I have to replace whole
+components provided by <a href="https://getbootstrap.com/">Bootstrap</a> with my own constructs. The menu bar is one
+of the larger components I use, it's fairly complex and requires a lot of
+non-semantic markup to get working. In this blog post I will describe step by
+step how I built mine, which requires less markup and does not rely on
+Javascript. You can try the <a href="demo.html">demo</a> to see what we are going for (please resize
+your window to see the responsiveness).</p><h2>The plan</h2><p>We want a link to the home page, followed by a list of menu items.  Each menu
+item can either be a simple link, or it can contain a list of sub-menu items.
+We also want the ability to split the menu items, that is some items will be
+pushed to the end (right when horizontal, down when vertical).</p><p>On large screens we want to be able to see the entire navigation bar with both
+levels of nesting, but on small screens we only want to display the link to the
+home page and a hamburger menu button. Clicking the button will expand the menu
+bar to show the first level of menu items, clicking it again will collapse it.</p><p>Everything needs to work without Javascript, so we will be using the [checkbox
+hack]. This is a hack, so we will have to do some extra work to keep the hack
+<a href="https://www.w3.org/TR/html51/editing.html#the-hidden-attribute">hidden</a> from the user's view. This does not only apply to graphical web
+browsers, but other user agents as well.</p><h2>The markup</h2><p>The HTML code is fairly straight-forward. We start with a <code>nav</code> containing the
+checkbox for our hack.</p><pre><code class="language-html">&lt;nav&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;main-navbar-hambuger&quot; hidden=&quot;hidden&quot;/&gt;
+&lt;/nav&gt;</code></pre><p>The checkbox has the <code>hidden</code> attribute, this will hide it from all user
+agents, we do not want the user to see this because it has no semantic purpose.</p><p>On small screens we want to show the link to the home page and the hamburger
+button, so the two of them go together in a <code>div</code>.</p><pre><code class="language-html">&lt;nav&gt;
+  &lt;input ... /&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;/&quot;&gt;Home Page&lt;/a&gt;
+    &lt;label for=&quot;main-navbar-hambuger&quot; hidden=&quot;hidden&quot;&gt;&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre><p>The home link is self-explanatory, but the <code>label</code> deserves some attention.
+We hide it as well, because it only makes sense on graphical browsers, not on
+other user agents. We will use CSS to override its <code>display</code> style, this way it
+stays hidden in every user agent, except those that support CSS. Clicking the
+label will toggle the checkbox, and we will be using the state of the checkbox
+to toggle display of the menu items.</p><pre><code class="language-html">&lt;nav&gt;
+  &lt;input ... /&gt;
+  &lt;div&gt; ...  &lt;/div&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;Item 1&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 1.1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 1.2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 1.3&lt;/a&gt;&lt;/li&gt;
+        &lt;li hidden=&quot;hidden&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 1.4&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;Item 2&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 2.1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 2.2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 2.3&lt;/a&gt;&lt;/li&gt;
+        &lt;li hidden=&quot;hidden&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 2.4&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;push-end&quot;&gt;&lt;a href=&quot;#&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre><p>The menu items are contained in an unordered list as usual for menu bars. Each
+list item is either just a plain hyperlink (no nesting), or a hyperlink
+followed by a list of further menu items. One top-level menu item can carry the
+<code>push-end</code> class, this item and its later siblings will be pushed towards the
+end of the menu bar.</p><p>We also support separators in nested lists. A separator is an empty <code>li</code>, and
+since it has no semantic meaning it is also <code>hidden</code>. As with the label, we
+will use CSS to display it as a thin horizontal bar.</p><h2>The CSS styling</h2><p>We have hidden all the hacky items, so on user agents which do not support CSS
+we will get a nicely nested list of navigation menu items. For graphical web
+browsers however we will need to apply some CSS polish to turn the lists into a
+navigation bar.</p><pre><code class="language-css">body &gt; nav {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+body &gt; nav a {
+    display: block;
+}</code></pre><p>The main display mode will be flexbox, it allows the browser to figure out how
+to space things on its own. Recall that the toplevel <code>nav</code> has only two
+elements: the <code>div</code> containing the home link and the hamburger button, and the
+list of menu items (the checkbox is technically also there, but it's hidden, so
+we will pretend it does not exists). We space them at the beginning (left) with
+flexbox and display all hyperlinks as blocks. The list of items will be allowed
+to grow, that way it will push the home link all the way to the start and take
+up the remaining space.</p><pre><code class="language-css">body &gt; nav &gt; div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+body &gt; nav &gt; div &gt; label {
+    display: none;
+    border: 1px #1a242f solid;
+}
+body &gt; nav &gt; div &gt; label::after {
+    content: &quot;☰&quot;  /* Trigram for Heaven */
+}</code></pre><p>The <code>div</code> is also a flexbox container, and we space its items as far apart as
+possible. This does not matter for now, but it will when we make the label
+visible. Finally, note that in the markup we had left the content of the label
+empty. We add it in with CSS here because there are still some user agents
+which do no respect the <code>hidden</code> attribute (such as <a href="https://lynx.invisible-island.net/">Lynx</a>), and I want to
+avoid confusing their users with a Chinese glyph out of nowhere in the header
+of the page.</p><pre><code class="language-css">body &gt; nav &gt; ul {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;  /* Allows growth of the ul inside the nav */
+}
+
+body &gt; nav &gt; ul &gt; li &gt; ul {
+    display: none;
+    z-index: 1;
+    position: absolute;
+}</code></pre><p>Finally, we style the lists. Setting the <code>flex-grow</code> allows the list to grow to
+the full width inside its parent container. The second level will be hidden
+from sight for now.</p><h3>Large screens</h3><p>On large screens we display the second level when hovering on top of the parent
+list, we implement the <code>.push-end</code> class and override the display of the
+separators.</p><pre><code class="language-css">@media(min-width: 769px) {
+    body &gt; nav &gt; ul &gt; li.push-end {
+        margin-left: auto;
+    }
+
+    body &gt; nav &gt; ul &gt; li:hover &gt; ul {
+        display: block;
+    }
+
+    body &gt; nav &gt; ul &gt; li:hover &gt; ul &gt; li[hidden] {  /* Separator */
+        display:block;
+        height: 1px;
+        margin: 0.5em 0;
+        background-color: red;
+    }
+}</code></pre><h3>Small screens</h3><p>Now it really pays off that we are using flexbox: re-arranging items can be
+done by just overriding the flexbox properties. We also override the <code>display</code>
+of hidden items to make the label visible. The first level list is now hidden,
+<em>unless</em> its previous <code>input</code> sibling is checked. How do we check an invisible
+checkbox?  By clicking the (now displayed) label. Clicking the label has the
+same effect as clicking the checkbox, thus turning the label effectively into a
+button.  This is the checkbox hack.</p><pre><code class="language-css">@media(max-width: 768px) {  /* Mobile-sized screens (phones, tablets) */
+    body &gt; nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body &gt; nav &gt; div &gt; label {
+        display: block;  /* Override the default for hidden */
+    }
+
+    body &gt; nav &gt; ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    body &gt; nav &gt; ul &gt; li.push-end {
+        margin-top: 1.0em;
+    }
+
+    body &gt; nav &gt; input#main-navbar-hambuger:checked ~ ul{
+        display: flex;
+    }
+}</code></pre><h2>Conclusion</h2><p>The checkbox hack is ugly, but it is still the least harmful way of
+implementing a responsive menu bar which works on all devices and user agents.
+Care must be taken to hide the hack from users and maintain clarity. This menu
+bar is still not the ultimate possible menu bar, there are a couple of things I
+would wish for:</p><ul><li>The second level can only be displayed by hovering, I would prefer if it was
+possible to toggle display by clicking or touching.</li><li>This also means that accessing the second level is impossible on
+touch-devices. The first-level links must be so that all content is still
+reachable, even if not as conveniently.</li><li>The checkbox requires an <code>id</code> attribute. This is not a big issue, but it
+would be nicer if it did not.</li></ul><p>All of these could be accomplished in Javascript, but I would rather not use it
+if there is a better way. The first two points are possible using the checkbox
+hack and radio buttons, but it would require much more hackery. Another day
+perhaps. The third point would probably be possible by using the CSS <code>:has()</code>
+selector, but it is not yet implemented in any web browser. Oh well, I cannot
+let perfect be the enemy of good, and this is still better than what I had
+before.</p><footer class="blog-pager"><nav><a href="../../../../2019/01/21/neovim-guix-channel/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Neovim channel for GNU Guix</a><a style="display: none;"></a></nav></footer></article></main></section><nav class="well"><h1>Blog navigation</h1><aside><strong>Subscribe:</strong> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2019/">2019 (4)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/ntfs-clone/">ntfs-clone (1)</a></li><li><a href="/blog/categories/ips-tools/">ips-tools (1)</a></li><li><a href="/blog/categories/open-source/">open-source (2)</a></li><li><a href="/blog/categories/misc/">misc (4)</a></li><li><a href="/blog/categories/vim/">vim (3)</a></li><li><a href="/blog/categories/organisation/">organisation (6)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/website/">website (3)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/outline/">outline (1)</a></li><li><a href="/blog/tags/rant/">rant (1)</a></li><li><a href="/blog/tags/html/">html (1)</a></li><li><a href="/blog/tags/vim/">vim (3)</a></li></ul></nav></nav></section></section><footer><div class="container"><div class="col-md-8 footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p class="text-muted"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="col-md-4 footer-social"><span class="pull-right"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img class="img-circle" src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img class="img-circle" src="/img/footer/gitlab.png" alt="GitLab" /> </a></span></div></div></footer></body></html>
