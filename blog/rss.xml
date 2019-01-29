@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 28 Jan 2019 22:03:28 +0100</lastBuildDate><item><title>A pure HTML &amp; CSS menubar</title><link>https://hiphish.github.io/blog/2019/01/28/pure-html-css-menubar/</link><description>In the process of de-Bootstrapping the workshop I have to replace whole
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Tue, 29 Jan 2019 13:26:55 +0100</lastBuildDate><item><title>A pure HTML &amp; CSS menubar</title><link>https://hiphish.github.io/blog/2019/01/28/pure-html-css-menubar/</link><description>In the process of de-Bootstrapping the workshop I have to replace whole
 components provided by https://getbootstrap.com/Bootstrap with my own constructs. The menu bar is one
 of the larger components I use, it's fairly complex and requires a lot of
 non-semantic markup to get working. In this blog post I will describe step by
