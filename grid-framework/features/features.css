@@ -1,0 +1,33 @@
+/* Foldouts used on the features page; foldouts should be organised using
+ * Flexbox instead of the Bootstrap grid */
+.fold-group {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	margin-bottom: 1em;
+}
+
+.fold-group:last-of-type { border: none; }
+
+.foldout { cursor: pointer; }
+
+.foldout:hover {
+	background-color: rgb(240,240,240);
+	border-radius: 5px;
+}
+
+.expand {
+	/* Javascript will override this to make it visible again        */
+	/* If Javascript is disabled there is no reason to display this. */
+	display: none;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+	/* The foldout group needs to be invisible, so remove its bottom line and
+	 * add one to each foldout instead */
+	.fold-group { border: none; }
+
+	.foldout {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		margin-bottom: 1em;
+	}
+}

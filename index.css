@@ -1,10 +1,24 @@
+body > section > section > div {
+	padding: 48px 60px;
+	margin-bottom: 30px;
+	border-radius: 6px;
+	background-color: #ecf0f1;
+	font-size: 23px;
+}
+
+body > section > section > div > h1 { font-size: 3em; }
+
+@media(max-width: 767px) {
+	body > section > section > div { padding: 30px 15px; }
+	body > section > section > div > h1 { font-size: 2em; }
+}
+
+
 /* Product-cards for all the products. A card displays an image of the product,
  * a short text description and a button with a link to learn more about the
  * product. Each product is wrapped inside a plain '<article>', which are all
  * wrapped inside a '#products' element, and each product in a '<div>' element.
  * */
-
-
 #products {
 	display: flex;
 	flex-wrap: wrap;

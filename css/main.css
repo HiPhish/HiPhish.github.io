@@ -1,5 +1,21 @@
 /* Main style sheet, will eventually replace Bootstrap. */
 
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+p { text-align: justify; }
+
+pre {
+	background-color: #002b36;
+	overflow-x: auto;
+	word-wrap: normal;
+	white-space: pre;
+}
+pre > code { color: #93a1a1; }
+
 
 /* ###[ TOP NAVIGATION MENU ]############################################### */
 nav#main-navbar {
@@ -16,9 +32,7 @@ nav#main-navbar > * {  /* Pleasant spacing around all elements */
 	margin: 0;
 }
 
-nav#main-navbar ul {
-	list-style: none;
-}
+nav#main-navbar ul { list-style: none; }
 
 nav#main-navbar a {  /* Style for all hyperlinks, overrides defaults */
 	display: block;
@@ -59,9 +73,8 @@ nav#main-navbar > ul {
 	flex-grow: 2;  /* Allows growth of the ul inside the nav */
 }
 
-nav#main-navbar > ul > li {
-	margin: 0 0.5em;  /* Empty space between items */
-}
+/* Empty space between items */
+nav#main-navbar > ul > li { margin: 0 0.5em; }
 
 nav#main-navbar > ul > li > ul {
 	display: none;
@@ -79,9 +92,7 @@ nav#main-navbar > ul > li > ul {
 
 /* ===[ Responsive design ]================================================= */
 @media(min-width: 769px) {  /* Desktop-sized screens */
-	nav#main-navbar > ul > li.push-end {  /* The first item after the gap */
-		margin-left: auto;
-	}
+	nav#main-navbar > ul > li.push-end { margin-left: auto; }
 	nav#main-navbar > ul > li:hover > ul {
 		display: block;
 	}
@@ -119,21 +130,32 @@ nav#main-navbar > ul > li > ul {
 		flex-direction: column;
 		border-top: 1px solid #425262;
 	}
-	nav#main-navbar > ul > li {
-		margin: 0em;
-	}
-	nav#main-navbar > ul > li.push-end {
-		margin-top: 1.0em;
-	}
+	nav#main-navbar > ul > li { margin: 0em; }
+	nav#main-navbar > ul > li.push-end { margin-top: 1.0em; }
 
 	nav#main-navbar > input#main-nav-hamburger:checked ~ div > label {
 		background-color: #1a242f;
 	}
-	nav#main-navbar > input#main-nav-hamburger:checked ~ ul {
-		display: flex;
-	}
+	nav#main-navbar > input#main-nav-hamburger:checked ~ ul { display: flex; }
 }
 
+
+/* ###[ Page content ]###################################################### */
+body > section {
+	flex: 1;
+	margin: auto;
+	padding: 0 15px;
+}
+
+@media(min-width:  768px) { body > section { width:  750px } }
+@media(min-width:  992px) { body > section { width:  970px } }
+@media(min-width: 1200px) { body > section { width: 1170px } }
+
+body > section > section {
+	width: 100%;
+	margin: auto;
+	padding: 0 15px;
+}
 
 
 /* ###[ Footer of each page ]############################################### */
@@ -142,13 +164,8 @@ body > footer {
 	padding: 15px 0;
 }
 
-body > footer .footer-self img.copyright-image {
-	height: 1em;
-}
-
-body > footer img {
-	height: 55px;
-}
+body > footer .footer-self img.copyright-image { height: 1em; }
+body > footer img { height: 55px; }
 
 body > footer > div {
 	display: grid;
@@ -157,13 +174,8 @@ body > footer > div {
 	padding: 0 15px;
 }
 
-body > footer > div > div {
-	padding: 0 15px;
-}
-
-body > footer > div > div:last-child {
-	justify-self: end;
-}
+body > footer > div > div { padding: 0 15px; }
+body > footer > div > div:last-child { justify-self: end; }
 
 @media(min-width:  768px) { body > footer > div { width:  750px } }
 @media(min-width:  992px) { body > footer > div { width:  970px } }
