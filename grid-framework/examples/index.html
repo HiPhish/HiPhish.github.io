@@ -34,17 +34,17 @@
         scene, allowing for seamless transition.</p></div></div><h1 id="snapping"><a href="snapping/">Runtime snapping</a></h1><div class="example"><iframe title="YouTube video player" src="http://www.youtube.com/embed/QqUzcthkvcc"></iframe><div><p>If you want to allow the user to place object only on the grid, then
         this example is for you.  Snapping is a two-step process: first we move
         the object to where the cursor is pointing, then we correct the
-        position.</p><div class="highlight"><pre>transform.position = cursorWorldPoint;
-grid.AlignTransform(transform);</pre></div></div></div><h1 id="endless"><a href="endless/">Seemingly endless grid</a></h1><p>Grids are infinity large when it come to calculations, but rendering
+        position.</p><pre><code>transform.position = cursorWorldPoint;
+grid.AlignTransform(transform);</code></pre></div></div><h1 id="endless"><a href="endless/">Seemingly endless grid</a></h1><p>Grids are infinity large when it come to calculations, but rendering
         an infinite amount of lines is impossible.  We will use a trick instead
         where we dynamically adjust the rendering range of the grid according
         to the camera.  The result is a seamless illusion that only renders the
-        bare minimum and only updates when it has to.</p><div class="highlight"><pre>for (int i = 0; i &lt; 3; i++) {
+        bare minimum and only updates when it has to.</p><pre><code>for (int i = 0; i &lt; 3; i++) {
     rangeShift[i] += transform.position[i] - lastPosition[i];
 }
 
 renderer.From += rangeShift;
-renderer.To   += rangeShift;</pre></div><h1 id="terrain"><a href="terrain/">Terrain mesh generation</a></h1><p>We generate a mesh as a SimCity-like terrain from data. Clicking a
+renderer.To   += rangeShift;</code></pre><h1 id="terrain"><a href="terrain/">Terrain mesh generation</a></h1><p>We generate a mesh as a SimCity-like terrain from data. Clicking a
         vertex raises or lowers it. Everything is accomplished be converting
         from grid coordinates to world coordinates.</p><h1 id="dial"><a href="dial/">Rotary dial</a></h1><p>A rotary dial as it would have been found on older phones. When the
         player clicks a sector of this polar grid the grid coordinates are used

@@ -1,0 +1,12 @@
+ul.gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 0;
+	list-style: none;
+}
+
+ul.gallery > li { display: block; }
+
+@media(max-width: 992px) { ul.gallery { grid-template-columns: 1fr 1fr 1fr; } }
+@media(max-width: 767px) { ul.gallery { grid-template-columns: 1fr 1fr; } }

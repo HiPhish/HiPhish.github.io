@@ -1,0 +1,6 @@
+h1 { text-transform: capitalize; }
+.faq-toc ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+.faq-q a { cursor: pointer; }

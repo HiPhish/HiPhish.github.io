@@ -7,17 +7,17 @@ body > section {
 	flex-direction: column;
 }
 
-body > section.container > section {
+body > section > section {
 	display: flex;
 	flex: 1;
 }
 
 /* This only serves for outlining, hide it from visual display. */
-body > section.container > section > h1 {
+body > section > section > h1 {
 	display: none;
 }
 
-body > section.container > section > section {
+body > section > section > section {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -26,26 +26,26 @@ body > section.container > section > section {
 	margin-bottom: 20px;
 }
 
-body > section.container > section > nav {
+body > section > section > nav {
 	width: 15em;
 	flex-shrink: 0;
 	order: -1;  /* Move the navigator left from the article */
 }
 
-body > section.container > section > nav > h1 {
+body > section > section > nav > h1 {
 	display: none;
 }
 
 
-body > section.container > section > nav > nav > h1 {
+body > section > section > nav > nav > h1 {
 	font-size: 1.5em;
 }
 
-body > section.container > section > nav > aside > h1 {
+body > section > section > nav > aside > h1 {
 	display: none;
 }
 
-body > section.container > section > nav > nav ul {
+body > section > section > nav > nav ul {
 	list-style: none;
 	padding-left: 0.5em;
 }
@@ -75,6 +75,14 @@ ol.breadcrumbs > li > a {
 }
 ol.breadcrumbs > li > a:hover {
 	text-decoration: underline;
+}
+/* ------------------------------------------------------------------------- */
+
+
+/* ---[ Listing of blog post previews ]------------------------------------- */
+main.blogpost-listing > ul {
+	list-style: none;
+	padding: 0;
 }
 /* ------------------------------------------------------------------------- */
 
@@ -134,12 +142,12 @@ main > article > p > img:only-child , main > article > p > a:only-child > img:on
  * archives directly. */
 @media(max-width: 768px) {
 	/* Re-arrange the articles and navigator vertically */
-	body > section.container > section {
+	body > section > section {
 		flex-direction: column;
 	}
 
 	/* The navigator comes after the articles now. */
-	body > section.container > section > nav {
+	body > section > section > nav {
 		order: 0;
 		width: auto;
 		display: flex;
@@ -147,17 +155,17 @@ main > article > p > img:only-child , main > article > p > a:only-child > img:on
 		justify-content: space-between;
 	}
 
-	body > section.container > section > nav > nav > h1 {
+	body > section > section > nav > nav > h1 {
 		margin-top: 0;
 	}
 
 	/* Hide the navigator lists, they are too large */
-	body > section.container > section > nav > nav ul {
+	body > section > section > nav > nav ul {
 		display: none;
 	}
 
 	/* Push the aside onto the next line */
-	body > section.container > section > nav > aside {
+	body > section > section > nav > aside {
 		flex: 0 1 100%;
 	}
 }
