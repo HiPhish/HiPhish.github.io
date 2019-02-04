@@ -165,6 +165,7 @@ body > footer {
 }
 
 body > footer .footer-self img.copyright-image { height: 1em; }
+body > footer .footer-self p { color: #b4bcc2; }  /* Muted appearance */
 body > footer img { height: 55px; }
 
 body > footer > div {

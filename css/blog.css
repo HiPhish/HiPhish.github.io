@@ -1,85 +1,66 @@
 /* The following colour values are being used:
  *   - Pager elements: #18bc9c
+ *   - Blog navigation background: #ecf0f1
  */
 
-body > section {
-	display: flex;
-	flex-direction: column;
-}
-
 body > section > section {
-	display: flex;
-	flex: 1;
-}
-
-/* This only serves for outlining, hide it from visual display. */
-body > section > section > h1 {
-	display: none;
-}
-
-body > section > section > section {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	padding-left: 0;
-	margin-left: 1em;
-	margin-bottom: 20px;
-}
-
-body > section > section > nav {
-	width: 15em;
-	flex-shrink: 0;
-	order: -1;  /* Move the navigator left from the article */
-}
-
-body > section > section > nav > h1 {
-	display: none;
+	display: grid;
+	grid-template:
+		"nav breadcrumbs" minmax(0px, auto)
+		"nav main" 
+		"nav pager" auto / 15em auto;
+	grid-gap: 0em 1em;
+	margin-bottom: 1em;
 }
 
 
-body > section > section > nav > nav > h1 {
-	font-size: 1.5em;
+/* ---[ Blog navigation ]--------------------------------------------------- */
+nav.blog-navigation {
+	grid-area: nav;
+	padding: 19px;
+	background-color: #ecf0f1;
+	border-radius: 4px;
 }
 
-body > section > section > nav > aside > h1 {
-	display: none;
-}
+nav.blog-navigation > aside > span { font-weight: bold; }
 
-body > section > section > nav > nav ul {
+nav.blog-navigation > nav > h1 { font-size: 1.5em; }
+
+nav.blog-navigation > nav > ul {
 	list-style: none;
 	padding-left: 0.5em;
 }
+/* ------------------------------------------------------------------------- */
 
 
 /* ---[ Blog breadcrumbs ]-------------------------------------------------- */
-ol.breadcrumbs {
+nav.breadcrumbs > ol {
 	margin-bottom: 0;
 	padding: 0.5em 1em;
 	list-style: none;
 	background-color: #ecf0f1;
 	border-radius: 0.3em;
+	grid-area: breadcrumbs;
 }
 
-ol.breadcrumbs > li {
+nav.breadcrumbs > ol > li {
 	display: inline-block;
 	color: #95a5a6;
 }
-ol.breadcrumbs > li:after {
+nav.breadcrumbs > ol > li:after {
 	content: "\00a0/\00a0";
 	padding: 0 0.25em;
 	color: #cccccc;
 }
 
-ol.breadcrumbs > li > a {
-	text-decoration: none;
-}
-ol.breadcrumbs > li > a:hover {
-	text-decoration: underline;
-}
+nav.breadcrumbs > ol > li > a { text-decoration: none; }
+nav.breadcrumbs > ol > li > a:hover { text-decoration: underline; }
 /* ------------------------------------------------------------------------- */
 
 
-/* ---[ Listing of blog post previews ]------------------------------------- */
+/* ---[ Main blog area ]---------------------------------------------------- */
+main { grid-area: main; }
+
 main.blogpost-listing > ul {
 	list-style: none;
 	padding: 0;
@@ -88,7 +69,7 @@ main.blogpost-listing > ul {
 
 
 /* ---[ Pager (previous & next post) ]-------------------------------------- */
-footer.blog-pager > nav {  /* The class should be renamed after removing Bootstrap */
+nav.blog-pager {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -97,7 +78,7 @@ footer.blog-pager > nav {  /* The class should be renamed after removing Bootstr
 	border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-footer.blog-pager > nav > a {
+nav.blog-pager > a {
 	color: #fff;
 	text-decoration: none;
 	background-color: #18bc9c;
@@ -105,22 +86,16 @@ footer.blog-pager > nav > a {
 	border-radius: 2em;
 	text-align: center;
 }
-footer.blog-pager > nav > a:last-child {
-	margin-left: auto;
-}
-footer.blog-pager > nav > a:focus {
-	background-color: #0f7864;
-}
-footer.blog-pager > nav > a:hover {
-	background-color: #0f7864;
-}
-footer.blog-pager > nav > a[hidden] {
-	display: none; /* Older browsers might not support the "hidden" attribute */
-}
+nav.blog-pager > a:last-child { margin-left: auto; }
+nav.blog-pager > a:focus { background-color: #0f7864; }
+nav.blog-pager > a:hover { background-color: #-1f7864; }
+nav.blog-pager > a[hidden] { display: none; }
+
+@media(max-width: 768px) { nav.blog-pager { margin-bottom: 1em; } }
 /* ------------------------------------------------------------------------- */
 
-/* ---[ Limit the width of elements in the post ]--------------------------- */
 
+/* ---[ Limit the width of elements in the post ]--------------------------- */
 /* Making it the only child ensures we don't also affect images that flow with
  * some text */
 main > article > p > img:only-child , main > article > p > a:only-child > img:only-child {
@@ -143,29 +118,52 @@ main > article > p > img:only-child , main > article > p > a:only-child > img:on
 @media(max-width: 768px) {
 	/* Re-arrange the articles and navigator vertically */
 	body > section > section {
-		flex-direction: column;
+		grid-template:
+			"breadcrumbs"
+			"main"
+			"pager"
+			"nav" / auto;
 	}
 
-	/* The navigator comes after the articles now. */
-	body > section > section > nav {
-		order: 0;
-		width: auto;
+	main { margin-bottom: 1em; }
+
+	nav.blog-navigation {
 		display: flex;
-		flex-wrap: wrap;
+		flex-flow: row wrap;
 		justify-content: space-between;
 	}
-
-	body > section > section > nav > nav > h1 {
-		margin-top: 0;
-	}
-
+	nav.blog-navigation > aside { flex-basis: 100%; }
 	/* Hide the navigator lists, they are too large */
-	body > section > section > nav > nav ul {
-		display: none;
-	}
-
-	/* Push the aside onto the next line */
-	body > section > section > nav > aside {
-		flex: 0 1 100%;
-	}
+	nav.blog-navigation > nav > ul { display: none; }
 }
+
+
+/* ###[ Blog post index ]################################################### */
+nav.paginator {
+	display: flex;
+	justify-content: center;
+}
+nav.paginator > ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding: 0;
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+nav.paginator > ul > li > a {
+	float: left;
+	padding: 10px 15px;
+	color: #ffffff;
+	background-color: #18bc9c;
+	text-decoration: none;
+}
+nav.paginator > ul > li.active > a,
+nav.paginator > ul > li > a:hover,
+nav.paginator > ul > li > a:focus {
+	background-color: #0f7864;
+}
+nav.paginator > ul > li:first-child > a { border-radius: 4px 0 0 4px; }
+nav.paginator > ul > li:last-child  > a { border-radius: 0 4px 4px 0; }
+
+@media(max-width: 768px) { nav.paginator > ul { margin-bottom: 1em; } }

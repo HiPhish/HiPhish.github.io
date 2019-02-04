@@ -1,0 +1,13 @@
+article.showcase {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-gap: 2em;
+	margin-bottom: 3em;
+}
+
+article.showcase > div > a > img {
+	max-width: 100%;
+}
+
+@media(max-width: 992px) { article.showcase { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 767px) { article.showcase { grid-template-columns: 1fr; } }
