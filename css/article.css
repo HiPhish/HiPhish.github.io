@@ -1,24 +1,24 @@
-body > section.container > section > main {
+body > div.container > main {
 	flex: 1;
 	display: inherit;
 	flex-direction: inherit;
 }
 
-body > section.container > section > main > nav > h1 {
+body > div.container > main > nav > h1 {
 	display: none;
 }
 
-body > section.container > section > section > main > article > header {
+body > div.container > section > main > article > header {
 	border-bottom-style: solid;
 	border-bottom-width: 0.1em;
 	border-bottom-color: rgba(0, 0, 0, 0.125);
 	margin-bottom: 1em;
 }
 
-body > section.container > section > main > footer {
+body > div.container > main > footer {
 	margin-top: auto;
 }
 
-body > section.container > section > main > footer > nav > h1 {
+body > div.container > main > footer > nav > h1 {
 	display: none;
 }

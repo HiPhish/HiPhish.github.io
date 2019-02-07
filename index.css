@@ -1,4 +1,4 @@
-body > section > section > div {
+body > div > div {
 	padding: 48px 60px;
 	margin-bottom: 30px;
 	border-radius: 6px;
@@ -6,11 +6,11 @@ body > section > section > div {
 	font-size: 23px;
 }
 
-body > section > section > div > h1 { font-size: 3em; }
+body > div > div > h1 { font-size: 3em; }
 
 @media(max-width: 767px) {
-	body > section > section > div { padding: 30px 15px; }
-	body > section > section > div > h1 { font-size: 2em; }
+	body > div > div { padding: 30px 15px; }
+	body > div > div > h1 { font-size: 2em; }
 }
 
 

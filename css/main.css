@@ -141,21 +141,15 @@ nav#main-navbar > ul > li > ul {
 
 
 /* ###[ Page content ]###################################################### */
-body > section {
+body > div {
 	flex: 1;
 	margin: auto;
 	padding: 0 15px;
 }
 
-@media(min-width:  768px) { body > section { width:  750px } }
-@media(min-width:  992px) { body > section { width:  970px } }
-@media(min-width: 1200px) { body > section { width: 1170px } }
-
-body > section > section {
-	width: 100%;
-	margin: auto;
-	padding: 0 15px;
-}
+@media(min-width:  768px) { body > div { width:  750px } }
+@media(min-width:  992px) { body > div { width:  970px } }
+@media(min-width: 1200px) { body > div { width: 1170px } }
 
 
 /* ###[ Footer of each page ]############################################### */

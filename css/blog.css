@@ -3,12 +3,12 @@
  *   - Blog navigation background: #ecf0f1
  */
 
-body > section > section {
+div.blog {
 	display: grid;
 	grid-template:
 		"nav breadcrumbs" minmax(0px, auto)
 		"nav main" 
-		"nav pager" auto / 15em auto;
+		"nav pager" minmax(0px, auto) / 15em auto;
 	grid-gap: 0em 1em;
 	margin-bottom: 1em;
 }
@@ -117,7 +117,7 @@ main > article > p > img:only-child , main > article > p > a:only-child > img:on
  * archives directly. */
 @media(max-width: 768px) {
 	/* Re-arrange the articles and navigator vertically */
-	body > section > section {
+	div.blog {
 		grid-template:
 			"breadcrumbs"
 			"main"
@@ -167,3 +167,8 @@ nav.paginator > ul > li:first-child > a { border-radius: 4px 0 0 4px; }
 nav.paginator > ul > li:last-child  > a { border-radius: 0 4px 4px 0; }
 
 @media(max-width: 768px) { nav.paginator > ul { margin-bottom: 1em; } }
+
+
+/* ###[ Archive ]########################################################### */
+div.blog > main#archive > ul { padding: 1em 0; }
+div.blog > main#archive ul { list-style: none; }

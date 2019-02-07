@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 $(document).ready( function () {
-	$('.feature').each(function() {
+	$('div#features > div').each(function() {
 		var $this = $(this);
 		$this.find('.expandable').toggle();  // Hide by default
 		$this.find('.expand').css('display', 'inline');
