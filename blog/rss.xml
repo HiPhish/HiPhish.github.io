@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 08 Feb 2019 13:17:47 +0100</lastBuildDate><item><title>De-Bootsrapping the workshop, part 1</title><link>https://hiphish.github.io/blog/2019/02/04/de-bootstrapping-part-1/</link><description>The first major step in phasing out the bloat that is https://getbootstrap.com/Bootstrap from my
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 11 Feb 2019 22:44:28 +0100</lastBuildDate><item><title>Implementing MsgPack.rkt, part 1</title><link>https://hiphish.github.io/blog/2019/02/11/implementing-msgpack.rkt-pt1/</link><description>When I originally set out to write http://docs.racket-lang.org/msgpack/index.htmlMsgPack.rkt, a https://racket-lang.org/Racket implementation of
+the https://msgpack.org/MessagePack protocol, I had a hard time wrapping my mind around where to
+begin. I had no experience in writing a serialisation library, and reading the
+source code of existing implementations only revealed the what, but not the
+why. This is why I'm starting this short mini-series of blog posts to provide
+a commentary on my implementation. I hope that it will serve other people who
+are looking for a starting point to their own implementations.</description><pubDate>Mon, 11 Feb 2019 00:00:00 Z</pubDate><category>open-source</category></item><item><title>De-Bootsrapping the workshop, part 1</title><link>https://hiphish.github.io/blog/2019/02/04/de-bootstrapping-part-1/</link><description>The first major step in phasing out the bloat that is https://getbootstrap.com/Bootstrap from my
 website is done. None of the layout depends on any Bootstrap classes and
 markup. Instead, the layout is built from scratch using the new Flexbox and
 Grid features.</description><pubDate>Mon, 04 Feb 2019 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A pure HTML &amp; CSS menubar</title><link>https://hiphish.github.io/blog/2019/01/28/pure-html-css-menubar/</link><description>In the process of de-Bootstrapping the workshop I have to replace whole
