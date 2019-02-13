@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 11 Feb 2019 22:44:28 +0100</lastBuildDate><item><title>Implementing MsgPack.rkt, part 1</title><link>https://hiphish.github.io/blog/2019/02/11/implementing-msgpack.rkt-pt1/</link><description>When I originally set out to write http://docs.racket-lang.org/msgpack/index.htmlMsgPack.rkt, a https://racket-lang.org/Racket implementation of
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Wed, 13 Feb 2019 18:33:06 +0100</lastBuildDate><item><title>Implementing MsgPack.rkt, part 2</title><link>https://hiphish.github.io/blog/2019/02/13/implementing-msgpack.rkt-pt2/</link><description>In this part of the series I want to go into how to pack data to bytes in
+MessagePack. We will see how to dynamically dispatch on type and how to pack a
+selection of particular types.</description><pubDate>Wed, 13 Feb 2019 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Implementing MsgPack.rkt, part 1</title><link>https://hiphish.github.io/blog/2019/02/11/implementing-msgpack.rkt-pt1/</link><description>When I originally set out to write http://docs.racket-lang.org/msgpack/index.htmlMsgPack.rkt, a https://racket-lang.org/Racket implementation of
 the https://msgpack.org/MessagePack protocol, I had a hard time wrapping my mind around where to
 begin. I had no experience in writing a serialisation library, and reading the
 source code of existing implementations only revealed the what, but not the
@@ -44,7 +46,7 @@ Nvim's built-in terminal emulator it is just a few commands away. My new
 https://gitlab.com/HiPhish/repl.nvim/REPL.nvim plugin now puts the REPL only one command away, for any
 programming language you wish. The end goal is to have a complete generic and
 configurable REPL framework which can be customised to the needs of any
-language and which forms a solid foundation for other plugins as well.</description><pubDate>Sat, 06 May 2017 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Outlining of HTML pages is fundamentally broken</title><link>https://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/</link><description>If you were to run the Workshop through an HTML validator you would notice a
+language and which forms a solid foundation for other plugins as well.</description><pubDate>Sat, 06 May 2017 00:00:00 Z</pubDate><category>vim</category></item><item><title>Outlining of HTML pages is fundamentally broken</title><link>https://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/</link><description>If you were to run the Workshop through an HTML validator you would notice a
 lot of warnings about the document outline. What is going on here? HTML 5
 defines an https://www.w3.org/TR/html5/sections.html#outlineoutline algorithm which allows browsers and assistive
 technologies to create an outline of the page. In theory a blind person could
@@ -59,7 +61,7 @@ relating  to  the lack  of a  proper  HTML  document  outline  and  the  use of
 JavaScript.</description><pubDate>Tue, 27 Sep 2016 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Introducing IPS-Tools</title><link>https://hiphish.github.io/blog/2016/07/06/intro-ips-tools/</link><description>I found myself needing a program to apply binary patches in the IPS file format
 and I was really disappointed  that there are no proper  Unix programs for that
 purpose available.  So I set out to make my own,  but instead of just  applying
-patches it would be a complete suite of tools to handle all IPS-related tasks.</description><pubDate>Wed, 06 Jul 2016 00:00:00 Z</pubDate><category>ips-tools</category></item><item><title>Highlighting `NSImageView` the right way</title><link>https://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+patches it would be a complete suite of tools to handle all IPS-related tasks.</description><pubDate>Wed, 06 Jul 2016 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Highlighting `NSImageView` the right way</title><link>https://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  NSImageView when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
@@ -67,8 +69,8 @@ an unsolved problem.</description><pubDate>Sat, 25 Jun 2016 00:00:00 Z</pubDate>
 recently found collecting dust on my hard drive. It lets you create perfect 1:1
 copies of NTFS hard drives on Unix.  The problem with every software I had come
 across was  that it would copy the data,  but that wasn't enough,  so we had to
-run Windows repair on every single drive.</description><pubDate>Tue, 31 May 2016 00:00:00 Z</pubDate><category>ntfs-clone</category></item><item><title>Neovim has tab-local working directories now</title><link>https://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>My Neovim PR to add tab-local working directories has recently been merged.  In
-this post I will explain what it does and why you will love it.</description><pubDate>Fri, 22 Apr 2016 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Feeds are live now</title><link>https://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+run Windows repair on every single drive.</description><pubDate>Tue, 31 May 2016 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Neovim has tab-local working directories now</title><link>https://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>My Neovim PR to add tab-local working directories has recently been merged.  In
+this post I will explain what it does and why you will love it.</description><pubDate>Fri, 22 Apr 2016 00:00:00 Z</pubDate><category>vim</category></item><item><title>Feeds are live now</title><link>https://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
 category button of an article.</description><pubDate>Sat, 14 Nov 2015 00:00:00 Z</pubDate><category>organisation</category></item><item><title>We are live!</title><link>https://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>The Workshop blog is finally up and running, in all its static glory. This
