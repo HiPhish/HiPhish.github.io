@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous" /><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/pygments.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/article.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/#products">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2019</a></li><li class=""><a href="../..">02</a></li><li class="active">15</li><li class="active">implementing-msgpack.rkt-pt3</li></ol></nav><main><article><h1><a href="." title="Permalink to Implementing MsgPack.rkt, part 3" rel="bookmark">Implementing MsgPack.rkt, part 3</a></h1><header><p><time class="published" datetime="2019-02-15">Published: 2019-02-15</time></p><p>Category: <a href="../../../../categories/open-source/">open-source</a></p><p>Tags: <a href="../../../../tags/msgpack/">msgpack </a><a href="../../../../tags/lisp/">lisp </a></p></header><p>In the previous article we have seen how to pack an object, this time we will
+see how to unpack it again on the receiving end.</p><p>This blog post is one of a multipart series. You can find the rest of the
+series under the following links:</p><ul><li><a href="../../11/implementing-msgpack.rkt-pt1/">Part 1</a>: Introduction</li><li><a href="../../13/implementing-msgpack.rkt-pt2/">Part 2</a>: Packing</li><li>Part 3: Unpacking</li></ul><h2>Overview</h2><p>Just as with the unpacking code we will create a new module and provide only
+one procedure: the <code>unpack</code> procedure, which accepts one input port as its
+argument and returns one unpacked object. A port in a Lisp language is similar
+to a file handle in other languages, though it is not necessarily limited to
+files only.</p><pre><code class="language-racket">(provide unpack)
+
+(: unpack (-&gt; Input-Port Packable))
+(define (unpack in)
+  ...)</code></pre><p>This is again a simplified view, the actual implementation provides three
+procedures: <code>unpack-from</code>, <code>unpack</code> and <code>unpack/rest</code>. These give more
+fine-grained control over the source of packed data and how many objects to
+unpack. The principle is all the same though, so we will stick with the simple
+model.</p><h2>Unpacking a dynamically typed object</h2><p>Before we read our fist byte we do not know the type of the packed objects, so
+we again use a procedure which returns an instance of the <code>Packable</code> type
+introduced in the previous article.</p><p>The first byte of the packed data is special: it is a <em>tag</em> which allows us to
+know the type of the packed object. Our strategy is to first read one byte and
+then dispatch on it to a type-specific unpacking procedure based on the numeric
+value of the tag.</p><pre><code class="language-racket">(: unpack (-&gt; Input-Port Packable))
+(define (unpack in)
+  (define tag (read-byte in))
+  (cond
+    ((&lt; tag #x80) tag)
+    ((&lt; tag #x90) (unpack-fixmap   tag in))
+    ((&lt; tag #xA0) (unpack-fixarray tag in))
+    ((&lt; tag #xC0) (unpack-fixstr   tag in))
+    ((= tag #xC0) (void))
+    ((= tag #xC1) (error &quot;Unused tag value&quot;))
+    ((= tag #xC2) #f)
+    ((= tag #xC3) #t)
+    ((= tag #xC4) (unpack-bin8  in))
+    ((= tag #xC5) (unpack-bin16 in))
+    ...
+    ((= tag #xCC) (unpack-uint8  in))
+    ((= tag #xCD) (unpack-uint16 in))
+    ((= tag #xCE) (unpack-uint32 in))
+    ((= tag #xCF) (unpack-uint64 in))
+    ...
+    ((= tag #xDC) (unpack-array16 in))
+    ...))</code></pre><p>There are a couple of things to note: For small values (less than <code>0x80</code>) the
+tag is exactly the integer number, so we can return the tag as the result. The
+tag values <code>0xC0</code>, <code>0xC2</code> and <code>0xC3</code> correspond to constant values (<code>#&lt;void&gt;</code>,
+<code>#f</code> and <code>#t</code>), which we can also return directly.</p><p>The types with <code>fix</code> in their name are collections for which the tag also
+contains information on how many items there are contained. This is a little
+hack in MessagePack: if the number of items is small there is no need to waste
+memory on the length, instead the length it contained inside the tag and can be
+extracted through bit-fiddling.</p><p>Finally there are types with fixed tags. For example, the tag <code>0xCC</code> will
+always correspond to an unsigned 8-bit integer, and the tag <code>0xC4</code> will always
+correspond to a byte string whose length is an (unsigned) 8-bit integer.</p><h2>Type-specific unpacking</h2><p>We will now have an in-depth look into the unpacking procedures for a selection
+of types. Sometimes unpacking one object will also involve unpacking other
+objects in the process.</p><h3>Integers</h3><p>Integers can be signed or unsigned and they can be up to 64 bytes large.
+Depending on the type of integer we call the more general <code>unpack-integer</code> with
+different arguments</p><pre><code class="language-racket">(: unpack-uint8 (-&gt; Input-Port Integer))
+(define (unpack-uint8 in)
+  (unpack-integer 1 #f))  ; One byte, not signed
+
+(: unpack-uint16 (-&gt; Input-Port Integer))
+(define (unpack-uint16 in)
+  (unpack-integer 2 #f))  ; Two bytes, not signed
+
+(: unpack-int8 (-&gt; Input-Port Integer))
+(define (unpack-uint8 in)
+  (unpack-integer 1 #t))  ; One byte, signed
+
+(: unpack-int16 (-&gt; Input-Port Integer))
+(define (unpack-uint16 in)
+  (unpack-integer 2 #t))  ; Two bytes, signed</code></pre><p>We will let Racket's <code>integer-bytes-&gt;integer</code> procedure handle the details; its
+arguments are a byte string of raw bytes, whether the integer is signed, and
+whether the endianness is big or not (in our case it always is).</p><pre><code class="language-racket">(: unpack-integer (-&gt; Integer Boolean Input-Port Integer))
+(define (unpack-integer size signed? in)
+  (define raw-bytes (read-bytes size in))
+  (integer-bytes-&gt;integer raw-bytes signed? #t))</code></pre><h3>Arrays</h3><p>An array is an ordered sequence of objects. I have chosen to represent arrays
+as vectors in Racket; a vector is an ordered fixed-length sequence of objects
+with fixed-time access, so it is similar to C arrays, C++ vectors, or Python
+lists, rather than the usual linked lists used in Lisp.</p><p>There are two ways to pack an array: as a fixarray and as a regular array. In
+the case of a fixed array the size has to be retrieved from the tag value by
+bitwise operations. In the case of a regular array the size is a packed integer
+and has to be unpacked first.</p><pre><code class="language-racket">(: unpack-fixarray (-&gt; Integer Input-Port (Vectorof Packable)))
+(define (unpack-fixarray tag in)
+  (define size
+    (bitwise-and tag #b00001111))  ; Bitwise 'tag &amp; 00001111'
+  (unpack-array size in))
+
+(: unpack-array16 (-&gt; Input-Port (Vectorof Packable)))
+(define (unpack-array16 in)
+  (define size
+    (unpack uint16 in))
+  (unpack-array size in))</code></pre><p>Once we know the number of objects we can start recursively unpacking them.
+MessagePack allows nesting, so our array might contain other arrays and so on.</p><pre><code class="language-racket">(: unpack-array (-&gt; Integer Input-Port (Vectorof Packable)))
+(define (unpack-array size in)
+  (for/vector : (Vectorof Packable) #:length size ([i (in-range size)])
+    (unpack in)))</code></pre><p>This requires a bit of explanation. The <code>for/vector</code> expression is a vector
+comprehension, it loops over something and for each iteration it adds an item
+to the vector. Reading from left to right: <code>: (Vectorof Packable)</code> is the type
+of the result (a vector of packable objects), <code>#:length size</code> says that our
+vector will contain <code>size</code> objects and <code>([(i (in-range size))])</code> says that we
+will iterate over the range of numbers from zero (inclusive) to <code>size</code>
+(exclusive) using the variable <code>i</code> to hold the current value. At every
+iteration step the object to insert into the array is the result of <code>(unpack in)</code>.</p><p>The <code>for/vector</code> form is a particularity of Racket, in a more mainstream
+language like Python we would have written a for-loop instead.</p><pre><code class="language-python">def unpack_array(size, in):
+    result = [None] * size  # Create the list of 'size' items
+    for i in range(size):
+            result[i] = unpack(in)
+    return result</code></pre><p>As an aside, in the case of Python specifically there is also list
+comprehensions, which correspond to Racket's vector comprehension, so if you
+wanted to write really pythonic code you would have defined the function using
+a comprehension.  I am just trying to make a general point here.</p><pre><code class="language-python">def unpack_array(size, in):  # Using a comprehension instead of a loop
+    return [unpack(in) for i in range(size)]</code></pre><h3>Binary strings</h3><p>To unpack a binary string we first need to unpack the integer which specifies
+the length of the byte string (in bytes).</p><pre><code class="language-racket">(: unpack-bin8 (-&gt; Input-Port Bytes))
+(define (unpack-bin8 in)
+  (define size (unpack-uint8 in))
+  (unpack-bin size in))
+
+(: unpack-bin16 (-&gt; Input-Port Bytes))
+(define (unpack-bin16 in)
+  (define size (unpack-uint16 in))
+  (unpack-bin size in))</code></pre><p>All that is left when we have the size is to read that many bytes from the
+input port.</p><pre><code class="language-racket">(: unpack-bin (-&gt; Integer Input-Port Bytes))
+(define (unpack-bytes size in)
+  (read-bytes size in))</code></pre><p>Text strings work similarly, except that we also must convert the bytes read to
+a Unicode string using the UTF-8 encoding.</p><h2>Conclusion</h2><p>We first read one byte from the input port, this byte is the tag and it tells
+us how to proceed. In a few cases the tag represents a constant value which we
+can return directly, but most of the time we need to dynamically dispatch to a
+type-specific function.</p><p>Collection types (like arrays, hash maps or strings) contain a certain number
+of items, so we first need to know that number. If the type has <code>fix</code> in its
+name the count is contained inside the tag and we need to mask the tag byte.
+Otherwise the count is contained as a packed integer among the raw bytes, so we
+need to unpack it first.  When have to count we can recursively unpack the
+individual objects and collect them.</p><p>This also goes to show why the MessagePack format is so simple. In JSON given a
+list like <code>[1, 2, 3, 4, 5]</code> we would have to read through the entire list first
+before we can tell how many items the list contains. In MessagePack on the
+other hand the length of the list follows immediately after the tag, that way
+we can initialise a large enough vector before we begin unpacking the
+individual items. There is no need to ever move backwards, making the format
+very well suited to byte streams.</p></article></main><nav class="blog-pager"><a href="../../../../2019/02/13/implementing-msgpack.rkt-pt2/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Implementing MsgPack.rkt, part 2</a><a style="display: none;"></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2019/">2019 (8)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (4)</a></li><li><a href="/blog/categories/vim/">vim (5)</a></li><li><a href="/blog/categories/organisation/">organisation (7)</a></li><li><a href="/blog/categories/open-source/">open-source (5)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/rant/">rant (1)</a></li><li><a href="/blog/tags/vim/">vim (5)</a></li><li><a href="/blog/tags/html/">html (5)</a></li><li><a href="/blog/tags/lisp/">lisp (7)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2019, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" /> </a></div></div></footer></body></html>
