@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 05 Apr 2019 12:28:25 +0200</lastBuildDate><item><title>Introducing ncm2-vlime</title><link>https://hiphish.github.io/blog/2019/03/24/introducing-ncm2-vlime/</link><description>I have written a https://gitlab.com/HiPhish/ncm2-vlimeCommon Lisp completion
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 10 May 2019 18:03:17 +0200</lastBuildDate><item><title>Writing NCM2 sources</title><link>https://hiphish.github.io/blog/2019/05/10/writing-ncm2-sources/</link><description>https://github.com/ncm2/ncm2NCM2 is a plugin for Neovim and Vim which provides users with a unified
+completion menu. By default it displays nothing, users need to add sources
+for completion. These plugins instruct NCM2 on how to get completion candidates
+for a particular use-case, such as words in the current buffer, or function
+names in a programming language. The NCM2 documentation explains how to write
+the individual pieces of a source, and in this blog post I am going to dive
+into how to connect those pieces into a working source.</description><pubDate>Fri, 10 May 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Introducing ncm2-vlime</title><link>https://hiphish.github.io/blog/2019/03/24/introducing-ncm2-vlime/</link><description>I have written a https://gitlab.com/HiPhish/ncm2-vlimeCommon Lisp completion
 source for
 https://github.com/ncm2/ncm2/NCM2, built upon
 https://github.com/l04m33/vlime/Vlime. It provides asynchronous Common Lisp
