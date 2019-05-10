@@ -61,6 +61,13 @@ nav.breadcrumbs > ol > li > a:hover { text-decoration: underline; }
 /* ---[ Main blog area ]---------------------------------------------------- */
 main { grid-area: main; }
 
+main article > header {
+	border-bottom: solid 1px rgba(0, 0, 0, 0.125);
+	margin-bottom: 1em;
+}
+
+main article > header > p { margin: 0; }
+
 main.blogpost-listing > ul {
 	list-style: none;
 	padding: 0;
