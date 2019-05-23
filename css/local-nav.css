@@ -4,14 +4,8 @@
  * mark an item as as the container of the local navbar. */
 
 .local-nav {
-	border-bottom-style: solid;
-	border-bottom-width: 0.1em;
-	border-bottom-color: rgba(0, 0, 0, 0.125);
+	border-bottom: 0.1em solid rgba(0, 0, 0, 0.125);
 	margin-bottom: 1em;
-}
-
-.local-nav > h1 {
-	display: none;
 }
 
 .local-nav > ul {
@@ -19,12 +13,12 @@
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	list-style-type: none;
-	padding: 0;
+	padding: 10px 0px;
 	margin-bottom: 0em;
 }
 
 .local-nav > ul > li {
-	padding: 10px;
+	padding: 0px 10px;
 	margin-bottom: 0em;
 }
 
@@ -36,17 +30,17 @@
 	margin-right: auto;
 }
 
-.local-nav > ul > li.active {
-	font-weight: bold;
+.local-nav > ul > li.active { font-weight: bold; }
+.local-nav > ul > li > a { text-decoration: none; }
+
+.local-nav > ul > li > a:hover {
+	padding-bottom: 5px;
+	border-bottom: 2px solid #18bc9c;
 }
 
-.local-nav > ul > li > a {
-	text-decoration: none;
-}
 
-
+/* ========================================================================= */
 @media(max-width: 768px) {
-
 	.local-nav > ul > li:first-child {
 		flex: 1 100%;
 	}

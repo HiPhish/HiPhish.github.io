@@ -38,7 +38,7 @@ nav#main-navbar a {  /* Style for all hyperlinks, overrides defaults */
 	display: block;
 	color: #ffffff;
 	text-decoration: none;
-	padding: 0.7em 0em;
+	padding: 0.7rem 0rem;
 } nav#main-navbar a:hover {
 	color: #18bc9c;
 }
@@ -74,7 +74,8 @@ nav#main-navbar > ul {
 }
 
 /* Empty space between items */
-nav#main-navbar > ul > li { margin: 0 0.5em; }
+nav#main-navbar > ul > li { padding: 0 0.5em; }
+nav#main-navbar > ul > li:hover { background-color: rgba(0, 44, 65, 1); }
 
 nav#main-navbar > ul > li > ul {
 	display: none;
