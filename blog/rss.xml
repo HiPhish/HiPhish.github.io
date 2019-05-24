@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Thu, 23 May 2019 15:26:42 +0200</lastBuildDate><item><title>Writing NCM2 sources</title><link>https://hiphish.github.io/blog/2019/05/10/writing-ncm2-sources/</link><description>https://github.com/ncm2/ncm2NCM2 is a plugin for Neovim and Vim which provides users with a unified
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 24 May 2019 17:32:25 +0200</lastBuildDate><item><title>Singleton objects in Guile Scheme</title><link>https://hiphish.github.io/blog/2019/05/24/singleton-objects-in-guile-scheme/</link><description>When I wrote https://gitlab.com/HiPhish/guile-msgpackguile-messagepack I needed an object to represent the nil
+value, which embodies the concept of &quot;nothingness&quot; or &quot;no value&quot; in
+https://msgpack.org/MessagePack. None of the existing objects like #f or '() were adequate,
+so I decided to make a new one: nothing. It does not make sense for there to
+be multiple instance of nothing, so it had to be a singleton. In this blog
+post I will describe a way of creating such a singleton.</description><pubDate>Fri, 24 May 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Writing NCM2 sources</title><link>https://hiphish.github.io/blog/2019/05/10/writing-ncm2-sources/</link><description>https://github.com/ncm2/ncm2NCM2 is a plugin for Neovim and Vim which provides users with a unified
 completion menu. By default it displays nothing, users need to add sources
 for completion. These plugins instruct NCM2 on how to get completion candidates
 for a particular use-case, such as words in the current buffer, or function
