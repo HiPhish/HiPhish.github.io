@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 17 Jun 2019 14:25:59 +0200</lastBuildDate><item><title>Mirroring a GitLab repository</title><link>https://hiphish.github.io/blog/2019/06/11/mirroring-a-gitlab-repository/</link><description>I use https://gitlab.comGitLab to host my various https://gitlab.com/HiPhishprojects, but it is always a good idea to be
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 17 Jun 2019 17:26:36 +0200</lastBuildDate><item><title>Introducing Guile.vim</title><link>https://hiphish.github.io/blog/2019/06/17/introducing-guile-vim/</link><description>Vim has good support for Scheme, but the problem with Scheme is that every
+implementation adds its own features to the language. My https://gitlab.com/HiPhish/guile.vimguile.vim plugin
+aims to improve support for http://www.gnu.org/software/guile/GNU Guile by augmenting these settings. It can
+attempt to detect when a Scheme file is Guile-specific and it adds syntax
+highlighting for Guile-specific forms.</description><pubDate>Mon, 17 Jun 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Mirroring a GitLab repository</title><link>https://hiphish.github.io/blog/2019/06/11/mirroring-a-gitlab-repository/</link><description>I use https://gitlab.comGitLab to host my various https://gitlab.com/HiPhishprojects, but it is always a good idea to be
 able to have an automatic mirror set up. It adds redundancy in case something
 goes wrong with GitLab, and having a mirror on a popular site like https://github.comGitHub
 allows people to file issues without signing up for a less popular service. I
