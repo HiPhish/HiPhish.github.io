@@ -1,0 +1,6 @@
+/* Bootstrap messes with the left margin of description lists. After the website */
+/* has been de-Bootstrapped this file can be removed. */
+
+dd {
+	margin-left: revert;
+}
