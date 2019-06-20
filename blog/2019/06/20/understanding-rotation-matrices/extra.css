@@ -1,0 +1,10 @@
+main > article > figure {
+	width: min-content;
+	margin: 1.5em auto;
+}
+
+main > article > figure > figcaption{
+	text-align: center;
+	font-size: small;
+	font-style: italic;
+}
