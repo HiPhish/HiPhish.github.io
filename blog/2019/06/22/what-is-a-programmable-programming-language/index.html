@@ -60,7 +60,7 @@ int x = FOO(bar(), kill_all_humans());</code></pre><p>If <code>FOO</code> was a 
        (sqrt (- (* b b)
                 (* 4 a c))))
     (* 2 a))</code></pre><p>This is the formula which solves the quadratic equation (the first
-       solution the be precise). If you squint your eyes you can make out a
+       solution to be precise). If you squint your eyes you can make out a
        tree structure. In Lisp we write our program by writing the abstract
        syntax tree (AST) directly instead of hiding the AST behind some
        unrelated syntax. The AST is what the compiler will operate on to
@@ -151,7 +151,7 @@ int x = FOO(bar(), kill_all_humans());</code></pre><p>If <code>FOO</code> was a 
       bytes, but even then it comes down to about 20 lines of code while being
       very generous with whitespace.</p><h2>Conclusion</h2><p>Metaprogramming allows us to extend a language with new features by
       defining how the written source code is to be transformed into a more
-      low-level code. The user of a macro writes a <em>specification</em>of
+      low-level code. The user of a macro writes a <em>specification</em> of
       the problem, which the macro then translates into Lisp code.</p><p>These extensions can be big new language feature like support for
       object-oriented programming, or small domain-specific extension which
       would be too specific to be included in the standard. These
