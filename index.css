@@ -1,4 +1,4 @@
-body > div > div {
+div.billboard {
 	padding: 48px 60px;
 	margin-bottom: 30px;
 	border-radius: 6px;
@@ -6,11 +6,11 @@ body > div > div {
 	font-size: 23px;
 }
 
-body > div > div > h1 { font-size: 3em; }
+div.billboard > h1 { font-size: 3em; }
 
 @media(max-width: 767px) {
-	body > div > div { padding: 30px 15px; }
-	body > div > div > h1 { font-size: 2em; }
+	div.billboard { padding: 30px 15px; }
+	div.billboard > h1 { font-size: 2em; }
 }
 
 
@@ -22,50 +22,58 @@ body > div > div > h1 { font-size: 3em; }
 #products {
 	display: flex;
 	flex-wrap: wrap;
-	margin: -2em 0 2em -2em;
+	justify-content: space-between;
 }
 
-#products > h1 {
+#products > h2 {
 	display: none;
 }
 
 #products > article {
-	flex: 0 0 33.3333%;
-	display: flex;
-	/* Style the appearance of the card */
-	padding: 2em 0 0 2em;
-}
-
-#products > article > div {
+	flex: 0 0 32%;
 	display: flex;
 	flex-direction: column;
 	padding: 0.5em;
 	border: 1px solid #E7ECEE;
 	border-radius: 0.5rem;
+	margin-bottom: 1em;
 }
 
-#products > article > div > p {
-	padding: 0.5em;
+#products > article > p {
+	padding-bottom: 0.5em;
 }
 
-#products > article > div > img {
+#products > article > img {
 	/* Move the image in front of the text, center cross-wise (horizontally) */
 	order: -1;
 	align-self: center;
 	/* Style the appearance of the image */
 	width: 330px;
 	max-height: 145px;
+	max-width: 100%;
 	border-radius: 0.5rem;
 	/* Preserve aspect ratio, clipping off top and bottom */
 	object-fit: cover;
 }
 
-#products > article > div > p.link {
+#products > article > p.link {
 	margin-top: auto;  /* Stick the button to the card */
 }
 
+#products > article > p.link > a {
+	color: #ffffff;
+	background-color: #95a5a6;
+	padding: 10px 15px;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+#products > article > p.link > a:hover {
+	background-color: #798d8f;
+}
+
 @media (max-width: 768px) {
-	#products > article > div > img {
+	#products > article > img {
 		width: auto;
 	}
 
