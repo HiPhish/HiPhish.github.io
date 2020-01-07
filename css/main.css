@@ -1,5 +1,11 @@
 /* Main style sheet, will eventually replace Bootstrap. */
 
+:root {
+	/* Set the main font size to a browser-specific default; overrides
+	 * Bootstrap's <html> font size */
+	font-size: medium;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -10,13 +16,16 @@ body {
 	min-height: 100vh;
 	margin: 0;
 	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 15px;
 	line-height: 1.42857143;
 	color: #2c3e50;
 	background-color: #ffffff;
 }
 
-p { text-align: justify; }
+h1 { font-size: 2.5rem; font-weight: normal; margin: 1rem 0 0.5rem; }
+h2 { font-size: 2.0rem; font-weight: normal; margin: 1rem 0 0.5rem; }
+h3 { font-size: 1.6rem; font-weight: normal; margin: 1rem 0 0.5rem; }
+
+p { text-align: justify; margin: 0 0 0.7rem; }
 
 a {
 	color: #18bc9c;
@@ -27,11 +36,38 @@ a:hover { text-decoration: underline; }
 
 pre {
 	background-color: #002b36;
-	overflow-x: auto;
-	word-wrap: normal;
-	white-space: pre;
+	overflow: auto;
+	padding: 0.7rem;
+	border-radius: 0.25rem;
 }
-pre > code { color: #93a1a1; }
+
+code {
+	padding: 0 0.3ex;
+	color: #c7254e;
+	background-color: #f9f2f4;
+}
+
+pre > code { 
+	padding: 0;
+	background-color: inherit;
+	color: #93a1a1;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #ecf0f1;
+	margin: 1.5rem 0;
+}
+
+blockquote {
+	padding: 0.5rem 1.0rem;
+	border-left: 0.35rem solid #ecf0f1;
+	margin: 0 0 1rem 0;
+}
+
+blockquote > footer {
+	color: #b4bcc2;
+}
 
 
 /* ###[ TOP NAVIGATION MENU ]############################################### */

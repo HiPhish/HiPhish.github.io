@@ -35,7 +35,7 @@ nav.blog-navigation > nav > ul {
 
 /* ---[ Blog breadcrumbs ]-------------------------------------------------- */
 nav.breadcrumbs > ol {
-	margin-bottom: 0;
+	margin: 0;
 	padding: 0.5em 1em;
 	list-style: none;
 	background-color: #ecf0f1;
@@ -59,7 +59,14 @@ nav.breadcrumbs > ol > li > a:hover { text-decoration: underline; }
 
 
 /* ---[ Main blog area ]---------------------------------------------------- */
-main { grid-area: main; }
+
+/* Set min-width to 0 or else it will be as large as the content. Background:
+ * by default the min-width of a flex item is set to auto, which means the
+ * container will be at least large enough to fit in all its content. This is a
+ * problem when the content contains a large <pre>; in that case the <pre> will
+ * stretch the container horizontally instead of being limited in size and
+ * displaying a horizontal scrollbar. */
+main { grid-area: main; min-width: 0; }
 
 main article > header {
 	border-bottom: solid 1px rgba(0, 0, 0, 0.125);
