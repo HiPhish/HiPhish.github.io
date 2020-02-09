@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sat, 01 Feb 2020 19:55:33 +0100</lastBuildDate><item><title>Learn Vim Script in Y minutes</title><link>https://hiphish.github.io/blog/2020/02/01/learn-vimscript-in-y-minutes/</link><description>https://learnxinyminutes.com/docs/vimscript/My article for the website https://learnxinyminutes.com/Learn X in Y minutes about Vim scripting has
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 09 Feb 2020 14:13:05 +0100</lastBuildDate><item><title>Project-local Vim settings the right way</title><link>https://hiphish.github.io/blog/2020/02/08/project-local-vim-settings-the-right-way/</link><description>Sometimes you want to have a set of Vim settings specific only to a certain
+project. There are many tips out there how to achieve such a setup, but most of
+them expose the user to serious security risks. I am going to describe the
+fundamental problem and how to solve it. TL;DR: use the https://github.com/MarcWeber/vim-addon-local-vimrcvim-addon-local-vimrc
+plugin.</description><pubDate>Sat, 08 Feb 2020 00:00:00 Z</pubDate><category>vim</category></item><item><title>Learn Vim Script in Y minutes</title><link>https://hiphish.github.io/blog/2020/02/01/learn-vimscript-in-y-minutes/</link><description>https://learnxinyminutes.com/docs/vimscript/My article for the website https://learnxinyminutes.com/Learn X in Y minutes about Vim scripting has
 been accepted; the article teaches you how to get started with Vim's built-in
 custom scripting language in a very concise manner. It has been quite an
 enjoyable topic to write about and I even ended up learning a few new tricks

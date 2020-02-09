@@ -45,9 +45,6 @@ div.highlights > div > h3::after {
 	font-family:'Glyphicons Halflings';
 	float: right;
 }
-div.highlights > div:nth-child(1) > h3::after { content: "\e136"; }
-div.highlights > div:nth-child(2) > h3::after { content: "\e043"; }
-div.highlights > div:nth-child(3) > h3::after { content: "\e103"; }
 
 @media(max-width: 992px) {
 	div.highlights { grid-template-columns: 1fr }
