@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 24 May 2020 14:42:15 +0200</lastBuildDate><item><title>How I manage SSH connections</title><link>https://hiphish.github.io/blog/2020/05/23/how-i-manage-ssh-connections/</link><description>I have a number of machines I need to connect to via the secure shell (SSH),
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 31 May 2020 21:55:25 +0200</lastBuildDate><item><title>Macho, the man command on steroids</title><link>https://hiphish.github.io/blog/2020/05/31/macho-man-command-on-steroids/</link><description>The Unix man command can open a manual page if you know its name, and the
+apropos command can search through the manuals if you are looking for a
+specific word. Let's put the two to work together into a command I like to call
+macho: the man command on steroids.</description><pubDate>Sun, 31 May 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>How I manage SSH connections</title><link>https://hiphish.github.io/blog/2020/05/23/how-i-manage-ssh-connections/</link><description>I have a number of machines I need to connect to via the secure shell (SSH),
 and typing in the IP address or host name by hand every time get tedious very
 quickly. I could use an application for that, but that's bloat. Let's instead
 see how we can leverage small universal tools to build an elegant solution of
