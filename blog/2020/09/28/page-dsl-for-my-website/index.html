@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2020</a></li><li class=""><a href="../..">09</a></li><li class="active">28</li><li class="active">page-dsl-for-my-website</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to A page DSL for my website" rel="bookmark">A page DSL for my website</a></h1><header><p><time class="published" datetime="2020-09-28">Published: 2020-09-28</time></p><p>Category: <a href="../../../../categories/organisation/">organisation</a></p><p>Tags: <a href="../../../../tags/lisp/">lisp </a><a href="../../../../tags/html/">html </a></p></header><p>I got bitten by the Lisp bug recently again, and so I decided to clean up an
+ugly wart in my static site generator which I use for generating the Workshop.
+The goal was to create an embedded domain-specific language (DSL) for defining
+web pages.</p><p>The original version of the Workshop was generated using <a href="https://blog.getpelican.com/">Pelican</a>, which uses
+<a href="https://jinja.palletsprojects.com/">Jinja</a> for its templates. Jinja is not embedded in <a href="https://www.python.org/">Python</a>, it is built on
+top of it as a separate file format. This means that there is a disconnect
+between the DSL and the host language; if we want to access one from the other
+we have to perform really awkward gymnastics to pull it off.</p><p>My current static site generator on the other hand is written in <a href="https://www.gnu.org/software/guile/">GNU Guile</a>
+Scheme, a dialect of the Lisp programming language family. Creating an embedded
+DSL in Scheme (or any Lisp) is trivial, and the two language integrate
+seamlessly. In fact, most of any Lisp is usually implemented in that Lisp on
+top powerful primitives.</p><h2>What is a web page?</h2><p>A web page in my generator is just a dictionary structure of metadata. I am
+currently using an association list for simplicity, but I could switch to
+something more sophisticated like a hash table if I really wanted to. There is
+nothing particularly lispy about it, such a list could be written in any
+language. Here is what a simple web page looks like:</p><pre><code class="language-scm">'((title  . &quot;My first web page&quot;)
+  (author . &quot;Your mom&quot;)
+  (css    . (&quot;main.css&quot; &quot;home.css&quot;))
+  (js     . (&quot;sneaky-cryptominer.js&quot; &quot;bloated-framework-of-the-month.js&quot;))
+  (content
+    (h1 &quot;This is a title&quot;)
+    (p &quot;This is a paragraph.&quot;)
+    (ol
+      (li &quot;first list item&quot;)
+      (li &quot;second list item&quot;))
+    (p &quot;Written by 'Your mom'.&quot;)))</code></pre><p>The metadata tags are arbitrary, it is up to the individual templates to decide
+what to do with them. A template is simply a function which takes one set of
+page data and transforms it into another set of data. Templates can be chained,
+and eventually the final template will produce a dictionary whose <code>content</code>
+contains the entire web page document tree.</p><p>The above code snippet does not look too bad. We have to be careful with all
+the parentheses and periods, but it's manageable for small pages at least.
+However, most web pages are not small. It is easy to miss a period, and all of
+the sudden the value of the <code>author</code> is no longer the string <code>&quot;Your mom&quot;</code>, but
+the list <code>(&quot;Your mom&quot;)</code>.</p><h2>The web page DSL</h2><p>Here is what I expect from a DSL:</p><ul><li>Cut down on repetition</li><li>Allow me to express my intent directly in the language of the domain</li><li>Be safer than assembling data by hand</li></ul><p>Writing the code out by hand is error-prone and indirect. I have to understand
+how the data is going to be processed in order to be able to understand why it
+is arranged the way it is. A DSL would ideally allow anyone to just write out
+what they intend and have the compiler generate the corresponding Scheme code.
+Or in other words, we do not write the <em>code</em> we want to execute, we write a
+<em>specification</em> which the compiler will then translate into valid Scheme.</p><p>After having written a number of pages by hand I have noticed the following
+pattern:</p><ul><li>Most of the data is very short, usually a string or a list of only a handful
+elements.</li><li>The most important data is the content, it can get pretty large.</li><li>I use Scheme to generate parts of the data very frequently.</li><li>Most of the content is made of literals with the occasional evaluated code
+spliced in.</li></ul><p>With all that in mind I came up with a DSL that lets me write the above page as
+follows:</p><pre><code class="language-scm">(static-page (title  &quot;My first web page&quot;)
+             (author &quot;Your mom&quot;)
+             (css    '(&quot;main.css&quot; &quot;home.css&quot;))
+             (js     '(&quot;sneaky-cryptominer.js&quot;
+                       &quot;bloated-framework-of-the-month.js&quot;))
+  (h1 &quot;This is a title&quot;)
+  (p &quot;This is a paragraph.&quot;)
+  (ol
+      (li &quot;first list item&quot;)
+      (li &quot;second list item&quot;))
+  (p ,(format #f &quot;Written by '~A'.&quot; author)))</code></pre><p>This looks almost the same, but with some important differences:</p><ul><li>The content is now given as the body of the expression, it is not explicitly
+mentioned.</li><li>The metadata tags like <code>author</code> do not have the be quoted explicitly, they
+are quoted implicitly.</li><li>The metadata values like <code>Your mom</code> are always evaluated, so lists must be
+quoted.</li><li>We do not have to put the period between tag and value.</li><li>The content is automatically quasi-quoted, we can write symbols and lists
+without quoting them, and we can insert evaluated values by unquoting them.</li><li>We can use tags inside the content by unquoting them.</li></ul><p>As you can see from the <code>,(format ...)</code> form, we always have an escape hatch
+that lets us use all of Scheme from within the DSL. Similarly, since the
+<code>static-page</code> macro evaluates to a regular Scheme list we can use it from
+within Scheme just like any other Scheme operator. This is what makes the DSL
+embedded as opposed to an external DSL like Jinja.</p><h2>Implementation of the DSL</h2><p>We know what we want to write, and we know what we want it to be transformed
+into. The next part is actually writing the Scheme macro which will perform the
+transformation. Here it is:</p><pre><code class="language-scm">(define-syntax-rule
+  (static-page ((meta-tag meta-value)
+                ...)
+    content-expr
+    ...)
+  (let* ((meta-tag meta-value)
+         ...)
+    (list
+      (cons (quote meta-tag) meta-tag)
+      ...
+      (cons (quote content) (list (quasiquote content-expr)
+                                  ...)))))</code></pre><p>There is really nothing special going on here if you know how to write Scheme
+macros. The metadata is bound inside a <code>let*</code> expression, that way I can use
+them inside the content body. Note that the expansion evaluates to a regular
+Scheme list, so I can treat the result just like any other value: assign it to
+a variable, pass it as an argument, or export from a module. It just fits right
+in with the rest of the language.</p><h2>Conclusion</h2><p>The implementation of the entire DSL fits inside the palm of my hand. It might
+seem laughable to even call it a DSL, but this is actually a really big deal.
+This particular DSL is tailored to <em>my</em> personal use-case, it was designed
+around how <em>I</em> write web pages. There is no way such a niche DSL would ever
+make it into the language standard.</p><p>If creating a DSL required more effort it would not be feasible to create a DSL
+that is going to be used by one person only for one project only. I would
+either try to create something much more general (like Jinja) to make it worth
+the effort, shoehorn the language's existing syntax into a quasi-DSL, or
+just stick to glueing together lists by hand.</p><p>If Scheme did not have macros I would have had to use the syntax the language
+offers me. I am sure you have seen weird code practices and patterns such as
+the trainwreck (hypothetical example):</p><pre><code class="language-java">new WebPageBuilder()
+    .withTitle(&quot;My first web page&quot;)
+    .withAuthor(&quot;Your mom&quot;)
+    .withCSS(&quot;main.css&quot;, &quot;home.css&quot;)
+    .WithJS(&quot;sneaky-cryptominer.js&quot;, &quot;bloated-framework-of-the-month.js&quot;)
+    .withContent(
+        new HTMLTag(&quot;h1&quot;, &quot;This is a title&quot;),
+        new HTMLTag(&quot;p&quot;, &quot;This is a paragraph&quot;),
+        new HTMLTag(&quot;ol&quot;,
+            new HTMLTag(&quot;li&quot;, &quot;first list item&quot;),
+            new HTMLTag(&quot;li&quot;, &quot;second list item&quot;)
+        ),
+        new HTMLTag(&quot;p&quot;, &quot;Written by 'Your mom'.&quot;)
+    );</code></pre><p>This is just a hypothetical example, and you might be able to come up with a
+somewhat cleaner API, but why bother? If a language was not meant to express
+web page medatada and HTML structure it will always be awkward. A true
+AST-based macro allows me to bend the syntax rules of the language to my needs
+instead.</p></article></main><nav class="blog-pager"><a href="../../../../2020/08/30/dotfiles-were-a-mistake/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Dotfiles were a mistake</a><a style="display: none;"></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2020/">2020 (8)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/vim/">vim (11)</a></li><li><a href="/blog/categories/open-source/">open-source (7)</a></li><li><a href="/blog/categories/misc/">misc (11)</a></li><li><a href="/blog/categories/organisation/">organisation (9)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/vim/">vim (12)</a></li><li><a href="/blog/tags/rant/">rant (3)</a></li><li><a href="/blog/tags/unix/">unix (4)</a></li><li><a href="/blog/tags/html/">html (7)</a></li><li><a href="/blog/tags/lisp/">lisp (12)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2020, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
