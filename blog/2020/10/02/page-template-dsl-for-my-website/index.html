@@ -10,7 +10,7 @@ job of a template is to map that metadata onto new metadata. This also means
 that templates can be chained by making the output of one template the input of
 another template.</p><pre><code>              ╔════════════╗    ╔════════════╗    ╔════════════╗
 ╭────────╮    ║            ║    ║            ║    ║            ║    ╭────────╮
-│ input  │╴╴╴╴║ template 1 ║╴╴╴╴║ template 1 ║╴╴╴╴║ template 1 ║╴╴╴╴│ output │
+│ input  │╴╴╴╴║ template 1 ║╴╴╴╴║ template 2 ║╴╴╴╴║ template 3 ║╴╴╴╴│ output │
 │ page   │    ║            ║    ║            ║    ║            ║    │ page   │
 ╰────────╯    ╚════════════╝    ╚════════════╝    ╚════════════╝    ╰────────╯</code></pre><p>This pipeline of templates turns a specialised page, such as a blog post,
 progressively into a more and more general page. With each iteration the
