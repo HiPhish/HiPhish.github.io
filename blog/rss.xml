@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 02 Oct 2020 23:50:44 +0200</lastBuildDate><item><title>A web page template DSL for my website</title><link>https://hiphish.github.io/blog/2020/10/02/page-template-dsl-for-my-website/</link><description>In my /blog/2020/09/28/page-dsl-for-my-website/previous blog post I presented how I had come up with an embedded
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 15 Nov 2020 20:40:01 +0100</lastBuildDate><item><title>My computer broke down</title><link>https://hiphish.github.io/blog/2020/11/15/my-computer-broke-down/</link><description>There are two types of people: those who make backups and those who will
+experience a system breakdown. Fortunately I was in the former category, but it
+was still a very tedious and stressful experience. Every problem is also an
+opportunity to grow and throw off dead weight, so I used the opportunity to
+upgrade the hardware and switch my operating system.</description><pubDate>Sun, 15 Nov 2020 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A web page template DSL for my website</title><link>https://hiphish.github.io/blog/2020/10/02/page-template-dsl-for-my-website/</link><description>In my /blog/2020/09/28/page-dsl-for-my-website/previous blog post I presented how I had come up with an embedded
 domain-specific language for creating web pages in my custom static site
 generator. I also mentioned the concept of “templates” in passing. Of course it
 was only logical to follow the page DSL up with a custom template DSL to smooth
