@@ -23,12 +23,12 @@ shell.</p><h2>Writing a runit service</h2><p>A runit service definition is a dir
 certain names. The runit documentation covers the details, but for our purose
 the only file file that matters is the <code>run</code> file. This file will be executed
 when the service is started up, its purpose is to actually run the Guix daemon.
-Create the following directory structure:</p><pre><code>etc
+Create the following directory structure:</p><pre><code>/etc
 └── sv
     └── guix-daemon
-        └── run</code></pre><p>The directory <code>etc/sv</code> is where services are defined. The name <code>guix-daemon</code> is
-arbitrary, you could call your service whatever you want, but I chose the same
-name used by systemd and Upstart for consistency.</p><p>The <code>run</code> file can be anything, as long as it is executable. A shell script is
+        └── run</code></pre><p>The directory <code>/etc/sv</code> is where services are defined. The name <code>guix-daemon</code>
+is arbitrary, you could call your service whatever you want, but I chose the
+same name used by systemd and Upstart for consistency.</p><p>The <code>run</code> file can be anything, as long as it is executable. A shell script is
 the most logical choice, so that is what I chose.</p><pre><code class="language-sh">#!/bin/sh
 exec ~root/.config/guix/current/bin/guix-daemon --build-users-group=guixbuild</code></pre><p>That is it. Note that you will have to adjust your file path if you installed
 Guix in another location. We have to use <code>exec</code> so that the shell gets replaced
