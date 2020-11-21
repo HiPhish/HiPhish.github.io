@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 15 Nov 2020 20:44:37 +0100</lastBuildDate><item><title>My computer broke down</title><link>https://hiphish.github.io/blog/2020/11/15/my-computer-broke-down/</link><description>There are two types of people: those who make backups and those who will
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sat, 21 Nov 2020 11:30:49 +0100</lastBuildDate><item><title>A Guix daemon for runit</title><link>https://hiphish.github.io/blog/2020/11/20/guix-daemon-for-runit/</link><description>I use http://guix.gnu.org/GNU Guix as a secondary package manager on my system. Previously I have
+been running https://kubuntu.org/Kubuntu, which uses https://systemd.io/systemd as its init system, but I have
+since switched to https://voidlinux.org/Void, which uses http://smarden.org/runit/runit. Guix comes with services for
+systemd and http://upstart.ubuntu.com/Upstart included, but not for runit. Let's find out how to create
+a runit service from scratch.</description><pubDate>Fri, 20 Nov 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>My computer broke down</title><link>https://hiphish.github.io/blog/2020/11/15/my-computer-broke-down/</link><description>There are two types of people: those who make backups and those who will
 experience a system breakdown. Fortunately I was in the former category, but it
 was still a very tedious and stressful experience. Every problem is also an
 opportunity to grow and throw off dead weight, so I used the opportunity to
