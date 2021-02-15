@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Fri, 08 Jan 2021 14:55:55 +0100</lastBuildDate><item><title>Spreading tables in Lua</title><link>https://hiphish.github.io/blog/2020/12/31/spreading-tables-in-lua/</link><description>Javascript has a spreading operator which lets us splice the contents of an
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 15 Feb 2021 20:46:21 +0100</lastBuildDate><item><title>A pipe operator for Lua</title><link>https://hiphish.github.io/blog/2021/02/15/pipe-operator-for-lua/</link><description>I have recently been getting into https://elixir-lang.org/Elixir, and one
+nice feature it has is the pipe operator. It allows us to express a pipeline
+of function through which an object will be dragged. This got me thinking: with
+how flexible Lua is, would it be possible to add something similar to Lua as
+well?</description><pubDate>Mon, 15 Feb 2021 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Spreading tables in Lua</title><link>https://hiphish.github.io/blog/2020/12/31/spreading-tables-in-lua/</link><description>Javascript has a spreading operator which lets us splice the contents of an
 object or array into another object or array. This makes it very easy to create
 an object based on another object and override or add entries. Since Lua and
 Javascript are quite similar, wouldn't it be nice to have this operator in Lua
