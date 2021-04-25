@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 07 Mar 2021 19:57:31 +0100</lastBuildDate><item><title>Plans for Grid Framework 3.0</title><link>https://hiphish.github.io/grid-framework/news/2021/01/08/plans-for-grid-framework-3.0/</link><description>I intend to release a new major update which will address among other things
+<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 25 Apr 2021 23:11:08 +0200</lastBuildDate><item><title>Version 3 reaching feature parity with version 2</title><link>https://hiphish.github.io/grid-framework/news/2021/04/25/version-3-feature-parity-with-version-2/</link><description>Grid Framework version 3.0 is coming along nicely, I have reached feature
+parity with the previous major release. This means that the heavy refactoring
+is mostly done and I can now build upon that foundation. I want to take this
+opportunity to reflect on what will change.</description><pubDate>Sun, 25 Apr 2021 00:00:00 Z</pubDate><category>progress</category></item><item><title>Plans for Grid Framework 3.0</title><link>https://hiphish.github.io/grid-framework/news/2021/01/08/plans-for-grid-framework-3.0/</link><description>I intend to release a new major update which will address among other things
 the grid rendering system. It has been almost five years since the release of
 version 2.0, and Unity has changed quite a lot in this time. Some of those
 changes, in particular the introduction of sprites, need to be accounted for in

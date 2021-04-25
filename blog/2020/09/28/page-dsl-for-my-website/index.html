@@ -41,11 +41,11 @@ Or in other words, we do not write the <em>code</em> we want to execute, we writ
 pattern:</p><ul><li>Most of the data is very short, usually a string or a list of only a handful
 elements.</li><li>The most important data is the content, it can get pretty large.</li><li>I use Scheme to generate parts of the data very frequently.</li><li>Most of the content is made of literals with the occasional evaluated code
 spliced in.</li></ul><p>With all that in mind I came up with a DSL that lets me write the above page as
-follows:</p><pre><code class="language-scm">(static-page (title  &quot;My first web page&quot;)
-             (author &quot;Your mom&quot;)
-             (css    '(&quot;main.css&quot; &quot;home.css&quot;))
-             (js     '(&quot;sneaky-cryptominer.js&quot;
-                       &quot;bloated-framework-of-the-month.js&quot;))
+follows:</p><pre><code class="language-scm">(static-page ((title  &quot;My first web page&quot;)
+              (author &quot;Your mom&quot;)
+              (css    '(&quot;main.css&quot; &quot;home.css&quot;))
+              (js     '(&quot;sneaky-cryptominer.js&quot;
+                        &quot;bloated-framework-of-the-month.js&quot;)))
   (h1 &quot;This is a title&quot;)
   (p &quot;This is a paragraph.&quot;)
   (ol
@@ -66,10 +66,10 @@ transformation. Here it is:</p><pre><code class="language-scm">(define-syntax-ru
                 ...)
     content-expr
     ...)
-  (let* ((meta-tag meta-value)
+  (let* ((meta-datum value)
          ...)
     (list
-      (cons (quote meta-tag) meta-tag)
+      (cons (quote meta-datum) meta-datum)
       ...
       (cons (quote content) (list (quasiquote content-expr)
                                   ...)))))</code></pre><p>There is really nothing special going on here if you know how to write Scheme
