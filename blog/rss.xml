@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Tue, 29 Jun 2021 23:41:34 +0200</lastBuildDate><item><title>Running MongoDB from Guix</title><link>https://hiphish.github.io/blog/2021/02/28/running-mongodb-from-guix/</link><description>I have been watching a tutorial on https://graphql.org/GraphQL recently (https://www.youtube.com/watch?v=ed8SzALpx1QYouTube link) where
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 11 Jul 2021 17:34:31 +0200</lastBuildDate><item><title>Generating Unity3D project files on GNU/Linux</title><link>https://hiphish.github.io/blog/2021/07/11/generating-unity3d-project-files-on-linux/</link><description>When I develop /grid-framework/Grid Framework I need Unity3D to generate project files for
+https://github.com/OmniSharp/omnisharp-roslynOmnisharp to pick up in order to provide me with tooling like
+auto-completion, linting and refactoring support. Normally doing so requires me
+to have VSCode installed, but there is a simple way to trick Unity into
+generating those files anyway.</description><pubDate>Sun, 11 Jul 2021 00:00:00 Z</pubDate><category>misc</category></item><item><title>Running MongoDB from Guix</title><link>https://hiphish.github.io/blog/2021/02/28/running-mongodb-from-guix/</link><description>I have been watching a tutorial on https://graphql.org/GraphQL recently (https://www.youtube.com/watch?v=ed8SzALpx1QYouTube link) where
 the lecturer uses https://www.mongodb.com/MongoDB for persistent storage. He instructs viewers to
 sign up for a service that hosts a database, but I wanted to run a local
 instance on my machine instead. MongoDB is not available in the https://voidlinux.org/Void repos,
