@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 11 Jul 2021 17:34:31 +0200</lastBuildDate><item><title>Embracing the Unity package system</title><link>https://hiphish.github.io/grid-framework/news/2021/07/11/embracing-the-unity-packages-system/</link><description>When I released version 1 and version 2 of Grid Framework there was no real way
+<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 01 Aug 2021 18:47:28 +0200</lastBuildDate><item><title>Vectrosity support as a package</title><link>https://hiphish.github.io/grid-framework/news/2021/07/31/vectrosity-support-as-package/</link><description>I have completely transitioned Grid Framework to a Unity3D package now and
+moved https://starscenesoftware.com/vectrosity.htmlVectrosity support to a separate package. The Vectrosity package will
+be made available as a public Git repository under the https://opensource.org/licenses/MITMIT license, that should
+make it as simple as possible for users to add it to their project. While
+transitioning to packages has had many advantages there have also been some
+challenges to overcome and I would like to go over them in this post.</description><pubDate>Sat, 31 Jul 2021 00:00:00 Z</pubDate><category>progress</category></item><item><title>Embracing the Unity package system</title><link>https://hiphish.github.io/grid-framework/news/2021/07/11/embracing-the-unity-packages-system/</link><description>When I released version 1 and version 2 of Grid Framework there was no real way
 of separating libraries. You had to dump everything into your project in one
 assembly. Using namespaces prevented name collisions, but you still had things
 like examples or documentation bloating up your project and there was no way of
