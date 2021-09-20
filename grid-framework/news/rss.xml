@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Tue, 14 Sep 2021 23:47:19 +0200</lastBuildDate><item><title>Playmaker actions overhaul</title><link>https://hiphish.github.io/grid-framework/news/2021/09/14/playmaker-actions-overhaul/</link><description>Let's have a mental exercise: image something shameful you have done, it
+<rss version="2.0"><channel><title>Grid Framework News</title><link>https://hiphish.github.io/grid-framework/news/</link><description>News for the Grid Framework plugin for Unity3D</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Mon, 20 Sep 2021 22:35:36 +0200</lastBuildDate><item><title>Playmaker samples</title><link>https://hiphish.github.io/grid-framework/news/2021/09/20/playmaker-samples/</link><description>The new overhauled https://hutonggames.com/Playmaker bindinds will be shipped as a separate package, so
+this lets me finally implement a great jumping-off point for new users:
+included samples. The following samples are now included and can be
+individually added to or removed from your project:</description><pubDate>Mon, 20 Sep 2021 00:00:00 Z</pubDate><category>progress</category></item><item><title>Playmaker actions overhaul</title><link>https://hiphish.github.io/grid-framework/news/2021/09/14/playmaker-actions-overhaul/</link><description>Let's have a mental exercise: image something shameful you have done, it
 doesn't have to be the most shameful thing, just something that you really are
 not proud of should do. Now imagine putting it in a sealed box where it will be
 rotting and festering for years. Now imagine having to open that box, slowly
