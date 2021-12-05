@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2021</a></li><li class=""><a href="../..">12</a></li><li class="active">05</li><li class="active">managing-vim-plugins-without-plugin-manager</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to Managing Vim plugins without a plugin manager" rel="bookmark">Managing Vim plugins without a plugin manager</a></h1><header><p><time class="published" datetime="2021-12-05">Published: 2021-12-05</time></p><p>Category: <a href="../../../../categories/vim/">vim</a></p><p>Tags: <a href="../../../../tags/vim/">vim </a></p></header><p>Recently I have switched my Neovim setup to using the new native Vim package
+system directly instead of relying on a plugin manager. I had to use Git
+submodules for <a href="/grid-framework/news/2021/09/11/git-packages-or-embedded-packages/">another project</a> anyway, so I figured I could combine them with
+Vim packages and see how that might work out. It is actually working pretty
+well, to the point where I don't think that I will be returning to plugin
+managers for the foreseeable future.</p><p>From here on when I say “Vim” I mean both Vim and Neovim.</p><h2>Vim's plugin system, or lack thereof</h2><p>Vim does not actually have a plugin system. Instead there is the notion of a
+runtime patch (<code>:h 'rtp'</code>) which is an option that contains a list of
+directories. When Vim looks up a file name it searches these directories until
+it finds the file in the appropriate subdirectory. For example, if you open a
+file with file type <code>vim</code>, Vim will look for a file named <code>syntax/vim.vim</code> (or
+<code>syntax/vim.lua</code> for Neovim) in each directory of the runtime path and source
+each one it finds.</p><p>To manually load a file we can either use the <code>:runtime</code> command to find it in
+one of the runtime path directories, or use the <code>:source</code> command with the
+actual path to the file.</p><h3>Old-style manual plugin management</h3><p>The simplest way of installing a Vim plugin is to download a script and place
+it into the appropriate subdirectory inside <code>~/.vim</code> (or <code>~/.config/nvim</code> for
+Neovim). This works fine as long as the plugin is just a single file. We can
+update the plugin by swapping out the file and we can remove it by deleting the
+file. However, once a plugin is made up of several files this approach becomes
+impractical.</p><p>This is where the runtime path comes in. We can download the plugin to its own
+dedicated directory and add it to the runtime path.</p><pre><code class="language-vim">&quot; Append a new directory path to the list
+set runtimepath += /path/to/some/plugin</code></pre><p>Now every plugin has its own directory and the files are not intermingled. To
+update a plugin we swap out the directory for a newer version. To disable a
+plugin we remove it from the runtime path. To uninstall a plugin we remove it
+from the runtime path and delete the directory.</p><h3>Vim package managers</h3><p>All Vim package managers essentially work by performing the above steps
+automatically. They download repositories, pull in new commits, adjust the file
+path and remove old repositories. The user only has to declare which plugins to
+use. Usually they use Git for managing remote plugins, but you can also specify
+a local directory.</p><p>I have used <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a>, <a href="https://github.com/junegunn/vim-plug">vim-plug</a> and most recently <a href="https://github.com/wbthomason/packer.nvim">packer.nvim</a>. They all work
+more or less the same: you specify your plugins in Vim script (or Lua), add a
+bit of bootstrapping code at the beginning, and then from within Vim use custom
+commands to install, update and remove plugins.</p><p>This all works fine, but I have found two annoyances:</p><ul><li>There is a chicken-and-egg problem where you need a plugin to manage plugins,
+so bootstrapping on a fresh install can take a number of manual steps</li><li>I have my own plugins which I want to use and develop on at the same time, so
+they should not be version-controlled by the plugin manager</li></ul><p>None of these are deal breakers. On the other hand, we <em>can</em> do better.</p><h2>Vim's native package system</h2><p>Packages were introduces in Vim 8 and ported to Neovim. A Vim package (<code>:h packages</code>) is a collection of plugins, and there can be an arbitrary number of
+packages. The package directory is <code>~/vim/pack</code> for Vim, and
+<code>stdpath('data')/site/pack</code> for Neovim (see <code>:h stdpath()</code>). The name of the
+package is arbitrary and it contains two directories: <code>start</code> for plugins to
+automatically load and <code>opt</code> for plugins to load on demand.</p><p>Here is an example of what a package might look like</p><pre><code>~/.local/share/nvim/site/pack/3rd-party-plugins/
+├── opt
+│   └── foo
+└── start
+    ├── bar
+    └── baz</code></pre><p>The plugins <code>bar</code> and <code>baz</code> are always available. The plugin <code>foo</code> only becomes
+available after executing <code>:packadd foo</code>. Behind the scenes Vim does the same
+runtime path hackery that plugin managers do. However, Vim does not manage the
+plugins, we have to download, update and remove them ourselves.</p><h2>Managing plugins through Git</h2><p>There are three types of plugins I want to manage: 3rd party plugins, my own
+plugins, and experimental plugins.</p><h3>3rd party plugins</h3><p>This is the most common type of plugin. Git has a submodule feature which lets
+us embed repositories within repositories (see the man page
+<code>gitsubmodules(7)</code>). A submodule is stored as an actual directory inside the
+main repository and we can explicitly tell Git which path to use.  See <code>git help submodules</code> for details.</p><p>First I create a regular Git repository <code>pack/3rd-party</code>. It contains the usual
+files (<code>README</code>, <code>LICENSE</code> and so on). These belong to the repository. Then I
+add the plugin as a submodule, either inside the <code>opt</code> or <code>start</code> directory.
+Example:</p><pre><code class="language-sh"># I want this plugin to always be active
+git submodule add https://github.com/neovim/nvim-lspconfig.git start/nvim-lspconfig
+
+# This is rarely used, so I will load it only when necessary
+git submodule add https://github.com/Olical/conjure.git opt/conjure</code></pre><p>I can use Git directly to update the plugins, choose a particular branch or
+check out a particular commit. The file <code>.gitmodules</code> serves as the declarative
+configuration file: I can re-arrange the order of submodules and add comments.
+Here is what the above configuration would look like:</p><pre><code># Language Server Protocol configuration
+[submodule &quot;start/nvim-lspconfig&quot;]
+    path = start/nvim-lspconfig
+    url = https://github.com/neovim/nvim-lspconfig
+    ignore = untracked
+
+# Live code evaluation while editing (Used mostly by the Lisp family)
+[submodule &quot;opt/conjure&quot;]
+    path = opt/conjure
+    url = https://github.com/Olical/conjure</code></pre><p>Note that we can add comments and move entries around, we are not limited to
+the content Git has generated.</p><p>And the best part: since changes to a submodule are changes to the parent
+repository I can commit each update. If an update breaks my configuration I can
+easily roll back the parent repository to a previous commit. I get
+transactional updates for free!</p><p>The only downside is that I have not been able to find a simple way of removing
+submodules. This snippet of shell code works for me:</p><pre><code class="language-sh">git rm &quot;$MODULE&quot; &amp;&amp; git commit
+rm -rf &quot;.git/modules/$MODULE&quot;</code></pre><p>For frequently used actions, such as updating packages or removing them, I have
+a directory of short shell scripts. Here are some examples:</p><pre><code class="language-sh"># Add plugins from GitHub
+while [ -n &quot;$1&quot; ]; do
+    git submodule add &quot;https://github.com/$1&quot; &quot;start/$(echo &quot;$1&quot; | cut -d/ -f2)&quot;
+    shift
+done
+
+# Remove all traces of the specified plugins
+while [ -n &quot;$1&quot; ]; do
+    git rm &quot;$1&quot; &amp;&amp; git commit
+    rm -rf &quot;.git/modules/$1&quot;
+done
+
+# Update all the specified plugins to the latest version
+git submodule update --remote $*</code></pre><p>Each example should be written to its own shell script because it uses the
+command-line arguments as input.</p><h3>My own plugins</h3><p>This one is simple. I create a new package (not a Git repository this time) and
+add the repositories of my plugins to either <code>opt</code> or <code>start</code>. That's it. The
+big difference compared to a plugin manager is that I do not have to declare a
+list of plugins in advance, Vim will simply use what is there. If a particular
+plugin is missing Vim won't know about it.</p><h3>Experimental plugins</h3><p>These are plugins I just want to try out, experiment a bit and either throw
+them away when done or move properly to my plugins collection. I have a
+separate package for these where nothing is committed. Just clone, experiment
+and move on when done.</p><p>A plugin manager always required me to add it to my configuration file and thus
+alter my editor configuration during the experimentation phase.</p><h2>Conclusion</h2><p>Vim packages are collections of plugins. By using what I already have and a
+little bit of manual legwork I was able to meet all my requirements. I have
+been using this system for about a month now and I have found the following
+upsides:</p><ul><li>No additional manager plugin needed</li><li>Can reuse already existing Git knowledge</li><li>Different packages can serve different purposes (3rd-party plugins, personal
+plugins, experimental plugins)</li><li>Git submodules allow tracking remote repositories and provide transactional
+version control</li><li>Easier to bootstrap</li><li>Can feel smug on the internet</li></ul><p>On the other hand, these are the downsides:</p><ul><li>Requires good knowledge of Git and the shell</li><li>Plugin configuration is separate from editor configuration and these two need
+to be kept synchronized</li></ul><p>I will let the reader be the judged on how the weight these points against each
+other. Personally though, I don't mind.</p></article></main><nav class="blog-pager"><a href="../../../../2021/10/11/getting-unity-hub-3-working-on-gnu-linux/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Getting Unity Hub 3 working on GNU/Linux</a><a style="display: none;"></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/open-source/">open-source (13)</a></li><li><a href="/blog/categories/misc/">misc (14)</a></li><li><a href="/blog/categories/vim/">vim (12)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/lisp/">lisp (14)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/rant/">rant (6)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2021, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
