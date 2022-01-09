@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 05 Dec 2021 18:19:37 +0100</lastBuildDate><item><title>Managing Vim plugins without a plugin manager</title><link>https://hiphish.github.io/blog/2021/12/05/managing-vim-plugins-without-plugin-manager/</link><description>Recently I have switched my Neovim setup to using the new native Vim package
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 09 Jan 2022 16:49:41 +0100</lastBuildDate><item><title>Subservience to the algorithm</title><link>https://hiphish.github.io/blog/2022/01/08/subservience-to-the-algorithm/</link><description>Over the last couple of years I have been noticing two trends among internet
+videos, especially on YouTube: videos that could easily be three to four
+minutes long are stretched to over ten minutes in length, and thumbnails where
+people are making stupid faces. This comes from YouTube's recommendation
+algorithm favouring thumbnails with people's faces, and videos needing to be at
+least ten minutes long to be eligible for advertising revenue. At least those
+used to be the rules back then, they might have changed since, but the videos
+still follow the same pattern.</description><pubDate>Sat, 08 Jan 2022 00:00:00 Z</pubDate><category>misc</category></item><item><title>Managing Vim plugins without a plugin manager</title><link>https://hiphish.github.io/blog/2021/12/05/managing-vim-plugins-without-plugin-manager/</link><description>Recently I have switched my Neovim setup to using the new native Vim package
 system directly instead of relying on a plugin manager. I had to use Git
 submodules for /grid-framework/news/2021/09/11/git-packages-or-embedded-packages/another project anyway, so I figured I could combine them with
 Vim packages and see how that might work out. It is actually working pretty
