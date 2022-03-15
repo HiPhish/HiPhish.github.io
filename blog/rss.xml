@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 09 Jan 2022 16:49:41 +0100</lastBuildDate><item><title>Subservience to the algorithm</title><link>https://hiphish.github.io/blog/2022/01/08/subservience-to-the-algorithm/</link><description>Over the last couple of years I have been noticing two trends among internet
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Tue, 15 Mar 2022 22:44:30 +0100</lastBuildDate><item><title>Neovim plugin settings with Lua metatables</title><link>https://hiphish.github.io/blog/2022/03/15/lua-metatables-for-neovim-plugin-settings/</link><description>A lot of new Neovim plugins come with a setup function which lets you specify
+the settings of the plugin. Users are expected to call that function with a
+table as arguments which contains the user's personal settings to override the
+defaults. This works, but Lua is all about tables, so let's look at an
+alternative.</description><pubDate>Tue, 15 Mar 2022 00:00:00 Z</pubDate><category>misc</category></item><item><title>Subservience to the algorithm</title><link>https://hiphish.github.io/blog/2022/01/08/subservience-to-the-algorithm/</link><description>Over the last couple of years I have been noticing two trends among internet
 videos, especially on YouTube: videos that could easily be three to four
 minutes long are stretched to over ten minutes in length, and thumbnails where
 people are making stupid faces. This comes from YouTube's recommendation
