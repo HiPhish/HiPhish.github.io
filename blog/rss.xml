@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Thu, 07 Apr 2022 22:42:48 +0200</lastBuildDate><item><title>The problem with contributing to Open Source</title><link>https://hiphish.github.io/blog/2022/04/07/the-problem-with-contributing-to-open-source/</link><description>I love Free (Libre) and Open Source Software (FLOSS); not only does the
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 12 Jun 2022 21:07:15 +0200</lastBuildDate><item><title>Fake web backend with mitmproxy</title><link>https://hiphish.github.io/blog/2022/06/12/fake-web-backend-with-mitmproxy/</link><description>A web application typically consists of three layers: the frontend, the
+backend, and some sort of database system for persistence. While developing the
+frontend we often need to send messages to the backend, receive some response
+and process that response. Faking backends in automated tests is a solved
+problem, but sometime we don't want to write tests, we want to wildly
+experiment with various inputs as we are trying out the frontend by hand. We
+want to intercept messages and look into what is being transmitted. In this
+post I will demonstrate a simple fake backend using the https://mitmproxy.org/mitmproxy
+application.</description><pubDate>Sun, 12 Jun 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>The problem with contributing to Open Source</title><link>https://hiphish.github.io/blog/2022/04/07/the-problem-with-contributing-to-open-source/</link><description>I love Free (Libre) and Open Source Software (FLOSS); not only does the
 software respect your personal freedom, you can also contribute back to make it
 better. It becomes a communal cooperative effort. But just because you can
 contribute, that doesn't mean that you necessarily should.</description><pubDate>Thu, 07 Apr 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Securing Quicklisp through mitmproxy</title><link>https://hiphish.github.io/blog/2022/03/19/securing-quicklisp-through-mitmproxy/</link><description>https://www.quicklisp.org/beta/Quicklisp is a popular systems manager for Common Lisp, it allows users to
