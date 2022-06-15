@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sun, 12 Jun 2022 21:07:15 +0200</lastBuildDate><item><title>Fake web backend with mitmproxy</title><link>https://hiphish.github.io/blog/2022/06/12/fake-web-backend-with-mitmproxy/</link><description>A web application typically consists of three layers: the frontend, the
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Wed, 15 Jun 2022 21:12:48 +0200</lastBuildDate><item><title>Introducing cl-cmark</title><link>https://hiphish.github.io/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
+of Common Lisp bindings to https://github.com/commonmark/cmarkcmark, the https://commonmark.org/CommonMark reference implementation:
+https://gitlab.com/HiPhish/cl-cmarkcl-cmark (https://github.com/hiphish/cl-cmarkGitHub mirror).
+CommonMark is a dialect of Markdown which aims to remove any ambiguity, clean
+up the language specification and provide a common dialect of Markdown for
+other projects to use. The cmark library is the reference implementation for
+parsing CommonMark. It is written in C, so creating bindings for other language
+is fairly simple.</description><pubDate>Wed, 15 Jun 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Fake web backend with mitmproxy</title><link>https://hiphish.github.io/blog/2022/06/12/fake-web-backend-with-mitmproxy/</link><description>A web application typically consists of three layers: the frontend, the
 backend, and some sort of database system for persistence. While developing the
 frontend we often need to send messages to the backend, receive some response
 and process that response. Faking backends in automated tests is a solved
