@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Wed, 15 Jun 2022 21:12:48 +0200</lastBuildDate><item><title>Introducing cl-cmark</title><link>https://hiphish.github.io/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
+<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sat, 25 Jun 2022 16:48:12 +0200</lastBuildDate><item><title>Playing Sid Meier's Civilization III in Wine in 2022</title><link>https://hiphish.github.io/blog/2022/06/25/playing-civ3-in-wine-in-2022/</link><description>A few days ago I wanted to re-install Sid Meier's Civilization III on my
+machine and play it again. This blog post is a summary of the tricks I had to
+use to make it work it work well; I am writing it down for posterity, maybe
+someone else will find it useful. That someone might even be future me.</description><pubDate>Sat, 25 Jun 2022 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing cl-cmark</title><link>https://hiphish.github.io/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
 of Common Lisp bindings to https://github.com/commonmark/cmarkcmark, the https://commonmark.org/CommonMark reference implementation:
 https://gitlab.com/HiPhish/cl-cmarkcl-cmark (https://github.com/hiphish/cl-cmarkGitHub mirror).
 CommonMark is a dialect of Markdown which aims to remove any ambiguity, clean
