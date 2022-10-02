@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2020</a></li><li class=""><a href="../..">05</a></li><li class="active">31</li><li class="active">macho-man-command-on-steroids</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to Macho, the man command on steroids" rel="bookmark">Macho, the man command on steroids</a></h1><header><p><time class="published" datetime="2020-05-31">Published: 2020-05-31</time></p><p>Category: <a href="../../../../categories/open-source/">open-source</a></p><p>Tags: <a href="../../../../tags/unix/">unix </a></p></header><p>The Unix <code>man</code> command can open a manual page if you know its name, and the
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2020</a></li><li class=""><a href="../../">05</a></li><li class="active">31</li><li class="active">macho-man-command-on-steroids</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Macho, the man command on steroids" rel="bookmark">Macho, the man command on steroids</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2020-05-31">2020-05-31</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/unix/">unix</a></p></header><p>The Unix <code>man</code> command can open a manual page if you know its name, and the
 <code>apropos</code> command can search through the manuals if you are looking for a
 specific word. Let's put the two to work together into a command I like to call
 <code>macho</code>: the <code>man</code> command on steroids.</p><p>The idea is to feed the user's into into <code>apropos</code>, take its output, let the
 user select one of the manuals, and feed the selection into <code>man</code>. As a bonus
 we will look at how to use <code>macho</code> in a graphical environment as well to
-display a nicely typeset PDF of the manual page.</p><p>Here are the dependencies:</p><ul><li><code>man</code> and <code>apropos</code> (obviously)</li><li><a href="https://github.com/junegunn/fzf/">FZF</a> for the command-line interface, and <a href="https://tools.suckless.org/dmenu/">dmenu</a> or <a href="https://github.com/davatorium/rofi/">rofi</a> for the GUI</li><li>Awk, <code>grep</code> and <code>sed</code> to plug in-between the above</li></ul><p>And this is what the end result looks like:</p><pre><code>Manual: ssh            ┌───────────────────────────────────────────────────────┐
+display a nicely typeset PDF of the manual page.</p><p>Here are the dependencies:</p><ul><li><p><code>man</code> and <code>apropos</code> (obviously)</p></li><li><p><a href="https://github.com/junegunn/fzf/">FZF</a> for the command-line interface, and <a href="https://tools.suckless.org/dmenu/">dmenu</a> or <a href="https://github.com/davatorium/rofi/">rofi</a> for the GUI</p></li><li><p>Awk, <code>grep</code> and <code>sed</code> to plug in-between the above</p></li></ul><p>And this is what the end result looks like:</p><pre><code>Manual: ssh            ┌───────────────────────────────────────────────────────┐
   578/14561            │ SSHFS(1)           User Commands           SSHFS1/310 │
   (1)     ssh          │                                                       │
   (8)     sshd         │ NAME                                                  │
@@ -21,72 +21,81 @@ display a nicely typeset PDF of the manual page.</p><p>Here are the dependencies
   (1)     ssh-copy-id  │ DESCRIPTION                                           │
   (1)     ssh-keyscan  │        SSHFS  (Secure  SHell  FileSystem) is a file   │
   (5)     sshd_config  │        system for Linux (and other  operating  sys‐   │
-  (8)     ssh-keysign  └───────────────────────────────────────────────────────┘</code></pre><h2>The <code>macho</code> command</h2><h3>The basic pipeline</h3><p>The <em>source</em> is the output of <code>apropos ${@:-.}</code>, which will list the manual
+  (8)     ssh-keysign  └───────────────────────────────────────────────────────┘
+</code></pre><h2>The <code>macho</code> command</h2><h3>The basic pipeline</h3><p>The <em>source</em> is the output of <code>apropos ${@:-.}</code>, which will list the manual
 pages matching the queries passed to <code>macho</code>, or list all manual pages
 installed on the system (fallback <code>.</code>) if nothing was provided. Our <em>sink</em> is
 the <code>man</code> command with the user's selection (consisting of section and name) as
-its first argument.</p><p>Here is the first attempt:</p><pre><code class="language-sh">manual=$(apropos . | \
-    grep -v -E '^.+ \(0\)' |\
-    awk '{print $2 &quot;    &quot; $1}' | \
-    sort | \
-    fzf | \
-    sed -E 's/^\((.+)\)/\1/')
+its first argument.</p><p>Here is the first attempt:</p><pre><code>manual=$(apropos . | \
+	grep -v -E '^.+ \(0\)' |\
+	awk '{print $2 &quot;	&quot; $1}' | \
+	sort | \
+	fzf | \
+	sed -E 's/^\((.+)\)/\1/')
 
 [ -z &quot;$manual&quot; ] &amp;&amp; exit 0
-man $manual</code></pre><p>Let's go over the code one step at a time. The first line prints all manuals
+man $manual
+</code></pre><p>Let's go over the code one step at a time. The first line prints all manuals
 known to <code>man</code>.  The output format is as follows, where <code>s</code> is the section of
-the manual:</p><pre><code>name (s)    - a description for humans</code></pre><p>For some reason <code>apropos</code> prints manuals with section <code>0</code>, which I want to
+the manual:</p><pre><code>name (s)    - a description for humans
+</code></pre><p>For some reason <code>apropos</code> prints manuals with section <code>0</code>, which I want to
 filter out using <code>grep</code>. Next we use Awk to format the output to be more
 suitable for display by placing the section first before the manual name. This
 makes the next step easier: sorting the manuals based on their section. Then we
 pipe the output into FZF for the user to select one. Finally we format the
 user's selection so that the section is without its parentheses, to be suitable
 as arguments to the <code>man</code> command.</p><h3>Adding a preview to FZF</h3><p>We can make the FZF interface more pleasant to use by specifying a few settings
-in an environment variable.</p><pre><code class="language-sh">export FZF_DEFAULT_OPTS='
+in an environment variable.</p><pre><code>export FZF_DEFAULT_OPTS='
 --height=30%
 --layout=reverse
---prompt=&quot;Manual: &quot;'</code></pre><p>However, the most useful option is a preview of the manual. When I use <code>macho</code>
+--prompt=&quot;Manual: &quot;'
+</code></pre><p>However, the most useful option is a preview of the manual. When I use <code>macho</code>
 I usually don't know what manual I am looking for, I only have a vague idea, so
 being able to read the first couple of lines before I actually commit to my
-choice is a big help. Here is the preview option with its pipeline:</p><pre><code>--preview=&quot;echo {1} | sed -E \&quot;s/^\((.+)\)/\1/\&quot; | xargs -I{S} man -Pcat {S} {2} 2&gt;/dev/null&quot;'</code></pre><p>The <code>{1}</code> placeholder is the first field of the selection, which in our case is
+choice is a big help. Here is the preview option with its pipeline:</p><pre><code>--preview=&quot;echo {1} | sed -E \&quot;s/^\((.+)\)/\1/\&quot; | xargs -I{S} man -Pcat {S} {2} 2&gt;/dev/null&quot;'
+</code></pre><p>The <code>{1}</code> placeholder is the first field of the selection, which in our case is
 the section in parentheses. We need to strip those again using <code>sed</code> before
 splicing together the <code>man</code> command with <code>xargs</code>. Note that we have to specify
 a different placeholder for <code>xargs</code> (<code>{S}</code> here) because the default one is
 already used by FZF.</p><h3>Selecting a section</h3><p>It is wasteful to list all manuals from all sections if we already know what
 section we are looking for. Let's add the <code>-s</code> option to <code>macho</code>. POSIX gives
-us <code>getopt</code> to query command-line options, so let's use it.</p><pre><code class="language-sh">while getopts &quot;:s:&quot; opt; do
-    case $opt in
-        s ) SECTION=$OPTARG;;
-        \?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
-        : ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
-    esac
-done</code></pre><p>We can now insert the contents of the <code>SECTION</code> variable into the <code>apropos command</code>:</p><pre><code class="language-sh">apropos -s ${SECTION:-''} .</code></pre><p>Note how if the variable has not been set we substitute an empty string in
+us <code>getopt</code> to query command-line options, so let's use it.</p><pre><code>while getopts &quot;:s:&quot; opt; do
+	case $opt in
+		s ) SECTION=$OPTARG;;
+		\?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
+		: ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
+	esac
+done
+</code></pre><p>We can now insert the contents of the <code>SECTION</code> variable into the <code>apropos command</code>:</p><pre><code>apropos -s ${SECTION:-''} .
+</code></pre><p>Note how if the variable has not been set we substitute an empty string in
 order to print all the manuals as before.</p><h3>Passing query strings</h3><p>The primary purpose of <code>apropos</code> is to search the manuals for one or more
 keywords, not to print all manuals to the output. Our <code>macho</code> command should be
 able to do the same. To this end we need change our <code>getopts</code> to drop the
 section option from the list of positional command-line arguments, and change
-the <code>apropos</code> parameters to splice in all the remaining <code>macho</code> arguments.</p><pre><code class="language-sh"># Note the two `shift`
+the <code>apropos</code> parameters to splice in all the remaining <code>macho</code> arguments.</p><pre><code># Note the two `shift`
 while getopts &quot;:s:&quot; opt; do
-    case $opt in
-        s ) SECTION=$OPTARG; shift; shift;;
-        \?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
-        : ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
-    esac
+	case $opt in
+		s ) SECTION=$OPTARG; shift; shift;;
+		\?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
+		: ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
+	esac
 done
 
 # Note the `${@:-.}`, we still fall back to all manuals
-apropos -s ${SECTION:-''} ${@:-.} </code></pre><p>And that's it, we have our <code>man</code> command on steroids.</p><h2>Bonus: a <code>macho</code> GUI</h2><p>The <code>man</code> command can export manuals in formats other than plain text, such as
+apropos -s ${SECTION:-''} ${@:-.} 
+</code></pre><p>And that's it, we have our <code>man</code> command on steroids.</p><h2>Bonus: a <code>macho</code> GUI</h2><p>The <code>man</code> command can export manuals in formats other than plain text, such as
 a nicely typeset PDF. The pipeline is almost the same, so I'll just give you
-the complete code.</p><pre><code class="language-sh">manual=$(apropos -s ${SECTION:-''} ${@:-.} | \
-    grep -v -E '^.+ \(0\)' |\
-    awk '{print $2 &quot;    &quot; $1}' | \
-    sort | \
-    rofi -dmenu -i -p &quot;Manual: &quot; | \
-    sed -E 's/^\((.+)\)/\1/')
+the complete code.</p><pre><code>manual=$(apropos -s ${SECTION:-''} ${@:-.} | \
+	grep -v -E '^.+ \(0\)' |\
+	awk '{print $2 &quot;	&quot; $1}' | \
+	sort | \
+	rofi -dmenu -i -p &quot;Manual: &quot; | \
+	sed -E 's/^\((.+)\)/\1/')
 
 [ -z &quot;$MANUAL&quot; ] &amp;&amp; exit 0;
 
-man -T${FORMAT:-pdf} $manual | ${READER:-zathura -}</code></pre><p>The only real difference in the pipeline is that we use <code>rofi</code> as our selector
+man -T${FORMAT:-pdf} $manual | ${READER:-zathura -}
+</code></pre><p>The only real difference in the pipeline is that we use <code>rofi</code> as our selector
 (or dmenu if you prefer). The last line uses the <code>-T</code> option to specify the
 output format and pipes it into the reader. You will need a PDF reader which
 can read from standard input. I use <a href="https://pwmt.org/projects/zathura/">Zathura</a>, which needs <code>-</code> as its input
@@ -100,7 +109,7 @@ settings which we have defined for them will always apply. In practice this
 means that I can for example use the same set of custom key bindings both when
 selecting SSH connections, and when browsing my manual pages. Or if we
 specified settings for <code>man</code>, such as a custom pager, they will be inherited by
-<code>macho</code> as well.</p><h3>The full source code</h3><pre><code class="language-sh">#!/bin/sh
+<code>macho</code> as well.</p><h3>The full source code</h3><pre><code>#!/bin/sh
 
 export FZF_DEFAULT_OPTS='
 --height=30%
@@ -109,20 +118,21 @@ export FZF_DEFAULT_OPTS='
 --preview=&quot;echo {1} | sed -E \&quot;s/^\((.+)\)/\1/\&quot; | xargs -I{S} man -Pcat {S} {2} 2&gt;/dev/null&quot;'
 
 while getopts &quot;:s:&quot; opt; do
-    case $opt in
-        s ) SECTION=$OPTARG; shift; shift;;
-        \?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
-        : ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
-    esac
+	case $opt in
+		s ) SECTION=$OPTARG; shift; shift;;
+		\?) echo &quot;Invalid option: -$OPTARG&quot; &gt;&amp;2; exit 1;;
+		: ) echo &quot;Option -$OPTARG requires an argument&quot; &gt;&amp;2; exit 1;;
+	esac
 done
 
 manual=$(apropos -s ${SECTION:-''} ${@:-.} | \
-    grep -v -E '^.+ \(0\)' |\
-    awk '{print $2 &quot;    &quot; $1}' | \
-    sort | \
-    fzf  | \
-    sed -E 's/^\((.+)\)/\1/')
+	grep -v -E '^.+ \(0\)' |\
+	awk '{print $2 &quot;	&quot; $1}' | \
+	sort | \
+	fzf  | \
+	sed -E 's/^\((.+)\)/\1/')
 
 [ -z &quot;$manual&quot; ] &amp;&amp; exit 0
-man $manual</code></pre><p>Here are a few ideas for further improvement:</p><ul><li>How a help message when the user passes <code>-h</code> or <code>--help</code> as arguments</li><li>Stop processing options when encountering <code>--</code></li><li>Display the user's query string somewhere, for example as part of the FZF
-prompt</li><li>Pass some options from <code>macho</code> to <code>man</code>, like the output format</li><li>Play around with the FZF preview command, perhaps it can be made faster</li></ul></article></main><nav class="blog-pager"><a href="../../../../2020/05/23/how-i-manage-ssh-connections/" rel="previous" style="float: left"><span aria-hidden="true">←</span> How I manage SSH connections</a><a href="../../../../2020/08/02/the-best-language-to-learn-programming/" rel="next" style="float: right">The best language to learn programming <span aria-hidden="true">→</span></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/misc/">misc (16)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
+man $manual
+</code></pre><p>Here are a few ideas for further improvement:</p><ul><li><p>How a help message when the user passes <code>-h</code> or <code>--help</code> as arguments</p></li><li><p>Stop processing options when encountering <code>--</code></p></li><li><p>Display the user's query string somewhere, for example as part of the FZF
+prompt</p></li><li><p>Pass some options from <code>macho</code> to <code>man</code>, like the output format</p></li><li><p>Play around with the FZF preview command, perhaps it can be made faster</p></li></ul></article><nav class="blog-pager"><a href="/blog/2020/05/23/how-i-manage-ssh-connections/" rel="previous" style="float: left"><span aria-hidden="true">←</span> How I manage SSH connections</a><a href="/blog/2020/08/02/the-best-language-to-learn-programming/" rel="next" style="float: right">The best language to learn programming <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (16)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

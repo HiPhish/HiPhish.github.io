@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2021</a></li><li class=""><a href="../..">02</a></li><li class="active">15</li><li class="active">pipe-operator-for-lua</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to A pipe operator for Lua" rel="bookmark">A pipe operator for Lua</a></h1><header><p><time class="published" datetime="2021-02-15">Published: 2021-02-15</time></p><p>Modified: <time datetime="2021-03-07">2021-03-07</time></p><p>Category: <a href="../../../../categories/open-source/">open-source</a></p><p>Tags: <a href="../../../../tags/lua/">lua </a><a href="../../../../tags/elixir/">elixir </a></p></header><p>I have recently been getting into <a href="https://elixir-lang.org/">Elixir</a>, and one
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2021</a></li><li class=""><a href="../../">02</a></li><li class="active">15</li><li class="active">pipe-operator-for-lua</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to A pipe operator for Lua" rel="bookmark">A pipe operator for Lua</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2021-02-15">2021-02-15</time></p><p class="blog-post-modified">modified: <time datetime="2021-03-07">2021-03-07</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/lua/">lua</a>, <a href="../../../../tags/elixir/">elixir</a></p></header><p>I have recently been getting into <a href="https://elixir-lang.org/">Elixir</a>, and one
 nice feature it has is the pipe operator. It allows us to express a pipeline
 of function through which an object will be dragged. This got me thinking: with
 how flexible Lua is, would it be possible to add something similar to Lua as
 well?</p><h2>Piping in Elixir</h2><p>Let's first consider how one would write code without piping. The <a href="https://elixir-lang.org/getting-started/enumerables-and-streams.html">official
 language
 guide</a>
-gives the following example:</p><pre><code class="language-elixir">Enum.sum(Enum.filter(Enum.map(1..100_000, &amp;(&amp;1 * 3)), odd?))</code></pre><p>This code takes a list of numbers, multiplies each one by three, removes all
+gives the following example:</p><pre><code>Enum.sum(Enum.filter(Enum.map(1..100_000, &amp;(&amp;1 * 3)), odd?))
+</code></pre><p>This code takes a list of numbers, multiplies each one by three, removes all
 that are not odd, and finally computes the sum. Here is the equivalent code in
 Lua, assuming that we have a <code>range</code>, <code>map</code>, <code>filter</code>, <code>is_odd</code> and <code>sum</code>
-function:</p><pre><code class="language-lua">sum(filter(map(range(1, 100000), function(x) return x * 3 end), is_odd))</code></pre><p>In order to understand this line you need to read the code inside-out. It's not
+function:</p><pre><code>sum(filter(map(range(1, 100000), function(x) return x * 3 end), is_odd))
+</code></pre><p>In order to understand this line you need to read the code inside-out. It's not
 even a simple matter of reading from right to left since the right-most symbol
 is the argument to <code>filter</code>.</p><p>Elixir has the pipe operator <code>|&gt;</code> which allows us to write the expression as
-follows:</p><pre><code class="language-elixir">1..100_000 |&gt; Enum.map(&amp;(&amp;1 * 3)) |&gt; Enum.filter(odd?) |&gt; Enum.sum</code></pre><p>We can now clearly read the expression from left to right: the left-most symbol
+follows:</p><pre><code>1..100_000 |&gt; Enum.map(&amp;(&amp;1 * 3)) |&gt; Enum.filter(odd?) |&gt; Enum.sum
+</code></pre><p>We can now clearly read the expression from left to right: the left-most symbol
 is the original object, and every subsequent symbol is the next step of the
-transformation pipeline. Here is what I want to be able to write in Lua:</p><pre><code class="language-lua">pipe(1, 100000) {
+transformation pipeline. Here is what I want to be able to write in Lua:</p><pre><code>pipe(1, 100000) {
     range
     function(xs) return map(xs, function(x) return x * 3 end) end,
     function(xs) return filter(xs, is_odd) end,
     sum
-}</code></pre><p>There are a couple of differences: since Lua can handle multiple values the
+}
+</code></pre><p>There are a couple of differences: since Lua can handle multiple values the
 first function (<code>range</code>) can take two arguments, and since Lua does not perform
 automatic currying we have to wrap <code>map</code> and <code>filter</code> each inside an anonymous
 function. Also note that Lua lets us omit the parentheses around the table
 literal.</p><h2>Piping in Lua</h2><p>There will be a function called <code>pipe</code> which takes in any number of arguments
 and returns a new function. This new function takes a pipeline (list of
 functions to apply in consecutive order) and returns the result of the
-pipeline.</p><pre><code class="language-lua">function pipe(...)
+pipeline.</p><pre><code>function pipe(...)
     -- The arguments will get packed and unpacked repeatedly
     local args = table.pack(...)
 
@@ -42,18 +46,20 @@ pipeline.</p><pre><code class="language-lua">function pipe(...)
         -- a pipe can return multiple values
         return table.unpack(results)
     end
-end</code></pre><p>Let's try it out! The below pipeline will print a message as a side effect and
-evaluate to <code>6</code>.</p><pre><code class="language-lua">pipe(3) {
+end
+</code></pre><p>Let's try it out! The below pipeline will print a message as a side effect and
+evaluate to <code>6</code>.</p><pre><code>pipe(3) {
     -- Keep the number and generate a message
     function(x) return x, string.format('The number is %d') end
     -- Print the message, return the number (message gets dropped)
     function(x, msg) print(msg); return x end
     -- double the number
     function(x) return x * 2 end
-}</code></pre><p>As we can see, the number of values between steps in the pipeline can change.
+}
+</code></pre><p>As we can see, the number of values between steps in the pipeline can change.
 The first function receives one argument but returns two values, and the second
 function receives two arguments but returns one value. We can also store the
-pipeline in a variable and use it multiple times:</p><pre><code class="language-lua">local pipeline = {foo, bar, baz}  -- list items are some functions
+pipeline in a variable and use it multiple times:</p><pre><code>local pipeline = {foo, bar, baz}  -- list items are some functions
 
 -- Run 1, 2 and 3 all through the same pipeline one after the other
 pipe(1)(pipeline)
@@ -64,7 +70,8 @@ pipe(3)(pipeline)
 pipe('hello') {
     function(s) #s end,                -- get length of string
     function(n) pipe(n)(pipeline) end  -- pipe the length through the pipeline
-}</code></pre><h2>Conclusion</h2><p>This Lua implementation uses closures and works without additional syntax.
+}
+</code></pre><h2>Conclusion</h2><p>This Lua implementation uses closures and works without additional syntax.
 Unlike the Elixir implementation the pipeline is just a regular value and can
 thus be stored in a variable and get passed around. The number of values is not
 fixed and can even change between steps.</p><p>However, it has one big disadvantage: the Elixir pipeline lets your write
@@ -72,7 +79,7 @@ fixed and can even change between steps.</p><p>However, it has one big disadvant
 the current value as the argument for us (<code>fn x -&gt; Enum(x, odd?) end</code>). In Lua
 this is not possible, we have to manually wrap the code inside an anonymous
 function manually. We can store the functions in a variable and reference the
-variable inside the pipeline, but that's just moving the problem one level up.</p><pre><code class="language-lua">local function with_message(x) return x, string.format('The number is %d') end
+variable inside the pipeline, but that's just moving the problem one level up.</p><pre><code>local function with_message(x) return x, string.format('The number is %d') end
 local function push_message(x, msg) print(msg); return x end
 local function double(x) return x * 2 end
 
@@ -80,7 +87,8 @@ pipe(3) {
     with_message,
     push_message,
     double
-}</code></pre><p>I will let the reader decide which is better. This simple piping implementation
+}
+</code></pre><p>I will let the reader decide which is better. This simple piping implementation
 lacks a mechanism for aborting the pipeline prematurely, that is something that
 would need to be handled by the functions themselves. I should also point out
 that these examples are very contrived, it would have been easier to just write
@@ -95,8 +103,9 @@ and unpacking at the cost of an uglier implementation. I definitely recommend
 reading the article.</p><p>I admit, I was not paying attention to performance. My focus was just on
 exploring the idea of how to retrofit a new feature from another language for
 the sake of novelty. In a real use-case I would have just written code as
-follows:</p><pre><code class="language-lua">local result = range(1, 100000) {
+follows:</p><pre><code>local result = range(1, 100000) {
 result = return map(result, function(x) return x * 3 end)
 result = filter(result, is_odd)
-result = sum(result)</code></pre><p>Yes, it is not in the functional style, but it gets the job done out of the
-box.</p><h2>Update 2</h2><p>I fixed the URL to the other article.</p></article></main><nav class="blog-pager"><a href="../../../../2020/12/31/spreading-tables-in-lua/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Spreading tables in Lua</a><a href="../../../../2021/02/28/running-mongodb-from-guix/" rel="next" style="float: right">Running MongoDB from Guix <span aria-hidden="true">→</span></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/misc/">misc (16)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
+result = sum(result)
+</code></pre><p>Yes, it is not in the functional style, but it gets the job done out of the
+box.</p><h2>Update 2</h2><p>I fixed the URL to the other article.</p></article><nav class="blog-pager"><a href="/blog/2020/12/31/spreading-tables-in-lua/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Spreading tables in Lua</a><a href="/blog/2021/02/28/running-mongodb-from-guix/" rel="next" style="float: right">Running MongoDB from Guix <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (16)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

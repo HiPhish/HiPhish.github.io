@@ -3,6 +3,33 @@
  *   - Blog navigation background: #ecf0f1
  */
 
+article table {
+	margin: 0.75em auto;
+	border-collapse: collapse;
+}
+
+article table > caption {
+	caption-side: bottom;
+	font-size: 0.75em;
+}
+
+article table th {
+	padding: 0.25em 0.75em;
+}
+
+article table td {
+	padding: 0.25em 0.75em;
+}
+
+article table tbody tr:nth-child(odd) {
+	background-color: #ecf0f1;
+}
+
+article table .numeric {
+	text-align: end;
+}
+
+
 div.blog {
 	display: grid;
 	grid-template:
@@ -13,7 +40,6 @@ div.blog {
 	margin-bottom: 1em;
 }
 
-
 /* ---[ Blog navigation ]--------------------------------------------------- */
 nav.blog-navigation {
 	grid-area: nav;
@@ -22,9 +48,15 @@ nav.blog-navigation {
 	border-radius: 4px;
 }
 
-nav.blog-navigation > aside > span { font-weight: bold; }
+nav.blog-navigation > aside > span {
+	font-weight: bold;
+	text-transform: capitalize;
+}
 
-nav.blog-navigation > nav > h1 { font-size: 1.5em; }
+nav.blog-navigation > nav > h1 {
+	font-size: 1.5em;
+	text-transform: capitalize;
+}
 
 nav.blog-navigation > nav > ul {
 	list-style: none;
@@ -68,12 +100,20 @@ nav.breadcrumbs > ol > li > a:hover { text-decoration: underline; }
  * displaying a horizontal scrollbar. */
 main { grid-area: main; min-width: 0; }
 
-main article > header {
+header.blog-post-header {
 	border-bottom: solid 1px rgba(0, 0, 0, 0.125);
 	margin-bottom: 1em;
 }
 
-main article > header > p { margin: 0; }
+header.blog-post-header > p {
+	margin: 0;
+	text-transform: capitalize;
+}
+
+header.blog-post-header > p a {
+	margin: 0;
+	text-transform: none;
+}
 
 main.blogpost-listing > ul {
 	list-style: none;

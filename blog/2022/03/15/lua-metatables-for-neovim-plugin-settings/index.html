@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2022</a></li><li class=""><a href="../..">03</a></li><li class="active">15</li><li class="active">lua-metatables-for-neovim-plugin-settings</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to Neovim plugin settings with Lua metatables" rel="bookmark">Neovim plugin settings with Lua metatables</a></h1><header><p><time class="published" datetime="2022-03-15">Published: 2022-03-15</time></p><p>Category: <a href="../../../../categories/vim/">vim</a></p><p>Tags: <a href="../../../../tags/neovim/">neovim </a></p></header><p>A lot of new Neovim plugins come with a <code>setup</code> function which lets you specify
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2022</a></li><li class=""><a href="../../">03</a></li><li class="active">15</li><li class="active">lua-metatables-for-neovim-plugin-settings</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Neovim plugin settings with Lua metatables" rel="bookmark">Neovim plugin settings with Lua metatables</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2022-03-15">2022-03-15</time></p><p class="blog-post-category">categories: <a href="../../../../categories/vim/">vim</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/neovim/">neovim</a></p></header><p>A lot of new Neovim plugins come with a <code>setup</code> function which lets you specify
 the settings of the plugin. Users are expected to call that function with a
 table as arguments which contains the user's personal settings to override the
 defaults. This works, but Lua is all about tables, so let's look at an
@@ -7,65 +7,68 @@ alternative.</p><p>This post will be rather large because I want to go lay out m
 step by step instead of just serving the final implementation as if I just came
 up with it in one sitting.</p><h2>The idea</h2><p>Most plugins require us to call a function named <code>setup</code> where we set our
 personal settings. Anything not specified will fall back to the default of the
-plugin. Here is what my configuration for Treesitter looks like:</p><pre><code class="language-lua">local ts_config = require'nvim-treesitter.configs'
+plugin. Here is what my configuration for Treesitter looks like:</p><pre><code>local ts_config = require'nvim-treesitter.configs'
 
 ts_config.setup {
-    highlight = {
-        enable = true,
-        use_languagetree = true, -- use this to enable language injection
-        custom_captures = {
-        },
-    },
-    incremental_selection = {
-        enable = true,
-    },
-    indent = {
-        enable = true
-    },
-    context_commentstring = {
-        enable = true,
-    },
-    playground = {
-    }
-}</code></pre><p>Any key that is omitted will fall back to the default. This works fine, but it
-has a few drawbacks:</p><ul><li>We cannot restore the default without restarting Neovim</li><li>We do not have access to the stored options</li><li>We do not have access to the defaults</li></ul><p>My proposal is to expose a table to directly write the settings into.</p><pre><code class="language-lua">local ts_config = require'nvim-treesitter.configs'
+	highlight = {
+		enable = true,
+		use_languagetree = true, -- use this to enable language injection
+		custom_captures = {
+		},
+	},
+	incremental_selection = {
+		enable = true,
+	},
+	indent = {
+		enable = true
+	},
+	context_commentstring = {
+		enable = true,
+	},
+	playground = {
+	}
+}
+</code></pre><p>Any key that is omitted will fall back to the default. This works fine, but it
+has a few drawbacks:</p><ul><li><p>We cannot restore the default without restarting Neovim</p></li><li><p>We do not have access to the stored options</p></li><li><p>We do not have access to the defaults</p></li></ul><p>My proposal is to expose a table to directly write the settings into.</p><pre><code>local ts_config = require'nvim-treesitter.configs'
 
 -- Set all options in one go
 ts_config = {
-    highlight = {
-        enable = true,
-        use_languagetree = true, -- use this to enable language injection
-        custom_captures = {
-        },
-    },
-    incremental_selection = {
-        enable = true,
+	highlight = {
+		enable = true,
+		use_languagetree = true, -- use this to enable language injection
+		custom_captures = {
+		},
+	},
+	incremental_selection = {
+	    enable = true,
     }
 }
 
 -- Set an option later
 ts_config.indent = {
-    enable = true
+	enable = true
 }
 
 -- Restore a setting to the default by deleting it
 ts_config.incremental_selection = nil
 
 -- Query the default
-default_commentstring = ts_config.context_commentstring</code></pre><p>In order to make this safe we have to use two tables in the implementation: one
+default_commentstring = ts_config.context_commentstring
+</code></pre><p>In order to make this safe we have to use two tables in the implementation: one
 holds the defaults and is immutable, the other is public and can be written to
 by the user. We will have to use Lua's metatables to wire up the two tables
 together.</p><h2>Lua metatables</h2><p>Metatables are an advanced Lua feature which lets us alter how objects behave
 at runtime. Imagine that we want to add complex numbers to Lua; the only
 compound data type we have in Lua is the table, so let's create a constructor
-function which returns a table that represents a complex number.</p><pre><code class="language-lua">local function complex(real, imaginary)
+function which returns a table that represents a complex number.</p><pre><code>local function complex(real, imaginary)
     return {
         real = real,
         imaginary = imaginary
     }
-end</code></pre><p>Simple enough. We also want to do arithmetic on complex numbers, so let's add
+end
+</code></pre><p>Simple enough. We also want to do arithmetic on complex numbers, so let's add
 functions for that as well. Don't worry if you are not familiar with complex
-numbers, I'm just trying to make a point here, the formula is not important.</p><pre><code class="language-lua">local function complex_add(a, b)
+numbers, I'm just trying to make a point here, the formula is not important.</p><pre><code>local function complex_add(a, b)
     local real = a.real + b.real
     local imaginary = a.imaginary + b.imaginary
     return complex(real, imaginary)
@@ -75,12 +78,13 @@ local function complex_multiply(a, b)
     local real = a.real * b.real - a.imaginary * b.imaginary
     local imaginary = a.real * b.imaginary - a.imaginary * b.real
     return complex(real, imaginary)
-end</code></pre><p>This is all straight-forward, but it is really cumbersome to write code using
+end
+</code></pre><p>This is all straight-forward, but it is really cumbersome to write code using
 these functions. I would like to use the arithmetic operators <code>+</code> and <code>*</code> with
 complex numbers just as I can use them with real numbers. This is where
 metatables come into play: we can tell Lua “here is how you can add two complex
 numbers” by specifying the function in a table. The metatable needs to be
-attached to each complex number we create. Let's adjust the constructor.</p><pre><code class="language-lua">local mt = {
+attached to each complex number we create. Let's adjust the constructor.</p><pre><code>local mt = {
     __add = complex_add,
     __mul = complex_multiply,
 }
@@ -92,12 +96,13 @@ local function complex(real, imaginary)
     }
     setmetatable(result, mt)  -- Metatable is shared between instances
     return result
-end</code></pre><p>Whenever Lua tries to add two objects it will look if one of them has a
+end
+</code></pre><p>Whenever Lua tries to add two objects it will look if one of them has a
 metatable with an <code>__add</code> function and then call that function with the two
 operands as arguments. The above function could be further improved to check
 whether the arguments are indeed complex numbers or some other table, but that
 is beyond the scope of this post.</p><h2>Metatables for safe defaults</h2><p>We start out with two tables, one contains all defaults and is private, the
-other is empty and public.</p><pre><code class="language-lua">local M = {}  -- The module
+other is empty and public.</p><pre><code>local M = {}  -- The module
 
 -- Hard-coded defaults, never written to, never directly read from
 local default = {
@@ -112,20 +117,22 @@ local default = {
 -- Public configuration, read and write directory to this table
 M.config = {}
 
-return M</code></pre><p>We can now set up a metatable for <code>config</code> which instructs Lua to look up an
-entry in <code>default</code> if it does not exist in <code>config</code>.</p><pre><code class="language-lua">local mt = {
+return M
+</code></pre><p>We can now set up a metatable for <code>config</code> which instructs Lua to look up an
+entry in <code>default</code> if it does not exist in <code>config</code>.</p><pre><code>local mt = {
     -- t is the original table, k is the key
     __index = function(t, k)
         return default[k]
     end
 }
 
-setmetatable(M.config, mt)</code></pre><p>This will work fine for scalar entries like <code>cache_path</code>, but it will fail for
+setmetatable(M.config, mt)
+</code></pre><p>This will work fine for scalar entries like <code>cache_path</code>, but it will fail for
 tables like <code>size</code>. Suppose the user has only assigned the <code>min</code> value. Now
 when we read <code>config.size.max</code> Lua finds the custom <code>size</code> entry inside
 <code>config</code>, but not the <code>max</code> entry within it, returning <code>nil</code> as the result. We
 need to assign a separate metatable to the custom <code>size</code> so it knows where to
-look for defaults. This is where the <code>__newindex</code> metamethod comes into play.</p><pre><code class="language-lua">local mt = {
+look for defaults. This is where the <code>__newindex</code> metamethod comes into play.</p><pre><code>local mt = {
     __index = function(t, k)  -- unchanged
         return default[k]
     end
@@ -143,11 +150,12 @@ look for defaults. This is where the <code>__newindex</code> metamethod comes in
         }
         setmetatable(v, mt)
     end
-}</code></pre><p>But wait, this will only work for one level of nesting. What if we have two or
+}
+</code></pre><p>But wait, this will only work for one level of nesting. What if we have two or
 more levels? We need a metatable constructor which returns a new metatable when
 given a parent table. This will allow us to create arbitrary levels of nesting
 in our configuration. Every time we look up a value we will recursively search
-up the chain until we reach the root table.</p><pre><code class="language-lua">local function make_mt(default)
+up the chain until we reach the root table.</p><pre><code>local function make_mt(default)
     local result = {
         __index = function(t, k)
             return default[k]
@@ -159,16 +167,18 @@ up the chain until we reach the root table.</p><pre><code class="language-lua">l
         end
     }
     return result
-end</code></pre><p>This function will not run into infinite recursion. The inner call to <code>make_mt</code>
+end
+</code></pre><p>This function will not run into infinite recursion. The inner call to <code>make_mt</code>
 will not be executed until the <code>__newindex</code> function is called. However, now we
-have broken the immutability of the default table. Consider the following case:</p><pre><code class="language-lua">foo = require 'foo'
+have broken the immutability of the default table. Consider the following case:</p><pre><code>foo = require 'foo'
 
-foo.config.size.max = 7</code></pre><p>This is equivalent to <code>(config.size)['max'] = 7</code>. The table <code>config</code> is
+foo.config.size.max = 7
+</code></pre><p>This is equivalent to <code>(config.size)['max'] = 7</code>. The table <code>config</code> is
 empty, so indexing it via <code>config.size</code> returns a <em>reference</em> to the <code>size</code>
 table from the default values. When we then index it via <code>size.max</code> we are
 indexing and mutating the original table.</p><p>To solve this problem we can create a new empty table whenever we would index
 the original. This new table gets assigned its own metatable. Then we try
-indexing the <code>config</code> table again.</p><pre><code class="language-lua">local function make_mt(default)
+indexing the <code>config</code> table again.</p><pre><code>local function make_mt(default)
     local result = {
         __index = function(t, k)
             local original = default[k]
@@ -187,7 +197,8 @@ indexing the <code>config</code> table again.</p><pre><code class="language-lua"
         end
     }
     return result
-end</code></pre><p>It is important that we check whether the original is indeed a table. Scalar
+end
+</code></pre><p>It is important that we check whether the original is indeed a table. Scalar
 values are considered terminal, they are returned by copy instead of reference,
 so there is no danger in returning them. In fact, the terminal nature of
 scalars is what prevents infinite recursion. This <code>__index</code> function works with
@@ -196,7 +207,7 @@ we assign the new table through the statement <code>t[k] = {}</code> are are ass
 new entry to <code>t</code> which causes the <code>__newindex</code> function to be called. The same
 also happens in <code>__newindex</code>. Our code is stuck in an infinite recursion until
 we run out of stack frames. We need a way of adding an entry to a table without
-going through these metamethods. This is what the function <code>rawset</code> is for.</p><pre><code class="language-lua">local function make_mt(default)
+going through these metamethods. This is what the function <code>rawset</code> is for.</p><pre><code>local function make_mt(default)
     local result = {
         __index = function(t, k)
             local original = default[k]
@@ -212,7 +223,8 @@ going through these metamethods. This is what the function <code>rawset</code> i
         end
     }
     return result
-end</code></pre><h2>Putting it together</h2><p>This has been quite a trip, but the final code is quite short.</p><pre><code class="language-lua">local M = {}  -- The module
+end
+</code></pre><h2>Putting it together</h2><p>This has been quite a trip, but the final code is quite short.</p><pre><code>local M = {}  -- The module
 
 local default {
     cache_path = vim.fn.stdpath('cache') .. '/my_plugin',
@@ -242,7 +254,8 @@ end
 M.config = {}
 setmetatable(M.config, make_mt(default))
 
-return M</code></pre><p>Once you understand the principle and the various pitfalls the code is really
+return M
+</code></pre><p>Once you understand the principle and the various pitfalls the code is really
 not hard to understand. I intentionally made this post longer than it needs to
 be because I wanted to walk the reader through every step and point out my
 thought process.</p><p>Developing a solution is often an iterative process: we start out with a rough
@@ -263,6 +276,6 @@ private and the public table is immutable, how can we do <em>anything</em> at al
 Well, that's where the one and only metatable will come into play. Stay tuned
 and don't forget to subscribe to the RSS feed.</p><h2>Further reading</h2><p>Metatables are explained in detail in the official Lua textbook. There is an
 entire chapter dedicated to the topic. The reference manual covers the topic in
-a more technical way.</p><ul><li><a href="https://www.lua.org/pil/13.html">Text book chapter</a></li><li><a href="https://www.lua.org/manual/5.1/manual.html#2.8">Reference manual</a></li></ul><p>The version of the book available for free online only covers Lua 5.0, but
+a more technical way.</p><ul><li><p><a href="https://www.lua.org/pil/13.html">Text book chapter</a></p></li><li><p><a href="https://www.lua.org/manual/5.1/manual.html#2.8">Reference manual</a></p></li></ul><p>The version of the book available for free online only covers Lua 5.0, but
 Neovim uses version 5.1 of Lua. The reference manual I have linked is for Lua
-5.1.</p></article></main><nav class="blog-pager"><a href="../../../../2022/01/08/subservience-to-the-algorithm/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Subservience to the algorithm</a><a href="../../../../2022/03/19/securing-quicklisp-through-mitmproxy/" rel="next" style="float: right">Securing Quicklisp through mitmproxy <span aria-hidden="true">→</span></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/misc/">misc (16)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
+5.1.</p></article><nav class="blog-pager"><a href="/blog/2022/01/08/subservience-to-the-algorithm/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Subservience to the algorithm</a><a href="/blog/2022/03/19/securing-quicklisp-through-mitmproxy/" rel="next" style="float: right">Securing Quicklisp through mitmproxy <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (16)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

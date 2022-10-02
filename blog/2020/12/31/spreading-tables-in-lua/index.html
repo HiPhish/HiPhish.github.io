@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all" /><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all" /></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden" /><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"></li><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href="/grid-framework/news/">News</a></li><li hidden="hidden"></li><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"></li><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../..">blog</a></li><li class=""><a href="../../..">2020</a></li><li class=""><a href="../..">12</a></li><li class="active">31</li><li class="active">spreading-tables-in-lua</li></ol></nav><main class="blogpost"><article><h1><a href="." title="Permalink to Spreading tables in Lua" rel="bookmark">Spreading tables in Lua</a></h1><header><p><time class="published" datetime="2020-12-31">Published: 2020-12-31</time></p><p>Modified: <time datetime="2021-01-02">2021-01-02</time></p><p>Category: <a href="../../../../categories/open-source/">open-source</a></p><p>Tags: <a href="../../../../tags/lua/">lua </a></p></header><p>Javascript has a spreading operator which lets us splice the contents of an
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2020</a></li><li class=""><a href="../../">12</a></li><li class="active">31</li><li class="active">spreading-tables-in-lua</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Spreading tables in Lua" rel="bookmark">Spreading tables in Lua</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2020-12-31">2020-12-31</time></p><p class="blog-post-modified">modified: <time datetime="2021-01-02">2021-01-02</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/lua/">lua</a></p></header><p>Javascript has a spreading operator which lets us splice the contents of an
 object or array into another object or array. This makes it very easy to create
 an object based on another object and override or add entries. Since Lua and
 Javascript are quite similar, wouldn't it be nice to have this operator in Lua
 as well? Lua is a minimal language, so adding a new operator seems unlikely,
 but Lua is also very flexible, and we can add a spreading function instead.</p><p>Before we go on, let's first see how spreading works in Javascript. Assume we
 want to make a game which keeps track of players as objects. We want to have
-a default player template and then create new players based on that template.</p><pre><code class="language-javascript">// The template, never used as an actual player
+a default player template and then create new players based on that template.</p><pre><code>// The template, never used as an actual player
 const default_player = {
     name: '',
     score: 0,
@@ -20,8 +20,9 @@ const default_player = {
 const player1 = {
     ...default_player,
     name: 'Alice'
-};</code></pre><h2>A naive spread function</h2><p>We will use Lua's support for closures and the ability to return a function.
-Here is the implementation of the spread function:</p><pre><code class="language-lua">local function spread(template)
+};
+</code></pre><h2>A naive spread function</h2><p>We will use Lua's support for closures and the ability to return a function.
+Here is the implementation of the spread function:</p><pre><code>local function spread(template)
     local result = {}
     for key, value in pairs(template) do
         result[key] = value
@@ -33,17 +34,19 @@ Here is the implementation of the spread function:</p><pre><code class="language
         end
         return result
     end
-end</code></pre><p>Let's take it apart. The function takes one argument, the original table we
+end
+</code></pre><p>Let's take it apart. The function takes one argument, the original table we
 want to spread apart. The return value is another function which also takes in
-a table and returns a new table. The signature looks something like this:</p><pre><code>spread: Table -&gt; (Table -&gt; Table)</code></pre><p>That's a lot of tables, so what is going on here? Here are the steps performed
-by the source code:</p><ol><li>Create a new table called <code>result</code>. This will be the final result, but it is
-still empty at this point.</li><li>Copy all the values from the <code>template</code> table into it. Now the <code>result</code> is
-just a copy of the <code>template</code>.</li><li>Return a closure. The closure has a reference to the <code>result</code>, so we can
-still read and write to that table.</li><li>The closure takes in a new <code>table</code> and overwrites the entries of <code>result</code>
-with entries of <code>table</code>.</li><li>At this point the <code>result</code> is done and we can return it.</li></ol><p>You might be wondering why I chose the convoluted approach of returning a
+a table and returns a new table. The signature looks something like this:</p><pre><code>spread: Table -&gt; (Table -&gt; Table)
+</code></pre><p>That's a lot of tables, so what is going on here? Here are the steps performed
+by the source code:</p><ol><li><p>Create a new table called <code>result</code>. This will be the final result, but it is
+still empty at this point.</p></li><li><p>Copy all the values from the <code>template</code> table into it. Now the <code>result</code> is
+just a copy of the <code>template</code>.</p></li><li><p>Return a closure. The closure has a reference to the <code>result</code>, so we can
+still read and write to that table.</p></li><li><p>The closure takes in a new <code>table</code> and overwrites the entries of <code>result</code>
+with entries of <code>table</code>.</p></li><li><p>At this point the <code>result</code> is done and we can return it.</p></li></ol><p>You might be wondering why I chose the convoluted approach of returning a
 closure instead of simply taking two arguments. Indeed, that would have been
 easier to write, but more awkward to use. This can be seen when we translate
-the above Javascript example to Lua.</p><pre><code class="language-lua">local default_player = {
+the above Javascript example to Lua.</p><pre><code>local default_player = {
     name = '',
     score = 0,
     position = {
@@ -54,12 +57,13 @@ the above Javascript example to Lua.</p><pre><code class="language-lua">local de
 
 local player1 = spread(default_player) {
     name = 'Alice'
-}</code></pre><p>The first statement is almost the same as the Javascript version. In the second
+}
+</code></pre><p>The first statement is almost the same as the Javascript version. In the second
 statement I make use of the fact that in Lua if the only argument to a function
 is a table literal we can omit the parentheses around the argument. This lets
 us write the statement in a very elegant way. The expression <code>spread(...)</code>
 almost looks like an operator, but since it's a function we can also assign it
-to a variable.</p><pre><code class="language-lua">-- A function which takes a table and returns a table
+to a variable.</p><pre><code>-- A function which takes a table and returns a table
 local player = spread(default_player)
 
 local player2 = player {
@@ -69,14 +73,15 @@ local player2 = player {
 local player3 = player {
     name = 'Carol',
     score = 3
-}</code></pre><p>This looks very declarative, and that is no coincidence. Lua's direct ancestor
+}
+</code></pre><p>This looks very declarative, and that is no coincidence. Lua's direct ancestor
 Sol was a language for describing static data and Lua was created with the
 intention to be used as a cross between a data description language and a
 programming language (see the <a href="https://www.lua.org/history.html">history of Lua</a>). This declarative syntax is a
 natural match. It is something we could safely expose inside a sandbox for
 user's to declare their data.</p><h2>Further improvements</h2><p>The naive implementation works for the most part and fully encapsulated the
 core idea, but there a few details that should be fixed.</p><h3>Beware of shared closures</h3><p>As the code now stands, if we want to re-use the closure we will have one
-shared table. Consider the following example:</p><pre><code class="language-lua">local player = spread(default_player)
+shared table. Consider the following example:</p><pre><code>local player = spread(default_player)
 
 local player1 = player {
     name = 'Alice',
@@ -85,10 +90,11 @@ local player1 = player {
 
 local player2 = player {
     name = 'Bob',
-}</code></pre><p>Bob will inherit the score of Alice because they both share the same
+}
+</code></pre><p>Bob will inherit the score of Alice because they both share the same
 intermediate closure, and thus the same intermediate result. Even worse, Bob
 will retroactively overwrite Alice's name as well. We can solve this by
-spreading the template into a new table each time.</p><pre><code class="language-lua">local function spread(template)
+spreading the template into a new table each time.</p><pre><code>local function spread(template)
     return function(table)
         local result = {}
         for key, value in pairs(template) do
@@ -100,17 +106,19 @@ spreading the template into a new table each time.</p><pre><code class="language
         end
         return result
     end
-end</code></pre><p>Now the outer function is nothing more than just a wrapper.</p><h3>Deep copying of tables</h3><p>Copying scalar entries is simple, but what if an entry has a table as its
+end
+</code></pre><p>Now the outer function is nothing more than just a wrapper.</p><h3>Deep copying of tables</h3><p>Copying scalar entries is simple, but what if an entry has a table as its
 value, such as the player's position? Since tables in Lua are passed by
-reference changing one table will affect all other tables as well:</p><pre><code class="language-lua">local player1 = player { name = 'Alice' }
+reference changing one table will affect all other tables as well:</p><pre><code>local player1 = player { name = 'Alice' }
 
 -- This will mutate the shared position table
 player1.position.x = 1
 
 -- Now Bob and Carol also have their position.x set to 1
 local player2 = player { name = 'Bob' }
-local player3 = player { name = 'Carol', }</code></pre><p>In that case we need to perform a deep copy on the value. This ensures that
-each player has their own separate copy of the position. Here is the code:</p><pre><code class="language-lua">local function deep_copy(object)
+local player3 = player { name = 'Carol', }
+</code></pre><p>In that case we need to perform a deep copy on the value. This ensures that
+each player has their own separate copy of the position. Here is the code:</p><pre><code>local function deep_copy(object)
     if type(object) ~= 'table' then return object end
 
     local result = {}
@@ -133,20 +141,22 @@ local function spread(template)
         return result
     end
 end
+
 </code></pre><p>This takes care of tables in the template, but there is still the problem of
 tables in the new value. If we assign a table to a value it will overwrite the
 previous value. But what if the previous value was a table and we wanted only to
-overwrite certain entries?</p><pre><code class="language-lua">local player1 = player {
+overwrite certain entries?</p><pre><code>local player1 = player {
     name = 'Alice',
     -- Adjust the X position, but keep the Y position
     position = {
         x = 5
     }
-}</code></pre><p>Unfortunately there is no universal answer to this question. Do we really want
+}
+</code></pre><p>Unfortunately there is no universal answer to this question. Do we really want
 to merge the two tables, or do we want to overwrite the old table? I think it
 this case it is more consistent and predictable to have the value be
 overwritten (follow the principle of least astonishment). If users really want
-to merge, they can use our <code>spread</code> function.</p><pre><code class="language-lua">-- A new spreader function
+to merge, they can use our <code>spread</code> function.</p><pre><code>-- A new spreader function
 local position = spread(default_player.position)
 
 local player1 = player {
@@ -154,8 +164,9 @@ local player1 = player {
     position = position {
         x = 5
     }
-}</code></pre><h3>Metatables</h3><p>The template table can have an associated metatable which we want new instances
-to inherit.</p><pre><code class="language-lua">local function spread(template)
+}
+</code></pre><h3>Metatables</h3><p>The template table can have an associated metatable which we want new instances
+to inherit.</p><pre><code>local function spread(template)
     return function(table)
         local mt = getmetatable(template)
         local result = {}
@@ -170,15 +181,17 @@ to inherit.</p><pre><code class="language-lua">local function spread(template)
         end
         return result
     end
-end</code></pre><p>If the <code>template</code> has no metatable nothing will happen.</p><h3>Skip the intermediate closure</h3><p>Returning a closure from <code>spread</code> is elegant if we are dealing with a table
-literal, but it gets rather ugly if we have a table variable.</p><pre><code class="language-lua">local player1_settings = { name = 'Alice' }
+end
+</code></pre><p>If the <code>template</code> has no metatable nothing will happen.</p><h3>Skip the intermediate closure</h3><p>Returning a closure from <code>spread</code> is elegant if we are dealing with a table
+literal, but it gets rather ugly if we have a table variable.</p><pre><code>local player1_settings = { name = 'Alice' }
 local player1 = spread(default_player)(player1_settings)
 
 -- What I would rather want to write:
-local player1 = spread(default_player, player1_settings)</code></pre><p>It's not that ugly, but it would be more natural if we could simply pass the
+local player1 = spread(default_player, player1_settings)
+</code></pre><p>It's not that ugly, but it would be more natural if we could simply pass the
 second table as a second argument to the <code>spread</code> function instead. We can
 reverse-curry the <code>spread</code> function by using the fact that missing arguments in
-Lua get assigned <code>nil</code>.</p><pre><code class="language-lua">local function spread(template, override)
+Lua get assigned <code>nil</code>.</p><pre><code>local function spread(template, override)
     -- This is now a variable, not the return value
     local splice = function(override)
         local mt = getmetatable(template)
@@ -197,9 +210,10 @@ Lua get assigned <code>nil</code>.</p><pre><code class="language-lua">local func
 
     -- Using the '_ and _ or _' pattern as a ternary operator
     return override and splice(override) or splice
-end</code></pre><p>If the <code>override</code> argument is not <code>nil</code> we immediately splice it into the
+end
+</code></pre><p>If the <code>override</code> argument is not <code>nil</code> we immediately splice it into the
 result. Otherwise we return the same function as before. We create a closure
-each time, so here is a variant which only creates a closure when needed:</p><pre><code class="language-lua">local function spread(template, override)
+each time, so here is a variant which only creates a closure when needed:</p><pre><code>local function spread(template, override)
     if not override then
         return function(override)
             spread(template, override)
@@ -220,7 +234,8 @@ each time, so here is a variant which only creates a closure when needed:</p><pr
     end
 
     return result
-end</code></pre><p>This variant only creates a closure if the second argument is missing. This may
+end
+</code></pre><p>This variant only creates a closure if the second argument is missing. This may
 or may not be more efficient, I have not tried it. I leave it as an exercise to
 the reader.</p><h2>Conclusion</h2><p>Using Lua's powerful mechanisms (first-class functions and closures) and its
 convenient syntax for table literals we have built a simple first spreading
@@ -233,4 +248,4 @@ metamethod. It is generally better the use what the language already provides,
 but if you need truly separate table instances, then spreading is a solution.</p><h2>Update</h2><p>It has <a href="https://www.reddit.com/r/lua/comments/kodkak/spreading_tables_in_lua/ghr29by/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">been brought to my attention</a> that the original implementation would
 keep mutating the shared <code>result</code> table if the closure gets re-used multiple
 times. I have left this bug in the naive implementation, but added an
-improvement to address the issue.</p></article></main><nav class="blog-pager"><a href="../../../../2020/12/29/making-luarocks-xdg-compliant/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Making LuaRocks (partially) compliant with the XDG Base Directory specification</a><a href="../../../../2021/02/15/pipe-operator-for-lua/" rel="next" style="float: right">A pipe operator for Lua <span aria-hidden="true">→</span></a></nav><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>Subscribe:</span> <a href="/blog//rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">Archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">Categories</a></h1><ul><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/misc/">misc (16)</a></li></ul></nav><nav><h1><a href="/blog/tags/">Tags</a></h1><ul><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55" /></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License" /> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55" /> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55" /> </a></div></div></footer></body></html>
+improvement to address the issue.</p></article><nav class="blog-pager"><a href="/blog/2020/12/29/making-luarocks-xdg-compliant/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Making LuaRocks (partially) compliant with the XDG Base Directory specification</a><a href="/blog/2021/02/15/pipe-operator-for-lua/" rel="next" style="float: right">A pipe operator for Lua <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (7)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (16)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/organisation/">organisation (11)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (16)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/html/">html (8)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/web/">web (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

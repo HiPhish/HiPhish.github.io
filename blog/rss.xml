@@ -1,242 +1,241 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><language>en</language><docs>https://cyber.harvard.edu/rss/rss.html</docs><lastBuildDate>Sat, 25 Jun 2022 16:48:12 +0200</lastBuildDate><item><title>Playing Sid Meier's Civilization III in Wine in 2022</title><link>https://hiphish.github.io/blog/2022/06/25/playing-civ3-in-wine-in-2022/</link><description>A few days ago I wanted to re-install Sid Meier's Civilization III on my
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>localhost:8080/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 02 Oct 2022 19:41:47 +0200</lastbuilddate><item><title>Playing Sid Meier's Civilization III in Wine in 2022</title><link>localhost:8080/blog/2022/06/25/playing-civ3-in-wine-in-2022/</link><description>A few days ago I wanted to re-install Sid Meier's Civilization III on my
 machine and play it again. This blog post is a summary of the tricks I had to
 use to make it work it work well; I am writing it down for posterity, maybe
-someone else will find it useful. That someone might even be future me.</description><pubDate>Sat, 25 Jun 2022 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing cl-cmark</title><link>https://hiphish.github.io/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
-of Common Lisp bindings to https://github.com/commonmark/cmarkcmark, the https://commonmark.org/CommonMark reference implementation:
-https://gitlab.com/HiPhish/cl-cmarkcl-cmark (https://github.com/hiphish/cl-cmarkGitHub mirror).
+someone else will find it useful. That someone might even be future me.</description><guid ispermalink="true">localhost:8080/blog/2022/06/25/playing-civ3-in-wine-in-2022/</guid><pubdate>Sat, 25 Jun 2022 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing cl-cmark</title><link>localhost:8080/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
+of Common Lisp bindings to cmark, the CommonMark reference implementation:
+cl-cmark (GitHub mirror).
 CommonMark is a dialect of Markdown which aims to remove any ambiguity, clean
 up the language specification and provide a common dialect of Markdown for
 other projects to use. The cmark library is the reference implementation for
 parsing CommonMark. It is written in C, so creating bindings for other language
-is fairly simple.</description><pubDate>Wed, 15 Jun 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Fake web backend with mitmproxy</title><link>https://hiphish.github.io/blog/2022/06/12/fake-web-backend-with-mitmproxy/</link><description>A web application typically consists of three layers: the frontend, the
+is fairly simple.</description><guid ispermalink="true">localhost:8080/blog/2022/06/15/introducing-cl-cmark/</guid><pubdate>Wed, 15 Jun 2022 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Fake web backend with mitmproxy</title><link>localhost:8080/blog/2022/06/12/fake-web-backend-with-mitmproxy/</link><description>A web application typically consists of three layers: the frontend, the
 backend, and some sort of database system for persistence. While developing the
 frontend we often need to send messages to the backend, receive some response
 and process that response. Faking backends in automated tests is a solved
 problem, but sometime we don't want to write tests, we want to wildly
 experiment with various inputs as we are trying out the frontend by hand. We
 want to intercept messages and look into what is being transmitted. In this
-post I will demonstrate a simple fake backend using the https://mitmproxy.org/mitmproxy
-application.</description><pubDate>Sun, 12 Jun 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>The problem with contributing to Open Source</title><link>https://hiphish.github.io/blog/2022/04/07/the-problem-with-contributing-to-open-source/</link><description>I love Free (Libre) and Open Source Software (FLOSS); not only does the
+post I will demonstrate a simple fake backend using the mitmproxy
+application.</description><guid ispermalink="true">localhost:8080/blog/2022/06/12/fake-web-backend-with-mitmproxy/</guid><pubdate>Sun, 12 Jun 2022 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>The problem with contributing to Open Source</title><link>localhost:8080/blog/2022/04/07/the-problem-with-contributing-to-open-source/</link><description>I love Free (Libre) and Open Source Software (FLOSS); not only does the
 software respect your personal freedom, you can also contribute back to make it
 better. It becomes a communal cooperative effort. But just because you can
-contribute, that doesn't mean that you necessarily should.</description><pubDate>Thu, 07 Apr 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Securing Quicklisp through mitmproxy</title><link>https://hiphish.github.io/blog/2022/03/19/securing-quicklisp-through-mitmproxy/</link><description>https://www.quicklisp.org/beta/Quicklisp is a popular systems manager for Common Lisp, it allows users to
+contribute, that doesn't mean that you necessarily should.</description><guid ispermalink="true">localhost:8080/blog/2022/04/07/the-problem-with-contributing-to-open-source/</guid><pubdate>Thu, 07 Apr 2022 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Securing Quicklisp through mitmproxy</title><link>localhost:8080/blog/2022/03/19/securing-quicklisp-through-mitmproxy/</link><description>Quicklisp is a popular systems manager for Common Lisp, it allows users to
 download, install, update and uninstall Common Lisp systems (what other
 language call packages, but that term already means something else in Common
 Lisp). However, Quicklisp has one glaring security issue: it downloads
 everything through HTTP. This means every time you use Quicklisp to download a
 system you open yourself up for a man-in-the-middle (MITM) attack. We can use a
 local proxy server to route all traffic to Quicklisp through HTTPS, and in this
-blog post I will illustrate how to achieve this using https://mitmproxy.org/mitmproxy.</description><pubDate>Sat, 19 Mar 2022 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Neovim plugin settings with Lua metatables</title><link>https://hiphish.github.io/blog/2022/03/15/lua-metatables-for-neovim-plugin-settings/</link><description>A lot of new Neovim plugins come with a setup function which lets you specify
+blog post I will illustrate how to achieve this using mitmproxy.</description><guid ispermalink="true">localhost:8080/blog/2022/03/19/securing-quicklisp-through-mitmproxy/</guid><pubdate>Sat, 19 Mar 2022 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Neovim plugin settings with Lua metatables</title><link>localhost:8080/blog/2022/03/15/lua-metatables-for-neovim-plugin-settings/</link><description>A lot of new Neovim plugins come with a setup function which lets you specify
 the settings of the plugin. Users are expected to call that function with a
 table as arguments which contains the user's personal settings to override the
 defaults. This works, but Lua is all about tables, so let's look at an
-alternative.</description><pubDate>Tue, 15 Mar 2022 00:00:00 Z</pubDate><category>vim</category></item><item><title>Subservience to the algorithm</title><link>https://hiphish.github.io/blog/2022/01/08/subservience-to-the-algorithm/</link><description>Over the last couple of years I have been noticing two trends among internet
+alternative.</description><guid ispermalink="true">localhost:8080/blog/2022/03/15/lua-metatables-for-neovim-plugin-settings/</guid><pubdate>Tue, 15 Mar 2022 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Subservience to the algorithm</title><link>localhost:8080/blog/2022/01/08/subservience-to-the-algorithm/</link><description>Over the last couple of years I have been noticing two trends among internet
 videos, especially on YouTube: videos that could easily be three to four
 minutes long are stretched to over ten minutes in length, and thumbnails where
 people are making stupid faces. This comes from YouTube's recommendation
 algorithm favouring thumbnails with people's faces, and videos needing to be at
 least ten minutes long to be eligible for advertising revenue. At least those
 used to be the rules back then, they might have changed since, but the videos
-still follow the same pattern.</description><pubDate>Sat, 08 Jan 2022 00:00:00 Z</pubDate><category>misc</category></item><item><title>Managing Vim plugins without a plugin manager</title><link>https://hiphish.github.io/blog/2021/12/05/managing-vim-plugins-without-plugin-manager/</link><description>Recently I have switched my Neovim setup to using the new native Vim package
+still follow the same pattern.</description><guid ispermalink="true">localhost:8080/blog/2022/01/08/subservience-to-the-algorithm/</guid><pubdate>Sat, 08 Jan 2022 01:00:00 +0100</pubdate><category>misc</category></item><item><title>Managing Vim plugins without a plugin manager</title><link>localhost:8080/blog/2021/12/05/managing-vim-plugins-without-plugin-manager/</link><description>Recently I have switched my Neovim setup to using the new native Vim package
 system directly instead of relying on a plugin manager. I had to use Git
-submodules for /grid-framework/news/2021/09/11/git-packages-or-embedded-packages/another project anyway, so I figured I could combine them with
+submodules for another project anyway, so I figured I could combine them with
 Vim packages and see how that might work out. It is actually working pretty
 well, to the point where I don't think that I will be returning to plugin
-managers for the foreseeable future.</description><pubDate>Sun, 05 Dec 2021 00:00:00 Z</pubDate><category>vim</category></item><item><title>Getting Unity Hub 3 working on GNU/Linux</title><link>https://hiphish.github.io/blog/2021/10/11/getting-unity-hub-3-working-on-gnu-linux/</link><description>Recently I had the misfortune of a data loss, so I had to re-instally my OS
+managers for the foreseeable future.</description><guid ispermalink="true">localhost:8080/blog/2021/12/05/managing-vim-plugins-without-plugin-manager/</guid><pubdate>Sun, 05 Dec 2021 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Getting Unity Hub 3 working on GNU/Linux</title><link>localhost:8080/blog/2021/10/11/getting-unity-hub-3-working-on-gnu-linux/</link><description>Recently I had the misfortune of a data loss, so I had to re-instally my OS
 again. But even worse: I also had to re-install Unity on GNU/Linux, which has
 been an exercise in frustration and trial &amp; error. In this post I will outline
-what I had to do, in the hope that it will be of use to other people.</description><pubDate>Mon, 11 Oct 2021 00:00:00 Z</pubDate><category>misc</category></item><item><title>Generating Unity3D project files on GNU/Linux</title><link>https://hiphish.github.io/blog/2021/07/11/generating-unity3d-project-files-on-linux/</link><description>When I develop /grid-framework/Grid Framework I need Unity3D to generate project files for
-https://github.com/OmniSharp/omnisharp-roslynOmnisharp to pick up in order to provide me with tooling like
+what I had to do, in the hope that it will be of use to other people.</description><guid ispermalink="true">localhost:8080/blog/2021/10/11/getting-unity-hub-3-working-on-gnu-linux/</guid><pubdate>Mon, 11 Oct 2021 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Generating Unity3D project files on GNU/Linux</title><link>localhost:8080/blog/2021/07/11/generating-unity3d-project-files-on-linux/</link><description>When I develop Grid Framework I need Unity3D to generate project files for
+Omnisharp to pick up in order to provide me with tooling like
 auto-completion, linting and refactoring support. Normally doing so requires me
 to have VSCode installed, but there is a simple way to trick Unity into
-generating those files anyway.</description><pubDate>Sun, 11 Jul 2021 00:00:00 Z</pubDate><category>misc</category></item><item><title>Running MongoDB from Guix</title><link>https://hiphish.github.io/blog/2021/02/28/running-mongodb-from-guix/</link><description>I have been watching a tutorial on https://graphql.org/GraphQL recently (https://www.youtube.com/watch?v=ed8SzALpx1QYouTube link) where
-the lecturer uses https://www.mongodb.com/MongoDB for persistent storage. He instructs viewers to
+generating those files anyway.</description><guid ispermalink="true">localhost:8080/blog/2021/07/11/generating-unity3d-project-files-on-linux/</guid><pubdate>Sun, 11 Jul 2021 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Running MongoDB from Guix</title><link>localhost:8080/blog/2021/02/28/running-mongodb-from-guix/</link><description>I have been watching a tutorial on GraphQL recently (YouTube link) where
+the lecturer uses MongoDB for persistent storage. He instructs viewers to
 sign up for a service that hosts a database, but I wanted to run a local
-instance on my machine instead. MongoDB is not available in the https://voidlinux.org/Void repos,
-but fortunately it is available in the http://guix.gnu.org/Guix repos. However, running the Mongo
-deamon requires a little tweak first.</description><pubDate>Sun, 28 Feb 2021 00:00:00 Z</pubDate><category>misc</category></item><item><title>A pipe operator for Lua</title><link>https://hiphish.github.io/blog/2021/02/15/pipe-operator-for-lua/</link><description>I have recently been getting into https://elixir-lang.org/Elixir, and one
+instance on my machine instead. MongoDB is not available in the Void repos,
+but fortunately it is available in the Guix repos. However, running the Mongo
+deamon requires a little tweak first.</description><guid ispermalink="true">localhost:8080/blog/2021/02/28/running-mongodb-from-guix/</guid><pubdate>Sun, 28 Feb 2021 01:00:00 +0100</pubdate><category>misc</category></item><item><title>A pipe operator for Lua</title><link>localhost:8080/blog/2021/02/15/pipe-operator-for-lua/</link><description>I have recently been getting into Elixir, and one
 nice feature it has is the pipe operator. It allows us to express a pipeline
 of function through which an object will be dragged. This got me thinking: with
 how flexible Lua is, would it be possible to add something similar to Lua as
-well?</description><pubDate>Mon, 15 Feb 2021 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Spreading tables in Lua</title><link>https://hiphish.github.io/blog/2020/12/31/spreading-tables-in-lua/</link><description>Javascript has a spreading operator which lets us splice the contents of an
+well?</description><guid ispermalink="true">localhost:8080/blog/2021/02/15/pipe-operator-for-lua/</guid><pubdate>Mon, 15 Feb 2021 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Spreading tables in Lua</title><link>localhost:8080/blog/2020/12/31/spreading-tables-in-lua/</link><description>Javascript has a spreading operator which lets us splice the contents of an
 object or array into another object or array. This makes it very easy to create
 an object based on another object and override or add entries. Since Lua and
 Javascript are quite similar, wouldn't it be nice to have this operator in Lua
 as well? Lua is a minimal language, so adding a new operator seems unlikely,
-but Lua is also very flexible, and we can add a spreading function instead.</description><pubDate>Thu, 31 Dec 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Making LuaRocks (partially) compliant with the XDG Base Directory specification</title><link>https://hiphish.github.io/blog/2020/12/29/making-luarocks-xdg-compliant/</link><description>https://luarocks.org/LuaRocks is a community-driven package manager for the https://www.lua.org/Lua programming
+but Lua is also very flexible, and we can add a spreading function instead.</description><guid ispermalink="true">localhost:8080/blog/2020/12/31/spreading-tables-in-lua/</guid><pubdate>Thu, 31 Dec 2020 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Making LuaRocks (partially) compliant with the XDG Base Directory specification</title><link>localhost:8080/blog/2020/12/29/making-luarocks-xdg-compliant/</link><description>LuaRocks is a community-driven package manager for the Lua programming
 language. LuaRocks packages can be installed globally or in the user's home
-directory, but sadly LuaRocks does not follow the https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.htmlXDG Base Directory
+directory, but sadly LuaRocks does not follow the XDG Base Directory
 specification. However, with a few lines of Lua code we can fix this
-shortcoming partially at least.</description><pubDate>Tue, 29 Dec 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Making SBCL compliant with the XDG Base Directory specification</title><link>https://hiphish.github.io/blog/2020/12/28/making-sbcl-xdg-compliant/</link><description>The war on dotfiles continues, this time with http://sbcl.org/SBCL. Let's see how we can make
-it comply with the https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.htmlXDG Base Directory specification.</description><pubDate>Mon, 28 Dec 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Making Bash compliant with the XDG Base Directory specification</title><link>https://hiphish.github.io/blog/2020/12/27/making-bash-xdg-compliant/</link><description>http://www.gnu.org/software/bash/GNU Bash does not comply with the https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.htmlXDG Base Directory specification, it uses
+shortcoming partially at least.</description><guid ispermalink="true">localhost:8080/blog/2020/12/29/making-luarocks-xdg-compliant/</guid><pubdate>Tue, 29 Dec 2020 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Making SBCL compliant with the XDG Base Directory specification</title><link>localhost:8080/blog/2020/12/28/making-sbcl-xdg-compliant/</link><description>The war on dotfiles continues, this time with SBCL. Let's see how we can make
+it comply with the XDG Base Directory specification.</description><guid ispermalink="true">localhost:8080/blog/2020/12/28/making-sbcl-xdg-compliant/</guid><pubdate>Mon, 28 Dec 2020 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Making Bash compliant with the XDG Base Directory specification</title><link>localhost:8080/blog/2020/12/27/making-bash-xdg-compliant/</link><description>GNU Bash does not comply with the XDG Base Directory specification, it uses
 the classical dotfiles approach where it just dumps all its files into the home
 directory. It does not even have the courtesy of putting all its files in one
 common ~/.bash directory. Fortunately we can coerce Bash into compliance with
-a bit of effort.</description><pubDate>Sun, 27 Dec 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>A Guix daemon for runit</title><link>https://hiphish.github.io/blog/2020/11/20/guix-daemon-for-runit/</link><description>I use http://guix.gnu.org/GNU Guix as a secondary package manager on my system. Previously I have
-been running https://kubuntu.org/Kubuntu, which uses https://systemd.io/systemd as its init system, but I have
-since switched to https://voidlinux.org/Void, which uses http://smarden.org/runit/runit. Guix comes with services for
-systemd and http://upstart.ubuntu.com/Upstart included, but not for runit. Let's find out how to create
-a runit service from scratch.</description><pubDate>Fri, 20 Nov 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>My computer broke down</title><link>https://hiphish.github.io/blog/2020/11/15/my-computer-broke-down/</link><description>There are two types of people: those who make backups and those who will
+a bit of effort.</description><guid ispermalink="true">localhost:8080/blog/2020/12/27/making-bash-xdg-compliant/</guid><pubdate>Sun, 27 Dec 2020 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>A Guix daemon for runit</title><link>localhost:8080/blog/2020/11/20/guix-daemon-for-runit/</link><description>I use GNU Guix as a secondary package manager on my system. Previously I have
+been running Kubuntu, which uses systemd as its init system, but I have
+since switched to Void, which uses runit. Guix comes with services for
+systemd and Upstart included, but not for runit. Let's find out how to create
+a runit service from scratch.</description><guid ispermalink="true">localhost:8080/blog/2020/11/20/guix-daemon-for-runit/</guid><pubdate>Fri, 20 Nov 2020 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>My computer broke down</title><link>localhost:8080/blog/2020/11/15/my-computer-broke-down/</link><description>There are two types of people: those who make backups and those who will
 experience a system breakdown. Fortunately I was in the former category, but it
 was still a very tedious and stressful experience. Every problem is also an
 opportunity to grow and throw off dead weight, so I used the opportunity to
-upgrade the hardware and switch my operating system.</description><pubDate>Sun, 15 Nov 2020 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A web page template DSL for my website</title><link>https://hiphish.github.io/blog/2020/10/02/page-template-dsl-for-my-website/</link><description>In my /blog/2020/09/28/page-dsl-for-my-website/previous blog post I presented how I had come up with an embedded
+upgrade the hardware and switch my operating system.</description><guid ispermalink="true">localhost:8080/blog/2020/11/15/my-computer-broke-down/</guid><pubdate>Sun, 15 Nov 2020 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>A web page template DSL for my website</title><link>localhost:8080/blog/2020/10/02/page-template-dsl-for-my-website/</link><description>In my previous blog post I presented how I had come up with an embedded
 domain-specific language for creating web pages in my custom static site
 generator. I also mentioned the concept of “templates” in passing. Of course it
 was only logical to follow the page DSL up with a custom template DSL to smooth
-over the code duplication and pattern repetition.</description><pubDate>Fri, 02 Oct 2020 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A page DSL for my website</title><link>https://hiphish.github.io/blog/2020/09/28/page-dsl-for-my-website/</link><description>I got bitten by the Lisp bug recently again, and so I decided to clean up an
+over the code duplication and pattern repetition.</description><guid ispermalink="true">localhost:8080/blog/2020/10/02/page-template-dsl-for-my-website/</guid><pubdate>Fri, 02 Oct 2020 02:00:00 +0200</pubdate><category>organisation</category></item><item><title>A page DSL for my website</title><link>localhost:8080/blog/2020/09/28/page-dsl-for-my-website/</link><description>I got bitten by the Lisp bug recently again, and so I decided to clean up an
 ugly wart in my static site generator which I use for generating the Workshop.
 The goal was to create an embedded domain-specific language (DSL) for defining
-web pages.</description><pubDate>Mon, 28 Sep 2020 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Dotfiles were a mistake</title><link>https://hiphish.github.io/blog/2020/08/30/dotfiles-were-a-mistake/</link><description>Unix has a clever trick for hiding a file from being displayed by the ls
+web pages.</description><guid ispermalink="true">localhost:8080/blog/2020/09/28/page-dsl-for-my-website/</guid><pubdate>Mon, 28 Sep 2020 02:00:00 +0200</pubdate><category>organisation</category></item><item><title>Dotfiles were a mistake</title><link>localhost:8080/blog/2020/08/30/dotfiles-were-a-mistake/</link><description>Unix has a clever trick for hiding a file from being displayed by the ls
 command or other file browsers: just prefix the file name with a period
 character. Many applications use this fact in order to place hidden files or
 directories in the user's home directory, usually containing settings, cached
 files, persistent data and whatever else developers might come up with. This
 practice has always struck me as just plain wrong, and I am glad that my
-sentiment was confirmed by Rob Pike years ago.</description><pubDate>Sun, 30 Aug 2020 00:00:00 Z</pubDate><category>misc</category></item><item><title>The best language to learn programming</title><link>https://hiphish.github.io/blog/2020/08/02/the-best-language-to-learn-programming/</link><description>What is the best first language when learning how to program? There have been
+sentiment was confirmed by Rob Pike years ago.</description><guid ispermalink="true">localhost:8080/blog/2020/08/30/dotfiles-were-a-mistake/</guid><pubdate>Sun, 30 Aug 2020 02:00:00 +0200</pubdate><category>misc</category></item><item><title>The best language to learn programming</title><link>localhost:8080/blog/2020/08/02/the-best-language-to-learn-programming/</link><description>What is the best first language when learning how to program? There have been
 many opinions over the years, each with their own selling point: BASIC was
 created for beginners, Python is executable pseudocode, JavaScript runs
 everywhere on the web, and so on. However, I would argue that the truly best
-language has been right under our nose the whole time: the Unix shell.</description><pubDate>Sun, 02 Aug 2020 00:00:00 Z</pubDate><category>misc</category></item><item><title>Macho, the man command on steroids</title><link>https://hiphish.github.io/blog/2020/05/31/macho-man-command-on-steroids/</link><description>The Unix man command can open a manual page if you know its name, and the
+language has been right under our nose the whole time: the Unix shell.</description><guid ispermalink="true">localhost:8080/blog/2020/08/02/the-best-language-to-learn-programming/</guid><pubdate>Sun, 02 Aug 2020 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Macho, the man command on steroids</title><link>localhost:8080/blog/2020/05/31/macho-man-command-on-steroids/</link><description>The Unix man command can open a manual page if you know its name, and the
 apropos command can search through the manuals if you are looking for a
 specific word. Let's put the two to work together into a command I like to call
-macho: the man command on steroids.</description><pubDate>Sun, 31 May 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>How I manage SSH connections</title><link>https://hiphish.github.io/blog/2020/05/23/how-i-manage-ssh-connections/</link><description>I have a number of machines I need to connect to via the secure shell (SSH),
+macho: the man command on steroids.</description><guid ispermalink="true">localhost:8080/blog/2020/05/31/macho-man-command-on-steroids/</guid><pubdate>Sun, 31 May 2020 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>How I manage SSH connections</title><link>localhost:8080/blog/2020/05/23/how-i-manage-ssh-connections/</link><description>I have a number of machines I need to connect to via the secure shell (SSH),
 and typing in the IP address or host name by hand every time get tedious very
 quickly. I could use an application for that, but that's bloat. Let's instead
 see how we can leverage small universal tools to build an elegant solution of
-our own instead.</description><pubDate>Sat, 23 May 2020 00:00:00 Z</pubDate><category>open-source</category></item><item><title>De-Bootsrapping the workshop, part 2</title><link>https://hiphish.github.io/blog/2020/02/29/de-bootsrapping-the-workshop-part-2/</link><description>About a year ago I wrote about the /blog/2019/02/04/de-bootstrapping-part-1/first step in
+our own instead.</description><guid ispermalink="true">localhost:8080/blog/2020/05/23/how-i-manage-ssh-connections/</guid><pubdate>Sat, 23 May 2020 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>De-Bootsrapping the workshop, part 2</title><link>localhost:8080/blog/2020/02/29/de-bootsrapping-the-workshop-part-2/</link><description>About a year ago I wrote about the first step in
 de-Bootstrapping my website, where
-I made my site layout independent of the https://getbootstrap.com/Bootstrap
-CSS framework. I have now finally removed Bootstrap entirely from the website.</description><pubDate>Sat, 29 Feb 2020 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Project-local Vim settings the right way</title><link>https://hiphish.github.io/blog/2020/02/08/project-local-vim-settings-the-right-way/</link><description>Sometimes you want to have a set of Vim settings specific only to a certain
+I made my site layout independent of the Bootstrap
+CSS framework. I have now finally removed Bootstrap entirely from the website.</description><guid ispermalink="true">localhost:8080/blog/2020/02/29/de-bootsrapping-the-workshop-part-2/</guid><pubdate>Sat, 29 Feb 2020 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>Project-local Vim settings the right way</title><link>localhost:8080/blog/2020/02/08/project-local-vim-settings-the-right-way/</link><description>Sometimes you want to have a set of Vim settings specific only to a certain
 project. There are many tips out there how to achieve such a setup, but most of
 them expose the user to serious security risks. I am going to describe the
-fundamental problem and how to solve it. TL;DR: use the https://github.com/MarcWeber/vim-addon-local-vimrcvim-addon-local-vimrc
-plugin.</description><pubDate>Sat, 08 Feb 2020 00:00:00 Z</pubDate><category>vim</category></item><item><title>Learn Vim Script in Y minutes</title><link>https://hiphish.github.io/blog/2020/02/01/learn-vimscript-in-y-minutes/</link><description>https://learnxinyminutes.com/docs/vimscript/My article for the website https://learnxinyminutes.com/Learn X in Y minutes about Vim scripting has
+fundamental problem and how to solve it. TL;DR: use the vim-addon-local-vimrc
+plugin.</description><guid ispermalink="true">localhost:8080/blog/2020/02/08/project-local-vim-settings-the-right-way/</guid><pubdate>Sat, 08 Feb 2020 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Learn Vim Script in Y minutes</title><link>localhost:8080/blog/2020/02/01/learn-vimscript-in-y-minutes/</link><description>My article for the website Learn X in Y minutes about Vim scripting has
 been accepted; the article teaches you how to get started with Vim's built-in
 custom scripting language in a very concise manner. It has been quite an
 enjoyable topic to write about and I even ended up learning a few new tricks
-myself.</description><pubDate>Sat, 01 Feb 2020 00:00:00 Z</pubDate><category>vim</category></item><item><title>Switching themes automatically in lightline.vim</title><link>https://hiphish.github.io/blog/2019/09/21/switching-automatically-themes-in-lightline/</link><description>I have recently switched my https://neovim.io/Neovim setup to use https://github.com/itchyny/lightline.vimlightline.vim and at the
+myself.</description><guid ispermalink="true">localhost:8080/blog/2020/02/01/learn-vimscript-in-y-minutes/</guid><pubdate>Sat, 01 Feb 2020 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Switching themes automatically in lightline.vim</title><link>localhost:8080/blog/2019/09/21/switching-automatically-themes-in-lightline/</link><description>I have recently switched my Neovim setup to use lightline.vim and at the
 same time I was experimenting with colour schemes. Getting lightline to switch
 colours along with the rest of the editor is non-trivial, but I think I have
-figured it out, so I am going to share my setup.</description><pubDate>Sat, 21 Sep 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>What is a programmable programming language?</title><link>https://hiphish.github.io/blog/2019/06/22/what-is-a-programmable-programming-language/</link><description>When I was still researching this fabled obscure language called Lisp
+figured it out, so I am going to share my setup.</description><guid ispermalink="true">localhost:8080/blog/2019/09/21/switching-automatically-themes-in-lightline/</guid><pubdate>Sat, 21 Sep 2019 02:00:00 +0200</pubdate><category>vim</category></item><item><title>What is a programmable programming language?</title><link>localhost:8080/blog/2019/06/22/what-is-a-programmable-programming-language/</link><description>When I was still researching this fabled obscure language called Lisp
        one thing people kept saying about it is that “Lisp is a programmable
        programming language”, but I could never figure out what they meant by
        that. It sounds like a smug buzzword or like a gimmick from an academic
        toy language. Lisp programmers have gotten so used to metaprogramming in
        Lisp that they seem to forget that it is either an entirely alien
        concept to people, or something people have been burned by too often
-       (like every C programmer).</description><pubDate>Sat, 22 Jun 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Understanding 2D rotation matrices</title><link>https://hiphish.github.io/blog/2019/06/20/understanding-rotation-matrices/</link><description>When I first learned about rotation matrices they appeared quite
+       (like every C programmer).</description><guid ispermalink="true">localhost:8080/blog/2019/06/22/what-is-a-programmable-programming-language/</guid><pubdate>Sat, 22 Jun 2019 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Understanding 2D rotation matrices</title><link>localhost:8080/blog/2019/06/20/understanding-rotation-matrices/</link><description>When I first learned about rotation matrices they appeared quite
        “magic”; if you squinted your eyes a bit it sort of made sense, and if
        you did the math you could prove that the matrix does indeed perform the
        rotation and that all the group properties are met, but none of that
        explains where that form comes from, why it works.
        In this blog post I will explore a way to derive the formula for
        rotation matrices step by step.  If you wish to follow along you need
-       only basic knowledge of linear algebra and trigonometry.</description><pubDate>Thu, 20 Jun 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing Guile.vim</title><link>https://hiphish.github.io/blog/2019/06/17/introducing-guile-vim/</link><description>Vim has good support for Scheme, but the problem with Scheme is that every
-implementation adds its own features to the language. My https://gitlab.com/HiPhish/guile.vimguile.vim plugin
-aims to improve support for http://www.gnu.org/software/guile/GNU Guile by augmenting these settings. It can
+       only basic knowledge of linear algebra and trigonometry.</description><guid ispermalink="true">localhost:8080/blog/2019/06/20/understanding-rotation-matrices/</guid><pubdate>Thu, 20 Jun 2019 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing Guile.vim</title><link>localhost:8080/blog/2019/06/17/introducing-guile-vim/</link><description>Vim has good support for Scheme, but the problem with Scheme is that every
+implementation adds its own features to the language. My guile.vim plugin
+aims to improve support for GNU Guile by augmenting these settings. It can
 attempt to detect when a Scheme file is Guile-specific and it adds syntax
-highlighting for Guile-specific forms.</description><pubDate>Mon, 17 Jun 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Mirroring a GitLab repository</title><link>https://hiphish.github.io/blog/2019/06/11/mirroring-a-gitlab-repository/</link><description>I use https://gitlab.comGitLab to host my various https://gitlab.com/HiPhishprojects, but it is always a good idea to be
+highlighting for Guile-specific forms.</description><guid ispermalink="true">localhost:8080/blog/2019/06/17/introducing-guile-vim/</guid><pubdate>Mon, 17 Jun 2019 02:00:00 +0200</pubdate><category>vim</category></item><item><title>Mirroring a GitLab repository</title><link>localhost:8080/blog/2019/06/11/mirroring-a-gitlab-repository/</link><description>I use GitLab to host my various projects, but it is always a good idea to be
 able to have an automatic mirror set up. It adds redundancy in case something
-goes wrong with GitLab, and having a mirror on a popular site like https://github.comGitHub
+goes wrong with GitLab, and having a mirror on a popular site like GitHub
 allows people to file issues without signing up for a less popular service. I
 am writing this down for myself so I don't have to figure out how to set up a
-mirror every time anew. This was written for GitLab version 12.0.0.</description><pubDate>Tue, 11 Jun 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing Awk-ward.nvim</title><link>https://hiphish.github.io/blog/2019/06/07/introducing-awk-ward-nvim/</link><description>In order to make writing Awk scripts easier I have written a new Neovim plugin:
-https://gitlab.com/HiPhish/awk-ward.nvimAwk-ward.nvim (https://github.com/HiPhish/awk-ward.nvimGitHub mirror). This plugins allows you to edit an Awk
-script or its input, and see the output live as you are making changes.</description><pubDate>Fri, 07 Jun 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Singleton objects in Guile Scheme</title><link>https://hiphish.github.io/blog/2019/05/24/singleton-objects-in-guile-scheme/</link><description>When I wrote https://gitlab.com/HiPhish/guile-msgpackguile-messagepack I needed an object to represent the nil
+mirror every time anew. This was written for GitLab version 12.0.0.</description><guid ispermalink="true">localhost:8080/blog/2019/06/11/mirroring-a-gitlab-repository/</guid><pubdate>Tue, 11 Jun 2019 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing Awk-ward.nvim</title><link>localhost:8080/blog/2019/06/07/introducing-awk-ward-nvim/</link><description>In order to make writing Awk scripts easier I have written a new Neovim plugin:
+Awk-ward.nvim (GitHub mirror). This plugins allows you to edit an Awk
+script or its input, and see the output live as you are making changes.</description><guid ispermalink="true">localhost:8080/blog/2019/06/07/introducing-awk-ward-nvim/</guid><pubdate>Fri, 07 Jun 2019 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Singleton objects in Guile Scheme</title><link>localhost:8080/blog/2019/05/24/singleton-objects-in-guile-scheme/</link><description>When I wrote guile-messagepack I needed an object to represent the nil
 value, which embodies the concept of &quot;nothingness&quot; or &quot;no value&quot; in
-https://msgpack.org/MessagePack. None of the existing objects like #f or '() were adequate,
+MessagePack. None of the existing objects like #f or '() were adequate,
 so I decided to make a new one: nothing. It does not make sense for there to
 be multiple instance of nothing, so it had to be a singleton. In this blog
-post I will describe a way of creating such a singleton.</description><pubDate>Fri, 24 May 2019 00:00:00 Z</pubDate><category>misc</category></item><item><title>Writing NCM2 sources</title><link>https://hiphish.github.io/blog/2019/05/10/writing-ncm2-sources/</link><description>https://github.com/ncm2/ncm2NCM2 is a plugin for Neovim and Vim which provides users with a unified
+post I will describe a way of creating such a singleton.</description><guid ispermalink="true">localhost:8080/blog/2019/05/24/singleton-objects-in-guile-scheme/</guid><pubdate>Fri, 24 May 2019 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Writing NCM2 sources</title><link>localhost:8080/blog/2019/05/10/writing-ncm2-sources/</link><description>NCM2 is a plugin for Neovim and Vim which provides users with a unified
 completion menu. By default it displays nothing, users need to add sources
 for completion. These plugins instruct NCM2 on how to get completion candidates
 for a particular use-case, such as words in the current buffer, or function
 names in a programming language. The NCM2 documentation explains how to write
 the individual pieces of a source, and in this blog post I am going to dive
-into how to connect those pieces into a working source.</description><pubDate>Fri, 10 May 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Introducing ncm2-vlime</title><link>https://hiphish.github.io/blog/2019/03/24/introducing-ncm2-vlime/</link><description>I have written a https://gitlab.com/HiPhish/ncm2-vlimeCommon Lisp completion
+into how to connect those pieces into a working source.</description><guid ispermalink="true">localhost:8080/blog/2019/05/10/writing-ncm2-sources/</guid><pubdate>Fri, 10 May 2019 02:00:00 +0200</pubdate><category>vim</category></item><item><title>Introducing ncm2-vlime</title><link>localhost:8080/blog/2019/03/24/introducing-ncm2-vlime/</link><description>I have written a Common Lisp completion
 source for
-https://github.com/ncm2/ncm2/NCM2, built upon
-https://github.com/l04m33/vlime/Vlime. It provides asynchronous Common Lisp
+NCM2, built upon
+Vlime. It provides asynchronous Common Lisp
 completion and should work in both Vim and Neovim, depending on how well NCM2
-and Vlime themselves work.</description><pubDate>Sun, 24 Mar 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Implementing MsgPack.rkt, part 3</title><link>https://hiphish.github.io/blog/2019/02/15/implementing-msgpack.rkt-pt3/</link><description>In the previous article we have seen how to pack an object, this time we will
-see how to unpack it again on the receiving end.</description><pubDate>Fri, 15 Feb 2019 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Implementing MsgPack.rkt, part 2</title><link>https://hiphish.github.io/blog/2019/02/13/implementing-msgpack.rkt-pt2/</link><description>In this part of the series I want to go into how to pack data to bytes in
+and Vlime themselves work.</description><guid ispermalink="true">localhost:8080/blog/2019/03/24/introducing-ncm2-vlime/</guid><pubdate>Sun, 24 Mar 2019 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Implementing MsgPack.rkt, part 3</title><link>localhost:8080/blog/2019/02/15/implementing-msgpack.rkt-pt3/</link><description>In the previous article we have seen how to pack an object, this time we will
+see how to unpack it again on the receiving end.</description><guid ispermalink="true">localhost:8080/blog/2019/02/15/implementing-msgpack.rkt-pt3/</guid><pubdate>Fri, 15 Feb 2019 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Implementing MsgPack.rkt, part 2</title><link>localhost:8080/blog/2019/02/13/implementing-msgpack.rkt-pt2/</link><description>In this part of the series I want to go into how to pack data to bytes in
 MessagePack. We will see how to dynamically dispatch on type and how to pack a
-selection of particular types.</description><pubDate>Wed, 13 Feb 2019 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Implementing MsgPack.rkt, part 1</title><link>https://hiphish.github.io/blog/2019/02/11/implementing-msgpack.rkt-pt1/</link><description>When I originally set out to write http://docs.racket-lang.org/msgpack/index.htmlMsgPack.rkt, a https://racket-lang.org/Racket implementation of
-the https://msgpack.org/MessagePack protocol, I had a hard time wrapping my mind around where to
+selection of particular types.</description><guid ispermalink="true">localhost:8080/blog/2019/02/13/implementing-msgpack.rkt-pt2/</guid><pubdate>Wed, 13 Feb 2019 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>Implementing MsgPack.rkt, part 1</title><link>localhost:8080/blog/2019/02/11/implementing-msgpack.rkt-pt1/</link><description>When I originally set out to write MsgPack.rkt, a Racket implementation of
+the MessagePack protocol, I had a hard time wrapping my mind around where to
 begin. I had no experience in writing a serialisation library, and reading the
 source code of existing implementations only revealed the what, but not the
 why. This is why I'm starting this short mini-series of blog posts to provide
 a commentary on my implementation. I hope that it will serve other people who
-are looking for a starting point to their own implementations.</description><pubDate>Mon, 11 Feb 2019 00:00:00 Z</pubDate><category>open-source</category></item><item><title>De-Bootsrapping the workshop, part 1</title><link>https://hiphish.github.io/blog/2019/02/04/de-bootstrapping-part-1/</link><description>The first major step in phasing out the bloat that is https://getbootstrap.com/Bootstrap from my
+are looking for a starting point to their own implementations.</description><guid ispermalink="true">localhost:8080/blog/2019/02/11/implementing-msgpack.rkt-pt1/</guid><pubdate>Mon, 11 Feb 2019 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>De-Bootsrapping the workshop, part 1</title><link>localhost:8080/blog/2019/02/04/de-bootstrapping-part-1/</link><description>The first major step in phasing out the bloat that is Bootstrap from my
 website is done. None of the layout depends on any Bootstrap classes and
 markup. Instead, the layout is built from scratch using the new Flexbox and
-Grid features.</description><pubDate>Mon, 04 Feb 2019 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A pure HTML &amp; CSS menubar</title><link>https://hiphish.github.io/blog/2019/01/28/pure-html-css-menubar/</link><description>In the process of de-Bootstrapping the workshop I have to replace whole
-components provided by https://getbootstrap.com/Bootstrap with my own constructs. The menu bar is one
+Grid features.</description><guid ispermalink="true">localhost:8080/blog/2019/02/04/de-bootstrapping-part-1/</guid><pubdate>Mon, 04 Feb 2019 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>A pure HTML &amp; CSS menubar</title><link>localhost:8080/blog/2019/01/28/pure-html-css-menubar/</link><description>In the process of de-Bootstrapping the workshop I have to replace whole
+components provided by Bootstrap with my own constructs. The menu bar is one
 of the larger components I use, it's fairly complex and requires a lot of
 non-semantic markup to get working. In this blog post I will describe step by
 step how I built mine, which requires less markup and does not rely on
-Javascript. You can try the demo.htmldemo to see what we are going for (please resize
-your window to see the responsiveness).</description><pubDate>Mon, 28 Jan 2019 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Neovim channel for GNU Guix</title><link>https://hiphish.github.io/blog/2019/01/21/neovim-guix-channel/</link><description>I have set up a https://gitlab.com/HiPhish/neovim-guix-channel/channel for https://www.gnu.org/software/guix/GNU Guix to build https://neovim.io/Neovim. This channel serves
+Javascript. You can try the demo to see what we are going for (please resize
+your window to see the responsiveness).</description><guid ispermalink="true">localhost:8080/blog/2019/01/28/pure-html-css-menubar/</guid><pubdate>Mon, 28 Jan 2019 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>Neovim channel for GNU Guix</title><link>localhost:8080/blog/2019/01/21/neovim-guix-channel/</link><description>I have set up a channel for GNU Guix to build Neovim. This channel serves
 as an experimental staging ground for porting Neovim (and perhaps other related
 projects in the future) to the Guix functional package manager. When the
 packages are deemed stable and correct enough they will be submitted to Guix
-proper.</description><pubDate>Mon, 21 Jan 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>Introducing Quicklisp.nvim</title><link>https://hiphish.github.io/blog/2019/01/17/quicklisp.nvim/</link><description>One of the new features of https://neovim.io/Neovim is its ability to write plugins in any
+proper.</description><guid ispermalink="true">localhost:8080/blog/2019/01/21/neovim-guix-channel/</guid><pubdate>Mon, 21 Jan 2019 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Introducing Quicklisp.nvim</title><link>localhost:8080/blog/2019/01/17/quicklisp.nvim/</link><description>One of the new features of Neovim is its ability to write plugins in any
 programming language, provided that there is a plugin host available. I have
-wanted to play around with the https://github.com/adolenc/cl-neovim/Common Lisp host for a while, and I like for
-something useful to come out of it in the end, so I created https://gitlab.com/HiPhish/quicklisp.nvimQuicklisp.nvim, a
-plugin which allows users to manage Common Lisp libraries from inside Neovim.</description><pubDate>Thu, 17 Jan 2019 00:00:00 Z</pubDate><category>vim</category></item><item><title>A new static site generator</title><link>https://hiphish.github.io/blog/2019/01/15/a-new-ssg/</link><description>Over two years already without rewriting the workshop? I have to rectify this,
+wanted to play around with the Common Lisp host for a while, and I like for
+something useful to come out of it in the end, so I created Quicklisp.nvim, a
+plugin which allows users to manage Common Lisp libraries from inside Neovim.</description><guid ispermalink="true">localhost:8080/blog/2019/01/17/quicklisp.nvim/</guid><pubdate>Thu, 17 Jan 2019 01:00:00 +0100</pubdate><category>vim</category></item><item><title>A new static site generator</title><link>localhost:8080/blog/2019/01/15/a-new-ssg/</link><description>Over two years already without rewriting the workshop? I have to rectify this,
 with the greatest rewrite yet! I have abandoned Pelican because I constantly
 had to adjust things manually after the build process, and even then there were
 parts of the website that weren't working. This put me off from blogging, since
 after each post I would have to stitch everything back together by hand. Seeing
 that no static site generator would be able to meet my needs I decided to
-instead write my own in Scheme.</description><pubDate>Tue, 15 Jan 2019 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Goodbye macOS, hello GNU/Linux</title><link>https://hiphish.github.io/blog/2018/12/01/gnu-linux/</link><description>I knew this day would come eventually, so here we are: I moved from macOS to
+instead write my own in Scheme.</description><guid ispermalink="true">localhost:8080/blog/2019/01/15/a-new-ssg/</guid><pubdate>Tue, 15 Jan 2019 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>Goodbye macOS, hello GNU/Linux</title><link>localhost:8080/blog/2018/12/01/gnu-linux/</link><description>I knew this day would come eventually, so here we are: I moved from macOS to
 GNU/Linux as my operating system. It has been a couple of months since then and
 I have settled in pretty comfortably; some things are better some things are
-worse, and some things are just plain different.</description><pubDate>Sat, 01 Dec 2018 00:00:00 Z</pubDate><category>organisation</category></item><item><title>A purely functional fixed timestep loop</title><link>https://hiphish.github.io/blog/2017/07/16/functional-fixed-timestep-loop/</link><description>There is a great article by Glenn Fiedler titled http://gafferongames.com/game-physics/fix-your-timestep/“Fix Your Timestep!” in
+worse, and some things are just plain different.</description><guid ispermalink="true">localhost:8080/blog/2018/12/01/gnu-linux/</guid><pubdate>Sat, 01 Dec 2018 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>A purely functional fixed timestep loop</title><link>localhost:8080/blog/2017/07/16/functional-fixed-timestep-loop/</link><description>There is a great article by Glenn Fiedler titled “Fix Your Timestep!” in
 which the author explains various approaches to writing a game loop and
 concludes with a loop that provides a fixed time step for simulation. If you
 are not familiar with this topic go read the article first and come back later.
 The author has written the implementation in C or C++ using a lot of mutation
-and looping, so I wanted to give a purely functional approach a shot.</description><pubDate>Sun, 16 Jul 2017 00:00:00 Z</pubDate><category>misc</category></item><item><title>Creating a mock REPL on Unix</title><link>https://hiphish.github.io/blog/2017/05/13/mock-repl-unix/</link><description>During the development of https://gitlab.com/HiPhish/repl.nvim/REPL.nvim I had to be able to test the plugin
+and looping, so I wanted to give a purely functional approach a shot.</description><guid ispermalink="true">localhost:8080/blog/2017/07/16/functional-fixed-timestep-loop/</guid><pubdate>Sun, 16 Jul 2017 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Creating a mock REPL on Unix</title><link>localhost:8080/blog/2017/05/13/mock-repl-unix/</link><description>During the development of REPL.nvim I had to be able to test the plugin
 without relying on any particular REPL present on the development system. The
 solution was to create a mock REPL, a shell script which acts like a really
-dumb REPL. Here is the code:</description><pubDate>Sat, 13 May 2017 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing REPL.nvim</title><link>https://hiphish.github.io/blog/2017/05/06/introducing-repl-nvim/</link><description>Integrating a REPL in Vim has been a difficult issue in the past, but with
+dumb REPL. Here is the code:</description><guid ispermalink="true">localhost:8080/blog/2017/05/13/mock-repl-unix/</guid><pubdate>Sat, 13 May 2017 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing REPL.nvim</title><link>localhost:8080/blog/2017/05/06/introducing-repl-nvim/</link><description>Integrating a REPL in Vim has been a difficult issue in the past, but with
 Nvim's built-in terminal emulator it is just a few commands away. My new
-https://gitlab.com/HiPhish/repl.nvim/REPL.nvim plugin now puts the REPL only one command away, for any
+REPL.nvim plugin now puts the REPL only one command away, for any
 programming language you wish. The end goal is to have a complete generic and
 configurable REPL framework which can be customised to the needs of any
-language and which forms a solid foundation for other plugins as well.</description><pubDate>Sat, 06 May 2017 00:00:00 Z</pubDate><category>vim</category></item><item><title>Outlining of HTML pages is fundamentally broken</title><link>https://hiphish.github.io/blog/2017/04/25/html-outline-fundamentally-broken/</link><description>If you were to run the Workshop through an HTML validator you would notice a
+language and which forms a solid foundation for other plugins as well.</description><guid ispermalink="true">localhost:8080/blog/2017/05/06/introducing-repl-nvim/</guid><pubdate>Sat, 06 May 2017 02:00:00 +0200</pubdate><category>vim</category></item><item><title>Outlining of HTML pages is fundamentally broken</title><link>localhost:8080/blog/2017/04/25/html-outline-fundamentally-broken/</link><description>If you were to run the Workshop through an HTML validator you would notice a
 lot of warnings about the document outline. What is going on here? HTML 5
-defines an https://www.w3.org/TR/html5/sections.html#outlineoutline algorithm which allows browsers and assistive
+defines an outline algorithm which allows browsers and assistive
 technologies to create an outline of the page. In theory a blind person could
 ask their reader for the outline of the page and get a sort of table of
-contents which they could use to quickly jump to a specific part of the page.</description><pubDate>Tue, 25 Apr 2017 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing info.vim</title><link>https://hiphish.github.io/blog/2016/11/20/introducing-info.vim/</link><description>There is a new project up at the Workshop: https://gitlab.com/HiPhish/info.viminfo.vim, a Vim plugin which
+contents which they could use to quickly jump to a specific part of the page.</description><guid ispermalink="true">localhost:8080/blog/2017/04/25/html-outline-fundamentally-broken/</guid><pubdate>Tue, 25 Apr 2017 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing info.vim</title><link>localhost:8080/blog/2016/11/20/introducing-info.vim/</link><description>There is a new project up at the Workshop: info.vim, a Vim plugin which
 implements a complete reader and browser for info documents from within Vim.
-This is similar to the standalone info program or the Emacs info mode.</description><pubDate>Sun, 20 Nov 2016 00:00:00 Z</pubDate><category>vim</category></item><item><title>Rewriting the Workshop</title><link>https://hiphish.github.io/blog/2016/09/27/rewriting-the-workshop/</link><description>At this point I  could start to make rewriting  my website an annual tradition.
+This is similar to the standalone info program or the Emacs info mode.</description><guid ispermalink="true">localhost:8080/blog/2016/11/20/introducing-info.vim/</guid><pubdate>Sun, 20 Nov 2016 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Rewriting the Workshop</title><link>localhost:8080/blog/2016/09/27/rewriting-the-workshop/</link><description>At this point I  could start to make rewriting  my website an annual tradition.
 There have been a number of little  details that have been rubbing me the wrong
 way for almost a year now;  the biggest one was the navigation bar on sub-sites
 like the  Grid Framework  product site.  There were  also accessibility  issues
 relating  to  the lack  of a  proper  HTML  document  outline  and  the  use of
-JavaScript.</description><pubDate>Tue, 27 Sep 2016 00:00:00 Z</pubDate><category>organisation</category></item><item><title>Introducing IPS-Tools</title><link>https://hiphish.github.io/blog/2016/07/06/intro-ips-tools/</link><description>I found myself needing a program to apply binary patches in the IPS file format
+JavaScript.</description><guid ispermalink="true">localhost:8080/blog/2016/09/27/rewriting-the-workshop/</guid><pubdate>Tue, 27 Sep 2016 02:00:00 +0200</pubdate><category>organisation</category></item><item><title>Introducing IPS-Tools</title><link>localhost:8080/blog/2016/07/06/intro-ips-tools/</link><description>I found myself needing a program to apply binary patches in the IPS file format
 and I was really disappointed  that there are no proper  Unix programs for that
 purpose available.  So I set out to make my own,  but instead of just  applying
-patches it would be a complete suite of tools to handle all IPS-related tasks.</description><pubDate>Wed, 06 Jul 2016 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Highlighting `NSImageView` the right way</title><link>https://hiphish.github.io/blog/2016/06/25/highlighting-nsimageview/</link><description>Recently  I have  been working on  a small Cocoa  app and one  of the  things I
+patches it would be a complete suite of tools to handle all IPS-related tasks.</description><guid ispermalink="true">localhost:8080/blog/2016/07/06/intro-ips-tools/</guid><pubdate>Wed, 06 Jul 2016 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Highlighting `NSImageView` the right way</title><link>localhost:8080/blog/2016/06/25/highlighting-nsimageview/</link><description>Recently  I have  been working on  a small Cocoa  app and one  of the  things I
 needed to do was highlight an  NSImageView when the user is hovering above it
 while dragging a file.  You would think  that it's a very simple task,  and you
 would be right, but judging by some of the things on the internet it looks like
-an unsolved problem.</description><pubDate>Sat, 25 Jun 2016 00:00:00 Z</pubDate><category>misc</category></item><item><title>Introducing NTFS-Clone</title><link>https://hiphish.github.io/blog/2016/05/31/intro-ntfs-clone/</link><description>This is  a very  useful project  I had  written quite  a while  ago at work and
+an unsolved problem.</description><guid ispermalink="true">localhost:8080/blog/2016/06/25/highlighting-nsimageview/</guid><pubdate>Sat, 25 Jun 2016 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing NTFS-Clone</title><link>localhost:8080/blog/2016/05/31/intro-ntfs-clone/</link><description>This is  a very  useful project  I had  written quite  a while  ago at work and
 recently found collecting dust on my hard drive. It lets you create perfect 1:1
 copies of NTFS hard drives on Unix.  The problem with every software I had come
 across was  that it would copy the data,  but that wasn't enough,  so we had to
-run Windows repair on every single drive.</description><pubDate>Tue, 31 May 2016 00:00:00 Z</pubDate><category>open-source</category></item><item><title>Neovim has tab-local working directories now</title><link>https://hiphish.github.io/blog/2016/04/22/neovim-tcd/</link><description>My Neovim PR to add tab-local working directories has recently been merged.  In
-this post I will explain what it does and why you will love it.</description><pubDate>Fri, 22 Apr 2016 00:00:00 Z</pubDate><category>vim</category></item><item><title>Feeds are live now</title><link>https://hiphish.github.io/blog/2015/11/14/feeds-live-now/</link><description>RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
+run Windows repair on every single drive.</description><guid ispermalink="true">localhost:8080/blog/2016/05/31/intro-ntfs-clone/</guid><pubdate>Tue, 31 May 2016 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Neovim has tab-local working directories now</title><link>localhost:8080/blog/2016/04/22/neovim-tcd/</link><description>My Neovim PR to add tab-local working directories has recently been merged.  In
+this post I will explain what it does and why you will love it.</description><guid ispermalink="true">localhost:8080/blog/2016/04/22/neovim-tcd/</guid><pubdate>Fri, 22 Apr 2016 02:00:00 +0200</pubdate><category>vim</category></item><item><title>Feeds are live now</title><link>localhost:8080/blog/2015/11/14/feeds-live-now/</link><description>RSS- and Atom feeds are live now. You can subscribe to an entire blog using the
 links in the navigator or you can subscribe to a particular category in a blog.
 For that navigate to the category using either the navigator or by clicking the
-category button of an article.</description><pubDate>Sat, 14 Nov 2015 00:00:00 Z</pubDate><category>organisation</category></item><item><title>We are live!</title><link>https://hiphish.github.io/blog/2015/11/11/we-are-live/</link><description>The Workshop blog is finally up and running, in all its static glory. This
+category button of an article.</description><guid ispermalink="true">localhost:8080/blog/2015/11/14/feeds-live-now/</guid><pubdate>Sat, 14 Nov 2015 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>We are live!</title><link>localhost:8080/blog/2015/11/11/we-are-live/</link><description>The Workshop blog is finally up and running, in all its static glory. This
 makes the site practically complete, at least as complete as a website can ever
 be anyway. It also works great with my
-https://gitlab.com/HiPhish/Multiblog-PelicanMultiblog
-plugin.</description><pubDate>Wed, 11 Nov 2015 00:00:00 Z</pubDate><category>organisation</category></item></channel></rss>
+Multiblog
+plugin.</description><guid ispermalink="true">localhost:8080/blog/2015/11/11/we-are-live/</guid><pubdate>Wed, 11 Nov 2015 01:00:00 +0100</pubdate><category>organisation</category></item></channel></rss>

@@ -30,13 +30,22 @@
 	margin-right: auto;
 }
 
-.local-nav > ul > li.active { font-weight: bold; }
 .local-nav > ul > li > a { text-decoration: none; }
 
 .local-nav > ul > li > a:hover {
 	padding-bottom: 5px;
 	border-bottom: 2px solid #18bc9c;
 }
+
+.local-nav > ul > li[aria-current="page"] > a {
+	color: #84a49e;
+	font-weight: bold;
+}
+
+.local-nav > ul > li[aria-current="page"] > a:hover {
+	border-bottom-color: #84a49e;
+}
+
 
 
 /* ========================================================================= */
