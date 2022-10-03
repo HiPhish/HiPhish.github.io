@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2022</a></li><li class=""><a href="../../">10</a></li><li class="active">02</li><li class="active">a-new-static-site-generator</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to A new static site generator" rel="bookmark">A new static site generator</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2022-10-02">2022-10-02</time></p><p class="blog-post-category">categories: <a href="../../../../categories/organisation/">organisation</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/lisp/">lisp</a>, <a href="../../../../tags/html/">html</a>, <a href="../../../../tags/web/">web</a></p></header><p>In January 2019 I switched the static site generator for this website from
+<a href="https://getpelican.com/">Pelican</a> to a custom one written in <a href="https://www.gnu.org/software/guile/">GNU Guile</a>. Most (or all?) static site
+generators out there have an opinion on what a website should be made of. You
+might have full control over the layout and content of individual pages, but
+not so much over how the web site itself is composed. Writing my own static
+site generator freed me from these constraints. Now if I want to have sub-sites
+and multiple blogs I can do so. However, the custom generator was suffering
+from the same problem: it had one specific web site composition in mind, it
+just happened that this time it fit my needs. That is why I have created
+<a href="https://gitlab.com/HiPhish/cl-hssg">HSSG</a>: the Hackable Static Site Generator.</p><h2>HSSG</h2><p>HSSG is not really a static site generator in the general sense where you just
+create a directory structure, fill it with Markdown files, call a command from
+the shell and get a ready to publish website built. You could of course build
+such a generator on top of HSSG if you wanted to though.</p><p>HSSG is essentially a Common Lisp library and every website is its own Common
+Lisp project which depends on HSSG. It is up to the author to structure and
+orchestrate how the website is built, HSSG provides the abstractions to turn
+high-level concepts like a &quot;web page&quot;, an &quot;asset directory&quot; or a &quot;blog&quot; into
+actual files.</p><p>The two core concepts are &quot;artifacts&quot; and &quot;templates&quot;. An artifact is a CLOS
+object which implements the artifact protocol; currently there is only one
+method <code>WRITE-ARTIFACT</code> which produces an output file, but new methods can be
+added. An artifact can be a single page, a verbatim file, or a higher level
+artifact like a compound artifact.</p><pre><code>;;; Representation of a simple web site as one compound artifact
+(defvar *my-website*
+  (hssg:make-compound-artifact
+    (make-html-artifact
+      #'page-template
+      (hssg:static-page ((:title  &quot;Home&quot;)
+                         (:css &quot;main.css&quot;)
+                         (author :author &quot;Your mum&quot;))
+        '(:h1 &quot;My first website!&quot;)
+        `(:p ,(format nil &quot;Hello world! I am ~A.&quot; author))))
+    (make-verbatim-artifact
+      #p&quot;content/main.css&quot;)
+    (make-directory-artifact
+      #p&quot;content/img/&quot;)))
+
+;;; Write the website
+(hssg:write-artifact *my-website*)
+</code></pre><p>The entire website is one giant artifact which contains other artifacts.
+Writing the website artifact writes the child artifacts. We also see a small
+DSL for expressing the content of an HTML page. The HTML page needs a template
+to compile the high-level data into a low-level representation of the HTML
+page.</p><p>A template is a Common Lisp function which transforms one association list into
+another. There is a DSL which makes it easy to define templates.</p><pre><code>(deftemplate page-template (title author css)
+  (:content
+    `(:html
+       (:head
+         (:title ,title)
+         ((:link :rel &quot;stylesheet&quot; :href ,css :type &quot;text/css&quot; :media &quot;all&quot;)))
+       (:body
+         ,@content
+         (:footer
+           (p ,(format nil &quot;By ~A&quot; author)))))))
+</code></pre><p>Here we can see how the final content is represented as a tree s-expression
+with parameters spliced in. The <code>CONTENT</code> variable is special, it is always
+implicitly declared and represents the data to compile to HTML. The content
+does not have to be final like it is here, we can chain multiple templates and
+have each one progressively build up the content.</p><p>The API will change in the future, this is just an example for how.</p><h2>Common Lisp VS Guile Scheme</h2><p>Guile is an implementation of the Scheme language, while Common Lisp is a
+language standard with multiple implementations. In theory Scheme too is a
+language with multiple implementations, but in practice Scheme is so barebones
+that every implementation ends up being its own language and they just share a
+common core. So unless your program is a little toy example, it will be tied to
+one particular Scheme implementation.</p><p>Guile is a nice implementation, it has a very large library of included modules
+and is reasonably fast for making a static site generator in. This large
+library is what allowed me to write the first static site generator in a few
+days completely from scratch and it was definitely the right choice at the
+time.</p><p>However, Guile has practically no ecosystem at all. There is no package
+manager, no build system, no dependency management. People have adopted <a href="https://guix.gnu.org/">GNU
+Guix</a> as the de-facto package manager, which works well enough. As for a build
+system, usually a generic build system like the GNU autotools is used. None of
+this was an issue for a bespoke static site generator, but for a reusable
+static site generator I fear the lock-in to one implementation and its crummy
+ecosystem could become a burden.</p><p>Common Lisp in contrast has a larger ecosystem of implementations, libraries
+and a de-facto standard build system and package manager. With that said,
+unfortunately the quality of the library ecosystem can be pretty miserable at
+times. While the code itself might be fine, there is no versioning scheme, poor
+documentation and issues remain unanswered for years. It is like wandering
+through a wasteland and occasionally stumbling upon an abandoned but functional
+shelter built years ago by another lonely wanderer. This is such a stark
+contrast to other language ecosystems, which are either completely dead or
+completely lively.</p><p>As for the languages themselves, Scheme is lean and beautiful, while Common
+Lisp is a Frankenstein monstrosity stitched together from the corpses of now
+dead Lisp dialects. I still don't get the benefit of splitting functions and
+values into two namespaces. On the other hand, all the things that Scheme is
+missing and which need to be added by the implementations in a non-portable
+way, Common Lisp has them either in the standard or as a portable library.</p><h2>What makes HSSG so hackable?</h2><p>As I mentioned previously, HSSG is more of a library than an application. What
+a static site generator does at its core is take in some structure, such as a
+directory path, and output a directory with all the generated files. HSSG
+exposes the building blocks for a web designer to specify the entire
+transformation process in code. Think of it a bit how in modern OpenGL
+programming you have to write the shaders which will process the geometric data
+to actually generate the pixels on screen.</p><h3>The data pipeline</h3><p>The data pipline consists of three parts: the source, a template, and an
+artifact. The source generates the data in its raw high-level form. For
+example, we could write a single static page as a Markdown file and the source
+would read this file and return a tree-like s-expression.</p><p>Next, the data is passed through a template. A template transforms the data
+from one form to another. Take for example a blog post: at a high level it
+consists of the content and metadata such as the author, category or date of
+publication. This is a very high-level view, we cannot convert it to HTML as it
+is. Instead a template will generate another s-expression which represents the
+structure of the HTML document. Here is where it gets interesting: templates
+can be chained. You blog post is part of a blog, so we need to wrap it inside
+the navigation elements common to all blog pages. The blog itself might be part
+of a sub-site, so we need to take the output of the blog page template, pass it
+to the sub-site template which wraps the content inside the header and footer
+of the sub-site, then we pass that output to another template which wraps that
+content into the global header header and footer. Chaining multiple templates
+produces a new compound template, so as far as the pipeline in concerned there
+is always only one template.</p><p>Finally we have artifacts. An artifact writes the output file depending on the
+type of artifact. We can have compound artifacts which wrap other artifacts.
+The artifact thus captures the structure of the final website as it will be
+written.</p><h3>Extensibility</h3><p>Since HSSG is a library we can write other libraries on top of it. A blog is a
+very complex component of a website with its own dependencies that not all
+websites need. There is no reason to include such a feature in the core of
+HSSG, so blogging is a separate system the website needs to depend on.</p><p>The flexible data pipeline makes it very easy to add new components to HSSG.
+These can be large and reusable like a blog, or small and one-off additions
+specific to one website. In my case I have a number of <a href="https://hiphish.github.io/grid-framework/examples/">examples</a> for <a href="https://hiphish.github.io/grid-framework/">Grid
+Framework</a> where each example page is represented by a custom artifact.</p><pre><code>(defclass grid-framework-example-artifact ()
+  ((gf-example-name :initarg :name
+                    :documentation &quot;Name of the directory where the example is stored.&quot;)
+   (gf-example-path :initarg :path
+                    :documentation &quot;Path to the example, relative to content directory&quot;)
+   (gf-example-initial-data :initarg :initial))
+  (:documentation &quot;A playable example of Grid Framework&quot;))
+
+(defmethod hssg:write-artifact ((artifact grid-framework-example-artifact))
+  (with-slots ((name gf-example-name)
+               (path gf-example-path)
+               (initial gf-example-initial-data)) artifact
+      (let ((index.html (read-html-lisp
+                          (format nil &quot;content/~A/~A/index.html.lisp&quot; path name)
+                          (format nil &quot;output/~A/~A/index.html&quot;       path name)
+                          :template (lambda (data)
+                                      (base-page (page (grid-framework-example data))))
+                          :initial initial))
+           (assets (mapcar (lambda (fname)
+                             (make-verbatim-artifact
+                               (format nil &quot;./~A/~A/~A&quot; path name fname)
+                                           #p&quot;content&quot;
+                                           #p&quot;output&quot;))
+                           '(&quot;example.asm.jsgz&quot; &quot;example.datagz&quot; &quot;example.jsgz&quot;
+                             &quot;example.memgz&quot; &quot;UnityLoader.js&quot;))))
+        (hssg:write-artifact
+          (apply #'hssg:make-compound-artifact (cons index.html assets))))))
+</code></pre><p>This is the entire implementation. Note that it uses the primitive artifacts
+provided by HSSG as building blocks. The implementation of <code>WRITE-ARTIFACT</code>
+delegates to the implementation of <code>COMPOUND-ARTIFACT</code>.</p><h3>Data pipeline not just for HTML</h3><p>Currently the data pipeline only supports generating HTML, but it is easy to
+extend it to generate other files like CSS. This means we could define a colour
+palette as a global Lisp variable and generate CSS files which always have the
+correct colours. We could hook up something like <a href="https://parenscript.common-lisp.dev/">Parenscript</a> and generate
+Javascript from Lisp.</p><h3>ASDF as the build system</h3><p>Since HSSG is a library an every website is a Lisp project we can make use of
+ASDF as our build system. This gives us the entire hackability of ASDF for
+free. Generate a web site for development, for publishing, start a local web
+server, add your entire publishing workflow. If you already know ASDF well then
+there is nothing more to learn, and if you do not then you can learn a skill
+that will be applicable outside HSSG as well.</p><h2>Future plans</h2><p>For now the public API of HSSG is anything but stable. I will have to use it
+more to identify weak points in the design and find out what works and what
+does not, find out what is missing and what is superfluous. I hope that one day
+HSSG can become a staple project in the Common Lisp ecosystem, but that
+requires a design that is useful for many people and easy to extend.</p><p>The first step will be to get <a href="https://gitlab.com/HiPhish/cl-cmark">cl-cmark</a> to version 1.0 and submit it to
+Quicklisp. Then the API of HSSG itself needs to settle; I have already
+identified a number of things to change even while writing this post.</p></article><nav class="blog-pager"><a href="/blog/2022/06/25/playing-civ3-in-wine-in-2022/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Playing Sid Meier's Civilization III in Wine in 2022</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (8)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (16)</a></li><li><a href="/blog/categories/open-source/">open-source (17)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (17)</a></li><li><a href="/blog/tags/vim/">vim (13)</a></li><li><a href="/blog/tags/html/">html (9)</a></li><li><a href="/blog/tags/rant/">rant (8)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/web/">web (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/markdown/">markdown (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

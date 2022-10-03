@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>localhost:8080/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 02 Oct 2022 19:41:47 +0200</lastbuilddate><item><title>Playing Sid Meier's Civilization III in Wine in 2022</title><link>localhost:8080/blog/2022/06/25/playing-civ3-in-wine-in-2022/</link><description>A few days ago I wanted to re-install Sid Meier's Civilization III on my
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>localhost:8080/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Mon, 03 Oct 2022 17:49:13 +0200</lastbuilddate><item><title>A new static site generator</title><link>localhost:8080/blog/2022/10/02/a-new-static-site-generator/</link><description>In January 2019 I switched the static site generator for this website from
+Pelican to a custom one written in GNU Guile. Most (or all?) static site
+generators out there have an opinion on what a website should be made of. You
+might have full control over the layout and content of individual pages, but
+not so much over how the web site itself is composed. Writing my own static
+site generator freed me from these constraints. Now if I want to have sub-sites
+and multiple blogs I can do so. However, the custom generator was suffering
+from the same problem: it had one specific web site composition in mind, it
+just happened that this time it fit my needs. That is why I have created
+HSSG: the Hackable Static Site Generator.</description><guid ispermalink="true">localhost:8080/blog/2022/10/02/a-new-static-site-generator/</guid><pubdate>Sun, 02 Oct 2022 02:00:00 +0200</pubdate><category>organisation</category></item><item><title>Playing Sid Meier's Civilization III in Wine in 2022</title><link>localhost:8080/blog/2022/06/25/playing-civ3-in-wine-in-2022/</link><description>A few days ago I wanted to re-install Sid Meier's Civilization III on my
 machine and play it again. This blog post is a summary of the tricks I had to
 use to make it work it work well; I am writing it down for posterity, maybe
 someone else will find it useful. That someone might even be future me.</description><guid ispermalink="true">localhost:8080/blog/2022/06/25/playing-civ3-in-wine-in-2022/</guid><pubdate>Sat, 25 Jun 2022 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing cl-cmark</title><link>localhost:8080/blog/2022/06/15/introducing-cl-cmark/</link><description>For the past few weeks I have been working on a little side project, a library
