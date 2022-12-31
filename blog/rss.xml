@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sat, 31 Dec 2022 01:00:32 +0100</lastbuilddate><item><title>A file system abstraction for HSSG</title><link>https://hiphish.github.io/blog/2022/12/30/a-filesystem-abstraction-for-hssg/</link><description>A while ago I announced my new pet project HSSG, the hackable static site
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sat, 31 Dec 2022 19:48:40 +0100</lastbuilddate><item><title>Using GitHub without workflow lock-in</title><link>https://hiphish.github.io/blog/2022/12/31/using-github-without-workflow-lockin/</link><description>Git is a decentralized version control system, meaning that there is no one
+superior repository.  Every single copy of a Git repository is just as complete
+as any other.  Of course we can pick one particular repository and declare it
+to be the one source of truth, the “upstream” repository.  Usually this
+upstream repository is then hosted on some server, and if we are interested in
+openness and collaboration this server is part of a larger web service, called
+a “forge”.  Out of these forges GitHub is perhaps the most popular one.
+Unfortunately this means if we are interested in contributions we have to make
+the GitHub repo our upstream and use its web services and web UI for our
+workflow.  At least that is the common wisdom, but it does not have to be that
+way.</description><guid ispermalink="true">https://hiphish.github.io/blog/2022/12/31/using-github-without-workflow-lockin/</guid><pubdate>Sat, 31 Dec 2022 01:00:00 +0100</pubdate><category>organisation</category></item><item><title>A file system abstraction for HSSG</title><link>https://hiphish.github.io/blog/2022/12/30/a-filesystem-abstraction-for-hssg/</link><description>A while ago I announced my new pet project HSSG, the hackable static site
 generator.  The final step of generating a web site is writing the actual files
 to the file system of the operating system.  So far this has been a messy
 affair where information about file paths had to be dragged through the entire
