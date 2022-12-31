@@ -5,7 +5,7 @@ version 2.x or 1.x is free for existing customers. Here are the highlights of
 this new major version:</p><ul><li><p>Rendering backend API allows plugging in different backends for rendering
 grids</p></li><li><p>The old camera-based rendering is now a rendering backend</p></li><li><p>New mesh-based rendering backends</p></li><li><p>Separate assembly definition for Grid Framework</p></li><li><p>No more project bloat thanks to modular design: Grid Framework is now split
 into a core and additional sidegrade packages which can be installed as needed</p></li><li><p>Completely overhauled <a href="https://hutonggames.com/">Playmaker</a> bindings</p></li><li><p><a href="https://starscenesoftware.com/vectrosity.html">Vectrosity</a> support and <a href="https://hutonggames.com/">Playmaker</a> bindings are available as separate
-sidegrades</p></li></ul><p>An upgrade guide is provided in the user manual.</p><h2>The new rendering system</h2><p>Previously there has been only one way to render a grid: by using the <code>GL</code>
+sidegrades</p></li></ul><p>An upgrade guide is provided in the user manual.</p><h2 id="The new rendering system">The new rendering system</h2><p>Previously there has been only one way to render a grid: by using the <code>GL</code>
 class and sending primitive rendering commands to a camera object. This worked
 reasonably well, but it had limitations and it would always draw lines on top
 of sprites.</p><p>Version 3.0 introduces an extra layer of abstraction between a grid renderer
@@ -34,7 +34,7 @@ system acts as a central hub between renderers and backends.</p><pre><code>+----
 +----------+                         
 </code></pre><p>A number of reasonable default backends (<code>GL</code>, mesh and Vectrosity) are already
 provided and users can define their own backends using the rendering system
-API.  For details please consult the manual.</p><h2>Modular design</h2><p>In the past Grid Framework had been shipped as a monolithic package, which
+API.  For details please consult the manual.</p><h2 id="Modular design">Modular design</h2><p>In the past Grid Framework had been shipped as a monolithic package, which
 means that all its features were included. There was no other way of providing
 a complete package, but the method had a number of drawbacks:</p><ul><li><p>Assets from examples would show up among the project assets</p></li><li><p>Activating support for 3rd party packages was cumbersome</p></li><li><p>It included a lot of code one might never need in a project</p></li><li><p>Providing examples for 3rd party packages was either cumbersome (Vectrosity)
 or impossible (Playmaker)</p></li></ul><p>Grid Framework is now split up to be modular. This means there is one core
@@ -50,13 +50,13 @@ a rendering backend using the popular <a href="https://starscenesoftware.com/vec
 <a href="https://opensource.org/licenses/MIT">MIT license</a>. You can add them easily to your project using Unity's package
 manager, which will track the packages.</p><p>Furthermore, this modular design allows other users to build and share their
 own 3rd party sidegrades. All sidegrades, whether official or not, have access
-to the same core API.</p><h2>Overhauled Playmaker bindings</h2><p>The new bindings consolidate related functionality into common actions. For
+to the same core API.</p><h2 id="Overhauled Playmaker bindings">Overhauled Playmaker bindings</h2><p>The new bindings consolidate related functionality into common actions. For
 example, instead of having a separate getter for each property for each grid,
 there is now one general getter per grid. Similarly, coordinate conversion is
 now only one action per grid with a dropdown to select the coordinate system
 instead of one separate action for each combination of coordinate systems.</p><p>Now that Playmaker bindings are provided as a Unity Git package I was also able
-to include playable examples.</p><h2>Separate assembly definition</h2><p>Grid Framework now resides in its own C# assembly instead of the main assembly.
-This makes it possible to use it as a dependency in packages.</p><h2>Going forward</h2><p>With the new rendering API I have been able to solve the last rough spot I
+to include playable examples.</p><h2 id="Separate assembly definition">Separate assembly definition</h2><p>Grid Framework now resides in its own C# assembly instead of the main assembly.
+This makes it possible to use it as a dependency in packages.</p><h2 id="Going forward">Going forward</h2><p>With the new rendering API I have been able to solve the last rough spot I
 could find. I expect that development of the core will slow down now, allowing
 the sidegrades to grow and experiment freely. Since the sidegrades are not tied
 to the core they can release independently and they can be forked into

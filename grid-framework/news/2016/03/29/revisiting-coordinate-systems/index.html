@@ -3,7 +3,7 @@
 grids.  3D grids use all three dimensions,  these are rectangular and spherical
 grids,  while layered grids are 2D  grids stacked  on top of  each other  for a
 third dimension.  In this  post I  will explain  how the  coordinate systems of
-layered girds will change in version 2.0.</p><h2>How it is in version 1.x</h2><p>Layered grids are  2D grids that are extended by a third dimension.  This extra
+layered girds will change in version 2.0.</p><h2 id="How it is in version 1.x">How it is in version 1.x</h2><p>Layered grids are  2D grids that are extended by a third dimension.  This extra
 dimension is the <em>layer</em>. The question is how such a grid should be embedded in
 the surrounding 3D space.  We could map the X- and Y-coordinates of the grid to
 the X- and Y-coordinates of the 3D space and map the layer to the Z-coordinate.
@@ -23,7 +23,7 @@ Y-axis  as the  third axis our coordinate system becomes right-handed.  We have
 the choice  between either  changing the  handedness or  having a  Y-axis  that
 points downwards. In version 1.x I had chosen the former.</p><p>If you  can't see  the change  in handedness try  it out,  take your left hand,
 point the thumb right,  the middle finger up  and your index  finger will point
-towards you instead of away from you.</p><h2>How it will be in version 2.0</h2><p>Changing handedness  really causes more problems than it supposedly solves,  so
+towards you instead of away from you.</p><h2 id="How it will be in version 2.0">How it will be in version 2.0</h2><p>Changing handedness  really causes more problems than it supposedly solves,  so
 this will be completely scrapped, every coordinate system is left-handed.  In a
 top-down game  the X-axis of the grid will map to the Z-axis of the world,  the
 Y-axis to the X-axis and the Z-axis to the Y-axis.</p><pre><code>Z

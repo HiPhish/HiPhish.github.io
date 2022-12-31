@@ -5,7 +5,7 @@ of the larger components I use, it's fairly complex and requires a lot of
 non-semantic markup to get working. In this blog post I will describe step by
 step how I built mine, which requires less markup and does not rely on
 Javascript. You can try the <a href="demo.html">demo</a> to see what we are going for (please resize
-your window to see the responsiveness).</p><h2>The plan</h2><p>We want a link to the home page, followed by a list of menu items.  Each menu
+your window to see the responsiveness).</p><h2 id="The plan">The plan</h2><p>We want a link to the home page, followed by a list of menu items.  Each menu
 item can either be a simple link, or it can contain a list of sub-menu items.
 We also want the ability to split the menu items, that is some items will be
 pushed to the end (right when horizontal, down when vertical).</p><p>On large screens we want to be able to see the entire navigation bar with both
@@ -14,7 +14,7 @@ home page and a hamburger menu button. Clicking the button will expand the menu
 bar to show the first level of menu items, clicking it again will collapse it.</p><p>Everything needs to work without Javascript, so we will be using the <a href="https://css-tricks.com/the-checkbox-hack/">checkbox
 hack</a>. This is a hack, so we will have to do some extra work to keep the hack
 <a href="https://www.w3.org/TR/html51/editing.html#the-hidden-attribute">hidden</a> from the user's view. This does not only apply to graphical web
-browsers, but other user agents as well.</p><h2>The markup</h2><p>The HTML code is fairly straight-forward. We start with a <code>nav</code> containing the
+browsers, but other user agents as well.</p><h2 id="The markup">The markup</h2><p>The HTML code is fairly straight-forward. We start with a <code>nav</code> containing the
 checkbox for our hack.</p><pre><code>&lt;nav&gt;
   &lt;input type=&quot;checkbox&quot; id=&quot;main-navbar-hambuger&quot; hidden=&quot;hidden&quot;/&gt;
 &lt;/nav&gt;
@@ -67,7 +67,7 @@ followed by a list of further menu items. One top-level menu item can carry the
 <code>push-end</code> class, this item and its later siblings will be pushed towards the
 end of the menu bar.</p><p>We also support separators in nested lists. A separator is an empty <code>li</code>, and
 since it has no semantic meaning it is also <code>hidden</code>. As with the label, we
-will use CSS to display it as a thin horizontal bar.</p><h2>The CSS styling</h2><p>We have hidden all the hacky items, so on user agents which do not support CSS
+will use CSS to display it as a thin horizontal bar.</p><h2 id="The CSS styling">The CSS styling</h2><p>We have hidden all the hacky items, so on user agents which do not support CSS
 we will get a nicely nested list of navigation menu items. For graphical web
 browsers however we will need to apply some CSS polish to turn the lists into a
 navigation bar.</p><pre><code>body &gt; nav {
@@ -117,7 +117,7 @@ body &gt; nav &gt; ul &gt; li &gt; ul {
 }
 </code></pre><p>Finally, we style the lists. Setting the <code>flex-grow</code> allows the list to grow to
 the full width inside its parent container. The second level will be hidden
-from sight for now.</p><h3>Large screens</h3><p>On large screens we display the second level when hovering on top of the parent
+from sight for now.</p><h3 id="Large screens">Large screens</h3><p>On large screens we display the second level when hovering on top of the parent
 list, we implement the <code>.push-end</code> class and override the display of the
 separators.</p><pre><code>@media(min-width: 769px) {
 	body &gt; nav &gt; ul &gt; li.push-end {
@@ -135,7 +135,7 @@ separators.</p><pre><code>@media(min-width: 769px) {
 		background-color: red;
 	}
 }
-</code></pre><h3>Small screens</h3><p>Now it really pays off that we are using flexbox: re-arranging items can be
+</code></pre><h3 id="Small screens">Small screens</h3><p>Now it really pays off that we are using flexbox: re-arranging items can be
 done by just overriding the flexbox properties. We also override the <code>display</code>
 of hidden items to make the label visible. The first level list is now hidden,
 <em>unless</em> its previous <code>input</code> sibling is checked. How do we check an invisible
@@ -164,7 +164,7 @@ button.  This is the checkbox hack.</p><pre><code>@media(max-width: 768px) {  /*
 		display: flex;
 	}
 }
-</code></pre><h2>Conclusion</h2><p>The checkbox hack is ugly, but it is still the least harmful way of
+</code></pre><h2 id="Conclusion">Conclusion</h2><p>The checkbox hack is ugly, but it is still the least harmful way of
 implementing a responsive menu bar which works on all devices and user agents.
 Care must be taken to hide the hack from users and maintain clarity. This menu
 bar is still not the ultimate possible menu bar, there are a couple of things I
@@ -178,4 +178,4 @@ hack and radio buttons, but it would require much more hackery. Another day
 perhaps. The third point would probably be possible by using the CSS <code>:has()</code>
 selector, but it is not yet implemented in any web browser. Oh well, I cannot
 let perfect be the enemy of good, and this is still better than what I had
-before.</p></article><nav class="blog-pager"><a href="/blog/2019/01/21/neovim-guix-channel/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Neovim channel for GNU Guix</a><a href="/blog/2019/02/04/de-bootstrapping-part-1/" rel="next" style="float: right">De-Bootsrapping the workshop, part 1 <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (11)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (19)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (19)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (9)</a></li><li><a href="/blog/tags/rant/">rant (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/web/">web (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>
+before.</p></article><nav class="blog-pager"><a href="/blog/2019/01/21/neovim-guix-channel/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Neovim channel for GNU Guix</a><a href="/blog/2019/02/04/de-bootstrapping-part-1/" rel="next" style="float: right">De-Bootsrapping the workshop, part 1 <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (12)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (20)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/rant/">rant (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

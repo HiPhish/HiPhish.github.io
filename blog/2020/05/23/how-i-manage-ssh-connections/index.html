@@ -16,7 +16,7 @@ make a selection. Here is what the end result will look like:</p><pre><code>SSH 
                                        │                                      │
                                        └──────────────────────────────────────┘
 </code></pre><p>The goal is to create this interface and functionality using generic tools and
-whatever we already have installed on the system.</p><h2>The big pattern</h2><p>The first thing we have to do in order to tackle this large and new problem is
+whatever we already have installed on the system.</p><h2 id="The big pattern">The big pattern</h2><p>The first thing we have to do in order to tackle this large and new problem is
 to break it down into small and familiar problems by finding the underlying
 pattern. First we need a <em>source</em> of information and a <em>sink</em> into which the
 information eventually flows. Between the source and the sink lies a <em>pipeline</em>
@@ -24,7 +24,7 @@ through which the data flows and gets changed along the way. In functional
 programming this is the filter-map-reduce pattern: we take a (potentially
 infinite) sequence of data, filter it down to just the information we need,
 transform it into another shape, and finally we collapse the sequence into one
-ultimate datum.</p><h3>The source</h3><p>For our source we ideally want something we already have and which other
+ultimate datum.</p><h3 id="The source">The source</h3><p>For our source we ideally want something we already have and which other
 programs can use as well. Fortunately SSH offers us just that: a per-user
 configuration file which you most likely are already using. The file is located
 in <code>~/.ssh/config</code> and the syntax is explained in <code>ssh_config(5)</code>. Here is an
@@ -37,12 +37,12 @@ example of what an entry looks like:</p><pre><code>Host Office
 following lines until the next <code>Host</code> or <code>Match</code> are settings for the
 aforementioned host. We have thus the following rules:</p><ul><li><p>Empty lines and lines starting with <code>#</code> are ignored</p></li><li><p>Each line is a record, fields of a record are separated by whitespace,
 leading whitespace is ignored</p></li><li><p>The first field is the setting (key), the second field is the value</p></li><li><p>A <code>Host</code> or <code>Match</code> starts the settings for a new host</p></li></ul><p>For now only the value of the <code>Host</code> is of interest to us, but we will come
-back to the other rules later.</p><h3>The sink</h3><p>The sink is simply the <code>ssh</code> command. However, we cannot feed the name of the
+back to the other rules later.</p><h3 id="The sink">The sink</h3><p>The sink is simply the <code>ssh</code> command. However, we cannot feed the name of the
 host into the standard input of <code>ssh</code>, we need to supply it as a command-line
 parameter. The <code>xargs</code> command allows us to splice together the command line we
 want:</p><pre><code># Same as calling `ssh Office`
 echo 'Office' | xargs ssh
-</code></pre><h2>The pipeline</h2><p>Given our source and sink we need to perform the following steps:</p><ul><li><p>Filter out the host records from the config file</p></li><li><p>Map each host record to just the name of the host</p></li><li><p>Reduce the list of host names down to the one the user has selected</p></li></ul><p>We can use <code>grep</code> to filter for the matching lines, <code>cut</code> to select the second
+</code></pre><h2 id="The pipeline">The pipeline</h2><p>Given our source and sink we need to perform the following steps:</p><ul><li><p>Filter out the host records from the config file</p></li><li><p>Map each host record to just the name of the host</p></li><li><p>Reduce the list of host names down to the one the user has selected</p></li></ul><p>We can use <code>grep</code> to filter for the matching lines, <code>cut</code> to select the second
 field, and finally <code>fzf</code> to present the user with the menu. Go ahead and try
 out the commands in your shell manually to see how they work. The full command
 line looks like this:</p><pre><code>grep '^[[:space:]]*Host[[:space:]]' ~/.ssh/config | cut -d ' ' -f 2 | fzf | xargs ssh
@@ -70,11 +70,11 @@ host=$(grep '^[[:space:]]*Host[[:space:]]' ~/.ssh/config | cut -d ' ' -f 2 | fzf
   VM/dev-master
 </code></pre><p>We can do better though: FZF will only display the host names, but if you have
 many connections you might want to see the details of the currently selected
-host in a little preview window.</p><h2>FZF preview</h2><p>FZF has a <code>--preview</code> option which allows us to specify a command line whose
+host in a little preview window.</p><h2 id="FZF preview">FZF preview</h2><p>FZF has a <code>--preview</code> option which allows us to specify a command line whose
 output will be displayed besides the selections. The command line can use the
 value of the current selection to construct a custom command for each
 selection. This means that given a host we have to pick out all its settings
-from the SSH config file.</p><h3>A basic file processor</h3><p>Recall the syntax of the config file from above. We have to loop over every
+from the SSH config file.</p><h3 id="A basic file processor">A basic file processor</h3><p>Recall the syntax of the config file from above. We have to loop over every
 line in the file, match it against the rules, and take appropriate action. We
 could write this file processor in any language, but in my opinion the best
 choice is Awk with its declarative syntax.</p><p>Awk works by reading records from a file (by default a record is a line of
@@ -124,7 +124,7 @@ if we wanted to.</p><pre><code>SSH &gt;                                  ┌─�
                                        │                                      │
                                        │                                      │
                                        └──────────────────────────────────────┘
-</code></pre><h3>A better file processor</h3><p>The preview looks hideous, frankly speaking. The lines are all jagged and
+</code></pre><h3 id="A better file processor">A better file processor</h3><p>The preview looks hideous, frankly speaking. The lines are all jagged and
 everything is too crowded. How can we get the values to align neatly? We have
 to pass through the entire file first, collect the entries, find out which key
 is the widest, and use that to format the output in the end.</p><p>For this to work we need a new pattern <code>END</code> which will be run when we are
@@ -162,7 +162,7 @@ string concatenation.</p><p>Putting all together we finally get our desired resu
                                        │                                      │
                                        └──────────────────────────────────────┘
 </code></pre><p>Pure terminal beauty! We could now use ANSI control characters in our output to
-also add colour, but I am not willing to go that far down the rabbit hole.</p><h2>Conclusion</h2><p>Take the above shell script, put it in your <code>$PATH</code>, bind it to a key, write a
+also add colour, but I am not willing to go that far down the rabbit hole.</p><h2 id="Conclusion">Conclusion</h2><p>Take the above shell script, put it in your <code>$PATH</code>, bind it to a key, write a
 <code>.desktop</code> file for it, do whatever you want. We started out with a simple
 shell script which did the minimum of what we need in just two lines of code,
 then added little bits over time to make it more pleasant to use. Aside from
@@ -177,17 +177,17 @@ settings or FZF key bindings) instead of having to configure each integrated
 tool separately</p></li></ul><p>The key to making this approach viable is that it has to be simple and cheap to
 put together. Unix pipes, plain text configuration and the declarative syntax
 of Awk allow us to focus on what is important instead of being weighted down by
-technical details.</p><h3>But I don't want to use the terminal</h3><p>If you prefer a GUI you can replace FZF with a graphical application like
+technical details.</p><h3 id="But I don't want to use the terminal">But I don't want to use the terminal</h3><p>If you prefer a GUI you can replace FZF with a graphical application like
 <a href="https://tools.suckless.org/dmenu/">dmenu</a> or <a href="https://github.com/davatorium/rofi/">rofi</a>. This is the beauty of the pipeline: you can swap out any
 part of it without changing the rest of the logic. You could even write your
 script to use one and fall back on the other if it ist not available.</p><p>With that said, you will end up in the terminal eventually anyway, so you might
-as well start out in the terminal.</p><h3>Whitespace in values</h3><p>I made a little lie by omission: it is possible for values to contain
+as well start out in the terminal.</p><h3 id="Whitespace in values">Whitespace in values</h3><p>I made a little lie by omission: it is possible for values to contain
 whitespace characters if they are quoted. The above Awk script does not account
 for this fact. The easy solution is to simply not use whitespace, which is what
 I have decided to do.</p><p>Handling whitespace (or any general field separator) in Awk is not too hard,
 but it is not trivial either. The <a href="https://www.gnu.org/software/gawk/">GNU Awk</a> implementation supports the <code>FPAT</code>
 variable for this purpose. We could also use a more powerful programming
-language such as Perl or one with an SSH config parsing library.</p><h3>The complete source code</h3><p>The shell script <code>ssh-select.sh</code>:</p><pre><code>#!/usr/bin/env sh
+language such as Perl or one with an SSH config parsing library.</p><h3 id="The complete source code">The complete source code</h3><p>The shell script <code>ssh-select.sh</code>:</p><pre><code>#!/usr/bin/env sh
 
 export FZF_DEFAULT_OPTS='
 --height=20%
@@ -237,4 +237,4 @@ END {
 function max(a, b) {
 	return a &gt; b ? a : b
 }
-</code></pre></article><nav class="blog-pager"><a href="/blog/2020/02/29/de-bootsrapping-the-workshop-part-2/" rel="previous" style="float: left"><span aria-hidden="true">←</span> De-Bootsrapping the workshop, part 2</a><a href="/blog/2020/05/31/macho-man-command-on-steroids/" rel="next" style="float: right">Macho, the man command on steroids <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (11)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (19)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (19)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (9)</a></li><li><a href="/blog/tags/rant/">rant (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/web/">web (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>
+</code></pre></article><nav class="blog-pager"><a href="/blog/2020/02/29/de-bootsrapping-the-workshop-part-2/" rel="previous" style="float: left"><span aria-hidden="true">←</span> De-Bootsrapping the workshop, part 2</a><a href="/blog/2020/05/31/macho-man-command-on-steroids/" rel="next" style="float: right">Macho, the man command on steroids <span aria-hidden="true">→</span></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (12)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (20)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/rant/">rant (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

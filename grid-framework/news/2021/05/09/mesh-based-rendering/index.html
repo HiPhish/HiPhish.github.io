@@ -4,7 +4,7 @@ major version bump and it is fully working now. Mesh-based rendering means that
 instead of drawing lines using the low-level <a href="https://docs.unity3d.com/ScriptReference/GL.html">GL</a> class a mesh is generated
 which Unity can then render the same way it renders any other mesh. This means
 that grid lines can now be rendered below sprites instead of always on top of
-them.</p><p><img src="render.png" title="Rendering example" alt="screenshot of a grid with a sprite in front of it"/></p><h2>How it works</h2><p>The mesh-based rendering backend needs to be attached to a game object. It then
+them.</p><p><img src="render.png" title="Rendering example" alt="screenshot of a grid with a sprite in front of it"/></p><h2 id="How it works">How it works</h2><p>The mesh-based rendering backend needs to be attached to a game object. It then
 queries the rendering system periodically for changes. Only when a change has
 occurred the mesh is re-computed. This helps us save processing power and keeps
 garbage low. Usually a mesh is made up of triangles, but in this case I use the
@@ -14,7 +14,7 @@ asks the system every frame “Check if anything as changed”, then the renderi
 system does its stuff, and eventually it sends a notification back to the
 backend if there is something to be done. Currently the system is queried on
 every frame, but it would be easy to add a variable to only query on every n-th
-frame.</p><h2>Drawbacks</h2><p>All lines have the same colour and a width of one pixel. I could implement
+frame.</p><h2 id="Drawbacks">Drawbacks</h2><p>All lines have the same colour and a width of one pixel. I could implement
 different colours per axis, but I do not think there is interest in such a
 feature when rendered in a running game (it is useful in the editor view
 though). As for the line width, I think this is better left to a 3rd party
@@ -22,7 +22,7 @@ package like <a href="https://starscenesoftware.com/vectrosity.html">Vectrosity<
 solved the problem of rendering lines much better. Grid Framework should come
 with rendering solutions which are good enough for the basic uses cases, and
 make it easy to integrate with other packages if users desire more features and
-control.</p><h2>Next steps</h2><p>I need to migrate Vectrosity support to the new system and maybe change how it
+control.</p><h2 id="Next steps">Next steps</h2><p>I need to migrate Vectrosity support to the new system and maybe change how it
 is used. Ideally I would like to extract Vectrosity support to into its own
 package to download from the Asset Store (for free of course) so it does not
 bloat the rest of Grid Framework for those who do not need it. However, this

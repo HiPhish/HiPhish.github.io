@@ -27,7 +27,7 @@ interface that  contains a sort  of foldout  for every renderer.  The renderers
 define their  own inspector  interface which  is then  rendered as  part of the
 container's interface.</p><p>The downside to this  is that the renderers  are now concerned  with two tasks:
 rendering the grid and their inspector interface.  It's small price to pay, but
-still. Maybe I will be able to come up with something better in the meantime.</p><h2>Update</h2><p>Well, this has been a waste of time:  turns out that you can have more than one
+still. Maybe I will be able to come up with something better in the meantime.</p><h2 id="Update">Update</h2><p>Well, this has been a waste of time:  turns out that you can have more than one
 component of the same type per <code>GameObject</code>. I think that's the way to go then.
 Here is a  screenshot of it:  there is one  underlying main  grid which  uses a
 rectangular shape and two cone grids.  Every renderer has its  own setting like

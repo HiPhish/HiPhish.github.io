@@ -7,7 +7,7 @@ Grid Framework.</p><p>This will be a major update which breaks backwards compati
 are necessary, some will simply be me cleaning up minor bumps while I'm at it.
 But all in all I expect the changes to be small, much smaller than between 1.0
 and 2.0.</p><p>The upgrade will be free for existing customers since it will be basically just
-a maintenance release.</p><h2>Upcoming changes</h2><h3>Rendering grids</h3><p>Unity is a 3D game engine, it primarily renders 3D game models. There is an
+a maintenance release.</p><h2 id="Upcoming changes">Upcoming changes</h2><h3 id="Rendering grids">Rendering grids</h3><p>Unity is a 3D game engine, it primarily renders 3D game models. There is an
 escape hatch provided by the <code>GL</code> class, but lines drawn that way appear on top
 of sprites, even if the sprite is in front of the grid in the scene. This is
 simply not acceptable, but this way of rendering grids has big advantage over
@@ -32,7 +32,7 @@ been a good choice and has allowed users to create their own grids very easily.
 I know one customer who has created a custom grid which looks like the wires of
 a guitar (the horizontal lines are not parallel and the distance between
 vertical lines keeps increasing). I hope that this change will empower users
-similarly.</p><h3>No more included examples</h3><p>Grid Framework comes with a number of examples included to get you started.
+similarly.</p><h3 id="No more included examples">No more included examples</h3><p>Grid Framework comes with a number of examples included to get you started.
 When I had originally submitted Grid Framework to the Unity Asset Store I was
 asked to provide an example or two because it wasn't really clear what my asset
 was doing. Since then the number of examples and their sophistication has
@@ -40,9 +40,9 @@ grown, and Grid Framework has been established.</p><p>Bundling these examples no
 you can just delete them (they are all in one common directory), but then you
 have to do so after each update. For 3.0 I want to move the examples to a
 separate project that can be hosted in public. It would also allow people to
-see the API in action before they make a purchase.</p><h3>Minimum Unity version required</h3><p>I have not yet settled on a definitive version, but I will certainly increase
+see the API in action before they make a purchase.</p><h3 id="Minimum Unity version required">Minimum Unity version required</h3><p>I have not yet settled on a definitive version, but I will certainly increase
 the requirements. This will allow me to make use of more recent C# features and
-keep the code leaner.</p><h2>Time frame</h2><p>I do not have any estimate on when 3.0 will be released. The changes to the
+keep the code leaner.</p><h2 id="Time frame">Time frame</h2><p>I do not have any estimate on when 3.0 will be released. The changes to the
 code are not large, but I have to get the API right the first time. How should
 the user hook up the rendering backend to the engine? Should I allow multiple
 backends at the same time? Where should newly created <code>GameObject</code>s and

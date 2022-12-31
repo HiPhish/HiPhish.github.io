@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2022</a></li><li class=""><a href="../../">12</a></li><li class="active">30</li><li class="active">a-filesystem-abstraction-for-hssg</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to A file system abstraction for HSSG" rel="bookmark">A file system abstraction for HSSG</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2022-12-30">2022-12-30</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/lisp/">lisp</a>, <a href="../../../../tags/html/">html</a>, <a href="../../../../tags/web/">web</a></p></header><p>A while ago I announced my new pet project <a href="https://gitlab.com/HiPhish/cl-hssg">HSSG</a>, the hackable static site
+generator.  The final step of generating a web site is writing the actual files
+to the file system of the operating system.  So far this has been a messy
+affair where information about file paths had to be dragged through the entire
+chain from start to finish.  This was ugly, hard to maintain and it muddied the
+layers of abstraction.  In this post I will explain how I brought order to HSSG
+through a file system abstraction.</p><ol><li><p><a href="#The%20problem">The problem</a></p></li><li><p><a href="#Dependency%20injection">Dependency injection</a></p></li><li><p><a href="#Against%20dependency%20injection">Against dependency injection</a></p></li><li><p><a href="#File%20systems%20and%20instructions">File systems and instructions</a></p><ol><li><p><a href="#Deriving%20artifacts">Deriving artifacts</a></p></li><li><p><a href="#Interpreting%20instructions">Interpreting instructions</a></p></li><li><p><a href="#The%20m%20×%20n%20problem">The m × n problem</a></p></li><li><p><a href="#Testing">Testing</a></p></li><li><p><a href="#A%20deeper%20structure%3F">A deeper structure?</a></p></li></ol></li><li><p><a href="#Conclusion">Conclusion</a></p></li></ol><h2 id="The problem">The problem</h2><p>Suppose we want to produce the file <code>output/about/javascript/index.html</code> from a
+file <code>content/about/javascript/index.html.md</code>. We have to perform the following
+steps in this order:</p><ol><li><p>Read in the Markdown file</p></li><li><p>Parse it into a tree of S-XML expressions</p></li><li><p>Pass it through a template to produce the content tree of the final HTML
+file</p></li><li><p>Create an artifact object</p></li><li><p>Output the HTML file</p></li></ol><p>This final step requires information on where to write the output file to.  In
+the above example the Markdown file and the HTML file share the same file path
+except for the first directory, but this is just the way our imaginary project
+is set up.  HSSG does not enforce any directory structure for the project on
+purpose.  In the case of a blog enforcing a directory structure would not even
+make sense because some pages, such as a category index page, have no
+corresponding Markdown file at all, they are generated completely from
+collected metadata.</p><p>This means that we have to drag along the pathname of the output file
+throughout the lifetime of the artifact object.  For a simple case where we
+convert a Markdown file to HTML this is not particularly bad, we only need to
+add that information at step 4 and use it at step 5.  But what about more
+complicated cases like a blog?  A blog artifact is a compound artifact which
+contains many other artifacts which will be instantiated at different points in
+time.  So we need to inject the path of the blog into the blog artifact, which
+then injects new paths based on its path into the child artifacts.  You can see
+how this becomes a mess quickly for complex artifacts.</p><h2 id="Dependency injection">Dependency injection</h2><p>The usual solution to abstraction and management of dependencies in
+object-oriented programming is dependency injection.  I intentionally did not
+want to use dependency injection, but I want to present here how I could have
+done it.  It will help understand the solution I did go for instead.</p><p>The idea of dependency injection is to invert the relationship of dependency
+and dependant.  What does this mean?  Let's say we want to produce an artifact.
+In the interest of separation of concerns we need two objects:</p><ul><li><p>the artifact to produce HTML text from an in-memory tree</p></li><li><p>some sort of “file system” object to write the HTML text to a file</p></li></ul><p>Without dependency injection we would instantiate the artifact, which in turn
+would instantiate its file system.  The file system is a dependency of the
+artifact because the artifact needs it to do its job of being produced.</p><pre><code>;; This is a hypothetical example
+(defun make-html-artifact (data out)
+  (let ((file-system (make-static-file-filesystem out)))
+    (make-instance 'html-artifact :data data :file-system file-system)))
+
+(defun write-html-artifact (artifact)
+  (let ((file-system  (artifact-file-system artifact))
+        (content      (artifact-content artifact)))
+    (write-content file-system content)))
+</code></pre><p>Now the artifact is strongly coupled to the file system.  Suppose we wanted to
+upload the artifact to a server over FTP, we would now have to change the
+implementation of <code>MAKE-HTML-ARTIFACT</code> to instantiate a different type of file
+system.  It also makes the code harder to test because the artifact can only
+write to the underlying OS file system, unless we change the implementation
+during the test (which we can do in Common Lisp), but then we are not testing
+the code that will be actually running in production.</p><p>Dependency injection is the practice of creating dependencies before-hand and
+then passing them as arguments to the constructor, i.e. injecting them.  Here
+is the example from above with dependency injection:</p><pre><code>;; This is a hypothetical example
+(defun make-html-artifact (data file-system)
+  (make-instance 'html-artifact :data data :file-system file-system))
+</code></pre><p>Note how we only changed the constructor, the implementation of
+<code>WRITE-HTML-ARTIFACT</code> remains the same.  Now we can inject any kind of file
+system object without having to change the implementation of the artifact.
+Here are some examples:</p><ul><li><p>A file system which writes to the file system of the host OS</p></li><li><p>A file system which uploads files over FTP to a server</p></li><li><p>A compound file system which wraps the two file systems above to both write a
+local file and upload a copy to a server</p></li><li><p>A file system which is relative to another file system</p></li><li><p>A fake file system to assert that the right content would have been written
+during testing</p></li></ul><p>The last one is particularly worth pointing out.  We can now easily test the
+exact same code that will run during production.  The “H” in HSSG stands for
+“Hackable”, so I cannot make any assumptions on what kind of file system
+abstractions users will want to implement.</p><p>This is not some speculative “what if...” thought experiment, we can make heavy
+use of file system abstractions in the official blogging plugin.  The blog
+itself has its own file system, which is provided by the user.  Then internally
+we use this file system as a basis for the file systems for the individual
+pages of the blog.  Consider the aforementioned category index page which will
+be written to <code>categories/&lt;category&gt;/index.html</code> (where <code>&lt;category&gt;</code> is the
+name of the category), relative to the directory of the blog itself: the file
+system is a wrapper around the file system of the blog.  Whatever the path of
+the blog, we append the path of the file to that path.  Whatever the
+implementation of the blog file system does (write to local FS, upload over
+FTP, etc.), our wrapper file system does it as well.</p><h2 id="Against dependency injection">Against dependency injection</h2><p>If dependency injection is so great, why not use it?  To be honest, I do not
+have a good answer, other than that it feels wrong.  Ultimately we have not
+changed much, artifacts still need to be concerned with writing themselves.
+Artifacts still need to know their destination path.  All we have done is kick
+the can further down the road.  And finally, it lacks any mathematical sense of
+structure, we are just plugging together objects.</p><h2 id="File systems and instructions">File systems and instructions</h2><p>If we want to have true separation between artifacts and file systems we need a
+new type of object in-between.  Enter file system instructions.  Now a file
+system becomes an interpreter for an instruction.  The instructions carries
+information on <em>what</em> to do, while the file system is the interpreter which
+implements <em>how</em> to do it.  Thus we have three actors:</p><ul><li><p>The artifact</p></li><li><p>The instruction which is produced by deriving the artifact</p></li><li><p>The file system which interprets the instruction</p></li></ul><p>Writing an artifact is now a simple function call:</p><pre><code>(defun write-artifact (artifact file-system) 
+  (let ((instruction (derive-artifact artifact)))
+    (write-to-filesystem instruction file-system)))
+</code></pre><h3 id="Deriving artifacts">Deriving artifacts</h3><p>The artifact protocol defines the generic function <code>DERIVE-ARTIFACT</code> which each
+artifact class implements differently.  Here are some examples:</p><ul><li><p>An HTML artifact generates the HTML string content and creates an instruction
+for writing the string to a file.</p></li><li><p>A file copy artifact creates an instruction for copying an existing file</p></li><li><p>A compound artifact creates a compound instruction which contains the
+instructions produced from deriving the wrapped artifacts</p></li></ul><p>This is what deriving an HTML artifact looks like:</p><pre><code>(defmethod hssg.artifact:derive-artifact ((artifact hssg.artifact:html-artifact))
+  (with-slots ((data hssg.artifact::data)
+               (template hssg.artifact::template)
+               (output hssg.artifact::output))
+      artifact
+    (let* ((plump:*tag-dispatchers* plump:*xml-tags*)
+           (contents (plump:serialize
+                       (sexp-&gt;plump-tree (cdr (assoc :content (funcall template data))))
+                       nil)))
+      (make-instance 'hssg.filesystem:write-string-contents
+      :contents (format nil &quot;&lt;!DOCTYPE html&gt;~%~A&quot; contents)
+      :path output))))
+</code></pre><p>Most of the code is about turning the S-XML tree into a string.  The interesing
+part is the call to <code>MAKE-INSTANCE</code> where we create a <code>WRITE-STRING-CONTENTS</code>
+instruction which writes the HTML text to a file.  We still need to have <em>some</em>
+file path information in the artifact, but this information is decoupled from
+the file system.  Usually it will be just the string <code>index.html</code> and we will
+let the file system interpret where to place this file.</p><h3 id="Interpreting instructions">Interpreting instructions</h3><p>Here is where it gets interesting: the generic function <code>WRITE-TO-FILESYSTEM</code>
+dispatches on both the file system <em>and</em> the instruction.  This allows us to
+implement any behaviour we want.  Here is an example:</p><pre><code>(defmethod write-to-filesystem ((instruction write-string-contents)
+                                (file-system base-file-system))
+  (let ((path (fad:merge-pathnames-as-file
+                (fad:pathname-as-directory (file-system-directory file-system))
+                (instruction-path instruction))))
+    (with-slots (contents) instruction
+      (write-string-to-file contents path))))
+</code></pre><p>We take the file path of the file system (usually the target directory), merge
+it with the file path of the instruction (usually a file name like
+<code>index.html</code>) and write the string contents to that file.  This is a very
+primitive combination of file system and instruction, it does not get any
+lower-level than this.  If we wanted to upload a file via FTP to a server we
+would need a different implementation that dispatches on the type of the two
+arguments.</p><h3 id="The m × n problem">The m × n problem</h3><p>At this point you might see a problem: if we have <code>n</code> file system types and <code>m</code>
+instruction types, then we need <code>m * n</code> implementations.  To make matters
+worse, if the user adds a custom file system he would need to implement
+<code>WRITE-TO-FILESYSTEM</code> for each of the possible instructions.  What if two
+different independent plugins add a new file system and a new instruction each,
+do we now need to coordinate between complete strangers?  Do we have to
+implement all those gaps ourselves?</p><p>Fortunately the answer is no.  The trick lies in realising that some file
+systems and instructions are at a higher level (for lack of a better term) than
+others.  They decompose into more primitive variants.  Let's look at two
+examples.</p><h4>Relative file system</h4><p>A relative file system is a file system that sits relative on top of another
+one.  The output directory (<code>output/</code>) of our website is represented by a
+primitive <code>BASE-FILE-SYSTEM</code>, and the file system of the blog is a relative
+file system which represents the path of the blog <em>relative</em> to the output
+directory (<code>blog/</code>).  Writing to a relative file system is the same as writing
+to a base file system which is a combination of the absolute path of the
+original base file system plus the relative path (<code>content/blog/</code>).</p><pre><code>(defmethod write-to-filesystem (instruction
+                                (file-system relative-file-system))
+  (let ((directory (file-system-path file-system)))
+    (write-to-filesystem
+      instruction
+      (make-instance 'base-file-system :directory directory))))
+</code></pre><p>Note how we are not dispatching on the type of the instruction.  We do not care
+about the instruction at this point.  We reduce the relative file system to a
+new absolute one and then dispatch again on the two arguments.  The
+implementation for the base file system can then decide on whether it cares
+about the type of the instruction.</p><p>Thus we only needed to add one implementation to cover every possible type of
+instruction in our new file system.</p><h4>Compound instructions</h4><p>A compound instruction is a wrapper around several other instructions.
+Deriving a blog artifact is a good example: the blog itself is a collection of
+multiple components, such as posts, indexes or archives, each of which can also
+be a collection and so on until we are left with a lot of low-level HTML
+artifacts. Deriving a blog artifact produces a compound instruction which wraps
+a number of other instructions.</p><pre><code>(defmethod write-to-filesystem ((instruction compound-instruction)
+                                file-system)
+  (with-slots (instructions) instruction
+    (dolist (instruction instructions)
+      (write-to-filesystem instruction file-system))))
+</code></pre><p>We loop over all the wrapped instructions then write them to the same file
+system.  We do not care about the type of file system at this point, we pass it
+on as it is and let the downstream call handle it.</p><h3 id="Testing">Testing</h3><p>Testing is much simpler now.  With dependency injection we need to define a
+fake file system class, instantiate it, inject it into the test subject,
+perform the method call and then inspect the fake.  With instructions we just
+derive the artifact normally and inspect the instruction that was produced.  No
+need for mocks and fakes.</p><p>Testing file systems is still hard because at some point we do have to test
+that the correct content is written to disc.  There is simply no way around
+that.  We test each of the method implementations of <code>WRITE-TO-FILESYSTEM</code> in
+isolation.</p><p>I consider it still a win though.  Testing artifacts is much simpler now. On
+the other hand, we have to test file systems and instructions in combination
+for side effects anyway, so that part has not gotten any more complex.</p><h3 id="A deeper structure?">A deeper structure?</h3><p>There are primitive instructions, there are higher-level instructions which are
+composed of other instructions, there are functions which operate on
+instructions.  All this is hinting at an underlying algebraic structure.  I
+have not investigated this matter, but if my hunch is correct and there indeed
+is an underlying algebraic structure, then we could even apply formal reasoning
+to investigate the possibilities and limits of the file system abstraction.
+This is definitely something worth looking into in the future.</p><h2 id="Conclusion">Conclusion</h2><p>The main selling point of HSSG is its hackability, and as the author of HSSG I
+cannot know in advance how users want to produce output files.  Therefore I
+need to separate the concept of an artifact (HTML page, static file, directory,
+a collection of the aforementioned) from the act of producing output (writing
+to the host OS file system, uploading files to a server).  A file system
+abstraction allows me to keep the two concepts separate.</p><p>Instead of the customary dependency injection which produces loose coupling I
+opted for an interpreter pattern in which there is no coupling at all.  An
+artifact is derived to produce an instruction object.  This instruction
+describes what action to perform.  A generic function is then applied to the
+instruction and a file system object to actually produce the output.</p><p>Using multiple dispatch from CLOS allows me to keep these implementations
+compact and easy to reason about.  Very primitive combinations of instruction
+and file system are implemented in a few lines of code.  More higher-level
+combinations can be expressed in terms of more primitive ones; these
+implementations only need to dispatch on the type of one argument.  This keeps
+the number of implementations bounded by O(n + m) rather than exploding to O(n
+× m).</p><p>Testing is much simpler because we have no need for mocks and fakes.  Since
+there are no dependencies to inject into the artifact we can simply derive it
+and inspect the resulting instruction.  Deriving an artifact is thus a pure
+function.  Side effects are moved to the outer-most fringe of the application.</p><p>All of this is made possible by CLOS.  The definition of a class is separate
+from the definition of a method.  Combined with multiple dispatch this means
+that the method <code>WRITE-TO-FILESYSTEM</code> belongs neither to the file system nor to
+the instruction.  New implementations can be added by users without modifying
+HSSG.  In a conventional single-dispatch object-oriented system our file system
+classes would be large classes which implemented many different methods for
+different instructions.  This would make the existing code harder to maintain
+and harder to extend because we would have to either have many methods for
+instruction classes, or we would have to define many different handler classes
+for all the possible combinations.</p><p>In fact, I am not sure I would have even come up with this structure to begin
+with if it wasn't for CLOS.  We do sacrifice some performance due to dynamic
+dispatch and instantiation of new intermediate file systems and instructions,
+but the effect is still negligible in a batch application.  The only other
+object-oriented system I can think of which separates classes from methods like
+this is <a href="https://nim-lang.org/">Nim</a>.</p></article><nav class="blog-pager"><a href="/blog/2022/11/29/what-even-is-user-friendly/" rel="previous" style="float: left"><span aria-hidden="true">←</span> What even is user-friendly?</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2022/">2022 (12)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (20)</a></li><li><a href="/blog/categories/organisation/">organisation (12)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/rant/">rant (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (4)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

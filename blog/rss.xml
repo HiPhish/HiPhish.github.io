@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Tue, 29 Nov 2022 22:55:36 +0100</lastbuilddate><item><title>What even is user-friendly?</title><link>https://hiphish.github.io/blog/2022/11/29/what-even-is-user-friendly/</link><description>The term “user-friendly” gets thrown around often, but what does it even mean
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sat, 31 Dec 2022 01:00:32 +0100</lastbuilddate><item><title>A file system abstraction for HSSG</title><link>https://hiphish.github.io/blog/2022/12/30/a-filesystem-abstraction-for-hssg/</link><description>A while ago I announced my new pet project HSSG, the hackable static site
+generator.  The final step of generating a web site is writing the actual files
+to the file system of the operating system.  So far this has been a messy
+affair where information about file paths had to be dragged through the entire
+chain from start to finish.  This was ugly, hard to maintain and it muddied the
+layers of abstraction.  In this post I will explain how I brought order to HSSG
+through a file system abstraction.</description><guid ispermalink="true">https://hiphish.github.io/blog/2022/12/30/a-filesystem-abstraction-for-hssg/</guid><pubdate>Fri, 30 Dec 2022 01:00:00 +0100</pubdate><category>open-source</category></item><item><title>What even is user-friendly?</title><link>https://hiphish.github.io/blog/2022/11/29/what-even-is-user-friendly/</link><description>The term “user-friendly” gets thrown around often, but what does it even mean
 to be “user-friendly”? Clearly we can say that something is more user-friendly
 the fewer defects it has. But beyond that? Is a GUI application more
 user-friendly than a text-based application? Is a lower learning curve more

@@ -22,7 +22,7 @@ bool GridHasChanged() {
 </code></pre><p>This is pretty simple,  but it wastes memory by keeping basically a second copy
 of the grid and we would still have to run the method every frame. There has to
 be a better solution in which  the renderer does not not have to poll the grid,
-but the renderer gets notified by the grid instead.</p><h2>Subscribing to grid events</h2><p>C# offers such a feature  with events and delegates.  We define an event in the
+but the renderer gets notified by the grid instead.</p><h2 id="Subscribing to grid events">Subscribing to grid events</h2><p>C# offers such a feature  with events and delegates.  We define an event in the
 grid class and fire  it from the grid.  The renderer can subscribe to the event
 by setting a method to run when the grid fires the event.  This distributes the
 work  neatly  between  grid  and  renderer:  the  grid  does not  know who  has
@@ -66,7 +66,7 @@ private void OnFromChanged(Vector3 previous) {
 }
 </code></pre><p>We  cannot  subscribe  to these  changes,  nor should  we.  The changes  to the
 renderer  affect only  the points  computed,  it's a  black box  where you  get
-coordinates out and nothing more.</p><h2>OK, we know the grid has changed, what now?</h2><p>Knowing that something has changed is the first step, the next one is to decide
+coordinates out and nothing more.</p><h2 id="OK, we know the grid has changed, what now?">OK, we know the grid has changed, what now?</h2><p>Knowing that something has changed is the first step, the next one is to decide
 what to do with that knowledge. The easiest solution is to just re-count and
 re-compute everything. If the amount of lines has not changed we don't need to
 allocate a new array, but other than that we don't save any work.</p><pre><code>int numberOfLines;
@@ -83,7 +83,7 @@ with a number of matrices.  Profiling the two  possibilities has shown that the
 more complicated  approach performs  about  twice as well  on a 100 × 100 × 100
 grid.  The extra effort  is not always worth it though,  and if you are writing
 your own renderers  you should profile  the performance  of the  naive approach
-first.</p><h2>It's not that simple though</h2><p>Ideally this would be it, but Unity throws a few roadblocks in my way. For one,
+first.</p><h2 id="It's not that simple though">It's not that simple though</h2><p>Ideally this would be it, but Unity throws a few roadblocks in my way. For one,
 there is no  way to subscribe  reliably outside  of play  mode.  This means  in
 editor mode we have to re-count and re-compute the points anyway.  There are no
 new arrays allocated if we don't have to, so there is that.  Performance in the
@@ -104,7 +104,7 @@ private bool TransformHasChanged() {
     return result;
 }
 </code></pre><p>These workarounds have the same drawbacks as discussed above, but they are much
-smaller now that they are reduced to just two cases.</p><h2>Only work when enabled</h2><p>The final optimisation  is to not  work at al l when not necessary:  a renderer
+smaller now that they are reduced to just two cases.</p><h2 id="Only work when enabled">Only work when enabled</h2><p>The final optimisation  is to not  work at al l when not necessary:  a renderer
 will not perform any of  these tasks when it is disabled.  This is the simplest
 of all, we unsubscribe from all events, the rendering system skips the renderer
 and nothing  is drawn.  Aside from  its  memory footprint  the renderer  has no
