@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2023</a></li><li class=""><a href="../../">02</a></li><li class="active">26</li><li class="active">how-i-switch-colours-in-alacritty</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to How I switch colours in Alacritty" rel="bookmark">How I switch colours in Alacritty</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2023-02-26">2023-02-26</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/linux/">linux</a>, <a href="../../../../tags/terminal/">terminal</a></p></header><p>My current terminal emulator is <a href="https://alacritty.org/">Alacritty</a>.  One thing I would like is a way
+to change the colours while the terminal is running.  The only way to do so is
+the edit the configuration file, but doing so by hand can be annoying.  There
+are some scripts out there that let you do it automatically, but all that I
+have found rely on bloated stuff like having <a href="https://nodejs.org/en/">Node.js</a> installed.  We can do
+better by using just what we already have on Unix out of the box.</p><p>The end goal is a script <code>alacritty-theme</code> which will present a menu of
+predefined themes and apply the selection.  We need the following prerequisite
+knowledge and tools:</p><ul><li><p>Unix shell scripting</p></li><li><p>Some selection program like <a href="https://github.com/junegunn/fzf">fzf</a>, <a href="https://tools.suckless.org/dmenu/">dmenu</a> or <a href="https://davatorium.github.io/rofi/">rofi</a></p></li><li><p><code>ed</code>, the original Unix text editor</p></li></ul><p>That's right, where we're going we won't need any fancy GUIs and TUIs.  It's
+1970s teletypes all over again!</p><h2 id="The plan">The plan</h2><p>Alacritty is configured through a <a href="https://yaml.org/">YAML</a> file named <code>alacritty.yml</code>.  YAML by
+itself has no “include” mechanism that would allow us to splice in the content
+of another YAML file, but Alacritty implements such feature through the
+<code>import</code> key.  The value is a list of file paths to files whose contents will
+be read in.</p><p>This lets us move the theme into a separate file like
+<code>theme/solarized-dark.yml</code> which we then reference in the main configuration
+file.  Here is an example configuration file:</p><pre><code>import:
+  - '~/.config/alacritty/themes/solarized-dark.yaml'
+
+window:
+  padding:
+    x: 1
+    y: 1
+  dynamic_padding: true
+  opacity: 0.9
+
+font:
+  size: 9
+  normal:
+    family: monospace
+</code></pre><p>The plan is as follows:</p><ul><li><p>Find that line</p></li><li><p>Replace the file name portion with the name of theme</p></li><li><p>Save the changes</p></li></ul><h2 id="The execution">The execution</h2><h3 id="Editing the config file">Editing the config file</h3><p>We will start with the hardest and most important part: applying the theme.
+Let us for now pretend that we already have the name of the theme.  We have to
+execute the following steps:</p><ol><li><p>Open the config file</p></li><li><p>Find the line which sets the theme</p></li><li><p>Substitute the name of the theme</p></li><li><p>Save the changes</p></li></ol><p>First we have to open the file.  We use <code>ed</code> as our editor, so we give the file
+name as the argument to the command.</p><pre><code>ed alacritty.yml
+</code></pre><p>This will put us in the interactive ed prompt.  Ed is a command-based text
+editor, we type an instruction on what to do and ed carries it out.  It is like
+editing a text file blindly, which is perfect for later when we want to
+automate the entire process.</p><p>Now let us find the line of interest.  To find a line we can use the <code>/</code>
+command followed by a regular expression.</p><pre><code>/^  - '.*\/alacritty\/themes\/.*[.]yaml'$
+</code></pre><p>Note that we are including the leading whitespace and the dash as well.  We
+also assume that there are no trailing comments or trailing whitespace.  This
+reduces the likelihood of a false positive match.  Now we have to apply the
+substitution using the <code>s</code> command.</p><pre><code>s/[^/]*[.]yaml'$/solarized-light.yaml'/
+</code></pre><p>The <code>s</code> command's syntax is <code>s/regex/substitute/</code> where <code>regex</code> is a regular
+expression to match and <code>substitute</code> is the new text.  The separator <code>/</code> can be
+any other character in case we want to use <code>/</code> inside the regular expression.</p><p>All that is left now is to save the changes and exit the editor using the <code>wq</code>
+command.  Insert joke about exiting ed here.</p><pre><code>wq
+</code></pre><p>We can automate the entire process.  Ed reads commands from the standard input,
+so we provide them line by line as a here-document.</p><pre><code># The $theme variable holds the name of the theme
+ed alacritty.yml &lt;&lt;- EOF
+    /  - '.*\/alacritty\/themes\/.*[.]yaml'
+    s/[^/]*[.]yaml'$/${theme}.yaml'/
+    wq
+EOF
+</code></pre><h3 id="Selecting a theme">Selecting a theme</h3><p>All themes are YAML files inside the <code>themes</code> directory of the Alacritty
+configuration directory.  Here is how to list them:</p><pre><code># The configuration directory depends on the environment
+config_dir=&quot;${XDG_CONFIG_HOME:-${HOME}/.config}/alacritty&quot;
+
+# Get all files, pick only those with 'yaml' as extension, strip extension
+ls ${config_dir}/themes | grep '\.yaml$' | sed 's/\.yaml$//'
+</code></pre><p>This is slightly fragile because a file name might contain newline characters,
+so please don't do that.  At this point we have many options for how to select
+a theme.  I like to use a fuzzy finder, so I will pipe the list into rofi and
+store the result in a variable.</p><pre><code>theme=$(ls ${config_dir}/themes | grep '\.yaml$' | sed 's/\.yaml$//' | rofi -dmenu)
+</code></pre><h2 id="Putting it all together">Putting it all together</h2><p>Here is a complete shell script:</p><pre><code>#!/bin/sh
+set -e
+
+config_dir=&quot;${XDG_CONFIG_HOME:-${HOME}/.config}/alacritty&quot;
+theme=$(ls ${config_dir}/themes | grep '\.yaml$' | sed 's/\.yaml$//' | rofi -dmenu)
+ed  &quot;${config_dir}/alacritty.yml&quot; &lt;&lt;- EOF
+    /  - '.*\/alacritty\/themes\/.*[.]yaml'
+    s/[^/]*[.]yaml'$/${theme}.yaml'/
+    wq
+EOF
+</code></pre><p>Here are a couple of ideas for improvement:</p><ul><li><p>If the script is called with an argument use that argument as the name of the
+theme</p></li><li><p>Display an error message if the theme does not exist and exit with an error</p></li><li><p>Handle the argument <code>-h</code> or <code>--help</code> to display a help message</p></li><li><p>Make the fuzzy finder configurable</p></li><li><p>Fall back to a different selection mechanism if the fuzzy finder is not
+available</p></li><li><p>Send the standard output of <code>ed</code> to <code>/dev/null</code> to silence the script</p></li></ul><h2 id="Conclusion">Conclusion</h2><p>A small shell script gets the job done, but there a few issues.  For starters,
+editing a structured file blindly through regular expressions can be fragile.
+With a proper YAML parser we could understand the structure of the file and
+make precise edits.  It does not really matter in something this simple, but it
+is worth keeping in mind for the next time we try to automate text editing with
+ed.  In the opening paragraph I called those other scripts bloated and I stand
+by what I said, but only because this particular case does not warrant the
+effort.</p><h3 id="A better solution">A better solution</h3><p>The other issue is that we are editing a configuration file.  If the
+configuration is under version control it will now be marked as edited.  There
+is nothing that can be done, this is simply a limitation of Alacritty.  The
+closest to a solution is to have an extra file <code>theme.yaml</code> in-between and have
+version control ignore it.  The config file first imports the default theme and
+then imports the <code>theme.yaml</code> file:</p><pre><code>import:
+  - '~/.config/alacritty/themes/solarized-dark.yaml'
+  - '~/.config/alacritty/theme.yaml'
+</code></pre><p>The <code>theme.yaml</code> file then imports the actual theme we want to use:</p><pre><code>import:
+  - '~/.config/alacritty/themes/solarized-light.yaml'
+</code></pre><p>Alacritty will ignore missing files on import, so if the theme file does not
+exist nothing happens.  Thus instead of editing the main config file we can
+simply write a new theme file from scratch with the name of theme spliced in.
+Then all we have to do is use <code>touch</code> to update the modification time of the
+main config file (without any actual changes) so Alacritty knows to source it
+again.  Alacritty only tracks the main config file, but none of the imported
+files.  Here is the complete script:</p><pre><code>#!/bin/sh
+set -e
+
+config_dir=&quot;${XDG_CONFIG_HOME:-${HOME}/.config}/alacritty&quot;
+theme=$(ls ${config_dir}/themes | grep '\.yaml$' | sed 's/\.yaml$//' | rofi -dmenu)
+
+cat &lt;&lt; EOF &gt; &quot;${config_dir}/theme.yaml&quot;
+import:
+  - '${config_dir}/themes/${theme}.yaml'
+EOF
+touch &quot;${config_dir}/alacritty.yml&quot;
+</code></pre><p>Actually, we did not need ed after all.  Oops.  Well, I guess we all learned
+something in the process at least.</p></article><nav class="blog-pager"><a href="/blog/2022/12/31/using-github-without-workflow-lockin/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Using GitHub without workflow lock-in</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2023/">2023 (1)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (17)</a></li><li><a href="/blog/categories/open-source/">open-source (21)</a></li><li><a href="/blog/categories/organisation/">organisation (13)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/rant/">rant (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>
