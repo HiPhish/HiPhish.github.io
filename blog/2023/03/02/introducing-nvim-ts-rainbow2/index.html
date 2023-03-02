@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2023</a></li><li class=""><a href="../../">03</a></li><li class="active">02</li><li class="active">introducing-nvim-ts-rainbow2</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Introducing nvim-ts-rainbow2" rel="bookmark">Introducing nvim-ts-rainbow2</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2023-03-02">2023-03-02</time></p><p class="blog-post-category">categories: <a href="../../../../categories/misc/">misc</a></p></header><p>Two months in the making, it is time to finally release my new Neovim plugin
+officially: <a href="https://gitlab.com/HiPhish/nvim-ts-rainbow2">nvim-ts-rainbow2</a> (<a href="https://github.com/HiPhish/nvim-ts-rainbow2">GitHub
+mirror</a>).  This plugin uses
+Neovim's built-in <a href="https://tree-sitter.github.io/tree-sitter/">Tree-sitter</a> support to add alternating highlighting to
+delimiters.  This is usually known as “rainbow parentheses”, but thanks to
+Tree-sitter we are not limited to parentheses, we can match any kind of
+delimiter, such as tags in HTML or <code>begin</code>/<code>end</code> blocks in some programming
+languages.</p><p>This plugin is actually a fork of <a href="https://sr.ht/~p00f/nvim-ts-rainbow/">nvim-ts-rainbow</a>, hence the number two in
+the name.</p><h2 id="Motivation for forking">Motivation for forking</h2><p>The original project was declared abandoned in early January of 2023.  Before
+that I was working on a patch which would allow to highlight only the portion
+that the cursor is currently in.  I vaguely remember seeing once an animation
+of such a feature in Emacs.  The user was editing a piece of Lisp code and only
+the expression which contained the cursor had rainbow parentheses.  With every
+delimiter highlighted the source code can easily start looking like a Christmas
+tree, so local highlighting was something I really wanted in Neovim.</p><p>I had written a somewhat hacky patch and was prepared to open a pull request
+when I found that the plugin had been abandoned.  So I did a hard fork and
+restructured pretty much the entire thing over the course of two months to fit
+my vision.</p><h2 id="What's new?">What's new?</h2><p>TL;DR: we now have separate queries and strategies which we can mix and combine
+per language.  The query tells us what to match while the strategy tells us how
+to highlight those matches.</p><p>I find that software is best not when there are no more features to add, but
+when there are no more features to remove.  Case in point, the last phase
+before the release was me taking an axe to the API and just chopping off what I
+could do without.  This means nvim-ts-rainbow2 has fewer options than the
+original, but all of the remaining options are more powerful.</p><p>Here is an example configuration:</p><pre><code>local rainbow = require 'ts-rainbow'
+require(&quot;nvim-treesitter.configs&quot;).setup {
+  rainbow = {
+    query = {
+      'rainbow-parens',
+      html = 'rainbow-tags'
+    },
+    strategy = {
+       rainbow.strategy.global,
+       commonlisp = rainbow.strategy['local'],
+     },
+  }
+}
+</code></pre><p>Here we highlight all parentheses by default. However, in HTML we highlight
+tags instead and in Common Lisp we highlight only the current cursor position.</p><h3 id="Queries">Queries</h3><p>The original plugin had an <code>extended_mode</code> setting; turning it on would in some
+languages match more complicated patterns like HTML tags.  This has a number of
+problems:</p><ul><li><p>Not all languages support an extended mode</p></li><li><p>There might be multiple possibilities for what an extended mode could entail</p></li><li><p>The highlighting code now has to handle special cases depending on the
+language</p></li></ul><p>My solution was to instead leverage Neovim's query support.  A query is a set
+of patterns that describe what parts of the document match which parts of a
+pattern,  such as the opening and closing parentheses of a function call.  The
+user only has to name the query and Neovim will use it in matching, no need for
+special cases in our code.  We can have any number of queries per language, so
+we are no longer locked into a binary either-or choice.  Users can write their
+own queries if they don't like the default ones or if they want to support a
+new language.</p><h3 id="Strategies">Strategies</h3><p>The strategy defines how to perform the matching.  Since this is Lua and we can
+have executable code in our configuration, each strategy is a table with two
+functions.  There are two strategies included:</p><ul><li><p>The global strategy highlights the entire buffer</p></li><li><p>The local strategy only highlights the part containing the cursor</p></li></ul><p>Separating queries and strategies lets us combine them arbitrarily.  This
+further removes the need for special cases in the implementation.  The strategy
+is only concerned with highlighting the matches it receives from the query, not
+with what the query does.</p><h3 id="Correct levels out of the box">Correct levels out of the box</h3><p>The original plugin had a table which contained the names of nodes to
+highlight.  This was brittle because not all nodes had names and because the
+level of ancestry between nodes was not the same for all languages.</p><p>The fork uses knowledge of the order of matches returned by Tree-sitter to
+always do the right thing.  This makes determining the level of nesting much
+more robust because it is automatic now.  I am actually quite proud of this one
+because knowing the order of matches also enabled a number of other
+optimizations.</p><h3 id="Everything comes at a price">Everything comes at a price</h3><p>The individual features are more powerful, but they are also more complicated
+to implement.  The end user won't notice any difference, but those who
+implement queries and strategies will have more work to do.</p><p>Queries now define up to four capture groups: the container which is delimited,
+the opening and closing delimiters, and intermediate delimiters.  Here is what
+a pattern for variable expansion in Bash looks like:</p><pre><code>(expansion
+  ((&quot;${&quot; @opening)
+   (&quot;:-&quot; @intermediate)?
+   (&quot;}&quot; @closing))) @container
+</code></pre><p>This is more complicated than the queries of the original plugin, and we have
+to write similar patterns for any other type of container even if the
+delimiters all look the same.  This was the only way to have enough semantic
+information to make informed decisions in the strategy.</p><p>A strategy is a table with two functions, one called when attaching to a buffer
+and one called when detaching from a buffer.  This is similar to implementing a
+protocol (or interface if you come from Java) in object-oriented programming.</p><pre><code>local my_strategy = {
+  on_attach = function(bufnr, settings)
+    -- ...
+  end
+  on_detach = function(bufnr)
+    -- ...
+  end
+}
+</code></pre><h3 id="Help wanted">Help wanted</h3><p>There are only so many languages that I know well enough to write queries for.
+Some nice people have already provided queries for some other languages, but
+there is still lots of work to do.  Unlike previous rainbow plugins we cannot
+fall back on some generic regular expression, each language needs
+custom queries.</p><p>If you are interested in contributing and know enough about Tree-sitter you can
+try your hand on writing a query.  The user manual explains how to write them
+and the <code>CONTRIBUTING</code> file has additional information.</p><p>I recommend first adding the query to your personal configuration and using it
+for a while.  New queries do not need to be part of this plugin.  As long as
+Neovim can find a query, it can be used by the plugin.  When you are satisfied
+with the result please consider sending it upstream.</p><p>I hope you all find this plugin as useful as I do.</p></article><nav class="blog-pager"><a href="/blog/2023/02/26/how-i-switch-colours-in-alacritty/" rel="previous" style="float: left"><span aria-hidden="true">←</span> How I switch colours in Alacritty</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2023/">2023 (2)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (18)</a></li><li><a href="/blog/categories/open-source/">open-source (21)</a></li><li><a href="/blog/categories/organisation/">organisation (13)</a></li><li><a href="/blog/categories/vim/">vim (13)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/rant/">rant (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/games/">games (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

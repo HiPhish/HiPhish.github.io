@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 26 Feb 2023 15:41:09 +0100</lastbuilddate><item><title>How I switch colours in Alacritty</title><link>https://hiphish.github.io/blog/2023/02/26/how-i-switch-colours-in-alacritty/</link><description>My current terminal emulator is Alacritty.  One thing I would like is a way
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Thu, 02 Mar 2023 23:53:45 +0100</lastbuilddate><item><title>Introducing nvim-ts-rainbow2</title><link>https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</link><description>Two months in the making, it is time to finally release my new Neovim plugin
+officially: nvim-ts-rainbow2 (GitHub
+mirror).  This plugin uses
+Neovim's built-in Tree-sitter support to add alternating highlighting to
+delimiters.  This is usually known as “rainbow parentheses”, but thanks to
+Tree-sitter we are not limited to parentheses, we can match any kind of
+delimiter, such as tags in HTML or begin/end blocks in some programming
+languages.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</guid><pubdate>Thu, 02 Mar 2023 01:00:00 +0100</pubdate><category>misc</category></item><item><title>How I switch colours in Alacritty</title><link>https://hiphish.github.io/blog/2023/02/26/how-i-switch-colours-in-alacritty/</link><description>My current terminal emulator is Alacritty.  One thing I would like is a way
 to change the colours while the terminal is running.  The only way to do so is
 the edit the configuration file, but doing so by hand can be annoying.  There
 are some scripts out there that let you do it automatically, but all that I
