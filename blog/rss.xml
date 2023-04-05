@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 26 Mar 2023 16:23:53 +0200</lastbuilddate><item><title>Introducing nvim-ts-rainbow2</title><link>https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</link><description>Two months in the making, it is time to finally release my new Neovim plugin
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Wed, 05 Apr 2023 21:26:17 +0200</lastbuilddate><item><title>Resolution patcher for Anno 1503</title><link>https://hiphish.github.io/blog/2023/04/05/resolution-patcher-for-anno-1503/</link><description>I have written a small Python script which patches the game files of Anno 1503
+to run at higher resolutions.  There is already a widescreen patch out
+there ready to use, so why create a patcher?  Download links die, knowledge
+gets forgotten and people lose interest and move on.  Without preservation of
+knowledge the patch will be lost and impossible to reproduce without trial and
+error all over again.  My patcher exists both to be useful, and as executable
+documentation for posterity.  There is also the possibility that if you patch
+the DLL file that came with your own game instead of using someone else's it
+might run more stable (not all builds of the game are identical), but that's
+just a blind guess.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/04/05/resolution-patcher-for-anno-1503/</guid><pubdate>Wed, 05 Apr 2023 02:00:00 +0200</pubdate><category>misc</category></item><item><title>Introducing nvim-ts-rainbow2</title><link>https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</link><description>Two months in the making, it is time to finally release my new Neovim plugin
 officially: nvim-ts-rainbow2 (GitHub
 mirror).  This plugin uses
 Neovim's built-in Tree-sitter support to add alternating highlighting to
