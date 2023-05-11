@@ -1,0 +1,156 @@
+/*---[ CONSTANTS ]-----------------------------------------------------------*/
+:root {
+	--animation-duration: 0.3s;
+	--modal-color: rgba(0, 0, 0, 0.8);
+	--button-size: 64px;
+	--button-opacity: 70%;
+}
+
+
+/*---[ ANIMATION DEFINITIONS ]-----------------------------------------------*/
+@keyframes fade-in {
+	from {
+		background-color: transparent;
+	}
+	to {
+		background-color: var(--modal-color);
+	}
+}
+
+@keyframes zoom-in {
+	from {
+		max-width: 0%;
+	}
+	to {
+		max-width: 100%;
+	}
+}
+
+
+/*---[ thumbnails ]----------------------------------------------------------*/
+ul.gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1em;
+	padding: 0;
+	list-style: none;
+}
+
+ul.gallery > li > a {
+	display: block;
+	padding: 4px;
+	border: 1px solid #ecf0f1;
+	border-radius: 4px;
+	transition: border .2s ease-in-out;
+}
+ul.gallery > li > a:hover, ul.gallery > li > a:focus {
+	border: 1px solid #18bc9c;;
+}
+ul.gallery > li img { max-width: 100%; }
+
+@media(max-width: 992px) { ul.gallery { grid-template-columns: 1fr 1fr 1fr; } }
+@media(max-width: 767px) { ul.gallery { grid-template-columns: 1fr 1fr; } }
+
+
+
+/*---------------------------------------------------------------------------*/
+#gallery-modal {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	color: white;
+}
+
+#gallery-modal.hidden {
+	display: none;
+}
+
+#gallery-modal.shown {
+	display: flex;
+	background-color: var(--modal-color);
+	animation: fade-in var(--animation-duration);
+}
+
+
+#gallery-modal > #gallery-modal-next, #gallery-modal > #gallery-modal-previous {
+	border: none;
+	cursor:pointer;
+	opacity: var(--button-opacity);
+	width: var(--button-size);
+	height: var(--button-size);
+	flex: 0 0 auto;
+}
+
+#gallery-modal > #gallery-modal-previous {
+	order: 1;
+	background: url(/img/gallery/previous.svg) no-repeat;
+}
+
+#gallery-modal > #gallery-modal-next {
+	order: 3;
+	background: url(/img/gallery/next.svg) no-repeat;
+}
+
+#gallery-modal > #gallery-modal-next:hover, #gallery-modal > #gallery-modal-previous:hover {
+	opacity: 100%;
+}
+
+#gallery-modal > div {
+	order: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+#gallery-modal > div > button.gallery-modal-close {
+	align-self: flex-end;
+	font-size: 60px;
+	cursor: zoom-out;
+	color: white;
+	background-color: transparent;
+	border: none;
+	text-shadow: black 0 0 20px;
+	opacity: var(--button-opacity);
+}
+
+#gallery-modal > div > button.gallery-modal-close:hover {
+	opacity: 100%;
+}
+
+#gallery-modal > div > figure {
+	align-self: center;
+	width: 90%;
+	padding: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	max-width: fit-content;
+}
+
+#gallery-modal > div > figure > img {
+	display: block;
+	background-color: #717171;
+	border: 1px solid #b5b5b5;
+	max-width: 100%;
+	margin: auto;
+	margin-bottom: 0.75em;
+	max-height: 50vh;
+	/* These are some alternative units, but the results look all the same to me */
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/length#relative_length_units_based_on_viewport */
+	/* max-height: 50svh; */
+	/* max-height: 50lvh; */
+	/* max-height: 50dvh; */
+}
+
+#gallery-modal.shown > div > figure > img {
+	animation: zoom-in var(--animation-duration);
+}
+
+#gallery-modal > div > p {
+	align-self: flex-end;
+}
