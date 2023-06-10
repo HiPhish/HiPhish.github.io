@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Tue, 30 May 2023 18:43:16 +0200</lastbuilddate><item><title>The game modding scene has a source code problem</title><link>https://hiphish.github.io/blog/2023/05/21/the-game-modding-scene-has-a-source-code-problem/</link><description>Sometimes I like to play video games.  Sometimes these games have issues, or
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 11 Jun 2023 01:16:25 +0200</lastbuilddate><item><title>Free Software is important for non-programmers as well</title><link>https://hiphish.github.io/blog/2023/06/10/free-software-is-important-for-non-progammers-as-well/</link><description>Free Software is software which respects the user's freedom.  The Four
+Freedoms ensure that users can run the program for any purpose, study the
+source code, modify the source, share the software and share modifications of
+the software.  However, what if you are not a programmer? Does this mean Free
+Software only adds value to people who know how to program, and if you are a
+non-programmer you might as well use proprietary software?  Is it all just the
+same then?  No.  In this post I will try to illustrate why Free Software
+matters even to non-programmers.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/06/10/free-software-is-important-for-non-progammers-as-well/</guid><pubdate>Sat, 10 Jun 2023 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>The game modding scene has a source code problem</title><link>https://hiphish.github.io/blog/2023/05/21/the-game-modding-scene-has-a-source-code-problem/</link><description>Sometimes I like to play video games.  Sometimes these games have issues, or
 they can be improved upon.  Sometimes these issues are so severe that the game
 is virtually (or even literally) unplayable.  Fortunately some really smart
 people have done a fantastic job reverse-engineering parts of these games,
