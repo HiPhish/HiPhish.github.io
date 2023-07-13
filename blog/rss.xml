@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 11 Jun 2023 01:16:25 +0200</lastbuilddate><item><title>Free Software is important for non-programmers as well</title><link>https://hiphish.github.io/blog/2023/06/10/free-software-is-important-for-non-progammers-as-well/</link><description>Free Software is software which respects the user's freedom.  The Four
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Thu, 13 Jul 2023 21:37:05 +0200</lastbuilddate><item><title>Introducing rainbow-delimiters.nvim</title><link>https://hiphish.github.io/blog/2023/07/13/introducing-rainbow-delimiters-nvim/</link><description>Wait what, again? Yes, another rainbow delimiter plugin, a fork of a fork. The
+previous one nvim-ts-rainbow2 was built as a module for nvim-treesitter
+because that is what the original plugin did and what everyone else was doing.
+However, nvim-treesitter is deprecating the module system.  This means
+nvim-ts-rainbow2 will eventually stop working, so we will need a new rainbow
+plugin sooner or later anyway.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/07/13/introducing-rainbow-delimiters-nvim/</guid><pubdate>Thu, 13 Jul 2023 02:00:00 +0200</pubdate><category>vim</category></item><item><title>Free Software is important for non-programmers as well</title><link>https://hiphish.github.io/blog/2023/06/10/free-software-is-important-for-non-progammers-as-well/</link><description>Free Software is software which respects the user's freedom.  The Four
 Freedoms ensure that users can run the program for any purpose, study the
 source code, modify the source, share the software and share modifications of
 the software.  However, what if you are not a programmer? Does this mean Free
@@ -30,7 +35,7 @@ Neovim's built-in Tree-sitter support to add alternating highlighting to
 delimiters.  This is usually known as “rainbow parentheses”, but thanks to
 Tree-sitter we are not limited to parentheses, we can match any kind of
 delimiter, such as tags in HTML or begin/end blocks in some programming
-languages.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</guid><pubdate>Thu, 02 Mar 2023 01:00:00 +0100</pubdate><category>misc</category></item><item><title>How I switch colours in Alacritty</title><link>https://hiphish.github.io/blog/2023/02/26/how-i-switch-colours-in-alacritty/</link><description>My current terminal emulator is Alacritty.  One thing I would like is a way
+languages.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/03/02/introducing-nvim-ts-rainbow2/</guid><pubdate>Thu, 02 Mar 2023 01:00:00 +0100</pubdate><category>vim</category></item><item><title>How I switch colours in Alacritty</title><link>https://hiphish.github.io/blog/2023/02/26/how-i-switch-colours-in-alacritty/</link><description>My current terminal emulator is Alacritty.  One thing I would like is a way
 to change the colours while the terminal is running.  The only way to do so is
 the edit the configuration file, but doing so by hand can be annoying.  There
 are some scripts out there that let you do it automatically, but all that I
