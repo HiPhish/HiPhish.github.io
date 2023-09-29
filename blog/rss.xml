@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Thu, 13 Jul 2023 21:37:05 +0200</lastbuilddate><item><title>Introducing rainbow-delimiters.nvim</title><link>https://hiphish.github.io/blog/2023/07/13/introducing-rainbow-delimiters-nvim/</link><description>Wait what, again? Yes, another rainbow delimiter plugin, a fork of a fork. The
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Fri, 29 Sep 2023 13:19:44 +0200</lastbuilddate><item><title>Free Software is necessary but not sufficient</title><link>https://hiphish.github.io/blog/2023/09/29/free-software-is-necessary-but-not-sufficient/</link><description>Recently Unity announced changes to their pricing model (archive) which
+have been very poorly received by their users, to put it gently.  They have
+since backtracked (archive2) somewhat, but at this point it would not
+matter even if they completely scrapped their plans and went back to how things
+used to be.  The trust has been broken and many game developers are waking up
+to the fact that Unity is effectively holding their project hostage.  Switching
+from one engine to another is akin to a full rewrite, and depending on the size
+and progress of the project porting might not be a feasible thing to do.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/09/29/free-software-is-necessary-but-not-sufficient/</guid><pubdate>Fri, 29 Sep 2023 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Introducing rainbow-delimiters.nvim</title><link>https://hiphish.github.io/blog/2023/07/13/introducing-rainbow-delimiters-nvim/</link><description>Wait what, again? Yes, another rainbow delimiter plugin, a fork of a fork. The
 previous one nvim-ts-rainbow2 was built as a module for nvim-treesitter
 because that is what the original plugin did and what everyone else was doing.
 However, nvim-treesitter is deprecating the module system.  This means
