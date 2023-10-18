@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2023</a></li><li class=""><a href="../../">10</a></li><li class="active">18</li><li class="active">grayjay-is-not-open-source</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Grayjay is not Open Source" rel="bookmark">Grayjay is not Open Source</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2023-10-18">2023-10-18</time></p><p class="blog-post-category">categories: <a href="../../../../categories/open-source/">open-source</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/rant/">rant</a></p></header><p>Today <a href="https://futo.org/">FUTO</a> released an application called <a href="https://grayjay.app/">Grayjay</a> for Android-based mobile
+phones.  Louis Rossmann introduced the application in a video (<a href="https://www.youtube.com/watch?v=5DePDzfyWkw">YouTube
+link</a>).  Grayjay as an application
+is very promising, but there is one point I take issue with: Grayjay is not an
+Open Source application.  In the video Louis explains his reason behind the
+custom license, and while I do agree with his reason, I strong disagree with
+his method.  In this post I will explain what Open Source means, how Grayjay
+does not meet the criteria, why this is an issue, and how it can be solved.</p><h2 id="The Open Source definition">The Open Source definition</h2><p>The concept of sharing source code for mutual benefit is old, but the specific
+term of “open-source software” and its definition have been formulated by the
+<a href="https://opensource.org/">Open Source Initiative</a> (OSI).  Open Source is precisely what the OSI says,
+nothing more and nothing less.  There are no degrees of Open Source, software
+either meets all of  these criteria or it does not.  These are the points of
+the definition:</p><ol><li><p>Free Redistribution</p></li><li><p>Source Code</p></li><li><p>Integrity of The Author’s Source Code</p></li><li><p>No Discrimination Against Persons or Groups</p></li><li><p>No Discrimination Against Fields of Endeavor</p></li><li><p>Distribution of License</p></li><li><p>License Must Not Be Specific to a Product</p></li><li><p>License Must Not Restrict Other Software</p></li><li><p>License Must Be Technology-Neutral</p></li></ol><p>The full <a href="https://opensource.org/osd/">Open Source definition</a> contains clarification on the individual
+points.  It is important to understand that this is the exact definition of
+Open Source, and if one or more of these points are not met the software is not
+Open Source.  It is not “kinda Open Source” or “not as Open Source” or a “more
+restricted Open Source”.  This is important because we have seen time and time
+again companies try to co-opt the term Open Source and “open-source wash” their
+proprietary software to ride the popularity of Open Source software without
+actually meeting the criteria.</p><h2 id="Why Grayjay is not Open Source software">Why Grayjay is not Open Source software</h2><p>The <a href="https://gitlab.futo.org/videostreaming/grayjay/-/blob/b5de779916faa1e49721d6a7061632a644472c8d/LICENSE">Grayjay license</a> contains the following clauses:</p><blockquote><ul><li><p>“non-commercial distribution” means distribution of the code or any compilation of the code, or of any other application or program containing the code or any compilation of the code, where such distribution is not intended for or directed towards commercial advantage or monetary compensation.</p></li></ul></blockquote><blockquote><ol><li><p>Subject to the terms of this license, we grant you a non-transferable, non-exclusive, worldwide, royalty-free license to access and use the code solely for the purposes of review, compilation and non-commercial distribution.</p></li></ol></blockquote><blockquote><ol start="2"><li><p>If you issue proceedings in any jurisdiction against the provider because you consider the provider has infringed copyright or any patent right in respect of the code (including any joinder or counterclaim), your license to the code is automatically terminated.</p></li></ol></blockquote><p>The first of these clauses violates the first and fifth point of the Open
+Source definition.  It prevents commercial distribution of the program, and
+thus it discriminates against persons and groups who wish to distribute the
+program commercially.  The wording gives me the impression that modification is
+also prohibited, because modification is not explicitly listed.</p><p>The second point is weird.  I am not certain, but this too could be considered
+discrimination because it revokes the license from people who want to pursue
+legal actions against FUTO.  If I write a library under the GPLv3 license and I
+find that FUTO has used the code, does that mean I am no longer allowed to use
+Grayjay myself if I want to sue FUTO for violating my copyright?</p><p>The point is that Grayjay does not meet the criteria to call itself Open Source
+software and Louis Rossmann should not make such claims.  We did not let
+MongoDB get away with it, we did not let Terraform get away with it, and we
+should not let FUTO get away with watering down the term.</p><h2 id="Why commercial redistribution matters">Why commercial redistribution matters</h2><p>OK, so what if you cannot redistribute Grayjay commercially?  You can still
+make changes to the source code and distribute them for free, right?  Well, as
+I have pointed out above I am not sure if you can even do that, but for the
+sake of this argument let's say that you can.  This misses the point of Open
+Source software, it creates what I would like to call maintainer lock-in.</p><p>Consider the problem of vendor lock-in: if you rely on proprietary software you
+are at the mercy of the developer of said software (which might be a company or
+a single person, it does not matter).  The developer can yank the software from
+under you, he can change the monetisation model, or he can drop support for the
+software.  With Free or Open Source software you could just take over the
+responsibility of maintainership or outsource it some other developer you can
+trust instead.</p><p>Maintainer lock-in is similar.  Let's say Alice develops an application with
+maintainer lock-in, but for whatever reason the need for a fork arises.  Bob
+has been studying the code and knows how to maintain in properly.  However,
+because Alice's code has a non-commercial redistribution clause Bob cannot make
+money off his maintainership.  If the software is sufficiently complex that Bob
+has to spend a lot of time on it, or if Bob must be able to provide paid
+support (e.g. for regulatory reasons) he is not allowed to do so.  Only Alice
+can demand financial compensation and thus in practice she is the only one who
+can afford to maintain the code.</p><p>This is just a roundabout form of vendor lock-in and it is not OK.</p><h2 id="Why is Grayjay licensed like this in the first place?">Why is Grayjay licensed like this in the first place?</h2><p>Louis explains it in his video.  There is another great phone application
+called <a href="https://newpipe.net/">NewPipe</a>, a video player for YouTube and other streaming websites. Some
+people have forked NewPipe, stuffed it with malware or other garbage and put it
+under the same name NewPipe on the Google Play Store.  This has created
+confusion among users who thought that the modified versions of NewPipe were
+the actual NewPipe.  This obviously tarnished the reputation of the real
+project.</p><p>Louis aims to avoid this problem by prohibiting commercial redistribution and
+modification.  And he has promised that FUTO will go after people who break the
+license.</p><h2 id="The Grayjay license is the wrong solution">The Grayjay license is the wrong solution</h2><p>I fully agree with Louis's sentiment, but I disagree with his solution.  This
+is an issue of trademark: the purpose of trademark is to make it clear to the
+public that “this is my work, it has my branding on it” and I have exclusive
+rights to my own trademark.  If you want to distribute a modified version of my
+work you are free to do so, but you have to do it under your own brand or else
+you are guilty of counterfeiting.</p><p>Case in point, the <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> web browser.  The name “Firefox” refers precisely
+to the web browser developed by the <a href="https://www.mozilla.org/">Mozilla Foundation</a>.  If someone were to
+fork the project and distribute a modified version he would have to do so under
+a new name.  This is precisely what <a href="https://www.gnu.org/software/gnuzilla/">GNU IceCat</a> and the <a href="https://f-droid.org/packages/org.mozilla.fennec_fdroid/">Fennec</a> web browser
+are.  And this is fine, it lets me know that I am using a different software.
+I can make an informed decision for myself whether I want to use the original
+or the fork.</p><p>One could argue that pursuing trademark violations is costly and that criminals
+don't care about trademarks, but the same can also be said about copyright
+violations.</p><p>Louis has told us time and time again not to trust him, but to verify his
+claims.  This is precisely what I have done.  Louis has misrepresented Grayjay
+as Open Source software.  This is disingenuous.  I am hopeful that this was
+merely a mistake on his part and that a better solution can be found, one that
+prevents the counterfeit problem, but also one that properly respects the
+user's freedom.  I am not a lawyer, so my understanding of trademark laws might
+be wrong, and I would like to be corrected on that matter.  The ball is now in
+Louis's court and it is up to him to show integrity and at least remove the
+false Open Source branding if nothing else.</p><h2 id="On money">On money</h2><p>As an aside, I want to point out that this is not an issue of money.  Grayjay
+is commercial software, it has a price you must pay.  There is nothing to
+enforce the payment, it's purely on the honour system.  This does not make
+Grayjay donationware though.  Donationware is software which you <em>may</em> use
+without paying, but you <em>can</em> give money if you <em>want</em> to.  Grayjay is more
+like those boxes at a farm where you pick some eggs or fruits and then put the
+correct amount of money in the box; you <em>have</em> to pay for the goods you picked,
+even if there is no one to enforce it.</p><p>I don't have a problem with this.  Actually, I think this is really good.  It
+means that once I have fulfilled my moral duty I can just re-download it again
+and again without jumping through hoops of account systems, passwords or other
+garbage that pirates don't have to put up with.</p><p>I just wish the price was actually front and center on the website instead of
+making it look like the application was actually gratis.</p><p>My issue is with the fact that FUTO wishes to have <em>exclusive</em> rights to
+monetise Grayjay.  The public should have the right to vote with their wallets
+on who they want to maintain their software.  If someone else can do a better
+job than FUTO, why should he not get paid?  Yes, FUTO are the ones who spent
+money upfront to develop Grayjay in the first place, but they are also the ones
+from whom people will be buying at first.  No one is going to pay Bob instead
+just because he changed the icon.  But if FUTO were to drop the ball at some
+point in the future and Bob were to pick it up, why should Bob not be able to
+get paid?</p></article><nav class="blog-pager"><a href="/blog/2023/09/29/free-software-is-necessary-but-not-sufficient/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Free Software is necessary but not sufficient</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2023/">2023 (9)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (19)</a></li><li><a href="/blog/categories/open-source/">open-source (24)</a></li><li><a href="/blog/categories/organisation/">organisation (14)</a></li><li><a href="/blog/categories/vim/">vim (15)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (16)</a></li><li><a href="/blog/tags/rant/">rant (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/lua/">lua (3)</a></li><li><a href="/blog/tags/games/">games (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/neovim/">neovim (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li><li><a href="/blog/tags/unity3d/">unity3d (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>
