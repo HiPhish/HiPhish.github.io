@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Wed, 18 Oct 2023 23:34:44 +0200</lastbuilddate><item><title>Grayjay is not Open Source</title><link>https://hiphish.github.io/blog/2023/10/18/grayjay-is-not-open-source/</link><description>Today FUTO released an application called Grayjay for Android-based mobile
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Tue, 24 Oct 2023 18:21:06 +0200</lastbuilddate><item><title>Grayjay is not Open Source</title><link>https://hiphish.github.io/blog/2023/10/18/grayjay-is-not-open-source/</link><description>Today FUTO released an application called Grayjay for Android-based mobile
 phones.  Louis Rossmann introduced the application in a video (YouTube
 link).  Grayjay as an application
 is very promising, but there is one point I take issue with: Grayjay is not an
-Open Source application.  In the video Louis explains his reason behind the
-custom license, and while I do agree with his reason, I strong disagree with
-his method.  In this post I will explain what Open Source means, how Grayjay
+Open Source application.  In the video Louis explains FUTO's reason behind the
+custom license, and while I do agree with their reason, I strong disagree with
+their method.  In this post I will explain what Open Source means, how Grayjay
 does not meet the criteria, why this is an issue, and how it can be solved.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/10/18/grayjay-is-not-open-source/</guid><pubdate>Wed, 18 Oct 2023 02:00:00 +0200</pubdate><category>open-source</category></item><item><title>Free Software is necessary but not sufficient</title><link>https://hiphish.github.io/blog/2023/09/29/free-software-is-necessary-but-not-sufficient/</link><description>Recently Unity announced changes to their pricing model (archive) which
 have been very poorly received by their users, to put it gently.  They have
 since backtracked (archive2) somewhat, but at this point it would not
