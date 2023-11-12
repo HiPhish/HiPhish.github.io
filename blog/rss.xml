@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Tue, 24 Oct 2023 18:21:06 +0200</lastbuilddate><item><title>Grayjay is not Open Source</title><link>https://hiphish.github.io/blog/2023/10/18/grayjay-is-not-open-source/</link><description>Today FUTO released an application called Grayjay for Android-based mobile
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and rablings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastbuilddate>Sun, 12 Nov 2023 12:16:29 +0100</lastbuilddate><item><title>Big change to rainbow-delimiters.nvim</title><link>https://hiphish.github.io/blog/2023/11/12/big-change-to-rainbow-delimiters-nvim/</link><description>No, not another rewrite.  Much better than that: the long-standing ugliness of
+highlighting being limited to only one node at a time has been fixed.
+Previously only one opening node and one closing node could be highlighted.
+This was perfectly adequate for most languages where you have one opening
+parenthesis and one closing parenthesis.  However, consider HTML: we want to
+highlight the opening and closing tag, but if we highlight the entire top-level
+node we also highlight the attributes of the tag, which looks too vibrant.  The
+alternative was highlighting the tag name, but this left the angle brackets
+without highlighting, which looked jarring as well.</description><guid ispermalink="true">https://hiphish.github.io/blog/2023/11/12/big-change-to-rainbow-delimiters-nvim/</guid><pubdate>Sun, 12 Nov 2023 01:00:00 +0100</pubdate><category>vim</category></item><item><title>Grayjay is not Open Source</title><link>https://hiphish.github.io/blog/2023/10/18/grayjay-is-not-open-source/</link><description>Today FUTO released an application called Grayjay for Android-based mobile
 phones.  Louis Rossmann introduced the application in a video (YouTube
 link).  Grayjay as an application
 is very promising, but there is one point I take issue with: Grayjay is not an
