@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2024</a></li><li class=""><a href="../../">01</a></li><li class="active">29</li><li class="active">testing-neovim-plugins-with-busted</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Testing Neovim plugins with Busted" rel="bookmark">Testing Neovim plugins with Busted</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2024-01-29">2024-01-29</time></p><p class="blog-post-category">categories: <a href="../../../../categories/vim/">vim</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/neovim/">neovim</a>, <a href="../../../../tags/lua/">lua</a></p></header><p>The most annoying part about writing plugins for Neovim has been the lack of a
+good test framework.  There are a couple of frameworks, and <a href="https://github.com/junegunn/vader.vim">Vader</a> has been my
+favourite so far, but they all have their downsides.  This made me wonder: why
+limit myself to Vim/Neovim test frameworks?  We have a full Lua runtime, and
+other people already have solved the testing problem for Lua.  <a href="https://lunarmodules.github.io/busted/">Busted</a> does
+90% of what we need, so let's fill in the remaining 10%.  The following is
+based on my experience with adding tests to <a href="https://gitlab.com/HiPhish/rainbow-delimiters.nvim">rainbow-delimiters.nvim</a>.</p><h2 id="Requirements">Requirements</h2><p>The following requirements must be met:</p><ul><li><p>Tests must be run inside Neovim</p></li><li><p>Each test must run inside its own Neovim process</p></li><li><p>The user's own configuration and plugins must not be interfere with the test</p></li><li><p>CI friendly: tests results are printed to the standard output and the exit
+code indicates success or failure</p></li></ul><p>Testing Neovim plugins is tricky because of Lua's nature as an embedded
+language.  Normally we don't write standalone Lua scripts (although we could if
+we want to), instead we run our scripts from inside another application which
+embeds a Lua interpreter.  This is very similar to how Javascript can be
+embedded both inside a web browser and inside an interpreter like Node.js. This
+similarity will be relevant later when we discuss functional tests.</p><h2 id="Preparation">Preparation</h2><h3 id="Neovim as a Lua interpreter">Neovim as a Lua interpreter</h3><p>Our tests will be using Neovim's Lua API, so we need to find a way to run the
+test code inside Neovim.  Version 0.9 added the <code>-l</code> command-line flag which
+does exactly that: Neovim will run as a Lua interpreter and any arguments past
+<code>-l</code> are treated as arguments to the interpreter.  The first argument is the
+script, subsequent arguments are command-line arguments to the script.</p><p>We will write a small command-line adapter which exposes the same command-line
+interface as the standalone Lua interpreter.  These types of thin adapters are
+called “shims”.  Let's create a file named <code>test/nvim-shim</code>.</p><pre><code>#!/bin/sh
+
+nvim -l $@
+</code></pre><p>The <code>$@</code> causes any arguments to the shim to be spliced into the line.  This
+shim is all we need to run scripts, but we will have to revisit it a couple
+more times to address our other requirements.</p><h3 id="Isolation from the user's own configuration">Isolation from the user's own configuration</h3><p>I do not want my own configuration and plugins to interfere with testing.
+There might be some setting which could obscure a bug, or different people's
+setting could produce different test results.  Fortunately Neovim follows the
+<a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory</a> specification, so all we have to do is set the
+corresponding environment variables in our shim.</p><pre><code>#!/bin/sh
+
+export XDG_CONFIG_HOME='test/xdg/config/'
+export XDG_STATE_HOME='test/xdg/local/state/'
+export XDG_DATA_HOME='test/xdg/local/share/'
+
+nvim -l $@
+</code></pre><p>With this our configuration will be entirely contained inside the <code>test/xdg</code>
+directory.  The path does not matter, you can use some other value instead.</p><h3 id="Dependencies">Dependencies</h3><p>At the very minimum there will be one dependency: the plugin itself.
+Furthermore, if our plugin depends on some other plugin we have to include it
+as well.  Since all tests are running in an isolated environment we cannot rely
+on our standard paths, we have to use <code>test/xdg</code> instead.</p><p>Let's create a directory <code>test/xdg/local/share/nvim/site/pack/testing/start</code>
+(<code>testing</code> is an arbitrary name) and place all dependencies there.  This path
+will be searched for plugins automatically, there is no need for a package
+manager.</p><h4>Referencing the plugin itself</h4><p>We can create a symlink to the plugin itself.  The name of the symlink is
+arbitrary.</p><pre><code>cd test/xdg/local/share/nvim/site/pack/testing/start/
+ln -l ../../../../../../../../../ rainbow-delimiters
+</code></pre><p>As an aside, if you are using the <a href="https://luals.github.io/">Lua Language Server</a> you should set it up to
+ignore the symlink directory, or else the language server will run in circles
+when analysing the project.  Personally I just ignore all of <code>test/xdg</code>.</p><h4>3rd party dependencies</h4><p>Other plugins can be added as Git submodules.  Let's say that our plugin
+depends on <a href="https://github.com/nvim-treesitter/nvim-treesitter">nvim-treesitter</a>.</p><pre><code>url=https://github.com/nvim-treesitter/nvim-treesitter
+path=test/xdg/local/share/nvim/site/pack/testing/start/nvim-treesitter
+
+git submodule add ${url} ${path}
+</code></pre><p>Git submodules have the added advantage that we can nail down the specific
+version we are testing against.</p><h4>Local configuration</h4><p>We might need custom configuration in our isolated test environment.  Maybe we
+want to configure a 3rd-party plugin, or maybe we want to add additional
+functions and commands which do not belong into the plugin.  Custom
+configuration can be added to <code>test/xdg/config/nvim</code>.  In my case I have this
+helper function:</p><pre><code>-- File plugin/ts-ensure.lua
+
+local parser_pattern = 'parser/%s.*'
+
+---Wrapper around the `:TSinstallSync` command which will only install a parser
+---if it is not installed yet
+function TSEnsure(lang, ...)
+    for _, l in ipairs({lang, ...}) do
+        local parsers = vim.api.nvim_get_runtime_file(parser_pattern:format(l), true)
+        if #parsers == 0 then
+            vim.cmd {cmd = 'TSInstallSync', args = {l}}
+        end
+    end
+end
+</code></pre><p>I can then call this function in my functional tests (more on those later) to
+make sure the corresponding parser is installed within the isolated test
+environment.</p><h3 id="Loading plugins into the shim">Loading plugins into the shim</h3><p>Unfortunately merely making plugins visible is not enough when using the <code>-l</code>
+flag.  The manual entry for <code>:h -l</code> says:</p><blockquote><p>Disables plugins unless 'loadplugins' was set.</p></blockquote><p>Let's update the shim one more time</p><pre><code>#!/bin/sh
+
+export XDG_CONFIG_HOME='test/xdg/config/'
+export XDG_STATE_HOME='test/xdg/local/state/'
+export XDG_DATA_HOME='test/xdg/local/share/'
+
+nvim --cmd 'set loadplugins' -l $@
+</code></pre><p>It is important to use <code>--cmd</code> instead of <code>-c</code> because the command needs to be
+executed before configuration is read.  This is the final shim, we can now
+instruct Busted to use the shim as the interpreter.  Make sure the shim is
+executable.</p><h3 id="Configure Busted">Configure Busted</h3><p>As per the Busted help text we can pass the path to a Lua interpreter to the
+<code>--lua</code> command-line option, and the manual says that we can use a Lua file
+called <code>.busted</code> to specify options.  Let's create this file at the root of the
+plugin.</p><pre><code>return {
+    _all = {
+        lua = './test/nvim-shim'
+    },
+}
+</code></pre><p>With this our preparations are done and we can start writing tests.</p><h2 id="Writing tests">Writing tests</h2><p>For our purpose there are two types of tests: unit tests and functional tests.</p><h3 id="Unit tests">Unit tests</h3><p>A unit test tests a small unit of code (like a Lua module) in isolation.  It
+does not depend on or affect global state.  In a text editor there won't be
+many such units because the entire point of the plugin is to modify the state
+of the text editor.  Nevertheless, there usually will be some module that can
+be tested in isolation.  In Rainbow Delimiters there is an implementation of a
+stack data structure, so let's test that.</p><p>All my unit tests live in <code>test/unit</code> and by convention tests end in
+<code>_spec.lua</code>.  In Busted it is common to place tests next to the source code,
+but I prefer to keep them out of Neovim's search directories (see <code>:h 'rtp'</code>).
+First we need to update the <code>.busted</code> file; Busted has the notion of “tasks”,
+which are groups of tests, so let's create a new task called <code>unit</code>.</p><pre><code>return {
+    _all = {
+        lua = './test/nvim-shim'
+    },
+    unit = {
+        ROOT = {'./test/unit/'},
+    },
+}
+</code></pre><p>Now we can write our first test.  Create a new file named
+<code>test/unit/stack_spec.lua</code> with the following content:</p><pre><code>local Stack = require 'rainbow-delimiters.stack'
+
+describe('The stack data structure', function()
+    describe('The empty stack', function()
+        local stack
+
+        before_each(function() stack = Stack.new() end)
+
+        it('Can instantiate an empty stack', function()
+            assert.is_not._nil(stack)
+        end)
+
+        it('Is empty', function()
+            assert.is.equal(0, stack:size())
+        end)
+
+        it('Can push items onto the stack', function ()
+            stack:push('a')
+            stack:push('b')
+            assert.is.equal(2, stack:size())
+        end)
+    end)
+end)
+</code></pre><p>I won't go into details on how to write tests in Busted, you can read the
+manual for that.  The interesting part is that this test will run inside
+Neovim, we have access to the entire Neovim library and all plugins which exist
+in our isolated environment.</p><p>To run the test we call Busted as usual and instruct it to run the <code>unit</code> task.
+I have installed Busted via <a href="https://luarocks.org/">LuaRocks</a>, so I run the following from the shell:</p><pre><code>eval $(luarocks path --lua-version 5.1 --bin) &amp;&amp; busted --run unit
+</code></pre><p>For convenience I use a makefile, but you can also run the command from the
+shell manually.  Note that I set the Lua version to 5.1 because that is the Lua
+version Neovim uses.</p><h3 id="Functional tests">Functional tests</h3><p>Here is where it gets interesting.  A functional test tests the behaviour of
+the entire plugin, how it reacts to the editor state and how it affects it.
+Unlike unit tests, this does involve mutation of the global state, so it is
+important that each tests runs in its own process.  But all our tests run
+inside the same Busted process, so what do we do?  Have a separate Busted
+task for each individual test?</p><p>Let's take a step back.  Lua is not unique, there are other embedded languages,
+so someone probably already has solved the problem and we can copy the
+solution.  Javascript is also an embedded languages and it powers massive
+applications (for better or worse), and these applications need testing as
+well.</p><p>Javascript web applications can be tested using a framework like <a href="https://www.selenium.dev/">Selenium</a>.
+Selenium lets us control a web browser through scripting and lets us probe the
+state of the page.  That's it, that is all Selenium does, it is up to use to
+decide what to do with this power.  A test can be written in Javascript using a
+framework like <a href="https://jestjs.io/">Jest</a>, but it does not have to.  What matters is that the test
+can now control the browser, which runs the actual web application, and that
+the test can probe the browser to figure out whether the right thing has
+happened.</p><p>Fortunately we do not need a massive framework like Selenium, Neovim already
+provides everything we need out of the box:</p><ul><li><p>Start a new embedded Neovim process</p></li><li><p>Control it through the Neovim API (<code>:h API</code>) over RPC</p></li></ul><p>Let's write a simple functional test.</p><pre><code>local jobopts = {rpc = true, width = 80, height = 24}
+
+describe('Math in Vim script', function()
+    local nvim  -- Channel of the embedded Neovim process
+
+    before_each(function()
+        -- Start a new Neovim process
+        nvim = vim.fn.jobstart({'nvim', '--embed', '--headless'}, jobopts)
+    end)
+
+    after_each(function()
+        -- Terminate the Neovim process
+        vim.fn.jobstop(nvim)
+    end)
+
+    it('Can add up two numbers', function()
+        local result = rpcrequest(nvim, 'nvim_eval', '2 + 3')
+        assert.is.equal(5, result)
+    end)
+
+    it('Sets a buffer file type', function()
+        rpcrequest(nvim, 'nvim_buf_set_option', 0, 'filetype', 'lua')
+        local result = rpcrequest(nvim, 'nvim_eval', '&amp;filetype')
+        assert.is.equal('lua', result)
+    end)
+
+    it('Creates new buffers with empty file type', function()
+        local result = rpcrequest(nvim, 'nvim_eval', '&amp;filetype')
+        assert.is.equal('', result)
+    end)
+end)
+</code></pre><p>There are a couple of things to note here:</p><ul><li><p>We start Neovim with <code>--embed</code> and <code>--headless</code>; this makes Neovim run
+without a TUI and with its standard IO expecting RPC messages</p></li><li><p>We use <code>rpcsend</code> to communicate with the embedded Neovim process remotely</p></li><li><p>The third test is unaffected by the file type setting of the previous test</p></li><li><p>We need to declare the variable <code>neovim</code> outside of our tests due to Lua's
+scoping rules, but the value of the variable is assigned anew for each test</p></li><li><p>We cannot confirm the state of the embedded Neovim directly, we first have to
+query it for a value and then compare the given result to the expected value</p></li></ul><p>To run functional tests we define a new Busted task:</p><pre><code>return {
+    _all = {
+        lua = './test/nvim-shim'
+    },
+    unit = {
+        ROOT = {'./test/unit/'},
+    },
+    functional = {
+        ROOT = {'./test/e2e/'},
+        pattern = '',  -- No fancy names for E2E tests
+    },
+}
+</code></pre><p>While I was at it I also removed file any pattern restrictions.  Functional
+test are run the same way as unit tests.</p><pre><code>eval $(luarocks path --lua-version 5.1 --bin) &amp;&amp; busted --run functional
+</code></pre><p>As far as Busted is concerned there is nothing special about these tests.  We
+are calling regular Lua functions; that these functions start a new process is
+irrelevant.  In fact, we could have written functional tests in any language we
+want, it just made the most sense to use Lua where we get all the low-level
+technical details of the RPC protocol implemented for free from Neovim.</p><h2 id="Conclusion">Conclusion</h2><p>Instead of writing a new test framework we were able to leverage what we
+already have and only write a relatively small amount of glue code to fill in
+the gaps between the individual pieces.  This was only possible because Neovim
+gives us all the tools we need:</p><ul><li><p>The <code>-l</code> flag to use it as a Lua interpreter</p></li><li><p>The ability to embed a headless instance</p></li><li><p>The RPC API</p></li><li><p>Following the XDG Base Directory specification</p></li></ul><p>The key insight is that the Neovim instance running the test does not have to
+be the same Neovim instance which is being tested.  Instead we control a new
+Neovim instance, similar to what the Selenium framework does with web browsers.</p><h3 id="Bonus: an RPC plugin?">Bonus: an RPC plugin?</h3><p>Writing <code>rpcrequest(nvim, 'nvim_...', ...)</code> for every single request gets
+tedious and noisy very quickly.  I know I said we do not need a massive
+framework like Selenium, but it would be nice to have some sort of RPC plugin
+which cuts down on the boilerplate.  Something like this:</p><pre><code>local wrapper = require 'my-hypothetical-plugin'
+
+describe('Math in Vim script', function()
+    local nvim  -- Channel of the embedded Neovim process
+
+    before_each(function()
+        nvim = wrapper.new()
+    end)
+
+    after_each(function()
+        wrapper.stop(nvim)
+    end)
+
+    it('Can add up two numbers', function()
+        local result = nvim:eval('2 + 3')
+        assert.is.equal(5, result)
+    end)
+
+    it('Sets a buffer file type', function()
+        nvim:buf_set_option(0, 'filetype', 'lua')
+        local result = nvim:eval('&amp;filetype')
+        assert.is.equal('lua', result)
+    end)
+
+    it('Creates new buffers with empty file type', function()
+        local result = nvim:eval('&amp;filetype')
+        assert.is.equal('', result)
+    end)
+end)
+</code></pre><p>I am not promising anything here, this is just me throwing out an idea.</p><h3 id="Bonus: a little trivia">Bonus: a little trivia</h3><p>Selenium is the name of a <a href="https://en.wikipedia.org/wiki/Selenium">chemical element</a>, it is derived from the Greek word
+σελήνη (selene), which means “moon”, which is “lua” in Portuguese.  Is this a
+cute little coincidence, or could there be some deeper meaning behind it?</p></article><nav class="blog-pager"><a href="/blog/2023/12/24/rainbow-delimiters-0.3.0-released/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Rainbow-delimiters.nvim version 0.3.0 released</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2024/">2024 (1)</a></li><li><a href="/blog/2023/">2023 (11)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (19)</a></li><li><a href="/blog/categories/open-source/">open-source (24)</a></li><li><a href="/blog/categories/organisation/">organisation (14)</a></li><li><a href="/blog/categories/vim/">vim (18)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (18)</a></li><li><a href="/blog/tags/rant/">rant (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/lua/">lua (4)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/games/">games (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/neovim/">neovim (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li><li><a href="/blog/tags/unity3d/">unity3d (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

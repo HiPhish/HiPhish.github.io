@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Mon, 25 Dec 2023 01:46:40 +0100</lastBuildDate><item><title>Rainbow-delimiters.nvim version 0.3.0 released</title><link>https://hiphish.github.io/blog/2023/12/24/rainbow-delimiters-0.3.0-released/</link><description>I have just published version 0.3.0 of rainbow-delimiters.nvim (GitHub
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Mon, 29 Jan 2024 23:25:13 +0100</lastBuildDate><item><title>Testing Neovim plugins with Busted</title><link>https://hiphish.github.io/blog/2024/01/29/testing-neovim-plugins-with-busted/</link><description>The most annoying part about writing plugins for Neovim has been the lack of a
+good test framework.  There are a couple of frameworks, and Vader has been my
+favourite so far, but they all have their downsides.  This made me wonder: why
+limit myself to Vim/Neovim test frameworks?  We have a full Lua runtime, and
+other people already have solved the testing problem for Lua.  Busted does
+90% of what we need, so let's fill in the remaining 10%.  The following is
+based on my experience with adding tests to rainbow-delimiters.nvim.</description><guid isPermaLink="true">https://hiphish.github.io/blog/2024/01/29/testing-neovim-plugins-with-busted/</guid><pubDate>Mon, 29 Jan 2024 01:00:00 +0100</pubDate><category>vim</category></item><item><title>Rainbow-delimiters.nvim version 0.3.0 released</title><link>https://hiphish.github.io/blog/2023/12/24/rainbow-delimiters-0.3.0-released/</link><description>I have just published version 0.3.0 of rainbow-delimiters.nvim (GitHub
 mirror).  This update brings in a number of the usual improvements to to
 queries and strategies, but more importantly it also makes configuration at
 runtime more flexible, but most importantly in light of the current date it
