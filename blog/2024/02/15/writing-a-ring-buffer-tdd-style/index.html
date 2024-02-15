@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2024</a></li><li class=""><a href="../../">02</a></li><li class="active">15</li><li class="active">writing-a-ring-buffer-tdd-style</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Writing a ring buffer TDD style" rel="bookmark">Writing a ring buffer TDD style</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2024-02-15">2024-02-15</time></p><p class="blog-post-category">categories: <a href="../../../../categories/misc/">misc</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/python/">python</a></p></header><p>Let's write a <a href="https://en.wikipedia.org/wiki/Circular_buffer">ring buffer</a> in Python!  OK, that's not particularly exciting.
+Let's use <a href="https://en.wikipedia.org/wiki/Test-driven_development">test-drivent development</a>, that should make things a bit more
+interesting.  In this blog post I will go over the individual steps and my
+train of thought, because TDD requires a certain discipline and mindset. Why a
+ring buffer?  A ring buffer is not quite trivial to implement because it has a
+couple of edge cases, but at the same time it is not hard to implement either.
+This is a post to follow along at home, so grab your text editor and let's get
+going.</p><h2 id="Before we start">Before we start</h2><p>First we need to establish some common ground.</p><h3 id="Test-driven development">Test-driven development</h3><p>Automated tests are good, especially when they come at different levels of
+granularity, we can all agree on this. At least that's what you would think,
+but there are still some people who haven't gotten the memo.  Anyway, moving
+on. What's so special about TDD that it deserves its own fancy name over just
+plain regular testing?</p><p>In TDD we do not just write tests along with or after our implementation code,
+instead tests are at the forefront.  We first write the test, then we write the
+application.  But wait, if we test something that does not yet exist, then the
+test cannot work, right? Right!  And that's the key insight: we write the
+smallest possible test case first, implement just that case and only once we
+got this simple case working do we move on.  Given an expected specification we
+perform the following steps in order:</p><ol><li><p>Write an automated test which will test exactly one part of the specification</p></li><li><p>Run all tests, only our new test should fail</p></li><li><p>Write the simplest possible implementation to get the test to pass; the code
+is allowed to be ugly and bad</p></li><li><p>Run all tests, they should all pass now</p></li><li><p>Clean up and refactor the implementation code, all tests must still pass</p></li><li><p>Start the cycle all over again with the next part of the specification</p></li></ol><p>By writing a failing test first we ensure that the test is actually testing the
+right thing.  When we perform this back-and-forth dance between test and
+implementation we make sure that we only test what we implement and that
+everything we implement has a corresponding test.  When we write tests after
+the fact we risk writing tests which would succeed when they should fail
+because they do not actually cover what we think they cover.</p><h3 id="Ring buffers">Ring buffers</h3><p>A ring buffer or circular buffer is a fixed-size sequence of memory to which we
+can append items indefinitely.  If the buffer is full, then adding a new item
+will overwrite the oldest item, hence why it is called “circular”.  The buffer
+may be initially empty and it has a fixed capacity.  This capacity may or may
+not change, depending on how we choose to implement it.</p><p>Here is what a simple protocol definition in Python would look like:</p><pre><code>from typing import TypeVar
+T = TypeVar('T')
+
+
+class RingBuffer[T]:
+    &quot;&quot;&quot;Generic ring buffer which holds up to a fixed number of items.&quot;&quot;&quot;
+
+    def __init__(self, capacity: int, *items: T):
+        ...
+
+    def __getitem__(self, i: int):
+        ...
+
+    def __iter__(self):
+        ...
+
+    def __len__(self):
+        ...
+
+    def push(self, item: T) -&gt; None:
+        &quot;&quot;&quot;
+        Append a new item to the buffer, potentially overwriting the oldest
+        item if the buffer is already full.  If the buffer is full, all indices
+        will shift by one, i.e. the second element is considered the first one,
+        and so on.
+        &quot;&quot;&quot;
+        ...
+</code></pre><p>We initialise the buffer with a given capacity and optionally an arbitrary
+number of initial items.  We can push a new item to the buffer, we can get an
+item at a given index, we can get the length of the buffer with the standard
+<code>len</code> function and we can iterate over the buffer.</p><pre><code># Instantiate a new buffer with a capacity of five and three initial items
+buffer = RingBuffer(5, 'a', 'b', 'c')
+
+# We can index the buffer like a list
+assert 'a' == buffer[0]
+assert 'b' == buffer[1]
+assert 'c' == buffer[2]
+
+# We can even use negative indices
+assert 'a' == buffer[-3]
+assert 'b' == buffer[-2]
+assert 'c' == buffer[-1]
+
+# We can push new items to the end of the buffer
+buffer.push('d')
+buffer.push('e')
+
+assert 'd' == buffer[3]
+assert 'e' == buffer[4]
+
+# Pushing a new item to a full buffer shifts the indices by one
+buffer.push('f')
+assert 'b' == buffer[0]  # Used to be 'a'
+assert 'c' == buffer[1]  # Used to be 'b'
+assert 'd' == buffer[2]  # Used to be 'c'
+assert 'e' == buffer[3]  # Used to be 'd'
+assert 'f' == buffer[4]  # Used to be 'e'
+
+# We can iterate over the items from oldest to newest
+for c in buffer:
+    print(c)
+</code></pre><p>This will serve as our specification.  There are a couple of missing details
+like which exceptions to raise in case of an error, but I want to keep it
+compact here.  We will cover these as we go along.  Just be aware that a proper
+specification needs to cover edge cases as well, not just the happy path.</p><h2 id="The dance">The dance</h2><p>With the formalities done it is finally time to get coding.  For the remainder
+of this article I will assume that you are reasonably familiar with Python and
+its tooling.  I will be using type annotations because they are great, but if
+you don't like them just ignore them.  For something this simple you don't
+really need type annotations.</p><p>The test framework is <a href="https://docs.pytest.org/en/6.2.x/">Pytest</a>. I could have used the standard unit test
+library, but Pytest is just such a joy to use.  The tests are much cleaner and
+much more readable.  Don't worry, I won't be using much Pytest magic, so even
+if you are not familiar with Pytest you should be able to follow along.</p><h3 id="Setup">Setup</h3><p>I have set up a virtual environment with the following file structure:</p><pre><code>.
+├── ring_buffer
+│   ├── __init__.py
+└── test
+    ├── __init__.py
+    ├── conftest.py
+    └── test_ring_buffer.py
+</code></pre><p>The purposes of the files are as follows</p><ul><li><p><code>ring_buffer/__init__.py</code> contains the ring buffer implementation</p></li><li><p><code>test/conftest.py</code> contains fixtures (a Pytest feature)</p></li><li><p><code>test/test_ring_buffer.py</code> contains the actual tests</p></li></ul><p>All files are initially empty.  To run tests execute <code>pytest</code> or <code>python -m pytest</code> from the command line in the root directory of the project.</p><h3 id="Implementation">Implementation</h3><p>Before we go you might want to take Pytest for spin.  Add this trivial test to
+<code>test/test_ring_buffer.py</code></p><pre><code>def test_tautology():
+    &quot;&quot;&quot;A test which will always succeed&quot;&quot;&quot;
+    assert True
+</code></pre><p>Run the tests.  If you get an error your setup is wrong.  Get it working before
+you continue.  If everything works you can delete this test.</p><h4>Instantiating a buffer</h4><p>The simplest thing we can test is instantiating a ring buffer.  So let's go
+ahead and write a test which does nothing but create a new empty buffer.</p><pre><code>from ring_buffer import RingBuffer
+
+
+def test_instantiate_empty_ring_buffer():
+    RingBuffer(3)
+</code></pre><p>Well, this will obviously not work, we cannot instantiate a class which we have
+not yet defined.  That's OK though, failure to compile (or to run in the case
+of Python) counts as a failing test.  We can now implement the most basic class
+definition.</p><pre><code>from typing import TypeVar
+T = TypeVar('T')
+
+
+class RingBuffer[T]:
+
+    def __init__(self, capacity: int):
+        pass
+</code></pre><p>Yes, that's all there is.  Remember, we only want the test to pass, nothing
+more.  The test does not cover any properties or methods of our buffer, so we
+do not implement them yet.</p><p>The specification says that we need to be able to pass any number of initial
+elements as well.  Add a second test.</p><pre><code>def test_instantiate_ring_buffer_with_contents():
+    RingBuffer(3, 'a', 'b')
+</code></pre><p>This test will fail because the <code>__init__</code> method only takes one argument (the
+capacity).  We need to extend the signature.  I will omit parts which have not
+changed in the implementation from now on.</p><pre><code>class RingBuffer[T]:
+    def __init__(self, capacity: int, *items: T):
+        pass
+</code></pre><p>Now both tests will pass.  Note that because we still have the old test we can
+be certain that instantiating without initial elements still works.  If we had
+forgotten to put the asterisk in front of <code>items</code> the test would have caught
+the typo for us.</p><p>What happens if we pass more initial elements than our buffer can hold?  There
+are a number of possibilities, like ignoring the surplus or dropping earlier
+elements, but I am opting for a simple solution: raise an exception.  There is
+no correct answer here, it's more of a philosophical question, what matters is
+that we pick one answer an stick to it.  You know the drill: write a new test.</p><pre><code>def test_rejects_initial_overflow():
+    with pytest.raises(IndexError):
+        RingBuffer(3, 'a', 'b', 'c', 'd')
+</code></pre><p>This test will fail because no exception was raised.  It is now time to add the
+first bit of logic to <code>__init__</code>.</p><pre><code>class RingBuffer[T]:
+    def __init__(self, capacity: int, *items: T):
+        if len(items) &gt; capacity:
+            raise IndexError(f'Too many items: {len(items)} &gt; {capacity}')
+        pass
+</code></pre><p>Three tests in and this is all we have to show for.  Not very encouraging, is
+it. This might all seem like stupid busy-work, any beginner could have written
+a complete and correct implementation of <code>__init__</code> in one go by now.  And I do
+agree, but our class will be doing more than just <code>__init__</code> and we will be
+glad to have a trail of tests to cover our implementation once we get to the
+meat of it.</p><h4>Some fixtures</h4><p>Now that we do know that we can instantiate a buffer we can start testing these
+instances.  Because we will need to create a new buffer for each test I am
+going to define some Pytest fixtures.  Add the following code to
+<code>test/conftest.py</code>:</p><pre><code>import pytest
+from ring_buffer import RingBuffer
+
+
+@pytest.fixture
+def ring_buffer() -&gt; RingBuffer:
+    &quot;&quot;&quot;Provides a three-element ring buffer with a capacity of five.&quot;&quot;&quot;
+    return RingBuffer(5, 'a', 'b', 'c')
+
+
+@pytest.fixture
+def empty_buffer() -&gt; RingBuffer:
+    &quot;&quot;&quot;Provides an empty ring buffer with a capacity of five.&quot;&quot;&quot;
+    return RingBuffer(5)
+
+
+@pytest.fixture
+def full_buffer() -&gt; RingBuffer:
+    &quot;&quot;&quot;Provides a fully occupied ring buffer with a capacity of five.&quot;&quot;&quot;
+    return RingBuffer(5, 'a', 'b', 'c', 'd', 'e')
+</code></pre><p><a href="https://docs.pytest.org/en/6.2.x/fixture.html#fixture">Fixtures</a> are one of those magic Pytest features.  If a test has a parameter
+with the same name as a function decorated by <code>pytest.fixture</code> Pytest will call
+the fixture function and inject the return value as a dependency into the test.
+This allows us to declare a test like this:</p><pre><code>def test_length_of_empty(empty_buffer: RingBuffer):
+    assert 0 == len(empty_buffer)
+</code></pre><h4>Indexing the buffer</h4><p>After we have initialised a buffer we want to index it like a list.  For
+consistency we want negative indices to work the same way as in lists.</p><pre><code>@pytest.mark.parametrize('c,i', [('a', 0), ('b', 1), ('c', 2), ('a', -3), ('b', -2), ('c', -1)])
+def test_get_item(ring_buffer: RingBuffer, c: str, i: int):
+    assert c == ring_buffer[i]
+</code></pre><p>Here we use another Pytest feature: <a href="https://docs.pytest.org/en/6.2.x/fixture.html#fixture">parametrized test functions</a>.  This lets
+us write several variations of the same test.  Each of these is run
+individually. If we had used a loop inside the test, the test would have
+aborted at the first failed assertion and we would have no feedback on whether
+the other assertions would have passed.</p><p>The first failure we get is the fact that <code>RingBuffer</code> instances are not
+indexable.  Remember, failure to compile (or to type check in this case) is a
+test failure. We can add a <code>_getitem__</code> method to our ring buffer.</p><pre><code>class RingBuffer[T]:
+    def __getitem__(self, i: int):
+        pass
+</code></pre><p>This will at least shut the type checker up, but it won't return the correct
+item.  How could it?  We have never stored the items in the buffer to begin
+with.  Now is the time to implement data storage.</p><pre><code>class RingBuffer[T]:
+    def __init__(self, capacity: int, *items: T):
+        if len(items) &gt; capacity:
+            raise IndexError(f'Too many items: {len(items)} &gt; {capacity}')
+        # The buffer storage is backed by a list
+        self._items = [item for item in items]
+
+    def __getitem__(self, i: int):
+        return self._items[i]
+</code></pre><p>With the happy path done we can try the edge cases.  What happens if our index
+is out of bounds?</p><pre><code>@pytest.mark.parametrize('i', [3, -4])
+def test_raise_out_of_bounds_error(ring_buffer: RingBuffer, i: int):
+    with pytest.raises(IndexError):
+        ring_buffer[i]
+
+@pytest.mark.parametrize('i', [5, -6])
+def test_get_outside_bounds_full(full_buffer: RingBuffer, i: int):
+    with pytest.raises(IndexError):
+        full_buffer[i]
+</code></pre><p>Oops, looks like these tests passed out of the box.  It turns out we got this
+behaviour for free in our implementation.  There is not much we can do, so
+let's move on.</p><h4>Pushing items to the buffer</h4><p>Now that we can store and retrieve items it is time add new items to the
+buffer.  The simplest case is pushing items to a buffer which is not yet full.</p><pre><code>def test_pushes_to_nonfull_buffer(ring_buffer: RingBuffer):
+    ring_buffer.push('d')
+</code></pre><p>This will fail because there is no <code>push</code> method, so we define it.</p><pre><code>class RingBuffer[T]:
+    def push(self, item: T) -&gt; None:
+        pass
+</code></pre><p>We need to verify that the item is actually in the buffer now.</p><pre><code>def test_pushes_to_nonfull_buffer(ring_buffer: RingBuffer):
+    ring_buffer.push('d')
+    assert 'd' == ring_buffer[3]
+</code></pre><p>The simplest implementation is to append it to the list of items.  You might
+already see the problem: if the buffer is full we will go beyond its capacity.
+We will take care of this issue later when we get to it, for now we choose the
+simplest implementation for our <em>current</em> needs.</p><pre><code>class RingBuffer[T]:
+    def push(self, item: T) -&gt; None:
+        self._items.append(item)
+</code></pre><p>Now we define a separate test case for pushing to a full buffer.  The second
+item becomes the first, the third item becomes the second, and so on until the
+new item becomes the last one.  The previous first item is dropped.</p><pre><code>@pytest.mark.parametrize('c,i', [('b', 0), ('c', 1), ('d', 2), ('e', 3), ('f', 4)])
+def test_push_one_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    assert c == full_buffer[i]
+</code></pre><p>We need to adjust our ring buffer implementation to store the capacity and a
+“head” which points to the current first item in the list.  Whenever we add a
+new item the head moves forward by one.</p><pre><code>class RingBuffer[T]:
+    def __init__(self, capacity: int, *items: T):
+        if len(items) &gt; capacity:
+            raise IndexError(f'Too many items: {len(items)} &gt; {capacity}')
+        self._items = [item for item in items]
+        self._capacity = capacity
+        self._head = 0
+
+    def __getitem__(self, i: int):
+        if i &gt;= self._capacity or i &lt; -self._capacity:
+            raise IndexError(f'Out of bounds: {i} &gt; {self._capacity}')
+        if i &lt; 0:
+            i = len(self._items) + i
+        i = (self._head + i) % self._capacity
+        return self._items[i]
+
+    def push(self, item: T) -&gt; None:
+        if self._capacity &gt; len(self._items):
+            self._items.append(item)
+            return
+        self._items[self._head] = item
+        self._head = (self._head + 1) % self._capacity
+</code></pre><p>As long as the buffer is not yet full we can keep adding to it.  Once it is
+full we have to overwrite the entry pointed to by <code>_head</code> and increment it by
+one.  We also take the result modulo the capacity to roll over once we reach
+the end of the buffer.  The same now goes for getting an item by index.</p><p>Note that we now have to handle out of bounds explicitly!  Previously we were
+getting this for free, but because our <code>i</code> now rolls over we have to check
+ourselves.  Fortunately we already had a test case written, so the regression
+got caught in time.</p><p>Let's go ahead and add a few more items to the full buffer until we have rolled
+over twice.</p><pre><code>@pytest.mark.parametrize('c,i', [('c', 0), ('d', 1), ('e', 2), ('f', 3), ('g', 4),])
+def test_push_two_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    full_buffer.push('g')
+    assert c == full_buffer[i]
+
+
+@pytest.mark.parametrize('c,i', [('d', 0), ('e', 1), ('f', 2), ('g', 3), ('h', 4)])
+def test_push_three_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    full_buffer.push('g')
+    full_buffer.push('h')
+    assert c == full_buffer[i]
+
+
+@pytest.mark.parametrize('c,i', [('e', 0), ('f', 1), ('g', 2), ('h', 3), ('i', 4)])
+def test_push_four_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    full_buffer.push('g')
+    full_buffer.push('h')
+    full_buffer.push('i')
+    assert c == full_buffer[i]
+
+
+@pytest.mark.parametrize('c,i', [('f', 0), ('g', 1), ('h', 2), ('i', 3), ('j', 4)])
+def test_push_five_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    full_buffer.push('g')
+    full_buffer.push('h')
+    full_buffer.push('i')
+    full_buffer.push('j')
+    assert c == full_buffer[i]
+
+
+@pytest.mark.parametrize('c,i', [('g', 0), ('h', 1), ('i', 2), ('j', 3), ('k', 4)])
+def test_push_six_to_full_buffer(full_buffer: RingBuffer, c: str, i: int):
+    full_buffer.push('f')
+    full_buffer.push('g')
+    full_buffer.push('h')
+    full_buffer.push('i')
+    full_buffer.push('j')
+    full_buffer.push('k')
+    assert c == full_buffer[i]
+</code></pre><p>Our implementation is good enough that all of these test cases work properly,
+it is just a ring buffer after all.  This is not always a given though.  When I
+originally wrote a ring buffer implementation the last test case was not
+working because the head only rolled over once.  Coming up with enough tests to
+cover all edge cases is a matter of experience and intuition, not a hard
+science.</p><h4>Buffer length</h4><p>The length of a buffer is the number of items it currently holds.  You know the
+drill.</p><pre><code>def test_length_of_empty(empty_buffer: RingBuffer):
+    assert 0 == len(empty_buffer)
+</code></pre><p>Once more, the simplest implementation.</p><pre><code>class RingBuffer[T]:
+    def __len__(self):
+        return 0
+</code></pre><p>Now the same for buffers with actual content.</p><pre><code>def test_length_of_nonempty(ring_buffer: RingBuffer):
+    assert 3 == len(ring_buffer)
+
+
+def test_length_of_full(full_buffer: RingBuffer):
+    assert 5 == len(full_buffer)
+</code></pre><p>Yes, I cheated a bit and added two tests at the same time.  This post already
+large enough, so I am taking some liberty here.</p><pre><code>class RingBuffer[T]:
+    def __len__(self):
+        return len(self._items)
+</code></pre><h4>Iterating over the buffer</h4><p>To make our ring buffer more Pythonic let's make it iterable.</p><pre><code>def test_iterate_over_empty_buffer(empty_buffer: RingBuffer):
+    items = [item for item in empty_buffer]
+    assert [] == items
+</code></pre><p>Iteration requires a separate iterator class.  We will define the simplest
+possible implementation for now that gets the basic test case to pass.</p><pre><code>class RingBuffer[T]:
+    def __iter__(self):
+        return _RingBufferIterator()
+
+
+class _RingBufferIterator:
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        raise StopIteration()
+</code></pre><p>This iterator is stateless, it will terminate immediately, which is good enough
+for an empty buffer.  With the skeleton done we can start adding meat to it for
+non-empty buffers.</p><pre><code>def test_iterate_over_nonempty_buffer(ring_buffer: RingBuffer):
+    items = [item for item in ring_buffer]
+    assert ['a', 'b', 'c'] == items
+</code></pre><p>The iterator has to be made stateful, it needs a reference to the buffer.  This
+means we need an <code>__init__</code> method which takes the current buffer as an
+argument.</p><pre><code>class RingBuffer[T]:
+    def __iter__(self):
+        return _RingBufferIterator(self)
+
+
+class _RingBufferIterator:
+    def __init__(self, buffer: RingBuffer):
+        self._buffer = buffer
+        self._index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        try:
+            self._index += 1
+            return self._buffer._items[self._index - 1]
+        except IndexError:
+            raise StopIteration()
+</code></pre><p>Will this work for a full buffer as well?</p><pre><code>def test_iterate_over_full_buffer(full_buffer: RingBuffer):
+    items = [item for item in full_buffer]
+    assert ['a', 'b', 'c', 'd', 'e'] == items
+</code></pre><p>Unsurprisingly it does.  But wait, does it still work if we push a new item to
+a full buffer?</p><pre><code>def test_iterate_over_buffer_with_shifted_index(full_buffer: RingBuffer):
+    full_buffer.push('f')
+    items = [item for item in full_buffer]
+    assert ['b', 'c', 'd', 'e', 'f'] == items
+</code></pre><p>No it does not because we assume that the first item of the buffer is the first
+item of the backing storage.  We have to fix our iterator implemenation.</p><pre><code>class _RingBufferIterator:
+    def __next__(self):
+        if self._index == self._buffer._capacity:
+            raise StopIteration()
+        try:
+            value = self._buffer[self._index]
+        except IndexError:
+            raise StopIteration()
+        self._index += 1
+        return value
+</code></pre><h3 id="The final implementation">The final implementation</h3><p>Here is the complete implementation code.  Is this the best implementation?
+Maybe, maybe not.  That is not the point, the point is that we now have a
+working implemementation with all the right test cases.  With these tests as
+our safety net we can then proceed to refactor and optimize the code without
+fear of introducing regressions.</p><pre><code>from typing import TypeVar
+T = TypeVar('T')
+
+
+class RingBuffer[T]:
+    &quot;&quot;&quot;Generic ring buffer which holds up to a fixed number of items.&quot;&quot;&quot;
+
+    def __init__(self, capacity: int, *items: T):
+        if len(items) &gt; capacity:
+            raise IndexError(f'Too many items: {len(items)} &gt; {capacity}')
+        self._items = [item for item in items]
+        self._capacity = capacity
+        self._head = 0
+
+    def __getitem__(self, i: int):
+        if i &gt;= self._capacity or i &lt; -self._capacity:
+            raise IndexError(f'Out of bounds: {i} &gt; {self._capacity}')
+        if i &lt; 0:
+            i = len(self._items) + i
+        i = (self._head + i) % self._capacity
+        return self._items[i]
+
+    def __len__(self):
+        return len(self._items)
+
+    def __iter__(self):
+        return _RingBufferIterator(self)
+
+    def push(self, item: T) -&gt; None:
+        &quot;&quot;&quot;
+        Append a new item to the buffer, potentially overwriting the oldest
+        item if the buffer is already full.  If the buffer is full, all indices
+        will shift by one, i.e. the second element is considered the first one,
+        and so on.
+        &quot;&quot;&quot;
+        if self._capacity &gt; len(self._items):
+            self._items.append(item)
+            return
+        self._items[self._head] = item
+        self._head = (self._head + 1) % self._capacity
+
+
+class _RingBufferIterator:
+    &quot;&quot;&quot;Iterator class for ring buffers, internal use only.&quot;&quot;&quot;
+
+    def __init__(self, buffer: RingBuffer):
+        self._buffer = buffer
+        self._index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self._index == self._buffer._capacity:
+            raise StopIteration()
+        try:
+            value = self._buffer[self._index]
+        except IndexError:
+            raise StopIteration()
+        self._index += 1
+        return value
+</code></pre><p>Here are some ideas for where to go from here:</p><ul><li><p>Use some different data structure for the backing storage</p></li><li><p>Validate the <code>capacity</code> value passed to <code>__init__</code></p></li><li><p>Implement slicing the ring buffer</p></li><li><p>Allow changing the capacity of an existing buffer</p></li><li><p>Implement dropping elements from the buffer</p></li></ul><p>With every change we will have our test cases to catch regressions.</p><h2 id="Closing thoughts">Closing thoughts</h2><p>Was all this really necesarry?  Couldn't a good programmer have written a
+correct implementation in one sitting?  Sure, but even the best of programmers
+will eventually slip up and make an off-by-one error, which is one of the two
+hardest problems in programming (the other one being cache invalidation and
+naming).  TDD is a discipline which aims to reduce the probability of making
+mistakes.  It does not matter how good you are, a mistake is a mistake, and we
+want to avoid making them whenever possible.  If fact, I would argue that good
+programmers need good tesing more than bad programmers because good programmers
+are the ones who will have the more important work entrusted to them, which
+means their mistakes will have more catastrophic consequences.</p><p>At first you might feel like TDD slows you down.  Why on earth would first
+write a function which always returns <code>0</code>, and then go and write the actual
+formula instead of just writing the formula directly?  Yes, it does slow you
+down initially, but in the long run it will actually let you go faster because
+you have the confidence that all the previous parts of the specification are
+covered and that you won't introduce any regressions.  After a few turns back
+and forth you will fall into the rythm and switching between implementation and
+test will feel like a dance.</p><p>So, should you always use TDD from now on?  Some people would say that yes, you
+should.  I disagree.  TDD works great in our little toy example because we have
+a precise specification of what we want to build and we know that it can be
+done.  This is not always the case though.  Sometimes I don't know exactly what
+it is that I actually want to build, or if I do I might not know exactly how it
+can be done.  In this exploratory phase I consider TDD more of a burden because
+I might have to throw most or all the test away eventually.  Some people would
+argue that tests are actually great for exploration and I do agree with their
+arguments to some extent, I just don't think they are strong enough.</p><p>Testing is not a replacement for reasoning.  Just because you have found a
+formula that holds true in a hundred individual cases that does not mean that
+it actually holds true for every case.  If you do not actually understand how
+to solve a problem you will just be stuck shuffling code around hoping you
+stumble upon what you think the correct formula is.</p><p>Where I absolutely support TDD though is bug fixing.  When there is a bug write
+a test first to replicate the bug, then fix it.  This way you make sure that
+the test is actually testing for that bug and you make sure that the bug does
+not come back later.</p></article><nav class="blog-pager"><a href="/blog/2024/02/01/introducing-yo-dawg-nvim/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Introducing Yo-Dawg.nvim</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2024/">2024 (3)</a></li><li><a href="/blog/2023/">2023 (11)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (20)</a></li><li><a href="/blog/categories/open-source/">open-source (24)</a></li><li><a href="/blog/categories/organisation/">organisation (14)</a></li><li><a href="/blog/categories/vim/">vim (19)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (18)</a></li><li><a href="/blog/tags/rant/">rant (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/lua/">lua (5)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/neovim/">neovim (3)</a></li><li><a href="/blog/tags/games/">games (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li><li><a href="/blog/tags/unity3d/">unity3d (1)</a></li><li><a href="/blog/tags/python/">python (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

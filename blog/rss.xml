@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Fri, 02 Feb 2024 07:04:48 +0100</lastBuildDate><item><title>Introducing Yo-Dawg.nvim</title><link>https://hiphish.github.io/blog/2024/02/01/introducing-yo-dawg-nvim/</link><description>Yo dawg, I heard you like Neovim, so I put a Neovim inside your Neovim, so you
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Thu, 15 Feb 2024 21:18:28 +0100</lastBuildDate><item><title>Writing a ring buffer TDD style</title><link>https://hiphish.github.io/blog/2024/02/15/writing-a-ring-buffer-tdd-style/</link><description>Let's write a ring buffer in Python!  OK, that's not particularly exciting.
+Let's use test-drivent development, that should make things a bit more
+interesting.  In this blog post I will go over the individual steps and my
+train of thought, because TDD requires a certain discipline and mindset. Why a
+ring buffer?  A ring buffer is not quite trivial to implement because it has a
+couple of edge cases, but at the same time it is not hard to implement either.
+This is a post to follow along at home, so grab your text editor and let's get
+going.</description><guid isPermaLink="true">https://hiphish.github.io/blog/2024/02/15/writing-a-ring-buffer-tdd-style/</guid><pubDate>Thu, 15 Feb 2024 01:00:00 +0100</pubDate><category>misc</category></item><item><title>Introducing Yo-Dawg.nvim</title><link>https://hiphish.github.io/blog/2024/02/01/introducing-yo-dawg-nvim/</link><description>Yo dawg, I heard you like Neovim, so I put a Neovim inside your Neovim, so you
 can edit while you edit!  Ahem... anyway, in my previous post I proposed a
 plugin which would make it easier to control an embedded Neovim from within
 Neovim.  So I went ahead and wrote yo-dawg.nvim (GitHub mirror), named
