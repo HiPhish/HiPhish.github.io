@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2024</a></li><li class=""><a href="../../">02</a></li><li class="active">20</li><li class="active">debugging-lua-scripts-running-in-neovim</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Debugging Lua scripts running in Neovim" rel="bookmark">Debugging Lua scripts running in Neovim</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2024-02-20">2024-02-20</time></p><p class="blog-post-category">categories: <a href="../../../../categories/vim/">vim</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/vim/">vim</a>, <a href="../../../../tags/lua/">lua</a></p></header><p>In a <a href="/blog/2024/01/29/testing-neovim-plugins-with-busted/">previous blog post</a> I wrote about testing Lua scripts in Neovim using the
+<a href="https://lunarmodules.github.io/busted/">busted</a> test framework.  Today I want to look at how to debug Lua scripts in
+Neovim using the <a href="https://microsoft.github.io/debug-adapter-protocol/">Debug Adapter Protocol</a> (DAP).  Just as before with busted,
+our problem is that we need to use Neovim as our Lua interpreter because we
+want to use Neovim's Lua API.  At the same time, the debug adapter expects the
+Lua interpreter to conform to Lua's command-line interface.  That's right: we
+need another command-line interface adapter.</p><h2 id="The debug adapter">The debug adapter</h2><p>There is a <a href="https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#local-lua-debugger-vscode">wiki page</a> on how to configure <a href="https://github.com/tomblind/local-lua-debugger-vscode">local-lua-debugger-vscode</a> as the
+debugger.  I won't repeat the information here, instead let's take a simple
+standard Lua script for a spin.</p><pre><code>---Recursively add two non-negative integers.
+local function add(x, y)
+    if y == 0 then
+        return x
+    end
+    return add(x + 1, y - 1)
+end
+
+local x, y = 2, 3
+local sum = add(x, y)
+print(sum)
+</code></pre><p>Place a breakpoint somewhere and start debugging.  Does the debugger stop at
+the breakpoint? Can you inspect values?  If yes, then good, otherwise get your
+setup in order before you proceed.</p><h2 id="The command-line adapter">The command-line adapter</h2><p>Let's recall the shim from the previous post.</p><pre><code>#!/bin/sh
+
+export XDG_CONFIG_HOME='test/xdg/config/'
+export XDG_STATE_HOME='test/xdg/local/state/'
+export XDG_DATA_HOME='test/xdg/local/share/'
+
+# We have to explicitly enable plugins, see ':h -l'
+nvim --cmd 'set loadplugins' -l $@
+</code></pre><p>This was good enough for busted, but the debug adapter needs us to support the
+command-line options.  Fortunately the only option we really need to implement
+is <code>-e</code>.  We can use POSIX <code>getopts</code> (not to be confused with <code>getopt</code>) to
+parse command-line options.</p><pre><code>#!/bin/sh
+
+export XDG_CONFIG_HOME='test/xdg/config/'
+export XDG_STATE_HOME='test/xdg/local/state/'
+export XDG_DATA_HOME='test/xdg/local/share/'
+
+# Handle Lua command-line arguments; not all options are supported
+while getopts 'ilEve:' opt; do
+	case $opt in
+		e) lua_expr=$OPTARG;;  # Store the option argument in a variable for later
+		v) nvim --version; exit;;
+		i | l | E) echo &quot;Option '$opt' not supported by shim&quot; &gt;&amp;2; exit 1;;
+	esac
+done
+
+if [ -n &quot;$lua_expr&quot; ]; then
+	nvim --headless -c &quot;lua $lua_expr&quot; -c 'quitall!'
+else
+	nvim --cmd 'set loadplugins' -l $@
+fi
+</code></pre><p>I also added support for the <code>-v</code> option because it is easy enough.  With <code>-e</code>
+we can pass an expression to evaluate:</p><pre><code>./nvim-shim -e 'print(&quot;Hello world!\n&quot;)'
+</code></pre><p>With <code>-</code> as our script argument we can pass Lua code from standard input:</p><pre><code>echo 'print(&quot;Hello world!\n&quot;)' | ./nvim-shim -
+</code></pre><p>The two invocations of Neovim are so different from one another that I had to
+use an <code>if</code> statement.</p><h2 id="A pure Lua adapter">A pure Lua adapter</h2><p>Since my previous post I have been told about <a href="https://github.com/mfussenegger/nlua">nlua</a>.  It is also a
+command-line adapter made with the same goal as my shim, but written in pure
+Lua and available on <a href="https://luarocks.org/">LuaRocks</a>.  You might like it better, but it is more
+complicated than my shim and it is differently opinionated.  I will keep using
+my shim because it handles isolation via XDG environment variables instead of
+command-line flags, which is better suited for my testing needs.</p><h2 id="Debugging a Neovim script.">Debugging a Neovim script.</h2><p>Let's try another Lua script, but this time we use the Neovim function
+<code>vim.tbl_map</code>. Set your Lua interpreter to the shim in the configuration and
+debug this script:</p><pre><code>local animals = {
+	cat = 'meow',
+	cow = 'moo',
+	dog = 'woof',
+	frog = 'ribbit'
+}
+
+local function sound_length(sound)
+	return #sound
+end
+
+local lengths = vim.tbl_map(sound_length, animals)
+
+assert(4 == lengths.cat)
+assert(3 == lengths.cow)
+assert(4 == lengths.dog)
+assert(6 == lengths.frog)
+</code></pre><p>If everything went right the debugger should break at any breakpoint and you
+should be able to inspect values.</p><h2 id="Next steps">Next steps</h2><p>Being able to debug some random Lua script is nice, but it is just one step
+towards what what I'm really after: debugging tests.  The <a href="https://github.com/nvim-neotest/neotest/">Neotest</a> plugin lets
+us run and debug tests; it does so by generating a debugger configuration on
+the fly.</p><p>We will need a Neotest adapter for busted first though.  Currently there is an
+adapter for the busted re-implementation in <a href="https://github.com/nvim-lua/plenary.nvim">Plenary</a>, but not for the real
+thing.  Let's see if I can get it written.</p></article><nav class="blog-pager"><a href="/blog/2024/02/15/writing-a-ring-buffer-tdd-style/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Writing a ring buffer TDD style</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2024/">2024 (4)</a></li><li><a href="/blog/2023/">2023 (11)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (20)</a></li><li><a href="/blog/categories/open-source/">open-source (24)</a></li><li><a href="/blog/categories/organisation/">organisation (14)</a></li><li><a href="/blog/categories/vim/">vim (20)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/lisp/">lisp (20)</a></li><li><a href="/blog/tags/vim/">vim (19)</a></li><li><a href="/blog/tags/rant/">rant (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/lua/">lua (6)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/neovim/">neovim (3)</a></li><li><a href="/blog/tags/games/">games (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li><li><a href="/blog/tags/unity3d/">unity3d (1)</a></li><li><a href="/blog/tags/python/">python (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>

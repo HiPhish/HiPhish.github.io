@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Thu, 15 Feb 2024 21:18:28 +0100</lastBuildDate><item><title>Writing a ring buffer TDD style</title><link>https://hiphish.github.io/blog/2024/02/15/writing-a-ring-buffer-tdd-style/</link><description>Let's write a ring buffer in Python!  OK, that's not particularly exciting.
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HiPhish's Workshop: Blog</title><link>https://hiphish.github.io/blog/</link><description>Software projects, various thoughts and ramblings</description><generator>HSSG</generator><language>en</language><docs>https://www.rssboard.org/rss-2-0</docs><lastBuildDate>Tue, 20 Feb 2024 10:30:24 +0100</lastBuildDate><item><title>Debugging Lua scripts running in Neovim</title><link>https://hiphish.github.io/blog/2024/02/20/debugging-lua-scripts-running-in-neovim/</link><description>In a previous blog post I wrote about testing Lua scripts in Neovim using the
+busted test framework.  Today I want to look at how to debug Lua scripts in
+Neovim using the Debug Adapter Protocol (DAP).  Just as before with busted,
+our problem is that we need to use Neovim as our Lua interpreter because we
+want to use Neovim's Lua API.  At the same time, the debug adapter expects the
+Lua interpreter to conform to Lua's command-line interface.  That's right: we
+need another command-line interface adapter.</description><guid isPermaLink="true">https://hiphish.github.io/blog/2024/02/20/debugging-lua-scripts-running-in-neovim/</guid><pubDate>Tue, 20 Feb 2024 01:00:00 +0100</pubDate><category>vim</category></item><item><title>Writing a ring buffer TDD style</title><link>https://hiphish.github.io/blog/2024/02/15/writing-a-ring-buffer-tdd-style/</link><description>Let's write a ring buffer in Python!  OK, that's not particularly exciting.
 Let's use test-drivent development, that should make things a bit more
 interesting.  In this blog post I will go over the individual steps and my
 train of thought, because TDD requires a certain discipline and mindset. Why a
