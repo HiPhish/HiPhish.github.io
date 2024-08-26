@@ -4,7 +4,7 @@ the twist though: ours won't be like those other fuddy-duddy lame and bloated
 <a href="https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition">enterprise-grade</a> FizzBuzzes.  Oh no, we are ahead of the curve this time,
 it's functional time, baby!  We will be using Python though, because Python and
 Javascript is the closest most of us will ever get to using a functional
-programming language in production.</p><p>Me:</p><blockquote><p>Guido, can we have Haskell?</p></blockquote><p>Guido von Rossum:</p><blockquote><p>We have functional programming in Python</p></blockquote><p>Functional programming in Python:</p><h2 id="The naive FizzBuzz">The naive FizzBuzz</h2><p>Here is how your typical programmer would write his FizzBuzz:</p><pre><code>for i in range(100):
+programming language in production.</p><p>Me:</p><blockquote><p>Guido, can we have Haskell?</p></blockquote><p>Guido van Rossum:</p><blockquote><p>We have functional programming in Python</p></blockquote><p>Functional programming in Python:</p><h2 id="The naive FizzBuzz">The naive FizzBuzz</h2><p>Here is how your typical programmer would write his FizzBuzz:</p><pre><code>for i in range(100):
     if i % 3 == 0 and i % 5 == 0:
         print('FizzBuzz')
     elif i % 3 == 0:
@@ -247,7 +247,8 @@ sticking with it.</p><p>Previously I was generating the numbers to fizz-buzz, bu
 compiler function we need to generate rules as well.  Since each rule depends
 on two other values we can use a composite rule, which is a fancy way of saying
 that we build a new rule from two existing rules.</p><pre><code>from hypothesis import given
-from hypothesis.strategies import DataObject, composite, data, integers, text
+from hypothesis.strategies import DataObject, composite, data, integers, text,\
+                                  lists, iterables
 from .fizzbuzz import Rule, compile_rules
 
 
@@ -258,14 +259,14 @@ def rules(draw) -&gt; Rule:
 
     :return: Rule with random number and string value
     &quot;&quot;&quot;
-    number = draw(st.integers(min_value=2))
-    value = draw(st.text(ascii_letters, min_size=1)).title()
+    number = draw(integers(min_value=2))
+    value = draw(text(ascii_letters, min_size=1)).title()
     return Rule(number, value)
 </code></pre><h3 id="Testing rules">Testing rules</h3><p>Let's now write the first test: a rule test succeeds if and only if an integer
 <code>i</code> is a multiple of the rule's number.  How do we get a multiple from an
 arbitrary number <code>n</code>?  We multiply it by the number of the rule.  This means we
 need our rule and some arbitrary non-negative integer <code>n</code> to compute the
-multiple.</p><pre><code>@given(rules(), st.integers(min_value=1))
+multiple.</p><pre><code>@given(rules(), integers(min_value=1))
 def test_rule_success(rule: Rule, n: int):
     &quot;&quot;&quot;Rule applies to numbers which are multiple of the rule's number.&quot;&quot;&quot;
     assert rule.test(n * rule.number)
@@ -276,12 +277,12 @@ take <em>any</em> random number, it must not be a multiple.  Remember, we are wo
 with properties here, so what is the property of a number <code>x</code> which is not a
 multiple of some number <code>a</code>?  It can be written as <code>x = n * a + i</code> for any
 non-negative integer <code>n</code> and some <code>i</code> where <code>0 &lt; i &lt; a</code>.  This formula
-translates pretty much one-to-one to a test.</p><pre><code>@given(rules(), st.integers(min_value=0), st.integers(min_value=1), data())
+translates pretty much one-to-one to a test.</p><pre><code>@given(rules(), integers(min_value=0), integers(min_value=1), data())
 def test_rule_failure(rule: Rule, n: int, data: DataObject):
     &quot;&quot;&quot;
     Rule does not apply to numbers which are not multiple of the rule's number.
     &quot;&quot;&quot;
-    i = data.draw(st.integers(min_value=1, max_value=rule.number - 1))
+    i = data.draw(integers(min_value=1, max_value=rule.number - 1))
     assert not rule.test(n * rule.number + i)
 </code></pre><p>Here we use the special <code>data</code> strategy which lets us <code>draw</code> a random sample
 from a strategy from within the test body.  We have to delay generating <code>i</code>
@@ -298,7 +299,7 @@ will sidestep this problem by simply not generating such rule sets.</p><pre><cod
     )
 
 
-@st.composite
+@composite
 def rulesets(draw, max_size=5) -&gt; Rule:
     &quot;&quot;&quot;
     Returns a strategy which generates a random FizzBuzz rule set.  All rules
@@ -310,7 +311,7 @@ def rulesets(draw, max_size=5) -&gt; Rule:
     :param max_size: Maximum number of rules in the rule set
     :return: Unambiguous ruleset of random rules
     &quot;&quot;&quot;
-    ruleset = draw(st.lists(rules(), min_size=1, max_size=max_size,
+    ruleset = draw(lists(rules(), min_size=1, max_size=max_size,
                             unique_by=(lambda r: r.value, lambda r: r.number))
                    .filter(unambiguous_rule_names))
     return ruleset
@@ -322,8 +323,8 @@ want the program to work every time, not just on the first run.  That's why we
 intentionally use the <code>iterables</code> strategy instead of our own <code>rulesets</code>
 strategy.  The <code>unambiguous_rule_names</code> predicate does not work on a generator,
 but that's OK, we do not care about ambiguity here, we are only concerned with
-preserving the same output, whatever that output might be.</p><pre><code>@given(st.iterables(rules(), min_size=1, max_size=5, unique=True),
-       st.integers(min_value=1))
+preserving the same output, whatever that output might be.</p><pre><code>@given(iterables(rules(), min_size=1, max_size=5, unique=True),
+       integers(min_value=1))
 def test_fizzbuzz_idempotent(rules: list[Rule], n: int):
     &quot;&quot;&quot;
     Running the program multiple times produces the same result even when the
@@ -333,7 +334,7 @@ def test_fizzbuzz_idempotent(rules: list[Rule], n: int):
     outputs = [program(n) for _ in range(times)]
     assert all(outputs[0] == output for output in outputs)
 </code></pre><p>This does not tell us anything about the output itself though, it could be just
-<code>'lol'</code> each time for all we know.  Let's go ahead and test the output.</p><pre><code>@given(rulesets(), st.integers(min_value=1))
+<code>'lol'</code> each time for all we know.  Let's go ahead and test the output.</p><pre><code>@given(rulesets(), integers(min_value=1))
 def test_fizzbuzz_contains_value(rules: list[Rule], n: int):
     &quot;&quot;&quot;
     The output of the program is either the number itself if none of the rules
@@ -355,19 +356,19 @@ same logic as in the rule, except using a generator comprehension instead of
 does what the implementation does.  That's a tautology, which is utterly
 useless as a test.  This is a trap that is easy to fall into.</p><p>Let's take a step back and think about what <em>properties</em> the output must have.</p><ul><li><p>If none of the rules apply, then <code>n</code> is printed as is.</p></li><li><p>The output contains the text value of every rule which applies to <code>n</code></p></li><li><p>The output does not contain the text value of any rule which does not apply
 to <code>n</code></p></li><li><p>The output preserves the order of rules from the rule set</p></li></ul><p>These are all properties that we can reasonably test without making assumptions
-about the whole output string.</p><h3 id="Testing output properties">Testing output properties</h3><p>The first property will be the output if none of the rules apply.</p><pre><code>@given(rulesets(), st.data())
-def test_fizzbuzz_number(rules: list[Rule], data: st.DataObject):
+about the whole output string.</p><h3 id="Testing output properties">Testing output properties</h3><p>The first property will be the output if none of the rules apply.</p><pre><code>@given(rulesets(), data())
+def test_fizzbuzz_number(rules: list[Rule], data: DataObject):
     &quot;&quot;&quot;A number which not divisible by any rule is printed as is.&quot;&quot;&quot;
-    n = data.draw(st.integers()
+    n = data.draw(integers()
                     .filter(lambda n: not any(r.test(n) for r in rules)),
                   label='number')
     program = compile_rules(rules)
     assert program(n) == str(n)
 </code></pre><p>Nothing surprising here, we draw a number for which none of the rules test
-positively.  Let's move on.</p><pre><code>@given(rulesets(), st.data())
-def test_fizzbuzz_contains_match(rules: list[Rule], data: st.DataObject):
+positively.  Let's move on.</p><pre><code>@given(rulesets(), data())
+def test_fizzbuzz_contains_match(rules: list[Rule], data: DataObject):
     &quot;&quot;&quot;If the number is divisible the result contains the rule's text.&quot;&quot;&quot;
-    n = data.draw(st.integers()
+    n = data.draw(integers()
                     .filter(lambda n: any(r.test(n) for r in rules)),
                   label='number')
     positives = [r for r in rules if r.test(n)]
@@ -378,12 +379,12 @@ def test_fizzbuzz_contains_match(rules: list[Rule], data: st.DataObject):
 </code></pre><p>Here we draw a number for which any number of rules, but at least one, apply.
 Then we compare the list of all rules which apply (<code>positives</code>) and all rules
 whose text is found within the output (<code>present</code>).  This is also why we needed
-the rule about unambiguous values above.</p><p>Now let's do the opposite.</p><pre><code>@given(rulesets(), st.data())
-def test_fizzbuzz_contains_no_mismatch(rules: list[Rule], data: st.DataObject):
+the rule about unambiguous values above.</p><p>Now let's do the opposite.</p><pre><code>@given(rulesets(), data())
+def test_fizzbuzz_contains_no_mismatch(rules: list[Rule], data: DataObject):
     &quot;&quot;&quot;
     If the number is not divisible the result does not contain the rule's text
     &quot;&quot;&quot;
-    n = data.draw(st.integers()
+    n = data.draw(integers()
                     .filter(lambda n: any(r.test(n) for r in rules)),
                   label='number')
     negatives = [r for r in rules if not r.test(n)]
@@ -393,10 +394,10 @@ def test_fizzbuzz_contains_no_mismatch(rules: list[Rule], data: st.DataObject):
     assert negatives == absent
 </code></pre><p>Here it is slightly different.  First we find all rules whose values which do
 not apply (<code>negatives</code>), then the ones whose values is not in the results
-(<code>absent</code>).  If the two are the same the test succeeds.</p><p>The final property is the order of values.</p><pre><code>@given(rulesets(), st.data())
-def test_fizzubzz_results_order(rules: list[Rule], data: st.DataObject):
+(<code>absent</code>).  If the two are the same the test succeeds.</p><p>The final property is the order of values.</p><pre><code>@given(rulesets(), data())
+def test_fizzbuzz_results_order(rules: list[Rule], data: DataObject):
     &quot;&quot;&quot;The rule values are in the same order they were given in.&quot;&quot;&quot;
-    n = data.draw(st.integers().filter(lambda n: any(r.test(n) for r in rules)))
+    n = data.draw(integers().filter(lambda n: any(r.test(n) for r in rules)))
     positives = [r for r in rules if r.test(n)]
     program = compile_rules(rules)
     result = program(n)
