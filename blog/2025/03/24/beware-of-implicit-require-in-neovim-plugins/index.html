@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HiPhish's Workshop</title><link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/local-nav.css" type="text/css" media="all"/><link rel="stylesheet" href="/css/blog.css" type="text/css" media="all"/></head><body><header><nav id="main-navbar"><input type="checkbox" id="main-nav-hamburger" hidden="hidden"/><div><a href="/">HiPhish's Workshop</a><label for="main-nav-hamburger" hidden="hidden"></label></div><ul><li><a href="/grid-framework/">Grid Framework</a><ul><li><a href="/grid-framework/">Overview</a></li><li hidden="hidden"/><li><a href="/grid-framework/features/">Features</a></li><li><a href="/grid-framework/examples/">Examples</a></li><li><a href="/grid-framework/gallery/">Gallery</a></li><li><a href="/grid-framework/showcase/">Showcase</a></li><li><a href="/grid-framework/faq/">FAQ</a></li><li><a href=" /grid-framework/news/">News</a></li><li hidden="hidden"/><li><a href="http://forum.unity3d.com/threads/grid-framework-scripting-and-editor-plugins.144886/">Support</a></li><li hidden="hidden"/><li><a href="https://www.assetstore.unity3d.com/#/content/62498">Buy Now <span class="badge">35$</span></a></li></ul></li><li><a href="/#products">Open Source</a><ul><li><a href="https://gitlab.com/HiPhish/ntfs-clone">NTFS-Clone</a></li><li><a href="https://gitlab.com/HiPhish/IPS-Tools">IPS-Tools</a></li><li><a href="https://gitlab.com/HiPhish/roll">roll</a></li><li><a href="https://github.com/HiPhish/Newton-method">Newton's Method in C</a></li><li><a href="https://github.com/HiPhish/XeenTools">Xeen Tools</a></li><li><a href="https://github.com/HiPhish/Wolf3DExtract">Wolf3D Extract</a></li><li><a href="https://github.com/HiPhish/Game-Source-Documentation">Game Source Documentation</a></li></ul></li><li><a href="/vim/plugins/">Vim/Nvim plugins</a><ul><li><a href="https://gitlab.com/HiPhish/info.vim">Info.vim</a></li><li><a href="https://gitlab.com/HiPhish/repl.nvim">REPL.nvim</a></li><li><a href="https://gitlab.com/HiPhish/quicklisp.nvim">Quicklisp.nvim</a></li><li><a href="https://gitlab.com/HiPhish/jinja.vim">jinja.vim</a></li><li><a href="https://gitlab.com/HiPhish/neovim-guix-channel/">Guix channel</a></li></ul></li><li class="push-end"><a href="/blog/">Blog</a></li><li><a href="/about/">About</a></li></ul></nav></header><div><div class="blog"><nav class="breadcrumbs" aria-label="Breadcrumbs"><ol><li class=""><a href="../../../../">blog</a></li><li class=""><a href="../../../">2025</a></li><li class=""><a href="../../">03</a></li><li class="active">24</li><li class="active">beware-of-implicit-require-in-neovim-plugins</li></ol></nav><main class="blogpost"><article><h1><a href="." title="permalink to Beware of 'require' at startup in Neovim plugins" rel="bookmark">Beware of 'require' at startup in Neovim plugins</a></h1><header class="blog-post-header"><p class="blog-post-published">published: <time datetime="2025-03-24">2025-03-24</time></p><p class="blog-post-category">categories: <a href="../../../../categories/vim/">vim</a></p><p class="blog-post-tags">tags: <a href="../../../../tags/neovim/">neovim</a>, <a href="../../../../tags/lua/">lua</a></p></header><p>Recently I tagged version 0.9.1 of <a href="https://gitlab.com/HiPhish/rainbow-delimiters.nvim">rainbow-delimiters.nvim</a>.  This update got
+rid of one really nasty mistake I had been dragging along from the very
+beginning until just recently: every time you started up Neovim a number of
+<code>require</code> calls would run even if you never called <code>require</code> a single time
+yourself.  In this post I would like to go over how this happened, why it is
+bad and how I got rid of it.  Even though I am using rainbow-delimiters as an
+example here, everything I am about to say applies to other plugins as well.</p><h2 id="What is an implicit   ?">What is an implicit <code>require</code>?</h2><p>In Lua the <code>require</code> function searches for a Lua file whose path matches the
+given pattern.  In other words, <code>require 'foo.bar.baz'</code> will find the file
+<code>foo/bar/baz.lua</code>, load it as code and return the argument of the <code>return</code>
+statement.  The rules Lua uses to search for a file based on the pattern are
+slightly complicated, but the details are not relevant here.</p><p>I call these explicit <code>require</code> calls because you have to call the function
+yourself. So what is an implicit <code>require</code> then?  There are certain files that
+Neovim will source automatically on startup.  In particular these are any Vim
+script and Lua files in the <code>plugin</code> directory.  If any of these contains a
+call to require (or <code>:runtime</code> for Vim script) Neovim will search for the
+corresponding file.</p><h3 id="An explicit but mandatory    is no different">An explicit but mandatory <code>require</code> is no different</h3><p>There are also quasi-implicit <code>require</code> calls: if you add it yourself to a
+script in the <code>plugin</code> directory it's effectively the same: a call to <code>require</code>
+which is evaluated at startup.  For the sake of brevity I will consider them
+the same as the aforementioned implicit calls from now on.</p><h2 id="The problem">The problem</h2><p>When you call <code>require</code> Lua has to search a number of paths for the file.
+Aside from the standard directories Neovim ships with and your personal
+configuration directory, Neovim also has to add all your plugins as well to the
+list.  The more plugins you have, the more expensive each call to <code>require</code>
+gets.</p><p>This is not necessarily a problem in itself, <code>require</code> is so fast you will
+never notice a single call.  Plus, results of <code>require</code> are cached, so you only
+have to pay on the first call of each module.  However, these costs can add up
+if you have to pay for all of it upfront at once.</p><p>Let's take a look at the startup time in version 0.8.0 with two custom
+strategies set.</p><pre><code>local rb = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+	strategy = {
+		[''] = rb.strategy['global'],
+		commonlisp = rb.strategy['local'],
+	},
+}
+</code></pre><pre><code>$ nvim --startuptime time.log
+</code></pre><p>Here are the relevant lines from the log:</p><pre><code>150.465  000.225  000.225: require('rainbow-delimiters.config')
+150.468  000.442  000.217: require('rainbow-delimiters.log')
+150.655  000.185  000.185: require('rainbow-delimiters.util')
+150.658  003.266  000.265: require('rainbow-delimiters.lib')
+151.316  000.217  000.217: require('rainbow-delimiters.stack')
+151.743  000.206  000.206: require('rainbow-delimiters.set')
+151.746  000.428  000.221: require('rainbow-delimiters.match-tree')
+151.748  000.894  000.249: require('rainbow-delimiters.strategy.global.current')
+151.749  001.089  000.195: require('rainbow-delimiters.strategy.global')
+152.210  000.275  000.275: require('rainbow-delimiters.strategy.local.current')
+152.212  000.462  000.187: require('rainbow-delimiters.strategy.local')
+152.408  000.195  000.195: require('rainbow-delimiters.strategy.no-op')
+152.409  005.244  000.232: require('rainbow-delimiters')
+209.073  000.262  000.262: require('rainbow-delimiters.default')
+</code></pre><p>That is fourteen separate calls to <code>require</code>.  Some of this is because we call
+<code>require</code> at the top in our configuration, but some of it is also just from
+having rainbow-delimiters installed. From how I understand the log format the
+second column is the time in milliseconds it took to complete this particular
+call.  If we add them up we get a result of 13.39ms (the third column adds up
+to 3.131ms).  That's practically nothing, but if we have a lot of plugins (I
+have over 60 plugins myself) and each plugin is this badly behaved it does add
+up.</p><h3 id="How could this happen?">How could this happen?</h3><p>To put it simply, I was not concerned about startup time at the time I wrote
+this plugin.  There are two sources of implicit <code>require</code>:</p><ul><li><p>It is convenient to use Lua modules to organize code</p></li><li><p>Strategies are Lua modules which evaluate to objects</p></li></ul><p>With regards to the first point, I have multiple calls to <code>require</code> in a
+<code>plugin</code> file, and the required modules have calls to <code>require</code> of their own,
+and so on.  The top-level script is sourced at startup, and so the entire chain
+is required at startup.  Using Lua modules is very convenient to tuck away
+complexity and make it reusable, but even a single <code>require</code> can cascade out of
+control.</p><p>With regards to the second point, I had this really clever idea of making
+strategies Lua tables which you can swap out in your configuration.  This way
+users could write their own strategies or compose strategies.  Encapsulating
+functionality like this is known as the <a href="https://en.wikipedia.org/wiki/Strategy_pattern">strategy pattern</a>.  And since Lua
+modules can return an arbitrary value, why not make the entire module a
+strategy and require it directly?</p><h2 id="The solution">The solution</h2><p>The solution is simple: delay the <code>require</code> until we actually need it.  If
+there are no rainbow parentheses to highlight, we do not need to <code>require</code>
+anything. In my case I delayed <code>require</code> in two ways: using strings to refer to
+Lua modules, and moving <code>require</code> into callback functions.</p><h3 id="Refer to Lua modules by strings">Refer to Lua modules by strings</h3><p>I wanted to retain the ability to specify a strategy as a Lua table.  So I
+added a type discrimination to my code:</p><pre><code>local strategy  -- Taken from the user's configuration
+if type(strategy) == 'string' then
+    strategy = require(strategy)
+end
+-- Proceed as before
+</code></pre><p>Actually there is a bit more code for error handling if the module cannot be
+found, but this is the basic idea.  Users can either set a table as the
+strategy like before, or they can set a string which is the pattern to a Lua
+module which evaluates to a table.</p><pre><code>-- Look Ma, no require
+vim.g.rainbow_delimiters = {
+	strategy = {
+		[''] = 'rainbow-delimiters.strategy.global',
+		commonlisp = 'rainbow-delimiters.strategy.local',
+	},
+}
+</code></pre><h3 id="Move    into callback functions">Move <code>require</code> into callback functions</h3><p>If the required module is only needed in callback functions, such as those
+passed to autocommands, we can move the call into the callback.</p><pre><code>local function my_callback(args)
+    local lib = require 'rainbow-delimiters.lib'
+    -- Do the other stuff...
+end
+</code></pre><p>This will make the callback <em>slightly</em> more expensive because <code>require</code> has to
+look up the cached result, but that's negligible.  We are not trying to build a
+game engine in Neovim.  If you really are concerned about the overhead you
+could try something like this:</p><pre><code>local lib  -- Initialised to nil
+
+local function my_callback(args)
+    if not lib then
+        lib = require 'rainbow-delimiters.lib'
+    end
+    -- Do the other stuff...
+end
+</code></pre><p>I don't know if the overhead from the <code>if</code>-check is going to be more or less
+expensive than repeatedly calling <code>require</code> and I honestly don't care at this
+point. I'll let you be the judge.  Remember that the goal is not to not have to
+call <code>require</code>, but to avoid calling it on startup for no reason.</p><h2 id="Closing thoughts">Closing thoughts</h2><p>Was this worth it?  Will people see faster startup times now?  Probably not.
+The issue is not any single plugin on its own, it is the sum of all the plugins
+you have installed.  Fixing one single plugin won't make much of a difference,
+but on the other hand this was such a simple fix and now I am no longer
+contributing to the problem.  Hopefully other plugin authors will go ahead an
+minimize their implicit <code>require</code> calls as well.  And yes, this does include
+<code>setup</code> functions as well.</p><p>Someone might raise the point of “Why not use a plugin manager with
+lazy-loading?”.  I would say it is not the responsibility of the user to use
+band-aid solutions to fix problems with plugins.  We have had lazy loading
+facilities like <code>ftplugin</code> or <code>autoload</code> in Vim before Neovim even existed, so
+this is not a new problem and plugin authors back then were also expected to
+make use of them.</p></article><nav class="blog-pager"><a href="/blog/2024/09/22/introducing-nvim-busted-shims/" rel="previous" style="float: left"><span aria-hidden="true">←</span> Introducing nvim-busted-shims</a><a style="display: none;"></a></nav></main><nav class="blog-navigation" aria-label="Blog navigation"><aside><span>subscribe:</span> <a href="/blog/rss.xml" type="application/rss+xml">RSS</a></aside><nav><h1><a href="/blog/archive/">archive</a></h1><ul><li><a href="/blog/2025/">2025 (1)</a></li><li><a href="/blog/2024/">2024 (8)</a></li><li><a href="/blog/2023/">2023 (11)</a></li><li><a href="/blog/2022/">2022 (13)</a></li><li><a href="/blog/2021/">2021 (5)</a></li><li><a href="/blog/2020/">2020 (15)</a></li><li><a href="/blog/2019/">2019 (17)</a></li><li><a href="/blog/2018/">2018 (1)</a></li><li><a href="/blog/2017/">2017 (4)</a></li><li><a href="/blog/2016/">2016 (6)</a></li><li><a href="/blog/2015/">2015 (2)</a></li></ul></nav><nav><h1><a href="/blog/categories/">categories</a></h1><ul><li><a href="/blog/categories/misc/">misc (21)</a></li><li><a href="/blog/categories/open-source/">open-source (24)</a></li><li><a href="/blog/categories/organisation/">organisation (14)</a></li><li><a href="/blog/categories/vim/">vim (24)</a></li></ul></nav><nav><h1><a href="/blog/tags/">tags</a></h1><ul><li><a href="/blog/tags/vim/">vim (21)</a></li><li><a href="/blog/tags/lisp/">lisp (21)</a></li><li><a href="/blog/tags/rant/">rant (14)</a></li><li><a href="/blog/tags/html/">html (10)</a></li><li><a href="/blog/tags/lua/">lua (9)</a></li><li><a href="/blog/tags/unix/">unix (8)</a></li><li><a href="/blog/tags/linux/">linux (5)</a></li><li><a href="/blog/tags/neovim/">neovim (4)</a></li><li><a href="/blog/tags/web/">web (4)</a></li><li><a href="/blog/tags/msgpack/">msgpack (3)</a></li><li><a href="/blog/tags/games/">games (3)</a></li><li><a href="/blog/tags/testing/">testing (3)</a></li><li><a href="/blog/tags/guix/">guix (2)</a></li><li><a href="/blog/tags/network/">network (2)</a></li><li><a href="/blog/tags/markdown/">markdown (2)</a></li><li><a href="/blog/tags/python/">python (2)</a></li><li><a href="/blog/tags/cocoa/">cocoa (1)</a></li><li><a href="/blog/tags/info/">info (1)</a></li><li><a href="/blog/tags/awk/">awk (1)</a></li><li><a href="/blog/tags/elixir/">elixir (1)</a></li><li><a href="/blog/tags/wine/">wine (1)</a></li><li><a href="/blog/tags/git/">git (1)</a></li><li><a href="/blog/tags/terminal/">terminal (1)</a></li><li><a href="/blog/tags/unity3d/">unity3d (1)</a></li><li><a href="/blog/tags/functional programming/">functional programming (1)</a></li></ul></nav></nav></div></div><footer><div><div class="footer-self"><a href="/" title="HiPhish's Workshop"><img src="/img/footer/logo.png" title="HiPhish's Workshop" height="55"/></a><p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="copyright-image" src="/img/footer/cc.svg" alt="Creative Commons Attribution-ShareAlike 4.0 International License"/> </a>© 2015-2022, licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></div><div class="footer-social"><a href="https://github.com/HiPhish" title="GitHub" target="blank"><img src="/img/footer/github.png" alt="GitHub" height="55"/> </a><a href="https://gitlab.com/HiPhish" title="GitLab" target="blank"><img src="/img/footer/gitlab.png" alt="GitLab" height="55"/> </a></div></div></footer></body></html>
