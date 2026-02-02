@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './Base.astro';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+export interface Breadcrumb {
+	title: string,
+	url?: string,
+}
+
+const {pageTitle, breadcrumbs, posts} = Astro.props;
+
+const categories = Map.groupBy(posts, ({data: {category}}: BlogPost) => category);
+const tags = Map.groupBy(
+	posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string) => [tag, post])),
+	([tag, _post]: [string, BlogPost]) => tag
+);
+const years = Map.groupBy(
+	posts.map((post: BlogPost) => [post.data.published.getFullYear(), post]),
+	([year, _post]: [number, BlogPost]) => year
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<div class="blog">
+		<nav class="breadcrumbs" aria-label="Breadcrumbs">
+			<ol>
+				{breadcrumbs?.map(({title, url}: Breadcrumb) =>
+					<li class={url ? '' : 'active'}>
+						{url ? <a href={url}>{title}</a> : title}
+					</li>)
+				}
+			</ol>
+		</nav>
+		<slot />
+		<!-- Left pillar, article navigation -->
+		<nav class="blog-navigation" arial-label="Blog navigation">
+			<!-- This navigator contains links to the various archive types. -->	
+			<aside>
+				<span>Subscribe: </span>
+				<a href="#" type="application/rss+xml">RSS</a>
+			</aside>
+			<nav>
+				<h1>
+					<a href="/blog/archive/">Archive</a>
+				</h1>
+				<ul>
+					{Array
+						.from(years)
+						.toSorted(([year1, _post1], [year2, _post2]) => year2 - year1)
+						.map(([year, entries]) =>
+							<li>
+								<a href={`/blog/${year}/`}>{year} ({entries.length})</a>
+							</li>)}
+				</ul>
+			</nav>
+			<nav>
+				<h1>
+					<a href="/blog/categories/">Categories</a>
+				</h1>
+				<ul>
+					{Array
+						.from(categories)
+						.filter(([category, _]) => Boolean(category))
+						.map(([category, entries]) =>
+							<li>
+								<a href={`/blog/${category}`}>{category} ({entries.length})</a>
+							</li>)}
+				</ul>
+			</nav>
+			<nav>
+				<h1>
+					<a href="/blog/tags/">Tags</a>
+				</h1>
+				<ul>
+					{Array
+						.from(tags)
+						.map(([tag, entries]) =>
+							<a href={`/blog/${tag}`}>
+								<li>{tag} ({entries.length})</li>
+							</a>)}
+				</ul>
+			</nav>
+		</nav>
+	</div>
+</BaseLayout>

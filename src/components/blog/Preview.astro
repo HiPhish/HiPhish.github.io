@@ -1,0 +1,34 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+
+interface Props {
+	post: CollectionEntry<'blog'>,
+}
+
+const {post} = Astro.props as Props;
+
+const published = post.data.published.toISOString().substring(0, 10);
+const link = `/blog/${post.id}/`;
+
+const {remarkPluginFrontmatter} = await render(post);
+
+---
+
+<article>
+	<h1>
+		<a href={link}>{post.data.title}</a>
+	</h1>
+	<header class="blog-post-header">
+		<p>
+			<time datetime={published}>
+				Published: {published}
+			</time>
+		</p>
+	</header>
+	<p>
+		{remarkPluginFrontmatter.summary}
+	</p>
+	<p>
+	<a href={link}>Continue reading…</a>
+	</p>
+</article>

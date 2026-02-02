@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/Base.astro';
+---
+
+<BaseLayout pageTitle="HiPhish's Workshop - About">
+	<h1>About me</h1>
+	<h2>About the author</h2>
+	<p>
+		Hi, I'm HiPhish and this is my website. I'm a mathematician and a
+		programmer and my motto is <em>I want it to exist, so I'll make
+		it</em>. The goal is rock-solid software that is reliable and fit for
+		productive use, because I wouldn't want to use anything else myself.
+	</p>
+	<p>
+		I chose the <em>Workshop</em> motto because I consider programming to
+		be a craft.  This site is where I exhibit my work, present my services,
+		and if you follow the links to my repositories you can see the details
+		or how it is made. Programming is a new form of craftsmanship and the
+		computer is our workbench.
+	</p>
+	<h3>Tips and sponsorship</h3>
+	<p>
+		If you like my work you can leave a tip or sponsor me.
+		<ul>
+			<li>
+				Monero donation wallet: <code>
+					42MKtvm2XkS6pSKx2Dd4P9Wfty2pefHbfjU2y2YoG4AKeEaNzRwnDbNX4hzAWeDpR8ZeecutY9Tmv51GLp7Ltgaf7ReHpFT
+				</code>
+			</li>
+			<li>
+				<a href="https://github.com/sponsors/HiPhish">GitHub sponsorship</a>
+			</li>
+		</ul>
+	</p>
+	<hr/>
+	<h2>About this website</h2>
+	<p>
+		The Workshop would not be in its current form if it were not for these
+		great tools written by other people.
+	</p>
+	<dl>
+		<dt>
+			<a href="https://gitlab.com/HiPhish/cl-hssg">CL-HSSG</a>
+		</dt>
+		<dd>
+			The Hackable Static Site Generator, my own static site generator
+			which can be fully scripted in Common Lisp. With the extensibility
+			of Lisp it is possible to use a real programming language to mold
+			the generator for any kind of website.
+		</dd>
+		<dt>
+			<a href="http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/">prettyPhoto</a>
+		</dt>
+		<dd>
+			A JavaScript gallery plugin that provides nice looking overlays for
+			images. You can also navigate between images without leaving the
+			gallery.
+		</dd>
+		<dt>
+			<a href="http://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a>
+		</dt>
+		<dd>
+			Flexbox is a new CSS feature that allows you to lay out content in
+			a flexible way. Instead of hardcoding values position, size or
+			order of elements can be given relative to each over other or the
+			enclosing container.  Flexbox makes many previously hard and hacky
+			problems trivial to solve. <em>Solved by Flexbox</em> features a
+			collection of solutions to common problems.  In my case I used it
+			for the sticky footer and the blog layout.
+		</dd>
+	</dl>
+	<p>
+		All content is written in Neovim and built using <a href="https://sbcl.org/">SBCL</a> as
+		the Lisp implementation. The website content is version-controlled using Git.
+	</p>
+	<hr/>
+	<h2>LibreJS - Free JavaScript</h2>
+	<p>
+		The Workshop is build from free (libre) software that respects the
+		user's freedom. The same also applies to the JavaScript employed on
+		this site. I have made sure that the site complies with the LibreJS
+		specifications. You can find a list of scripts employed under <a
+		href="javascript/">about/javascript/</a>.
+	</p>
+	<hr/>
+	<h2>Source code</h2>
+	<p>
+		The Scheme source code for the workshop is available in a <a
+		href="https://github.com/HiPhish/workshop">public repo</a>. If
+		anything on the website is not working, please file an issue.
+	</p>
+</BaseLayout>

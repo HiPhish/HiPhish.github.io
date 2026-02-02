@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import BlogLayout from '../../../../layouts/Blog.astro';
+import Paginator from '../../../../components/blog/Pagination.astro';
+import Preview from '../../../../components/blog/Preview.astro';
+import { CollectionEntry, getCollection } from "astro:content";
+
+type BlogPost = CollectionEntry<'blog'>;
+
+interface Props {
+	posts: BlogPost[],
+	page: Page<BlogPost>
+}
+
+export const getStaticPaths = (async ({paginate}) => {
+	const posts: BlogPost[] = await getCollection('blog');
+	const tagsAndPosts: [string, BlogPost][] = posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string) => [tag, post]))
+	const tags = Array
+		.from(Map.groupBy(tagsAndPosts, ([tag, _]) => tag))
+		.map(([tag, tagsAndPosts]) =>
+			[tag, tagsAndPosts.map(([_, post]) => post)] satisfies [string, BlogPost[]])
+		.toSorted(([t1, _ps1], [t2, _ps2]) => t1 < t2 ? -1 : 1)
+	const result = tags
+		.flatMap(([tag, ps]) =>
+			paginate(
+				ps.toSorted(({data: {published: d1}}, {data: {published: d2}}) => d2 - d1),
+				{pageSize: 10, props: {posts}, params: {tag}}));
+	return result
+}) satisfies GetStaticPaths;
+
+const {posts, page} = Astro.props;
+const {tag} = Astro.params;
+const breadcrumbs = [
+	{title: 'blog', url: '/blog/'},
+	{title: 'tags', url: '/blog/tags/'},
+	{title: tag},
+];
+---
+
+<BlogLayout posts={posts} breadcrumbs={breadcrumbs}>
+	<ul>
+		{page.data.map((post: BlogPost) => <li><Preview post={post} /></li>)}
+	</ul>
+	<Paginator page={page} base={`/blog/tags/${tag}`} />
+</BlogLayout>
+

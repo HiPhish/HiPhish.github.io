@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from 'astro:content';
+
+import {getCollection} from 'astro:content';
+import BlogLayout from '../../layouts/Blog.astro';
+import Preview from '../../components/blog/Preview.astro';
+import Pagination from '../../components/blog/Pagination.astro';
+
+type BlogPost = CollectionEntry<'blog'>
+
+interface Props {
+	page: Page<BlogPost>,
+	allPosts: BlogPost[],
+}
+
+export const getStaticPaths = (async ({paginate}) => {
+	const allPosts: BlogPost[] = (await getCollection('blog'))
+		.toSorted(({data: {published: d1}}, {data: {published: d2}}) => d2 - d1);
+	return paginate(allPosts, {pageSize: 10, props: {allPosts}});
+}) satisfies GetStaticPaths;
+
+const breadcrumbs = [
+	{title: 'blog'},
+];
+
+const {page, allPosts} = Astro.props;;
+---
+
+<BlogLayout posts={allPosts} breadcrumbs={breadcrumbs}>
+	<p>This is where the blog index should be</p>
+	<ul>
+		{page.data.map((post) => <li><Preview post={post} /></li>)}
+	</ul>
+	<Pagination page={page} />
+</BlogLayout>

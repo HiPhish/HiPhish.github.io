@@ -1,0 +1,71 @@
+---
+import type { GetStaticPaths, GetStaticPathsItem, GetStaticPathsOptions } from "astro";
+import type { CollectionEntry } from "astro:content";
+import {type Breadcrumb} from '../../../../../layouts/Blog.astro';
+import { getCollection } from "astro:content";
+import BlogLayout from '../../../../../layouts/Blog.astro';
+import { render } from "astro:content";
+import type { JSX } from "preact";
+
+interface BlogPostPageProps {
+	allPosts: Array<CollectionEntry<'blog'>>,
+	post: CollectionEntry<'blog'>,
+};
+
+
+export const getStaticPaths = (async ({}: GetStaticPathsOptions) => {
+	const allPosts = await getCollection('blog');
+
+	const postToItem = (post: CollectionEntry<'blog'>) => {
+		const re = /(?<year>\d+)\/(?<month>\d+)\/(?<day>\d+)\/(?<slug>\S+)/;
+		const matches = re.exec(post.id);
+		if (matches === null || matches.groups === undefined) {
+			throw Error(`Blog post ID '${post.id}' does not match '<year>/<month>/<day>/<slug>'`);
+		}
+		const {year, month, day, slug} = matches.groups;
+		return {
+			params: {year, month, day, slug},
+			props: {post, allPosts},
+		} satisfies GetStaticPathsItem;
+	};
+
+	return allPosts.map(postToItem);
+}) satisfies GetStaticPaths;
+
+const {year, month, day, slug} = Astro.params;
+const {allPosts, post: {data: {title, published, modified, category, tags}}}: BlogPostPageProps = Astro.props;
+const {Content} = await render(Astro.props.post);
+
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog', url: '/blog/'},
+	{title: year, url: `/blog/${year}`},
+	{title: month, url: `/blog/${year}/${month}`},
+	{title: day,},
+	{title: slug,},
+];
+---
+
+<!-- A single blog post -->
+<BlogLayout posts={allPosts} breadcrumbs={breadcrumbs}>
+	<h1>{title}</h1>
+	<p>Published: {published.toISOString().substring(0, 10)}</p>
+	{modified
+		? <p>Modified: {modified.toISOString().substring(0, 10)}</p>
+		: null}
+	<p>Categoryy: <a href={`/blog/${category}/`}>{category}</a></p>
+	{tags.length > 0
+		?
+			<p>Tags: {
+				// NOTE: We cannot join an array of elements with a string (', '),
+				// instead we reduce the array to a list of elements and string
+				// https://github.com/withastro/astro/issues/7016#issuecomment-1537243775
+				tags
+					.map((tag: string) => <a href={`/blog/${tag}`}>{tag}</a>)
+					.reduce((acc: (JSX.Element | string)[], current: JSX.Element) => [acc, ', ', current])}
+			</p>
+		: ''
+	}
+	
+
+	<Content />
+</BlogLayout>

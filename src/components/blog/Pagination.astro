@@ -1,0 +1,45 @@
+---
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+interface Props {
+	page: Page<BlogPost>,
+};
+
+const {page} = Astro.props;
+// TODO: Limit number of items on the paginator
+
+const pageURL = (page: Page<BlogPost>, i: number) => {
+	if (i === 1) {
+		return page.url.first;
+	}
+	const base = page.url.last?.replace(/\/\d+\/?$/, '');
+	return `${base}/${i}`
+};
+---
+
+<nav class="paginator">
+	<ul>
+		<li>
+			<a href={page.url.first}><span aria-hidden="true">«</span></a>
+		</li>
+		<li>
+			<a href={page.url.prev}><span aria-hidden="true">‹</span></a>
+		</li>
+		{Array
+			.from({length: page.lastPage}, (_, i) => i + 1)
+			.map((i) => i === page.currentPage ? <li>{i}</li> :
+				<li class:list={{active: i === page.currentPage}}>
+					<a href={pageURL(page, i)}>{i}</a>
+				</li>)
+		}
+		<li>
+			<a href={page.url.next}><span aria-hidden="true">›</span></a>
+		</li>
+		<li>
+			<a href={page.url.last}><span aria-hidden="true">»</span></a>
+		</li>
+	</ul>
+</nav>

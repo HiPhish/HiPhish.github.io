@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../../layouts/Base.astro';
+import Plugin, {vimPlugins, nvimPlugins} from '../../../components/vim/plugins';
+
+  // '(:h1 "Plugins for Vim and Neovim")
+  // '(:p "Neovim is my main text editor and over the years I have written a
+  //     number of plugins, both for Vim and Neovim.")
+  // '(:h2 "Vim and Neovim")
+  // '(:p "The following plugins will work for both Vim and Neovim. If they don't
+  //    that's considered a bug.")
+  // (vim-plugins->sxml *vim-plugins*)
+  // '(:h2 "Neovim only")
+  // '(:p "These plugins only work on Neovim. If anyone wants to submit a patch to
+  //    make them work for Vim as well be my guest.")
+  // (vim-plugins->sxml *nvim-plugins*))
+
+---
+
+<BaseLayout pageTitle="Vim plugins - HiPhish's Workshop">
+	<h1>Plugins for Vim and Neovim</h1>
+	<p>
+		Neovim is my main text editor and over the years I have written a
+		number of plugins, both for Vim and Neovim.
+	</p>
+	<h2>Vim and Neovim</h2>
+	<p>
+		The following plugins will work for both Vim and Neovim. If they don't
+		that's considered a bug.
+	</p>
+	<dl>
+		{vimPlugins.map(({title, url, description}) => <Plugin title={title} url={url} description={description}/>)}
+	</dl>
+	<h2>Neovim only</h2>
+	<p>
+		These plugins only work on Neovim. If anyone wants to submit a patch to
+		make them work for Vim as well be my guest.
+	</p>
+	<dl>
+		{nvimPlugins.map(({title, url, description}) => <Plugin title={title} url={url} description={description}/>)}
+	</dl>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import type { Breadcrumb } from '../../layouts/Blog.astro';
+import BlogLayout from '../../layouts/Blog.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+
+type BlogPost = CollectionEntry<'blog'>;
+
+const posts: BlogPost[] = await getCollection('blog')
+
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog', url: '/blog/'},
+	{title: 'tags'}
+]
+
+const tagsAndPosts: [string, BlogPost][] = posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string) => [tag, post]))
+
+const tags = Array
+	.from(Map.groupBy(tagsAndPosts, ([tag, _]) => tag))
+	.map(([tag, tagsAndPosts]) =>
+		[tag, tagsAndPosts.map(([_, post]) => post)] satisfies [string, BlogPost[]])
+	.toSorted(([t1, _ps1], [t2, _ps2]) => t1 < t2 ? -1 : 1)
+---
+
+<BlogLayout posts={posts} breadcrumbs={breadcrumbs}>
+	<ul>
+		{tags.map(([tag, posts]) =>
+			<li>
+				<a href={`/blog/tags/${tag}`}>{tag}</a>
+				({posts.length})
+				<ul>
+					{posts
+						.toSorted(({data: {published: d1}}, {data: {published: d2}}) => d2 - d1)
+						.map(({id, data: {title}}) =>
+							<li>
+								<a href={`/blog/${id}`}>{title}</a>
+							</li>)}
+				</ul>
+			</li>)}
+	</ul>
+	<p>TODO</p>
+</BlogLayout>

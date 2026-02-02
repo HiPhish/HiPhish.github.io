@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from "astro";
+import BlogLayout, {type Breadcrumb } from '../../layouts/Blog.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+	const allPosts = await getCollection('blog');
+
+	const parseId = ({id}: CollectionEntry<'blog'>) => {
+		const re = /^(?<year>\d+)\/(?<month>\d+)\/(?<day>\d+)\/(?<slug>\S+)/;
+		const matches = re.exec(id);
+		if (matches === null || matches.groups === undefined) {
+			throw Error(`Blog post ID '${id}' does not match '<year>/<month>/<day>/<slug>'`);
+		}
+		const {year} = matches.groups;
+		return year
+	};
+
+	const parseKey = (key: string) => {
+		const re = /^(?<year>\d+)/;
+		const matches = re.exec(key);
+		if (matches === null || matches.groups === undefined) {
+			throw Error(`Blog post key '${key}' does not match '<year>/<month>'`);
+		}
+		const {year} = matches.groups;
+		return {year};
+	};
+
+	const buckets = Map.groupBy(allPosts, parseId)
+	return Array.from(buckets, ([key, posts]) => ({params: parseKey(key), props: {posts, allPosts}}))
+}) satisfies GetStaticPaths;
+
+const {year} = Astro.params;
+const {allPosts, posts} = Astro.props;
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog', url: '/blog/'},
+	{title: year},
+];
+---
+
+<!-- Yearly archive -->
+<BlogLayout posts={allPosts} breadcrumbs={breadcrumbs}>
+	<ul>
+		{posts.map(({id, data: {title}}) => <li><a href={`/blog/${id}/`}>{title}</a></li>)}
+	</ul>
+</BlogLayout>

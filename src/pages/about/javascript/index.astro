@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/Base.astro';
+import LibreJsEntry, { type LibreJsEntryProps } from '../../../components/about/LibreJsEntry';
+
+const scripts: LibreJsEntryProps[] = [
+	{
+		license: 'MIT',
+		url: '/js/jquery.min.js',
+		originalUrl: 'https://github.com/jquery/jquery',
+		licenseUrl: 'https://github.com/jquery/jquery/blob/main/LICENSE.txt',
+	}
+];
+---
+
+<BaseLayout pageTitle="HiPhish's Workshop - Javascript">
+	<p>
+		The following is a list of all JavaScript scripts employed on this
+		page.
+	</p>
+	<table class="table" id="jslicense-labels1">
+		<thead>
+			<th>Script</th>
+			<th>License</th>
+			<th>Source</th>
+		</thead>
+		<tbody>
+			{scripts.map(({url, license, licenseUrl, originalUrl}) =>
+				<LibreJsEntry url={url} license={license} originalUrl={originalUrl} licenseUrl={licenseUrl} />)}
+		</tbody>
+	</table>
+</BaseLayout>
