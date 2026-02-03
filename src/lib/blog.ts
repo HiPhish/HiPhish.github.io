@@ -1,5 +1,4 @@
 import { type Loader, type LoaderContext, type ParseDataOptions } from "astro/loaders";
-import { z } from 'astro/zod';
 import { glob } from "astro/loaders";
 
 export const globAndTransform = (pattern: string | Array<string>, base?: string | URL) => {

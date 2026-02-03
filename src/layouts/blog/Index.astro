@@ -1,0 +1,28 @@
+---
+import type { Page } from "astro";
+import type { CollectionEntry } from 'astro:content';
+
+import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
+import Preview from '../../components/blog/Preview.astro';
+import Pagination from '../../components/blog/Pagination.astro';
+
+type BlogPost = CollectionEntry<'blog'>
+
+interface Props {
+	page: Page<BlogPost>,
+}
+
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog'},
+];
+
+const {page} = Astro.props;;
+---
+
+<BlogLayout collection="blog" breadcrumbs={breadcrumbs}>
+	<p>This is where the blog index should be</p>
+	<ul>
+		{page.data.map((post) => <li><Preview post={post} /></li>)}
+	</ul>
+	<Pagination page={page} />
+</BlogLayout>

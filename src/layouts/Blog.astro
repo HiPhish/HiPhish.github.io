@@ -1,21 +1,30 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type {Collection, BlogPost} from '../lib/blog/types';
+import {getCollection} from 'astro:content';
 import BaseLayout from './Base.astro';
-
-type BlogPost = CollectionEntry<'blog'>;
 
 export interface Breadcrumb {
 	title: string,
 	url?: string,
 }
 
-const {pageTitle, breadcrumbs, posts} = Astro.props;
+interface Props {
+	collection: Collection,
+	breadcrumbs: Breadcrumb[],
+	pageTitle?: string,
+}
+
+const {collection = 'blog', pageTitle, breadcrumbs} = Astro.props;
+
+const posts: BlogPost[] = await getCollection(collection);
 
 const categories = Map.groupBy(posts, ({data: {category}}: BlogPost) => category);
+
 const tags = Map.groupBy(
 	posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string) => [tag, post])),
 	([tag, _post]: [string, BlogPost]) => tag
 );
+
 const years = Map.groupBy(
 	posts.map((post: BlogPost) => [post.data.published.getFullYear(), post]),
 	([year, _post]: [number, BlogPost]) => year

@@ -1,0 +1,27 @@
+---
+import type { Page } from "astro";
+import type {BlogPost} from '../../lib/blog/types.ts';
+import BlogLayout, {type Breadcrumb } from '../../layouts/Blog.astro';
+import Preview from '../../components/blog/Preview.astro';
+import Paginator from '../../components/blog/Pagination.astro';
+
+interface Props {
+	category: string,
+	page: Page<BlogPost>,
+}
+
+const {category, page} = Astro.props;
+
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog', url: '/blog/'},
+	{title: 'categories', url: '/blog/categories/'},
+	{title: category},
+];
+---
+
+<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+	<ul>
+		{page.data.map((post: BlogPost) => <li><Preview post={post} /></li>)}
+	</ul>
+	<Paginator page={page} />
+</BlogLayout>

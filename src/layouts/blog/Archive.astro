@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BlogLayout, {type Breadcrumb} from '../../layouts/Blog.astro';
+
+const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
+
+const posts = await getCollection('blog')
+
+const archiveEntries = Map.groupBy(posts, (post: CollectionEntry<'blog'>) => post.data.published.getFullYear());
+
+const breadcrumbs: Breadcrumb[] = [
+	{title: 'blog', url: '/blog/'},
+	{title: 'archive'}
+];
+---
+
+<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+	<ul>
+		{Array
+			.from(archiveEntries)
+			.toSorted()
+			.toReversed()
+			.map(([year, posts]) =>
+				<li>
+					{year}
+					<ul>
+						{Array
+							.from(Map.groupBy(posts, ({data: {published}}: CollectionEntry<'blog'>) => published.getMonth()))
+							.toSorted()
+							.toReversed()
+							.map(([month, posts]) =>
+								<li>
+									{months[month]}
+									<ul>
+										{posts
+										.toSorted(({data: {published: d1}}, {data: {published: d2}}) => Number(d2) - Number(d1))
+										.map((p) =>
+											<li>
+												<a href={`/blog/${p.id}`}>{p.data.title}</a>
+											</li>)}	
+									</ul>
+								</li>)}
+					</ul>
+				</li>)}
+			
+	</ul>
+</BlogLayout>
+
