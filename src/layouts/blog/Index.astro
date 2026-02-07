@@ -14,14 +14,14 @@ interface Props {
 }
 
 const {page, prefix} = Astro.props;;
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
 
 const breadcrumbs: Breadcrumb[] = [
-	{title: prefix},
+	{title: name},
 ];
 ---
 
 <BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
-	<p>This is where the blog index should be</p>
 	<ul>
 		{page.data.map((post) => <li><Preview post={post} /></li>)}
 	</ul>
