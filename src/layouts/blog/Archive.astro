@@ -55,7 +55,7 @@ const breadcrumbs: Breadcrumb[] = [
 										.toSorted(({data: {published: d1}}, {data: {published: d2}}) => Number(d2) - Number(d1))
 										.map((p) =>
 											<li>
-												<a href={`/${prefix}/${p.id}`}>{p.data.title}</a>
+												<a href={`/${p.id}`}>{p.data.title}</a>
 											</li>)}	
 									</ul>
 								</li>)}
