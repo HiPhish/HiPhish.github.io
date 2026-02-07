@@ -8,18 +8,21 @@ interface Props {
 	posts: BlogPost[],
 	year: string,
 	month: string
+	prefix: string,
 }
 
-const {posts, year, month} = Astro.props;
+const {posts, year, month, prefix} = Astro.props;
+
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
 const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog', url: '/blog/'},
+	{title: name, url: `/${prefix}/`},
 	{title: year, url: `/blog/${year}`},
 	{title: month},
 ];
 ---
 
 <!-- Monthly archive -->
-<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
 		{posts.map((post) => <li><Preview post={post} /></li>)}
 	</ul>

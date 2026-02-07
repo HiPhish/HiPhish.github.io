@@ -1,6 +1,6 @@
 ---
-import type {Collection, BlogPost} from '../lib/blog/types';
-import {getCollection} from 'astro:content';
+import type { BlogPost } from '../lib/blog/types';
+import { getCollection } from 'astro:content';
 import BaseLayout from './Base.astro';
 
 export interface Breadcrumb {
@@ -9,25 +9,25 @@ export interface Breadcrumb {
 }
 
 interface Props {
-	collection: Collection,
+	prefix: string,
 	breadcrumbs: Breadcrumb[],
 	pageTitle?: string,
 }
 
-const {collection = 'blog', pageTitle, breadcrumbs} = Astro.props;
+const {pageTitle, breadcrumbs, prefix} = Astro.props;
 
-const posts: BlogPost[] = await getCollection(collection);
+const posts: BlogPost[] = (await getCollection('blog')).filter((post) => post.data.prefix === prefix);
 
 const categories = Map.groupBy(posts, ({data: {category}}: BlogPost) => category);
 
 const tags = Map.groupBy(
-	posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string) => [tag, post])),
-	([tag, _post]: [string, BlogPost]) => tag
+	posts.flatMap((post: BlogPost) => post.data.tags.map((tag: string): [string, BlogPost] => [tag, post])),
+	([tag, _post]) => tag
 );
 
 const years = Map.groupBy(
-	posts.map((post: BlogPost) => [post.data.published.getFullYear(), post]),
-	([year, _post]: [number, BlogPost]) => year
+	posts.map((post: BlogPost): [number, BlogPost] => [post.data.published.getFullYear(), post]),
+	([year, _post]) => year
 );
 ---
 
@@ -52,7 +52,7 @@ const years = Map.groupBy(
 			</aside>
 			<nav>
 				<h1>
-					<a href="/blog/archive/">Archive</a>
+					<a href={`/${prefix}/archive/`}>Archive</a>
 				</h1>
 				<ul>
 					{Array
@@ -60,13 +60,13 @@ const years = Map.groupBy(
 						.toSorted(([year1, _post1], [year2, _post2]) => year2 - year1)
 						.map(([year, entries]) =>
 							<li>
-								<a href={`/blog/${year}/`}>{year} ({entries.length})</a>
+								<a href={`/${prefix}/${year}/`}>{year} ({entries.length})</a>
 							</li>)}
 				</ul>
 			</nav>
 			<nav>
 				<h1>
-					<a href="/blog/categories/">Categories</a>
+					<a href={`/${prefix}/categories/`}>Categories</a>
 				</h1>
 				<ul>
 					{Array
@@ -74,21 +74,21 @@ const years = Map.groupBy(
 						.filter(([category, _]) => Boolean(category))
 						.map(([category, entries]) =>
 							<li>
-								<a href={`/blog/${category}`}>{category} ({entries.length})</a>
+								<a href={`/${prefix}/${category}`}>{category} ({entries.length})</a>
 							</li>)}
 				</ul>
 			</nav>
 			<nav>
 				<h1>
-					<a href="/blog/tags/">Tags</a>
+					<a href={`/${prefix}/tags/`}>Tags</a>
 				</h1>
 				<ul>
 					{Array
 						.from(tags)
 						.map(([tag, entries]) =>
-							<a href={`/blog/${tag}`}>
-								<li>{tag} ({entries.length})</li>
-							</a>)}
+							<li>
+								<a href={`/${prefix}/${tag}`}>{tag} ({entries.length})</a>
+							</li>)}
 				</ul>
 			</nav>
 		</nav>

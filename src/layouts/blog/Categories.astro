@@ -2,35 +2,42 @@
 import type {BlogPost} from '../../lib/blog/types';
 import type { Breadcrumb } from '../../layouts/Blog.astro';
 import BlogLayout from '../../layouts/Blog.astro';
-import { getCollection } from "astro:content";
+import { sortPosts } from '../../lib/blog/util';
 
+interface Props {
+	posts: BlogPost[],
+	prefix: string,
+}
+
+const {posts, prefix} = Astro.props;
+
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
 const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog', url: '/blog/'},
+	{title: name, url: `/${prefix}/`},
 	{title: 'categories'}
 ];
 
-const posts: BlogPost[] = await getCollection('blog')
 const categories = Array
 	.from(Map.groupBy(posts, ({data: {category}}: BlogPost) => category))
 	.filter(([c, _]) => Boolean(c))
 	.toSorted();
 ---
 
-<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
 		{
 		categories.map(([category, posts]) => 
 			<li>
-				<a href={`/blog/categories/${category}/`}>
+				<a href={`/${prefix}/categories/${category}/`}>
 					{category}
 				</a>
 				({posts.length})
 				<ul>
 					{posts
-						.toSorted(({data: {published: d1}}, {data: {published: d2}}) => Number(d2) - Number(d1))
+						.toSorted(sortPosts)
 						.map(({id, data: {title}}) =>
 							<li>
-								<a href={`/blog/${id}`}>{title}</a>
+								<a href={`/${prefix}/${id}`}>{title}</a>
 							</li>)}
 				</ul>
 			</li>)}

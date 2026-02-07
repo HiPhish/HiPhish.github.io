@@ -6,20 +6,22 @@ import Preview from '../../components/blog/Preview.astro';
 import Paginator from '../../components/blog/Pagination.astro';
 
 interface Props {
-	tag: string,
 	page: Page<BlogPost>,
+	tag: string,
+	prefix: string,
 }
 
-const {tag, page} = Astro.props;
+const {tag, page, prefix} = Astro.props;
 
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
 const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog', url: '/blog/'},
-	{title: 'tags', url: '/blog/tags/'},
+	{title: name, url: `/${prefix}/`},
+	{title: 'tags', url: `/${prefix}/tags/`},
 	{title: tag},
 ];
 ---
 
-<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
 		{page.data.map((post: BlogPost) => <li><Preview post={post} /></li>)}
 	</ul>

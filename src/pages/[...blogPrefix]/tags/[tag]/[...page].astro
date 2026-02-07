@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import type { BlogPost } from '../../../../lib/blog/types';
+import TagArchive from '../../../../layouts/blog/Tag.astro';
+import { getCollection } from "astro:content";
+
+interface Props {
+	page: Page<BlogPost>
+}
+
+export const getStaticPaths = (async ({paginate}) => {
+	const posts = await getCollection('blog');
+
+	return Array
+		.from(Map.groupBy(posts, ({data: {prefix}}) => prefix))
+		.flatMap(([prefix, posts]) =>
+			Array
+				.from(Map.groupBy(posts.flatMap((post) => post.data.tags.map((tag): [string, BlogPost] => [tag, post])), ([tag, _]) => tag))
+				.map(([tag, tagAndPosts]): [string, BlogPost[]] => [tag, tagAndPosts.map(([_, posts]) => posts)])
+				.flatMap(([tag, posts]) => paginate(posts, {params: {tag, blogPrefix: prefix}})))
+}) satisfies GetStaticPaths;
+
+const {page} = Astro.props;
+const {tag, blogPrefix} = Astro.params;
+---
+
+<TagArchive tag={tag} page={page} prefix={blogPrefix} />

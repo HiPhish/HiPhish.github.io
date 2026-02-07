@@ -1,24 +1,27 @@
 ---
 import type {BlogPost} from '../../lib/blog/types.ts';
 import BlogLayout, {type Breadcrumb } from '../../layouts/Blog.astro';
+import Preview from '../../components/blog/Preview.astro';
 
 interface Props {
 	posts: BlogPost[],
 	year: string,
+	prefix: string,
 }
 
 
-const {year, posts} = Astro.props;
+const {year, posts, prefix} = Astro.props;
+
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
 const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog', url: '/blog/'},
+	{title: name, url: `/${prefix}/`},
 	{title: year},
 ];
 ---
 
 <!-- Yearly archive -->
-<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
-		{posts.map(({id, data: {title}}) =>
-			<li><a href={`/blog/${id}/`}>{title}</a></li>)}
+		{posts.map((post) => <li><Preview post={post} /></li>)}
 	</ul>
 </BlogLayout>

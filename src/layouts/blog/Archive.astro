@@ -1,7 +1,11 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import type { BlogPost } from '../../lib/blog/types';
 import BlogLayout, {type Breadcrumb} from '../../layouts/Blog.astro';
+
+interface Props {
+	posts: BlogPost[],
+	prefix: string,
+}
 
 const months = [
 	'January',
@@ -18,17 +22,18 @@ const months = [
 	'December',
 ];
 
-const posts = await getCollection('blog')
+const {posts, prefix} = Astro.props;
 
-const archiveEntries = Map.groupBy(posts, (post: CollectionEntry<'blog'>) => post.data.published.getFullYear());
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
+const archiveEntries = Map.groupBy(posts, (post: BlogPost) => post.data.published.getFullYear());
 
 const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog', url: '/blog/'},
+	{title: name, url: `/${prefix}/`},
 	{title: 'archive'}
 ];
 ---
 
-<BlogLayout collection='blog' breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
 		{Array
 			.from(archiveEntries)
@@ -39,7 +44,7 @@ const breadcrumbs: Breadcrumb[] = [
 					{year}
 					<ul>
 						{Array
-							.from(Map.groupBy(posts, ({data: {published}}: CollectionEntry<'blog'>) => published.getMonth()))
+							.from(Map.groupBy(posts, ({data: {published}}: BlogPost) => published.getMonth()))
 							.toSorted()
 							.toReversed()
 							.map(([month, posts]) =>
@@ -50,7 +55,7 @@ const breadcrumbs: Breadcrumb[] = [
 										.toSorted(({data: {published: d1}}, {data: {published: d2}}) => Number(d2) - Number(d1))
 										.map((p) =>
 											<li>
-												<a href={`/blog/${p.id}`}>{p.data.title}</a>
+												<a href={`/${prefix}/${p.id}`}>{p.data.title}</a>
 											</li>)}	
 									</ul>
 								</li>)}
@@ -59,4 +64,3 @@ const breadcrumbs: Breadcrumb[] = [
 			
 	</ul>
 </BlogLayout>
-

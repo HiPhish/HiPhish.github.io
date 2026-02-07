@@ -1,0 +1,23 @@
+---
+import type { GetStaticPaths } from "astro";
+import CategoriesArchive from '../../layouts/blog/Categories.astro';
+import { getCollection } from "astro:content";
+import type { BlogPost } from "../../lib/blog/types";
+
+interface Props {
+	posts: BlogPost[],
+}
+
+export const getStaticPaths = (async () => {
+	const posts = await getCollection('blog');
+
+	return Array
+		.from(Map.groupBy(posts, ({data: {prefix}}) => prefix))
+		.flatMap(([prefix, posts]) => ({params: {blogPrefix: prefix}, props: {posts}}))
+}) satisfies GetStaticPaths;
+
+const {posts} = Astro.props;
+const {blogPrefix} = Astro.params;
+---
+
+<CategoriesArchive posts={posts} prefix={blogPrefix} />

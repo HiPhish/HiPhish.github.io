@@ -10,16 +10,17 @@ type BlogPost = CollectionEntry<'blog'>
 
 interface Props {
 	page: Page<BlogPost>,
+	prefix: string,
 }
 
-const breadcrumbs: Breadcrumb[] = [
-	{title: 'blog'},
-];
+const {page, prefix} = Astro.props;;
 
-const {page} = Astro.props;;
+const breadcrumbs: Breadcrumb[] = [
+	{title: prefix},
+];
 ---
 
-<BlogLayout collection="blog" breadcrumbs={breadcrumbs}>
+<BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<p>This is where the blog index should be</p>
 	<ul>
 		{page.data.map((post) => <li><Preview post={post} /></li>)}

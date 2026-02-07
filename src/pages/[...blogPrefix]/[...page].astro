@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { BlogPost } from '../../lib/blog/types';
+import type { Page } from 'astro';
+
+import BlogIndexLayout from '../../layouts/blog/Index.astro';
+import { sortPosts } from '../../lib/blog/util';
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async ({paginate}) => {
+	const posts: BlogPost[] = (await getCollection('blog'))
+		.toSorted(sortPosts);
+	return Array
+		.from(Map.groupBy(posts, ({data: {prefix}}) => prefix))
+		.flatMap(([prefix, posts]) => paginate(posts, {pageSize: 10, params: {blogPrefix: prefix}}))
+}) satisfies GetStaticPaths;
+
+interface Props {
+	page: Page<BlogPost>,
+}
+
+const {page} = Astro.props;
+const {blogPrefix} = Astro.params;
+---
+
+<BlogIndexLayout page={page} prefix={blogPrefix} />

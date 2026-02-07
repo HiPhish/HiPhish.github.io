@@ -1,14 +1,15 @@
 ---
-import { render, type CollectionEntry } from "astro:content";
+import type { BlogPost } from "../../lib/blog/types";
+import { render } from "astro:content";
 
 interface Props {
-	post: CollectionEntry<'blog'>,
+	post: BlogPost,
 }
 
 const {post} = Astro.props as Props;
 
 const published = post.data.published.toISOString().substring(0, 10);
-const link = `/blog/${post.id}/`;
+const link = `/${post.id}/`;
 
 const {remarkPluginFrontmatter} = await render(post);
 

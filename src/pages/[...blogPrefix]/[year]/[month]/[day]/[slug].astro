@@ -1,0 +1,32 @@
+---
+import type { GetStaticPaths } from "astro";
+import type {BlogPost} from '../../../../../lib/blog/types';
+import PostLayout from '../../../../../layouts/blog/Post.astro';
+import { getCollection } from "astro:content";
+
+interface Props {
+	post: BlogPost,
+};
+
+export const getStaticPaths = (async ({}) => {
+	const posts = await getCollection('blog');
+
+	return posts.map((post) => ({
+		params: {
+			blogPrefix: post.data.prefix,
+			year: post.data.published.toISOString().slice(0, 4),
+			month: post.data.published.toISOString().slice(5, 7),
+			day: post.data.published.toISOString().slice(8, 10),
+			slug: post.data.slug,
+		},
+		props: {
+			post
+		}
+	}))
+}) satisfies GetStaticPaths;
+
+const {year, month, day, slug, blogPrefix} = Astro.params;
+const {post} = Astro.props;
+---
+
+<PostLayout post={post} prefix={blogPrefix} year={year} month={month} day={day} slug={slug} />

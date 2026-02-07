@@ -15,3 +15,6 @@ export const destructureID = ({id}: BlogPost): BlogPostID => {
 	const {year, month, day, slug} = matches.groups;
 	return {year, month, day, slug}
 };
+
+export const sortPosts = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
+	Number(d2) - Number(d1);

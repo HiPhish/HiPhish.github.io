@@ -1,6 +1,8 @@
 import { type Loader, type LoaderContext, type ParseDataOptions } from "astro/loaders";
 import { glob } from "astro/loaders";
 
+const re = /^(?<prefix>\S+)\/(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/(?<implicitSlug>\S+)$/;
+
 export const globAndTransform = (pattern: string | Array<string>, base?: string | URL) => {
 	const loader = glob({pattern, base})
 	return {
@@ -9,12 +11,13 @@ export const globAndTransform = (pattern: string | Array<string>, base?: string 
 			const {logger} = ctx;
 			const parseData = async <TData extends Record<string, unknown>>(opts: ParseDataOptions<TData>) => {
 				const {id, data: {tags, published, slug}} = opts;
-				const re = /^(?<year>\d{4})\/(?<month>\d{2})\/(?<day>\d{2})\/(?<implicitSlug>\S+)$/;
 				const matches = re.exec(id);
 				if (matches === null || matches.groups === undefined) {
-					throw Error(`Blog post ID '${id}' does not match '<year>/<month>/<day>/<slug>'`);
+					throw Error(`Blog post ID '${id}' does not match '<prefix>/<year>/<month>/<day>/<slug>'`);
 				}
-				const {year, month, day, implicitSlug} = matches.groups;
+				const {prefix, year, month, day, implicitSlug} = matches.groups;
+
+				opts.data.prefix = prefix;
 
 				if (!tags) {
 					opts.data.tags = [];

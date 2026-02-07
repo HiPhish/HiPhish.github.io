@@ -6,6 +6,7 @@ import { globAndTransform } from './lib/blog';
 const blog = defineCollection({
 	loader: globAndTransform('**/*.md', 'src/content/blog'),
 	schema: z.object({
+		prefix: z.string(),
 		title: z.string(),
 		published: z.date(),
 		modified: z.date().optional(),
