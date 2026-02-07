@@ -41,7 +41,7 @@ HTML tree as its content.
 Here is the raw template for generating the articles listing for a specific
 category.
 
-```scm
+```scheme
 (define (category data)
   (define blog     (assq-ref page 'blog    ))
   (define category (assq-ref page 'category))
@@ -77,7 +77,7 @@ repetition. The second phase needs the new bindings and their values. The third
 phase can be entirely derived from the second one, so we should not have to
 write it out. Here is the result:
 
-```scm
+```scheme
 (define category
   (template (blog category posts page)
     (breadcrumbs
@@ -102,7 +102,7 @@ the same power as before.
 
 The macro of the template DSL is just as simple as the one for the page DSL.
 
-~~~scm
+~~~scheme
 (define-syntax-rule
   (template (binding ...)
     (field-expr value)

@@ -58,7 +58,7 @@ is easy for humans to write by hand, read and edit manually, but it is also
 somewhat verbose and harder to parse for a machine. The following is an example
 of what JSON looks like:
 
-~~~JSON
+~~~json
 {"compact": true, "schema": 0}
 ~~~
 

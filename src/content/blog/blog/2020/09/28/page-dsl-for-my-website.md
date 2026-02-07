@@ -30,7 +30,7 @@ something more sophisticated like a hash table if I really wanted to. There is
 nothing particularly lispy about it, such a list could be written in any
 language. Here is what a simple web page looks like:
 
-~~~scm
+~~~scheme
 '((title  . "My first web page")
   (author . "Your mom")
   (css    . ("main.css" "home.css"))
@@ -85,7 +85,7 @@ pattern:
 With all that in mind I came up with a DSL that lets me write the above page as
 follows:
 
-~~~scm
+~~~scheme
 (static-page ((title  "My first web page")
               (author "Your mom")
               (css    '("main.css" "home.css"))
@@ -125,7 +125,7 @@ We know what we want to write, and we know what we want it to be transformed
 into. The next part is actually writing the Scheme macro which will perform the
 transformation. Here it is:
 
-~~~scm
+~~~scheme
 (define-syntax-rule
   (static-page ((meta-tag meta-value)
                 ...)

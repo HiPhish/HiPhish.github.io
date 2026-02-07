@@ -25,7 +25,7 @@ deprecated API calls or downright bad practice.
 Here is how Apple's own documentation highlights an `NSImageView` instance. The
 code is from the official [Cocoa Drag And Drop example].
 
-~~~obj-c
+~~~objective-c
 -(void)drawRect:(NSRect)rect
     /*------------------------------------------------------
         draw method is overridden to do drop highlighing
@@ -74,7 +74,7 @@ actual highlight `NSView`  provides the method `drawFocusRingMask`.  Subclasses
 can override  the property  to implement  their own  highlighting  and  luckily
 `NSImageView` does exactly that.
 
-~~~obj-c
+~~~objective-c
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
