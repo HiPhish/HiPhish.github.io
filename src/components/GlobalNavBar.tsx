@@ -105,7 +105,7 @@ const right = [
 const renderMenuItem = ({title, url, items}: MenuItem) =>
 	<li hidden={!Boolean(url) && !Boolean(items)}>
 		{url ? <a href={url}>{title}</a> : title}
-		{items ? items.map(renderMenuItem) : null}
+		{items ? <ul>{items.map(renderMenuItem)}</ul> : null}
 	</li>;
 
 export default () => {
