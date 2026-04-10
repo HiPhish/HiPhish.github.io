@@ -1,0 +1,7 @@
+strictDepBuilds: true
+
+onlyBuiltDependencies:
+  - 'esbuild@0.27.7'
+
+ignoredBuiltDependencies:
+  - 'sharp'  # Rely on globally installed libvips
