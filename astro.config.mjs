@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import preact from '@astrojs/preact';
 import summary from './src/plugins/remark/summary';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +14,8 @@ export default defineConfig({
 	],
 	markdown: {
 		remarkPlugins: [summary],
+	},
+	vite: {
+		plugins: [tailwindcss()],
 	},
 });
