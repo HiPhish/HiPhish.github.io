@@ -5,3 +5,7 @@ onlyBuiltDependencies:
 
 ignoredBuiltDependencies:
   - 'sharp'  # Rely on globally installed libvips
+
+publicHoistPattern:
+  # See https://github.com/storybook-astro/storybook-astro/issues/64#issuecomment-4229905860
+  - '@storybook-astro/renderer'

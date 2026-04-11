@@ -6,17 +6,24 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@astrojs/preact": "^5.1.1",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
-    "preact": "^10.28.2",
     "tailwindcss": "^4.2.2",
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.7"
+    "@astrojs/preact": "^5.1.1",
+    "@astrojs/ts-plugin": "^1.10.7",
+    "@preact/preset-vite": "^2.10.5",
+    "@storybook-astro/framework": "^1.1.0",
+    "@storybook/builder-vite": "^10.3.5",
+    "@storybook/preact": "^10.3.5",
+    "preact": "^10.28.2",
+    "storybook": "^10.3.5"
   }
 }
