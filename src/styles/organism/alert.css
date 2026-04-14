@@ -1,0 +1,15 @@
+div.alert {
+	@apply px-3 py-3;
+	@apply text-white;
+	@apply bg-blue-700 dark:bg-blue-800;
+	@apply shadow-gray-700 dark:shadow-gray-900 shadow-md;
+
+	&.warning {
+		@apply text-black;
+		@apply bg-yellow-400 dark:bg-yellow-300;
+	}
+
+	&.error {
+		@apply bg-red-700 dark:bg-red-800;
+	}
+}

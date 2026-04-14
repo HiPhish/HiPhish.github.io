@@ -1,0 +1,4 @@
+blockquote {
+	@apply border-l-4 border-primary-500;
+	@apply pl-4 mb-4 italic;
+}

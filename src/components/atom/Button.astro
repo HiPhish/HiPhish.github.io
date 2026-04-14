@@ -1,0 +1,14 @@
+---
+interface Props {
+	label: string,
+	variant: 'secondary' | 'danger' | null,
+	type: 'button' | 'submit' | 'reset' | null | undefined,
+	enabled: boolean,
+};
+
+const {label = '', variant = null, type = undefined, enabled = true} = Astro.props;
+---
+
+<button class:list={[variant, enabled ? null : 'disabled']} type={type}>
+	{label}
+</button>

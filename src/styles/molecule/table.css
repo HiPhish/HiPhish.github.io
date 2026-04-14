@@ -1,0 +1,18 @@
+table {
+	@apply w-full border dark:border-gray-700;
+	thead {
+		@apply bg-primary-100 dark:bg-gray-700;
+		th {
+			@apply text-left;
+		}
+	}
+	tbody {
+		@apply dark:bg-gray-800;
+		tr {
+			@apply border-t dark:border-gray-700;
+		}
+	}
+	th, td {
+		@apply p-2;
+	}
+}

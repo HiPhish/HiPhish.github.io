@@ -1,0 +1,8 @@
+input {
+	&[type=text], &[type=email], &[type=url], &[type=password], &[type=tel], &[type=time] {
+		@apply w-full border p-2 rounded;
+		@apply bg-white dark:bg-gray-900 dark:border-gray-700;
+	}
+	&[type=color] {
+	}
+}

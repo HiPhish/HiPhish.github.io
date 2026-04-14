@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+
+@theme {
+	--color-primary-50:  #EFF6FF;
+	--color-primary-100: #DBEAFE;
+	--color-primary-200: #BFDBFE;
+	--color-primary-300: #93C5FD;
+	--color-primary-400: #60A5FA;
+	--color-primary-500: #3B82F6;
+	--color-primary-600: #2563EB;
+	--color-primary-700: #1E4A8A;
+	--color-primary-800: #12325B;
+	--color-primary-900: #0B1F3A;
+}
+
+body {
+	@apply bg-primary-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100;
+	@apply transition-colors duration-300;
+	@apply font-sans;
+}
+
+@import './atom.css';
+@import './molecule.css';
+@import './organism.css';

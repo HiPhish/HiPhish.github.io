@@ -1,0 +1,23 @@
+---
+interface Social {
+	label: string,
+	url: string,
+};
+
+interface Props {
+	copyright: string,
+	socials: Social[],
+};
+
+const {copyright, socials} = Astro.props;
+---
+
+
+<footer>
+	<div>
+		<p>{copyright}</p>
+		<div>
+			{socials.map((social) => <a href={social.url}>{social.label}</a>)}
+		</div>
+	</div>
+</footer>

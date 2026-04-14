@@ -1,0 +1,14 @@
+/* The global site-wide footer */
+
+:is(body, #storybook-root) > footer {
+	@apply bg-primary-900 dark:bg-black text-gray-300;
+	> div {
+		@apply max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between;
+		> div {
+			@apply space-x-4 mt-2 md:mt-0;
+			a {
+				@apply text-gray-300 hover:text-white;
+			}
+		}
+	}
+}

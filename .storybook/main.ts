@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook-astro/framework';
+import { preact } from '@storybook-astro/framework/integrations';
 import tailwindcss from '@tailwindcss/vite';
 
 
@@ -10,7 +11,10 @@ export default {
 			sanitization: {
 				// Safe to disable as long as we only run Storybook locally
 				enabled: false
-			}
+			},
+			integrations: [
+				preact(),
+			],
 		},
 	},
 	async viteFinal(config) {

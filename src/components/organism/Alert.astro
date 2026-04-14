@@ -1,0 +1,7 @@
+---
+const {variant = 'info'} = Astro.props;
+---
+
+<div class:list={['alert', variant]}>
+	<slot />
+</div>

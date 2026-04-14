@@ -1,0 +1,19 @@
+---
+interface Props {
+	title: string,
+	tags: string[],
+	label?: string,
+	url?: string,
+}
+
+const {title, tags = [], label, url} = Astro.props;
+---
+
+<div class:list={['card']}>
+	<h3>{title}</h3>
+	<slot />
+	<div>
+		<span class="">{tags.join(', ')}</span>
+		<a href={url}>{label}</a>
+	</div>
+</div>

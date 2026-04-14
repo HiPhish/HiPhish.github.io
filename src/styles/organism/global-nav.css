@@ -1,0 +1,29 @@
+:is(body, #storybook-root) > nav {
+	@apply bg-primary-900 dark:bg-gray-950 text-white;
+	a {
+		@apply text-white no-underline hover:text-primary-300;
+	}
+	> div {
+		@apply max-w-7xl mx-auto px-4 py-3 flex justify-between items-center;
+		> div {
+			@apply font-bold text-lg;
+		}
+		> ul {
+			@apply list-none hidden md:flex space-x-6 items-center;
+			> li {
+				> button {
+					@apply bg-transparent hover:bg-transparent p-0 hover:text-primary-300;
+				}
+				> ul {
+					@apply p-0 list-none absolute hidden group-hover:block bg-primary-800 dark:bg-gray-800 mt-2 rounded shadow-lg;
+					> li {
+						@apply p-0;
+						> a {
+							@apply block px-4 py-2 hover:bg-primary-700;
+						}
+					}
+				}
+			}
+		}
+	}
+}

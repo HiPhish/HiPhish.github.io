@@ -1,0 +1,9 @@
+@import './atom/heading.css';
+@import './atom/button.css';
+@import './atom/hyperlink.css';
+@import './atom/input.css';
+
+p {
+	@apply mb-4;
+}
+
