@@ -4,12 +4,14 @@ export default {
 	title: 'Organism/Footer',
 	component: Footer,
 	args: {
-		copyright: '© 2026 John Doe',
 		socials: [
 			{url: '#', label: 'GitHub'},
 			{url: '#', label: 'GitLab'},
 			{url: '#', label: 'Twitch'},
 		],
+		slots: {
+			default: '© 2026 John Doe'
+		}
 	},
 };
 
