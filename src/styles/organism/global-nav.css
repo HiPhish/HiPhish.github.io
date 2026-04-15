@@ -1,25 +1,57 @@
 :is(body, #storybook-root) > nav {
 	@apply bg-primary-900 dark:bg-gray-950 text-white;
-	a {
-		@apply text-white no-underline hover:text-primary-300;
-	}
 	> div {
-		@apply max-w-7xl mx-auto px-4 py-3 flex justify-between items-center;
-		> div {
-			@apply font-bold text-lg;
+		@apply max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center;
+		a { /* The brand entry */
+			@apply no-underline text-white hover:text-primary-300;
 		}
-		> ul {
-			@apply list-none hidden md:flex space-x-6 items-center;
-			> li {
-				> button {
-					@apply bg-transparent hover:bg-transparent p-0 hover:text-primary-300;
-				}
-				> ul {
-					@apply p-0 list-none absolute hidden group-hover:block bg-primary-800 dark:bg-gray-800 mt-2 rounded shadow-lg;
-					> li {
-						@apply p-0;
-						> a {
-							@apply block px-4 py-2 hover:bg-primary-700;
+		ul {
+			@apply list-none;
+		}
+		li {
+			@apply p-0;
+		}
+		> a {
+			@apply font-bold;
+		}
+		> button {  /* Menu button for small screens */
+			@apply inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2;
+			@apply text-white dark:text-white;
+			> span {
+				@apply sr-only;
+			}
+			> svg {
+				@apply w-5 h-5;
+			}
+		}
+		> div {  /* Contains the menu entries */
+			@apply w-full md:block md:w-auto;
+			> ul {  /* Navigation items list */
+				@apply hidden md:flex space-x-6 items-center;
+				@apply flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ;
+				> li {
+					> a {
+						@apply block px-0 py-2;
+					}
+					> button {
+						@apply flex items-center justify-between w-full py-2 px-3 md:border-0 md:p-0 md:w-auto;
+						@apply bg-transparent hover:bg-transparent p-0 hover:text-primary-300;
+					}
+					> div {  /* Sub-menu */
+						@apply z-10 hidden group-hover:block absolute font-normal divide-y rounded-lg rounded-tl-none shadow w-44;
+						@apply bg-primary-800 divide-gray-100 dark:bg-gray-800 dark:divide-gray-600;
+						> ul {
+							@apply py-2 px-0 text-sm text-gray-700 dark:text-gray-200;
+							> li {
+								> a {
+									@apply block px-4 py-2;
+									@apply hover:bg-primary-700 hover:text-white;
+								}
+							}
+							> hr {
+								@apply p-0 my-1;
+								@apply border-white dark:border-gray-600;
+							}
 						}
 					}
 				}

@@ -1,0 +1,13 @@
+---
+interface Props {
+	label: string,
+	url: string,
+	current?: astroHTML.JSX.AriaAttributes['aria-current'],
+};
+
+const {label, url, current = false} = Astro.props;
+---
+
+<li>
+	<a href={url} aria-current={current}>{label}</a>
+</li>

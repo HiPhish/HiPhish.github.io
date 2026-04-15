@@ -1,34 +1,54 @@
 ---
-interface Entry {
-	label: string,
-	url: string,
-	entries?: Entry[],
-};
+import Entry from './GlobalNav/Entry.astro';
+import Hamburger from './GlobalNav/Hamburger.astro';
+import GroupEntry from './GlobalNav/MultiEntry.astro';
 
 interface Props {
-	home: Entry,
-	entries: Entry[],
+	brand: string,
+	home: string,
+	navId?: string,
 };
 
-const {home, entries = []} = Astro.props;
+const {brand, home, navId = 'global-nav-bar'} = Astro.props;
 ---
 
-<nav>
+<nav data-navid={navId}>
 	<div>
-		<div><a href={home.url}>{home.label}</a></div>
-		<ul>
-			{entries.map(({label, url, entries = []}) => {
-					if (entries.length === 0) {
-						return <li><a href={url}>{label}</a></li>
-					}
-					return <li class="relative group">
-						<button>{label}</button>
-						<ul>
-							{entries.map(({label, url}) => <li><a href={url}>{label}</a></li>)}
-						</ul>
-					</li>
-				})
-			}
-		</ul>
+		<a href={home}>{brand}</a>
+
+		<!-- The menu button -->
+		<Hamburger controlledId={navId} />
+
+		<!-- The top-level entries -->
+		<div id={navId} class="hidden">
+			<ul>
+				<slot>
+					<!-- Default content for testing in Storybook -->
+					<Entry label='Home' url='#' />
+					<GroupEntry label='Services'>
+						<li>
+							<Entry label='Web design' url='#' />
+						</li>
+						<li>
+							<Entry label='Web APIs' url='#' />
+						</li>
+						<hr />
+						<li>
+							<Entry label='SEO' url='#' />
+						</li>
+					</GroupEntry>
+					<Entry label='Pricing' url='#' />
+					<Entry label='Contact' url='#' />
+				</slot>
+			</ul>
+		</div>
 	</div>
 </nav>
+
+<script>
+	const nav = document.querySelector(':is(body, #storybook-root) > nav');
+	const btn = document.querySelector(':is(body, #storybook-root) > nav > div > button');
+	const menu = document.getElementById(nav?.dataset.navid);
+	//
+	btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>
