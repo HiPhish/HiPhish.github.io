@@ -1,0 +1,4 @@
+hr {
+	@apply border-slate-300 dark:border-slate-600;
+	@apply my-3.5
+}

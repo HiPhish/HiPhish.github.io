@@ -2,6 +2,7 @@
 @import './atom/button.css';
 @import './atom/hyperlink.css';
 @import './atom/input.css';
+@import './atom//hr.css';
 
 p {
 	@apply mb-4;
