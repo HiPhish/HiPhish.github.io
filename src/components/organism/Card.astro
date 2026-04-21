@@ -1,16 +1,22 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	title: string,
 	tags: string[],
 	label?: string,
 	url?: string,
+	img?: string,
+	alt?: string,
 }
 
-const {title, tags = [], label, url} = Astro.props;
+const {title, tags = [], label, url, img, alt} = Astro.props;
+const image = await import(img || '');
 ---
 
 <div class:list={['card']}>
 	<h3>{title}</h3>
+	{img && <Image src={image.default} alt={alt || ''} />}
 	<slot />
 	<div>
 		<span class="">{tags.join(', ')}</span>

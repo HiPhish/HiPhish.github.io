@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+
+type BlogPost = CollectionEntry<'blog'>;
+
+interface Props {
+	post: BlogPost,
+};
+
+const {post} = Astro.props;
+const {id, data: {title, published}} = post;
+const link = `/${id}/`;
+const pubDate = published.toISOString().substring(0, 10);
+const {remarkPluginFrontmatter} = await render(post);
+---
+
+<article>
+	<h3>
+		{title}
+	</h3>
+	<header>
+		<time datetime={pubDate}>Published: {pubDate}</time>
+	</header>
+	<p>
+		{remarkPluginFrontmatter.summary}
+	</p>
+	<footer>
+		<p><a href={link}>Read more…</a></p>
+	</footer>
+</article>

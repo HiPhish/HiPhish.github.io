@@ -1,0 +1,16 @@
+---
+import Card from '../../components/organism/Card.astro';
+interface Props {
+	title: string,
+	url: string,
+	img: string,
+	alt: string,
+	description: string,
+};
+
+const {title, url, img, alt, description} = Astro.props;
+---
+
+<Card title={title} tags={[]} label='Learn more' url={url} img={img} alt={alt}>
+	<p>{description}</p>
+</Card>

@@ -1,10 +1,15 @@
 div.card {
-	@apply bg-white dark:bg-gray-800 border border-transparent dark:border-gray-700 rounded-lg shadow p-4;
+	@apply bg-white dark:bg-gray-800  dark:border-gray-700;
+	@apply border border-transparent rounded-lg shadow p-4;
+	@apply flex flex-col;
 	> h3 {
 		@apply text-xl font-semibold text-primary-800 dark:text-primary-300;
 	}
+	> img {
+		@apply mx-auto mbe-6;
+	}
 	> div:last-child {
-		@apply mt-4 flex justify-between;
+		@apply mbs-auto flex justify-between;
 		> span {
 			@apply text-primary-500 text-sm;
 		}

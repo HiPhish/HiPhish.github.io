@@ -1,4 +1,4 @@
-:is(body, #storybook-root) > nav {
+:is(body, #storybook-root) > header > nav {
 	@apply bg-primary-900 dark:bg-gray-950 text-white;
 	> div {
 		@apply max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center;

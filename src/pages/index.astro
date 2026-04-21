@@ -1,93 +1,48 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/Base.astro';
-import Product from '../components/homepage/product.tsx';
+import Hero from '../components/organism/Hero.astro';
+import Product from '../components/homepage/product.astro';
+import BlogPostPreview from '../components/homepage/BlogPostPreview.astro';
+import '../styles/pages/homepage.css';
 
-interface Product {
-	title: string,
-	url: string,
-	img: string,
-	alt: string,
-	description: string,
-}
+type BlogPostPreview = CollectionEntry<'blog'>;
 
-const products: Product[] = [
-	{
-		title: 'Grid Framework',
-		url: '/grid-framework/',
-		img: 'grid-framework.png',
-		alt: 'Grid Framework logo',
-		description: 'Grid-based game logic for Unity3D that is both simple and powerful. Custom classes wrap up all the math in a simple, flexible and powerful API for use as it fits your project. Includes also editor extensions and examples.'
-	}, {
-		title: 'info.vim',
-		url: 'https://gitlab.com/HiPhish/info.vim',
-		img: 'info.vim.png',
-		alt: 'info.vim screenshot',
-		description: 'A fully-featured reader and browser for info documents from inside Vim.  Supports all the same navigation as standalone- and Emacs info, but with all the comfort of Vim.'
-	}, {
-		title: 'Repl.nvim',
-		url: 'https://gitlab.com/HiPhish/repl.nvim',
-		img: 'repl.nvim.png',
-		alt: 'REPL.nvim image',
-		description: 'Open and manage REPL instances right from inside Nvim, and send text to the REPL buffer. New types can be defined and existing defaults can be altered.  An API provides functionality for 3rd party plugins as well.'
-	}, {
-		title: 'NTFS-Clone',
-		url: 'https://gitlab.com/HiPhish/ntfs-clone',
-		img: 'analogue-data-disc-117729.jpg',
-		alt: 'NTFS-clone logo',
-		description: 'Create perfect 1:1 copies of NTFS hard drives. The resulting hard drive can be inserted right back into a PC and be booted from without having to run any additional steps.'
-	}, {
-		title: 'IPS-Tools',
-		url: 'https://gitlab.com/HiPhish/IPS-Tools',
-		img: 'ips.svg',
-		alt: 'IPS-Tools logo',
-		description: 'Command-line tools and C library for working with binary patches in the IPS format, supports the common \"truncation\" extension. Users can apply and generate patches, inspect patch files, and use the library in their own applications.'
-	}, {
-		title: 'Newton\'s method in C',
-		url: 'https://github.com/HiPhish/Newton-method',
-		img: 'newton.png',
-		alt: 'Newton\'s method logo',
-		description: 'One of my earlier projects written as an exercise for myself.  It implements Newton\'s method of finding the root of a function in C using only the standard library. The program acts as a compiler and virtual machine for the function string entered and can interpret any legal function syntax.'
-	}, {
-		title: 'roll',
-		url: 'https://gitlab.com/HiPhish/roll',
-		img: 'black-black-and-white-cubes-37534.jpg',
-		alt: '\'roll\' logo',
-		description: 'Generate random numbers from virtual dice. Useful for generating diceware passphrases and whatever else you might need random integer numbers for.'
-	}, {
-		title: 'Game source documenation',
-		url: 'https://github.com/HiPhish/Game-Source-Documentation',
-		img: 'game-docs.png',
-		alt: 'Game source documentation screenshot',
-		description: 'We all love classic video games, and we also love when they get some modern polish. If it just wasn\'t for all the encrusted ancient code. This ongoing project aims to document the source codes of old games well enough that a port could be built from the specifications alone.'
-	}, {
-		title: 'XeenTools',
-		url: 'https://github.com/HiPhish/XeenTools',
-		img: 'xeen.png',
-		alt: 'Image extracted from the game',
-		description: 'An ongoing effort to write a library that can read assets from the Might & Magic IV and V games. The idea is to write a library that can be used as a basis for a modern source port.'
-	},
-];
+const products = await getCollection('products');
+const blog = await getCollection('blog');
+
+/** Whether the entry is a post on the main blog. */
+const isBlogPost = ({data: {prefix}}: BlogPostPreview) =>
+	prefix === 'blog';
+
+/** Order blog posts by their publication date. */
+const compareDates = ({data: {published: d1}}: BlogPostPreview, {data: {published: d2}}: BlogPostPreview) =>
+	d2.valueOf() - d1.valueOf();
 ---
 
 <BaseLayout>
-	<div class="billboard">
-		<h1>Welcome to the workshop</h1>
+	<Hero title='Welcome to the workshop'>
 		<p>
-			I make things, usually with software, and occasionally I write,
-			usually about software as well. The workshop is home to my
-			projects, both commercial and free, and I invite you to browse my
-			projects and my open source codes.
+			This is my personal website where I post hobby projects and blog about
+			software and various other topics off the top of my head.
 		</p>
-		<p>
-			I also contribute to free libre open source projects when there is
-			an opportunity, so check out those projects as well.
-		</p>
-	</div>
-	<article role="main">
-		<section id="products">
-			<h2>Products made at the workshop</h2>
-			{products.map(({title, url, img, alt, description}) =>
-				<Product title={title} url={url} img={img} alt={alt} description={description} />)}
+		<div>
+			<a class="button" href="/blog/">Read the blog</a>
+			<a class="button secondary" href="/about/">About me</a>
+		</div>
+	</Hero>
+	<main>
+		<section id="blog-posts">
+			<h2>Latest posts</h2>
+			<div>
+				{blog.filter(isBlogPost).sort(compareDates).slice(0, 6).map((post) => <BlogPostPreview post={post} />)}
+			</div>
 		</section>
-	</article>
+		<section id="products">
+			<h2>Projects from the workshop</h2>
+			<div>
+				{products.map(({data}) => <Product {...data} />)}
+			</div>
+		</section>
+	</main>
 </BaseLayout>

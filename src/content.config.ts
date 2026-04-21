@@ -1,4 +1,5 @@
 import { z } from 'astro/zod';
+import { file } from 'astro/loaders';
 import { defineCollection } from "astro:content";
 import { globAndTransform } from './lib/blog';
 
@@ -16,6 +17,19 @@ const blog = defineCollection({
 	})
 });
 
+// The products to display on the front page
+const products = defineCollection({
+	loader: file('src/content/products.json'),
+	schema: z.object({
+		title: z.string(),
+		url: z.string(),
+		img: z.string(),
+		alt: z.string(),
+		description: z.string(),
+	})
+});
+
 export const collections = {
 	blog,
+	products,
 };

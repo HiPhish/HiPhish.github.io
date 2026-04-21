@@ -1,7 +1,7 @@
 ---
 import Entry from './GlobalNav/Entry.astro';
 import Hamburger from './GlobalNav/Hamburger.astro';
-import GroupEntry from './GlobalNav/MultiEntry.astro';
+import Group from './GlobalNav/Group.astro';
 
 interface Props {
 	brand: string,
@@ -12,43 +12,44 @@ interface Props {
 const {brand, home, navId = 'global-nav-bar'} = Astro.props;
 ---
 
-<nav data-navid={navId}>
-	<div>
-		<a href={home}>{brand}</a>
+<header>
+	<nav data-navid={navId}>
+		<div>
+			<a href={home}>{brand}</a>
 
-		<!-- The menu button -->
-		<Hamburger controlledId={navId} />
+			<!-- The menu button -->
+			<Hamburger controlledId={navId} />
 
-		<!-- The top-level entries -->
-		<div id={navId} class="hidden">
-			<ul>
-				<slot>
-					<!-- Default content for testing in Storybook -->
-					<Entry label='Home' url='#' />
-					<GroupEntry label='Services'>
-						<li>
-							<Entry label='Web design' url='#' />
-						</li>
-						<li>
-							<Entry label='Web APIs' url='#' />
-						</li>
-						<hr />
-						<li>
-							<Entry label='SEO' url='#' />
-						</li>
-					</GroupEntry>
-					<Entry label='Pricing' url='#' />
-					<Entry label='Contact' url='#' />
-				</slot>
-			</ul>
+			<!-- The top-level entries -->
+			<div id={navId} class="hidden">
+				<ul>
+					<slot>
+						<!-- Default content for testing in Storybook -->
+						<Entry label='Home' url='#' />
+						<Group label='Services'>
+							<li>
+								<Entry label='Web design' url='#' />
+							</li>
+							<li>
+								<Entry label='Web APIs' url='#' />
+							</li>
+							<hr />
+							<li>
+								<Entry label='SEO' url='#' />
+							</li>
+						</Group>
+						<Entry label='Pricing' url='#' />
+						<Entry label='Contact' url='#' />
+					</slot>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
+</header>
 
 <script>
-	const nav = document.querySelector(':is(body, #storybook-root) > nav');
-	const btn = document.querySelector(':is(body, #storybook-root) > nav > div > button');
+	const nav = document.querySelector(':is(body, #storybook-root) > header > nav');
+	const btn = document.querySelector(':is(body, #storybook-root) > header > nav > div > button');
 	const menu = document.getElementById(nav?.dataset.navid);
-	//
 	btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 </script>

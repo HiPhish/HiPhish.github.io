@@ -3,11 +3,16 @@ interface Props {
 	label: string,
 	url: string,
 	current?: astroHTML.JSX.AriaAttributes['aria-current'],
+	extern?: boolean,
 };
 
-const {label, url, current = false} = Astro.props;
+const {label, url, current = false, extern = false} = Astro.props;
 ---
 
 <li>
-	<a href={url} aria-current={current}>{label}</a>
+	<a href={url} aria-current={current} target={extern ? '_blank' : '_self'}>
+		<slot>
+			{label}
+		</slot>
+	</a>
 </li>

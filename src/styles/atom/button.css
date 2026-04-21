@@ -1,4 +1,10 @@
-button, input[type=button], input[type=file], input[type=submit] {
+/* Button and button-like elements
+ *
+ * Includes regular hyperlinks with the `button` class.  These are intended for
+ * when we want button-like styling without button semantics.
+ */
+
+button, [role=button], input[type=button], input[type=file], input[type=submit], a.button {
 	@apply px-3 py-1 rounded border border-transparent cursor-pointer;
 	@apply bg-primary-600 text-white hover:bg-primary-700;
 	&.secondary {
@@ -7,5 +13,8 @@ button, input[type=button], input[type=file], input[type=submit] {
 	}
 	&.danger {
 		@apply bg-red-700 hover:bg-red-900;
+	}
+	&:is(a) {
+		@apply no-underline text-white;
 	}
 }
