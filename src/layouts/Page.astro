@@ -1,0 +1,18 @@
+---
+/** A general page layout if there is no need for anything more specific. */
+
+import BaseLayout from './Base.astro';
+import '../styles/pages/page.css';
+
+interface Props {
+	pageTitle: string,
+};
+
+const {pageTitle} = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<main role="main">
+		<slot />
+	</main>
+</BaseLayout>

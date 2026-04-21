@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/Base.astro';
+import PageLayout from '../../../layouts/Page.astro';
 import LibreJsEntry, { type LibreJsEntryProps } from '../../../components/about/LibreJsEntry';
 
 const scripts: LibreJsEntryProps[] = [
@@ -12,7 +12,7 @@ const scripts: LibreJsEntryProps[] = [
 ];
 ---
 
-<BaseLayout pageTitle="HiPhish's Workshop - Javascript">
+<PageLayout pageTitle="HiPhish's Workshop - Javascript">
 	<p>
 		The following is a list of all JavaScript scripts employed on this
 		page.
@@ -28,4 +28,4 @@ const scripts: LibreJsEntryProps[] = [
 				<LibreJsEntry url={url} license={license} originalUrl={originalUrl} licenseUrl={licenseUrl} />)}
 		</tbody>
 	</table>
-</BaseLayout>
+</PageLayout>

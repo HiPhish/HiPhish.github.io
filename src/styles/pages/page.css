@@ -1,0 +1,11 @@
+/* A general page when there is nothing more concrete. */
+@import "tailwindcss";
+
+body {
+	/* Pushes the footer down to the bottom */
+	@apply flex flex-col h-screen justify-between ;
+}
+
+main {
+	@apply max-w-7xl w-full mx-auto px-4 py-2 mb-auto;
+}
