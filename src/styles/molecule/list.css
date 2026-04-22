@@ -1,5 +1,5 @@
-ol, ul {
-	@apply pl-6;
+ol, ul, dl > dd {
+	@apply ps-10;
 }
 
 ol {
@@ -8,4 +8,8 @@ ol {
 
 ul {
 	@apply list-disc;
+}
+
+dl {
+	@apply mbe-4;
 }
