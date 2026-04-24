@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths } from "astro";
-import CategoriesArchive from '../../layouts/blog/Categories.astro';
-import { getCollection } from "astro:content";
 import type { BlogPost } from "../../lib/blog/types";
+import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
+import { getCollection } from "astro:content";
+import { sortPosts } from '../../lib/blog/util';
 
 interface Props {
 	posts: BlogPost[],
@@ -17,7 +18,37 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const {posts} = Astro.props;
-const {blogPrefix} = Astro.params;
+const {blogPrefix: prefix} = Astro.params;
+
+const name = /[^/]+$/.exec(prefix)?.at(0) || 'blog';
+const breadcrumbs: Breadcrumb[] = [
+	{title: name, url: `/${prefix}/`},
+	{title: 'categories'}
+];
+
+const categories = Array
+	.from(Map.groupBy(posts, ({data: {category}}: BlogPost) => category))
+	.filter(([c, _]) => Boolean(c))
+	.toSorted();
 ---
 
-<CategoriesArchive posts={posts} prefix={blogPrefix} />
+<BlogLayout pageTitle="Categories" prefix={prefix} breadcrumbs={breadcrumbs}>
+	<ul>
+		{
+		categories.map(([category, posts]) => 
+			<li>
+				<a href={`/${prefix}/categories/${category}/`}>
+					{category}
+				</a>
+				({posts.length})
+				<ul>
+					{posts
+						.toSorted(sortPosts)
+						.map(({id, data: {title}}) =>
+							<li>
+								<a href={`/${prefix}/${id}/`}>{title}</a>
+							</li>)}
+				</ul>
+			</li>)}
+	</ul>
+</BlogLayout>

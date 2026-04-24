@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import type { BlogPost } from '../../lib/blog/types';
+import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
 import { getCollection } from 'astro:content';
-import TagsArchive from '../../layouts/blog/Tags.astro';
+import { sortPosts } from '../../lib/blog/util';
 
 interface Props {
 	posts: BlogPost[],
@@ -18,6 +19,40 @@ export const getStaticPaths = (async () => {
 
 const {posts} = Astro.props;
 const {blogPrefix} = Astro.params;
+
+const postToTagsAndPost = (post: BlogPost): [string, BlogPost][] =>
+	post.data.tags.map((tag: string) => [tag, post]);
+
+const tagsAndPosts: [string, BlogPost][] = posts
+	.flatMap(postToTagsAndPost)
+
+const tags = Array
+	.from(Map.groupBy(tagsAndPosts, ([tag, _]) => tag))
+	.map(([tag, tagsAndPosts]) =>
+		[tag, tagsAndPosts.map(([_, post]) => post)] satisfies [string, BlogPost[]])
+	.toSorted(([t1, _ps1], [t2, _ps2]) => t1 < t2 ? -1 : 1)
+
+const name = /[^/]+$/.exec(blogPrefix)?.at(0) || 'blog';
+const breadcrumbs: Breadcrumb[] = [
+	{title: name, url: `/${blogPrefix}/`},
+	{title: 'tags'}
+]
 ---
 
-<TagsArchive posts={posts} prefix={blogPrefix} />
+<BlogLayout pageTitle='Tags' prefix={blogPrefix} breadcrumbs={breadcrumbs}>
+	<ul>
+		{tags.map(([tag, posts]) =>
+			<li>
+				<a href={`/${blogPrefix}/tags/${tag}/`}>{tag}</a>
+				({posts.length})
+				<ul>
+					{posts
+					.toSorted(sortPosts)
+					.map(({id, data: {title}}) =>
+						<li>
+							<a href={`/${id}/`}>{title}</a>
+						</li>)}
+				</ul>
+			</li>)}
+	</ul>
+</BlogLayout>

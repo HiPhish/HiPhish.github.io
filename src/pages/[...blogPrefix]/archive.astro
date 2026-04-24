@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
-import BlogArchive from '../../layouts/blog/Archive.astro';
+import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
 import { getCollection } from "astro:content";
 import type { BlogPost } from "../../lib/blog/types";
 
@@ -16,8 +16,60 @@ export const getStaticPaths = (async ({}) => {
 		.flatMap(([prefix, posts]) => ({params: { blogPrefix: prefix}, props: {posts}}))
 }) satisfies GetStaticPaths;
 
+/** Maps a post to the index (zero-based) of the month of publishing */
+const publishedMonth = ({data: {published}}: BlogPost) =>
+	published.getMonth();
+
+const byDate = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
+	Number(d2) - Number(d1);
+
 const {posts} = Astro.props;
 const {blogPrefix} = Astro.params;
+
+/** Maps the index (zero-based) of a month to its English name. */
+const months = new Map([
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+].map((month, i) => [i, month]));
+
+const archiveEntries = Map.groupBy(posts, ({data: {published}}: BlogPost) => published.getFullYear());
+const name = /[^/]+$/.exec(blogPrefix)?.at(0) || 'blog';
+const breadcrumbs: Breadcrumb[] = [
+	{title: name, url: `/${blogPrefix}/`},
+	{title: 'archive'}
+];
 ---
 
-<BlogArchive prefix={blogPrefix} posts={posts} />
+<BlogLayout prefix={blogPrefix} pageTitle='Archive' breadcrumbs={breadcrumbs}>
+	<ul>
+		{Array.from(archiveEntries).toSorted(([i, ], [j, ]) => j - i).map(([year, posts]) =>
+			<li>
+				<a href={`/${blogPrefix}/${year}/`}>{year}</a>
+				({posts.length})
+				<ul>
+					{Array.from(Map.groupBy(posts, publishedMonth))
+					.toSorted(([i, ], [j, ]) => j - i)
+					.map(([month, posts]) =>
+						<li>
+							<a href={`/${blogPrefix}/${year}/${String(month + 1).padStart(2, '0')}/`}>
+								{months.get(month)}</a>
+							({posts.length})
+							<ul>
+								{posts.toSorted(byDate).map(({id, data: {title}}) =>
+									<li><a href={`/${id}/`}>{title}</a></li>)}
+							</ul>
+						</li>)}
+				</ul>
+			</li>)}
+	</ul>
+</BlogLayout>
