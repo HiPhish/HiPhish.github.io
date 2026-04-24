@@ -2,6 +2,7 @@
 import type {JSX} from "preact";
 import type {Breadcrumb} from '../../layouts/Blog.astro';
 import type {BlogPost} from '../../lib/blog/types';
+import '../../styles/pages/blog/post.css';
 
 import BlogLayout from '../../layouts/Blog.astro';
 import { render } from "astro:content";
@@ -40,22 +41,24 @@ const breadcrumbs: Breadcrumb[] = [
 
 <BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<h1>{title}</h1>
-	<p>Published: {published.toISOString().substring(0, 10)}</p>
-	{modified
-		? <p>Modified: {modified.toISOString().substring(0, 10)}</p>
-		: null}
-	<p>Category: <a href={`/blog/categories/${category}/`}>{category}</a></p>
-	{tags.length > 0
-		?
-			<p>Tags: {
-				// NOTE: We cannot join an array of elements with a string (', '),
-				// instead we reduce the array to a list of elements and string
-				// https://github.com/withastro/astro/issues/7016#issuecomment-1537243775
-				tags
-					.map((tag: string) => <a href={`/blog/tags/${tag}`}>{tag}</a>)
-					.reduce((acc: (JSX.Element | string)[], current: JSX.Element) => [acc, ', ', current])}
-			</p>
-		: ''
-	}
+	<header>
+		<p>Published: {published.toISOString().substring(0, 10)}</p>
+		{modified
+			? <p>Modified: {modified.toISOString().substring(0, 10)}</p>
+			: null}
+		<p>Category: <a href={`/blog/categories/${category}/`}>{category}</a></p>
+		{tags.length > 0
+			?
+				<p>Tags: {
+					// NOTE: We cannot join an array of elements with a string (', '),
+					// instead we reduce the array to a list of elements and string
+					// https://github.com/withastro/astro/issues/7016#issuecomment-1537243775
+					tags
+						.map((tag: string) => <a href={`/blog/tags/${tag}`}>{tag}</a>)
+						.reduce((acc: (JSX.Element | string)[], current: JSX.Element) => [acc, ', ', current])}
+				</p>
+			: ''
+		}
+	</header>
 	<Content />
 </BlogLayout>

@@ -1,0 +1,6 @@
+nav.pagination {
+	@apply py-4 border border-transparent border-bs-slate-300 dark:border-bs-slate-500;
+	> ul {
+		@apply mx-auto px-0 list-none flex flex-row gap-8 justify-center;
+	}
+}

@@ -1,0 +1,11 @@
+/* An index page listing previews of multiple blog posts */
+@import 'tailwindcss';
+
+main {
+	> ul {
+		@apply px-0 py-4 list-none;
+		> li {
+			@apply mbe-8;
+		}
+	}	
+}

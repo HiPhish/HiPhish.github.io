@@ -1,0 +1,56 @@
+/* Every blog page */
+@import "tailwindcss";
+@import '../../theme.css';
+
+body {
+	/* Pushes the footer down to the bottom */
+	@apply flex flex-col h-screen justify-between ;
+}
+
+body > div.blog {
+	@apply max-w-7xl w-full mx-auto px-4 py-2 mb-auto;
+	display: grid;
+	grid-gap: 0em 1em;
+	align-content: start;
+	/* I want the first row to take up as little height as possible, but I don't know how */
+	grid-template:
+		"blog-nav breadcrumbs" auto
+		"blog-nav main" 1fr
+		"blog-nav post-nav" auto / auto 1fr;
+
+	nav#breadcrumbs {
+		grid-area: breadcrumbs;
+		@apply bg-white dark:bg-gray-800;
+		@apply py-2 rounded-lg;
+		> ol {
+			@apply px-4;
+			@apply flex flex-row list-none ;
+			> li {
+				@apply after:content-['/'] after:px-2;
+			}
+		}
+	}
+
+	/* The navigation side bar */
+	nav#blog-navigation {
+		grid-area: blog-nav;
+		@apply bg-white dark:bg-gray-800;
+		@apply rounded-lg p-4;
+		ul {
+			@apply ps-4 list-none;
+		}
+		h2 {
+			@apply mbs-4;
+		}
+	}
+
+	/* Navigation below the blog post, either pagination or next/previous post */
+	nav#post-navigation {
+		grid-area: post-nav;
+	}
+
+	/* The actual page content */
+	main {
+		grid-area: main;
+	}
+}

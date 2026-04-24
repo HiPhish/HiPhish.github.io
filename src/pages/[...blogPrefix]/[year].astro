@@ -1,7 +1,8 @@
 ---
+import type { Breadcrumb } from '../../layouts/Blog.astro';
 import type { GetStaticPaths } from "astro";
 import type { BlogPost } from '../../lib/blog/types';
-import YearlyArchive from '../../layouts/blog/Year.astro';
+import IndexLayout from '../../layouts/blog/Index.astro';
 import { getCollection } from "astro:content";
 import { sortPosts } from "../../lib/blog/util";
 
@@ -23,6 +24,12 @@ export const getStaticPaths = (async ({}) => {
 
 const {year, blogPrefix} = Astro.params;
 const {posts} = Astro.props;
+
+const name = /[^/]+$/.exec(blogPrefix)?.at(0) || 'blog';
+const breadcrumbs: Breadcrumb[] = [
+	{title: name, url: `/${blogPrefix}/`},
+	{title: year},
+];
 ---
 
-<YearlyArchive prefix={blogPrefix} year={year} posts={posts} />
+<IndexLayout prefix={blogPrefix} breadcrumbs={breadcrumbs} posts={posts} />

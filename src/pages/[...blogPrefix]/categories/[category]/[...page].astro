@@ -1,7 +1,8 @@
 ---
+import type { Breadcrumb } from '../../../../layouts/Blog.astro';
 import type { GetStaticPaths, Page } from "astro";
 import type { BlogPost } from '../../../../lib/blog/types';
-import CategoryLayout from '../../../../layouts/blog/Category.astro';
+import PaginatedIndex from '../../../../layouts/blog/PaginatedIndex.astro';
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -22,6 +23,13 @@ export const getStaticPaths = (async ({paginate}) => {
 
 const {page} = Astro.props;
 const {category, blogPrefix} = Astro.params;
+
+const name = /[^/]+$/.exec(blogPrefix)?.at(0) || 'blog';
+const breadcrumbs: Breadcrumb[] = [
+	{title: name, url: `/${blogPrefix}/`},
+	{title: 'categories', url: `/${blogPrefix}/categories/`},
+	{title: category},
+];
 ---
 
-<CategoryLayout category={category as string} page={page} prefix={blogPrefix} />
+<PaginatedIndex page={page} prefix={blogPrefix} breadcrumbs={breadcrumbs} />

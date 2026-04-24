@@ -1,0 +1,39 @@
+---
+import type { Page } from 'astro'
+
+interface Props<T> {
+	id?: string,
+	page: Page<T>,
+};
+
+const {id, page} = Astro.props;
+---
+
+<!-- TODO: Disable buttons on first and last page -->
+<nav id={id} class="pagination">
+	<ul>
+		<li class="button">
+			<a href={page.url.first} class="button secondary" aria-disabled={page.currentPage === 1}>
+				<span aria-hidden="true">«</span> First
+			</a>
+		</li>
+		<li class="button">
+			<a href={page.url.prev} class="button secondary" aria-disabled={page.currentPage === 1}>
+				<span aria-hidden="true">‹</span> Previous
+			</a>
+		</li>
+		<li>
+			<a href={page.url.current}>{page.currentPage}</a> of {page.lastPage}
+		</li>
+		<li class="button">
+			<a href={page.url.next} class="button secondary" aria-disabled={page.currentPage === page.lastPage}>
+				Next <span aria-hidden="true">›</span>
+			</a>
+		</li>
+		<li class="button">
+			<a href={page.url.last} class="button secondary" aria-disabled={page.currentPage === page.lastPage}>
+				Last <span aria-hidden="true">»</span>
+			</a>
+		</li>
+	</ul>
+</nav>

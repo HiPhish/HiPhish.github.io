@@ -2,6 +2,7 @@
 import type { BlogPost } from '../lib/blog/types';
 import { getCollection } from 'astro:content';
 import BaseLayout from './Base.astro';
+import '../styles/pages/blog/base.css';
 
 export interface Breadcrumb {
 	title: string,
@@ -33,7 +34,7 @@ const years = Map.groupBy(
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="blog">
-		<nav class="breadcrumbs" aria-label="Breadcrumbs">
+		<nav id="breadcrumbs" aria-label="Breadcrumbs">
 			<ol>
 				{breadcrumbs?.map(({title, url}: Breadcrumb) =>
 					<li class={url ? '' : 'active'}>
@@ -42,18 +43,25 @@ const years = Map.groupBy(
 				}
 			</ol>
 		</nav>
-		<slot />
+		<main role="main">
+			<slot />
+		</main>
+		<slot name="post-navigation">
+			<nav id="post-navigation">
+				<!-- Intentionally empty fallback content -->
+			</nav>
+		</slot>
 		<!-- Left pillar, article navigation -->
-		<nav class="blog-navigation" arial-label="Blog navigation">
+		<nav id="blog-navigation" arial-label="Blog navigation">
 			<!-- This navigator contains links to the various archive types. -->	
 			<aside>
 				<span>Subscribe: </span>
 				<a href="#" type="application/rss+xml">RSS</a>
 			</aside>
 			<nav>
-				<h1>
+				<h2>
 					<a href={`/${prefix}/archive/`}>Archive</a>
-				</h1>
+				</h2>
 				<ul>
 					{Array
 						.from(years)
@@ -65,29 +73,29 @@ const years = Map.groupBy(
 				</ul>
 			</nav>
 			<nav>
-				<h1>
+				<h2>
 					<a href={`/${prefix}/categories/`}>Categories</a>
-				</h1>
+				</h2>
 				<ul>
 					{Array
 						.from(categories)
 						.filter(([category, _]) => Boolean(category))
 						.map(([category, entries]) =>
 							<li>
-								<a href={`/${prefix}/${category}`}>{category} ({entries.length})</a>
+								<a href={`/${prefix}/categories/${category}`}>{category} ({entries.length})</a>
 							</li>)}
 				</ul>
 			</nav>
 			<nav>
-				<h1>
+				<h2>
 					<a href={`/${prefix}/tags/`}>Tags</a>
-				</h1>
+				</h2>
 				<ul>
 					{Array
 						.from(tags)
 						.map(([tag, entries]) =>
 							<li>
-								<a href={`/${prefix}/${tag}`}>{tag} ({entries.length})</a>
+								<a href={`/${prefix}/tags/${tag}`}>{tag} ({entries.length})</a>
 							</li>)}
 				</ul>
 			</nav>

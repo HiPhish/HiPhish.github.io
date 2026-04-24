@@ -1,9 +1,10 @@
 ---
+import type { Breadcrumb } from '../../layouts/Blog.astro';
 import type { GetStaticPaths } from "astro";
 import type { BlogPost } from '../../lib/blog/types';
 import type { Page } from 'astro';
 
-import BlogIndexLayout from '../../layouts/blog/Index.astro';
+import PaginatedIndexLayout from '../../layouts/blog/PaginatedIndex.astro';
 import { sortPosts } from '../../lib/blog/util';
 import { getCollection } from "astro:content";
 
@@ -21,6 +22,9 @@ interface Props {
 
 const {page} = Astro.props;
 const {blogPrefix} = Astro.params;
+const breadcrumbs: Breadcrumb[] = [
+	{title: /[^/]+$/.exec(blogPrefix)?.at(0) || 'blog'},
+];
 ---
 
-<BlogIndexLayout page={page} prefix={blogPrefix} />
+<PaginatedIndexLayout page={page} prefix={blogPrefix} breadcrumbs={breadcrumbs} />

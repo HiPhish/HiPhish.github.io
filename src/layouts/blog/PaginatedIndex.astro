@@ -1,23 +1,26 @@
 ---
+import type { Page } from "astro";
 import type { CollectionEntry } from 'astro:content';
 import '../../styles/pages/blog/index.css';
 
 import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
 import Preview from '../../components/blog/Preview.astro';
+import Pagination from '../../components/organism/Pagination.astro';
 
 type BlogPost = CollectionEntry<'blog'>
 
 interface Props {
-	posts: BlogPost[],
+	page: Page<BlogPost>,
 	prefix: string,
 	breadcrumbs: Breadcrumb[],
 }
 
-const {posts, prefix, breadcrumbs} = Astro.props;;
+const {page, prefix, breadcrumbs} = Astro.props;;
 ---
 
 <BlogLayout prefix={prefix} breadcrumbs={breadcrumbs}>
 	<ul>
-		{posts.map((post) => <li><Preview post={post} /></li>)}
+		{page.data.map((post) => <li><Preview post={post} /></li>)}
 	</ul>
+	<Pagination id="post-navigation" slot='post-navigation' page={page} />
 </BlogLayout>

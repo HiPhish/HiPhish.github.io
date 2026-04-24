@@ -1,0 +1,16 @@
+/* A single full blog post page */
+@import 'tailwindcss';
+
+main {
+	@apply py-4;
+	> h1 {
+		@apply mbe-4;
+	}
+	> header {
+		@apply mbe-4 pbe-2;
+		@apply border border-transparent border-be-slate-300 dark:border-be-slate-500;
+		> p {
+			@apply my-0;
+		}
+	}
+}
