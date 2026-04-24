@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
 import { getCollection } from "astro:content";
 import type { BlogPost } from "../../lib/blog/types";
+import '../../styles/pages/blog/archive.css';
 
 interface Props {
 	posts: BlogPost[],

@@ -1,1 +1,14 @@
 /* An archive listing (e.g. tags or the full archive) */
+@import 'tailwindcss';
+
+main {
+	ul {
+		@apply list-none pl-8;
+	}
+	> ul {
+		@apply ps-0;
+		> li {
+			@apply mbs-4;
+		}
+	}
+}

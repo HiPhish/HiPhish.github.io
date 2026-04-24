@@ -4,6 +4,7 @@ import type { BlogPost } from "../../lib/blog/types";
 import BlogLayout, { type Breadcrumb } from '../../layouts/Blog.astro';
 import { getCollection } from "astro:content";
 import { sortPosts } from '../../lib/blog/util';
+import '../../styles/pages/blog/archive.css';
 
 interface Props {
 	posts: BlogPost[],
@@ -46,7 +47,7 @@ const categories = Array
 						.toSorted(sortPosts)
 						.map(({id, data: {title}}) =>
 							<li>
-								<a href={`/${prefix}/${id}/`}>{title}</a>
+								<a href={`/${id}/`}>{title}</a>
 							</li>)}
 				</ul>
 			</li>)}
