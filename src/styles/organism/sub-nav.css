@@ -2,12 +2,12 @@ nav.local-nav {
 	@apply pbe-2 mbe-2;
 	@apply border border-transparent border-be-slate-300 dark:border-be-slate-600;
 	> ul {
-		@apply flex list-none p-0 gap-8;
+		@apply flex flex-wrap list-none p-0 gap-8;
 		> li[aria-current=page] {
 			@apply font-bold;
 		}
 		> li:first-child {
-			@apply mr-auto text-xl;
+			@apply mr-auto text-xl w-full md:w-auto;
 		}
 	}
 }

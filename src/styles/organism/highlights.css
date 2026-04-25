@@ -1,0 +1,7 @@
+aside.highlights {
+	@apply flex gap-4 my-4 rounded-lg flex-col md:flex-row;
+	@apply bg-white dark:bg-gray-800  dark:border-gray-700;
+	> div {
+		@apply m-4 text-justify;
+	}
+}
