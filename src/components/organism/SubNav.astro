@@ -1,0 +1,38 @@
+---
+/** A menu item of the sub-site navigation bar */
+interface Item {
+	/** Title of the menu item. */
+	title: string,
+	/** URL of the menu item. */
+	url: string,
+	/** Identifier, unique among navigation items on a sub-site . */
+	tag: string,
+};
+
+/** Properties of the sub-site navigation bar */
+interface Props {
+	/** Title of the entire sub-site */
+	title: string,
+	/** URL to the index page of the sub-site */
+	url: string,
+	/** Menu items */
+	items: Item[],
+	/** Tag of the current item (see the item type for tags) */
+	currentTag?: string,
+};
+
+const {title, url, items, currentTag} = Astro.props;
+
+const ariaCurrent = (tag: string) =>
+	tag === currentTag ? 'page' : false;
+
+---
+
+<nav class="local-nav">
+	<ul>
+		<li aria-current={!currentTag ? 'page' : 'false'}>
+			<a href={url}>{title}</a>
+		</li>
+		{items.map(({title, url, tag}) => <li aria-current={ariaCurrent(tag)}><a href={url}>{title}</a></li>)}
+	</ul>
+</nav>
