@@ -29,7 +29,22 @@ const products = defineCollection({
 	})
 });
 
+// Sub-sites of the website, can be used to build the sub-site navigation bar
+const subSites = defineCollection({
+	loader: file('src/content/sub-sites.json'),
+	schema: z.object({
+		title: z.string(),
+		url: z.string(),
+		items: z.array(z.object({
+			title: z.string(),
+			url: z.string(),
+			tag: z.string(),
+		})),
+	})
+});
+
 export const collections = {
 	blog,
 	products,
+	subSites,
 };

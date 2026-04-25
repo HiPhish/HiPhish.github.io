@@ -1,27 +1,25 @@
 ---
-/** A menu item of the sub-site navigation bar */
-interface Item {
-	/** Title of the menu item. */
-	title: string,
-	/** URL of the menu item. */
-	url: string,
-	/** Identifier, unique among navigation items on a sub-site . */
-	tag: string,
-};
+import { getCollection, type InferEntrySchema } from 'astro:content';
+import { undefined } from 'astro:schema';
 
 /** Properties of the sub-site navigation bar */
 interface Props {
-	/** Title of the entire sub-site */
-	title: string,
-	/** URL to the index page of the sub-site */
-	url: string,
-	/** Menu items */
-	items: Item[],
+	/** For which sub-site to display the navigation */
+	subSite: 'grid-framework',
 	/** Tag of the current item (see the item type for tags) */
 	currentTag?: string,
 };
 
-const {title, url, items, currentTag} = Astro.props;
+const {subSite, currentTag} = Astro.props;
+
+const collection = (await getCollection('subSites'))
+	.find(({id}) => id === subSite);
+
+const {title, url, items} = collection?.data || {
+	title: undefined,
+	url: '#',
+	items: [],
+};
 
 const ariaCurrent = (tag: string) =>
 	tag === currentTag ? 'page' : false;
