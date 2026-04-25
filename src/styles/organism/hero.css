@@ -2,12 +2,12 @@ section.hero {
 	@apply bg-primary-900 dark:bg-gray-950 text-white py-20;
 	> div {
 		@apply max-w-7xl mx-auto px-4 text-center;
-		> h1 {
+		h1 {
 			@apply text-4xl md:text-5xl font-bold mb-4;
 			@apply text-white;
 		}
 		p {
-			@apply text-primary-200 max-w-2xl mx-auto;
+			@apply text-primary-200 max-w-2xl mx-auto text-xl;
 		}
 	}
 }

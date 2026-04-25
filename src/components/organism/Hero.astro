@@ -1,14 +1,21 @@
 ---
 interface Props {
-	title: string,
+	/** Optional background image of the hero surface. */
+	backgroundImg?: string,
 };
 
-const {title} = Astro.props;
+const {backgroundImg} = Astro.props;
 ---
+
+{/* Trick to interpolate a variable because `url(var(...))` does not work in CSS */}
+<style define:vars={{background: backgroundImg ? `url(${backgroundImg})` : ''}}>
+	section.hero {
+		background-image: var(--background);
+	}
+</style>
 
 <section class:list={'hero'}>
 	<div>
-		<h1>{title}</h1>
 		<slot />
 	</div>
 </section>
