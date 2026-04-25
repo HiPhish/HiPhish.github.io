@@ -1,0 +1,56 @@
+---
+import Page from '../../../layouts/Page.astro';
+import SubNav from '../../../components/organism/SubNav.astro';
+import ShowCase from '../../../components/grid-framework/Showcase.astro';
+
+import sinkr from './img/sinkr.png';
+import mymmo from './img/mymmo.png';
+import shallowSpace from './img/shallow-space.jpg';
+---
+
+<Page pageTitle='FAQ | Grid Framework'>
+	<SubNav subSite='grid-framework' currentTag='showcase' />
+	<h1>Made using Grid Framework</h1>
+	<p>
+		Take a look at what existing customers think of Grid Framework and what
+		they used it for to give you an idea of the different ways to employ
+		Grid Framework.
+	</p>
+	<hr />
+	<ShowCase title='MYMMO' who='Aaron John-Baptiste, Gravity Apple' url='http://forums.tigsource.com/index.php?topic=50706.msg1185371' img={mymmo} alt='MYMMO screenshot'>
+		<p>
+			MYMMO is a Sim City inspired city builder with a twist: you are the
+			designer of an MMO RPG. Grid Framework is an instrumental part of
+			the world building toolset, I was able to get grid snapping and
+			zoning tools working with minimal hassle, love it.
+		</p>
+	</ShowCase>
+	<ShowCase title='Shallow Space' who='James Martin, Special Circumstances' url='http://shallow.space/' img={shallowSpace} alt='Shallow Space screenshot'>
+		<p>
+			Shallow Space is an 3D RTS, we use the grid framework to add
+			perspective to the scene and it works great!
+		</p>
+	</ShowCase>
+	<ShowCase title='Sinkr' who='Robert Wahler, Wahler Digital' url='https://wahler.digital/' img={sinkr} alt='Sinkr screenshot'>
+		<p>
+			Sinkr is a minimalist puzzle game with an ambient sound track that
+			responds to your actions. I use the Grid Framework to layout the
+			levels, do runtime positional snapping, and use the Vectrosity
+			support to overlay the visible grid guides.
+		</p>
+	</ShowCase>
+	<hr />
+	<p>
+		If you want your own game featured on this page drop me a line with a
+		few sentences describing your game and how Grid Framework helped you
+		during development.
+	</p>
+	<p>
+		<em>General disclaimer:</em> The author of Grid Framework is only
+		associated with the authors of the games displayed on this page through
+		Grid Framework. Games are chosen arbitrarily based on their suitability
+		to demonstrate the diverse applications of use; the inclusion of a game
+		is neither an endorsement, nor is the exclusion of a game a
+		condemnation.
+	</p>
+</Page>

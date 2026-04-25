@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	title: string,
+	who: string,
+	url: string,
+	img: ImageMetadata,
+	alt: string,
+};
+
+const {title, who, url, img, alt} = Astro.props;
+---
+
+<style>
+	@import 'tailwindcss';
+	article.showcase {
+		@apply grid grid-cols-[1fr_2fr] gap-4 my-8;
+	}
+</style>
+
+<article class="showcase">
+	<Image src={img} alt={alt} />
+	<div>
+		<h2><a href={url}>{title}</a></h2>
+		<blockquote>
+			<slot />
+			<footer>{who}</footer>
+		</blockquote>
+	</div>
+</article>
