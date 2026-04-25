@@ -17,7 +17,7 @@ import Feature from '../../components/grid-framework/Feature.astro';
 	<h1>Features of Grid Framework</h1>
 	<div class="features">
 		<Feature title='How it works'>
-			<p>
+			<p slot="teaser">
 				The heart of Grid Framework are the new grid classes. They are
 				components, so you add them to any of your Game Objects you
 				wish. You can add grids either using the editor or
@@ -43,7 +43,7 @@ grid.shearing = new Vector6(-1/2, 0, 2, 0, 0, 0);
 			</p>
 		</Feature>
 		<Feature title='Calculations'>
-			<p>
+			<p slot="teaser">
 				Grid Framework can convert from world coordinates to grid
 				coordinates and vice- versa with just one line of code. You can
 				let it find the nearest vertex, face or box, scale objects or
@@ -81,7 +81,7 @@ grid.AlignTransform(t);</pre>
 			</p>
 		</Feature>
 		<Feature title='Infinite Size And Fully 3D'>
-			<p>
+			<p slot="teaser">
 				The size of a grid is irrelevant, what really defines a grid is
 				its origin, its type and a few parameters. Using this
 				information we can perform any calculation at any point,
@@ -102,7 +102,7 @@ grid.AlignTransform(t);</pre>
 Quaternion gridRotation = grid.transform.rotation;</pre>
 		</Feature>
 		<Feature title='Small memory footprint'>
-			<p>
+			<p slot="teaser">
 				Grid Framework was designed to keep it simple, to just be there
 				when you need it but never intrude with the workflow. All
 				calculation methods run in constant time and the classes just
@@ -116,7 +116,7 @@ Quaternion gridRotation = grid.transform.rotation;</pre>
 			</p>
 		</Feature>
 		<Feature title='Rendering & Drawing'>
-			<p>
+			<p slot="teaser">
 				You can both draw your grids in the editor using gizmos and
 				render them at runtime. You can turn individual axes on or off,
 				set the colour for each axis individually, change the width of
@@ -138,7 +138,7 @@ renderer.To     = new Vector3(10, 10, 5);
 renderer.ColorX = Color.black;</pre>
 		</Feature>
 		<Feature title='Vectrosity Support'>
-			<p>
+			<p slot="teaser">
 				Vectrosity is a popular 3rd party vector line drawing solution
 				for Unity. Instead of rendering lines point by point,
 				Vectrosity can construct a mesh and then render the mesh in one
@@ -162,7 +162,7 @@ gridLine = new Vectrosity.VectorLine(
 );</pre>
 		</Feature>
 		<Feature title='Playmaker Support'>
-			<p>
+			<p slot="teaser">
 				Grid Framework also supports the popular
 				<a href="http://hutonggames.com/">Playmaker</a> add-on for
 				visual scripting.
@@ -177,7 +177,7 @@ gridLine = new Vectrosity.VectorLine(
 			</p>
 		</Feature>
 		<Feature title='Fits Seamlessly Into Unity'>
-			<p>
+			<p slot="teaser">
 				There is no new interface to learn or new editor panel to add
 				to the project (unless you want to use the align panel of
 				course), instead it fits nicely into Unity as if it had always
@@ -191,7 +191,7 @@ gridLine = new Vectrosity.VectorLine(
 			</p>
 		</Feature>
 		<Feature title='Full Documentation'>
-			<p>
+			<p slot="teaser">
 				Like Unity itself, Grid Frameworks comes with a user manual
 				that explains you the ideas and concepts of Grid Framework, the
 				coordinate systems used and the design principles. The
@@ -202,7 +202,7 @@ gridLine = new Vectrosity.VectorLine(
 			</p>
 		</Feature>
 		<Feature title='Free Updates'>
-			<p>
+			<p slot="teaser">
 				As Grid Framework improves update will be released adding new
 				features. Once you buy a copy of Grid Framework you will be
 				entitled to all future updates for free, even if the price goes
