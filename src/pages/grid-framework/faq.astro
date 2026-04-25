@@ -1,0 +1,218 @@
+---
+import Page from '../../layouts/Page.astro';
+import SubNav from '../../components/organism/SubNav.astro';
+import FaqEntry from '../../components/grid-framework/FaqEntry.astro';
+---
+
+<Page pageTitle='FAQ | Grid Framework'>
+	<SubNav subSite='grid-framework' currentTag='faq' />
+	<h1>Frequently asked questions</h1>
+	<p>
+		Do you have a question before buying? Check here to see if someone had
+		the same question before you. If you don't find what you were looking
+		for just ask, the more people ask the same thing, the more likely I am
+		to add your question to the list as well.
+	</p>
+	<hr />
+	<FaqEntry question='Can I do?'>
+		<p>
+			Most questions asked can be answered by understanding what a
+			<em>grid</em> in Grid Framework is: it is a grid in a mathematical
+			sense, which means it is defined by an origin and some basic
+			properties (like spacing for rectangular grids) and some visual
+			properties. It is not a finite set of points in space.
+		</p>
+		<p>
+			Here is a very rough sketch of what a grid class could look like;
+			of course there is more to it in practice, but this gives you a
+			good idea.
+		</p>
+		<pre>// Origin and rotation are inherited from the GameObject
+class RectGrid : Grid &lbrace;
+public Vector3 spacing;
+public Vector6 shearing;
+&rbrace;;</pre>
+		<p>
+			This is what allows grids to be infinitely large in the game and
+			very small in memory at the same time. All calculations are
+			performed in constant time and cost the same regardless of where in
+			the grid you are. The portion of the grid you see is just a
+			finite-sized slice of what is infinitely large.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='Does Grid Framework work with UnityScript?'>
+		<p>
+			Yes, UnityScript and C# get compiled to the same bytecode anyway.
+			Grids are subclasses of Unity's (code Component) class and can be
+			manipulated like any other component.
+		</p>
+		<pre>var grid : RectGrid = gameObject.GetComponent.&lt;RectGrid&gt;();
+grid.spacing = Vector3.one;</pre>
+	</FaqEntry>
+	<FaqEntry question='Can I store data in the grid?'>
+		<p>
+			A grid does not store any data in its vertices, cells or anywhere
+			because it does not store any vertices to begin with. With that
+			said, we can replicate this very easily. This code example creates
+			a three-dimenstional array of world-positions of grid vertices. We
+			will use a rectangular grid in this example.
+		</p>
+		<pre>int width, height, depth;
+RectGrid grid;
+
+// Change this to whatever type you want
+Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
+
+// Loop over the grid
+for (var i = 0; i &lt; width; ++i) &lbrace;
+    for (var j = 0; j &lt; height, ++j) &lbrace;
+        for (var k = 0; k &lt; depth, ++k) &lbrace;
+            // store the world coordinates of the grid points
+            vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
+        &rbrace;
+    &rbrace;
+&rbrace;</pre>
+		<p>
+			You can then index the array using the grid coordinates of the
+			vertex you want. We used a simple Vector3 for our array elements,
+			but we could have used any custom data type as well.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='Which grid types are supported?'>
+		<p>
+			At the moment rectangular, spherical, hexagonal and polar
+			(cylindrical) grids are supported. Rectangular grids can also have
+			a shearing to slant them for an isometric look. Hexagonal and polar
+			grids are two-dimensional and can be stacked on top of each other
+			for the third dimension.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='Which renderers are supported?'>
+		<p>
+			The renderers depend on the type of grid, with hexagonal grids
+			providing multiple renderers.
+		</p>
+		<ul>
+			<li>
+    			Rectangular use the <code>Parallelepiped</code> renderer
+    			which renders the grid as a parallelepiped of adjacent
+    			parallelepipeds.
+			</li>
+    			Spherical grids use the <code>Sphere</code> renderer to
+    			render a potentially partial spherical grid, such as the
+    			latitude and longitude grid on a globe. It can render
+    			spheres within
+    			spheres.
+			<li>
+    			Polar grids use the <code>Cylinder</code> renderer to
+    			display a cylindrical shape where the circular portion can
+    			have a starting and ending angle.
+			</li>
+			<li>
+    			Hexagonal grids can rendered as a <code>Cone</code>, a
+    			possibly partial large hexagon made of many smaller
+    			hexagons. The name derives from the fact that this shape is
+    			often used in hex-based games to characterize a cone-shaped
+    			area of effect.
+			</li>
+			<li>
+    			Hexagonal grids can also be rendered as a
+    			<code>Rectangle</code> where every odd column is shifted
+    			up- or downwards or clipped.
+			</li>
+			<li>
+    			Hexagonal grids can be rendered as a <code>Rhombus</code>
+    			which can be slated up- or downwards.
+			</li>
+			<li>
+    			Hexagonal grids can be rendered as a
+    			<code>Herringbone</code> pattern of edges connecting the
+    			central points of the hexes rather than drawing the hexes
+    			themselves.
+			</li>
+		</ul>
+	</FaqEntry>
+	<FaqEntry question='Can I make irregular grid shapes?'>
+		<p>
+			Yes, there are multiple ways. The easiest way is to have
+			multiple renderers per grid. Every renderer can then render a
+			different finite part of the infinitely large grid.
+		</p>
+		<p>
+			If you wish for more control than that you will have to write
+			your own renderer class. Grid Framework provides you with the
+			same protected API as was used in writing the official
+			renderers, you have the full power at your command.
+		</p>
+		<p>
+			Finally, you can do the rendering yourself or using a rendering
+			plugin of your choice for Unity. That way you have full control
+			over the shape. You can get the points of the lines to render
+			use the grid's (<code>GridToWorld</code>) method:
+		</p>
+		<pre>Vector3 from, to;
+RectGrid grid;
+
+Vector3[2] line = new Vector3[] &lbrace;grid.GridToWorld(from), grid.GridToWorld(to)&rbrace;;</pre>
+		<p>
+			This last approach should not be necessary in most cases, the
+			renderer API is powerful enough.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='What about irregurar grids like Voronoi grids?'>
+		<p>
+			No, a grid (also called a lattice) has to be regular by definition.
+			Voronoi "grids" are not actually grids, they are graphs and finite
+			in size and therefore not suitable for Grid Framework.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='Is pathfinding included, or can I use a pathfinding plugin?'>
+		<p>
+			At the moment of this writing there is no built-in pathfinding, but
+			using Grid Framework with a pathfinding plugin is easy. The plugin
+			will need a list of vertices to contrustruct the nav-mesh from, and
+			we can get these vertices from the grid by looping over the range
+			we want to use:
+		</p>
+		<pre>int width, height, depth;
+RectGrid grid;
+
+Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
+
+// Loop over the grid
+for (var i = 0; i &lt; width; ++i) &lbrace;
+for (var j = 0; j &lt; height, ++j) &lbrace;
+    for (var k = 0; k &lt; depth, ++k) &lbrace;
+        // store the world coordinates of the grid points
+        vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
+    &rbrace;
+&rbrace;
+&rbrace;</pre>
+		<p>
+			These vertices are in world coordinates and can be then passed on
+			to your pathfinding code.
+		</p>
+	</FaqEntry>
+	<FaqEntry question='Can I restrict movement or position to the grid?'>
+		<p>
+			Yes, the easiest way is to align the position to grid coordinates.
+			Let's assume your object should fit into the centre of the nearest
+			face. Here is the code using a rectangular grid:
+		</p>
+		<pre>Transform myObject; // Object to align
+RectGrid  myGrid;   // Grid to align to
+
+// Use common defaults
+myGrid.AlignTransform(myObject);
+// More control
+myObject.position = myGrid.AlignVector3(myObject.position);
+// Use grid coordinates
+Vector3 gridPosition;
+myObject.position = myGrid.GridToWorld(gridPosition);</pre>
+		<p>
+			As you can see there are multiple possibilities, depending on what
+			suits you best. To restrict continuous movement apply the snapping
+			of your choice on every frame in your <code>Update()</code> method.
+		</p>
+	</FaqEntry>
+</Page>

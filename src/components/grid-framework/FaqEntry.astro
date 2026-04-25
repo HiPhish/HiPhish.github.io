@@ -1,0 +1,22 @@
+---
+interface Props {
+	question: string,
+};
+
+const {question} = Astro.props;
+---
+
+<style>
+	@import 'tailwindcss';
+	details > div {
+		@apply bg-white dark:bg-gray-800;
+		@apply rounded-xl p-4;
+	}
+</style>
+
+<details>
+	<summary>{question}</summary>
+	<div>
+		<slot />
+	</div>
+</details>
