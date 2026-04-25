@@ -12,15 +12,12 @@ body > div.blog {
 	display: grid;
 	grid-gap: 0em 1em;
 	align-content: start;
-	/* I want the first row to take up as little height as possible, but I don't know how */
-	grid-template:
-		"blog-nav breadcrumbs" auto
-		"blog-nav main" 1fr
-		"blog-nav post-nav" auto / auto 1fr;
+
+	@apply grid-cols-1 grid-rows-[auto_1fr_auto_auto];
+	@apply md:grid-cols-[auto_1fr] md:grid-rows-[auto_1fr_auto];
 
 	nav#breadcrumbs {
-		grid-area: breadcrumbs;
-		@apply bg-white dark:bg-gray-800;
+		@apply row-1 md:col-2 md:row-1;
 		@apply py-2 rounded-lg;
 		> ol {
 			@apply px-4;
@@ -31,26 +28,33 @@ body > div.blog {
 		}
 	}
 
-	/* The navigation side bar */
-	nav#blog-navigation {
-		grid-area: blog-nav;
-		@apply bg-white dark:bg-gray-800;
-		@apply rounded-lg p-4;
-		ul {
-			@apply ps-4 list-none;
-		}
-		h2 {
-			@apply mbs-4;
-		}
-	}
-
 	/* Navigation below the blog post, either pagination or next/previous post */
 	nav#post-navigation {
-		grid-area: post-nav;
+		@apply row-3 md:col-2 md:row-3;
 	}
 
 	/* The actual page content */
 	main {
-		grid-area: main;
+		@apply row-2 md:col-2 md:row-2;
+	}
+
+	/* The navigation side bar */
+	nav#blog-navigation {
+		@apply row-4 md:col-1 md:row-span-full;
+		@apply rounded-lg p-4;
+		@apply flex md:block justify-between flex-wrap;
+		> aside {
+			@apply basis-full;
+		}
+		h2 {
+			@apply mbs-4;
+		}
+		ul {
+			@apply ps-4 list-none sr-only md:not-sr-only;
+		}
+	}
+
+	nav#breadcrumbs, nav#blog-navigation {
+		@apply bg-white dark:bg-gray-800;
 	}
 }
