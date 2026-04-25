@@ -46,7 +46,7 @@ const breadcrumbs: Breadcrumb[] = [
 		{modified
 			? <p>Modified: {modified.toISOString().substring(0, 10)}</p>
 			: null}
-		<p>Category: <a href={`/blog/categories/${category}/`}>{category}</a></p>
+		<p>Category: <a href={`/${prefix}/categories/${category}/`}>{category}</a></p>
 		{tags.length > 0
 			?
 				<p>Tags: {
@@ -54,7 +54,7 @@ const breadcrumbs: Breadcrumb[] = [
 					// instead we reduce the array to a list of elements and string
 					// https://github.com/withastro/astro/issues/7016#issuecomment-1537243775
 					tags
-						.map((tag: string) => <a href={`/blog/tags/${tag}`}>{tag}</a>)
+						.map((tag: string) => <a href={`/${prefix}/tags/${tag}`}>{tag}</a>)
 						.reduce((acc: (JSX.Element | string)[], current: JSX.Element) => [acc, ', ', current])}
 				</p>
 			: ''
