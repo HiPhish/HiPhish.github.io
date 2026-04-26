@@ -68,17 +68,18 @@ MoveUnit(from: origin, to: destination);`} />
 			<p>
 				A common task is snapping things to a grid, for example when
 				the player is trying to place building in a strategy game. This
-				is where the <code>AlignTransform</code> extension method comes
-				into play:
+				is where the <Code inline lang='csharp' code='AlignTransform' />
+				extension method comes into play:
 			</p>
 			<Code lang='csharp' code={`Transform t;
 // Move the object the usual way with no snapping first
 // And then correct its position by snapping
 grid.AlignTransform(t);`} />
 			<p>
-				Usually the <code>AlignTransform</code> method is smart enough
-				to do what you want, but if you want more control you can use
-				the lower-level methods to build your own rules.
+				Usually the <Code inline lang='csharp' code='AlignTransform' />
+				method is smart enough to do what you want, but if you want
+				more control you can use the lower-level methods to build your
+				own rules.
 			</p>
 		</Feature>
 		<Feature title='Infinite Size And Fully 3D'>
@@ -96,8 +97,9 @@ grid.AlignTransform(t);`} />
 				get as close to it as possible in Unity. Best of all, grids are
 				in 3D and move and, being components, rotate with the object
 				they are attached to; if you need a grid's rotation or position
-				just get the information from the <code>Transform</code>
-				component, like any other object in Unity.
+				just get the information from the
+				<Code inline lang='csharp' code='Transform' /> component, like
+				any other object in Unity.
 			</p>
 			<Code lang='csharp' code={`// This works as you would expect
 Quaternion gridRotation = grid.transform.rotation;`} />
@@ -125,13 +127,13 @@ Quaternion gridRotation = grid.transform.rotation;`} />
 				doesn't suit your needs.
 			</p>
 			<p>
-				Rendering is done using <code>Renderer</code> components and
-				Unity's low-level rendering capabilities, so it is blazing fast
-				even on mobile devices. Keep in mind though, that while the
-				rendering is cheap, getting points for large and very dense
-				grids might not be. If your grids are exceptionally large you
-				will be glad to know that Grid Framework can compute points for
-				use with the popular Vectrosity add-on.
+				Rendering is done using <Code lang='csharp' inline code='Renderer'/>
+				components and Unity's low-level rendering capabilities, so it
+				is blazing fast even on mobile devices. Keep in mind though,
+				that while the rendering is cheap, getting points for large and
+				very dense grids might not be. If your grids are exceptionally
+				large you will be glad to know that Grid Framework can compute
+				points for use with the popular Vectrosity add-on.
 			</p>
 			<Code lang='csharp' code={`// Set the rendering range and colour
 renderer.From   = new Vector3( 0,  0, 0);

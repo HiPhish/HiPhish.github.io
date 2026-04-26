@@ -95,41 +95,44 @@ for (var i = 0; i < width; ++i) {
 		</p>
 		<ul>
 			<li>
-    			Rectangular use the <code>Parallelepiped</code> renderer
+    			Rectangular use the
+    			<Code inline lang='csharp' code='Parallelepiped' /> renderer
     			which renders the grid as a parallelepiped of adjacent
     			parallelepipeds.
 			</li>
-    			Spherical grids use the <code>Sphere</code> renderer to
+    			Spherical grids use the
+    			<Code inline lang='csharp' code='Sphere' /> renderer to
     			render a potentially partial spherical grid, such as the
     			latitude and longitude grid on a globe. It can render
     			spheres within
     			spheres.
 			<li>
-    			Polar grids use the <code>Cylinder</code> renderer to
-    			display a cylindrical shape where the circular portion can
-    			have a starting and ending angle.
+    			Polar grids use the <Code inline lang='csharp' code='Cylinder' />
+    			renderer to display a cylindrical shape where the circular
+    			portion can have a starting and ending angle.
 			</li>
 			<li>
-    			Hexagonal grids can rendered as a <code>Cone</code>, a
-    			possibly partial large hexagon made of many smaller
-    			hexagons. The name derives from the fact that this shape is
-    			often used in hex-based games to characterize a cone-shaped
-    			area of effect.
+    			Hexagonal grids can rendered as a
+    			<Code inline lang='csharp' code='Cone' />, a possibly partial
+    			large hexagon made of many smaller hexagons. The name derives
+    			from the fact that this shape is often used in hex-based games
+    			to characterize a cone-shaped area of effect.
 			</li>
 			<li>
     			Hexagonal grids can also be rendered as a
-    			<code>Rectangle</code> where every odd column is shifted
-    			up- or downwards or clipped.
-			</li>
-			<li>
-    			Hexagonal grids can be rendered as a <code>Rhombus</code>
-    			which can be slated up- or downwards.
+    			<Code inline lang='csharp' code='Rectangle' /> where every odd
+    			column is shifted up- or downwards or clipped.
 			</li>
 			<li>
     			Hexagonal grids can be rendered as a
-    			<code>Herringbone</code> pattern of edges connecting the
-    			central points of the hexes rather than drawing the hexes
-    			themselves.
+    			<Code inline lang='csharp' code='Rhombus' /> which can be
+    			slated up- or downwards.
+			</li>
+			<li>
+    			Hexagonal grids can be rendered as a
+    			<Code inline lang='csharp' code='Herringbone' /> pattern of
+    			edges connecting the central points of the hexes rather than
+    			drawing the hexes themselves.
 			</li>
 		</ul>
 	</FaqEntry>
@@ -149,7 +152,8 @@ for (var i = 0; i < width; ++i) {
 			Finally, you can do the rendering yourself or using a rendering
 			plugin of your choice for Unity. That way you have full control
 			over the shape. You can get the points of the lines to render
-			use the grid's (<code>GridToWorld</code>) method:
+			use the grid's (<Code inline lang='csharp' code='GridToWorld' />)
+			method:
 		</p>
 		<Code lang='csharp' code={`Vector3 from, to;
 RectGrid grid;
@@ -213,7 +217,8 @@ myObject.position = myGrid.GridToWorld(gridPosition);`} />
 		<p>
 			As you can see there are multiple possibilities, depending on what
 			suits you best. To restrict continuous movement apply the snapping
-			of your choice on every frame in your <code>Update()</code> method.
+			of your choice on every frame in your
+			<Code inline lang='csharp' code='Update()' /> method.
 		</p>
 	</FaqEntry>
 </Page>
