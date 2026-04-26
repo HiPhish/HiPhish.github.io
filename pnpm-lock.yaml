@@ -26,6 +26,9 @@ importers:
       astro:
         specifier: ^6.1.5
         version: 6.1.5(@types/node@20.19.39)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(yaml@2.8.3)
+      astro-lightgallery:
+        specifier: ^2.3.0
+        version: 2.3.0
       tailwindcss:
         specifier: ^4.2.2
         version: 4.2.2
@@ -1108,6 +1111,9 @@ packages:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
 
+  astro-lightgallery@2.3.0:
+    resolution: {integrity: sha512-lBxK4g2xWvaPt0IDf+Ew8FNuO8kN65rK25NWfbuA3Ynk+JK+EuBcFnlGDW1tSreiMPDbDbVh+IEygNwIPwtclA==}
+
   astro@6.1.5:
     resolution: {integrity: sha512-AJVw/JlssxUCBFi3Hp4djL8Pt7wUQqStBBawCd8cNGBBM2lBzp/rXGguzt4OcMfW+86fs0hpFwMyopHM2r6d3g==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -1507,6 +1513,10 @@ packages:
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
+
+  lightgallery@2.9.0:
+    resolution: {integrity: sha512-58Ud1DyhD2ao58t+kPEqSZrjFxg23tGd5ZKr75erm7q31g5xhUtWUJH3sTUkhHzlyJAKHj5eTrJ37HQRXG4Wbg==}
+    engines: {node: '>=6.0.0'}
 
   lightningcss-android-arm64@1.32.0:
     resolution: {integrity: sha512-YK7/ClTt4kAK0vo6w3X+Pnm0D2cf2vPHbhOXdoNti1Ga0al1P4TBZhwjATvjNwLEBCnKvjJc2jQgHXH0NEwlAg==}
@@ -3258,6 +3268,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  astro-lightgallery@2.3.0:
+    dependencies:
+      lightgallery: 2.9.0
+
   astro@6.1.5(@types/node@20.19.39)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(yaml@2.8.3):
     dependencies:
       '@astrojs/compiler': 3.0.1
@@ -3746,6 +3760,8 @@ snapshots:
   json5@2.2.3: {}
 
   kolorist@1.8.0: {}
+
+  lightgallery@2.9.0: {}
 
   lightningcss-android-arm64@1.32.0:
     optional: true
