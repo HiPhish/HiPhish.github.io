@@ -1,0 +1,145 @@
+---
+import Page from '../../../layouts/Page.astro';
+import SubNav from '../../../components/organism/SubNav.astro';
+import Example from '../../../components/grid-framework/Example.astro';
+---
+
+<Page pageTitle='Examples | Grid Framework'>
+	<SubNav subSite='grid-framework' currentTag='examples' />
+	<h1>Grid Framework in action</h1>
+	<p>
+		To help you get started Grid Framework comes with several examples
+		showing you how to implement from scratch features commonly found in
+		games, such as moving along a grid, using the grid for game logic like
+		in a puzzle game, assembling a level or even extending Grid Framework
+		with your own methods without touching the source code of Grid
+		Framework itself.
+	</p>
+	<p>
+		The source code has comments explaining the idea behind almost every
+		line of code. I also have tutorial videos where I build those examples
+		from scratch and explain the idea behind the code, for those of you who
+		prefer learning by doing rather than having the source code served to
+		them in one go.
+	</p>
+	<p>
+		Click a title to get to a playable build, or watch a video of me coding
+		the example live. These videos were recorded at different points in
+		Grid Frameworks development and the interface and usability may appear
+		more crude than it currently is. If the example doesn't load right away
+		please be patient.
+	</p>
+	<hr />
+	<Example title='Moving along a grid' id='movement'>
+		<p>
+			One of the most common uses for grids is movement. Maybe you have a
+			tactical game, or a board game or you just want the old-school feel
+			of tile based games. In this example we convert the hero's world
+			coordinates to grid coordinates and then move it in grid space
+			before converting the result back to world space. As an extra touch
+			we can limit the hero to only stay within the bounds of the grid
+			size. We need this because grids are infinitely large, so the
+			sphere could wander off into infinity.
+		</p>
+	</Example>
+	<Example title='Lights-out puzzle game' id='lights'>
+		<p>
+			Here we learn how write a simple puzzle game where the goal is to
+			turn all the lights off and every time you click a light that light
+			and the four adjacent ones flip their state. No light knows
+			anything about its surrounding lights, making this game very
+			flexible, you can have all sorts of crazy shapes and holes in it.
+		</p>
+	</Example>
+	<Example title='Assembling a level from data' id='level-design'>
+		<p>
+			In this example we create a bubble puzzle field from an array by
+			placing objects on the grid according to the position inside the
+			array. This approach has several advantages; most obviously it is
+			faster and easier to design levels in data than in an editor, you
+			can add new levels very easily, parse them from files, add a level
+			editor, or allow players to add their own levels. Instead of having
+			a separate scene for each level we only need one scene, we can
+			build new levels without having to worry about carrying the
+			background or music from scene to scene, allowing for seamless
+			transition.
+		</p>
+	</Example>
+	<Example title='Runtime snapping' id='snapping'>
+		<p>
+			In this example we create a bubble puzzle field from an array by
+			placing objects on the grid according to the position inside the
+			array. This approach has several advantages; most obviously it is
+			faster and easier to design levels in data than in an editor, you
+			can add new levels very easily, parse them from files, add a level
+			editor, or allow players to add their own levels. Instead of having
+			a separate scene for each level we only need one scene, we can
+			build new levels without having to worry about carrying the
+			background or music from scene to scene, allowing for seamless
+			transition.
+		</p>
+		<pre>transform.position = cursorWorldPoint;
+grid.AlignTransform(transform);</pre>
+	</Example>
+	<Example title='Seemingly endless grid' id='endless'>
+		<p>
+			Grids are infinity large when it come to calculations, but
+			rendering an infinite amount of lines is impossible. We will use a
+			trick instead where we dynamically adjust the rendering range of
+			the grid according to the camera. The result is a seamless illusion
+			that only renders the bare minimum and only updates when it has to.
+		</p>
+		<pre>for (int i = 0; i &lt; 3; i++) &lbrace;
+    rangeShift[i] += transform.position[i] - lastPosition[i];
+&rbrace;
+
+renderer.From += rangeShift;
+renderer.To   += rangeShift;</pre>
+	</Example>
+	<Example title='Terrain mesh generation' id='terrain'>
+		<p>
+			We generate a mesh as a SimCity-like terrain from data. Clicking a
+			vertex raises or lowers it. Everything is accomplished be
+			converting from grid coordinates to world coordinates.
+		</p>
+	</Example>
+	<Example title='Rotary dial' id='dial'>
+		<p>
+			A rotary dial as it would have been found on older phones. When the
+			player clicks a sector of this polar grid the grid coordinates are
+			used to determine which number was selected and use it to control
+			the animation and print that number on the console.
+		</p>
+	</Example>
+	<Example title='Sliding puzzle' id='sliding'>
+		<p>
+			Sometimes Unit's physics engine is too good for its own good and we
+			need something simpler instead. In a sliding puzzle it is common
+			for blocks to be touching each other with no space between, yet the
+			player will expect there to be no friction. In this example we use
+			Grid Framework to construct a matrix of cells and track for each
+			cell whether it's free or occupied. Then we restrict movement of
+			the blocks based on that information.
+		</p>
+	</Example>
+	<Example title='Snake game' id='snake'>
+		<p>
+			In this example we create a bubble puzzle field from an array by
+			placing objects on the grid according to the position inside the
+			array. This approach has several advantages; most obviously it is
+			faster and easier to design levels in data than in an editor, you
+			can add new levels very easily, parse them from files, add a level
+			editor, or allow players to add their own levels. Instead of having
+			a separate scene for each level we only need one scene, we can
+			build new levels without having to worry about carrying the
+			background or music from scene to scene, allowing for seamless
+			transition.
+		</p>
+	</Example>
+	<Example title='Vectrosity support' id='vectrosity'>
+		<p>
+			Having some fun with Vectrosity and laser lines. The grids can move
+			around or even change their properties at runtime.
+		</p>
+	</Example>
+</Page>

@@ -1,5 +1,5 @@
 import { z } from 'astro/zod';
-import { file } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 import { defineCollection } from "astro:content";
 import { globAndTransform } from './lib/blog';
 
@@ -43,8 +43,17 @@ const subSites = defineCollection({
 	})
 });
 
+const gridFrameworkExamples = defineCollection({
+	loader: glob({pattern: '*.md', base: 'src/content/grid-framework/examples'}),
+	schema: z.object({
+		title: z.string(),
+		instructions: z.string(),
+	})
+});
+
 export const collections = {
 	blog,
 	products,
 	subSites,
+	gridFrameworkExamples,
 };

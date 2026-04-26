@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from "astro";
+import Page from '../../../layouts/Page.astro';
+import SubNav from '../../../components/organism/SubNav.astro';
+import { getCollection, getEntry, render } from "astro:content";
+
+export const getStaticPaths = (async () => {
+	const examples = await getCollection('gridFrameworkExamples');
+	return examples
+		.map(({id}) => ({params: {example: id}}));
+}) satisfies GetStaticPaths;
+
+const {example} = Astro.params;
+const entry = await getEntry('gridFrameworkExamples', example);
+if (!entry) {
+	throw new Error(`Could not find Grid Framework example ${example}`);
+}
+
+const {data: {title, instructions}} = entry;
+const {Content} = await render(entry);
+---
+
+<style>
+	p:first-of-type {
+		text-align: center;
+	}
+
+	/* For the web player */
+	canvas {
+		border: 1px solid;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 2em;
+	}
+</style>
+
+
+<Page pageTitle='Examples | Grid Framework'>
+	<SubNav subSite='grid-framework' currentTag='examples' />
+	<!-- For the playable example -->
+	<link href={`/grid-framework/examples/${example}/example.datagz`} />
+	<link href={`/grid-framework/examples/${example}/example.jsgz`} />
+	<link href={`/grid-framework/examples/${example}/example.asm.jsgz`} />
+	<link href={`/grid-framework/examples/${example}/example.memgz`} />
+
+	<p><a href={`../#${example}`}>Grid Framework examples</a> | {title}</p>
+	<p>{instructions}</p>
+
+	<canvas id="canvas" oncontextmenu="event.preventDefault()" height="450" width="600">
+	</canvas>
+
+	<Content />
+
+	<!-- Unity web player script magic -->
+	<script src={`/grid-framework/examples/example.js`} is:inline></script>
+	<script src={`/grid-framework/examples/${example}/UnityLoader.js`} is:inline></script>
+</Page>
