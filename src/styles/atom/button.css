@@ -8,8 +8,9 @@ button, [role=button], input[type=button], input[type=file], input[type=submit],
 	@apply px-3 py-1 rounded border border-transparent cursor-pointer;
 	@apply bg-primary-600 text-white hover:bg-primary-700;
 	&.secondary {
-		@apply border-primary-400 hover:bg-primary-800;
-		@apply bg-transparent dark:hover:bg-gray-800;
+		@apply text-gray-800 hover:text-white dark:text-white;
+		@apply border-primary-400;
+		@apply bg-transparent hover:bg-primary-800 dark:hover:bg-gray-800;
 	}
 	&.danger {
 		@apply bg-red-700 hover:bg-red-900;
