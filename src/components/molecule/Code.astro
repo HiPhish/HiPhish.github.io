@@ -1,0 +1,8 @@
+---
+// Wrapper around Astro's Code component so it can be rendered in Storybook. Do
+// not actually use this!
+import { Code as RealCode } from 'astro:components';
+const {lang, code} = Astro.props;
+---
+
+<RealCode lang={lang} code={code} />

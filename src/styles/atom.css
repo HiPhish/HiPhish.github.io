@@ -3,8 +3,8 @@
 @import './atom/hyperlink.css';
 @import './atom/input.css';
 @import './atom/hr.css';
+@import './atom/pre.css';
 
 p {
 	@apply mb-4;
 }
-
