@@ -1,4 +1,5 @@
 ---
+import { Code } from 'astro:components';
 import Page from '../../layouts/Page.astro';
 import SubNav from '../../components/organism/SubNav.astro';
 import Feature from '../../components/grid-framework/Feature.astro';
@@ -23,14 +24,14 @@ import Feature from '../../components/grid-framework/Feature.astro';
 				wish. You can add grids either using the editor or
 				programmatically at runtime and modify its properties.
 			</p>
-			<pre>GameObject go;
-RectGrid grid = go.AddComponent&lt;RectGrid&rt;();
+			<Code lang='csharp' code={`GameObject go;
+RectGrid grid = go.AddComponent<RectGrid>();
 // Add a renderer for display
-go.AddComponent&lt;Parallelepiped&rt;()
+go.AddComponent<Parallelepiped>()
 // Set up the grid for 2:1 dimetric graphics
 grid.spacing  = new Vector3(2, 1, 1);
 grid.shearing = new Vector6(-1/2, 0, 2, 0, 0, 0);
-// Vector6 is a custom type, not part of the Unity API</pre>
+// Vector6 is a custom type, not part of the Unity API`} />
 			<p>
 				All custom types reside in custom namespaces to protect from
 				name collisions with your own types or possible future types
@@ -61,19 +62,19 @@ grid.shearing = new Vector6(-1/2, 0, 2, 0, 0, 0);
 				to another. If we know the grid coordinates we can compute the
 				world coordinates and pass them to your movement function:
 			</p>
-			<pre>Vector3 origin      = grid.gridToWorld(originInGrid    );
+			<Code lang='csharp' code={`Vector3 origin      = grid.gridToWorld(originInGrid    );
 Vector3 destination = grid.gridToWorld(desinationInGrid);
-MoveUnit(from: origin, to: destination);</pre>
+MoveUnit(from: origin, to: destination);`} />
 			<p>
 				A common task is snapping things to a grid, for example when
 				the player is trying to place building in a strategy game. This
 				is where the <code>AlignTransform</code> extension method comes
 				into play:
 			</p>
-			<pre>Transform t;
+			<Code lang='csharp' code={`Transform t;
 // Move the object the usual way with no snapping first
 // And then correct its position by snapping
-grid.AlignTransform(t);</pre>
+grid.AlignTransform(t);`} />
 			<p>
 				Usually the <code>AlignTransform</code> method is smart enough
 				to do what you want, but if you want more control you can use
@@ -98,8 +99,8 @@ grid.AlignTransform(t);</pre>
 				just get the information from the <code>Transform</code>
 				component, like any other object in Unity.
 			</p>
-			<pre>// This works as you would expect
-Quaternion gridRotation = grid.transform.rotation;</pre>
+			<Code lang='csharp' code={`// This works as you would expect
+Quaternion gridRotation = grid.transform.rotation;`} />
 		</Feature>
 		<Feature title='Small memory footprint'>
 			<p slot="teaser">
@@ -132,10 +133,10 @@ Quaternion gridRotation = grid.transform.rotation;</pre>
 				will be glad to know that Grid Framework can compute points for
 				use with the popular Vectrosity add-on.
 			</p>
-			<pre>// Set the rendering range and colour
+			<Code lang='csharp' code={`// Set the rendering range and colour
 renderer.From   = new Vector3( 0,  0, 0);
 renderer.To     = new Vector3(10, 10, 5);
-renderer.ColorX = Color.black;</pre>
+renderer.ColorX = Color.black;`} />
 		</Feature>
 		<Feature title='Vectrosity Support'>
 			<p slot="teaser">
@@ -155,11 +156,11 @@ renderer.ColorX = Color.black;</pre>
 				Vectrosity and Grid Framework are entirely unrelated products
 				and I am in no way affiliated with the author of Vectrosity.
 			</p>
-			<pre>// Grid Framework gets the points, then Vectrosity takes over
+			<Code lang='csharp' code={`// Grid Framework gets the points, then Vectrosity takes over
 var points = grid.GetVectrosityPoints();
 gridLine = new Vectrosity.VectorLine(
     "My lines", points, lineColors, lineMaterial, lineWidth
-);</pre>
+);`} />
 		</Feature>
 		<Feature title='Playmaker Support'>
 			<p slot="teaser">

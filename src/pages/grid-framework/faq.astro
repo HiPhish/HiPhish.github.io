@@ -1,4 +1,5 @@
 ---
+import { Code } from 'astro:components';
 import Page from '../../layouts/Page.astro';
 import SubNav from '../../components/organism/SubNav.astro';
 import FaqEntry from '../../components/grid-framework/FaqEntry.astro';
@@ -27,11 +28,11 @@ import FaqEntry from '../../components/grid-framework/FaqEntry.astro';
 			of course there is more to it in practice, but this gives you a
 			good idea.
 		</p>
-		<pre>// Origin and rotation are inherited from the GameObject
-class RectGrid : Grid &lbrace;
-public Vector3 spacing;
-public Vector6 shearing;
-&rbrace;;</pre>
+		<Code lang='csharp' code={`// Origin and rotation are inherited from the GameObject
+class RectGrid : Grid {
+	public Vector3 spacing;
+	public Vector6 shearing;
+}`} />
 		<p>
 			This is what allows grids to be infinitely large in the game and
 			very small in memory at the same time. All calculations are
@@ -46,8 +47,8 @@ public Vector6 shearing;
 			Grids are subclasses of Unity's (code Component) class and can be
 			manipulated like any other component.
 		</p>
-		<pre>var grid : RectGrid = gameObject.GetComponent.&lt;RectGrid&gt;();
-grid.spacing = Vector3.one;</pre>
+		<Code code={`var grid : RectGrid = gameObject.GetComponent.<RectGrid>();
+grid.spacing = Vector3.one;`} />
 	</FaqEntry>
 	<FaqEntry question='Can I store data in the grid?'>
 		<p>
@@ -57,21 +58,21 @@ grid.spacing = Vector3.one;</pre>
 			a three-dimenstional array of world-positions of grid vertices. We
 			will use a rectangular grid in this example.
 		</p>
-		<pre>int width, height, depth;
+		<Code lang='csharp' code={`int width, height, depth;
 RectGrid grid;
 
 // Change this to whatever type you want
 Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
 
 // Loop over the grid
-for (var i = 0; i &lt; width; ++i) &lbrace;
-    for (var j = 0; j &lt; height, ++j) &lbrace;
-        for (var k = 0; k &lt; depth, ++k) &lbrace;
+for (var i = 0; i < width; ++i) {
+	for (var j = 0; j < height, ++j) {
+        for (var k = 0; k < depth, ++k) {
             // store the world coordinates of the grid points
             vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
-        &rbrace;
-    &rbrace;
-&rbrace;</pre>
+        }
+    }
+}`} />
 		<p>
 			You can then index the array using the grid coordinates of the
 			vertex you want. We used a simple Vector3 for our array elements,
@@ -150,10 +151,10 @@ for (var i = 0; i &lt; width; ++i) &lbrace;
 			over the shape. You can get the points of the lines to render
 			use the grid's (<code>GridToWorld</code>) method:
 		</p>
-		<pre>Vector3 from, to;
+		<Code lang='csharp' code={`Vector3 from, to;
 RectGrid grid;
 
-Vector3[2] line = new Vector3[] &lbrace;grid.GridToWorld(from), grid.GridToWorld(to)&rbrace;;</pre>
+Vector3[2] line = new Vector3[] {grid.GridToWorld(from), grid.GridToWorld(to)};`} />
 		<p>
 			This last approach should not be necessary in most cases, the
 			renderer API is powerful enough.
@@ -174,20 +175,20 @@ Vector3[2] line = new Vector3[] &lbrace;grid.GridToWorld(from), grid.GridToWorld
 			we can get these vertices from the grid by looping over the range
 			we want to use:
 		</p>
-		<pre>int width, height, depth;
+		<Code lang='csharp' code={`int width, height, depth;
 RectGrid grid;
 
 Vector3[width, height, depth] vertices = new Vector3[width, height, depth];
 
 // Loop over the grid
-for (var i = 0; i &lt; width; ++i) &lbrace;
-for (var j = 0; j &lt; height, ++j) &lbrace;
-    for (var k = 0; k &lt; depth, ++k) &lbrace;
-        // store the world coordinates of the grid points
-        vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
-    &rbrace;
-&rbrace;
-&rbrace;</pre>
+for (var i = 0; i < width; ++i) {
+	for (var j = 0; j < height, ++j) {
+    	for (var k = 0; k < depth, ++k) {
+        	// store the world coordinates of the grid points
+        	vertices[i, j, k] = grid.GridToWorld(new Vector3(i, j, k));
+    	}
+	}
+}`} />
 		<p>
 			These vertices are in world coordinates and can be then passed on
 			to your pathfinding code.
@@ -199,7 +200,7 @@ for (var j = 0; j &lt; height, ++j) &lbrace;
 			Let's assume your object should fit into the centre of the nearest
 			face. Here is the code using a rectangular grid:
 		</p>
-		<pre>Transform myObject; // Object to align
+		<Code lang='csharp' code={`Transform myObject; // Object to align
 RectGrid  myGrid;   // Grid to align to
 
 // Use common defaults
@@ -208,7 +209,7 @@ myGrid.AlignTransform(myObject);
 myObject.position = myGrid.AlignVector3(myObject.position);
 // Use grid coordinates
 Vector3 gridPosition;
-myObject.position = myGrid.GridToWorld(gridPosition);</pre>
+myObject.position = myGrid.GridToWorld(gridPosition);`} />
 		<p>
 			As you can see there are multiple possibilities, depending on what
 			suits you best. To restrict continuous movement apply the snapping

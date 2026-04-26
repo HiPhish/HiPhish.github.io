@@ -1,4 +1,5 @@
 ---
+import { Code } from 'astro:components';
 import Page from '../../../layouts/Page.astro';
 import SubNav from '../../../components/organism/SubNav.astro';
 import Example from '../../../components/grid-framework/Example.astro';
@@ -78,8 +79,8 @@ import Example from '../../../components/grid-framework/Example.astro';
 			background or music from scene to scene, allowing for seamless
 			transition.
 		</p>
-		<pre>transform.position = cursorWorldPoint;
-grid.AlignTransform(transform);</pre>
+		<Code lang='csharp' code={`transform.position = cursorWorldPoint;
+grid.AlignTransform(transform);`} />
 	</Example>
 	<Example title='Seemingly endless grid' id='endless'>
 		<p>
@@ -89,12 +90,12 @@ grid.AlignTransform(transform);</pre>
 			the grid according to the camera. The result is a seamless illusion
 			that only renders the bare minimum and only updates when it has to.
 		</p>
-		<pre>for (int i = 0; i &lt; 3; i++) &lbrace;
+		<Code lang='csharp' code={`for (int i = 0; i < 3; i++) {
     rangeShift[i] += transform.position[i] - lastPosition[i];
-&rbrace;
+}
 
 renderer.From += rangeShift;
-renderer.To   += rangeShift;</pre>
+renderer.To   += rangeShift;`} />
 	</Example>
 	<Example title='Terrain mesh generation' id='terrain'>
 		<p>
