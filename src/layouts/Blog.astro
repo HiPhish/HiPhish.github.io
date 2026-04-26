@@ -2,6 +2,7 @@
 import type { BlogPost } from '../lib/blog/types';
 import { getCollection } from 'astro:content';
 import BaseLayout from './Base.astro';
+import SubNav from '../components/organism/SubNav.astro';
 import '../styles/pages/blog/base.css';
 
 export interface Breadcrumb {
@@ -30,10 +31,30 @@ const years = Map.groupBy(
 	posts.map((post: BlogPost): [number, BlogPost] => [post.data.published.getFullYear(), post]),
 	([year, _post]) => year
 );
+
+/** Maps a blog prefix to the corresponding sub-site ID, if any */
+const subSites = new Map([
+	['grid-framework', ['grid-framework', 'news']],  // Workaround for broken path matching
+	['grid-framework/news', ['grid-framework', 'news']]
+]);
+const [subSite, subSiteTag] = subSites.get(prefix) || [undefined, undefined];
 ---
 
+<style>
+	@import 'tailwindcss';
+
+	/* Only style the sub-site navigation if it has any content */
+	div:first-of-type:has(*) {
+		@apply max-w-7xl w-full mx-auto px-4 py-2;
+	}
+</style>
+
 <BaseLayout pageTitle={pageTitle}>
+	<div>
+		{subSite && <SubNav subSite={subSite} currentTag={subSiteTag} />}
+	</div>
 	<div class="blog">
+		<!-- TODO: Insert sub-site navigation  -->
 		<nav id="breadcrumbs" aria-label="Breadcrumbs">
 			<ol>
 				{breadcrumbs?.map(({title, url}: Breadcrumb) =>
