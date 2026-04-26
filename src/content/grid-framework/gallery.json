@@ -1,0 +1,51 @@
+[
+	{
+		"id": "grids",
+		"file": "grids.png",
+		"description": "Adding a grid to the scene is as easy as assigning any other component in Unity."
+	}, {
+		"id": "renderers",
+		"file": "renderers.png",
+		"description": "Renderers display the grid in the scene; use one of the existing ones or write your own."
+	}, {
+		"id": "documentation",
+		"file": "documentation.png",
+		"description": "The user manual explains the components and how to use them, the scripting reference covers every part of the API."
+	}, {
+		"id": "menu-bar",
+		"file": "menu-bar.png",
+		"description": "No menu clutter, everything fits inside Unity as it should."
+	}, {
+		"id": "lights",
+		"file": "lights.png",
+		"description": "The included example shows how a grid can be used as a common base of communication between unrelated objects."
+	}, {
+		"id": "movement",
+		"file": "movement.png",
+		"description": "Use grids to compute way-points for grid-based movement."
+	}, {
+		"id": "infinite",
+		"file": "infinite.png",
+		"description": "Adjust the range of grid renderer on the fly to create the illusion of an infinitely scrolling grid."
+	}, {
+		"id": "terrain",
+		"file": "terrain.png",
+		"description": "Generate a mesh from simple data by converting the data to world-coordinates."
+	}, {
+		"id": "level",
+		"file": "level.png",
+		"description": "Place objects in the world based on grid coordinates."
+	}, {
+		"id": "dial",
+		"file": "dial.png",
+		"description": "Use the grid coordinates of a point to drive an animation script."
+	}, {
+		"id": "vectrosity",
+		"file": "vectrosity.png",
+		"description": "Users of Vectrosity can have the lines of renderer generate with one method call."
+	}, {
+		"id": "playmaker",
+		"file": "playmaker.png",
+		"description": "Playmaker bindings for the Grid Framework API enable visual scripting."
+	}
+]

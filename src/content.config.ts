@@ -51,9 +51,18 @@ const gridFrameworkExamples = defineCollection({
 	})
 });
 
+const gridFrameworkGallery = defineCollection({
+	loader: file('src/content/grid-framework/gallery.json'),
+	schema: z.object({
+		file: z.string(),
+		description: z.string(),
+	})
+});
+
 export const collections = {
 	blog,
 	products,
 	subSites,
 	gridFrameworkExamples,
+	gridFrameworkGallery,
 };
