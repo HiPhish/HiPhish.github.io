@@ -16,5 +16,14 @@ export const destructureID = ({id}: BlogPost): BlogPostID => {
 	return {year, month, day, slug}
 };
 
+// Replace uses of this function with `oldToNew` from below
 export const sortPosts = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
 	Number(d2) - Number(d1);
+
+/** Sort two blog post from older to newer. */
+export const oldToNew = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
+	Number(d2) - Number(d1);
+
+/** Sort two blog post from newer to older. */
+export const newToOld = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
+	Number(d1) - Number(d2);

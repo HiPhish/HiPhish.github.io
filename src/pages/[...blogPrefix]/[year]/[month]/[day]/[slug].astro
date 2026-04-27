@@ -1,32 +1,52 @@
 ---
 import type { GetStaticPaths } from "astro";
-import type {BlogPost} from '../../../../../lib/blog/types';
+import type { CollectionEntry } from "astro:content";
 import PostLayout from '../../../../../layouts/blog/Post.astro';
 import { getCollection } from "astro:content";
+import { oldToNew } from "../../../../../lib/blog/util";
+
+type BlogPost = CollectionEntry<'blog'>
 
 interface Props {
 	post: BlogPost,
+	previous?: BlogPost,
+	next?: BlogPost,
 };
 
 export const getStaticPaths = (async ({}) => {
 	const posts = await getCollection('blog');
 
-	return posts.map((post) => ({
-		params: {
-			blogPrefix: post.data.prefix,
-			year: post.data.published.toISOString().slice(0, 4),
-			month: post.data.published.toISOString().slice(5, 7),
-			day: post.data.published.toISOString().slice(8, 10),
-			slug: post.data.slug,
-		},
-		props: {
-			post
-		}
-	}))
+	// Because we want for each post its predecessor and successor we have to
+	// sort the posts by age.  We also have to first group them by prefix, or
+	// else a post of one prefix might reference a post from another prefix.
+	return Array.from(Map.groupBy(posts, ({data: {prefix}}) => prefix))
+		.flatMap(([_, posts]) => posts.toSorted(oldToNew).map((post, i, posts) => ({
+			params: {
+				blogPrefix: post.data.prefix,
+				year: post.data.published.toISOString().slice(0, 4),
+				month: post.data.published.toISOString().slice(5, 7),
+				day: post.data.published.toISOString().slice(8, 10),
+				slug: post.data.slug,
+			},
+			props: {
+				post,
+				previous: posts[i - 1],
+				next: posts[i + 1],
+			}
+		})))
 }) satisfies GetStaticPaths;
 
 const {year, month, day, slug, blogPrefix} = Astro.params;
-const {post} = Astro.props;
+const {post, previous, next} = Astro.props;
 ---
 
-<PostLayout post={post} prefix={blogPrefix} year={year} month={month} day={day} slug={slug} />
+<PostLayout
+	post={post}
+	previous={previous}
+	next={next}
+	prefix={blogPrefix}
+	year={year}
+	month={month}
+	day={day}
+	slug={slug}
+/>

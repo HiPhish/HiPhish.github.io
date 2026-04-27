@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type BlogPost = CollectionEntry<'blog'>
+interface Props {
+	previous?: BlogPost,
+	next?: BlogPost,
+}
+
+const {previous, next} = Astro.props;
+---
+
+<nav id="post-navigation">
+	<a hidden={!Boolean(previous)} href={previous && `/${previous.id}/`}>
+		<span aria-hidden="true">←</span>
+		{previous?.data.title}
+	</a>
+
+	<a hidden={!Boolean(next)} href={next && `/${next?.id}/`}>
+		{next?.data.title}
+		<span aria-hidden="true">→</span>
+	</a>
+</nav>

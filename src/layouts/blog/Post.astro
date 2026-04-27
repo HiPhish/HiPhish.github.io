@@ -3,12 +3,15 @@ import type {JSX} from "preact";
 import type {Breadcrumb} from '../../layouts/Blog.astro';
 import type {BlogPost} from '../../lib/blog/types';
 import '../../styles/pages/blog/post.css';
+import PostNav from '../../components/blog/PostNav.astro';
 
 import BlogLayout from '../../layouts/Blog.astro';
 import { render } from "astro:content";
 
 interface Props {
 	post: BlogPost
+	previous?: BlogPost,
+	next?: BlogPost,
 	prefix: string,
 	year: string,
 	month: string,
@@ -20,6 +23,8 @@ const {
 	post: {
 		data: {title, published, modified, category, tags}
 	},
+	previous,
+	next,
 	prefix,
 	year,
 	month,
@@ -61,4 +66,5 @@ const breadcrumbs: Breadcrumb[] = [
 		}
 	</header>
 	<Content />
+	<PostNav slot='post-navigation' previous={previous} next={next} />
 </BlogLayout>
