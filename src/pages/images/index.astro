@@ -1,0 +1,19 @@
+---
+import Page from '../../layouts/Page.astro';
+
+const urls = [
+	'https://www.pexels.com/photo/analogue-business-close-up-computer-117729/analogue-data-disc-117729.jpg',
+	'https://www.pexels.com/photo/6-pieces-of-black-and-white-dice-37534/black-black-and-white-cubes-37534.jpg'
+];
+---
+
+<Page pageTitle='Image attributions'>
+	<h1>Image attributions</h1>
+	<p>
+		The images in this directory are taken from the following sources. If
+		an image is not listed, then it is my own original creation
+	</p>
+	<ul>
+		{urls.map((url) => <li><a href={url}>{url}</a></li>)}
+	</ul>
+</Page>
