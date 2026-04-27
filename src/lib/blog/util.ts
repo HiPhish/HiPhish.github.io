@@ -22,8 +22,8 @@ export const sortPosts = ({data: {published: d1}}: BlogPost, {data: {published: 
 
 /** Sort two blog post from older to newer. */
 export const oldToNew = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
-	Number(d2) - Number(d1);
+	Number(d1) - Number(d2);
 
 /** Sort two blog post from newer to older. */
 export const newToOld = ({data: {published: d1}}: BlogPost, {data: {published: d2}}: BlogPost) =>
-	Number(d1) - Number(d2);
+	Number(d2) - Number(d1);
