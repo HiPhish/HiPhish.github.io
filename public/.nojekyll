@@ -1,0 +1,4 @@
+This file prevent GitHub from running Jekyll on the Astro output and messing up
+the file structure.
+
+https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#static-site-generators
