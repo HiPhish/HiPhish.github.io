@@ -1,55 +1,65 @@
 ---
 import Entry from './GlobalNav/Entry.astro';
-import Hamburger from './GlobalNav/Hamburger.astro';
 import Group from './GlobalNav/Group.astro';
-
 interface Props {
 	brand: string,
 	home: string,
-	navId?: string,
-};
+}
 
-const {brand, home, navId = 'global-nav-bar'} = Astro.props;
+const {brand, home} = Astro.props;
 ---
 
-<header>
-	<nav data-navid={navId}>
-		<div>
-			<a href={home}>{brand}</a>
+<nav id='global-nav'>
+    <!-- Hamburger toggle -->
+    <label for="menu-toggle" tabindex="0">
+		<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+			<path
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M1 1h15M1 7h15M1 13h15"
+			/>
+		</svg>
+    </label>
+    <input type="checkbox" id="menu-toggle" aria-label="Toggle navigation menu" />
 
-			<!-- The menu button -->
-			<Hamburger controlledId={navId} />
-
-			<!-- The top-level entries -->
-			<div id={navId} class="hidden">
-				<ul>
-					<slot>
-						<!-- Default content for testing in Storybook -->
-						<Entry label='Home' url='#' />
-						<Group label='Services'>
-							<li>
-								<Entry label='Web design' url='#' />
-							</li>
-							<li>
-								<Entry label='Web APIs' url='#' />
-							</li>
-							<hr />
-							<li>
-								<Entry label='SEO' url='#' />
-							</li>
-						</Group>
-						<Entry label='Pricing' url='#' />
-						<Entry label='Contact' url='#' />
-					</slot>
-				</ul>
-			</div>
-		</div>
-	</nav>
-</header>
+    <ul>
+		<Entry label={brand} url={home} />
+    	<slot>
+    		<!-- Default content for testing in Storybook -->
+			<Entry label='News' url='#' />
+			<Group label='Services'>
+				<Entry label='Web design' url='#' />
+				<Entry label='Web APIs' url='#' />
+				<Entry label='SEO' url='#' />
+			</Group>
+			<Group label='Products'>
+				<Entry label='Devices' url='#' />
+				<Entry label='Books' url='#' />
+			</Group>
+			<Entry label='Pricing' url='#' />
+			<Entry label='Contact' url='#' />
+		</slot>
+    </ul>
+</nav>
 
 <script>
-	const nav = document.querySelector(':is(body, #storybook-root) > header > nav');
-	const btn = document.querySelector(':is(body, #storybook-root) > header > nav > div > button');
-	const menu = document.getElementById(nav?.dataset.navid);
-	btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+	// NOTE: The hover shall not work if the hamburger is visible
+	const hamburger = document.querySelector('nav#global-nav label') as Element;
+
+	document
+		.querySelectorAll('nav#global-nav details')
+		.forEach(dropdown => {
+			dropdown.addEventListener('mouseover', () => {
+				if (window.getComputedStyle(hamburger).display === 'none') {
+					dropdown.setAttribute('open', 'open')
+				}
+			});
+			dropdown.addEventListener('mouseout', () => {
+				if (window.getComputedStyle(hamburger).display === 'none') {
+					dropdown.removeAttribute('open')
+				}
+			});
+		});
 </script>
