@@ -20,7 +20,7 @@ body > div.blog {
 		@apply row-1 md:col-2 md:row-1;
 		@apply py-2 rounded-lg;
 		> ol {
-			@apply px-4;
+			@apply px-4 py-0 my-0;
 			@apply flex flex-row list-none ;
 			> li {
 				@apply after:content-['/'] after:px-2;
