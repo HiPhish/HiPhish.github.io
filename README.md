@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# The Workshop
+
+Source code of my [personal website], uses [Astro] as its static site
+generator.
+
+## Build and run
+
+This is a regular Astro project and it uses [pnpm] as the package manager and
+build system.
 
 ```sh
-npm create astro@latest -- --template basics
+# Install all dependencies locally after checkout
+pnpm install
+
+# Run the development server
+pnpm run dev
+
+# Build for production
+pnpm run build
+
+# Run Storybook to preview components
+pnpm run storybook
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Deployment is done through [GitHub Pages], but the source code will work
+anywhere.
 
-## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+## License
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+The content is licensed under the `CC BY-SA 4.0` license, the source code under
+the `MIT` license.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[personal website]: https://hiphish.github.io/
+[Astro]: https://astro.build/
+[pnpm]: https://pnpm.io/
+[GitHub Pages]: https://docs.github.com/en/pages
