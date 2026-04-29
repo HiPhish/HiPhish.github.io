@@ -33,6 +33,9 @@ nav#global-nav {
 				> summary {
 					@apply cursor-pointer;
 					@apply list-none flex items-center justify-center;
+					> svg {
+						@apply transition-transform;
+					}
 				}
 				> ul {
 					/* Make submenu float on large screens only */
@@ -55,6 +58,11 @@ nav#global-nav {
 				/* Hover, keyboard navigation and touch */
 				:is(&:hover, &:focus-within, &[open]) > ul {
   	  	  			@apply block;
+				}
+
+				/* Animate the dropdown arrow */
+				&[open] > summary > svg {
+					@apply rotate-[-180deg];
 				}
 			}
 
