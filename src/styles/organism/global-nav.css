@@ -71,7 +71,8 @@ nav#global-nav {
 
 	/* This is the label which displays the hamburger icon */
 	> label {
-		@apply block md:hidden w-max ms-auto;
+		@apply block md:hidden w-max p-2 border rounded-md ms-auto cursor-pointer;
+		@apply border-primary-400 hover:bg-primary-800;
 		> svg {
 			@apply w-6 h-6;
 		}
