@@ -54,22 +54,30 @@ const {brand, home} = Astro.props;
     </ul>
 </nav>
 
+<!-- Toggle dropdowns on hover -->
 <script>
 	// NOTE: The hover shall not work if the hamburger is visible
-	const hamburger = document.querySelector('nav#global-nav label') as Element;
+	const hamburger = document.querySelector('nav#global-nav label');
+	if (!hamburger) {
+		throw Error('Hamburger menu element not found in global navigation')
+	}
+	const isWide = () =>
+		window.getComputedStyle(hamburger).display === 'none';
 
 	document
 		.querySelectorAll('nav#global-nav details')
 		.forEach(dropdown => {
+			dropdown.addEventListener('click', (evt) => {
+				if (isWide())
+					evt.preventDefault();
+			});
 			dropdown.addEventListener('mouseover', () => {
-				if (window.getComputedStyle(hamburger).display === 'none') {
+				if (isWide())
 					dropdown.setAttribute('open', 'open')
-				}
 			});
 			dropdown.addEventListener('mouseout', () => {
-				if (window.getComputedStyle(hamburger).display === 'none') {
+				if (isWide())
 					dropdown.removeAttribute('open')
-				}
 			});
 		});
 </script>
