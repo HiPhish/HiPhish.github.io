@@ -1,4 +1,12 @@
 ---
+// How it works: The menu has two modes of display: hamburger menu or
+// horizontal menu.  Which mode is active depends on the width of the screen,
+// but the markup is all the same.
+//
+// There are only two binary stateful elements in HTML: the input and the
+// details.  We use a checkbox to toggle the hamburger and details for dropdown
+// menu entries.  The checkbox itself is hidden, we instead expose its label.
+// Interacting with the label is the same as interacting with the checkbox.
 import Entry from './GlobalNav/Entry.astro';
 import Group from './GlobalNav/Group.astro';
 interface Props {
@@ -10,8 +18,9 @@ const {brand, home} = Astro.props;
 ---
 
 <nav id='global-nav'>
-    <!-- Hamburger toggle -->
-    <label for="menu-toggle" tabindex="0">
+	<!-- Hamburger toggle, this is what the user interacts with -->
+    <label tabindex="0" role='button'>
+    	<!-- Icon -->
 		<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
 			<path
 				stroke="currentColor"
@@ -21,8 +30,9 @@ const {brand, home} = Astro.props;
 				d="M1 1h15M1 7h15M1 13h15"
 			/>
 		</svg>
+		<!-- Will be hidden, only serves to keep state -->
+    	<input type="checkbox" aria-label="Toggle navigation menu" />
     </label>
-    <input type="checkbox" id="menu-toggle" aria-label="Toggle navigation menu" />
 
     <ul>
 		<Entry label={brand} url={home} />

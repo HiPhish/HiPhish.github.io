@@ -25,7 +25,7 @@ nav#global-nav {
 		> li {
 			@apply m-0 text-center md:text-start;
 			> a, > details > summary {
-				@apply px-0 py-2;
+				@apply px-0 py-2 hover:text-primary-300;
 			}
 
 			/* Menu entries with sub-entries */
@@ -62,7 +62,7 @@ nav#global-nav {
 
 				/* Animate the dropdown arrow */
 				&[open] > summary > svg {
-					@apply rotate-[-180deg];
+					@apply rotate-x-180;
 				}
 			}
 
@@ -72,17 +72,20 @@ nav#global-nav {
 	/* This is the label which displays the hamburger icon */
 	> label {
 		@apply block md:hidden w-max p-2 border rounded-md ms-auto cursor-pointer;
-		@apply border-primary-400 hover:bg-primary-800;
+		@apply border-primary-400 bg-transparent hover:bg-primary-800;
+		&:has(> input:checked) {
+			@apply bg-primary-600 hover:bg-primary-700;
+		}
 		> svg {
 			@apply w-6 h-6;
+		}
+		> input {
+			@apply hidden;
 		}
 	}
 
 	/* Force-display the menu if the hamburger is toggled on */
-	> input {
-		@apply hidden;
-		&:checked + ul {
-			@apply flex;
-		}
+	> label:has(> input:checked) + ul {
+		@apply flex;
 	}
 }
