@@ -67,7 +67,7 @@ const {brand, home} = Astro.props;
 	document
 		.querySelectorAll('nav#global-nav details')
 		.forEach(dropdown => {
-			dropdown.addEventListener('click', (evt) => {
+			dropdown.querySelector('summary')?.addEventListener('click', (evt) => {
 				if (isWide())
 					evt.preventDefault();
 			});
