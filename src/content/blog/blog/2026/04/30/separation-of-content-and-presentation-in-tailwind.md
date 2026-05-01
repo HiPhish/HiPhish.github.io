@@ -1,5 +1,5 @@
 ---
-title: Separation of content and presentation in CSS
+title: Separation of content and presentation in Tailwind
 category: misc
 tags: [web, css]
 ---
