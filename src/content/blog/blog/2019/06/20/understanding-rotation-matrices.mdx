@@ -1,0 +1,252 @@
+---
+title: Understanding 2D rotation matrices
+tags: [math]
+---
+
+
+export const α = Math.PI / 6;
+export const φ = Math.PI / 5;
+export const r = 85;
+    
+
+When I first $a^2 + b^2$ learned about rotation matrices they appeared quite “magic”; if
+you squinted your eyes a bit it sort of made sense, and if you did the math you
+could prove that the matrix does indeed perform the rotation and that all the
+group properties are met, but none of that explains *where* that form comes
+from, *why* it works. In this blog post I will explore a way to derive the
+formula for rotation matrices step by step.  If you wish to follow along you
+need only basic knowledge of linear algebra and trigonometry.
+
+This post makes extensive use of MathML, if your browser does not support it
+you will be seeing gibberish.
+
+
+## Points on the unit circle
+
+We start our journey with the simple case of the unit circle. A unit circle in
+the Euclidean plane $E^2$ is a circle with its center at the origin and a
+radius of $1$. Each point on the plane is given by a pair $(x, y)$ of
+coordinates.  If we limit ourselves to the unit circle we observe that each
+point is uniquely identified by an angle $α ∈ [2π)$ around the center. For
+convenience we will choose that the point $(1, 0)$ corresponds to the angle
+$α = 0$, and that rotations go counter-clockwise. Both of these are
+long-established conventions.
+
+<figure>
+    <svg style="display: block; margin-left: auto; margin-right: auto;" baseProfile="full" height="100" viewBox="-10 -100 230 110">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"/>
+            </marker>
+        </defs>
+        <line x1="-99" y1="0"  x2="99" y2="0"   stroke="black" marker-end="url(#arrow)" />
+        <line x1="0"   y1="99" x2="0"  y2="-99" stroke="black" marker-end="url(#arrow)" />
+        <circle cx="0" cy="0" r={r} fill="none" stroke-width='2px' stroke="black" />
+        {/* Points */}
+        {[[Math.PI / 6, 'α'], [Math.PI / 6 + Math.PI / 5, 'φ + α']].map(([angle, label]) =>
+            <circle cx={r * Math.cos(-angle)} cy={r * Math.sin(-angle)} r="4px" fill="black"/>)}
+        {/* Point labels */}
+        {[[α, 'α'], [α + φ, 'φ + α']].map(([angle, label]) =>
+            <foreignObject x={(1.2 * r * Math.cos(-angle))} y={(1.2 * r * Math.sin(-angle)) - 10}
+                                    height="20px"
+                                    width="300px">
+                <math>
+                    <mo>(</mo><mi>cos</mi><mi>{label}</mi><mo>,</mo><mi>sin</mi><mi>{label}</mi><mo>)</mo>
+                </math>
+            </foreignObject>)}
+
+        {/* Radial lines */}
+        {[[Math.PI / 6, 'α'], [Math.PI / 6 + Math.PI / 5, 'φ + α']].map(([angle, label]) =>
+            <line x1="0" y1="0" x2={r * Math.cos(-angle)} y2={r * Math.sin(-angle)} stroke="black"/>)}
+
+        {/* The two lines forming the right-angled triangle */}
+        <line x1={r * Math.cos(-α)} y1={r * Math.sin(0)} x2={r * Math.cos(-α)} y2={r * Math.sin(-α)} stroke="black" stroke-width="2px"/>
+        <line x1='0' y1='0' x2={r * Math.cos(-α)} y2='0' stroke="black" stroke-width="2px"/>
+
+        {/* The two arcs denoting an angle */}
+        {[[0, α, 0.4 * r], [α, φ + α, 0.5 * r]].map(([α1, α2, r]) =>
+            <path α1 α2
+                d={`M ${r * Math.cos(-α1)},${r * Math.sin(-α1)} A ${r} ${r} ${α} 0 0 ${r * Math.cos(-α2)},${r * Math.sin(-α2)}`}
+                stroke="black"
+                fill="none"
+            />)}
+
+        {/* Labels of the two arcs */}
+        {[[α, 0.5 * r, 'α'], [α + φ - 0.1, 0.7 * r, 'φ']].map(([α, r, label]) =>
+            <foreignObject x={r * Math.cos(-α)} y={r * Math.sin(-α)} height="20px" width="50px">
+                <math>
+                    <mi>{label}</mi>
+                </math>
+            </foreignObject>)}
+    </svg>
+    <figcaption>
+        Illustration of Cartesian coordinates based on the angle of rotation
+    </figcaption>
+</figure>
+
+Using basic trigonometry we can see that for a given angle $α$ the coordinates
+of the point are $(\cos(α), \sin(α))$; this is true because we can draw a
+right-angled triangle where the length of the hypotenuse is the radius of the
+circle and the lengths of the catheti are the coordinates of the point.
+
+## Rotations along the unit circle
+
+We can rotate the point $(\cos(α), \sin(α))$ around the origin by adding an
+angle $φ$ to $α$.  Thus we are looking for a matrix $R(φ)$ which solves the
+equation
+
+$$
+\begin{pmatrix} \cos(φ + α) \\ \sin(φ + α) \end{pmatrix} = R(φ)
+$$
+
+We are going to make use of two trigonometric identities, their proof is left
+as an exercise to the reader.
+
+$$
+\sin(x ± y) = \sin(x) \cos(y) ± \cos(x) \sin(y)
+$$
+
+$$
+\cos(x ± y) = \cos(x) \cos(y) ∓ \sin(x) \cos(y)
+$$
+
+
+With these identities we can find the rotation matrix by taking the resulting
+vector apart.
+
+$$
+\begin{align}
+\begin{pmatrix}
+    \cos(φ + α) \\ \sin(φ + α)
+\end{pmatrix}
+& =
+\begin{pmatrix}
+    \cos(φ) \cos(α) - \sin(φ) \sin(α) \\ \sin(φ) \cos(α) + \cos(φ) \sin(α)
+\end{pmatrix}
+\\
+& =
+\begin{pmatrix}
+    \cos(φ) - \sin(φ) \\ \sin(φ) \cos(φ)
+\end{pmatrix}
+\begin{pmatrix}
+    \cos(α) \\ \sin(α)
+\end{pmatrix}
+\end{align}
+$$
+
+This is indeed the familiar rotation matrix formula. We found it just by
+applying familiar knowledge from trigonometry.
+
+## Rotation of arbitrary points
+
+Let us now widen our scope to all points in the plane: a point is now uniquely
+identified by its angle $α$ of rotation and by the distance $d$ from the
+origin. Using the same arguments as above, but taking into account that the
+length of the hypotenuse is now $d$, we get the coordinates $(d \cos(α), d
+\sin(α))$.  It is easy to confirm that our previously found formula for rotation
+matrices works for points outside of the unit circle as well.
+
+$$
+\begin{pmatrix}
+    r d \cos(φ + α) \\ r d \sin(φ + α)
+\end{pmatrix}
+=
+\begin{pmatrix}
+    r \cos(φ) & -r \sin(φ) \\ r \sin(φ) & r \cos(φ)
+\end{pmatrix}
+\begin{pmatrix}
+    d \cos(α) \\ d \sin(α)
+\end{pmatrix}
+$$
+
+
+## Consequences
+
+A number of operations can be expressed as special cases of our rotate-scale
+matrix.
+
+### Identity
+
+The identity transformation $\operatorname{id}$ is represented by the identity
+matrix, which corresponds to a scale factor of $r = 1$ and rotation angle of $φ
+= 0$.
+
+$$
+\operatorname{id} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+$$
+
+### Scaling
+
+A pure scaling has a variable scaling factor $r$ and a fixed rotation angle of
+$φ = 0$. A scaling matrix is thus just a uniformly scaled identity matrix.
+
+$$
+\operatorname{id} = \begin{pmatrix} r & 0 \\ 0 & r \end{pmatrix}
+$$
+
+### Inversion or reflection
+
+Reflecting a point along the origin can be interpreted either as a rotation by
+$φ = π$ without scaling, or as a scaling by $r = -1$ without rotation.  Both
+yield the same matrix.
+
+$$
+\begin{pmatrix} \cos(π) & -\sin(π) \\ \sin(π) & \cos(π) \end{pmatrix}
+=
+\begin{pmatrix} -1 \cos(0) & -1 \sin(0) \\ -1 \sin(0) & -1 \cos(0) \end{pmatrix}
+=
+\begin{pmatrix} -1 & 0 \\ -1 & -1 \end{pmatrix}
+$$
+
+
+## The group of rotation and scaling matrices
+
+The matrices of rotation and scaling form a group. If we apply a transformation
+to a point, then apply another transformation to the result it is equivalent to
+applying one combined transformation to the original point. We combine
+transformations by multiplying their matrices.
+
+$$
+\begin{align}
+\begin{pmatrix}
+    r_2 \cos(φ_2) & r_2 -\sin(φ_2) \\
+    r_2 \sin(φ_2) & r_2  \cos(φ_2)
+\end{pmatrix}
+\begin{pmatrix}
+    r_1 \cos(φ_1) & r_1 -\sin(φ_1) \\
+    r_1 \sin(φ_1) & r_1  \cos(φ_1)
+\end{pmatrix}
+\\
+= \begin{pmatrix}
+    r_2 r_1 \cos(φ_2 + φ_1) & r_2 r_1 -\sin(φ_2 + φ_1) \\
+    r_2 r_1 \sin(φ_2 + φ_1) & r_2 r_1  \cos(φ_2 + φ_1)
+\end{pmatrix}
+\end{align}
+$$
+
+Not only is this a rotation matrix, the result is also independent of the order
+of operands, something that is generally not true for matrix multiplication. We
+are thus dealing with a commutative magma. This magma is also an Abelian group:
+
+- The neutral element is the identity transformation.
+- The inverse of a transformation with scale $r$ and angle $φ$ is a
+  transformation with scale $\frac{1}{r}$ and angle $-φ$.
+- Since matrix multiplication is associative in general, the composition of
+  transformations must be associative as well.
+
+
+## Conclusion
+
+We have derived the formula for rotation matrices without prior knowledge of
+what result to work towards. Instead we restricted our research to a very basic
+case, that of points on a unit circle, and used our knowledge of trigonometry
+to find a solution. Once we had our simple solution we extended our problem
+domain to that of arbitrary points and the scaling of vectors, and looked for
+ways to extend our simple solution to that new domain.
+
+We then investigated some of the properties and concluded that what we have is
+a group structure, which allows use to use all results from group theory as
+well. There is actually much more to rotation matrices, but that would be
+beyond the scope of this post. I mainly wanted to show how one can come up with
+this formula that usually just appears like “magic” by starting with a simple
+base case and then further generalising from there.
