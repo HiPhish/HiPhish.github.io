@@ -13,6 +13,7 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.15.12",
     "@astrojs/alpinejs": "^0.5.0",
+    "@astrojs/mdx": "^5.0.4",
     "@astrojs/rss": "^4.0.18",
     "@tailwindcss/vite": "^4.2.4",
     "@types/alpinejs": "^3.13.11",

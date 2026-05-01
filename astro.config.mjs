@@ -5,6 +5,7 @@ import preact from '@astrojs/preact';
 import summary from './src/plugins/remark/summary';
 import tailwindcss from '@tailwindcss/vite';
 import alpinejs from '@astrojs/alpinejs';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
 	integrations: [
 		preact(),
 		alpinejs({entrypoint: '/src/alpine'}),
+		mdx(),
 	],
 	markdown: {
 		remarkPlugins: [summary],

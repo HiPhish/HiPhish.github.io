@@ -5,7 +5,7 @@ import { globAndTransform } from './lib/blog';
 
 
 const blog = defineCollection({
-	loader: globAndTransform('**/*.md', 'src/content/blog'),
+	loader: globAndTransform(['**/*.md', '**/*.mdx'], 'src/content/blog'),
 	schema: z.object({
 		prefix: z.string(),
 		title: z.string(),
