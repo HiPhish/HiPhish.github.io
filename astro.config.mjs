@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 
 import preact from '@astrojs/preact';
 import summary from './src/plugins/remark/summary';
+import remarkMath from 'remark-math';
+import rehypeMathML from '@daiji256/rehype-mathml';
 import tailwindcss from '@tailwindcss/vite';
 import alpinejs from '@astrojs/alpinejs';
 import mdx from '@astrojs/mdx';
@@ -17,7 +19,13 @@ export default defineConfig({
 		mdx(),
 	],
 	markdown: {
-		remarkPlugins: [summary],
+		remarkPlugins: [
+			summary,
+			remarkMath,
+		],
+		rehypePlugins: [
+			rehypeMathML,
+		]
 	},
 	vite: {
 		plugins: [tailwindcss()],
