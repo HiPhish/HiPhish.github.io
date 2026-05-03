@@ -1,11 +1,9 @@
-strictDepBuilds: true
-
-onlyBuiltDependencies:
-  - 'esbuild@0.27.7'
-
-ignoredBuiltDependencies:
-  - 'sharp'  # Rely on globally installed libvips
+allowBuilds:
+  esbuild: false
+  sharp: false
+  esbuild@0.27.7: true
 
 publicHoistPattern:
   # See https://github.com/storybook-astro/storybook-astro/issues/64#issuecomment-4229905860
   - '@storybook-astro/renderer'
+strictDepBuilds: true
