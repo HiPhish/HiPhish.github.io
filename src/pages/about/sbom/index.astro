@@ -22,6 +22,7 @@ const sbom: Record<string, Package[]> =
 		baseline-shift: top;
 		> input {
 			display: block;
+			width: auto;
 		}
 	}
 	td.number {
@@ -65,13 +66,13 @@ const sbom: Record<string, Package[]> =
 
 	<h2>Full list</h2>
 
-	<table x-data='{name: "", license: ""}'>
+	<table x-data='{name: "", license: "", details: ""}'>
 		<thead>
 			<tr>
-				<th>Package <input style="width: auto;" type="text" x-model="name"/></th>
+				<th>Package <input type="text" x-model="name"/></th>
 				<th>Version</th>
-				<th>License <input style="width: auto;" type="text" x-model="license"/></th>
-				<th>Details</th>
+				<th>License <input type="text" x-model="license"/></th>
+				<th>Details <input type="text" x-model="details"/></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -81,12 +82,14 @@ const sbom: Record<string, Package[]> =
 				.map(([license, {name, versions, author, description, homepage}]) =>
 					<tr
 						x-data
-						x-show="$refs.name.textContent.toLowerCase().includes(name) && $refs.license.textContent.toLowerCase().includes(license)"
+						x-show="[[$refs.name, name], [$refs.license, license], [$refs.details, details]]
+							.map(([elt, input]) => [elt.textContent.toLowerCase(), input])
+							.every(([text, input]) => text.includes(input))"
 					>
 						<td><a href={homepage} x-ref="name">{name}</a></td>
 						<td>{versions[0]}</td>
 						<td x-ref="license">{license}</td>
-						<td>
+						<td x-ref="details">
 							{author}
 							<br />
 							{description}
