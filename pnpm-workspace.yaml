@@ -1,7 +1,10 @@
 allowBuilds:
   esbuild: false
-  sharp: false
   esbuild@0.27.7: true
+  sharp: false
+minimumReleaseAgeExclude:
+  - sanitize-html@2.17.4
+  - devalue@5.8.1
 
 publicHoistPattern:
   # See https://github.com/storybook-astro/storybook-astro/issues/64#issuecomment-4229905860
