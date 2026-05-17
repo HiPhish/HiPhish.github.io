@@ -61,22 +61,28 @@ const {brand, home} = Astro.props;
 	if (!hamburger) {
 		throw Error('Hamburger menu element not found in global navigation')
 	}
-	const isWide = () =>
-		window.getComputedStyle(hamburger).display === 'none';
+
+	/** Whether it is reasonable to suppress click events. */
+	const maySuppressClick = () => {
+		const canHover = window.matchMedia('(hover)').matches;
+		const hamburgerButtonAbsent = window.getComputedStyle(hamburger).display === 'none';
+		return canHover && hamburgerButtonAbsent
+
+	}
 
 	document
 		.querySelectorAll('nav#global-nav details')
 		.forEach(dropdown => {
 			dropdown.querySelector('summary')?.addEventListener('click', (evt) => {
-				if (isWide())
+				if (maySuppressClick())
 					evt.preventDefault();
 			});
 			dropdown.addEventListener('mouseover', () => {
-				if (isWide())
+				if (maySuppressClick())
 					dropdown.setAttribute('open', 'open')
 			});
 			dropdown.addEventListener('mouseout', () => {
-				if (isWide())
+				if (maySuppressClick())
 					dropdown.removeAttribute('open')
 			});
 		});
