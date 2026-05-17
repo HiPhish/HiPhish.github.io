@@ -9,12 +9,14 @@ const {backgroundImg} = Astro.props;
 
 {/* Trick to interpolate a variable because `url(var(...))` does not work in CSS */}
 <style define:vars={{background: backgroundImg ? `url(${backgroundImg})` : ''}}>
+	@import 'tailwindcss';
 	section.hero {
 		background-image: var(--background);
+		@apply rounded-lg;
 	}
 </style>
 
-<section class:list={'hero'}>
+<section class:list={['hero']}>
 	<div>
 		<slot />
 	</div>
