@@ -9,21 +9,34 @@ import Highlight from '../../components/organism/Highlights/Highlight.astro';
 import logo from './img/logo.png';
 ---
 
+<style>
+	@import 'tailwindcss';
+	div.hero-content {
+		@apply flex flex-col md:flex-row items-center justify-center text-left;
+		> div {
+			@apply text-shadow-black text-shadow-lg;
+			> p, > h1 {
+				@apply text-center md:text-left;
+			}
+		}
+	}
+</style>
+
 <Page pageTitle='Grid Framework'>
 	<main>
 		<SubNav subSite='grid-framework' currentTag='' />
 		<Hero backgroundImg='/grid-framework/img/greenboard.jpg'>
-			<div class="flex items-center justify-center text-left">
-				<div style="text-shadow: black 0.3em 0.3em 0.3em;">
+			<div class="hero-content">
+				<div>
 					<h1>Grid Framework</h1>
-					<p style='text-align: left;'>
+					<p>
 						Code grid-based game logic in no time with
 						Grid Framework, a simple and versatile
 						scripting add-on for the Unity3D game
 						engine.
 					</p>
 				</div>
-				<Image src={logo} alt='Grid Framework logo' style={{}} />
+				<Image src={logo} alt='Grid Framework logo'/>
 			</div>
 		</Hero>
 		<Highlights>
