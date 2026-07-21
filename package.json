@@ -14,7 +14,7 @@
     "@alpinejs/collapse": "^3.15.12",
     "@astrojs/alpinejs": "^0.5.0",
     "@astrojs/mdx": "^5.0.6",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@daiji256/rehype-mathml": "^1.2.2",
     "@tailwindcss/vite": "^4.3.1",
     "@types/alpinejs": "^3.13.11",
