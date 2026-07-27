@@ -5,6 +5,8 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - sanitize-html@2.17.4
   - devalue@5.8.1
+  - '@astrojs/mdx@7.0.4'
+  - astro@7.1.4
 
 publicHoistPattern:
   # See https://github.com/storybook-astro/storybook-astro/issues/64#issuecomment-4229905860
