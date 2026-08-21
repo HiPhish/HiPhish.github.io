@@ -11,16 +11,16 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@alpinejs/collapse": "^3.16.1",
+    "@alpinejs/collapse": "^3.16.2",
     "@astrojs/alpinejs": "^1.0.0",
-    "@astrojs/markdown-remark": "^7.2.2",
-    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/markdown-remark": "^7.2.4",
+    "@astrojs/mdx": "^7.0.7",
     "@astrojs/rss": "^4.0.19",
     "@daiji256/rehype-mathml": "^1.2.2",
     "@tailwindcss/vite": "^4.3.3",
     "@types/alpinejs": "^3.13.11",
-    "alpinejs": "^3.16.1",
-    "astro": "^7.2.1",
+    "alpinejs": "^3.16.2",
+    "astro": "^7.2.4",
     "astro-lightgallery": "^2.6.0",
     "remark-math": "^6.0.0",
     "sharp": "^0.35.3",
@@ -28,13 +28,13 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "@astrojs/preact": "^6.0.2",
-    "@astrojs/ts-plugin": "^1.10.10",
+    "@astrojs/preact": "^6.0.4",
+    "@astrojs/ts-plugin": "^1.10.11",
     "@preact/preset-vite": "^2.10.6",
     "@storybook-astro/framework": "^1.10.0",
-    "@storybook/builder-vite": "^10.5.7",
-    "@storybook/preact": "^10.5.7",
+    "@storybook/builder-vite": "^10.5.10",
+    "@storybook/preact": "^10.5.10",
     "preact": "^10.29.8",
-    "storybook": "^10.5.7"
+    "storybook": "^10.5.10"
   }
 }
